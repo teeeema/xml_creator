@@ -1,0 +1,255 @@
+{
+  "message_code": "P.SP.02.MSG.052",
+  "structure_id": "R.IP.SP.02.007",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.052.REQ.1",
+      "requirement_code": "1",
+      "source_text": "Должны быть заполнены 1 или 2 экземпляра UnifiedRegisterRecordsDetails.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 793,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.REQ.2",
+      "requirement_code": "2",
+      "source_text": "Один экземпляр должен содержать сведения об аннулировании: EventDate заполнен, StatusCode=«04».",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 793,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.REQ.3",
+      "requirement_code": "3",
+      "source_text": "При CancellationStatusIndicator=«1» хотя бы для одного товара должен присутствовать второй экземпляр о регистрации нового ТЗ.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 793,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "3"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.REQ.4",
+      "requirement_code": "4",
+      "source_text": "Для нового ТЗ EventDate заполнен, StatusCode=«01», codeListId не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 794,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.REQ.5",
+      "requirement_code": "5",
+      "source_text": "TrademarkId аннулируемой записи должен соответствовать активной записи НПВ.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 794,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.REQ.6_19",
+      "requirement_code": "6-19",
+      "source_text": "Соответствуют требованиям 6–19 таблицы 49.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-6_19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 794,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.REQ.20",
+      "requirement_code": "20",
+      "source_text": "TrademarkId нового ТЗ не должен существовать в ресурсах НПВ.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 794,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "20"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.REQ.21",
+      "requirement_code": "21",
+      "source_text": "StartDateTime аннулируемой записи меньше StartDateTime новой.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-21",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 795,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "21"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.REQ.22",
+      "requirement_code": "22",
+      "source_text": "EndDateTime аннулируемой записи заполнен и находится между соответствующими StartDateTime.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-22",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 795,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "22"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.REQ.23",
+      "requirement_code": "23",
+      "source_text": "В RegistrationCancellationDetails обязательны CancellationRegistrationTrademarkCode и SolutionCancellationRegistrationTrademarkCode.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-23",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 795,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "23"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.REQ.24",
+      "requirement_code": "24",
+      "source_text": "TrademarkId нового ТЗ совпадает с TrademarkNewId аннулируемой записи.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-24",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 795,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "24"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.REQ.25_28",
+      "requirement_code": "25-28",
+      "source_text": "Правила IPDocKindCode/IPDocKindName для решений об аннулировании и новой регистрации.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-25_28",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 796,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "25-28"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.REQ.29_31",
+      "requirement_code": "29-31",
+      "source_text": "Применяются нормативные правила SignatureDetails таблицы 70.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-29_31",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 797,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "29-31"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "message_code": "P.SP.02.MSG.007",
+  "structure_id": "R.IP.SP.02.002",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.007.T41.REQ.1",
+      "requirement_code": "1",
+      "source_text": "должен быть заполнен 1 экземпляр ipcdo:TrademarkApplicationDetails",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.007-T41-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 41. Требования к электронному документу (сведениям) P.SP.02.MSG.007",
+          "status": "CONFIRMED",
+          "page": 541,
+          "table": "41",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.007.T41.REQ.2",
+      "requirement_code": "2",
+      "source_text": "при наличии вида документа «Другие документы, подтверждающие правомочность требования установления приоритета более раннего, чем дата подачи заявки на товарный знак (знак обслуживания) Евразийского экономического союза» ipsdo:IPDocKindCode заполняется его кодом, ipsdo:IPDocKindName не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.007-T41-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 41. Требования к электронному документу (сведениям) P.SP.02.MSG.007",
+          "status": "CONFIRMED",
+          "page": 541,
+          "table": "41",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.007.T41.REQ.3",
+      "requirement_code": "3",
+      "source_text": "при отсутствии указанного вида документа ipsdo:IPDocKindCode не заполняется, ipsdo:IPDocKindName заполняется указанным наименованием",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.007-T41-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 41. Требования к электронному документу (сведениям) P.SP.02.MSG.007",
+          "status": "CONFIRMED",
+          "page": 542,
+          "table": "41",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "3"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.007.T41.REQ.4",
+      "requirement_code": "4",
+      "source_text": "ipsdo:TrademarkApplicationId должен быть заполнен; должна существовать активная запись заявки со статусом «01» или «02» и совпадающим номером",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.007-T41-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 41. Требования к электронному документу (сведениям) P.SP.02.MSG.007",
+          "status": "CONFIRMED",
+          "page": 542,
+          "table": "41",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.007.T41.REQ.5",
+      "requirement_code": "5",
+      "source_text": "ipcdo:TrademarkPriorityDetails должен быть заполнен",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.007-T41-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 41. Требования к электронному документу (сведениям) P.SP.02.MSG.007",
+          "status": "CONFIRMED",
+          "page": 542,
+          "table": "41",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.007.T41.REQ.6_29",
+      "requirement_code": "6-29",
+      "source_text": "соответствуют требованиям 6-29 таблицы 34; коды требований таблиц 34 и 41 совпадают",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.007-T41-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 41. Требования к электронному документу (сведениям) P.SP.02.MSG.007",
+          "status": "CONFIRMED",
+          "page": 542,
+          "table": "41",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.007.T41.REQ.30",
+      "requirement_code": "30",
+      "source_text": "в ipcdo:TrademarkPriorityDetails должны быть заполнены код вида приоритета, ipsdo:PriorityDate и csdo:UnifiedCountryCode",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.007-T41-30",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 41. Требования к электронному документу (сведениям) P.SP.02.MSG.007",
+          "status": "CONFIRMED",
+          "page": 542,
+          "table": "41",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "30"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.007.T41.REQ.31",
+      "requirement_code": "31",
+      "source_text": "ipsdo:PriorityKindCode должен соответствовать коду характеристики товарного знака по приоритету из нормативного справочника",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.007-T41-31",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 41. Требования к электронному документу (сведениям) P.SP.02.MSG.007",
+          "status": "CONFIRMED",
+          "page": 543,
+          "table": "41",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "31"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.007.T41.REQ.32",
+      "requirement_code": "32",
+      "source_text": "если включен ipcdo:AccompanyingDocumentsDetails, заполняются csdo:DocName, csdo:DocId, csdo:DocCreationDate, csdo:DescriptionText, csdo:PageQuantity",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.007-T41-32",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 41. Требования к электронному документу (сведениям) P.SP.02.MSG.007",
+          "status": "CONFIRMED",
+          "page": 543,
+          "table": "41",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "32"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.007.T41.REQ.33",
+      "requirement_code": "33",
+      "source_text": "csdo:StartDateTime заполняется обязательно",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.007-T41-33",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 41. Требования к электронному документу (сведениям) P.SP.02.MSG.007",
+          "status": "CONFIRMED",
+          "page": 543,
+          "table": "41",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "33"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.007.T41.REQ.34",
+      "requirement_code": "34",
+      "source_text": "csdo:EndDateTime не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.007-T41-34",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 41. Требования к электронному документу (сведениям) P.SP.02.MSG.007",
+          "status": "CONFIRMED",
+          "page": 543,
+          "table": "41",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "34"
+        }
+      ]
+    }
+  ]
+}

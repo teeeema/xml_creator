@@ -1,0 +1,210 @@
+{
+  "message_code": "P.SP.02.MSG.038",
+  "structure_id": "R.IP.SP.02.002",
+  "rule_tables": [
+    56
+  ],
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.038.REQ.1",
+      "requirement_code": "1",
+      "source_text": "Должен быть заполнен 1 экземпляр TrademarkApplicationDetails.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.038-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 56",
+          "status": "CONFIRMED",
+          "page": 754,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.038.REQ.2_3",
+      "requirement_code": "2-3",
+      "source_text": "IPDocKindCode/IPDocKindName для документов о приоритете зависят от наличия вида документа в классификаторе.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.038-2-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 56",
+          "status": "CONFIRMED",
+          "page": 754,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2-3"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.038.REQ.4",
+      "requirement_code": "4",
+      "source_text": "TrademarkApplicationId должен соответствовать активной заявке НПВ со статусом «01» или «02».",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.038-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 56",
+          "status": "CONFIRMED",
+          "page": 755,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.038.REQ.5",
+      "requirement_code": "5",
+      "source_text": "TrademarkPriorityDetails должен быть заполнен.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.038-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 56",
+          "status": "CONFIRMED",
+          "page": 755,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.038.REQ.6_29",
+      "requirement_code": "6-29",
+      "source_text": "Соответствуют требованиям 6–29 таблицы 44.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.038-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 56",
+          "status": "CONFIRMED",
+          "page": 755,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.038.REQ.30",
+      "requirement_code": "30",
+      "source_text": "В TrademarkPriorityDetails обязательны PriorityKindCode, PriorityDate, UnifiedCountryCode.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.038-30",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 56",
+          "status": "CONFIRMED",
+          "page": 755,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "30"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.038.REQ.31",
+      "requirement_code": "31",
+      "source_text": "PriorityKindCode должен соответствовать справочнику основных характеристик ТЗ по приоритету.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.038-31",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 56",
+          "status": "CONFIRMED",
+          "page": 756,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "31"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.038.REQ.32",
+      "requirement_code": "32",
+      "source_text": "При наличии AccompanyingDocumentsDetails обязательны DocName, DocId, DocCreationDate, DescriptionText, PageQuantity.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.038-32",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 56",
+          "status": "CONFIRMED",
+          "page": 756,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "32"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.038.REQ.33",
+      "requirement_code": "33",
+      "source_text": "StartDateTime обязателен.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.038-33",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 56",
+          "status": "CONFIRMED",
+          "page": 756,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "33"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.038.REQ.34",
+      "requirement_code": "34",
+      "source_text": "EndDateTime не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.038-34",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 56",
+          "status": "CONFIRMED",
+          "page": 756,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "34"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.038.REQ.35_37",
+      "requirement_code": "35-37",
+      "source_text": "Правила SignatureDetails.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.038-35-37",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 56",
+          "status": "CONFIRMED",
+          "page": 756,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "35-37"
+        }
+      ]
+    }
+  ],
+  "status": "CONFIRMED"
+}

@@ -1,0 +1,180 @@
+{
+  "message_code": "P.SP.02.MSG.017",
+  "structure_id": "R.IP.SP.02.007",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.017.T50.REQ.1",
+      "requirement_code": "1",
+      "source_text": "ipsdo:TrademarkId должен быть заполнен; в Едином реестре должна быть активная запись со статусом «01» или «03» и совпадающим TrademarkId.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.017-T50-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 50",
+          "status": "CONFIRMED",
+          "page": 563,
+          "table": "50",
+          "item": "1",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.017.T50.REQ.2",
+      "requirement_code": "2",
+      "source_text": "Должен быть заполнен 1 экземпляр ipcdo:UnifiedRegisterRecordsDetails.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.017-T50-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 50",
+          "status": "CONFIRMED",
+          "page": 563,
+          "table": "50",
+          "item": "2",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.017.T50.REQ.3",
+      "requirement_code": "3",
+      "source_text": "В ipcdo:IPEntityStatusDetails csdo:EventDate обязателен; csdo:StatusCode = «03», codeListId не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.017-T50-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 50",
+          "status": "CONFIRMED",
+          "page": 563,
+          "table": "50",
+          "item": "3",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.017.T50.REQ.4",
+      "requirement_code": "4",
+      "source_text": "При наличии вида ходатайства о преобразовании ТЗ Союза в коллективный знак Союза ipsdo:IPDocKindCode заполняется кодом, ipsdo:IPDocKindName не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.017-T50-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 50",
+          "status": "CONFIRMED",
+          "page": 563,
+          "table": "50",
+          "item": "4",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.017.T50.REQ.5",
+      "requirement_code": "5",
+      "source_text": "При отсутствии такого вида документа ipsdo:IPDocKindCode не заполняется, ipsdo:IPDocKindName заполняется нормативным наименованием.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.017-T50-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 50",
+          "status": "CONFIRMED",
+          "page": 564,
+          "table": "50",
+          "item": "5",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.017.T50.REQ.6_19",
+      "requirement_code": "6-19",
+      "source_text": "Соответствуют требованиям 6-19 таблицы 37; коды требований совпадают.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.017-T50-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 50",
+          "status": "CONFIRMED",
+          "page": 564,
+          "table": "50",
+          "item": "6-19",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.017.T50.REQ.20",
+      "requirement_code": "20",
+      "source_text": "В ipcdo:TransformationDetails должны быть заполнены ipsdo:TransformationKindName, ipsdo:IPObjectId, csdo:EventDate.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.017-T50-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 50",
+          "status": "CONFIRMED",
+          "page": 564,
+          "table": "50",
+          "item": "20",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.017.T50.REQ.21",
+      "requirement_code": "21",
+      "source_text": "ipsdo:CollectiveMarkIndicator = «1».",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.017-T50-21",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 50",
+          "status": "CONFIRMED",
+          "page": 564,
+          "table": "50",
+          "item": "21",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.017.T50.REQ.22",
+      "requirement_code": "22",
+      "source_text": "ipcdo:UnifiedRegisterRecordsDetails/csdo:EndDateTime не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.017-T50-22",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 50",
+          "status": "CONFIRMED",
+          "page": 564,
+          "table": "50",
+          "item": "22",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    }
+  ],
+  "status": "CONFIRMED"
+}

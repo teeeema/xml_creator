@@ -1,0 +1,123 @@
+{
+  "message_code": "P.SP.02.MSG.015",
+  "structure_id": "R.IP.SP.02.007",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.015.T48.REQ.1",
+      "requirement_code": "1",
+      "source_text": "При наличии в классификаторе вида документа «Ходатайство о преобразовании аннулированной регистрации ... в национальную заявку ...» ipsdo:IPDocKindCode заполняется кодом, ipsdo:IPDocKindName не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 48",
+          "status": "CONFIRMED",
+          "page": 559,
+          "table": "48",
+          "item": "1",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.015.T48.REQ.2",
+      "requirement_code": "2",
+      "source_text": "При отсутствии указанного вида документа ipsdo:IPDocKindCode не заполняется, ipsdo:IPDocKindName заполняется нормативным наименованием ходатайства.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 48",
+          "status": "CONFIRMED",
+          "page": 559,
+          "table": "48",
+          "item": "2",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.015.T48.REQ.3",
+      "requirement_code": "3",
+      "source_text": "ipsdo:TrademarkId должен быть заполнен; в Едином реестре должна быть запись со статусом «04», заполненным csdo:EndDateTime и совпадающим TrademarkId.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 48",
+          "status": "CONFIRMED",
+          "page": 560,
+          "table": "48",
+          "item": "3",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.015.T48.REQ.4",
+      "requirement_code": "4",
+      "source_text": "В ipcdo:TrademarkNationalApplicationDetails должны быть заполнены csdo:UnifiedCountryCode, ipsdo:NationalApplicationId, ipsdo:NationalApplicationReceiptDate.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 48",
+          "status": "CONFIRMED",
+          "page": 560,
+          "table": "48",
+          "item": "4",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.015.T48.REQ.5",
+      "requirement_code": "5",
+      "source_text": "В ipcdo:IPEntityStatusDetails должен быть заполнен csdo:EventDate; csdo:StatusCode = «06», codeListId не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 48",
+          "status": "CONFIRMED",
+          "page": 560,
+          "table": "48",
+          "item": "5",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.015.T48.REQ.6",
+      "requirement_code": "6",
+      "source_text": "ipcdo:UnifiedRegisterRecordsDetails/csdo:EndDateTime должен быть заполнен.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 48",
+          "status": "CONFIRMED",
+          "page": 560,
+          "table": "48",
+          "item": "6",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    }
+  ],
+  "status": "CONFIRMED"
+}

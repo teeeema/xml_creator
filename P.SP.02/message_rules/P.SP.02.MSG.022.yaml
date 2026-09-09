@@ -1,0 +1,28 @@
+{
+  "message_code": "P.SP.02.MSG.022",
+  "structure_id": "R.IP.SP.02.008",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.022.T55.REQ.1",
+      "requirement_code": "1",
+      "source_text": "Должен быть заполнен только ccdo:EDocHeader; другие реквизиты не заполняются.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.022-T55-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 55",
+          "status": "CONFIRMED",
+          "page": 577,
+          "table": "55",
+          "item": "1",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    }
+  ],
+  "status": "CONFIRMED"
+}

@@ -1,0 +1,192 @@
+{
+  "message_code": "P.SP.02.MSG.030",
+  "structure_id": "R.IP.SP.02.002",
+  "rule_tables": [
+    46
+  ],
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.030.REQ.1",
+      "requirement_code": "1",
+      "source_text": "Должен быть заполнен 1 экземпляр ipcdo:TrademarkApplicationDetails.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 728,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.030.REQ.2_3",
+      "requirement_code": "2-3",
+      "source_text": "IPDocKindCode/IPDocKindName для доводов и замечаний заполняются в зависимости от наличия вида документа в классификаторе.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-2-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 728,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2-3"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.030.REQ.4",
+      "requirement_code": "4",
+      "source_text": "TrademarkApplicationId должен соответствовать активной заявке национального патентного ведомства со статусом «02».",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 729,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.030.REQ.5",
+      "requirement_code": "5",
+      "source_text": "TrademarkRegistrationCode = «02» или «03».",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 729,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.030.REQ.6_29",
+      "requirement_code": "6-29",
+      "source_text": "Соответствуют требованиям 6–29 таблицы 44.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 729,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.030.REQ.30",
+      "requirement_code": "30",
+      "source_text": "Должна быть ≥1 запись GoodsBaseDetails с TrademarkDecisionIndicator=«0».",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-30",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 729,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "30"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.030.REQ.31",
+      "requirement_code": "31",
+      "source_text": "Для таких товаров обязательны TrademarkApplicationId и TrademarkRegRefusalReasonText.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-31",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 730,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "31"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.030.REQ.32",
+      "requirement_code": "32",
+      "source_text": "В AccompanyingDocumentsDetails обязательны IPDocKindName, DocId, DocCreationDate, DescriptionText, PageQuantity, DocBinaryText.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-32",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 730,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "32"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.030.REQ.33",
+      "requirement_code": "33",
+      "source_text": "ConsentToDataProcessingIndicator = «1» или «0».",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-33",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 730,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "33"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.030.REQ.34_40",
+      "requirement_code": "34-40",
+      "source_text": "Правила SignatureDetails, ArgumentDetails, RefusalDetails и ResourceItemStatusDetails — строки 34–40 таблицы 46.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-34-40",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 730,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "34-40"
+        }
+      ]
+    }
+  ],
+  "status": "CONFIRMED"
+}

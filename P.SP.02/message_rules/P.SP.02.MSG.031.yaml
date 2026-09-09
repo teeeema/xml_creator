@@ -1,0 +1,108 @@
+{
+  "message_code": "P.SP.02.MSG.031",
+  "structure_id": [
+    "R.010",
+    "R.IP.SP.02.002",
+    "R.IP.SP.02.007"
+  ],
+  "rule_tables": [
+    47,
+    48,
+    49
+  ],
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.031.REQ.T47_1",
+      "requirement_code": "T47.1",
+      "source_text": "R.010 должен включать либо один R.IP.SP.02.002, либо один R.IP.SP.02.007.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.031-T47.1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 47; Таблица 48; Таблица 49",
+          "status": "CONFIRMED",
+          "page": 732,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "T47.1"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.031.REQ.T48_1_5",
+      "requirement_code": "T48.1-5",
+      "source_text": "Для ветви R.IP.SP.02.002 применяются требования 1–5 таблицы 48.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.031-T48.1-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 47; Таблица 48; Таблица 49",
+          "status": "CONFIRMED",
+          "page": 733,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "T48.1-5"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.031.REQ.T48_6_29",
+      "requirement_code": "T48.6-29",
+      "source_text": "Соответствуют требованиям 6–29 таблицы 44.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.031-T48.6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 47; Таблица 48; Таблица 49",
+          "status": "CONFIRMED",
+          "page": 734,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "T48.6-29"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.031.REQ.T48_30_36",
+      "requirement_code": "T48.30-36",
+      "source_text": "Дополнительные правила отказа, RefusalDetails, ResourceItemStatusDetails и SignatureDetails — строки 30–36 таблицы 48.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.031-T48.30-36",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 47; Таблица 48; Таблица 49",
+          "status": "CONFIRMED",
+          "page": 734,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "T48.30-36"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.031.REQ.T49_1_24",
+      "requirement_code": "T49.1-24",
+      "source_text": "Для ветви R.IP.SP.02.007 применяются требования 1–24 таблицы 49.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.031-T49.1-24",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 47; Таблица 48; Таблица 49",
+          "status": "CONFIRMED",
+          "page": 735,
+          "version_context": "P.SP.02 1.0.0",
+          "item": "T49.1-24"
+        }
+      ]
+    }
+  ],
+  "status": "CONFIRMED"
+}

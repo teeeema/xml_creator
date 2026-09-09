@@ -1,0 +1,122 @@
+{
+  "message_code": "P.SP.02.MSG.046",
+  "structure_id": "R.IP.SP.02.007",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.046.REQ.1_2",
+      "requirement_code": "1-2",
+      "source_text": "IPDocKindCode/IPDocKindName для ходатайства о преобразовании аннулированной регистрации в национальную заявку зависят от классификатора.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-1-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64. Требования к заполнению реквизитов сообщения P.SP.02.MSG.046",
+          "status": "CONFIRMED",
+          "page": 778,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1-2"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.046.REQ.3",
+      "requirement_code": "3",
+      "source_text": "TrademarkId должен соответствовать записи НПВ со StatusCode=«04» и заполненным EndDateTime.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64. Требования к заполнению реквизитов сообщения P.SP.02.MSG.046",
+          "status": "CONFIRMED",
+          "page": 778,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "3"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.046.REQ.4",
+      "requirement_code": "4",
+      "source_text": "В TrademarkNationalApplicationDetails обязательны UnifiedCountryCode, NationalApplicationId, NationalApplicationReceiptDate.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64. Требования к заполнению реквизитов сообщения P.SP.02.MSG.046",
+          "status": "CONFIRMED",
+          "page": 779,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.046.REQ.5",
+      "requirement_code": "5",
+      "source_text": "В IPEntityStatusDetails EventDate обязательна; StatusCode=«06»; codeListId не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64. Требования к заполнению реквизитов сообщения P.SP.02.MSG.046",
+          "status": "CONFIRMED",
+          "page": 779,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.046.REQ.6",
+      "requirement_code": "6",
+      "source_text": "EndDateTime должен быть заполнен.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64. Требования к заполнению реквизитов сообщения P.SP.02.MSG.046",
+          "status": "CONFIRMED",
+          "page": 779,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.046.REQ.7_9",
+      "requirement_code": "7-9",
+      "source_text": "Применяются правила SignatureDetails таблицы 64.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-7-9",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64. Требования к заполнению реквизитов сообщения P.SP.02.MSG.046",
+          "status": "CONFIRMED",
+          "page": 779,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "7-9"
+        }
+      ]
+    }
+  ]
+}

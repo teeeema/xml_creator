@@ -1,0 +1,294 @@
+{
+  "message_code": "P.SP.02.MSG.020",
+  "structure_id": "R.IP.SP.02.007",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.020.T53.REQ.1",
+      "requirement_code": "1",
+      "source_text": "Должны быть заполнены 1 или 2 экземпляра ipcdo:UnifiedRegisterRecordsDetails.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.020-T53-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 53",
+          "status": "CONFIRMED",
+          "page": 569,
+          "table": "53",
+          "item": "1",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.020.T53.REQ.2",
+      "requirement_code": "2",
+      "source_text": "Один экземпляр должен содержать сведения об аннулировании: EventDate заполнен, StatusCode = «04», codeListId не заполнен.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.020-T53-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 53",
+          "status": "CONFIRMED",
+          "page": 569,
+          "table": "53",
+          "item": "2",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.020.T53.REQ.3",
+      "requirement_code": "3",
+      "source_text": "Если CancellationStatusIndicator хотя бы для одного GoodsBaseDetails = «1», должен быть второй экземпляр с регистрацией нового ТЗ Союза.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.020-T53-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 53",
+          "status": "CONFIRMED",
+          "page": 569,
+          "table": "53",
+          "item": "3",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.020.T53.REQ.4",
+      "requirement_code": "4",
+      "source_text": "Для нового ТЗ Союза EventDate заполнен, StatusCode = «01», codeListId не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.020-T53-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 53",
+          "status": "CONFIRMED",
+          "page": 570,
+          "table": "53",
+          "item": "4",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.020.T53.REQ.5",
+      "requirement_code": "5",
+      "source_text": "TrademarkId аннулируемой регистрации обязателен и должен соответствовать активной записи реестра со статусом «01» или «03».",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.020-T53-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 53",
+          "status": "CONFIRMED",
+          "page": 570,
+          "table": "53",
+          "item": "5",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.020.T53.REQ.6_19",
+      "requirement_code": "6-19",
+      "source_text": "Соответствуют требованиям 6-19 таблицы 37; коды требований совпадают.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.020-T53-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 53",
+          "status": "CONFIRMED",
+          "page": 570,
+          "table": "53",
+          "item": "6-19",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.020.T53.REQ.20",
+      "requirement_code": "20",
+      "source_text": "TrademarkId нового ТЗ Союза обязателен; записи с таким TrademarkId в реестре быть не должно.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.020-T53-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 53",
+          "status": "CONFIRMED",
+          "page": 570,
+          "table": "53",
+          "item": "20",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.020.T53.REQ.21",
+      "requirement_code": "21",
+      "source_text": "StartDateTime аннулируемой записи должен быть меньше StartDateTime записи нового ТЗ Союза.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.020-T53-21",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 53",
+          "status": "CONFIRMED",
+          "page": 571,
+          "table": "53",
+          "item": "21",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.020.T53.REQ.22",
+      "requirement_code": "22",
+      "source_text": "EndDateTime аннулируемой записи обязателен, больше ее StartDateTime и меньше StartDateTime нового ТЗ Союза.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.020-T53-22",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 53",
+          "status": "CONFIRMED",
+          "page": 571,
+          "table": "53",
+          "item": "22",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.020.T53.REQ.23",
+      "requirement_code": "23",
+      "source_text": "В ipcdo:RegistrationCancellationDetails обязательны ipsdo:CancellationRegistrationTrademarkCode и ipsdo:SolutionCancellationRegistrationTrademarkCode.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.020-T53-23",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 53",
+          "status": "CONFIRMED",
+          "page": 571,
+          "table": "53",
+          "item": "23",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.020.T53.REQ.24",
+      "requirement_code": "24",
+      "source_text": "TrademarkId нового ТЗ Союза должен совпадать с TrademarkNewId аннулируемой записи.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.020-T53-24",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 53",
+          "status": "CONFIRMED",
+          "page": 571,
+          "table": "53",
+          "item": "24",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.020.T53.REQ.25",
+      "requirement_code": "25",
+      "source_text": "При наличии вида документа «Решение об аннулировании регистрации ...» IPDocKindCode заполняется кодом, IPDocKindName не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.020-T53-25",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 53",
+          "status": "CONFIRMED",
+          "page": 572,
+          "table": "53",
+          "item": "25",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.020.T53.REQ.26",
+      "requirement_code": "26",
+      "source_text": "При отсутствии указанного вида документа IPDocKindCode не заполняется, IPDocKindName заполняется нормативным наименованием.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.020-T53-26",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 53",
+          "status": "CONFIRMED",
+          "page": 572,
+          "table": "53",
+          "item": "26",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.020.T53.REQ.27",
+      "requirement_code": "27",
+      "source_text": "Для нового ТЗ Союза при наличии вида решения о регистрации IPDocKindCode заполняется кодом, IPDocKindName не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.020-T53-27",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 53",
+          "status": "CONFIRMED",
+          "page": 572,
+          "table": "53",
+          "item": "27",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.020.T53.REQ.28",
+      "requirement_code": "28",
+      "source_text": "При отсутствии такого вида решения IPDocKindCode не заполняется, IPDocKindName заполняется нормативным наименованием.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.020-T53-28",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 53",
+          "status": "CONFIRMED",
+          "page": 573,
+          "table": "53",
+          "item": "28",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    }
+  ],
+  "status": "CONFIRMED"
+}

@@ -1,0 +1,198 @@
+{
+  "message_code": "P.SP.02.MSG.043",
+  "structure_id": "R.IP.SP.02.002",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.043.REQ.1",
+      "requirement_code": "1",
+      "source_text": "Должны быть заполнены 2 экземпляра TrademarkApplicationDetails.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.043-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 61. Требования к заполнению реквизитов сообщения P.SP.02.MSG.043",
+          "status": "CONFIRMED",
+          "page": 767,
+          "table": "61",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.043.REQ.2_3",
+      "requirement_code": "2-3",
+      "source_text": "Для ранее поданной заявки IPDocKindCode/IPDocKindName зависят от наличия вида ходатайства о выделении заявки в классификаторе.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.043-2-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 61. Требования к заполнению реквизитов сообщения P.SP.02.MSG.043",
+          "status": "CONFIRMED",
+          "page": 767,
+          "table": "61",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2-3"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.043.REQ.4_5",
+      "requirement_code": "4-5",
+      "source_text": "Для выделенной заявки IPDocKindCode/IPDocKindName зависят от наличия вида заявки в классификаторе.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.043-4-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 61. Требования к заполнению реквизитов сообщения P.SP.02.MSG.043",
+          "status": "CONFIRMED",
+          "page": 768,
+          "table": "61",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4-5"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.043.REQ.6_29",
+      "requirement_code": "6-29",
+      "source_text": "Для выделенной заявки соответствуют требованиям 6–29 таблицы 44.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.043-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 61. Требования к заполнению реквизитов сообщения P.SP.02.MSG.043",
+          "status": "CONFIRMED",
+          "page": 768,
+          "table": "61",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.043.REQ.30",
+      "requirement_code": "30",
+      "source_text": "SourceTrademarkApplicationId выделенной заявки равен TrademarkApplicationId ранее поданной заявки.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.043-30",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 61. Требования к заполнению реквизитов сообщения P.SP.02.MSG.043",
+          "status": "CONFIRMED",
+          "page": 769,
+          "table": "61",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "30"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.043.REQ.31",
+      "requirement_code": "31",
+      "source_text": "TrademarkApplicationId ранее поданной заявки должен существовать как активный; номер выделенной заявки не должен существовать.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.043-31",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 61. Требования к заполнению реквизитов сообщения P.SP.02.MSG.043",
+          "status": "CONFIRMED",
+          "page": 769,
+          "table": "61",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "31"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.043.REQ.32",
+      "requirement_code": "32",
+      "source_text": "Для ранее поданной заявки StatusCode=«02», для выделенной =«01».",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.043-32",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 61. Требования к заполнению реквизитов сообщения P.SP.02.MSG.043",
+          "status": "CONFIRMED",
+          "page": 769,
+          "table": "61",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "32"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.043.REQ.33",
+      "requirement_code": "33",
+      "source_text": "StartDateTime обязателен.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.043-33",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 61. Требования к заполнению реквизитов сообщения P.SP.02.MSG.043",
+          "status": "CONFIRMED",
+          "page": 769,
+          "table": "61",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "33"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.043.REQ.34",
+      "requirement_code": "34",
+      "source_text": "EndDateTime не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.043-34",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 61. Требования к заполнению реквизитов сообщения P.SP.02.MSG.043",
+          "status": "CONFIRMED",
+          "page": 769,
+          "table": "61",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "34"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.043.REQ.35_37",
+      "requirement_code": "35-37",
+      "source_text": "Применяются нормативные правила SignatureDetails таблицы 61.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.043-35-37",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 61. Требования к заполнению реквизитов сообщения P.SP.02.MSG.043",
+          "status": "CONFIRMED",
+          "page": 770,
+          "table": "61",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "35-37"
+        }
+      ]
+    }
+  ]
+}

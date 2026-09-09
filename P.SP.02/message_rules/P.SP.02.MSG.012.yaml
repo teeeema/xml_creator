@@ -1,0 +1,217 @@
+{
+  "message_code": "P.SP.02.MSG.012",
+  "structure_id": "R.IP.SP.02.002",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.012.T45.REQ.1",
+      "requirement_code": "1",
+      "source_text": "должны быть заполнены 2 экземпляра ipcdo:TrademarkApplicationDetails",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.012-T45-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45. Требования к электронному документу (сведениям) P.SP.02.MSG.012",
+          "status": "CONFIRMED",
+          "page": 550,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.012.T45.REQ.2",
+      "requirement_code": "2",
+      "source_text": "для ранее поданной заявки со статусом «02» при наличии вида документа о выделении заявки ipsdo:IPDocKindCode заполняется его кодом, ipsdo:IPDocKindName не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.012-T45-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45. Требования к электронному документу (сведениям) P.SP.02.MSG.012",
+          "status": "CONFIRMED",
+          "page": 550,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.012.T45.REQ.3",
+      "requirement_code": "3",
+      "source_text": "для ранее поданной заявки со статусом «02» при отсутствии вида документа о выделении заявки ipsdo:IPDocKindCode не заполняется, ipsdo:IPDocKindName заполняется нормативным наименованием",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.012-T45-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45. Требования к электронному документу (сведениям) P.SP.02.MSG.012",
+          "status": "CONFIRMED",
+          "page": 550,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "3"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.012.T45.REQ.4",
+      "requirement_code": "4",
+      "source_text": "для выделенной заявки со статусом «01» при наличии вида документа «Заявка на регистрацию товарного знака, знака обслуживания Евразийского экономического союза» ipsdo:IPDocKindCode заполняется кодом, ipsdo:IPDocKindName не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.012-T45-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45. Требования к электронному документу (сведениям) P.SP.02.MSG.012",
+          "status": "CONFIRMED",
+          "page": 551,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.012.T45.REQ.5",
+      "requirement_code": "5",
+      "source_text": "для выделенной заявки со статусом «01» при отсутствии указанного вида документа ipsdo:IPDocKindCode не заполняется, ipsdo:IPDocKindName заполняется нормативным наименованием",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.012-T45-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45. Требования к электронному документу (сведениям) P.SP.02.MSG.012",
+          "status": "CONFIRMED",
+          "page": 551,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.012.T45.REQ.6_29",
+      "requirement_code": "6-29",
+      "source_text": "соответствуют требованиям 6-29 таблицы 34 для выделенной заявки со статусом «01»; коды требований таблиц 34 и 45 совпадают",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.012-T45-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45. Требования к электронному документу (сведениям) P.SP.02.MSG.012",
+          "status": "CONFIRMED",
+          "page": 551,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.012.T45.REQ.30",
+      "requirement_code": "30",
+      "source_text": "ipsdo:SourceTrademarkApplicationId выделенной заявки должен быть заполнен и равен ipsdo:TrademarkApplicationId ранее поданной заявки",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.012-T45-30",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45. Требования к электронному документу (сведениям) P.SP.02.MSG.012",
+          "status": "CONFIRMED",
+          "page": 551,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "30"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.012.T45.REQ.31",
+      "requirement_code": "31",
+      "source_text": "ipcdo:IPEntityStatusDetails: ранее поданная заявка имеет csdo:StatusCode «02», выделенная заявка — «01»; для статуса ранее поданной заявки codeListId не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.012-T45-31",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45. Требования к электронному документу (сведениям) P.SP.02.MSG.012",
+          "status": "CONFIRMED",
+          "page": 552,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "31"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.012.T45.REQ.32",
+      "requirement_code": "32",
+      "source_text": "ipsdo:TrademarkApplicationId заполняется для обеих заявок; для ранее поданной должна существовать активная запись со статусом «01»/«02» и совпадающим номером, для выделенной записи с таким номером существовать не должно",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.012-T45-32",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45. Требования к электронному документу (сведениям) P.SP.02.MSG.012",
+          "status": "CONFIRMED",
+          "page": 552,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "32"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.012.T45.REQ.33",
+      "requirement_code": "33",
+      "source_text": "csdo:StartDateTime заполняется обязательно",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.012-T45-33",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45. Требования к электронному документу (сведениям) P.SP.02.MSG.012",
+          "status": "CONFIRMED",
+          "page": 552,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "33"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.012.T45.REQ.34",
+      "requirement_code": "34",
+      "source_text": "csdo:EndDateTime не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.012-T45-34",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45. Требования к электронному документу (сведениям) P.SP.02.MSG.012",
+          "status": "CONFIRMED",
+          "page": 552,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "34"
+        }
+      ]
+    }
+  ]
+}

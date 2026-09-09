@@ -1,0 +1,141 @@
+{
+  "message_code": "P.SP.02.MSG.058",
+  "structure_id": "R.IP.SP.02.008",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.058.REQ.1",
+      "requirement_code": "1",
+      "source_text": "UpdateDateTime и UnifiedCountryCode не заполняются.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.058-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 76",
+          "status": "CONFIRMED",
+          "page": 808,
+          "table": "76",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.058.REQ.2",
+      "requirement_code": "2",
+      "source_text": "Если TrademarkApplicationId заполнен, TrademarkId не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.058-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 76",
+          "status": "CONFIRMED",
+          "page": 808,
+          "table": "76",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.058.REQ.3",
+      "requirement_code": "3",
+      "source_text": "Если TrademarkId заполнен, TrademarkApplicationId не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.058-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 76",
+          "status": "CONFIRMED",
+          "page": 808,
+          "table": "76",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "3"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.058.REQ.4",
+      "requirement_code": "4",
+      "source_text": "AccompanyingDocumentsDetails должен быть заполнен.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.058-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 76",
+          "status": "CONFIRMED",
+          "page": 808,
+          "table": "76",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.058.REQ.5",
+      "requirement_code": "5",
+      "source_text": "В AccompanyingDocumentsDetails DocBinaryText не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.058-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 76",
+          "status": "CONFIRMED",
+          "page": 809,
+          "table": "76",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.058.REQ.6",
+      "requirement_code": "6",
+      "source_text": "В AccompanyingDocumentsDetails должен быть заполнен один из IPDocKindCode/IPDocKindName.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.058-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 76",
+          "status": "CONFIRMED",
+          "page": 809,
+          "table": "76",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.058.REQ.7",
+      "requirement_code": "7",
+      "source_text": "В AccompanyingDocumentsDetails обязательны DocName, DocId, DocCreationDate.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.058-7",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 76",
+          "status": "CONFIRMED",
+          "page": 809,
+          "table": "76",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "7"
+        }
+      ]
+    }
+  ]
+}

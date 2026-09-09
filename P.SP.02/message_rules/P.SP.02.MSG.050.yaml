@@ -1,0 +1,141 @@
+{
+  "message_code": "P.SP.02.MSG.050",
+  "structure_id": "R.IP.SP.02.007",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.050.REQ.1",
+      "requirement_code": "1",
+      "source_text": "TrademarkId должен соответствовать активной записи НПВ со StatusCode «01» или «03».",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 788,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.050.REQ.2",
+      "requirement_code": "2",
+      "source_text": "Должен быть заполнен 1 экземпляр UnifiedRegisterRecordsDetails.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 788,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.050.REQ.3",
+      "requirement_code": "3",
+      "source_text": "EndDateTime должен быть заполнен.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 788,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "3"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.050.REQ.4_5",
+      "requirement_code": "4-5",
+      "source_text": "IPDocKindCode/IPDocKindName для отказа от исключительного права зависят от наличия вида документа в классификаторе.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-4_5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 788,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4-5"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.050.REQ.6_19",
+      "requirement_code": "6-19",
+      "source_text": "Соответствуют требованиям 6–19 таблицы 49.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-6_19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.050.REQ.20",
+      "requirement_code": "20",
+      "source_text": "EventDate должен быть заполнен; StatusCode=«05»; codeListId не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "20"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.050.REQ.21_23",
+      "requirement_code": "21-23",
+      "source_text": "Применяются нормативные правила SignatureDetails таблицы 68.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-21_23",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "21-23"
+        }
+      ]
+    }
+  ]
+}

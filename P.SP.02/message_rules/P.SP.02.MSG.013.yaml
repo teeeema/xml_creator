@@ -1,0 +1,179 @@
+{
+  "message_code": "P.SP.02.MSG.013",
+  "structure_id": "R.IP.SP.02.002",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.1",
+      "requirement_code": "1",
+      "source_text": "должен быть заполнен 1 экземпляр ipcdo:TrademarkApplicationDetails",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 553,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.2",
+      "requirement_code": "2",
+      "source_text": "при наличии вида документа «Ходатайство об отзыве заявки ... (по инициативе заявителя)» ipsdo:IPDocKindCode заполняется кодом, ipsdo:IPDocKindName не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 553,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.3",
+      "requirement_code": "3",
+      "source_text": "при отсутствии указанного вида документа ipsdo:IPDocKindCode не заполняется, ipsdo:IPDocKindName заполняется нормативным наименованием ходатайства",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 553,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "3"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.4",
+      "requirement_code": "4",
+      "source_text": "ipsdo:TrademarkApplicationId должен быть заполнен; должна существовать активная запись заявки со статусом «01» или «02» и совпадающим номером",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.5",
+      "requirement_code": "5",
+      "source_text": "ipcdo:IPEntityStatusDetails должен быть заполнен; csdo:StatusCode = «30» – «Заявка на ТЗ Союза отозвана заявителем», codeListId не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "requirement_code": "6-29",
+      "source_text": "соответствуют требованиям 6-29 таблицы 34; коды требований таблиц 34 и 46 совпадают",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.30",
+      "requirement_code": "30",
+      "source_text": "если включен ipcdo:AccompanyingDocumentsDetails, заполняется ipsdo:IPDocKindCode либо ipsdo:IPDocKindName, а также csdo:DocId, csdo:DocCreationDate, csdo:DescriptionText, csdo:PageQuantity",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-30",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "30"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.31",
+      "requirement_code": "31",
+      "source_text": "ipcdo:SignatureDetails не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-31",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "31"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.32",
+      "requirement_code": "32",
+      "source_text": "csdo:EndDateTime заполняется обязательно",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-32",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "32"
+        }
+      ]
+    }
+  ]
+}

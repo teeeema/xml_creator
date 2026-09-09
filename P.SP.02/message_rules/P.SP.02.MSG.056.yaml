@@ -1,0 +1,293 @@
+{
+  "message_code": "P.SP.02.MSG.056",
+  "structure_id": "R.IP.SP.03.003",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.056.REQ.1_6",
+      "requirement_code": "1-6",
+      "source_text": "Соответствуют требованиям 1–6 таблицы 72.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-1_6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 804,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1-6"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.056.REQ.7",
+      "requirement_code": "7",
+      "source_text": "IPPaymentDetails должен быть заполнен; BankAccountDetails и PaymentSystemAccountDetails не заполняются.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-7",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 804,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "7"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.056.REQ.8",
+      "requirement_code": "8",
+      "source_text": "В IPPaymentDetails EventDateTime, IPPartyDetails и AccompanyingDocumentsDetails должны быть заполнены.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-8",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 804,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "8"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.056.REQ.9",
+      "requirement_code": "9",
+      "source_text": "Должен быть 1 IPPartyDetails с IPPartyKindCode AP, PA или RE.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-9",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 805,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "9"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.056.REQ.10",
+      "requirement_code": "10",
+      "source_text": "В IPPartyDetails обязательны UnifiedCountryCode и IPSubjectName.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-10",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 805,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "10"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.056.REQ.11",
+      "requirement_code": "11",
+      "source_text": "Для AP nameRepresentationKindCode=OR и languageCode=RU.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-11",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 805,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.056.REQ.12",
+      "requirement_code": "12",
+      "source_text": "Для PA должен быть заполнен PatentAttorneyId.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-12",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 805,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "12"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.056.REQ.13",
+      "requirement_code": "13",
+      "source_text": "Для PA/RE UnifiedCountryCode ∈ {AM,BY,KZ,KG,RU}.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-13",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 806,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "13"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.056.REQ.14",
+      "requirement_code": "14",
+      "source_text": "Для PA/RE nameRepresentationKindCode не заполняется, languageCode=RU.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-14",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 806,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "14"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.056.REQ.15",
+      "requirement_code": "15",
+      "source_text": "Должен быть заполнен 1 AccompanyingDocumentsDetails.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-15",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 806,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "15"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.056.REQ.16",
+      "requirement_code": "16",
+      "source_text": "В AccompanyingDocumentsDetails IPDocKindName не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-16",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 806,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "16"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.056.REQ.17",
+      "requirement_code": "17",
+      "source_text": "IPDocKindCode=«07015».",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-17",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 806,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "17"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.056.REQ.18",
+      "requirement_code": "18",
+      "source_text": "DocId и DocCreationDate должны быть заполнены.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-18",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 807,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "18"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.056.REQ.19",
+      "requirement_code": "19",
+      "source_text": "DocBinaryText обязателен; mediaTypeCode из установленного списка; размер ≤5 Мб.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 807,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "19"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.056.REQ.20",
+      "requirement_code": "20",
+      "source_text": "ApellationOfOriginApplicationId, DocId, DutyPaymentIndicator и PaymentAmount не заполняются.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 807,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "20"
+        }
+      ]
+    }
+  ]
+}

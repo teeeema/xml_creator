@@ -1,0 +1,66 @@
+{
+  "message_code": "P.SP.02.MSG.024",
+  "structure_id": "R.IP.SP.02.008",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.024.T56.REQ.1",
+      "requirement_code": "1",
+      "source_text": "csdo:UpdateDateTime должен быть заполнен.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.024-T56-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 56",
+          "status": "CONFIRMED",
+          "page": 577,
+          "table": "56",
+          "item": "1",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.024.T56.REQ.2",
+      "requirement_code": "2",
+      "source_text": "ipcdo:AccompanyingDocumentsDetails и ipsdo:ApellationOfOriginApplicationId не заполняются.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.024-T56-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 56",
+          "status": "CONFIRMED",
+          "page": 577,
+          "table": "56",
+          "item": "2",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.024.T56.REQ.3",
+      "requirement_code": "3",
+      "source_text": "Если csdo:UnifiedCountryCode заполнен, codeListId должен соответствовать значению «ВОИС ST.3».",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.024-T56-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 56",
+          "status": "CONFIRMED",
+          "page": 577,
+          "table": "56",
+          "item": "3",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    }
+  ],
+  "status": "CONFIRMED"
+}

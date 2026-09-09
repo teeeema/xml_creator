@@ -1,0 +1,84 @@
+{
+  "message_code": "P.SP.02.MSG.057",
+  "structure_id": "R.IP.SP.03.003",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.057.REQ.1_19",
+      "requirement_code": "1-19",
+      "source_text": "Соответствуют требованиям 1–19 таблицы 74.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.057-1_19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 75",
+          "status": "CONFIRMED",
+          "page": 807,
+          "table": "75",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1-19"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.057.REQ.20",
+      "requirement_code": "20",
+      "source_text": "DutyPaymentIndicator должен быть заполнен.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.057-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 75",
+          "status": "CONFIRMED",
+          "page": 807,
+          "table": "75",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "20"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.057.REQ.21",
+      "requirement_code": "21",
+      "source_text": "Если DutyPaymentIndicator=true, PaymentAmount=0.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.057-21",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 75",
+          "status": "CONFIRMED",
+          "page": 808,
+          "table": "75",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "21"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.057.REQ.22",
+      "requirement_code": "22",
+      "source_text": "Если DutyPaymentIndicator=false, PaymentAmount должен быть >0.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.057-22",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 75",
+          "status": "CONFIRMED",
+          "page": 808,
+          "table": "75",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "22"
+        }
+      ]
+    }
+  ]
+}

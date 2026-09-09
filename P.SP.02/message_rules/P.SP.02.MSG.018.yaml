@@ -1,0 +1,66 @@
+{
+  "message_code": "P.SP.02.MSG.018",
+  "structure_id": "R.IP.SP.02.007",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.018.T51.REQ.1_19",
+      "requirement_code": "1-19",
+      "source_text": "Требования таблицы 51 начинаются на странице 565 PDF; страница не имеет читаемого текстового слоя в Files. Требования не подставлены во избежание выдумывания нормативных данных.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "BLOCKED_SOURCE_PAGE_UNREADABLE",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.018-T51-1-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 51",
+          "status": "BLOCKED",
+          "page": 565,
+          "table": "51",
+          "item": "1-19",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.018.T51.REQ.20",
+      "requirement_code": "20",
+      "source_text": "При наличии в классификаторе вида документа «Заявление о внесении изменений в сведения Единого реестра товарных знаков, знаков обслуживания Евразийского экономического союза» ipsdo:IPDocKindCode заполняется кодом, ipsdo:IPDocKindName не заполняется.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.018-T51-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 51",
+          "status": "CONFIRMED",
+          "page": 566,
+          "table": "51",
+          "item": "20",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.018.T51.REQ.21",
+      "requirement_code": "21",
+      "source_text": "При отсутствии указанного вида документа ipsdo:IPDocKindCode не заполняется, ipsdo:IPDocKindName заполняется указанным нормативным наименованием.",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.018-T51-21",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 51",
+          "status": "CONFIRMED",
+          "page": 566,
+          "table": "51",
+          "item": "21",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    }
+  ],
+  "status": "PARTIAL"
+}
