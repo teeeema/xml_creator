@@ -1,6 +1,6 @@
 {
   "message_code": "P.SP.02.MSG.059",
-  "structure_id": [
+  "structure_ids": [
     "R.010",
     "R.IP.SP.02.002",
     "R.IP.SP.02.007"
@@ -9,211 +9,222 @@
   "field_usage": {},
   "business_rules": [
     {
-      "rule_id": "P.SP.02.MSG.059.REQ.T77_1",
-      "requirement_code": "T77.1",
-      "source_text": "R.010 должен включать один R.IP.SP.02.002 либо один R.IP.SP.02.007.",
+      "rule_id": "P.SP.02.MSG.059.T77.REQ.1",
+      "requirement_code": "1",
+      "applies_to_structure": "R.010",
+      "source_text": "электронный документ (сведения) «Обобщенная структура электронного документа (сведений)» (R.010) должен включать в себя один экземпляр электронного документа (сведений) «Сведения о заявке, ходатайстве для прохождения процедур регистрации ТЗ Союза» (R.IP.SP.02.002) либо один экземпляр электронного документа (сведений) «Сведения о ТЗ Союза из Единого реестра ТЗ Союза» (R.IP.SP.02.007)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.059-T77_1",
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T77-1",
           "document": "ОП_22.pdf",
-          "location": "Таблица 77; Таблица 78; Таблица 79",
+          "location": "Таблица 77",
           "status": "CONFIRMED",
           "page": 810,
-          "table": "77/78/79",
+          "table": "77",
           "version_context": "P.SP.02 1.0.0",
-          "item": "T77.1"
+          "item": "1"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.059.REQ.T78_1",
-      "requirement_code": "T78.1",
-      "source_text": "Для ветви R.IP.SP.02.002 TrademarkApplicationId должен быть заполнен.",
+      "rule_id": "P.SP.02.MSG.059.T78.REQ.1",
+      "requirement_code": "1",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "реквизит «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) должен быть заполнен",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.059-T78_1",
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T78-1",
           "document": "ОП_22.pdf",
-          "location": "Таблица 77; Таблица 78; Таблица 79",
+          "location": "Таблица 78",
           "status": "CONFIRMED",
           "page": 810,
-          "table": "77/78/79",
+          "table": "78",
           "version_context": "P.SP.02 1.0.0",
-          "item": "T78.1"
+          "item": "1"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.059.REQ.T78_2",
-      "requirement_code": "T78.2",
-      "source_text": "Для ветви R.IP.SP.02.002 AccompanyingDocumentsDetails должен быть заполнен.",
+      "rule_id": "P.SP.02.MSG.059.T78.REQ.2",
+      "requirement_code": "2",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "реквизит «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) должен быть заполнен",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.059-T78_2",
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T78-2",
           "document": "ОП_22.pdf",
-          "location": "Таблица 77; Таблица 78; Таблица 79",
+          "location": "Таблица 78",
           "status": "CONFIRMED",
           "page": 810,
-          "table": "77/78/79",
+          "table": "78",
           "version_context": "P.SP.02 1.0.0",
-          "item": "T78.2"
+          "item": "2"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.059.REQ.T78_3",
-      "requirement_code": "T78.3",
-      "source_text": "В AccompanyingDocumentsDetails выбирается IPDocKindCode или IPDocKindName; обязательны DocName, DocId, DocCreationDate, DocBinaryText.",
+      "rule_id": "P.SP.02.MSG.059.T78.REQ.3",
+      "requirement_code": "3",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) должен быть заполнен один из реквизитов: «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode); «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) в составе реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) должны быть заполнены реквизиты: «Наименование документа» (csdo:DocName); «Номер документа» (csdo:DocId); «Дата документа» (csdo:DocCreationDate); «Документ в бинарном формате» (csdo:DocBinaryText)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.059-T78_3",
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T78-3",
           "document": "ОП_22.pdf",
-          "location": "Таблица 77; Таблица 78; Таблица 79",
+          "location": "Таблица 78",
           "status": "CONFIRMED",
           "page": 811,
-          "table": "77/78/79",
+          "table": "78",
           "version_context": "P.SP.02 1.0.0",
-          "item": "T78.3"
+          "item": "3"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.059.REQ.T78_4",
-      "requirement_code": "T78.4",
-      "source_text": "mediaTypeCode из установленного списка; размер бинарного документа ≤5 Мб.",
+      "rule_id": "P.SP.02.MSG.059.T78.REQ.4",
+      "requirement_code": "4",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе «Документ в бинарном формате» (csdo:DocBinaryText) атрибут «код формата данных» (атрибут mediaTypeCode) должен соответствовать одному из следующих значений: «tif», «tiff», «bmp», «jpg», «jpeg», «png», «gif», «doc», «docx», «rtf», «pdf», и размер документа в бинарном текстовом формате не должен превышать 5 Мб",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.059-T78_4",
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T78-4",
           "document": "ОП_22.pdf",
-          "location": "Таблица 77; Таблица 78; Таблица 79",
+          "location": "Таблица 78",
           "status": "CONFIRMED",
           "page": 811,
-          "table": "77/78/79",
+          "table": "78",
           "version_context": "P.SP.02 1.0.0",
-          "item": "T78.4"
+          "item": "4"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.059.REQ.T78_5",
-      "requirement_code": "T78.5",
-      "source_text": "Другие реквизиты не заполняются.",
+      "rule_id": "P.SP.02.MSG.059.T78.REQ.5",
+      "requirement_code": "5",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "другие реквизиты не заполняются",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.059-T78_5",
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T78-5",
           "document": "ОП_22.pdf",
-          "location": "Таблица 77; Таблица 78; Таблица 79",
+          "location": "Таблица 78",
           "status": "CONFIRMED",
           "page": 811,
-          "table": "77/78/79",
+          "table": "78",
           "version_context": "P.SP.02 1.0.0",
-          "item": "T78.5"
+          "item": "5"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.059.REQ.T79_1",
-      "requirement_code": "T79.1",
-      "source_text": "Для ветви R.IP.SP.02.007 TrademarkId должен быть заполнен.",
+      "rule_id": "P.SP.02.MSG.059.T79.REQ.1",
+      "requirement_code": "1",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "реквизит «Регистрационный номер товарного знака Союза» (ipsdo:TrademarkId) должен быть заполнен",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.059-T79_1",
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T79-1",
           "document": "ОП_22.pdf",
-          "location": "Таблица 77; Таблица 78; Таблица 79",
+          "location": "Таблица 79",
           "status": "CONFIRMED",
           "page": 812,
-          "table": "77/78/79",
+          "table": "79",
           "version_context": "P.SP.02 1.0.0",
-          "item": "T79.1"
+          "item": "1"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.059.REQ.T79_2",
-      "requirement_code": "T79.2",
-      "source_text": "Для ветви R.IP.SP.02.007 AccompanyingDocumentsDetails должен быть заполнен.",
+      "rule_id": "P.SP.02.MSG.059.T79.REQ.2",
+      "requirement_code": "2",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "реквизит «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) должен быть заполнен",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.059-T79_2",
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T79-2",
           "document": "ОП_22.pdf",
-          "location": "Таблица 77; Таблица 78; Таблица 79",
+          "location": "Таблица 79",
           "status": "CONFIRMED",
           "page": 812,
-          "table": "77/78/79",
+          "table": "79",
           "version_context": "P.SP.02 1.0.0",
-          "item": "T79.2"
+          "item": "2"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.059.REQ.T79_3",
-      "requirement_code": "T79.3",
-      "source_text": "В AccompanyingDocumentsDetails выбирается IPDocKindCode или IPDocKindName; обязательны DocName, DocId, DocCreationDate, DocBinaryText.",
+      "rule_id": "P.SP.02.MSG.059.T79.REQ.3",
+      "requirement_code": "3",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "в составе реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) должен быть заполнен один из реквизитов: «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) или «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName). В составе реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) должны быть заполнены реквизиты: «Наименование документа» (csdo:DocName); «Номер документа» (csdo:DocId); «Дата документа» (csdo:DocCreationDate); «Документ в бинарном формате» (csdo:DocBinaryText)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.059-T79_3",
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T79-3",
           "document": "ОП_22.pdf",
-          "location": "Таблица 77; Таблица 78; Таблица 79",
+          "location": "Таблица 79",
           "status": "CONFIRMED",
           "page": 812,
-          "table": "77/78/79",
+          "table": "79",
           "version_context": "P.SP.02 1.0.0",
-          "item": "T79.3"
+          "item": "3"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.059.REQ.T79_4",
-      "requirement_code": "T79.4",
-      "source_text": "mediaTypeCode из установленного списка; размер бинарного документа ≤5 Мб.",
+      "rule_id": "P.SP.02.MSG.059.T79.REQ.4",
+      "requirement_code": "4",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "в составе «Документ в бинарном формате» (csdo:DocBinaryText) атрибут «код формата данных» (атрибут mediaTypeCode) должен соответствовать одному из следующих значений: «tif», «tiff», «bmp», «jpg», «jpeg», «png», «gif», «doc», «docx», «rtf», «pdf», и размер документа в бинарном текстовом формате не должен превышать 5 Мб",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.059-T79_4",
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T79-4",
           "document": "ОП_22.pdf",
-          "location": "Таблица 77; Таблица 78; Таблица 79",
+          "location": "Таблица 79",
           "status": "CONFIRMED",
           "page": 812,
-          "table": "77/78/79",
+          "table": "79",
           "version_context": "P.SP.02 1.0.0",
-          "item": "T79.4"
+          "item": "4"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.059.REQ.T79_5",
-      "requirement_code": "T79.5",
-      "source_text": "Другие реквизиты не заполняются.",
+      "rule_id": "P.SP.02.MSG.059.T79.REQ.5",
+      "requirement_code": "5",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "другие реквизиты не заполняются",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.059-T79_5",
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T79-5",
           "document": "ОП_22.pdf",
-          "location": "Таблица 77; Таблица 78; Таблица 79",
+          "location": "Таблица 79",
           "status": "CONFIRMED",
           "page": 812,
-          "table": "77/78/79",
+          "table": "79",
           "version_context": "P.SP.02 1.0.0",
-          "item": "T79.5"
+          "item": "5"
         }
       ]
     }
