@@ -1,0 +1,100 @@
+{
+  "message_code": "P.SP.03.MSG.022",
+  "structure_id": "R.IP.SP.03.003",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.03.MSG.022.REQ.001",
+      "requirement_code": "1-6",
+      "source_text": "соответствуют требованиям 1-6 таблицы 25 настоящего Регламента (значения кодов требований в таблице 25 и таблице 26 совпадают)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.022-1-6",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 26. Требования к электронному документу (сведениям) P.SP.03.MSG.022",
+          "status": "CONFIRMED",
+          "page": 283,
+          "table": "26",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "1-6"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.022.REQ.002",
+      "requirement_code": "7",
+      "source_text": "реквизит «Сведения о пошлине за осуществление юридически значимых действий» (ipcdo:IPPaymentDetails) должен быть заполнен, в его составе реквизит «Банковский счет» (ccdo:BankAccountDetails) и (или) «Счет в платежной системе» (ccdo:PaymentSystemAccountDetails) должен быть заполнен",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.022-7",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 26. Требования к электронному документу (сведениям) P.SP.03.MSG.022",
+          "status": "CONFIRMED",
+          "page": 283,
+          "table": "26",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "7"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.022.REQ.003",
+      "requirement_code": "8",
+      "source_text": "в составе реквизита «Сведения о пошлине за осуществление юридически значимых действий» (ipcdo:IPPaymentDetails) реквизиты «Дата и время» (csdo:EventDateTime), «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) и «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) не заполняются",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.022-8",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 26. Требования к электронному документу (сведениям) P.SP.03.MSG.022",
+          "status": "CONFIRMED",
+          "page": 283,
+          "table": "26",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "8"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.022.REQ.004",
+      "requirement_code": "9",
+      "source_text": "реквизиты «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId), «Номер документа» (csdo:DocId), «Сумма платежа» (csdo:PaymentAmount) и «Признак подтверждения уплаты пошлины» (ipsdo:DutyPaymentIndicator) не заполняются",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.022-9",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 26. Требования к электронному документу (сведениям) P.SP.03.MSG.022",
+          "status": "CONFIRMED",
+          "page": 283,
+          "table": "26",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "9"
+        }
+      ]
+    }
+  ],
+  "structured_rules": [],
+  "correlation_rules": [],
+  "classifier_refs": [],
+  "source_text": null,
+  "normalized_field_reference": null,
+  "source_refs": [
+    {
+      "source_id": "23OP-RULE-P.SP.03.MSG.022",
+      "document": "ОП_23.pdf",
+      "location": "Таблица 26. Требования к электронному документу (сведениям) P.SP.03.MSG.022",
+      "status": "CONFIRMED",
+      "page": 283,
+      "table": "26",
+      "version_context": "P.SP.03 1.0.0"
+    }
+  ]
+}

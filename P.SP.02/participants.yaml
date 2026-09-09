@@ -1,0 +1,80 @@
+{
+  "participants": [
+    {
+      "participant_code": "P.ACT.001",
+      "name": "Комиссия",
+      "logical_address_space": "CP",
+      "segment_policy": "FIXED",
+      "fixed_segment": "EEC",
+      "source_refs": [
+        {
+          "source_id": "22OP-ACT-P-ACT-001",
+          "document": "ОП_22.pdf",
+          "location": "IV. Основные сведения, таблица 1",
+          "status": "CONFIRMED",
+          "page": 8,
+          "item": "P.ACT.001",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "participant_code": "P.SP.02.ACT.001",
+      "name": "ведомство подачи",
+      "logical_address_space": "CP",
+      "segment_policy": "MEMBER_STATE_ISO_ALPHA2",
+      "test_segment": "RU",
+      "source_refs": [
+        {
+          "source_id": "22OP-ACT-P-SP-02-ACT-001",
+          "document": "ОП_22.pdf",
+          "location": "IV. Основные сведения, таблица 1",
+          "status": "CONFIRMED",
+          "page": 11,
+          "item": "P.SP.02.ACT.001",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "participant_code": "P.SP.02.ACT.002",
+      "name": "национальное патентное ведомство",
+      "logical_address_space": "CP",
+      "segment_policy": "MEMBER_STATE_ISO_ALPHA2",
+      "test_segment": "RU",
+      "source_refs": [
+        {
+          "source_id": "22OP-ACT-P-SP-02-ACT-002",
+          "document": "ОП_22.pdf",
+          "location": "IV. Основные сведения, таблица 1",
+          "status": "CONFIRMED",
+          "page": 17,
+          "item": "P.SP.02.ACT.002",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "participant_code": "P.SP.02.ACT.003",
+      "name": "пользователь Единого реестра товарных знаков Союза",
+      "logical_address_space": "CP",
+      "segment_policy": "MEMBER_STATE_ISO_ALPHA2",
+      "test_segment": "RU",
+      "source_refs": [
+        {
+          "source_id": "22OP-ACT-P-SP-02-ACT-003",
+          "document": "ОП_22.pdf",
+          "location": "IV. Основные сведения, таблица 1",
+          "status": "CONFIRMED",
+          "page": 21,
+          "item": "P.SP.02.ACT.003",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    }
+  ]
+}

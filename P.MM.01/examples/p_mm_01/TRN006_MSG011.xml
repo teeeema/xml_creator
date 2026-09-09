@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope
+    xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:wsa="http://www.w3.org/2005/08/addressing"
+    xmlns:int="urn:EEC:Interaction:v1.0"
+
+    xmlns="urn:EEC:R:HC:MM:01:DrugRegistrationDetails:v1.1.0"
+    xmlns:ccdo="urn:EEC:M:ComplexDataObjects:vX.X.X"
+    xmlns:csdo="urn:EEC:M:SimpleDataObjects:vX.X.X"
+    xmlns:hccdo="urn:EEC:M:HC:ComplexDataObjects:vX.X.X"
+    xmlns:hcsdo="urn:EEC:M:HC:SimpleDataObjects:vX.X.X">
+    <!--
+      Y.Y.Y — версия структуры электронного документа R.HC.MM.01.001.
+      Определяется с учетом версии базисной модели данных,
+      использованной при разработке технической схемы структуры.
+
+      X.X.X — версия базисной модели данных,
+      использованной для импортируемых пространств имен ccdo, hccdo, hcsdo, csdo.
+
+      Значения определяются в соответствии с п. 2 Решения
+      Коллегии ЕЭК от 25.10.2016 № 122.
+    -->
+    <soap:Header>
+        <wsa:To>EAEU://RU/CP/P.MM.01/P.MM.01.ACT.001</wsa:To>
+        <wsa:ReplyTo>
+            <wsa:Address>EAEU://EEC/CP/P.MM.01/P.ACT.001</wsa:Address>
+        </wsa:ReplyTo>
+        <wsa:MessageID>urn:uuid:00000000-0000-0000-0000-00000000025b</wsa:MessageID>
+        <wsa:RelatesTo>urn:uuid:00000000-0000-0000-0000-00000000025a</wsa:RelatesTo>
+        <wsa:Action>int://CP/P.MM.01/1.1.0/P.MM.01.PRC.009/P.MM.01.TRN.006/P.MM.01.MSG.011</wsa:Action>
+        <int:ProcedureID>urn:uuid:00000000-0000-0000-0000-000000000258</int:ProcedureID>
+        <int:ConversationID>urn:uuid:00000000-0000-0000-0000-000000000259</int:ConversationID>
+    </soap:Header>
+    <soap:Body>
+        <DrugRegistrationDetails>
+            <ccdo:EDocHeader>
+                <csdo:InfEnvelopeCode>P.MM.01.MSG.011</csdo:InfEnvelopeCode>
+                <csdo:EDocCode>R.HC.MM.01.001</csdo:EDocCode>
+                <csdo:EDocId>00000000-0000-0000-0000-000000000011</csdo:EDocId>
+                <csdo:EDocRefId>00000000-0000-0000-0000-000000000010</csdo:EDocRefId>
+                <csdo:EDocDateTime>2026-08-24T00:00:00</csdo:EDocDateTime>
+            </ccdo:EDocHeader>
+            <hccdo:DrugRegistrationDetails>
+                <hccdo:DrugCountryRegistrationDetails>
+                    <csdo:UnifiedCountryCode codeListId="TEST"/>
+                    <hcsdo:CountryKindCode>TEST</hcsdo:CountryKindCode>
+                </hccdo:DrugCountryRegistrationDetails>
+                <ccdo:ResourceItemStatusDetails/>
+            </hccdo:DrugRegistrationDetails>
+        </DrugRegistrationDetails>
+    </soap:Body>
+</soap:Envelope>

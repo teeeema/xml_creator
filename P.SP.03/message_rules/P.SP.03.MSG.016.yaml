@@ -1,0 +1,43 @@
+{
+  "message_code": "P.SP.03.MSG.016",
+  "structure_id": "R.IP.SP.03.007",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.03.MSG.016.REQ.001",
+      "requirement_code": "1",
+      "source_text": "в электронном документе (сведениях) должен быть заполнен только реквизит «Заголовок электронного документа (сведений)» (ccdo:EDocHeader), остальные реквизиты не заполняются",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.016-1",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.016",
+          "status": "CONFIRMED",
+          "page": 399,
+          "table": "23",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "1"
+        }
+      ]
+    }
+  ],
+  "structured_rules": [],
+  "correlation_rules": [],
+  "classifier_refs": [],
+  "source_text": null,
+  "normalized_field_reference": null,
+  "source_refs": [
+    {
+      "source_id": "23OP-RULE-P.SP.03.MSG.016",
+      "document": "ОП_23.pdf",
+      "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.016",
+      "status": "CONFIRMED",
+      "page": 399,
+      "table": "23",
+      "version_context": "P.SP.03 1.0.0"
+    }
+  ]
+}

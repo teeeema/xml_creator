@@ -1,0 +1,214 @@
+{
+  "process": "P.MM.06",
+  "critical": [
+    {
+      "id": "B-QNAME",
+      "category": "XML_MAPPING",
+      "description": "175 unresolved and 4 ambiguous nodes",
+      "affected_structures": [
+        "R.HC.MM.06.001",
+        "R.HC.MM.06.002",
+        "R.HC.MM.06.003",
+        "R.HC.MM.06.004",
+        "R.HC.MM.06.005",
+        "R.006",
+        "R.007"
+      ],
+      "affected_msg": [
+        "P.MM.06.MSG.001",
+        "P.MM.06.MSG.002",
+        "P.MM.06.MSG.003",
+        "P.MM.06.MSG.014",
+        "P.MM.06.MSG.015",
+        "P.MM.06.MSG.016",
+        "P.MM.06.MSG.018",
+        "P.MM.06.MSG.019",
+        "P.MM.06.MSG.020",
+        "P.MM.06.MSG.021",
+        "P.MM.06.MSG.022"
+      ],
+      "affected_requirements_count": 152,
+      "severity": "CRITICAL",
+      "required_evidence": "authoritative XSD/XML mapping",
+      "can_implementation_proceed_around_it": "PARTIAL only; XML production remains blocked"
+    },
+    {
+      "id": "B-XSD",
+      "category": "XSD",
+      "description": "XSD references known, files absent",
+      "affected_structures": [
+        "R.HC.MM.06.001",
+        "R.HC.MM.06.002",
+        "R.HC.MM.06.003",
+        "R.HC.MM.06.004",
+        "R.HC.MM.06.005",
+        "R.006",
+        "R.007"
+      ],
+      "affected_msg": [],
+      "affected_requirements_count": 162,
+      "severity": "CRITICAL",
+      "required_evidence": "authoritative XSD files/imports",
+      "can_implementation_proceed_around_it": "PARTIAL only; XML production remains blocked"
+    },
+    {
+      "id": "B-R006",
+      "category": "SHARED_STRUCTURE",
+      "description": "R.006 definition and Y.Y.Y unresolved",
+      "affected_structures": [
+        "R.HC.MM.06.001",
+        "R.HC.MM.06.002",
+        "R.HC.MM.06.003",
+        "R.HC.MM.06.004",
+        "R.HC.MM.06.005",
+        "R.006",
+        "R.007"
+      ],
+      "affected_msg": [],
+      "affected_requirements_count": 0,
+      "severity": "CRITICAL",
+      "required_evidence": "authoritative R.006 package/version",
+      "can_implementation_proceed_around_it": "PARTIAL only; XML production remains blocked"
+    },
+    {
+      "id": "B-R007",
+      "category": "SHARED_STRUCTURE",
+      "description": "R.007 definition and Y.Y.Y unresolved",
+      "affected_structures": [
+        "R.HC.MM.06.001",
+        "R.HC.MM.06.002",
+        "R.HC.MM.06.003",
+        "R.HC.MM.06.004",
+        "R.HC.MM.06.005",
+        "R.006",
+        "R.007"
+      ],
+      "affected_msg": [],
+      "affected_requirements_count": 0,
+      "severity": "CRITICAL",
+      "required_evidence": "authoritative R.007 package/version",
+      "can_implementation_proceed_around_it": "PARTIAL only; XML production remains blocked"
+    },
+    {
+      "id": "B-VERSION",
+      "category": "VERSION",
+      "description": "X.X.X/Y.Y.Y/Z.Z.Z unresolved",
+      "affected_structures": [
+        "R.HC.MM.06.001",
+        "R.HC.MM.06.002",
+        "R.HC.MM.06.003",
+        "R.HC.MM.06.004",
+        "R.HC.MM.06.005",
+        "R.006",
+        "R.007"
+      ],
+      "affected_msg": [],
+      "affected_requirements_count": 162,
+      "severity": "CRITICAL",
+      "required_evidence": "authoritative version profile",
+      "can_implementation_proceed_around_it": "PARTIAL only; XML production remains blocked"
+    },
+    {
+      "id": "B-ATTRIBUTE",
+      "category": "ATTRIBUTE",
+      "description": "codeListId/codeListVersionId/media owners unresolved",
+      "affected_structures": [
+        "R.HC.MM.06.001",
+        "R.HC.MM.06.002",
+        "R.HC.MM.06.003",
+        "R.HC.MM.06.004",
+        "R.HC.MM.06.005",
+        "R.006",
+        "R.007"
+      ],
+      "affected_msg": [],
+      "affected_requirements_count": 26,
+      "severity": "CRITICAL",
+      "required_evidence": "authoritative owner/path mapping",
+      "can_implementation_proceed_around_it": "PARTIAL only; XML production remains blocked"
+    }
+  ],
+  "non_critical": [
+    {
+      "id": "B-CLASSIFIER",
+      "category": "CLASSIFIER",
+      "description": "references known, datasets absent",
+      "affected_structures": [
+        "R.HC.MM.06.001",
+        "R.HC.MM.06.002",
+        "R.HC.MM.06.003",
+        "R.HC.MM.06.004",
+        "R.HC.MM.06.005",
+        "R.006",
+        "R.007"
+      ],
+      "affected_msg": [
+        "P.MM.06.MSG.001",
+        "P.MM.06.MSG.002",
+        "P.MM.06.MSG.003",
+        "P.MM.06.MSG.014",
+        "P.MM.06.MSG.015",
+        "P.MM.06.MSG.016",
+        "P.MM.06.MSG.018",
+        "P.MM.06.MSG.019",
+        "P.MM.06.MSG.020",
+        "P.MM.06.MSG.021",
+        "P.MM.06.MSG.022"
+      ],
+      "affected_requirements_count": 24,
+      "severity": "NON_CRITICAL",
+      "required_evidence": "authoritative datasets/versions",
+      "can_implementation_proceed_around_it": "YES for independent catalog/semantic layers"
+    },
+    {
+      "id": "B-ACTOR",
+      "category": "ACTOR",
+      "description": "ACT.004 has no proven operation/transaction link",
+      "affected_structures": [],
+      "affected_msg": [],
+      "affected_requirements_count": 0,
+      "severity": "NON_CRITICAL",
+      "required_evidence": "authoritative linkage or catalog-only confirmation",
+      "can_implementation_proceed_around_it": "YES for independent catalog/semantic layers"
+    },
+    {
+      "id": "B-OPR",
+      "category": "OPERATION",
+      "description": "OPR.007/.008 absent from normative tables",
+      "affected_structures": [],
+      "affected_msg": [],
+      "affected_requirements_count": 0,
+      "severity": "NON_CRITICAL",
+      "required_evidence": "authoritative gap explanation",
+      "can_implementation_proceed_around_it": "YES for independent catalog/semantic layers"
+    },
+    {
+      "id": "B-EXTERNAL",
+      "category": "EXTERNAL_REFERENCE",
+      "description": "storage/register checks require external state",
+      "affected_structures": [
+        "R.HC.MM.06.001",
+        "R.HC.MM.06.002",
+        "R.HC.MM.06.003",
+        "R.HC.MM.06.004",
+        "R.HC.MM.06.005",
+        "R.006",
+        "R.007"
+      ],
+      "affected_msg": [
+        "P.MM.06.MSG.001",
+        "P.MM.06.MSG.002",
+        "P.MM.06.MSG.003",
+        "P.MM.06.MSG.012"
+      ],
+      "affected_requirements_count": 7,
+      "severity": "NON_CRITICAL",
+      "required_evidence": "runtime external-reference contract",
+      "can_implementation_proceed_around_it": "YES for independent catalog/semantic layers"
+    }
+  ],
+  "counts": {
+    "critical": 6,
+    "non_critical": 4
+  }
+}

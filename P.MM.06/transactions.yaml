@@ -1,0 +1,579 @@
+{
+  "transactions": [
+    {
+      "transaction_code": "P.MM.06.TRN.001",
+      "name": "",
+      "procedure_code": "P.MM.06.PRC.001",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.06.OPR.001",
+      "responding_operation": "P.MM.06.OPR.002",
+      "initiating_participant": "P.MM.06.ACT.002",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.MM.06.MSG.001",
+      "response_messages": [
+        "P.MM.06.MSG.004"
+      ],
+      "timeouts": {
+        "processing_confirmation": "PT20M",
+        "response": "PT1H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "32OP-TRN-001",
+          "document": "32_ОП.pdf",
+          "location": "32_ОП.pdf pp. 96–97/t5",
+          "status": "CONFIRMED"
+        }
+      ],
+      "status": "CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT"
+    },
+    {
+      "transaction_code": "P.MM.06.TRN.002",
+      "name": "",
+      "procedure_code": "P.MM.06.PRC.002",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.06.OPR.004",
+      "responding_operation": "P.MM.06.OPR.005",
+      "initiating_participant": "P.MM.06.ACT.002",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.MM.06.MSG.002",
+      "response_messages": [
+        "P.MM.06.MSG.004"
+      ],
+      "timeouts": {
+        "processing_confirmation": "PT20M",
+        "response": "PT1H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "32OP-TRN-002",
+          "document": "32_ОП.pdf",
+          "location": "32_ОП.pdf pp. 98/t6",
+          "status": "CONFIRMED"
+        }
+      ],
+      "status": "CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT"
+    },
+    {
+      "transaction_code": "P.MM.06.TRN.003",
+      "name": "",
+      "procedure_code": "P.MM.06.PRC.003",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.06.OPR.009",
+      "responding_operation": "P.MM.06.OPR.010",
+      "initiating_participant": "P.MM.06.ACT.002",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.MM.06.MSG.003",
+      "response_messages": [
+        "P.MM.06.MSG.004"
+      ],
+      "timeouts": {
+        "processing_confirmation": "PT20M",
+        "response": "PT1H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "32OP-TRN-003",
+          "document": "32_ОП.pdf",
+          "location": "32_ОП.pdf pp. 99–100/t7",
+          "status": "CONFIRMED"
+        }
+      ],
+      "status": "CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT"
+    },
+    {
+      "transaction_code": "P.MM.06.TRN.004",
+      "name": "",
+      "procedure_code": "P.MM.06.PRC.004",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.06.OPR.012",
+      "responding_operation": "P.MM.06.OPR.013",
+      "initiating_participant": "P.MM.06.ACT.001",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.MM.06.MSG.005",
+      "response_messages": [
+        "P.MM.06.MSG.006"
+      ],
+      "timeouts": {
+        "processing_confirmation": "PT20M",
+        "response": "PT1H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "32OP-TRN-004",
+          "document": "32_ОП.pdf",
+          "location": "32_ОП.pdf pp. 101/t8",
+          "status": "CONFIRMED"
+        }
+      ],
+      "status": "CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT"
+    },
+    {
+      "transaction_code": "P.MM.06.TRN.005",
+      "name": "",
+      "procedure_code": "P.MM.06.PRC.005",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.06.OPR.015",
+      "responding_operation": "P.MM.06.OPR.016",
+      "initiating_participant": "P.MM.06.ACT.001",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.MM.06.MSG.007",
+      "response_messages": [
+        "P.MM.06.MSG.008",
+        "P.MM.06.MSG.009"
+      ],
+      "timeouts": {
+        "processing_confirmation": "PT20M",
+        "response": "PT1H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "32OP-TRN-005",
+          "document": "32_ОП.pdf",
+          "location": "32_ОП.pdf pp. 102–103/t9",
+          "status": "CONFIRMED"
+        }
+      ],
+      "status": "CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT"
+    },
+    {
+      "transaction_code": "P.MM.06.TRN.006",
+      "name": "",
+      "procedure_code": "P.MM.06.PRC.006",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.06.OPR.018",
+      "responding_operation": "P.MM.06.OPR.019",
+      "initiating_participant": "P.MM.06.ACT.001",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.MM.06.MSG.010",
+      "response_messages": [
+        "P.MM.06.MSG.011",
+        "P.MM.06.MSG.009"
+      ],
+      "timeouts": {
+        "processing_confirmation": "PT20M",
+        "response": "PT1H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "32OP-TRN-006",
+          "document": "32_ОП.pdf",
+          "location": "32_ОП.pdf pp. 104/t10",
+          "status": "CONFIRMED"
+        }
+      ],
+      "status": "CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT"
+    },
+    {
+      "transaction_code": "P.MM.06.TRN.007",
+      "name": "",
+      "procedure_code": "P.MM.06.PRC.007",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.06.OPR.021",
+      "responding_operation": "P.MM.06.OPR.022",
+      "initiating_participant": "P.MM.06.ACT.002",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.MM.06.MSG.012",
+      "response_messages": [
+        "P.MM.06.MSG.013"
+      ],
+      "timeouts": {
+        "processing_confirmation": "PT1M",
+        "response": "PT5M"
+      },
+      "retry_count": 2,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "32OP-TRN-007",
+          "document": "32_ОП.pdf",
+          "location": "32_ОП.pdf pp. 105–106/t11",
+          "status": "CONFIRMED"
+        }
+      ],
+      "status": "CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT"
+    },
+    {
+      "transaction_code": "P.MM.06.TRN.008",
+      "name": "",
+      "procedure_code": "P.MM.06.PRC.008",
+      "pattern": "NOTIFICATION",
+      "initiating_role": "инициатор",
+      "responding_role": null,
+      "initiating_operation": "P.MM.06.OPR.024",
+      "responding_operation": "P.MM.06.OPR.025",
+      "initiating_participant": "P.MM.06.ACT.002",
+      "responding_participant": "P.MM.06.ACT.003",
+      "initiating_message": "P.MM.06.MSG.017",
+      "response_messages": [],
+      "timeouts": {
+        "receive_confirmation": "PT3M"
+      },
+      "retry_count": null,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "32OP-TRN-008",
+          "document": "32_ОП.pdf",
+          "location": "32_ОП.pdf pp. 132/t7",
+          "status": "CONFIRMED"
+        }
+      ],
+      "status": "CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT"
+    },
+    {
+      "transaction_code": "P.MM.06.TRN.009",
+      "name": "",
+      "procedure_code": "P.MM.06.PRC.009",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.06.OPR.026",
+      "responding_operation": "P.MM.06.OPR.027",
+      "initiating_participant": "P.MM.06.ACT.002",
+      "responding_participant": "P.MM.06.ACT.003",
+      "initiating_message": "P.MM.06.MSG.015",
+      "response_messages": [
+        "P.MM.06.MSG.004"
+      ],
+      "timeouts": {
+        "processing_confirmation": "PT20M",
+        "response": "PT1H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "32OP-TRN-009",
+          "document": "32_ОП.pdf",
+          "location": "32_ОП.pdf pp. 133–134/t8",
+          "status": "CONFIRMED"
+        }
+      ],
+      "status": "CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT"
+    },
+    {
+      "transaction_code": "P.MM.06.TRN.010",
+      "name": "",
+      "procedure_code": "P.MM.06.PRC.010",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.06.OPR.029",
+      "responding_operation": "P.MM.06.OPR.030",
+      "initiating_participant": "P.MM.06.ACT.003",
+      "responding_participant": "P.MM.06.ACT.002",
+      "initiating_message": "P.MM.06.MSG.014",
+      "response_messages": [
+        "P.MM.06.MSG.004"
+      ],
+      "timeouts": {
+        "processing_confirmation": "PT20M",
+        "response": "PT1H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "32OP-TRN-010",
+          "document": "32_ОП.pdf",
+          "location": "32_ОП.pdf pp. 135/t9",
+          "status": "CONFIRMED"
+        }
+      ],
+      "status": "CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT"
+    },
+    {
+      "transaction_code": "P.MM.06.TRN.011",
+      "name": "",
+      "procedure_code": "P.MM.06.PRC.011",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.06.OPR.032",
+      "responding_operation": "P.MM.06.OPR.033",
+      "initiating_participant": "P.MM.06.ACT.003",
+      "responding_participant": "P.MM.06.ACT.002",
+      "initiating_message": "P.MM.06.MSG.016",
+      "response_messages": [
+        "P.MM.06.MSG.004"
+      ],
+      "timeouts": {
+        "processing_confirmation": "PT20M",
+        "response": "PT1H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "32OP-TRN-011",
+          "document": "32_ОП.pdf",
+          "location": "32_ОП.pdf pp. 136–137/t10",
+          "status": "CONFIRMED"
+        }
+      ],
+      "status": "CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT"
+    },
+    {
+      "transaction_code": "P.MM.06.TRN.012",
+      "name": "",
+      "procedure_code": "P.MM.06.PRC.012",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.06.OPR.035",
+      "responding_operation": "P.MM.06.OPR.036",
+      "initiating_participant": "P.MM.06.ACT.002",
+      "responding_participant": "P.MM.06.ACT.003",
+      "initiating_message": "P.MM.06.MSG.018",
+      "response_messages": [
+        "P.MM.06.MSG.004"
+      ],
+      "timeouts": {
+        "processing_confirmation": "PT20M",
+        "response": "PT1H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "32OP-TRN-012",
+          "document": "32_ОП.pdf",
+          "location": "32_ОП.pdf pp. 138–139/t11",
+          "status": "CONFIRMED"
+        }
+      ],
+      "status": "CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT"
+    },
+    {
+      "transaction_code": "P.MM.06.TRN.013",
+      "name": "",
+      "procedure_code": "P.MM.06.PRC.013",
+      "pattern": "MUTUAL_OBLIGATIONS",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.06.OPR.038",
+      "responding_operation": "P.MM.06.OPR.039",
+      "initiating_participant": "P.MM.06.ACT.003",
+      "responding_participant": "P.MM.06.ACT.002",
+      "initiating_message": "P.MM.06.MSG.019",
+      "response_messages": [
+        "P.MM.06.MSG.020",
+        "P.MM.06.MSG.009"
+      ],
+      "timeouts": {
+        "receive_confirmation": "PT10M",
+        "processing_confirmation": "PT20M",
+        "response": "PT1H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "32OP-TRN-013",
+          "document": "32_ОП.pdf",
+          "location": "32_ОП.pdf pp. 139–140/t12",
+          "status": "CONFIRMED"
+        }
+      ],
+      "status": "CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT"
+    },
+    {
+      "transaction_code": "P.MM.06.TRN.014",
+      "name": "",
+      "procedure_code": "P.MM.06.PRC.014",
+      "pattern": "MUTUAL_OBLIGATIONS",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.06.OPR.041",
+      "responding_operation": "P.MM.06.OPR.042",
+      "initiating_participant": "P.MM.06.ACT.003",
+      "responding_participant": "P.MM.06.ACT.002",
+      "initiating_message": "P.MM.06.MSG.021",
+      "response_messages": [
+        "P.MM.06.MSG.022",
+        "P.MM.06.MSG.009"
+      ],
+      "timeouts": {
+        "receive_confirmation": "PT10M",
+        "processing_confirmation": "PT20M",
+        "response": "PT1H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "32OP-TRN-014",
+          "document": "32_ОП.pdf",
+          "location": "32_ОП.pdf pp. 141–142/t13",
+          "status": "CONFIRMED"
+        }
+      ],
+      "status": "CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT"
+    },
+    {
+      "transaction_code": "P.MM.06.TRN.015",
+      "name": "",
+      "procedure_code": "P.MM.06.PRC.015",
+      "pattern": "MUTUAL_OBLIGATIONS",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.06.OPR.044",
+      "responding_operation": "P.MM.06.OPR.045",
+      "initiating_participant": "P.MM.06.ACT.006",
+      "responding_participant": "P.MM.06.ACT.005",
+      "initiating_message": "P.MM.06.MSG.023",
+      "response_messages": [
+        "P.MM.06.MSG.024",
+        "P.MM.06.MSG.009"
+      ],
+      "timeouts": {
+        "receive_confirmation": "PT10M",
+        "processing_confirmation": "PT20M",
+        "response": "PT1H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "32OP-TRN-015",
+          "document": "32_ОП.pdf",
+          "location": "32_ОП.pdf pp. 143–144/t14",
+          "status": "CONFIRMED"
+        }
+      ],
+      "status": "CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT"
+    }
+  ]
+}

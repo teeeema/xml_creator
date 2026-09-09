@@ -1,0 +1,2505 @@
+{
+  "msg_code": "P.MM.06.MSG.002",
+  "structure": "R.HC.MM.06.001",
+  "source": "32_ОП.pdf",
+  "requirements_table_status": "TABLE_FOUND",
+  "table": "14",
+  "raw_requirements": [
+    {
+      "number": "1",
+      "raw_text": "в электронном сообщении должен передаваться 1 экземпляр реквизита \"Сведения о зарегистрированном медицинском изделии\" (hccdo:MedicalProductDetails)",
+      "page_start": 110,
+      "page_end": 110,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "2",
+      "raw_text": "реквизит \"Начальная дата и время\" (csdo:StartDateTime) заполняется обязательно",
+      "page_start": 110,
+      "page_end": 110,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "3",
+      "raw_text": "реквизит \"Конечная дата и время\" (csdo:EndDateTime) не заполняется",
+      "page_start": 110,
+      "page_end": 110,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "4",
+      "raw_text": "значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) не должно быть равно значению \"прием заявки\"",
+      "page_start": 110,
+      "page_end": 110,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "5",
+      "raw_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) соответствует значению \"заявление об отмене (аннулировании) регистрационного удостоверения медицинского изделия\", то реквизиты \"Дата истечения срока действия документа\" (csdo:DocValidityDate) и \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) заполняются обязательно",
+      "page_start": 110,
+      "page_end": 110,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "6",
+      "raw_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) соответствует значению \"заявление о выдаче дубликата регистрационного удостоверения на медицинское изделие\", то реквизит \"Дата выдачи дубликата регистрационного удостоверения\" (hcsdo:CertificateDuplicateDate) заполняется обязательно",
+      "page_start": 110,
+      "page_end": 111,
+      "continues_across_pages": true,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "7",
+      "raw_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) соответствует значению \"заявление о внесении изменений в регистрационное досье медицинского изделия\" и значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"одобрение экспертного заключения\", то реквизит \"Дата внесения изменений в регистрационное досье медицинского изделия\" (hcsdo:RegistrationCertificateModificationDate) заполняется обязательно",
+      "page_start": 111,
+      "page_end": 111,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "8",
+      "raw_text": "если значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"одобрение экспертного заключения\", то реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполняется обязательно",
+      "page_start": 111,
+      "page_end": 111,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "9",
+      "raw_text": "если реквизит \"Код референтного государства\" (hcsdo:ReferenceUnifiedCountryCode), \"Код государства признания\" (hcsdo:RecognitionUnifiedCountryCode) или \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то значение атрибута \"Идентификатор классификатора\" (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+      "page_start": 111,
+      "page_end": 111,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "10",
+      "raw_text": "если реквизит \"Код референтного государства\" (hcsdo:ReferenceUnifiedCountryCode), \"Код государства признания\" (hcsdo:RecognitionUnifiedCountryCode) или \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны согласно классификатору стран мира в соответствии со стандартом ISO 3166-1",
+      "page_start": 111,
+      "page_end": 111,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "11",
+      "raw_text": "если реквизит \"Сведения о заявлении на проведение процедур экспертизы и регистрации медицинского изделия\" (hccdo:MedicalProductApplicationDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) или \"Наименование статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusName)",
+      "page_start": 111,
+      "page_end": 111,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "12",
+      "raw_text": "если значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"другое\", то реквизит \"Наименование статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusName) заполняется обязательно",
+      "page_start": 111,
+      "page_end": 111,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "13",
+      "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) или \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName)",
+      "page_start": 111,
+      "page_end": 112,
+      "continues_across_pages": true,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "14",
+      "raw_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) соответствует значению \"другое\", то реквизит \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName) заполняется обязательно",
+      "page_start": 112,
+      "page_end": 112,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "15",
+      "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Сведения о составной части медицинского изделия\" (hccdo:MedicalProductSetDetails) не заполняется",
+      "page_start": 112,
+      "page_end": 112,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "16",
+      "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Код вида медицинского изделия\" (hcsdo:MedicalProductClassificationCode) не заполняется",
+      "page_start": 112,
+      "page_end": 112,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "17",
+      "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Код класса потенциального риска медицинского изделия\" (hcsdo:RiskClassCode) не заполняется",
+      "page_start": 112,
+      "page_end": 112,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "18",
+      "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) не заполняется",
+      "page_start": 112,
+      "page_end": 112,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "19",
+      "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) не заполняется",
+      "page_start": 112,
+      "page_end": 112,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "20",
+      "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Инструкция по применению медицинского изделия\" (hcsdo:UserGuidePdfBinaryText) не заполняется",
+      "page_start": 112,
+      "page_end": 112,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "21",
+      "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Изображение маркировки медицинского изделия\" (hcsdo:ImageMarkingPdfBinaryText) не заполняется",
+      "page_start": 112,
+      "page_end": 112,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "22",
+      "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то реквизит \"Код класса потенциального риска медицинского изделия\" (hcsdo:RiskClassCode) заполняется обязательно",
+      "page_start": 113,
+      "page_end": 113,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "23",
+      "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то реквизит \"Инструкция по применению медицинского изделия\" (hcsdo:UserGuidePdfBinaryText) заполняется обязательно",
+      "page_start": 113,
+      "page_end": 113,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "24",
+      "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то реквизит \"Изображение маркировки медицинского изделия\" (hcsdo:ImageMarkingPdfBinaryText) заполняется обязательно",
+      "page_start": 113,
+      "page_end": 113,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "25",
+      "raw_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) не соответствует значению \"действует\", то реквизит \"Дата\" (csdo:EventDate) в составе реквизита \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполняется обязательно",
+      "page_start": 113,
+      "page_end": 113,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "26",
+      "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то в составе реквизита \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) реквизит \"Наименование хозяйствующего субъекта\" (csdo:BusinessEntityName) заполняется обязательно",
+      "page_start": 113,
+      "page_end": 113,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "27",
+      "raw_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) не равно значению \"аннулировано\", то реквизит \"Дата истечения срока действия документа\" (csdo:DocValidityDate) не заполняется",
+      "page_start": 113,
+      "page_end": 113,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "28",
+      "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) или \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName)",
+      "page_start": 113,
+      "page_end": 113,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "29",
+      "raw_text": "в сведениях о регистрации медицинских изделий, хранящихся в Комиссии, должны содержаться сведения с таким же значением реквизита \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId), в которых реквизит \"Конечная дата и время\" (csdo:EndDateTime) не заполнен, а также меньшим значением реквизита \"Начальная дата и время\" (csdo:StartDateTime)",
+      "page_start": 113,
+      "page_end": 113,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "30",
+      "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то должен быть заполнен реквизит \"Код вида медицинского изделия\" (hcsdo:MedicalProductClassificationCode)",
+      "page_start": 114,
+      "page_end": 114,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "31",
+      "raw_text": "если реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполнен, то в его составе реквизит \"Наименование хозяйствующего субъекта\" (csdo:BusinessEntityName) заполняется обязательно",
+      "page_start": 114,
+      "page_end": 114,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "32",
+      "raw_text": "в составе реквизитов \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) и \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) может быть заполнен только один из реквизитов \"Код организационно-правовой формы\" (csdo:BusinessEntityTypeCode) или \"Наименование организационно- правовой формы\" (csdo:BusinessEntityTypeName)",
+      "page_start": 114,
+      "page_end": 114,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "33",
+      "raw_text": "если реквизит \"Код организационно-правовой формы\" (csdo:BusinessEntityTypeCode) заполнен, то его значение должно соответствовать коду организационно-правовой формы согласно классификатору, указанному в разделе VII Правил информационного взаимодействия",
+      "page_start": 114,
+      "page_end": 114,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "34",
+      "raw_text": "реквизит \"Идентификатор налогоплательщика\" (csdo:TaxpayerId) не заполняется",
+      "page_start": 114,
+      "page_end": 114,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "35",
+      "raw_text": "реквизит \"Код причины постановки на учет\" (csdo:TaxRegistrationReasonCode) не заполняется",
+      "page_start": 114,
+      "page_end": 114,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "36",
+      "raw_text": "если реквизит \"Адрес\" (ccdo:SubjectAddressDetails) в составе любых реквизитов заполнен, то реквизит \"Код страны\" (csdo:UnifiedCountryCode) в его составе заполняется обязательно",
+      "page_start": 114,
+      "page_end": 114,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "37",
+      "raw_text": "если в составе любого реквизита реквизит \"Адрес\" (ccdo:SubjectAddressDetails) заполнен, то в его составе должен быть заполнен реквизит \"Код вида адреса\" (csdo:AddressKindCode)",
+      "page_start": 114,
+      "page_end": 114,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "38",
+      "raw_text": "если реквизит \"Код вида адреса\" (csdo:AddressKindCode) в составе реквизита \"Адрес\" (ccdo:SubjectAddressDetails) заполнен, то его значение должно соответствовать одному из следующих значений: 1 – \"адрес регистрации\"; 2 – \"фактический адрес\"; 3 – \"почтовый адрес\"",
+      "page_start": 114,
+      "page_end": 114,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "39",
+      "raw_text": "если в составе любого реквизита реквизит \"Адрес\" (ccdo:SubjectAddressDetails) заполнен, то в его составе должен быть заполнен один из следующих реквизитов: \"Город\" (csdo:CityName); \"Населенный пункт\" (csdo:SettlementName)",
+      "page_start": 114,
+      "page_end": 114,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "40",
+      "raw_text": "если реквизиты \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) и (или) \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполнены, то в их составе должны быть заполнен хотя бы один экземпляр реквизита \"Контактный реквизит\" (ccdo:CommunicationDetails), в котором значение реквизита \"Код вида связи\" (csdo:CommunicationChannelCode) или \"Наименование вида связи\" (csdo:CommunicationChannelName) должно соответствовать значению \"телефон\"",
+      "page_start": 114,
+      "page_end": 115,
+      "continues_across_pages": true,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "41",
+      "raw_text": "если значение реквизита \"Код вида связи\" (ccdo:CommunicationChannelCode) или \"Наименование вида связи\" (csdo:CommunicationChannelName) соответствует значению \"электронная почта\", значение реквизита \"Идентификатор канала связи\" (ccdo:CommunicationChannelId) должно соответствовать шаблону \".+@.+\\..+\"",
+      "page_start": 115,
+      "page_end": 115,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "42",
+      "raw_text": "если реквизит \"Код вида связи\" (csdo:CommunicationChannelCode) заполнен, то его значение должно соответствовать одному из следующих значений: AO – \"адрес сайта в сети Интернет\"; TE – \"телефон\"; EM – \"электронная почта\"; FX – \"телефакс\"",
+      "page_start": 115,
+      "page_end": 115,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "43",
+      "raw_text": "если реквизит \"Количество составных частей медицинского изделия\" (hcsdo:MedicalProductSetMeasure) заполнен, то значение реквизита в его составе \"единица измерения\" (атрибут measurementUnitCode) должно соответствовать коду единицы измерения согласно классификатору, указанному в разделе VII Правил информационного взаимодействия",
+      "page_start": 115,
+      "page_end": 115,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "44",
+      "raw_text": "если реквизит \"Наименование медицинского изделия\" (hcsdo:MedicalProductName) заполнен, то его значение не должно совпадать с наименованием медицинских изделий в существующих записях реестра медицинских изделий и в существующих записях единого реестра зарегистрированных лекарственных средств Евразийского экономического союза, а также не должно совпадать с наименованием биологически активных добавок к пище, сведения о которых содержатся в едином реестре свидетельств о государственной регистрации продукции",
+      "page_start": 115,
+      "page_end": 115,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "45",
+      "raw_text": "если реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполнен, то в его составе реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполняется обязательно и его значение должно соответствовать коду государства- члена Союза",
+      "page_start": 115,
+      "page_end": 115,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "46",
+      "raw_text": "если реквизит \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) заполнен, то в его составе реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполняется обязательно",
+      "page_start": 115,
+      "page_end": 115,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "47",
+      "raw_text": "если реквизит \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) заполнен, и в его составе реквизит \"Код страны\" (csdo:UnifiedCountryCode) не соответствует коду государства-члена Союза, то если реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполняется обязательно",
+      "page_start": 115,
+      "page_end": 116,
+      "continues_across_pages": true,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    }
+  ],
+  "structured_requirements": [
+    {
+      "requirement_number": "1",
+      "rule_id": "P.MM.06.MSG.002.REQ.001",
+      "source_text": "в электронном сообщении должен передаваться 1 экземпляр реквизита \"Сведения о зарегистрированном медицинском изделии\" (hccdo:MedicalProductDetails)",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 110,
+        "page_end": 110
+      },
+      "semantic_category": "CARDINALITY",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductDetails",
+          "normative_name": "Сведения о зарегистрированном медицинском изделии",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductDetails"
+      ],
+      "condition_text": null,
+      "constraint_text": "в электронном сообщении должен передаваться 1 экземпляр реквизита \"Сведения о зарегистрированном медицинском изделии\" (hccdo:MedicalProductDetails)",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "2",
+      "rule_id": "P.MM.06.MSG.002.REQ.002",
+      "source_text": "реквизит \"Начальная дата и время\" (csdo:StartDateTime) заполняется обязательно",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 110,
+        "page_end": 110
+      },
+      "semantic_category": "REQUIRED",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:StartDateTime",
+          "normative_name": "Начальная дата и время",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "csdo:StartDateTime"
+      ],
+      "condition_text": null,
+      "constraint_text": "реквизит \"Начальная дата и время\" (csdo:StartDateTime) заполняется обязательно",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "3",
+      "rule_id": "P.MM.06.MSG.002.REQ.003",
+      "source_text": "реквизит \"Конечная дата и время\" (csdo:EndDateTime) не заполняется",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 110,
+        "page_end": 110
+      },
+      "semantic_category": "PROHIBITED",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:EndDateTime",
+          "normative_name": "Конечная дата и время",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "csdo:EndDateTime"
+      ],
+      "condition_text": null,
+      "constraint_text": "реквизит \"Конечная дата и время\" (csdo:EndDateTime) не заполняется",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "4",
+      "rule_id": "P.MM.06.MSG.002.REQ.004",
+      "source_text": "значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) не должно быть равно значению \"прием заявки\"",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 110,
+        "page_end": 110
+      },
+      "semantic_category": "CROSS_FIELD",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductRegistrationStatusCode",
+          "normative_name": "Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hcsdo:MedicalProductRegistrationStatusCode"
+      ],
+      "condition_text": null,
+      "constraint_text": "значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) не должно быть равно значению \"прием заявки\"",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "5",
+      "rule_id": "P.MM.06.MSG.002.REQ.005",
+      "source_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) соответствует значению \"заявление об отмене (аннулировании) регистрационного удостоверения медицинского изделия\", то реквизиты \"Дата истечения срока действия документа\" (csdo:DocValidityDate) и \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) заполняются обязательно",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 110,
+        "page_end": 110
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductApplicationKindV2Code",
+          "normative_name": "Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:DocValidityDate",
+          "normative_name": "Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductRegistrationCertificateStatusCode",
+          "normative_name": "Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hcsdo:MedicalProductApplicationKindV2Code",
+        "csdo:DocValidityDate",
+        "hcsdo:MedicalProductRegistrationCertificateStatusCode"
+      ],
+      "condition_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) соответствует значению \"заявление об отмене (аннулировании) регистрационного удостоверения медицинского изделия\", то реквизиты \"Дата истечения срока действия документа\" (csdo:DocValidityDate) и \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) заполняются обязательно",
+      "constraint_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) соответствует значению \"заявление об отмене (аннулировании) регистрационного удостоверения медицинского изделия\", то реквизиты \"Дата истечения срока действия документа\" (csdo:DocValidityDate) и \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) заполняются обязательно",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "6",
+      "rule_id": "P.MM.06.MSG.002.REQ.006",
+      "source_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) соответствует значению \"заявление о выдаче дубликата регистрационного удостоверения на медицинское изделие\", то реквизит \"Дата выдачи дубликата регистрационного удостоверения\" (hcsdo:CertificateDuplicateDate) заполняется обязательно",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 110,
+        "page_end": 111
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductApplicationKindV2Code",
+          "normative_name": "Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:CertificateDuplicateDate",
+          "normative_name": "Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hcsdo:MedicalProductApplicationKindV2Code",
+        "hcsdo:CertificateDuplicateDate"
+      ],
+      "condition_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) соответствует значению \"заявление о выдаче дубликата регистрационного удостоверения на медицинское изделие\", то реквизит \"Дата выдачи дубликата регистрационного удостоверения\" (hcsdo:CertificateDuplicateDate) заполняется обязательно",
+      "constraint_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) соответствует значению \"заявление о выдаче дубликата регистрационного удостоверения на медицинское изделие\", то реквизит \"Дата выдачи дубликата регистрационного удостоверения\" (hcsdo:CertificateDuplicateDate) заполняется обязательно",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "7",
+      "rule_id": "P.MM.06.MSG.002.REQ.007",
+      "source_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) соответствует значению \"заявление о внесении изменений в регистрационное досье медицинского изделия\" и значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"одобрение экспертного заключения\", то реквизит \"Дата внесения изменений в регистрационное досье медицинского изделия\" (hcsdo:RegistrationCertificateModificationDate) заполняется обязательно",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 111,
+        "page_end": 111
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductApplicationKindV2Code",
+          "normative_name": "Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductRegistrationStatusCode",
+          "normative_name": "Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:RegistrationCertificateModificationDate",
+          "normative_name": "Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hcsdo:MedicalProductApplicationKindV2Code",
+        "hcsdo:MedicalProductRegistrationStatusCode",
+        "hcsdo:RegistrationCertificateModificationDate"
+      ],
+      "condition_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) соответствует значению \"заявление о внесении изменений в регистрационное досье медицинского изделия\" и значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"одобрение экспертного заключения\", то реквизит \"Дата внесения изменений в регистрационное досье медицинского изделия\" (hcsdo:RegistrationCertificateModificationDate) заполняется обязательно",
+      "constraint_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) соответствует значению \"заявление о внесении изменений в регистрационное досье медицинского изделия\" и значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"одобрение экспертного заключения\", то реквизит \"Дата внесения изменений в регистрационное досье медицинского изделия\" (hcsdo:RegistrationCertificateModificationDate) заполняется обязательно",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "8",
+      "rule_id": "P.MM.06.MSG.002.REQ.008",
+      "source_text": "если значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"одобрение экспертного заключения\", то реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполняется обязательно",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 111,
+        "page_end": 111
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductRegistrationStatusCode",
+          "normative_name": "Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductRegistrationCertificateDetails",
+          "normative_name": "Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hcsdo:MedicalProductRegistrationStatusCode",
+        "hccdo:MedicalProductRegistrationCertificateDetails"
+      ],
+      "condition_text": "если значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"одобрение экспертного заключения\", то реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполняется обязательно",
+      "constraint_text": "если значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"одобрение экспертного заключения\", то реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполняется обязательно",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "9",
+      "rule_id": "P.MM.06.MSG.002.REQ.009",
+      "source_text": "если реквизит \"Код референтного государства\" (hcsdo:ReferenceUnifiedCountryCode), \"Код государства признания\" (hcsdo:RecognitionUnifiedCountryCode) или \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то значение атрибута \"Идентификатор классификатора\" (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 111,
+        "page_end": 111
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [
+        "ATTRIBUTE",
+        "CLASSIFIER"
+      ],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:ReferenceUnifiedCountryCode",
+          "normative_name": "Код референтного государства",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:RecognitionUnifiedCountryCode",
+          "normative_name": "Код референтного государства",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:UnifiedCountryCode",
+          "normative_name": "Код референтного государства",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hcsdo:ReferenceUnifiedCountryCode",
+        "hcsdo:RecognitionUnifiedCountryCode",
+        "csdo:UnifiedCountryCode"
+      ],
+      "condition_text": "если реквизит \"Код референтного государства\" (hcsdo:ReferenceUnifiedCountryCode), \"Код государства признания\" (hcsdo:RecognitionUnifiedCountryCode) или \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то значение атрибута \"Идентификатор классификатора\" (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+      "constraint_text": "если реквизит \"Код референтного государства\" (hcsdo:ReferenceUnifiedCountryCode), \"Код государства признания\" (hcsdo:RecognitionUnifiedCountryCode) или \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то значение атрибута \"Идентификатор классификатора\" (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "10",
+      "rule_id": "P.MM.06.MSG.002.REQ.010",
+      "source_text": "если реквизит \"Код референтного государства\" (hcsdo:ReferenceUnifiedCountryCode), \"Код государства признания\" (hcsdo:RecognitionUnifiedCountryCode) или \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны согласно классификатору стран мира в соответствии со стандартом ISO 3166-1",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 111,
+        "page_end": 111
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [
+        "CLASSIFIER"
+      ],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:ReferenceUnifiedCountryCode",
+          "normative_name": "Код референтного государства",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:RecognitionUnifiedCountryCode",
+          "normative_name": "Код референтного государства",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:UnifiedCountryCode",
+          "normative_name": "Код референтного государства",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hcsdo:ReferenceUnifiedCountryCode",
+        "hcsdo:RecognitionUnifiedCountryCode",
+        "csdo:UnifiedCountryCode"
+      ],
+      "condition_text": "если реквизит \"Код референтного государства\" (hcsdo:ReferenceUnifiedCountryCode), \"Код государства признания\" (hcsdo:RecognitionUnifiedCountryCode) или \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны согласно классификатору стран мира в соответствии со стандартом ISO 3166-1",
+      "constraint_text": "если реквизит \"Код референтного государства\" (hcsdo:ReferenceUnifiedCountryCode), \"Код государства признания\" (hcsdo:RecognitionUnifiedCountryCode) или \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны согласно классификатору стран мира в соответствии со стандартом ISO 3166-1",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "11",
+      "rule_id": "P.MM.06.MSG.002.REQ.011",
+      "source_text": "если реквизит \"Сведения о заявлении на проведение процедур экспертизы и регистрации медицинского изделия\" (hccdo:MedicalProductApplicationDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) или \"Наименование статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusName)",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 111,
+        "page_end": 111
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductApplicationDetails",
+          "normative_name": "Сведения о заявлении на проведение процедур экспертизы и регистрации медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductRegistrationStatusCode",
+          "normative_name": "Сведения о заявлении на проведение процедур экспертизы и регистрации медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductRegistrationStatusName",
+          "normative_name": "Сведения о заявлении на проведение процедур экспертизы и регистрации медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductApplicationDetails",
+        "hcsdo:MedicalProductRegistrationStatusCode",
+        "hcsdo:MedicalProductRegistrationStatusName"
+      ],
+      "condition_text": "если реквизит \"Сведения о заявлении на проведение процедур экспертизы и регистрации медицинского изделия\" (hccdo:MedicalProductApplicationDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) или \"Наименование статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusName)",
+      "constraint_text": "если реквизит \"Сведения о заявлении на проведение процедур экспертизы и регистрации медицинского изделия\" (hccdo:MedicalProductApplicationDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) или \"Наименование статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusName)",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "12",
+      "rule_id": "P.MM.06.MSG.002.REQ.012",
+      "source_text": "если значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"другое\", то реквизит \"Наименование статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusName) заполняется обязательно",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 111,
+        "page_end": 111
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductRegistrationStatusCode",
+          "normative_name": "Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductRegistrationStatusName",
+          "normative_name": "Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hcsdo:MedicalProductRegistrationStatusCode",
+        "hcsdo:MedicalProductRegistrationStatusName"
+      ],
+      "condition_text": "если значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"другое\", то реквизит \"Наименование статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusName) заполняется обязательно",
+      "constraint_text": "если значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"другое\", то реквизит \"Наименование статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusName) заполняется обязательно",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "13",
+      "rule_id": "P.MM.06.MSG.002.REQ.013",
+      "source_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) или \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName)",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 111,
+        "page_end": 112
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductRegistrationCertificateDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductRegistrationCertificateStatusCode",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductRegistrationCertificateStatusName",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductRegistrationCertificateDetails",
+        "hcsdo:MedicalProductRegistrationCertificateStatusCode",
+        "hcsdo:MedicalProductRegistrationCertificateStatusName"
+      ],
+      "condition_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) или \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName)",
+      "constraint_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) или \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName)",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "14",
+      "rule_id": "P.MM.06.MSG.002.REQ.014",
+      "source_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) соответствует значению \"другое\", то реквизит \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName) заполняется обязательно",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 112,
+        "page_end": 112
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductRegistrationCertificateStatusCode",
+          "normative_name": "Код статуса регистрационного удостоверения медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductRegistrationCertificateStatusName",
+          "normative_name": "Код статуса регистрационного удостоверения медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hcsdo:MedicalProductRegistrationCertificateStatusCode",
+        "hcsdo:MedicalProductRegistrationCertificateStatusName"
+      ],
+      "condition_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) соответствует значению \"другое\", то реквизит \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName) заполняется обязательно",
+      "constraint_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) соответствует значению \"другое\", то реквизит \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName) заполняется обязательно",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "15",
+      "rule_id": "P.MM.06.MSG.002.REQ.015",
+      "source_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Сведения о составной части медицинского изделия\" (hccdo:MedicalProductSetDetails) не заполняется",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 112,
+        "page_end": 112
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductRegistrationCertificateDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductSetDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductRegistrationCertificateDetails",
+        "hccdo:MedicalProductSetDetails"
+      ],
+      "condition_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Сведения о составной части медицинского изделия\" (hccdo:MedicalProductSetDetails) не заполняется",
+      "constraint_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Сведения о составной части медицинского изделия\" (hccdo:MedicalProductSetDetails) не заполняется",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "16",
+      "rule_id": "P.MM.06.MSG.002.REQ.016",
+      "source_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Код вида медицинского изделия\" (hcsdo:MedicalProductClassificationCode) не заполняется",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 112,
+        "page_end": 112
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductRegistrationCertificateDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductClassificationCode",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductRegistrationCertificateDetails",
+        "hcsdo:MedicalProductClassificationCode"
+      ],
+      "condition_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Код вида медицинского изделия\" (hcsdo:MedicalProductClassificationCode) не заполняется",
+      "constraint_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Код вида медицинского изделия\" (hcsdo:MedicalProductClassificationCode) не заполняется",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "17",
+      "rule_id": "P.MM.06.MSG.002.REQ.017",
+      "source_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Код класса потенциального риска медицинского изделия\" (hcsdo:RiskClassCode) не заполняется",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 112,
+        "page_end": 112
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductRegistrationCertificateDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:RiskClassCode",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductRegistrationCertificateDetails",
+        "hcsdo:RiskClassCode"
+      ],
+      "condition_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Код класса потенциального риска медицинского изделия\" (hcsdo:RiskClassCode) не заполняется",
+      "constraint_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Код класса потенциального риска медицинского изделия\" (hcsdo:RiskClassCode) не заполняется",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "18",
+      "rule_id": "P.MM.06.MSG.002.REQ.018",
+      "source_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) не заполняется",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 112,
+        "page_end": 112
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductRegistrationCertificateDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductManufacturingAuthorizationHolderDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductRegistrationCertificateDetails",
+        "hccdo:MedicalProductManufacturingAuthorizationHolderDetails"
+      ],
+      "condition_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) не заполняется",
+      "constraint_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) не заполняется",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "19",
+      "rule_id": "P.MM.06.MSG.002.REQ.019",
+      "source_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) не заполняется",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 112,
+        "page_end": 112
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductRegistrationCertificateDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductManufacturerAgentDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductRegistrationCertificateDetails",
+        "hccdo:MedicalProductManufacturerAgentDetails"
+      ],
+      "condition_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) не заполняется",
+      "constraint_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) не заполняется",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "20",
+      "rule_id": "P.MM.06.MSG.002.REQ.020",
+      "source_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Инструкция по применению медицинского изделия\" (hcsdo:UserGuidePdfBinaryText) не заполняется",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 112,
+        "page_end": 112
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductRegistrationCertificateDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:UserGuidePdfBinaryText",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductRegistrationCertificateDetails",
+        "hcsdo:UserGuidePdfBinaryText"
+      ],
+      "condition_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Инструкция по применению медицинского изделия\" (hcsdo:UserGuidePdfBinaryText) не заполняется",
+      "constraint_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Инструкция по применению медицинского изделия\" (hcsdo:UserGuidePdfBinaryText) не заполняется",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "21",
+      "rule_id": "P.MM.06.MSG.002.REQ.021",
+      "source_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Изображение маркировки медицинского изделия\" (hcsdo:ImageMarkingPdfBinaryText) не заполняется",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 112,
+        "page_end": 112
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductRegistrationCertificateDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:ImageMarkingPdfBinaryText",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductRegistrationCertificateDetails",
+        "hcsdo:ImageMarkingPdfBinaryText"
+      ],
+      "condition_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Изображение маркировки медицинского изделия\" (hcsdo:ImageMarkingPdfBinaryText) не заполняется",
+      "constraint_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Изображение маркировки медицинского изделия\" (hcsdo:ImageMarkingPdfBinaryText) не заполняется",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "22",
+      "rule_id": "P.MM.06.MSG.002.REQ.022",
+      "source_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то реквизит \"Код класса потенциального риска медицинского изделия\" (hcsdo:RiskClassCode) заполняется обязательно",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 113,
+        "page_end": 113
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductRegistrationCertificateDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:RiskClassCode",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductRegistrationCertificateDetails",
+        "hcsdo:RiskClassCode"
+      ],
+      "condition_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то реквизит \"Код класса потенциального риска медицинского изделия\" (hcsdo:RiskClassCode) заполняется обязательно",
+      "constraint_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то реквизит \"Код класса потенциального риска медицинского изделия\" (hcsdo:RiskClassCode) заполняется обязательно",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "23",
+      "rule_id": "P.MM.06.MSG.002.REQ.023",
+      "source_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то реквизит \"Инструкция по применению медицинского изделия\" (hcsdo:UserGuidePdfBinaryText) заполняется обязательно",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 113,
+        "page_end": 113
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductRegistrationCertificateDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:UserGuidePdfBinaryText",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductRegistrationCertificateDetails",
+        "hcsdo:UserGuidePdfBinaryText"
+      ],
+      "condition_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то реквизит \"Инструкция по применению медицинского изделия\" (hcsdo:UserGuidePdfBinaryText) заполняется обязательно",
+      "constraint_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то реквизит \"Инструкция по применению медицинского изделия\" (hcsdo:UserGuidePdfBinaryText) заполняется обязательно",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "24",
+      "rule_id": "P.MM.06.MSG.002.REQ.024",
+      "source_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то реквизит \"Изображение маркировки медицинского изделия\" (hcsdo:ImageMarkingPdfBinaryText) заполняется обязательно",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 113,
+        "page_end": 113
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductRegistrationCertificateDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:ImageMarkingPdfBinaryText",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductRegistrationCertificateDetails",
+        "hcsdo:ImageMarkingPdfBinaryText"
+      ],
+      "condition_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то реквизит \"Изображение маркировки медицинского изделия\" (hcsdo:ImageMarkingPdfBinaryText) заполняется обязательно",
+      "constraint_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то реквизит \"Изображение маркировки медицинского изделия\" (hcsdo:ImageMarkingPdfBinaryText) заполняется обязательно",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "25",
+      "rule_id": "P.MM.06.MSG.002.REQ.025",
+      "source_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) не соответствует значению \"действует\", то реквизит \"Дата\" (csdo:EventDate) в составе реквизита \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполняется обязательно",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 113,
+        "page_end": 113
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductRegistrationCertificateStatusCode",
+          "normative_name": "Код статуса регистрационного удостоверения медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:EventDate",
+          "normative_name": "Код статуса регистрационного удостоверения медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductRegistrationCertificateDetails",
+          "normative_name": "Код статуса регистрационного удостоверения медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hcsdo:MedicalProductRegistrationCertificateStatusCode",
+        "csdo:EventDate",
+        "hccdo:MedicalProductRegistrationCertificateDetails"
+      ],
+      "condition_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) не соответствует значению \"действует\", то реквизит \"Дата\" (csdo:EventDate) в составе реквизита \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполняется обязательно",
+      "constraint_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) не соответствует значению \"действует\", то реквизит \"Дата\" (csdo:EventDate) в составе реквизита \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполняется обязательно",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "26",
+      "rule_id": "P.MM.06.MSG.002.REQ.026",
+      "source_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то в составе реквизита \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) реквизит \"Наименование хозяйствующего субъекта\" (csdo:BusinessEntityName) заполняется обязательно",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 113,
+        "page_end": 113
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductRegistrationCertificateDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductManufacturingAuthorizationHolderDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:BusinessEntityName",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductRegistrationCertificateDetails",
+        "hccdo:MedicalProductManufacturingAuthorizationHolderDetails",
+        "csdo:BusinessEntityName"
+      ],
+      "condition_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то в составе реквизита \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) реквизит \"Наименование хозяйствующего субъекта\" (csdo:BusinessEntityName) заполняется обязательно",
+      "constraint_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то в составе реквизита \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) реквизит \"Наименование хозяйствующего субъекта\" (csdo:BusinessEntityName) заполняется обязательно",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "27",
+      "rule_id": "P.MM.06.MSG.002.REQ.027",
+      "source_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) не равно значению \"аннулировано\", то реквизит \"Дата истечения срока действия документа\" (csdo:DocValidityDate) не заполняется",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 113,
+        "page_end": 113
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductRegistrationCertificateStatusCode",
+          "normative_name": "Код статуса регистрационного удостоверения медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:DocValidityDate",
+          "normative_name": "Код статуса регистрационного удостоверения медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hcsdo:MedicalProductRegistrationCertificateStatusCode",
+        "csdo:DocValidityDate"
+      ],
+      "condition_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) не равно значению \"аннулировано\", то реквизит \"Дата истечения срока действия документа\" (csdo:DocValidityDate) не заполняется",
+      "constraint_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) не равно значению \"аннулировано\", то реквизит \"Дата истечения срока действия документа\" (csdo:DocValidityDate) не заполняется",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "28",
+      "rule_id": "P.MM.06.MSG.002.REQ.028",
+      "source_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) или \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName)",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 113,
+        "page_end": 113
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductRegistrationCertificateDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductRegistrationCertificateStatusCode",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductRegistrationCertificateStatusName",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductRegistrationCertificateDetails",
+        "hcsdo:MedicalProductRegistrationCertificateStatusCode",
+        "hcsdo:MedicalProductRegistrationCertificateStatusName"
+      ],
+      "condition_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) или \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName)",
+      "constraint_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) или \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName)",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "29",
+      "rule_id": "P.MM.06.MSG.002.REQ.029",
+      "source_text": "в сведениях о регистрации медицинских изделий, хранящихся в Комиссии, должны содержаться сведения с таким же значением реквизита \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId), в которых реквизит \"Конечная дата и время\" (csdo:EndDateTime) не заполнен, а также меньшим значением реквизита \"Начальная дата и время\" (csdo:StartDateTime)",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 113,
+        "page_end": 113
+      },
+      "semantic_category": "CONSTRAINT",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductApplicationId",
+          "normative_name": "Номер заявления на регистрацию медицинского изделия",
+          "row_number": "2.1.1",
+          "model_element_id": "M.HC.SDE.00660",
+          "attribute": false,
+          "mapping_status": "RESOLVED"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:EndDateTime",
+          "normative_name": "Номер заявления на регистрацию медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:StartDateTime",
+          "normative_name": "Номер заявления на регистрацию медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hcsdo:MedicalProductApplicationId",
+        "csdo:EndDateTime",
+        "csdo:StartDateTime"
+      ],
+      "condition_text": null,
+      "constraint_text": "в сведениях о регистрации медицинских изделий, хранящихся в Комиссии, должны содержаться сведения с таким же значением реквизита \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId), в которых реквизит \"Конечная дата и время\" (csdo:EndDateTime) не заполнен, а также меньшим значением реквизита \"Начальная дата и время\" (csdo:StartDateTime)",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "30",
+      "rule_id": "P.MM.06.MSG.002.REQ.030",
+      "source_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то должен быть заполнен реквизит \"Код вида медицинского изделия\" (hcsdo:MedicalProductClassificationCode)",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 114,
+        "page_end": 114
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductRegistrationCertificateDetails",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductClassificationCode",
+          "normative_name": "Сведения о регистрационном удостоверении медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductRegistrationCertificateDetails",
+        "hcsdo:MedicalProductClassificationCode"
+      ],
+      "condition_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то должен быть заполнен реквизит \"Код вида медицинского изделия\" (hcsdo:MedicalProductClassificationCode)",
+      "constraint_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то должен быть заполнен реквизит \"Код вида медицинского изделия\" (hcsdo:MedicalProductClassificationCode)",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "31",
+      "rule_id": "P.MM.06.MSG.002.REQ.031",
+      "source_text": "если реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполнен, то в его составе реквизит \"Наименование хозяйствующего субъекта\" (csdo:BusinessEntityName) заполняется обязательно",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 114,
+        "page_end": 114
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductManufacturerAgentDetails",
+          "normative_name": "Сведения об уполномоченном представителе производителя медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:BusinessEntityName",
+          "normative_name": "Сведения об уполномоченном представителе производителя медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductManufacturerAgentDetails",
+        "csdo:BusinessEntityName"
+      ],
+      "condition_text": "если реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполнен, то в его составе реквизит \"Наименование хозяйствующего субъекта\" (csdo:BusinessEntityName) заполняется обязательно",
+      "constraint_text": "если реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполнен, то в его составе реквизит \"Наименование хозяйствующего субъекта\" (csdo:BusinessEntityName) заполняется обязательно",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "32",
+      "rule_id": "P.MM.06.MSG.002.REQ.032",
+      "source_text": "в составе реквизитов \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) и \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) может быть заполнен только один из реквизитов \"Код организационно-правовой формы\" (csdo:BusinessEntityTypeCode) или \"Наименование организационно- правовой формы\" (csdo:BusinessEntityTypeName)",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 114,
+        "page_end": 114
+      },
+      "semantic_category": "CONSTRAINT",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductManufacturingAuthorizationHolderDetails",
+          "normative_name": "Сведения о производителе медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductManufacturerAgentDetails",
+          "normative_name": "Сведения о производителе медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:BusinessEntityTypeCode",
+          "normative_name": "Сведения о производителе медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:BusinessEntityTypeName",
+          "normative_name": "Сведения о производителе медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductManufacturingAuthorizationHolderDetails",
+        "hccdo:MedicalProductManufacturerAgentDetails",
+        "csdo:BusinessEntityTypeCode",
+        "csdo:BusinessEntityTypeName"
+      ],
+      "condition_text": null,
+      "constraint_text": "в составе реквизитов \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) и \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) может быть заполнен только один из реквизитов \"Код организационно-правовой формы\" (csdo:BusinessEntityTypeCode) или \"Наименование организационно- правовой формы\" (csdo:BusinessEntityTypeName)",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "33",
+      "rule_id": "P.MM.06.MSG.002.REQ.033",
+      "source_text": "если реквизит \"Код организационно-правовой формы\" (csdo:BusinessEntityTypeCode) заполнен, то его значение должно соответствовать коду организационно-правовой формы согласно классификатору, указанному в разделе VII Правил информационного взаимодействия",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 114,
+        "page_end": 114
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [
+        "CLASSIFIER"
+      ],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:BusinessEntityTypeCode",
+          "normative_name": "Код организационно-правовой формы",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "csdo:BusinessEntityTypeCode"
+      ],
+      "condition_text": "если реквизит \"Код организационно-правовой формы\" (csdo:BusinessEntityTypeCode) заполнен, то его значение должно соответствовать коду организационно-правовой формы согласно классификатору, указанному в разделе VII Правил информационного взаимодействия",
+      "constraint_text": "если реквизит \"Код организационно-правовой формы\" (csdo:BusinessEntityTypeCode) заполнен, то его значение должно соответствовать коду организационно-правовой формы согласно классификатору, указанному в разделе VII Правил информационного взаимодействия",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "34",
+      "rule_id": "P.MM.06.MSG.002.REQ.034",
+      "source_text": "реквизит \"Идентификатор налогоплательщика\" (csdo:TaxpayerId) не заполняется",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 114,
+        "page_end": 114
+      },
+      "semantic_category": "PROHIBITED",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:TaxpayerId",
+          "normative_name": "Идентификатор налогоплательщика",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "csdo:TaxpayerId"
+      ],
+      "condition_text": null,
+      "constraint_text": "реквизит \"Идентификатор налогоплательщика\" (csdo:TaxpayerId) не заполняется",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "35",
+      "rule_id": "P.MM.06.MSG.002.REQ.035",
+      "source_text": "реквизит \"Код причины постановки на учет\" (csdo:TaxRegistrationReasonCode) не заполняется",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 114,
+        "page_end": 114
+      },
+      "semantic_category": "PROHIBITED",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:TaxRegistrationReasonCode",
+          "normative_name": "Код причины постановки на учет",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "csdo:TaxRegistrationReasonCode"
+      ],
+      "condition_text": null,
+      "constraint_text": "реквизит \"Код причины постановки на учет\" (csdo:TaxRegistrationReasonCode) не заполняется",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "36",
+      "rule_id": "P.MM.06.MSG.002.REQ.036",
+      "source_text": "если реквизит \"Адрес\" (ccdo:SubjectAddressDetails) в составе любых реквизитов заполнен, то реквизит \"Код страны\" (csdo:UnifiedCountryCode) в его составе заполняется обязательно",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 114,
+        "page_end": 114
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "ccdo:SubjectAddressDetails",
+          "normative_name": "Адрес",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:UnifiedCountryCode",
+          "normative_name": "Адрес",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "ccdo:SubjectAddressDetails",
+        "csdo:UnifiedCountryCode"
+      ],
+      "condition_text": "если реквизит \"Адрес\" (ccdo:SubjectAddressDetails) в составе любых реквизитов заполнен, то реквизит \"Код страны\" (csdo:UnifiedCountryCode) в его составе заполняется обязательно",
+      "constraint_text": "если реквизит \"Адрес\" (ccdo:SubjectAddressDetails) в составе любых реквизитов заполнен, то реквизит \"Код страны\" (csdo:UnifiedCountryCode) в его составе заполняется обязательно",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "37",
+      "rule_id": "P.MM.06.MSG.002.REQ.037",
+      "source_text": "если в составе любого реквизита реквизит \"Адрес\" (ccdo:SubjectAddressDetails) заполнен, то в его составе должен быть заполнен реквизит \"Код вида адреса\" (csdo:AddressKindCode)",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 114,
+        "page_end": 114
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "ccdo:SubjectAddressDetails",
+          "normative_name": "Адрес",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:AddressKindCode",
+          "normative_name": "Адрес",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "ccdo:SubjectAddressDetails",
+        "csdo:AddressKindCode"
+      ],
+      "condition_text": "если в составе любого реквизита реквизит \"Адрес\" (ccdo:SubjectAddressDetails) заполнен, то в его составе должен быть заполнен реквизит \"Код вида адреса\" (csdo:AddressKindCode)",
+      "constraint_text": "если в составе любого реквизита реквизит \"Адрес\" (ccdo:SubjectAddressDetails) заполнен, то в его составе должен быть заполнен реквизит \"Код вида адреса\" (csdo:AddressKindCode)",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "38",
+      "rule_id": "P.MM.06.MSG.002.REQ.038",
+      "source_text": "если реквизит \"Код вида адреса\" (csdo:AddressKindCode) в составе реквизита \"Адрес\" (ccdo:SubjectAddressDetails) заполнен, то его значение должно соответствовать одному из следующих значений: 1 – \"адрес регистрации\"; 2 – \"фактический адрес\"; 3 – \"почтовый адрес\"",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 114,
+        "page_end": 114
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:AddressKindCode",
+          "normative_name": "Код вида адреса",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "ccdo:SubjectAddressDetails",
+          "normative_name": "Код вида адреса",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "csdo:AddressKindCode",
+        "ccdo:SubjectAddressDetails"
+      ],
+      "condition_text": "если реквизит \"Код вида адреса\" (csdo:AddressKindCode) в составе реквизита \"Адрес\" (ccdo:SubjectAddressDetails) заполнен, то его значение должно соответствовать одному из следующих значений: 1 – \"адрес регистрации\"; 2 – \"фактический адрес\"; 3 – \"почтовый адрес\"",
+      "constraint_text": "если реквизит \"Код вида адреса\" (csdo:AddressKindCode) в составе реквизита \"Адрес\" (ccdo:SubjectAddressDetails) заполнен, то его значение должно соответствовать одному из следующих значений: 1 – \"адрес регистрации\"; 2 – \"фактический адрес\"; 3 – \"почтовый адрес\"",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "39",
+      "rule_id": "P.MM.06.MSG.002.REQ.039",
+      "source_text": "если в составе любого реквизита реквизит \"Адрес\" (ccdo:SubjectAddressDetails) заполнен, то в его составе должен быть заполнен один из следующих реквизитов: \"Город\" (csdo:CityName); \"Населенный пункт\" (csdo:SettlementName)",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 114,
+        "page_end": 114
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "ccdo:SubjectAddressDetails",
+          "normative_name": "Адрес",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:CityName",
+          "normative_name": "Адрес",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:SettlementName",
+          "normative_name": "Адрес",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "ccdo:SubjectAddressDetails",
+        "csdo:CityName",
+        "csdo:SettlementName"
+      ],
+      "condition_text": "если в составе любого реквизита реквизит \"Адрес\" (ccdo:SubjectAddressDetails) заполнен, то в его составе должен быть заполнен один из следующих реквизитов: \"Город\" (csdo:CityName); \"Населенный пункт\" (csdo:SettlementName)",
+      "constraint_text": "если в составе любого реквизита реквизит \"Адрес\" (ccdo:SubjectAddressDetails) заполнен, то в его составе должен быть заполнен один из следующих реквизитов: \"Город\" (csdo:CityName); \"Населенный пункт\" (csdo:SettlementName)",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "40",
+      "rule_id": "P.MM.06.MSG.002.REQ.040",
+      "source_text": "если реквизиты \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) и (или) \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполнены, то в их составе должны быть заполнен хотя бы один экземпляр реквизита \"Контактный реквизит\" (ccdo:CommunicationDetails), в котором значение реквизита \"Код вида связи\" (csdo:CommunicationChannelCode) или \"Наименование вида связи\" (csdo:CommunicationChannelName) должно соответствовать значению \"телефон\"",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 114,
+        "page_end": 115
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductManufacturingAuthorizationHolderDetails",
+          "normative_name": "Сведения о производителе медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductManufacturerAgentDetails",
+          "normative_name": "Сведения о производителе медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "ccdo:CommunicationDetails",
+          "normative_name": "Сведения о производителе медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:CommunicationChannelCode",
+          "normative_name": "Сведения о производителе медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:CommunicationChannelName",
+          "normative_name": "Сведения о производителе медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductManufacturingAuthorizationHolderDetails",
+        "hccdo:MedicalProductManufacturerAgentDetails",
+        "ccdo:CommunicationDetails",
+        "csdo:CommunicationChannelCode",
+        "csdo:CommunicationChannelName"
+      ],
+      "condition_text": "если реквизиты \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) и (или) \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполнены, то в их составе должны быть заполнен хотя бы один экземпляр реквизита \"Контактный реквизит\" (ccdo:CommunicationDetails), в котором значение реквизита \"Код вида связи\" (csdo:CommunicationChannelCode) или \"Наименование вида связи\" (csdo:CommunicationChannelName) должно соответствовать значению \"телефон\"",
+      "constraint_text": "если реквизиты \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) и (или) \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполнены, то в их составе должны быть заполнен хотя бы один экземпляр реквизита \"Контактный реквизит\" (ccdo:CommunicationDetails), в котором значение реквизита \"Код вида связи\" (csdo:CommunicationChannelCode) или \"Наименование вида связи\" (csdo:CommunicationChannelName) должно соответствовать значению \"телефон\"",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "41",
+      "rule_id": "P.MM.06.MSG.002.REQ.041",
+      "source_text": "если значение реквизита \"Код вида связи\" (ccdo:CommunicationChannelCode) или \"Наименование вида связи\" (csdo:CommunicationChannelName) соответствует значению \"электронная почта\", значение реквизита \"Идентификатор канала связи\" (ccdo:CommunicationChannelId) должно соответствовать шаблону \".+@.+\\..+\"",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 115,
+        "page_end": 115
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "ccdo:CommunicationChannelCode",
+          "normative_name": "Код вида связи",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:CommunicationChannelName",
+          "normative_name": "Код вида связи",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "ccdo:CommunicationChannelId",
+          "normative_name": "Код вида связи",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "ccdo:CommunicationChannelCode",
+        "csdo:CommunicationChannelName",
+        "ccdo:CommunicationChannelId"
+      ],
+      "condition_text": "если значение реквизита \"Код вида связи\" (ccdo:CommunicationChannelCode) или \"Наименование вида связи\" (csdo:CommunicationChannelName) соответствует значению \"электронная почта\", значение реквизита \"Идентификатор канала связи\" (ccdo:CommunicationChannelId) должно соответствовать шаблону \".+@.+\\..+\"",
+      "constraint_text": "если значение реквизита \"Код вида связи\" (ccdo:CommunicationChannelCode) или \"Наименование вида связи\" (csdo:CommunicationChannelName) соответствует значению \"электронная почта\", значение реквизита \"Идентификатор канала связи\" (ccdo:CommunicationChannelId) должно соответствовать шаблону \".+@.+\\..+\"",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "42",
+      "rule_id": "P.MM.06.MSG.002.REQ.042",
+      "source_text": "если реквизит \"Код вида связи\" (csdo:CommunicationChannelCode) заполнен, то его значение должно соответствовать одному из следующих значений: AO – \"адрес сайта в сети Интернет\"; TE – \"телефон\"; EM – \"электронная почта\"; FX – \"телефакс\"",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 115,
+        "page_end": 115
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:CommunicationChannelCode",
+          "normative_name": "Код вида связи",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "csdo:CommunicationChannelCode"
+      ],
+      "condition_text": "если реквизит \"Код вида связи\" (csdo:CommunicationChannelCode) заполнен, то его значение должно соответствовать одному из следующих значений: AO – \"адрес сайта в сети Интернет\"; TE – \"телефон\"; EM – \"электронная почта\"; FX – \"телефакс\"",
+      "constraint_text": "если реквизит \"Код вида связи\" (csdo:CommunicationChannelCode) заполнен, то его значение должно соответствовать одному из следующих значений: AO – \"адрес сайта в сети Интернет\"; TE – \"телефон\"; EM – \"электронная почта\"; FX – \"телефакс\"",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "43",
+      "rule_id": "P.MM.06.MSG.002.REQ.043",
+      "source_text": "если реквизит \"Количество составных частей медицинского изделия\" (hcsdo:MedicalProductSetMeasure) заполнен, то значение реквизита в его составе \"единица измерения\" (атрибут measurementUnitCode) должно соответствовать коду единицы измерения согласно классификатору, указанному в разделе VII Правил информационного взаимодействия",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 115,
+        "page_end": 115
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [
+        "ATTRIBUTE",
+        "CLASSIFIER"
+      ],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductSetMeasure",
+          "normative_name": "Количество составных частей медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hcsdo:MedicalProductSetMeasure"
+      ],
+      "condition_text": "если реквизит \"Количество составных частей медицинского изделия\" (hcsdo:MedicalProductSetMeasure) заполнен, то значение реквизита в его составе \"единица измерения\" (атрибут measurementUnitCode) должно соответствовать коду единицы измерения согласно классификатору, указанному в разделе VII Правил информационного взаимодействия",
+      "constraint_text": "если реквизит \"Количество составных частей медицинского изделия\" (hcsdo:MedicalProductSetMeasure) заполнен, то значение реквизита в его составе \"единица измерения\" (атрибут measurementUnitCode) должно соответствовать коду единицы измерения согласно классификатору, указанному в разделе VII Правил информационного взаимодействия",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "44",
+      "rule_id": "P.MM.06.MSG.002.REQ.044",
+      "source_text": "если реквизит \"Наименование медицинского изделия\" (hcsdo:MedicalProductName) заполнен, то его значение не должно совпадать с наименованием медицинских изделий в существующих записях реестра медицинских изделий и в существующих записях единого реестра зарегистрированных лекарственных средств Евразийского экономического союза, а также не должно совпадать с наименованием биологически активных добавок к пище, сведения о которых содержатся в едином реестре свидетельств о государственной регистрации продукции",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 115,
+        "page_end": 115
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hcsdo:MedicalProductName",
+          "normative_name": "Наименование медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hcsdo:MedicalProductName"
+      ],
+      "condition_text": "если реквизит \"Наименование медицинского изделия\" (hcsdo:MedicalProductName) заполнен, то его значение не должно совпадать с наименованием медицинских изделий в существующих записях реестра медицинских изделий и в существующих записях единого реестра зарегистрированных лекарственных средств Евразийского экономического союза, а также не должно совпадать с наименованием биологически активных добавок к пище, сведения о которых содержатся в едином реестре свидетельств о государственной регистрации продукции",
+      "constraint_text": "если реквизит \"Наименование медицинского изделия\" (hcsdo:MedicalProductName) заполнен, то его значение не должно совпадать с наименованием медицинских изделий в существующих записях реестра медицинских изделий и в существующих записях единого реестра зарегистрированных лекарственных средств Евразийского экономического союза, а также не должно совпадать с наименованием биологически активных добавок к пище, сведения о которых содержатся в едином реестре свидетельств о государственной регистрации продукции",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "45",
+      "rule_id": "P.MM.06.MSG.002.REQ.045",
+      "source_text": "если реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполнен, то в его составе реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполняется обязательно и его значение должно соответствовать коду государства- члена Союза",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 115,
+        "page_end": 115
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductManufacturerAgentDetails",
+          "normative_name": "Сведения об уполномоченном представителе производителя медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:UnifiedCountryCode",
+          "normative_name": "Сведения об уполномоченном представителе производителя медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductManufacturerAgentDetails",
+        "csdo:UnifiedCountryCode"
+      ],
+      "condition_text": "если реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполнен, то в его составе реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполняется обязательно и его значение должно соответствовать коду государства- члена Союза",
+      "constraint_text": "если реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполнен, то в его составе реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполняется обязательно и его значение должно соответствовать коду государства- члена Союза",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "46",
+      "rule_id": "P.MM.06.MSG.002.REQ.046",
+      "source_text": "если реквизит \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) заполнен, то в его составе реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполняется обязательно",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 115,
+        "page_end": 115
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductManufacturingAuthorizationHolderDetails",
+          "normative_name": "Сведения о производителе медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:UnifiedCountryCode",
+          "normative_name": "Сведения о производителе медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductManufacturingAuthorizationHolderDetails",
+        "csdo:UnifiedCountryCode"
+      ],
+      "condition_text": "если реквизит \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) заполнен, то в его составе реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполняется обязательно",
+      "constraint_text": "если реквизит \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) заполнен, то в его составе реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполняется обязательно",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "47",
+      "rule_id": "P.MM.06.MSG.002.REQ.047",
+      "source_text": "если реквизит \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) заполнен, и в его составе реквизит \"Код страны\" (csdo:UnifiedCountryCode) не соответствует коду государства-члена Союза, то если реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполняется обязательно",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "14",
+        "page_start": 115,
+        "page_end": 116
+      },
+      "semantic_category": "CONDITIONAL",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductManufacturingAuthorizationHolderDetails",
+          "normative_name": "Сведения о производителе медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "csdo:UnifiedCountryCode",
+          "normative_name": "Сведения о производителе медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "structure": "R.HC.MM.06.001",
+          "qname": "hccdo:MedicalProductManufacturerAgentDetails",
+          "normative_name": "Сведения о производителе медицинского изделия",
+          "row_number": null,
+          "model_element_id": null,
+          "attribute": false,
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "literal_field_references": [
+        "hccdo:MedicalProductManufacturingAuthorizationHolderDetails",
+        "csdo:UnifiedCountryCode",
+        "hccdo:MedicalProductManufacturerAgentDetails"
+      ],
+      "condition_text": "если реквизит \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) заполнен, и в его составе реквизит \"Код страны\" (csdo:UnifiedCountryCode) не соответствует коду государства-члена Союза, то если реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполняется обязательно",
+      "constraint_text": "если реквизит \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) заполнен, и в его составе реквизит \"Код страны\" (csdo:UnifiedCountryCode) не соответствует коду государства-члена Союза, то если реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполняется обязательно",
+      "mapping_status": "PARTIAL",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    }
+  ],
+  "raw_count": 47,
+  "structured_count": 47,
+  "mapping_summary": {
+    "PARTIAL": 47
+  },
+  "mapping_status": "PARTIAL",
+  "count_integrity": true
+}

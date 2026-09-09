@@ -1,0 +1,69 @@
+{
+  "message_code": "P.DS.01.MSG.004",
+  "structure_id": "R.FP.DS.01.003",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.DS.01.MSG.004.R001",
+      "requirement_code": 1,
+      "classification": "EXECUTABLE",
+      "source_text": "реквизит «Идентификатор исходного электронного документа» (csdo:EDocRefId) должен быть заполнен",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.004-R001",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 12",
+          "status": "CONFIRMED",
+          "page": 92,
+          "table": "12"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.004.R002",
+      "requirement_code": 2,
+      "classification": "EXECUTABLE",
+      "source_text": "значение реквизита «Дата составления отчета» (ds01sdo:ReportDate) должно быть больше или равно значения реквизита «Дата» (csdo:EventDate)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.004-R002",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 12",
+          "status": "CONFIRMED",
+          "page": 92,
+          "table": "12"
+        }
+      ]
+    }
+  ],
+  "structured_rules": [
+    {
+      "rule_id": "P.DS.01.MSG.004.R001",
+      "kind": "presence",
+      "target": "VerificationProtocol/ccdo:EDocHeader/csdo:EDocRefId",
+      "state": "REQUIRED",
+      "source_refs": [{"source_id": "49OP-P.DS.01.MSG.004-R001", "document": "49 ОП.pdf", "location": "Таблица 12", "status": "CONFIRMED", "page": 92, "table": "12"}]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.004.R002",
+      "kind": "comparison",
+      "left": "VerificationProtocol/ds01sdo:ReportDate",
+      "operator": "GE",
+      "right": "VerificationProtocol/csdo:EventDate",
+      "source_refs": [{"source_id": "49OP-P.DS.01.MSG.004-R002", "document": "49 ОП.pdf", "location": "Таблица 12", "status": "CONFIRMED", "page": 92, "table": "12"}]
+    }
+  ],
+  "correlation_rules": [],
+  "classifier_refs": [],
+  "source_refs": [
+    {
+      "source_id": "49OP-P.DS.01.MSG.004-R001",
+      "document": "49 ОП.pdf",
+      "location": "Таблица 12",
+      "status": "CONFIRMED",
+      "page": 92,
+      "table": "12"
+    }
+  ]
+}

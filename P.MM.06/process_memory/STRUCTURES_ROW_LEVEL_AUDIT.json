@@ -1,0 +1,183 @@
+{
+  "artifact_kind": "normative_structure_row_level_audit",
+  "source": "32_ОП.pdf",
+  "production_usage": false,
+  "structures": [
+    {
+      "structure_code": "R.HC.MM.06.001",
+      "source_table": "10",
+      "page_start": 169,
+      "page_end": 188,
+      "expected_count": 116,
+      "actual_count": 116,
+      "relative_number_rows": 51,
+      "multi_page_rows": 17,
+      "uncertain_rows": 0,
+      "duplicate_numeric_row_numbers": [],
+      "numbering_gaps": [],
+      "count_gate": "PASS"
+    },
+    {
+      "structure_code": "R.HC.MM.06.002",
+      "source_table": "13",
+      "page_start": 189,
+      "page_end": 193,
+      "expected_count": 19,
+      "actual_count": 19,
+      "relative_number_rows": 0,
+      "multi_page_rows": 3,
+      "uncertain_rows": 0,
+      "duplicate_numeric_row_numbers": [],
+      "numbering_gaps": [],
+      "count_gate": "PASS"
+    },
+    {
+      "structure_code": "R.HC.MM.06.003",
+      "source_table": "16",
+      "page_start": 194,
+      "page_end": 201,
+      "expected_count": 25,
+      "actual_count": 25,
+      "relative_number_rows": 0,
+      "multi_page_rows": 7,
+      "uncertain_rows": 0,
+      "duplicate_numeric_row_numbers": [],
+      "numbering_gaps": [],
+      "count_gate": "PASS"
+    },
+    {
+      "structure_code": "R.HC.MM.06.004",
+      "source_table": "19",
+      "page_start": 202,
+      "page_end": 203,
+      "expected_count": 9,
+      "actual_count": 9,
+      "relative_number_rows": 0,
+      "multi_page_rows": 1,
+      "uncertain_rows": 0,
+      "duplicate_numeric_row_numbers": [],
+      "numbering_gaps": [],
+      "count_gate": "PASS"
+    },
+    {
+      "structure_code": "R.HC.MM.06.005",
+      "source_table": "22",
+      "page_start": 205,
+      "page_end": 208,
+      "expected_count": 17,
+      "actual_count": 17,
+      "relative_number_rows": 0,
+      "multi_page_rows": 2,
+      "uncertain_rows": 0,
+      "duplicate_numeric_row_numbers": [],
+      "numbering_gaps": [],
+      "count_gate": "PASS"
+    }
+  ],
+  "coverage": {
+    "hierarchy": {
+      "resolved": 135,
+      "unresolved": 51
+    },
+    "cardinality": {
+      "resolved": 186,
+      "unresolved": 0
+    },
+    "model_element_ids": 184,
+    "model_type_ids": 184,
+    "qname": {
+      "resolved": 7,
+      "ambiguous": 4,
+      "unresolved": 175,
+      "node_resolved": 7,
+      "node_unresolved": 179
+    },
+    "attributes": {
+      "resolved_owner": 1,
+      "unresolved_owner": 3
+    },
+    "relative_number_rows": 51,
+    "multi_page_rows": 30,
+    "uncertain_rows": 0,
+    "numbering_gaps": 0,
+    "duplicates": 0
+  },
+  "uncertainties": {
+    "hierarchy": "51 relative-number rows have no guessed parent.",
+    "qname": [
+      {
+        "structure": "R.HC.MM.06.001",
+        "qname": "csdo:UnifiedCountryCode",
+        "reason": "Multiple country-code structural nodes."
+      },
+      {
+        "structure": "R.HC.MM.06.001",
+        "qname": "csdo:StartDateTime",
+        "reason": "No unique table-10 row identified."
+      },
+      {
+        "structure": "R.HC.MM.06.001",
+        "qname": "csdo:EndDateTime",
+        "reason": "No unique table-10 row identified."
+      },
+      {
+        "structure": "R.HC.MM.06.003",
+        "qname": "hccdo:MedicalProductRegistrationFileDetails",
+        "reason": "No unique table-16 row identified."
+      }
+    ],
+    "attributes": [
+      {
+        "attribute_name": "codeListId",
+        "owner": "UNRESOLVED",
+        "evidence_status": "UNRESOLVED"
+      },
+      {
+        "attribute_name": "codeListVersionId",
+        "owner": "UNRESOLVED",
+        "evidence_status": "UNRESOLVED"
+      },
+      {
+        "attribute_name": "media",
+        "owner": "UNRESOLVED",
+        "evidence_status": "UNRESOLVED"
+      }
+    ],
+    "qname_overlay_conflicts": [
+      {
+        "structure": "R.HC.MM.06.002",
+        "row_number": "11",
+        "raw_table_model_element_id": "M.HC.SDE.00326",
+        "prior_qname_audit_model_element_id": "M.HC.SDE.00302",
+        "resolution": "QName overlay retained by exact structure/row/name evidence; raw table model ID prevails."
+      },
+      {
+        "structure": "R.HC.MM.06.003",
+        "row_number": "5.12",
+        "raw_table_model_element_id": "M.HC.SDE.00326",
+        "prior_qname_audit_model_element_id": "M.HC.SDE.00302",
+        "resolution": "QName overlay retained by exact structure/row/name evidence; raw table model ID prevails."
+      }
+    ]
+  },
+  "integrity": {
+    "status": "PASS",
+    "checks": {
+      "structures_5": true,
+      "counts_exact": true,
+      "total_186": true,
+      "semantic_ids_186_unique": true,
+      "structure_code_present": true,
+      "source_page_present": true,
+      "raw_or_uncertain_present": true,
+      "cardinality_preserved": true,
+      "relative_numbering_preserved": true,
+      "no_fake_qnames": true,
+      "qname_overlay_evidence_only": true,
+      "excluded_R006_R007": true,
+      "placeholders_not_resolved": true,
+      "production_unchanged": true
+    }
+  },
+  "phase_2_executed": false
+}

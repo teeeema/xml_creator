@@ -1,0 +1,251 @@
+{
+  "message_code": "P.MM.01.MSG.024",
+  "structure_id": "R.HC.MM.01.002",
+  "fixed_values": {},
+  "field_usage": {
+    "ApplicationId": "REQUIRED"
+  },
+  "business_rules": [
+    {
+      "rule_id": "P.MM.01.MSG.024.R2",
+      "message_code": "P.MM.01.MSG.024",
+      "field_paths": [
+        "ApplicationId"
+      ],
+      "condition": null,
+      "requirement": "реквизит «Номер заявления о регистрации лекарственного препарата» (hcsdo:ApplicationId) должен быть заполнен",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "22",
+          "item": "2",
+          "page": 300,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.024.R3",
+      "message_code": "P.MM.01.MSG.024",
+      "field_paths": [
+        "AnyDetails"
+      ],
+      "condition": null,
+      "requirement": "в составе реквизита «Сведения о документе регистрационного досье (дела)» (hccdo:RegistrationDossierDocDetails) должен быть заполнен реквизит «Документ в бинарном формате» (hcsdo: DocCopyBinaryText) и (или) реквизит «XML-документ» (ccdo:AnyDetails)",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "22",
+          "item": "3",
+          "page": 300,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.024.R4",
+      "message_code": "P.MM.01.MSG.024",
+      "field_paths": [
+        "UnifiedCountryCode",
+        "UnifiedCountryCode/@codeListId",
+        "DrugRegistrationFileCode/@codeListId"
+      ],
+      "condition": "если реквизит «Код страны» (csdo:UnifiedCountryCode) заполнен, то значение атрибута «идентификатор справочника (классификатора)» (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+      "requirement": "если реквизит «Код страны» (csdo:UnifiedCountryCode) заполнен, то значение атрибута «идентификатор справочника (классификатора)» (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "22",
+          "item": "4",
+          "page": 300,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.024.R5",
+      "message_code": "P.MM.01.MSG.024",
+      "field_paths": [
+        "UnifiedCountryCode"
+      ],
+      "condition": "если реквизит «Код страны» (csdo:UnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны из классификатора стран мира, содержащего перечень кодов и наименований стран мира в соответствии со стандартом ISO 3166-1",
+      "requirement": "если реквизит «Код страны» (csdo:UnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны из классификатора стран мира, содержащего перечень кодов и наименований стран мира в соответствии со стандартом ISO 3166-1",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "22",
+          "item": "5",
+          "page": 300,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.024.R6",
+      "message_code": "P.MM.01.MSG.024",
+      "field_paths": [],
+      "condition": "если реквизит «Описание элемента документа» (hcsdo: DrugAttributeEnumText) заполнен, то в его составе должен быть заполнен один из реквизитов «код вида элемента документа» (атрибут AttributeKindCode) или «наименование вида элемента документа» (атрибут AttributeKindName)",
+      "requirement": "если реквизит «Описание элемента документа» (hcsdo: DrugAttributeEnumText) заполнен, то в его составе должен быть заполнен один из реквизитов «код вида элемента документа» (атрибут AttributeKindCode) или «наименование вида элемента документа» (атрибут AttributeKindName)",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "22",
+          "item": "6",
+          "page": 300,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "INTERNAL_NORMATIVE_CONFLICT",
+      "interpretation_status": "INTERNAL_NORMATIVE_CONFLICT",
+      "reason_code": "INTERNAL_NORMATIVE_CONFLICT",
+      "conflict_id": "NORMATIVE_CONFLICT-004",
+      "referenced_identifiers": ["hcsdo:DrugAttributeEnumText", "AttributeKindCode", "AttributeKindName"],
+      "conflict_details": "Таблица 22, пункт 6 ссылается на реквизиты, отсутствующие в таблице 13 R.HC.MM.01.002 v1.1.0."
+    },
+    {
+      "rule_id": "P.MM.01.MSG.024.R7",
+      "message_code": "P.MM.01.MSG.024",
+      "field_paths": [],
+      "condition": "если значение реквизита «код вида элемента документа» (атрибут AttributeKindCode) соответствует значению «другое», то реквизит «наименование вида элемента документа» (атрибут AttributeKindName) заполняется обязательно",
+      "requirement": "если значение реквизита «код вида элемента документа» (атрибут AttributeKindCode) соответствует значению «другое», то реквизит «наименование вида элемента документа» (атрибут AttributeKindName) заполняется обязательно",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "22",
+          "item": "7",
+          "page": 300,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "INTERNAL_NORMATIVE_CONFLICT",
+      "interpretation_status": "INTERNAL_NORMATIVE_CONFLICT",
+      "reason_code": "INTERNAL_NORMATIVE_CONFLICT",
+      "conflict_id": "NORMATIVE_CONFLICT-005",
+      "referenced_identifiers": ["AttributeKindCode", "AttributeKindName"],
+      "conflict_details": "Таблица 22, пункт 7 ссылается на атрибуты, отсутствующие в табице 13 R.HC.MM.01.002 v1.1.0."
+    },
+    {
+      "rule_id": "P.MM.01.MSG.024.R8",
+      "message_code": "P.MM.01.MSG.024",
+      "field_paths": [
+        "DrugRegistrationFileCode",
+        "DrugRegistrationFileName"
+      ],
+      "condition": null,
+      "requirement": "в электронном сообщении должны быть заполнены реквизиты: «Код вида документа регистрационного дела на лекарственный препарат» (hcsdo:DrugRegistrationFileCode) или «Наименование вида документа регистрационного дела на лекарственный препарат» (hcsdo:DrugRegistrationFileName)",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "22",
+          "item": "8",
+          "page": 300,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.024.R9",
+      "message_code": "P.MM.01.MSG.024",
+      "field_paths": [
+        "DrugRegistrationFileCode",
+        "DrugRegistrationFileName"
+      ],
+      "condition": "если значение реквизита «Код вида документа регистрационного дела на лекарственный препарат» (hcsdo:DrugRegistrationFileCode) Код требования Формулировка требования соответствует значению «другое», то реквизит «Наименование вида документа регистрационного дела на лекарственный препарат» (hcsdo:DrugRegistrationFileName) заполняется обязательно",
+      "requirement": "если значение реквизита «Код вида документа регистрационного дела на лекарственный препарат» (hcsdo:DrugRegistrationFileCode) Код требования Формулировка требования соответствует значению «другое», то реквизит «Наименование вида документа регистрационного дела на лекарственный препарат» (hcsdo:DrugRegistrationFileName) заполняется обязательно",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "22",
+          "item": "9",
+          "page": 300,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.024.R10",
+      "message_code": "P.MM.01.MSG.024",
+      "field_paths": [
+        "DrugRegistrationFileCode"
+      ],
+      "condition": null,
+      "requirement": "реквизит «Код вида документа регистрационного дела на лекарственный препарат» (hcsdo:DrugRegistrationFileCode) может принимать одно из следующих значений: 0101 – Запрос о предоставлении недостающей дополнительной информации, необходимых разъяснений или уточнений документов и данных, представленных в регистрационном досье лекарственного препарата; 0102 – Запрос государства признания в отношении документов регистрационного досье лекарственного препарата; 0103 – Замечания к регистрационному досье лекарственного препарата от государства признания; 0104 – Ответ на запрос о предоставлении недостающей дополнительной информации, необходимых разъяснений или уточнений документов и данных, представленных в регистрационном досье лекарственного препарата; 0105 – Запрос о предоставлении копии мастер-файла системы фармаконадзора; 0106 – Ответ заявителя на запрос государства признания в отношении документов регистрационного досье лекарственного препарата; 0107 – Ответ заявителя на замечания от государства признания; 0199 – Другое; 0403 – Запрос уполномоченного органа (экспертной организации) государства признания, направленный в уполномоченный орган референтного государства; 0405 – Замечания государства признания в отношении заключительного экспертного отчета по качеству; 0406 – Предложение уполномоченного органа (экспертной организации) государства признания в отношении заключительного экспертного отчета по качеству, направленное в уполномоченный орган референтного государства »;",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "22",
+          "item": "10",
+          "page": 301,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    }
+  ],
+  "correlation_rules": [],
+  "classifier_refs": [
+    "EXTERNAL_REFERENCE_IN_RULE"
+  ],
+  "source_refs": [
+    {
+      "source_id": "SRC-PMM01-068",
+      "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+      "location": "Требования к заполнению",
+      "status": "CONFIRMED",
+      "section": "IX",
+      "table": "22",
+      "item": "all",
+      "page": 300,
+      "version_context": "P.MM.01 1.1.0"
+    }
+  ]
+}

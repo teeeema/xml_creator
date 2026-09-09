@@ -1,0 +1,99 @@
+{
+  "message_code": "P.MM.01.MSG.014",
+  "structure_id": "R.HC.MM.01.004",
+  "fixed_values": {},
+  "field_usage": {
+    "RegistrationNumberId": "FORBIDDEN"
+  },
+  "business_rules": [
+    {
+      "rule_id": "P.MM.01.MSG.014.R1",
+      "message_code": "P.MM.01.MSG.014",
+      "field_paths": [
+        "RegistrationNumberId"
+      ],
+      "condition": null,
+      "requirement": "реквизит «Порядковый номер регистрационного удостоверения лекарственного препарата» (hcsdo:RegistrationNumberId) не заполняется",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "22",
+          "item": "1",
+          "page": 235,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.014.R2",
+      "message_code": "P.MM.01.MSG.014",
+      "field_paths": [],
+      "condition": null,
+      "requirement": "реквизит «Код этапа рассмотрения заявления на регистрацию лекарственного препарата» (hcsdo:ApplicationStatusCode) соответствует одному из значений: 01 - прием заявки; 02 - экспертиза досье; 03 - апробация методов контроля качества; 04 - инспекция производства; 05 - подготовка экспертного отчета; 06 - одобрение экспертного отчета; 07 - отказ; 08- отзыв по обращению заявителя; 99 - другое",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "22",
+          "item": "2",
+          "page": 235,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "EXTERNAL_REGISTRY_FIELD_REFERENCE"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.014.R3",
+      "message_code": "P.MM.01.MSG.014",
+      "field_paths": [
+        "ApplicationId",
+        "UnifiedCountryCode"
+      ],
+      "condition": null,
+      "requirement": "в общем реестре должны присутствовать сведения, совпадающие с передаваемыми сведениями по значениям реквизитов «Номер заявления о регистрации лекарственного препарата» (hcsdo:ApplicationId) и «Код страны» (csdo:UnifiedCountryCode), для которых значение реквизита «Код этапа рассмотрения заявления на регистрацию лекарственного препарата» (hcsdo:ApplicationStatusCode) в составе заявления с переданным номером соответствует значению «06 – одобрение экспертного отчета», а код референтного государства совпадает с переданным значением реквизита «Код страны» (csdo:UnifiedCountryCode) 34. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о записи из общего реестра» (P.MM.01.MSG.025), приведены в таблице 23.",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "22",
+          "item": "3",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    }
+  ],
+  "correlation_rules": [],
+  "classifier_refs": [],
+  "source_refs": [
+    {
+      "source_id": "SRC-PMM01-068",
+      "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+      "location": "Требования к заполнению",
+      "status": "CONFIRMED",
+      "section": "IX",
+      "table": "22",
+      "item": "all",
+      "page": null,
+      "version_context": "P.MM.01 1.1.0"
+    }
+  ]
+}

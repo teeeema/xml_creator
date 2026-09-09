@@ -1,0 +1,100 @@
+{
+  "msg_code": "P.MM.06.MSG.012",
+  "structure": "R.HC.MM.06.004",
+  "source": "32_ОП.pdf",
+  "requirements_table_status": "TABLE_FOUND",
+  "table": "16",
+  "raw_requirements": [
+    {
+      "number": "1",
+      "raw_text": "реквизит \"Номер регистрационного удостоверения\" (hcsdo:RegistrationCertificateId) не заполняется",
+      "page_start": 117,
+      "page_end": 117,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    },
+    {
+      "number": "2",
+      "raw_text": "в сведениях о регистрации медицинских изделий, хранящихся в Комиссии, должны содержаться сведения с таким же значением реквизита \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId)",
+      "page_start": 117,
+      "page_end": 117,
+      "continues_across_pages": false,
+      "visual_verification": "CONFIRMED",
+      "uncertainty_reason": null
+    }
+  ],
+  "structured_requirements": [
+    {
+      "requirement_number": "1",
+      "rule_id": "P.MM.06.MSG.012.REQ.001",
+      "source_text": "реквизит \"Номер регистрационного удостоверения\" (hcsdo:RegistrationCertificateId) не заполняется",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "16",
+        "page_start": 117,
+        "page_end": 117
+      },
+      "semantic_category": "PROHIBITED",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.004",
+          "qname": "hcsdo:RegistrationCertificateId",
+          "normative_name": "Номер регистрационного удостоверения",
+          "row_number": "3",
+          "model_element_id": "M.HC.SDE.00045",
+          "attribute": false,
+          "mapping_status": "RESOLVED"
+        }
+      ],
+      "literal_field_references": [
+        "hcsdo:RegistrationCertificateId"
+      ],
+      "condition_text": null,
+      "constraint_text": "реквизит \"Номер регистрационного удостоверения\" (hcsdo:RegistrationCertificateId) не заполняется",
+      "mapping_status": "RESOLVED",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    },
+    {
+      "requirement_number": "2",
+      "rule_id": "P.MM.06.MSG.012.REQ.002",
+      "source_text": "в сведениях о регистрации медицинских изделий, хранящихся в Комиссии, должны содержаться сведения с таким же значением реквизита \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId)",
+      "source_ref": {
+        "pdf": "32_ОП.pdf",
+        "table": "16",
+        "page_start": 117,
+        "page_end": 117
+      },
+      "semantic_category": "CONSTRAINT",
+      "secondary_categories": [],
+      "targets": [
+        {
+          "structure": "R.HC.MM.06.004",
+          "qname": "hcsdo:MedicalProductApplicationId",
+          "normative_name": "Номер заявления на регистрацию медицинского изделия",
+          "row_number": "2",
+          "model_element_id": "M.HC.SDE.00660",
+          "attribute": false,
+          "mapping_status": "RESOLVED"
+        }
+      ],
+      "literal_field_references": [
+        "hcsdo:MedicalProductApplicationId"
+      ],
+      "condition_text": null,
+      "constraint_text": "в сведениях о регистрации медицинских изделий, хранящихся в Комиссии, должны содержаться сведения с таким же значением реквизита \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId)",
+      "mapping_status": "RESOLVED",
+      "interpretation_status": "NORMATIVE_TEXT_PRESERVED",
+      "uncertainty_reason": null
+    }
+  ],
+  "raw_count": 2,
+  "structured_count": 2,
+  "mapping_summary": {
+    "RESOLVED": 2
+  },
+  "mapping_status": "RESOLVED",
+  "count_integrity": true
+}

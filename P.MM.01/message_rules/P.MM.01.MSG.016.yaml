@@ -1,0 +1,153 @@
+{
+  "message_code": "P.MM.01.MSG.016",
+  "structure_id": "R.HC.MM.01.006",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.MM.01.MSG.016.R1",
+      "message_code": "P.MM.01.MSG.016",
+      "field_paths": [
+        "CountryDrugRegistrationDetails/UnifiedCountryCode",
+        "CountryDrugRegistrationDetails/UnifiedCountryCode/@codeListId",
+        "RegistrationDossierDocDetails/DrugRegistrationDocCode/@codeListId",
+        "RegistrationDossierDocDetails/DrugRegistrationFileCode/@codeListId"
+      ],
+      "condition": null,
+      "requirement": "значение атрибута «идентификатор справочника (классификатора)» (атрибут codeListId) в составе реквизита «Код страны» (csdo:UnifiedCountryCode) должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "17",
+          "item": "1",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.016.R2",
+      "message_code": "P.MM.01.MSG.016",
+      "field_paths": [
+        "CountryDrugRegistrationDetails/UnifiedCountryCode"
+      ],
+      "condition": null,
+      "requirement": "значение реквизита «Код страны» (csdo:UnifiedCountryCode) должно соответствовать коду страны из классификатора стран мира, содержащего перечень кодов и наименований стран мира в соответствии со стандартом ISO 3166-1",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "17",
+          "item": "2",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.016.R3",
+      "message_code": "P.MM.01.MSG.016",
+      "field_paths": [
+        "ApprovalImpossibilityReasonCode"
+      ],
+      "condition": null,
+      "requirement": "реквизит «Код причины невозможности рассмотрения заявления» (hcsdo:ApprovalImpossibilityReasonCode) может содержать только следующие значения: «01» – выявлены нарушения, связанные с оплатой сбора (пошлины); «02» – выявлены нарушения при проведении проверки полноты и (или) корректности представленных документов; «03» – заявителем не представлены запрошенные документы «04» – заявителем отозваны документы «99» - другое",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "17",
+          "item": "3",
+          "page": 289,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "reason_code": "PDF_EXTRACTION_AMBIGUITY_RESOLVED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.016.R4",
+      "message_code": "P.MM.01.MSG.016",
+      "field_paths": [
+        "CountryDrugRegistrationDetails/CountryKindCode"
+      ],
+      "condition": null,
+      "requirement": "значение реквизита «Код роли государства-члена» (hcsdo:CountryKindCode) должно соответствовать значению «государство признания»",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "17",
+          "item": "4",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.016.R5",
+      "message_code": "P.MM.01.MSG.016",
+      "field_paths": [
+        "ApplicationId"
+      ],
+      "condition": null,
+      "requirement": "реквизит «Номер заявления о регистрации лекарственного препарата» (hcsdo:ApplicationId) заполняется обязательно 29. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос сведений из регистрационного дела или регистрационного досье» (P.MM.01.MSG.019), приведены в таблице 18.",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "17",
+          "item": "5",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    }
+  ],
+  "correlation_rules": [],
+  "classifier_refs": [
+    "EXTERNAL_REFERENCE_IN_RULE"
+  ],
+  "source_refs": [
+    {
+      "source_id": "SRC-PMM01-068",
+      "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+      "location": "Требования к заполнению",
+      "status": "CONFIRMED",
+      "section": "IX",
+      "table": "17",
+      "item": "all",
+      "page": null,
+      "version_context": "P.MM.01 1.1.0"
+    }
+  ]
+}

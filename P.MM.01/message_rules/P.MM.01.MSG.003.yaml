@@ -1,0 +1,315 @@
+{
+  "message_code": "P.MM.01.MSG.003",
+  "structure_id": "R.HC.MM.01.001",
+  "fixed_values": {},
+  "field_usage": {
+    "DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails/StartDateTime": "REQUIRED",
+    "DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails/EndDateTime": "REQUIRED"
+  },
+  "business_rules": [
+    {
+      "rule_id": "P.MM.01.MSG.003.R1",
+      "message_code": "P.MM.01.MSG.003",
+      "field_paths": [
+        "DrugRegistrationDetails"
+      ],
+      "condition": null,
+      "requirement": "в электронном сообщении должен передаваться 1 экземпляр реквизита «Сведения о регистрации лекарственного препарата» (hccdo:DrugRegistrationDetails)",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "20",
+          "item": "1",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.003.R2",
+      "message_code": "P.MM.01.MSG.003",
+      "field_paths": [
+        "DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails/StartDateTime"
+      ],
+      "condition": null,
+      "requirement": "реквизит «Начальная дата и время» (csdo:StartDateTime) должен быть заполнен",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "20",
+          "item": "2",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.003.R3",
+      "message_code": "P.MM.01.MSG.003",
+      "field_paths": [
+        "DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails/EndDateTime"
+      ],
+      "condition": null,
+      "requirement": "реквизит «Конечная дата и время» (csdo:EndDateTime) должен быть заполнен Код требования Формулировка требования",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "20",
+          "item": "3",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.003.R4",
+      "message_code": "P.MM.01.MSG.003",
+      "field_paths": [
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugApplicationDetails/ApplicationStatusDetails/ApplicationStatusCode"
+      ],
+      "condition": null,
+      "requirement": "реквизит «Код этапа рассмотрения заявления на регистрацию лекарственного препарата» (hcsdo:ApplicationStatusCode) соответствует одному из значений: 01 - прием заявки; 02 - экспертиза досье; 03 - апробация методов контроля качества; 04 - инспекция производства; 05 - подготовка экспертного отчета; 06 - одобрение экспертного отчета; 07 - отказ; 08- отзыв по обращению заявителя; 99 - другое",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "20",
+          "item": "4",
+          "page": 232,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.003.R5",
+      "message_code": "P.MM.01.MSG.003",
+      "field_paths": [
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugApplicationDetails/ApplicationStatusDetails/ApplicationStatusCode"
+      ],
+      "condition": null,
+      "requirement": "значение реквизита «Код этапа рассмотрения заявления на регистрацию лекарственного препарата» (hcsdo:ApplicationStatusCode) должно соответствовать значению «07 – отказ» или значению «08- отзыв по обращению заявителя»",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "20",
+          "item": "5",
+          "page": 232,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.003.R6",
+      "message_code": "P.MM.01.MSG.003",
+      "field_paths": [
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/CountryKindCode"
+      ],
+      "condition": null,
+      "requirement": "значение реквизита «Код роли государства-члена» (hcsdo:CountryKindCode) должно соответствовать значению «01 – референтное государство»",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "20",
+          "item": "6",
+          "page": 232,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.003.R7",
+      "message_code": "P.MM.01.MSG.003",
+      "field_paths": [
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugApplicationDetails/ApplicationId",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ControlListDetails/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/OrphanDrugV2Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/UnifiedCountryCode",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails/EndDateTime",
+        "DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails/StartDateTime"
+      ],
+      "condition": null,
+      "requirement": "в общем реестре должны присутствовать сведения, совпадающие с исключаемыми сведениями по значениям реквизитов «Номер заявления о регистрации лекарственного препарата» (hcsdo:ApplicationId), «Код страны» (csdo:UnifiedCountryCode), незаполненным реквизитом «Конечная дата и время» (csdo:EndDateTime), а также меньшим значением реквизита «Начальная дата и время» (csdo:StartDateTime), чем в исключаемых сведениях",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "20",
+          "item": "7",
+          "page": 232,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.003.R8",
+      "message_code": "P.MM.01.MSG.003",
+      "field_paths": [
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ControlListDetails/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/OrphanDrugV2Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/UnifiedCountryCode",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode/@codeListId",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/ChangeTypeCode/@codeListId",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/DossierSectionCode/@codeListId",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugApplicationChangeDetails/ChangeTypeCode/@codeListId",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugApplicationChangeDetails/DossierSectionCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/DrugNameDetails/DrugCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/DosageFormDetails/DosageFormCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DosageFormCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugDosageUnitDetails/DosageUnitMeasure/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/ActiveSubstanceDetails/ActiveSubstanceCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/AuxiliarySubstanceCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/FunctionalPurposeCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/SubstanceMeasure/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugPackageKindCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/RegisteredDrugComponentDetails/ComponentCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/DrugSecondaryPackageKindCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/UnifiedCountryCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/BusinessEntityTypeCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/UnifiedCountryCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/UnifiedCountryCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/BusinessEntityTypeCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/UnifiedCountryCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/ManufactureStageDetails/ManufacturingStageCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/ATCCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/ControlListDetails/UnifiedCountryCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/OrphanDrugV2Details/UnifiedCountryCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/DrugNameDetails/DrugCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/UnifiedCountryCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/BusinessEntityTypeCode/@codeListId",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/UnifiedCountryCode/@codeListId",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/UnifiedCountryCode/@codeListId",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/BusinessEntityTypeCode/@codeListId",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/UnifiedCountryCode/@codeListId",
+        "DrugRegistrationDetails/RegistrationDossierDocDetails/DrugRegistrationDocCode/@codeListId",
+        "DrugRegistrationDetails/RegistrationDossierDocDetails/DrugRegistrationFileCode/@codeListId"
+      ],
+      "condition": null,
+      "requirement": "значение атрибута «идентификатор справочника (классификатора)» (атрибут codeListId) в составе сложного реквизита «Код страны» (csdo:UnifiedCountryCode), входящего в состав любых сложных реквизитов должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "20",
+          "item": "8",
+          "page": 232,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.003.R9",
+      "message_code": "P.MM.01.MSG.003",
+      "field_paths": [
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ControlListDetails/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/OrphanDrugV2Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/UnifiedCountryCode",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/UnifiedCountryCode",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/UnifiedCountryCode"
+      ],
+      "condition": "если реквизит «Код страны» (csdo:UnifiedCountryCode) в составе любых сложных реквизитов заполнен, то его значение должно соответствовать коду страны из классификатора стран мира, содержащего перечень кодов и наименований стран мира в соответствии со стандартом ISO 3166-1 32. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Сведения о подлежащем размещению в едином реестре документе» (P.MM.01.MSG.028), приведены в таблице 21.",
+      "requirement": "если реквизит «Код страны» (csdo:UnifiedCountryCode) в составе любых сложных реквизитов заполнен, то его значение должно соответствовать коду страны из классификатора стран мира, содержащего перечень кодов и наименований стран мира в соответствии со стандартом ISO 3166-1 32. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Сведения о подлежащем размещению в едином реестре документе» (P.MM.01.MSG.028), приведены в таблице 21.",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "20",
+          "item": "9",
+          "page": 232,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    }
+  ],
+  "correlation_rules": [],
+  "classifier_refs": [
+    "EXTERNAL_REFERENCE_IN_RULE"
+  ],
+  "source_refs": [
+    {
+      "source_id": "SRC-PMM01-068",
+      "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+      "location": "Требования к заполнению",
+      "status": "CONFIRMED",
+      "section": "IX",
+      "table": "20",
+      "item": "all",
+      "page": null,
+      "version_context": "P.MM.01 1.1.0"
+    }
+  ]
+}

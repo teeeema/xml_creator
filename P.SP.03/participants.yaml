@@ -1,0 +1,99 @@
+{
+  "participants": [
+    {
+      "participant_code": "P.ACT.001",
+      "name": "Комиссия",
+      "logical_address_space": "CP",
+      "segment_policy": "FIXED",
+      "fixed_segment": "EEC",
+      "source_refs": [
+        {
+          "source_id": "23OP-ACT-P-ACT-001",
+          "document": "ОП_23.pdf",
+          "location": "IV. Основные сведения, таблица 1",
+          "status": "CONFIRMED",
+          "page": 7,
+          "item": "P.ACT.001",
+          "version_context": "P.SP.03 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "participant_code": "P.SP.03.ACT.001",
+      "name": "ведомство подачи",
+      "logical_address_space": "CP",
+      "segment_policy": "MEMBER_STATE_ISO_ALPHA2",
+      "test_segment": "RU",
+      "source_refs": [
+        {
+          "source_id": "23OP-ACT-P-SP-03-ACT-001",
+          "document": "ОП_23.pdf",
+          "location": "IV. Основные сведения, таблица 1",
+          "status": "CONFIRMED",
+          "page": 8,
+          "item": "P.SP.03.ACT.001",
+          "version_context": "P.SP.03 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "participant_code": "P.SP.03.ACT.002",
+      "name": "национальное патентное ведомство",
+      "logical_address_space": "CP",
+      "segment_policy": "MEMBER_STATE_ISO_ALPHA2",
+      "test_segment": "RU",
+      "source_refs": [
+        {
+          "source_id": "23OP-ACT-P-SP-03-ACT-002",
+          "document": "ОП_23.pdf",
+          "location": "IV. Основные сведения, таблица 1",
+          "status": "CONFIRMED",
+          "page": 10,
+          "item": "P.SP.03.ACT.002",
+          "version_context": "P.SP.03 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "participant_code": "P.SP.03.ACT.003",
+      "name": "лицо, заинтересованное в получении сведений",
+      "logical_address_space": "CP",
+      "segment_policy": "MEMBER_STATE_ISO_ALPHA2",
+      "test_segment": "RU",
+      "source_refs": [
+        {
+          "source_id": "23OP-ACT-P-SP-03-ACT-003",
+          "document": "ОП_23.pdf",
+          "location": "IV. Основные сведения, таблица 1",
+          "status": "CONFIRMED",
+          "page": 11,
+          "item": "P.SP.03.ACT.003",
+          "version_context": "P.SP.03 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "participant_code": "P.SP.03.ACT.004",
+      "name": "заявитель",
+      "logical_address_space": "CP",
+      "segment_policy": "MEMBER_STATE_ISO_ALPHA2",
+      "test_segment": "RU",
+      "source_refs": [
+        {
+          "source_id": "23OP-ACT-P-SP-03-ACT-004",
+          "document": "ОП_23.pdf",
+          "location": "IV. Основные сведения, таблица 1",
+          "status": "CONFIRMED",
+          "page": 11,
+          "item": "P.SP.03.ACT.004",
+          "version_context": "P.SP.03 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    }
+  ]
+}

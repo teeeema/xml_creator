@@ -1,0 +1,843 @@
+{
+  "transactions": [
+    {
+      "transaction_code": "P.MM.01.TRN.001",
+      "name": "Передача сведений о регистрации лекарственного препарата для включения в общий реестр",
+      "procedure_code": "P.MM.01.PRC.001",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.001",
+      "responding_operation": "P.MM.01.OPR.002",
+      "initiating_message": "P.MM.01.MSG.001",
+      "response_messages": [
+        "P.MM.01.MSG.013",
+        "P.MM.01.MSG.004"
+      ],
+      "timeouts": {
+        "receive_confirmation": null,
+        "processing_confirmation": "PT1M",
+        "response": "PT5M"
+      },
+      "retry_count": 2,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 180,
+          "table": "6",
+          "item": "TRN.001"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.001",
+      "responding_participant": "P.ACT.001"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.002",
+      "name": "Передача сведений о регистрации лекарственного препарата для изменения в общем реестре",
+      "procedure_code": "P.MM.01.PRC.002",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.004",
+      "responding_operation": "P.MM.01.OPR.005",
+      "initiating_message": "P.MM.01.MSG.002",
+      "response_messages": [
+        "P.MM.01.MSG.004"
+      ],
+      "timeouts": {
+        "receive_confirmation": null,
+        "processing_confirmation": "PT20M",
+        "response": "PT4H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 183,
+          "table": "7",
+          "item": "TRN.002"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.001",
+      "responding_participant": "P.ACT.001"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.003",
+      "name": "Передача сведений о регистрации лекарственного препарата для исключения из общего реестра",
+      "procedure_code": "P.MM.01.PRC.003",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.009",
+      "responding_operation": "P.MM.01.OPR.010",
+      "initiating_message": "P.MM.01.MSG.003",
+      "response_messages": [
+        "P.MM.01.MSG.004"
+      ],
+      "timeouts": {
+        "receive_confirmation": null,
+        "processing_confirmation": "PT20M",
+        "response": "PT4H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 185,
+          "table": "8",
+          "item": "TRN.003"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.001",
+      "responding_participant": "P.ACT.001"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.004",
+      "name": "Получение информации о дате и времени обновления общего реестра",
+      "procedure_code": "P.MM.01.PRC.007",
+      "pattern": "QUESTION_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.020",
+      "responding_operation": "P.MM.01.OPR.021",
+      "initiating_message": "P.MM.01.MSG.005",
+      "response_messages": [
+        "P.MM.01.MSG.006"
+      ],
+      "timeouts": {
+        "receive_confirmation": null,
+        "processing_confirmation": null,
+        "response": "PT4H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 188,
+          "table": "10",
+          "item": "TRN.004"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.001",
+      "responding_participant": "P.ACT.001"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.005",
+      "name": "Получение сведений из общего реестра",
+      "procedure_code": "P.MM.01.PRC.008",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.023",
+      "responding_operation": "P.MM.01.OPR.024",
+      "initiating_message": "P.MM.01.MSG.007",
+      "response_messages": [
+        "P.MM.01.MSG.009",
+        "P.MM.01.MSG.008"
+      ],
+      "timeouts": {
+        "receive_confirmation": null,
+        "processing_confirmation": "PT20M",
+        "response": "PT4H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 190,
+          "table": "11",
+          "item": "TRN.005"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.001",
+      "responding_participant": "P.ACT.001"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.006",
+      "name": "Получение измененных сведений из общего реестра",
+      "procedure_code": "P.MM.01.PRC.009",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.026",
+      "responding_operation": "P.MM.01.OPR.027",
+      "initiating_message": "P.MM.01.MSG.010",
+      "response_messages": [
+        "P.MM.01.MSG.009",
+        "P.MM.01.MSG.011"
+      ],
+      "timeouts": {
+        "receive_confirmation": null,
+        "processing_confirmation": "PT20M",
+        "response": "PT4H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 192,
+          "table": "12",
+          "item": "TRN.006"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.001",
+      "responding_participant": "P.ACT.001"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.007",
+      "name": "Получение номера регистрационного удостоверения лекарственного препарата",
+      "procedure_code": "P.MM.01.PRC.010",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.029",
+      "responding_operation": "P.MM.01.OPR.030",
+      "initiating_message": "P.MM.01.MSG.014",
+      "response_messages": [
+        "P.MM.01.MSG.015"
+      ],
+      "timeouts": {
+        "receive_confirmation": null,
+        "processing_confirmation": "PT1M",
+        "response": "PT5M"
+      },
+      "retry_count": 2,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 194,
+          "table": "13",
+          "item": "TRN.007"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.001",
+      "responding_participant": "P.ACT.001"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.008",
+      "name": "Получение Комиссией сведений из регистрационного дела или регистрационного досье",
+      "procedure_code": "P.MM.01.PRC.011",
+      "pattern": "MUTUAL_OBLIGATIONS",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.032",
+      "responding_operation": "P.MM.01.OPR.033",
+      "initiating_message": "P.MM.01.MSG.019",
+      "response_messages": [
+        "P.MM.01.MSG.020",
+        "P.MM.01.MSG.018"
+      ],
+      "timeouts": {
+        "receive_confirmation": null,
+        "processing_confirmation": "PT1M",
+        "response": "PT5M"
+      },
+      "retry_count": 2,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 197,
+          "table": "16",
+          "item": "TRN.008"
+        }
+      ],
+      "initiating_participant": "P.ACT.001",
+      "responding_participant": "P.MM.01.ACT.001"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.009",
+      "name": "Получение сведений о заявлении на проведение процедур регистрации лекарственного препарата",
+      "procedure_code": "P.MM.01.PRC.004",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.012",
+      "responding_operation": "P.MM.01.OPR.013",
+      "initiating_message": "P.MM.01.MSG.012",
+      "response_messages": [
+        "P.MM.01.MSG.004"
+      ],
+      "timeouts": {
+        "receive_confirmation": "PT20M",
+        "processing_confirmation": null,
+        "response": "PT4H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 267,
+          "table": "7",
+          "item": "TRN.009"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.002",
+      "responding_participant": "P.MM.01.ACT.003"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.010",
+      "name": "Уведомление о невозможности рассмотрения заявления на проведение процедур регистрации лекарственного препарата",
+      "procedure_code": "P.MM.01.PRC.005",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.015",
+      "responding_operation": "P.MM.01.OPR.016",
+      "initiating_message": "P.MM.01.MSG.016",
+      "response_messages": [
+        "P.MM.01.MSG.004"
+      ],
+      "timeouts": {
+        "receive_confirmation": "PT20M",
+        "processing_confirmation": null,
+        "response": "PT4H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 270,
+          "table": "8",
+          "item": "TRN.010"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.003",
+      "responding_participant": "P.MM.01.ACT.002"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.011",
+      "name": "Уведомление об изменении сведений о регистрации лекарственного препарата",
+      "procedure_code": "P.MM.01.PRC.006",
+      "pattern": "NOTIFICATION",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.018",
+      "responding_operation": "P.MM.01.OPR.019",
+      "initiating_message": "P.MM.01.MSG.017",
+      "response_messages": [],
+      "timeouts": {
+        "receive_confirmation": "PT24H",
+        "processing_confirmation": null,
+        "response": null
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 272,
+          "table": "9",
+          "item": "TRN.011"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.002",
+      "responding_participant": "P.MM.01.ACT.003"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.012",
+      "name": "Получение сведений из регистрационного дела или регистрационного досье",
+      "procedure_code": "P.MM.01.PRC.012",
+      "pattern": "MUTUAL_OBLIGATIONS",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.035",
+      "responding_operation": "P.MM.01.OPR.036",
+      "initiating_message": "P.MM.01.MSG.019",
+      "response_messages": [
+        "P.MM.01.MSG.020",
+        "P.MM.01.MSG.018"
+      ],
+      "timeouts": {
+        "receive_confirmation": null,
+        "processing_confirmation": "PT1M",
+        "response": "PT5M"
+      },
+      "retry_count": 1,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 274,
+          "table": "10",
+          "item": "TRN.012"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.003",
+      "responding_participant": "P.MM.01.ACT.002"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.013",
+      "name": "Направление уведомления об отмене или аннулировании регистрационного удостоверения лекарственного препарата",
+      "procedure_code": "P.MM.01.PRC.013",
+      "pattern": "NOTIFICATION",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.038",
+      "responding_operation": "P.MM.01.OPR.039",
+      "initiating_message": "P.MM.01.MSG.022",
+      "response_messages": [],
+      "timeouts": {
+        "receive_confirmation": "PT24H",
+        "processing_confirmation": null,
+        "response": null
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 277,
+          "table": "11",
+          "item": "TRN.013"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.004",
+      "responding_participant": "P.MM.01.ACT.005"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.014",
+      "name": "Получение экспертного отчета",
+      "procedure_code": "P.MM.01.PRC.014",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.040",
+      "responding_operation": "P.MM.01.OPR.041",
+      "initiating_message": "P.MM.01.MSG.021",
+      "response_messages": [
+        "P.MM.01.MSG.004"
+      ],
+      "timeouts": {
+        "receive_confirmation": "PT20M",
+        "processing_confirmation": null,
+        "response": "PT4H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 279,
+          "table": "12",
+          "item": "TRN.014"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.002",
+      "responding_participant": "P.MM.01.ACT.003"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.015",
+      "name": "Получение сведений о замечаниях в отношении документов регистрационного дела или регистрационного досье",
+      "procedure_code": "P.MM.01.PRC.015",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.043",
+      "responding_operation": "P.MM.01.OPR.044",
+      "initiating_message": "P.MM.01.MSG.024",
+      "response_messages": [
+        "P.MM.01.MSG.004"
+      ],
+      "timeouts": {
+        "receive_confirmation": null,
+        "processing_confirmation": "PT20M",
+        "response": "PT4H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 281,
+          "table": "13",
+          "item": "TRN.015"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.003",
+      "responding_participant": "P.MM.01.ACT.002"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.016",
+      "name": "Получение сведений решения о признании (непризнании) экспертного отчета",
+      "procedure_code": "P.MM.01.PRC.016",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.046",
+      "responding_operation": "P.MM.01.OPR.047",
+      "initiating_message": "P.MM.01.MSG.023",
+      "response_messages": [
+        "P.MM.01.MSG.004"
+      ],
+      "timeouts": {
+        "receive_confirmation": "PT20M",
+        "processing_confirmation": null,
+        "response": "PT4H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 284,
+          "table": "14",
+          "item": "TRN.016"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.003",
+      "responding_participant": "P.MM.01.ACT.002"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.017",
+      "name": "Получение сведений о записи из общего реестра",
+      "procedure_code": "P.MM.01.PRC.017",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.049",
+      "responding_operation": "P.MM.01.OPR.050",
+      "initiating_message": "P.MM.01.MSG.025",
+      "response_messages": [
+        "P.MM.01.MSG.009",
+        "P.MM.01.MSG.026"
+      ],
+      "timeouts": {
+        "receive_confirmation": null,
+        "processing_confirmation": "PT20M",
+        "response": "PT1H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 199,
+          "table": "14",
+          "item": "TRN.017"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.001",
+      "responding_participant": "P.ACT.001"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.018",
+      "name": "Получение сведений о размещенном в едином реестре документе",
+      "procedure_code": "P.MM.01.PRC.018",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.052",
+      "responding_operation": "P.MM.01.OPR.053",
+      "initiating_message": "P.MM.01.MSG.027",
+      "response_messages": [
+        "P.MM.01.MSG.009",
+        "P.MM.01.MSG.028"
+      ],
+      "timeouts": {
+        "receive_confirmation": null,
+        "processing_confirmation": "PT20M",
+        "response": "PT1H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 201,
+          "table": "15",
+          "item": "TRN.018"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.001",
+      "responding_participant": "P.ACT.001"
+    },
+    {
+      "transaction_code": "P.MM.01.TRN.019",
+      "name": "Направление сведений о подлежащем размещению в едином реестре документе",
+      "procedure_code": "P.MM.01.PRC.019",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.MM.01.OPR.055",
+      "responding_operation": "P.MM.01.OPR.056",
+      "initiating_message": "P.MM.01.MSG.028",
+      "response_messages": [
+        "P.MM.01.MSG.004"
+      ],
+      "timeouts": {
+        "receive_confirmation": null,
+        "processing_confirmation": "PT20M",
+        "response": "PT1H"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "conditional_exception": "ЭЦП применяется, если это предусмотрено соответствующим решением Коллегии Комиссии"
+      },
+      "guaranteed_delivery": null,
+      "status": "CONFIRMED",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+          "location": "Регламент информационного взаимодействия, описание транзакции",
+          "status": "CONFIRMED",
+          "section": "Регламент информационного взаимодействия, описание транзакции",
+          "version_context": "редакция P.MM.01 1.1.0",
+          "page": 204,
+          "table": "9",
+          "item": "TRN.019"
+        }
+      ],
+      "initiating_participant": "P.MM.01.ACT.001",
+      "responding_participant": "P.ACT.001"
+    }
+  ]
+}

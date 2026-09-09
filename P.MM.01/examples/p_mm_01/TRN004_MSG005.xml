@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope
+    xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:wsa="http://www.w3.org/2005/08/addressing"
+    xmlns:int="urn:EEC:Interaction:v1.0"
+
+    xmlns="urn:EEC:R:ResourceStatusDetails:vY.Y.Y"
+    xmlns:ccdo="urn:EEC:M:ComplexDataObjects:vX.X.X"
+    xmlns:csdo="urn:EEC:M:SimpleDataObjects:vX.X.X">
+    <!--
+      Y.Y.Y — версия структуры электронного документа R.007.
+      Определяется с учетом версии базисной модели данных,
+      использованной при разработке технической схемы структуры.
+
+      X.X.X — версия базисной модели данных,
+      использованной для импортируемых пространств имен ccdo, csdo.
+
+      Значения определяются в соответствии с п. 2 Решения
+      Коллегии ЕЭК от 25.10.2016 № 122.
+    -->
+    <soap:Header>
+        <wsa:To>EAEU://EEC/CP/P.MM.01/P.ACT.001</wsa:To>
+        <wsa:ReplyTo>
+            <wsa:Address>EAEU://RU/CP/P.MM.01/P.MM.01.ACT.001</wsa:Address>
+        </wsa:ReplyTo>
+        <wsa:MessageID>urn:uuid:00000000-0000-0000-0000-000000000192</wsa:MessageID>
+        <wsa:Action>int://CP/P.MM.01/1.1.0/P.MM.01.PRC.007/P.MM.01.TRN.004/P.MM.01.MSG.005</wsa:Action>
+        <int:ProcedureID>urn:uuid:00000000-0000-0000-0000-000000000190</int:ProcedureID>
+        <int:ConversationID>urn:uuid:00000000-0000-0000-0000-000000000191</int:ConversationID>
+    </soap:Header>
+    <soap:Body>
+        <ResourceStatusDetails>
+            <ccdo:EDocHeader>
+                <csdo:InfEnvelopeCode>P.MM.01.MSG.005</csdo:InfEnvelopeCode>
+                <csdo:EDocCode>R.007</csdo:EDocCode>
+                <csdo:EDocId>00000000-0000-0000-0000-000000000005</csdo:EDocId>
+                <csdo:EDocDateTime>2026-08-24T00:00:00</csdo:EDocDateTime>
+            </ccdo:EDocHeader>
+        </ResourceStatusDetails>
+    </soap:Body>
+</soap:Envelope>

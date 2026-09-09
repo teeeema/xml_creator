@@ -1,0 +1,50 @@
+{
+  "ui_input_policies": [
+    {
+      "message_codes": ["P.MM.01.MSG.005"],
+      "field_path": "UpdateDateTime",
+      "ui_input_policy": "HIDDEN",
+      "policy_origin": "MANUAL_OVERRIDE",
+      "reason": "MSG.005 является запросом даты обновления; реквизит ответа UpdateDateTime не должен предлагаться в форме запроса.",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-UI-PROJECT",
+          "document": "EAEU XML Creator project UX policy",
+          "location": "MSG.005 request form / UpdateDateTime presentation correction",
+          "status": "PROJECT_UI_POLICY"
+        }
+      ]
+    },
+    {
+      "message_codes": ["*"],
+      "field_path": "EDocHeader/EDocId",
+      "ui_input_policy": "USER_INPUT",
+      "policy_origin": "MANUAL_OVERRIDE",
+      "reason": "Программа предлагает UUID через IdentifierService, но пользователь может указать подтверждённый идентификатор вручную.",
+      "capabilities": ["GENERATE_IDENTIFIER"],
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-UI-PROJECT",
+          "document": "EAEU XML Creator project UX policy",
+          "location": "Editable assisted identifier presentation",
+          "status": "PROJECT_UI_POLICY"
+        }
+      ]
+    },
+    {
+      "message_codes": ["*"],
+      "field_path": "EDocHeader/EDocDateTime",
+      "ui_input_policy": "USER_INPUT",
+      "policy_origin": "MANUAL_OVERRIDE",
+      "reason": "Текущая нормативная policy не подтверждает автоматическое текущее время; в UI значение вводится пользователем, а TestDataGenerator предоставляет только тестовый пример.",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-UI-PROJECT",
+          "document": "EAEU XML Creator project UX policy",
+          "location": "EDocHeader/EDocDateTime presentation decision",
+          "status": "PROJECT_UI_POLICY"
+        }
+      ]
+    }
+  ]
+}

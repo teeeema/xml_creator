@@ -1,0 +1,157 @@
+{
+  "message_code": "P.SP.03.MSG.021",
+  "structure_id": "R.IP.SP.03.003",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.03.MSG.021.REQ.001",
+      "requirement_code": "1",
+      "source_text": "в составе реквизита «Национальное патентное ведомство» (ipcdo:PatentAuthorityDetails) должен быть заполнены реквизиты «Код страны» (csdo:UnifiedCountryCode) и «Наименование уполномоченного органа» (csdo:AuthorityName)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-1",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+          "status": "CONFIRMED",
+          "page": 281,
+          "table": "25",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.021.REQ.002",
+      "requirement_code": "2",
+      "source_text": "значение реквизита «Признак ведомства подачи» (ipsdo:OriginOfficeIndicator) в составе реквизита «Национальное патентное ведомство» (ipcdo:PatentAuthorityDetails)должно соответствовать значению «1» – ведомство подачи",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-2",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+          "status": "CONFIRMED",
+          "page": 282,
+          "table": "25",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "2"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.021.REQ.003",
+      "requirement_code": "3",
+      "source_text": "в составе реквизита «Национальное патентное ведомство» (ipcdo:PatentAuthorityDetails) должен быть заполнен реквизит «Адрес» (ccdo:SubjectAddressDetails), в составе которого значение реквизита «Код вида адреса» (csdo:AddressKindCode) должно соответствовать значению «2» – «фактический адрес (адрес места нахождения или места жительства)»",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-3",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+          "status": "CONFIRMED",
+          "page": 282,
+          "table": "25",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "3"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.021.REQ.004",
+      "requirement_code": "4",
+      "source_text": "при включении справочника видов юридически значимых действий при регистрации, правовой охране и использовании товарных знаков Союза, знаков обслуживания Союза и НМПТ Союза в состав ресурсов единой системы нормативно-справочной информации Союза, реквизит «Код вида юридически значимого действия» (ipsdo:IPLegalActionKindCode) должен быть заполнен и должен соответствовать значению «Регистрация и (или) выдача свидетельства о праве использования НМПТ Союза», а реквизит «Наименование вида юридически значимого действия» (ipsdo:IPLegalActionKindName) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-4",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+          "status": "CONFIRMED",
+          "page": 282,
+          "table": "25",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "4"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.021.REQ.005",
+      "requirement_code": "5",
+      "source_text": "при отсутствии справочника видов юридически значимых действий при регистрации, правовой охране и использовании товарных знаков Союза, знаков обслуживания Союза и НМПТ Союза в составе ресурсов единой системы нормативно-справочной информации Союза, реквизит «Код вида юридически значимого действия» (ipsdo:IPLegalActionKindCode) не заполняется, а реквизит «Наименование вида юридически значимого действия» (ipsdo:IPLegalActionKindName) должен быть заполнен и должен соответствовать значению «Регистрация и (или) выдача свидетельства о праве использования НМПТ Союза»",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-5",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+          "status": "CONFIRMED",
+          "page": 282,
+          "table": "25",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "5"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.021.REQ.006",
+      "requirement_code": "6",
+      "source_text": "реквизит «Регистрационный номер заявки на НМПТ Союза» (ipsdo:ApellationOfOriginApplicationId) должен быть заполнен",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-6",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+          "status": "CONFIRMED",
+          "page": 282,
+          "table": "25",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "6"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.021.REQ.007",
+      "requirement_code": "7",
+      "source_text": "реквизиты «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId), «Номер документа» (csdo:DocId), «Сведения о пошлине за осуществление юридически значимых действий» (ipcdo:IPPaymentDetails), «Признак подтверждения уплаты пошлины» (ipsdo:DutyPaymentIndicator), «Сумма платежа» (csdo:PaymentAmount) не заполняются",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-7",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+          "status": "CONFIRMED",
+          "page": 282,
+          "table": "25",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "7"
+        }
+      ]
+    }
+  ],
+  "structured_rules": [],
+  "correlation_rules": [],
+  "classifier_refs": [],
+  "source_text": null,
+  "normalized_field_reference": null,
+  "source_refs": [
+    {
+      "source_id": "23OP-RULE-P.SP.03.MSG.021",
+      "document": "ОП_23.pdf",
+      "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+      "status": "CONFIRMED",
+      "page": 281,
+      "table": "25",
+      "version_context": "P.SP.03 1.0.0"
+    }
+  ]
+}

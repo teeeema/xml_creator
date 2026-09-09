@@ -1,0 +1,233 @@
+{
+  "message_code": "P.MM.01.MSG.027",
+  "structure_id": "R.HC.MM.01.003",
+  "fixed_values": {},
+  "field_usage": {
+    "RegistrationNumberId": "REQUIRED",
+    "RegistrationDossierDocDetails": "REQUIRED"
+  },
+  "business_rules": [
+    {
+      "rule_id": "P.MM.01.MSG.027.R1",
+      "message_code": "P.MM.01.MSG.027",
+      "field_paths": [
+        "RegistrationNumberId"
+      ],
+      "condition": null,
+      "requirement": "должен быть заполнен реквизит «Порядковый номер регистрационного удостоверения лекарственного препарата» (hcsdo:RegistrationNumberId)",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "24",
+          "item": "1",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.027.R2",
+      "message_code": "P.MM.01.MSG.027",
+      "field_paths": [
+        "RegistrationDossierDocDetails"
+      ],
+      "condition": null,
+      "requirement": "должен быть заполнен только один экземпляр реквизита «Сведения о документе регистрационного досье (дела)» (hccdo:RegistrationDossierDocDetails)",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "24",
+          "item": "2",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.027.R3",
+      "message_code": "P.MM.01.MSG.027",
+      "field_paths": [
+        "RegistrationDossierDocDetails",
+        "RegistrationDossierDocDetails/RegistrationFileIndicator",
+        "RegistrationDossierDocDetails/DocCreationDate",
+        "RegistrationDossierDocDetails/DrugRegistrationDocCode",
+        "RegistrationDossierDocDetails/DrugRegistrationFileCode"
+      ],
+      "condition": null,
+      "requirement": "в составе сложного реквизита «Сведения о документе регистрационного досье (дела)» (hccdo:RegistrationDossierDocDetails) должны быть заполнены реквизиты «Признак принадлежности документа к регистрационному досье» (hcsdo:RegistrationFileIndicator), «Дата документа» (csdo:DocCreationDate), а также только один из реквизитов «Код вида документа регистрационного досье на лекарственный препарат» (hcsdo:DrugRegistrationDocCode) или «Код вида документа регистрационного дела на лекарственный препарат (hcsdo:Drug RegistrationFileCode)»",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "24",
+          "item": "3",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.027.R4",
+      "message_code": "P.MM.01.MSG.027",
+      "field_paths": [
+        "RegistrationDossierDocDetails/RegistrationFileIndicator",
+        "RegistrationDossierDocDetails/DrugRegistrationFileCode",
+        "RegistrationDossierDocDetails/DrugRegistrationDocCode"
+      ],
+      "condition": "если значение реквизита «Признак принадлежности документа к регистрационному досье» (hcsdo:RegistrationFileIndicator) соответствует значению 0, должен быть заполнен реквизит «Код вида документа регистрационного дела на лекарственный препарат» (hcsdo:Drug RegistrationFileCode)», заполнение реквизита «Код вида документа регистрационного досье на лекарственный препарат» (hcsdo:Drug RegistrationDocCode) не допускается",
+      "requirement": "если значение реквизита «Признак принадлежности документа к регистрационному досье» (hcsdo:RegistrationFileIndicator) соответствует значению 0, должен быть заполнен реквизит «Код вида документа регистрационного дела на лекарственный препарат» (hcsdo:Drug RegistrationFileCode)», заполнение реквизита «Код вида документа регистрационного досье на лекарственный препарат» (hcsdo:Drug RegistrationDocCode) не допускается",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "24",
+          "item": "4",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.027.R5",
+      "message_code": "P.MM.01.MSG.027",
+      "field_paths": [
+        "RegistrationDossierDocDetails/RegistrationFileIndicator",
+        "RegistrationDossierDocDetails/DrugRegistrationDocCode",
+        "RegistrationDossierDocDetails/DrugRegistrationFileCode"
+      ],
+      "condition": "если значение реквизита «Признак принадлежности документа к регистрационному досье» (hcsdo:RegistrationFileIndicator) соответствует значению 1, должен быть заполнен реквизит «Код вида документа регистрационного досье на лекарственный препарат» (hcsdo:Drug RegistrationDocCode), заполнение реквизита «Код вида документа регистрационного дела на лекарственный препарат» (hcsdo:Drug RegistrationFileCode)» не допускается",
+      "requirement": "если значение реквизита «Признак принадлежности документа к регистрационному досье» (hcsdo:RegistrationFileIndicator) соответствует значению 1, должен быть заполнен реквизит «Код вида документа регистрационного досье на лекарственный препарат» (hcsdo:Drug RegistrationDocCode), заполнение реквизита «Код вида документа регистрационного дела на лекарственный препарат» (hcsdo:Drug RegistrationFileCode)» не допускается",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "24",
+          "item": "5",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.027.R6",
+      "message_code": "P.MM.01.MSG.027",
+      "field_paths": [
+        "RegistrationDossierDocDetails/DrugRegistrationDocCode"
+      ],
+      "condition": "если реквизит «Код вида документа регистрационного досье на лекарственный препарат» (hcsdo:DrugRegistrationDocCode) заполнен, то соответствует одному из значений: 02002 - инструкция по медицинскому применению лекарственного препарата; Код требования Формулировка требования 02010 - общая характеристика лекарственного препарата, утвержденная уполномоченным органом страны-производителя или страны – держателя регистрационного удостоверения; 02005 - макет первичной (внутренней) упаковки лекарственного препарата; 02004 - макет вторичной (потребительской) упаковки лекарственного препарата; 02006 - макет промежуточной упаковки лекарственного препарата; 07004 - план управления рисками на лекарственный препарат; 13028 - проект нормативного документа по качеству для лекарственного препарата, подготовленный в соответствии с рекомендациями Евразийской экономической комиссии",
+      "requirement": "если реквизит «Код вида документа регистрационного досье на лекарственный препарат» (hcsdo:DrugRegistrationDocCode) заполнен, то соответствует одному из значений: 02002 - инструкция по медицинскому применению лекарственного препарата; Код требования Формулировка требования 02010 - общая характеристика лекарственного препарата, утвержденная уполномоченным органом страны-производителя или страны – держателя регистрационного удостоверения; 02005 - макет первичной (внутренней) упаковки лекарственного препарата; 02004 - макет вторичной (потребительской) упаковки лекарственного препарата; 02006 - макет промежуточной упаковки лекарственного препарата; 07004 - план управления рисками на лекарственный препарат; 13028 - проект нормативного документа по качеству для лекарственного препарата, подготовленный в соответствии с рекомендациями Евразийской экономической комиссии",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "24",
+          "item": "6",
+          "page": 237,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.027.R7",
+      "message_code": "P.MM.01.MSG.027",
+      "field_paths": [
+        "RegistrationDossierDocDetails/DrugRegistrationFileCode"
+      ],
+      "condition": "если реквизит Код вида документа регистрационного дела на лекарственный препарат (hcsdo:DrugRegistrationFileCode) заполнен, то для итогового экспертного отчета указывается значение «0401 - Экспертный отчет об оценке безопасности, эффективности и качества»",
+      "requirement": "если реквизит Код вида документа регистрационного дела на лекарственный препарат (hcsdo:DrugRegistrationFileCode) заполнен, то для итогового экспертного отчета указывается значение «0401 - Экспертный отчет об оценке безопасности, эффективности и качества»",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "24",
+          "item": "7",
+          "page": 238,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.027.R8",
+      "message_code": "P.MM.01.MSG.027",
+      "field_paths": [
+        "RegistrationNumberId",
+        "RegistrationDossierDocDetails/DrugRegistrationDocCode",
+        "RegistrationDossierDocDetails/DrugRegistrationFileCode"
+      ],
+      "condition": null,
+      "requirement": "в общем реестре должны присутствовать сведения, совпадающие с передаваемыми сведениями по значениям реквизитов «Порядковый номер регистрационного удостоверения лекарственного препарата» (hcsdo:RegistrationNumberId), а также Код вида документа регистрационного досье на лекарственный препарат» (hcsdo:Drug RegistrationDocCode) или «Код вида документа регистрационного дела на лекарственный препарат (hcsdo:DrugRegistrationFileCode)» 36. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос сведений из регистрационного дела или регистрационного досье» (P.MM.01.MSG.019), приведены в таблице 25.",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "24",
+          "item": "8",
+          "page": 238,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    }
+  ],
+  "correlation_rules": [],
+  "classifier_refs": [],
+  "source_refs": [
+    {
+      "source_id": "SRC-PMM01-068",
+      "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+      "location": "Требования к заполнению",
+      "status": "CONFIRMED",
+      "section": "IX",
+      "table": "24",
+      "item": "all",
+      "page": null,
+      "version_context": "P.MM.01 1.1.0"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+transaction: P.MM.01.TRN.015
+procedure: P.MM.01.PRC.015
+branch: response
+message: P.MM.01.MSG.004
+structure: R.006
+active_version: null
+status: INITIAL_MESSAGE_BLOCKED
+blocking_rule: P.MM.01.MSG.024: NORMATIVE_CONFLICT (NORMATIVE_CONFLICT-004, NORMATIVE_CONFLICT-005)
+source_refs: SRC-PMM01-068
+strict_mode: UNRESOLVED_STRUCTURE_VERSION
+test_mode: VERSION_PLACEHOLDER_TEST

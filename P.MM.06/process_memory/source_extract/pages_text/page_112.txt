@@ -1,0 +1,59 @@
+(hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то 
+должен быть заполнен один из реквизитов "Код статуса 
+регистрационного удостоверения медицинского изделия" 
+(hcsdo:MedicalProductRegistrationCertificateStatusCode) или 
+"Наименование статуса регистрационного удостоверения 
+медицинского изделия" 
+(hcsdo:MedicalProductRegistrationCertificateStatusName)  
+14  
+если значение реквизита "Код статуса регистрационного 
+удостоверения медицинского изделия" 
+(hcsdo:MedicalProductRegistrationCertificateStatusCode) соответствует 
+значению "другое", то реквизит "Наименование статуса 
+регистрационного удостоверения медицинского изделия" 
+(hcsdo:MedicalProductRegistrationCertificateStatusName) заполняется 
+обязательно  
+15  
+если реквизит "Сведения о регистрационном удостоверении 
+медицинского изделия" 
+(hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то 
+реквизит "Сведения о составной части медицинского изделия" 
+(hccdo:MedicalProductSetDetails) не заполняется  
+16  
+если реквизит "Сведения о регистрационном удостоверении 
+медицинского изделия" 
+(hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то 
+реквизит "Код вида медицинского изделия" 
+(hcsdo:MedicalProductClassificationCode) не заполняется  
+17  
+если реквизит "Сведения о регистрационном удостоверении 
+медицинского изделия" 
+(hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то 
+реквизит "Код класса потенциального риска медицинского изделия" 
+(hcsdo:RiskClassCode) не заполняется  
+18  
+если реквизит "Сведения о регистрационном удостоверении 
+медицинского изделия" 
+(hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то 
+реквизит "Сведения о производителе медицинского изделия" 
+(hccdo:MedicalProductManufacturingAuthorizationHolderDetails) не 
+заполняется  
+19  
+если реквизит "Сведения о регистрационном удостоверении 
+медицинского изделия" 
+(hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то 
+реквизит "Сведения об уполномоченном представителе производителя 
+медицинского изделия" 
+(hccdo:MedicalProductManufacturerAgentDetails) не заполняется  
+20  
+если реквизит "Сведения о регистрационном удостоверении 
+медицинского изделия" 
+(hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то 
+реквизит "Инструкция по применению медицинского изделия" 
+(hcsdo:UserGuidePdfBinaryText) не заполняется  
+21  
+если реквизит "Сведения о регистрационном удостоверении 
+медицинского изделия" 
+(hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то 
+реквизит "Изображение маркировки медицинского изделия" 
+(hcsdo:ImageMarkingPdfBinaryText) не заполняется  

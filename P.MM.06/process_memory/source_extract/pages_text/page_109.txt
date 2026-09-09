@@ -1,0 +1,62 @@
+10  
+если реквизит "Код референтного государства" 
+(hcsdo:ReferenceUnifiedCountryCode) или "Код государства 
+признания" (hcsdo:RecognitionUnifiedCountryCode) заполнен, то 
+значение атрибута "Идентификатор классификатора" (атрибут 
+codeListId) в его составе должно содержать кодовое обозначение 
+классификатора стран мира, указанного в разделе VII Правил 
+информационного взаимодействия  
+11  
+если реквизит "Код референтного государства" 
+(hcsdo:ReferenceUnifiedCountryCode) или "Код государства 
+признания" (hcsdo:RecognitionUnifiedCountryCode) заполнен, то его 
+значение должно соответствовать коду страны согласно 
+классификатору стран мира в соответствии со стандартом ISO 3166-1  
+12  
+реквизит "Сведения о составной части медицинского изделия" 
+(hccdo:MedicalProductSetDetails) не заполняется  
+13  
+если реквизит "Сведения о регистрационном удостоверении 
+медицинского изделия" 
+(hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то 
+должен быть заполнен один из реквизитов "Код статуса 
+регистрационного удостоверения медицинского изделия" 
+(hcsdo:MedicalProductRegistrationCertificateStatusCode) или 
+"Наименование статуса регистрационного удостоверения 
+медицинского изделия" 
+(hcsdo:MedicalProductRegistrationCertificateStatusName)  
+14  
+если значение реквизита "Код статуса регистрационного 
+удостоверения медицинского изделия" 
+(hcsdo:MedicalProductRegistrationCertificateStatusCode) соответствует 
+значению "другое", то реквизит "Наименование статуса 
+регистрационного удостоверения медицинского изделия" 
+(hcsdo:MedicalProductRegistrationCertificateStatusName) заполняется 
+обязательно  
+15  
+реквизит "Дата внесения изменений в регистрационное досье 
+медицинского изделия" (hcsdo:RegistrationCertificateModificationDate) 
+не заполняется  
+16  
+реквизит "Код вида медицинского изделия" 
+(hcsdo:MedicalProductClassificationCode) не заполняется  
+17  
+реквизит "Наименование вида медицинского изделия" 
+(hcsdo:MedicalProductClassificationName) не заполняется  
+18  
+реквизит "Код класса потенциального риска медицинского изделия" 
+(hcsdo:RiskClassCode) не заполняется  
+19  
+реквизит "Сведения о производителе медицинского изделия" 
+(hccdo:MedicalProductManufacturingAuthorizationHolderDetails) не 
+заполняется  
+20  
+реквизит "Сведения об уполномоченном представителе производителя 
+медицинского изделия" 
+(hccdo:MedicalProductManufacturerAgentDetails) не заполняется  
+21  
+реквизит "Инструкция по применению медицинского изделия" 
+(hcsdo:UserGuidePdfBinaryText) не заполняется  
+22  
+реквизит "Изображение маркировки медицинского изделия" 
+(hcsdo:ImageMarkingPdfBinaryText) не заполняется  

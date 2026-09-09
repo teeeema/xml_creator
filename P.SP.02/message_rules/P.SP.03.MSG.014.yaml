@@ -1,0 +1,176 @@
+{
+  "message_code": "P.SP.03.MSG.014",
+  "structure_id": "R.IP.SP.03.002",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.03.MSG.014.REQ.001",
+      "requirement_code": "1",
+      "source_text": "в электронном документе (сведениях) должно быть заполнено 2 экземпляра реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails), содержащих соответственно изменяемые сведения Единого реестра НМПТ Союза и измененные сведения Единого реестра НМПТ Союза, содержащие информацию о продлении срока действия свидетельства о праве использования НМПТ Союза (далее – измененные сведения Единого реестра НМПТ Союза)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.014-1",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.014",
+          "status": "CONFIRMED",
+          "page": 277,
+          "table": "23",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.014.REQ.002",
+      "requirement_code": "2",
+      "source_text": "в составе экземпляров реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails) значение реквизита «Код вида записи общего информационного ресурса» (ipsdo:ResourceItemKindCode) должно принимать значение «RH» – «сведения о праве использования НМПТ Союза»",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.014-2",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.014",
+          "status": "CONFIRMED",
+          "page": 277,
+          "table": "23",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "2"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.014.REQ.003",
+      "requirement_code": "3-34",
+      "source_text": "соответствуют требованиям 3-34 таблицы 22 настоящего Регламента, которые применяются при заполнении экземпляров реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails) (значения кодов требований в таблице 22 и таблице 23 совпадают)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.014-3-34",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.014",
+          "status": "CONFIRMED",
+          "page": 277,
+          "table": "23",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "3-34"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.014.REQ.004",
+      "requirement_code": "35",
+      "source_text": "в составе реквизита «Сведения о статусном состоянии» (ipcdo:IPStatusDetails) должны быть заполнены реквизиты: «Дата» (csdo:EventDate); «Номер документа» (csdo:DocId); «Дата поступления документа» (ipsdo:IPDocReceiptDate); «Описание» (csdo:DescriptionText)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.014-35",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.014",
+          "status": "CONFIRMED",
+          "page": 277,
+          "table": "23",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "35"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.014.REQ.005",
+      "requirement_code": "36",
+      "source_text": "в составе экземпляра реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails), содержащего измененные сведения Единого реестра НМПТ Союза, в составе реквизита «Сведения о статусном состоянии» (ipcdo:IPEntityStatusDetails) реквизит «Дата» (csdo:EventDate) должен быть заполнен, значение реквизита «Код статуса» (csdo:StatusCode) должно соответствовать значению «12» – «право использования НМПТ Союза действует (продлено)», а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в составе реквизита «Код статуса» (csdo:StatusCode) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.014-36",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.014",
+          "status": "CONFIRMED",
+          "page": 277,
+          "table": "23",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "36"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.014.REQ.006",
+      "requirement_code": "37",
+      "source_text": "в составе экземпляра реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails), содержащего измененные сведения Единого реестра НМПТ Союза, при включении в классификатор видов документов, сведений и материалов значения, соответствующего виду документа «Заявление о продлении срока действия свидетельства о праве использования наименования места происхождения товара Евразийского экономического союза», в составе реквизита «Сведения о статусном состоянии» (ipcdo:IPStatusDetails) реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) должен быть заполнен и должен содержать кодовое обозначение, соответствующее виду документа «Заявление о продлении срока действия свидетельства о праве использования наименования места происхождения товара Евразийского экономического союза», а реквизит «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.014-37",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.014",
+          "status": "CONFIRMED",
+          "page": 278,
+          "table": "23",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "37"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.014.REQ.007",
+      "requirement_code": "38",
+      "source_text": "в составе экземпляра реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails), содержащего измененные сведения Единого реестра НМПТ Союза, при отсутствии в классификаторе видов документов, сведений и материалов значения, соответствующего виду документа «Заявление о продлении срока действия свидетельства о праве использования наименования места происхождения товара Евразийского экономического союза», в составе реквизита «Сведения о статусном состоянии» (ipcdo:IPStatusDetails) реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) не заполняется, а реквизит «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) должен быть заполнен, и его значение должно соответствовать значению «Заявление о продлении срока действия свидетельства о праве использования наименования места происхождения товара Евразийского экономического союза»",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.014-38",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.014",
+          "status": "CONFIRMED",
+          "page": 278,
+          "table": "23",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "38"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.014.REQ.008",
+      "requirement_code": "39",
+      "source_text": "в составе экземпляра реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails), содержащего измененные сведения Единого реестра НМПТ Союза, значение реквизита «Дата истечения срока действия документа» (csdo:DocValidityDate) должно быть больше значения соответствующего реквизита в составе экземпляра реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails), содержащего изменяемые сведения Единого реестра НМПТ Союза",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.014-39",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.014",
+          "status": "CONFIRMED",
+          "page": 278,
+          "table": "23",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "39"
+        }
+      ]
+    }
+  ],
+  "structured_rules": [],
+  "correlation_rules": [],
+  "classifier_refs": [],
+  "source_text": null,
+  "normalized_field_reference": null,
+  "source_refs": [
+    {
+      "source_id": "23OP-RULE-P.SP.03.MSG.014",
+      "document": "ОП_23.pdf",
+      "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.014",
+      "status": "CONFIRMED",
+      "page": 277,
+      "table": "23",
+      "version_context": "P.SP.03 1.0.0"
+    }
+  ]
+}

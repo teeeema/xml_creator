@@ -1,0 +1,27 @@
+{
+  "artifact_kind": "normative_structure_audit",
+  "source": "32_ОП.pdf",
+  "production_usage": false,
+  "excluded_structures": ["R.006", "R.007"],
+  "xml_name_policy": {
+    "local_name": null,
+    "qname": null,
+    "xml_name_evidence": "MISSING_EVIDENCE",
+    "reason": "The normative record-composition tables prove structural nodes but do not provide XML local names."
+  },
+  "imports": {
+    "ccdo": "urn:EEC:M:ComplexDataObjects:vX.X.X",
+    "hccdo": "urn:EEC:M:HC:ComplexDataObjects:vZ.Z.Z",
+    "hcsdo": "urn:EEC:M:HC:SimpleDataObjects:vZ.Z.Z",
+    "csdo": "urn:EEC:M:SimpleDataObjects:vX.X.X"
+  },
+  "structures": [
+    {"code":"R.HC.MM.06.001","version":"1.1.0","root":"MedicalProductRegistrationDetails","namespace":"urn:EEC:R:HC:MM:06:MedicalProductRegistrationDetails:v1.1.0","xsd_filename":"EEC_R_HC_MM_06_MedicalProductRegistrationDetails_v1.1.0.xsd","source":{"table":10,"pages":"169-188"},"normative_structural_nodes":116,"explicit_numeric_rows":65,"relative_star_rows":51,"xml_hierarchy_status":"PARTIAL"},
+    {"code":"R.HC.MM.06.002","version":"1.1.0","root":"MedicalProductRegistrationExpertReportDetails","namespace":"urn:EEC:R:HC:MM:06:MedicalProductRegistrationExpertReportDetails:v1.1.0","xsd_filename":"EEC_R_HC_MM_06_MedicalProductRegistrationExpertReportDetails_v1.1.0.xsd","source":{"table":13,"pages":"189-193"},"normative_structural_nodes":19,"explicit_numeric_rows":19,"relative_star_rows":0,"xml_hierarchy_status":"PARTIAL"},
+    {"code":"R.HC.MM.06.003","version":"1.1.0","root":"MedicalProductRegistrationDocContentDetails","namespace":"urn:EEC:R:HC:MM:06:MedicalProductRegistrationDocContentDetails:v1.1.0","xsd_filename":"EEC_R_HC_MM_06_MedicalProductRegistrationDocContentDetails_v1.1.0.xsd","source":{"table":16,"pages":"194-201"},"normative_structural_nodes":25,"explicit_numeric_rows":25,"relative_star_rows":0,"xml_hierarchy_status":"PARTIAL"},
+    {"code":"R.HC.MM.06.004","version":"1.1.0","root":"MedicalProductRegistrationNumberRequestDetails","namespace":"urn:EEC:R:HC:MM:06:MedicalProductRegistrationNumberRequestDetails:v1.1.0","xsd_filename":"EEC_R_HC_MM_06_MedicalProductRegistrationNumberRequestDetails_v1.1.0.xsd","source":{"table":19,"pages":"202-204"},"normative_structural_nodes":9,"explicit_numeric_rows":9,"relative_star_rows":0,"xml_hierarchy_status":"PARTIAL"},
+    {"code":"R.HC.MM.06.005","version":"1.1.0","root":"MedicalProductCodeTransformationDetails","namespace":"urn:EEC:R:HC:MM:06:MedicalProductCodeTransformationDetails:v1.1.0","xsd_filename":"EEC_R_HC_MM_06_MedicalProductCodeTransformationDetails_v1.1.0.xsd","source":{"table":22,"pages":"205-208"},"normative_structural_nodes":17,"explicit_numeric_rows":17,"relative_star_rows":0,"xml_hierarchy_status":"PARTIAL"}
+  ],
+  "attributes_explicitly_found": ["codeListId", "codeListVersionId", "media"],
+  "attribute_owner": "MISSING_EVIDENCE"
+}

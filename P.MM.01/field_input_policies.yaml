@@ -1,0 +1,59 @@
+{
+  "field_input_policies": [
+    {
+      "message_codes": ["*"],
+      "field_path": "EDocHeader/InfEnvelopeCode",
+      "input_policy": "AUTO_FIXED",
+      "value_source": "MESSAGE_METADATA",
+      "generated_value": "MESSAGE_CODE",
+      "help_text": "Код сообщения определяется выбранной веткой сообщения.",
+      "source_refs": [{"source_id":"SRC-PMM01-INPUT-IMPLEMENTATION","document":"EAEU XML Creator: существующая Body generation logic","location":"Application TestDataGenerator / MessageRules fixed values","status":"PROJECT_IMPLEMENTATION"}]
+    },
+    {
+      "message_codes": ["*"],
+      "field_path": "EDocHeader/EDocCode",
+      "input_policy": "AUTO_FIXED",
+      "value_source": "MESSAGE_METADATA",
+      "generated_value": "STRUCTURE_ID",
+      "help_text": "Код электронного документа определяется структурой выбранного сообщения.",
+      "source_refs": [{"source_id":"SRC-PMM01-INPUT-IMPLEMENTATION","document":"EAEU XML Creator: существующая Body generation logic","location":"Application TestDataGenerator / MessageDefinition.structure_id","status":"PROJECT_IMPLEMENTATION"}]
+    },
+    {
+      "message_codes": ["*"],
+      "field_path": "EDocHeader/EDocId",
+      "input_policy": "AUTO_GENERATED",
+      "value_source": "GENERATED_UUID",
+      "help_text": "Новый тестовый идентификатор документа формируется существующим TestDataGenerator.",
+      "source_refs": [{"source_id":"SRC-PMM01-INPUT-IMPLEMENTATION","document":"EAEU XML Creator: существующая TestDataGenerator logic","location":"UUID generation for document identifier","status":"PROJECT_IMPLEMENTATION"}]
+    },
+    {
+      "message_codes": [
+        "P.MM.01.MSG.004", "P.MM.01.MSG.006", "P.MM.01.MSG.008", "P.MM.01.MSG.009",
+        "P.MM.01.MSG.011", "P.MM.01.MSG.013", "P.MM.01.MSG.015", "P.MM.01.MSG.018",
+        "P.MM.01.MSG.020", "P.MM.01.MSG.026", "P.MM.01.MSG.028"
+      ],
+      "field_path": "EDocHeader/EDocRefId",
+      "input_policy": "CORRELATION",
+      "value_source": "PREVIOUS_BODY",
+      "correlation_source_path": "EDocHeader/EDocId",
+      "help_text": "Значение переносится из EDocId исходного Body в рамках transaction session; SOAP MessageID/RelatesTo обрабатываются отдельно.",
+      "source_refs": [{"source_id":"SRC-PMM01-INPUT-CORRELATION","document":"EAEU XML Creator: существующая Body correlation logic","location":"TransactionSession body_correlations and P.MM.01 end-to-end tests","status":"PROJECT_IMPLEMENTATION"}]
+    },
+    {
+      "message_codes": ["P.MM.01.MSG.006"],
+      "field_path": "UpdateDateTime",
+      "input_policy": "EXTERNAL_SYSTEM",
+      "value_source": "EXTERNAL_INFORMATION_SYSTEM",
+      "help_text": "Дата и время фактического обновления общего реестра поступают из информационного ресурса; это не время формирования XML.",
+      "source_refs": [{"source_id":"SRC-PMM01-068","document":"Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)","location":"Описание сообщения P.MM.01.MSG.006 и реквизита UpdateDateTime","status":"CONFIRMED"}]
+    },
+    {
+      "message_codes": ["P.MM.01.MSG.007", "P.MM.01.MSG.010"],
+      "field_path": "UnifiedCountryCode/@codeListId",
+      "input_policy": "CLASSIFIER",
+      "value_source": "CLASSIFIER_DATASET",
+      "help_text": "Кодовое обозначение классификатора стран мира выбирается вместе со значением кода страны.",
+      "source_refs": [{"source_id":"SRC-PMM01-068","document":"Решение Коллегии ЕЭК от 19.04.2022 №68","location":"Требования к заполнению, таблицы 27–28: UnifiedCountryCode/@codeListId","status":"CONFIRMED"}]
+    }
+  ]
+}

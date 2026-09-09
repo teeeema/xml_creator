@@ -1,0 +1,596 @@
+{
+  "message_code": "P.DS.01.MSG.002",
+  "structure_id": "R.FP.DS.01.001",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.DS.01.MSG.002.R001",
+      "requirement_code": 1,
+      "source_text": "в электронном сообщении должен присутствовать только один экземпляр реквизита «Сведения из отчета о зачислении и распределении сумм ввозных таможенных пошлин» (ds01cdo:ChargedDistributedDutyReportDetails)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R001",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 85,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R002",
+      "requirement_code": 2,
+      "source_text": "в сложном реквизите «Сведения из отчета о зачислении и распределении сумм ввозных таможенных пошлин» (ds01cdo:ChargedDistributedDutyReportDetails) должен присутствовать только один экземпляр реквизита «Информация о суммах зачисленных и распределенных ввозных таможенных пошлин» (ds01cdo: ChargedDistributedDutyDetails), имеющий реквизит «Признак ежедневных сведений» (ds01sdo: DailyInfoIndicator) со значением «1» для передачи сведений за отчетный день",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R002",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 85,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R003",
+      "requirement_code": 3,
+      "source_text": "в сложном реквизите «Сведения из отчета о зачислении и распределении сумм ввозных таможенных пошлин» (ds01cdo:ChargedDistributedDutyReportDetails) должен присутствовать только один экземпляр реквизита «Информация о суммах зачисленных и распределенных ввозных таможенных пошлин» (ds01cdo: ChargedDistributedDutyDetails), имеющий реквизит «Признак ежедневных сведений» (ds01sdo: DailyInfoIndicator) со значением «0» для передачи сведений за отчетный месяц нарастающим итогом",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R003",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 86,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R004",
+      "requirement_code": 4,
+      "source_text": "в информационной базе должна отсутствовать запись, совпадающая по следующим вложенным значениям реквизита «Сведения из отчета о зачислении и распределении сумм ввозных таможенных пошлин» (ds01cdo:ChargedDistributedDutyReportDetails): «Дата отчета» (csdo:EventDate), «Код страны, предоставившей информацию» (ds01sdo:ReportCountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R004",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 86,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R005",
+      "requirement_code": 5,
+      "source_text": "в информационной базе должна присутствовать запись у которой значение вложенных реквизитов «Дата отчета» (csdo:EventDate) и «Код страны, предоставившей информацию» (ds01sdo:ReportCountryCode) реквизита «Сведения из отчета о зачислении и распределении сумм ввозных таможенных пошлин» (ds01cdo:ChargedDistributedDutyReportDetails) равны со значениями реквизитов «Дата предыдущего отчета» (ds01sdo:PreviousReportDate) и «Код страны, предоставившей информацию» (ds01sdo:ReportCountryCode) реквизита «Сведения из отчета о зачислении и распределении сумм ввозных таможенных пошлин» (ds01cdo:ChargedDistributedDutyReportDetails), содержащихся в электронном сообщении",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R005",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 86,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R006",
+      "requirement_code": 6,
+      "source_text": "для реквизита «Сведения из отчета о зачислении и распределении сумм ввозных таможенных пошлин» (ds01cdo:ChargedDistributedDutyReportDetails) значение реквизита «Дата отчета» (csdo:EventDate) должно находиться в месяце, следующим за месяцем, указанном в реквизите «Дата предыдущего отчета» (ds01sdo:PreviousReportDate)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R006",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 86,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R007",
+      "requirement_code": 7,
+      "source_text": "для реквизита «Сведения из отчета о зачислении и распределении сумм ввозных таможенных пошлин» (ds01cdo:ChargedDistributedDutyReportDetails) значение реквизита «Дата составления отчета» (ds01sdo:ReportDate) должно быть больше значения, указанного в реквизите «Дата отчета» (csdo:EventDate)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R007",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 86,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R008",
+      "requirement_code": 8,
+      "source_text": "для реквизита «Сведения из отчета о зачислении и распределении сумм ввозных таможенных пошлин» (ds01cdo:ChargedDistributedDutyReportDetails) реквизит «Дата модификации» (ds01sdo:ModificationDate) не заполняется",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R008",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 86,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R009",
+      "requirement_code": 9,
+      "source_text": "для реквизита «Зачисленные суммы ввозных таможенных пошлин» (ds01sdo:EnteredDutyAmount) значение атрибута «Код валюты» (атрибут currencyCode) должно соответствовать буквенному коду валюты того государства-члена, код которого указан в реквизите «Код страны, предоставившей информацию» (ds01sdo:ReportCountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R009",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 87,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R010",
+      "requirement_code": 10,
+      "source_text": "для реквизита «Суммы исполненных зачетов в счет уплаты ввозных таможенных пошлин» (ds01sdo:ExecutedAccountDutyAmount) значение атрибута «Код валюты» (атрибут currencyCode) должно соответствовать буквенному коду валюты того государства-члена, код которого указан в реквизите «Код страны, предоставившей информацию» (ds01sdo:ReportCountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R010",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 87,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R011",
+      "requirement_code": 11,
+      "source_text": "для реквизита «Зачтенные суммы ввозных таможенных пошлин в счет погашения задолженности (отчетный день)» (ds01sdo:ScoreDutyDeptRepayReptDayAmount) значение атрибута «Код валюты» (атрибут currencyCode) должно соответствовать буквенному коду валюты того государства-члена, код которого указан в реквизите «Код страны, предоставившей информацию» (ds01sdo:ReportCountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R011",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 87,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R012",
+      "requirement_code": 12,
+      "source_text": "для реквизита «Зачтенные суммы ввозных таможенных пошлин в счет погашения задолженности (текущий день)» (ds01sdo:ScoreDutyDeptRepayCurrentDayAmount) значение атрибута «Код валюты» (атрибут currencyCode) должно соответствовать буквенному коду валюты того государства-члена, код которого указан в реквизите «Код страны, предоставившей информацию» (ds01sdo:ReportCountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R012",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 87,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R013",
+      "requirement_code": 13,
+      "source_text": "для реквизита «Возвращенные суммы ввозных таможенных пошлин (отчетный день)» (ds01sdo:ReturnDutyReptDayAmount) значение атрибута «Код валюты» (атрибут currencyCode) должно соответствовать буквенному коду валюты того государства-члена, код которого указан в реквизите «Код страны, предоставившей информацию» (ds01sdo:ReportCountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R013",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 87,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R014",
+      "requirement_code": 14,
+      "source_text": "для реквизита «Возвращенные суммы ввозных таможенных пошлин (текущий день)» (ds01sdo:ReturnDutyCurrentDayAmount) значение атрибута «Код валюты» (атрибут currencyCode) должно соответствовать буквенному коду валюты того государства-члена, код которого указан в реквизите «Код страны, предоставившей информацию» (ds01sdo:ReportCountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R014",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 87,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R015",
+      "requirement_code": 15,
+      "source_text": "для реквизита «Суммы возврата ввозных таможенных пошлин, не принятые к исполнению» (ds01sdo:UnacceptedDutyReturnAmount) значение атрибута «Код валюты» (атрибут currencyCode) должно соответствовать буквенному коду валюты того государства-члена, код которого указан в реквизите «Код страны, предоставившей информацию» (ds01sdo:ReportCountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R015",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 87,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R016",
+      "requirement_code": 16,
+      "source_text": "должен существовать один реквизит «Сведения о суммах ввозных таможенных пошлин, подлежащих распределению» (ds01cdo:DistributableDutyDetails), имеющий индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «1»",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R016",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 88,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R017",
+      "requirement_code": 17,
+      "source_text": "если существует реквизит «Сведения о суммах ввозных таможенных пошлин, подлежащих распределению» (ds01cdo:DistributableDutyDetails), имеющий индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «1», то должен быть хотя бы один реквизит «Сведения о суммах ввозных таможенных пошлин, подлежащих распределению» (ds01cdo:DistributableDutyDetails), имеющий индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «0»",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R017",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 88,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R018",
+      "requirement_code": 18,
+      "source_text": "для реквизита «Сведения о суммах ввозных таможенных пошлин, подлежащих распределению» (ds01cdo:DistributableDutyDetails), имеющего индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «1», не должно быть заполнено значение реквизита «Код страны» (csdo:CountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R018",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 88,
+          "table": "11"
+        }
+      ],
+      "normalized_field_reference": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails/csdo:UnifiedCountryCode"
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R019",
+      "requirement_code": 19,
+      "source_text": "для реквизита «Сведения о суммах ввозных таможенных пошлин, подлежащих распределению» (ds01cdo:DistributableDutyDetails), имеющего индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «0», должно быть заполнено значение реквизита «Код страны» (csdo:CountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R019",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 88,
+          "table": "11"
+        }
+      ],
+      "normalized_field_reference": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails/csdo:UnifiedCountryCode"
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R020",
+      "requirement_code": 20,
+      "source_text": "если для реквизита «Сведения о суммах ввозных таможенных пошлин, подлежащих распределению» (ds01cdo:DistributableDutyDetails) реквизит «Признак общей суммы» (ds01sdo:TotalAmountIndicator) имеет значение «1», то значение реквизита «Суммы ввозных таможенных пошлин, подлежащие распределению» (ds01sdo:DistributableDutyAmount) должно быть равно сумме всех значений реквизитов «Суммы ввозных таможенных пошлин, подлежащие распределению» (ds01sdo:DistributableDutyAmount), указанных в реквизите «Сведения о суммах ввозных таможенных пошлин, подлежащих распределению» (ds01cdo:DistributableDutyDetails) с индикатором «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «0»",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R020",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 88,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R021",
+      "requirement_code": 21,
+      "source_text": "для реквизита «Суммы ввозных таможенных пошлин, подлежащие распределению» (ds01sdo:DistributableDutyAmount) значение атрибута «Код валюты» (атрибут currencyCode) должно соответствовать буквенному коду валюты того государства-члена, код которого указан в реквизите «Код страны, предоставившей информацию» (ds01sdo:ReportCountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R021",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 88,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R022",
+      "requirement_code": 22,
+      "source_text": "должен существовать один реквизит «Сведения о суммах распределенных ввозных таможенных пошлин, перечисленных на счета» (ds01cdo:TransferDistributedDutyDetails), имеющий индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «1»",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R022",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 89,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R023",
+      "requirement_code": 23,
+      "source_text": "если существует реквизит «Сведения о суммах распределенных ввозных таможенных пошлин, перечисленных на счета» (ds01cdo:TransferDistributedDutyDetails), имеющий индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «1», то должен быть хотя бы один реквизит «Сведения о суммах распределенных ввозных таможенных пошлин, перечисленных на счета» (ds01cdo:TransferDistributedDutyDetails), имеющий индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «0»",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R023",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 89,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R024",
+      "requirement_code": 24,
+      "source_text": "для реквизита «Сведения о суммах распределенных ввозных таможенных пошлин, перечисленных на счета» (ds01cdo:TransferDistributedDutyDetails), имеющего индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «1», не должно быть заполнено значение реквизита «Код страны» (csdo:CountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R024",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 89,
+          "table": "11"
+        }
+      ],
+      "normalized_field_reference": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails/csdo:UnifiedCountryCode"
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R025",
+      "requirement_code": 25,
+      "source_text": "для реквизита «Сведения о суммах распределенных ввозных таможенных пошлин, перечисленных на счета» (ds01cdo:TransferDistributedDutyDetails), имеющего индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «0», должно быть заполнено значение реквизита «Код страны» (csdo:CountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R025",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 89,
+          "table": "11"
+        }
+      ],
+      "normalized_field_reference": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails/csdo:UnifiedCountryCode"
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R026",
+      "requirement_code": 26,
+      "source_text": "если для реквизита «Сведения о суммах распределенных ввозных таможенных пошлин, перечисленных на счета» (ds01cdo:TransferDistributedDutyDetails) реквизит «Признак общей суммы» (ds01sdo:TotalAmountIndicator) имеет значение «1», то значение реквизита «Суммы распределенных ввозных таможенных пошлин, перечисленные на счета» (ds01sdo:TransferDistributedDutyAmount) должно быть равно сумме всех значений реквизитов «Суммы распределенных ввозных таможенных пошлин, перечисленные на счета» (ds01sdo:TransferDistributedDutyAmount), указанных в реквизите «Сведения о суммах распределенных ввозных таможенных пошлин, перечисленных на счета» (ds01cdo:TransferDistributedDutyDetails) с индикатором «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «0»",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R026",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 89,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R027",
+      "requirement_code": 27,
+      "source_text": "для реквизита «Суммы распределенных ввозных таможенных пошлин, перечисленные на счета» (ds01sdo:TransferDistributedDutyAmount) значение атрибута «Код валюты» (атрибут currencyCode) должно соответствовать буквенному коду валюты того государства-члена, код которого указан в реквизите «Код страны, предоставившей информацию» (ds01sdo:ReportCountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R027",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 89,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R028",
+      "requirement_code": 28,
+      "source_text": "для реквизита «Суммы поступлений в бюджет доходов от распределения ввозных таможенных пошлин» (ds01sdo:InternalRevenueDistributedDutyAmount) значение атрибута «Код валюты» (атрибут currencyCode) должно соответствовать буквенному коду валюты того государства-члена, код которого указан в реквизите «Код страны, предоставившей информацию» (ds01sdo:ReportCountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R028",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 90,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R029",
+      "requirement_code": 29,
+      "source_text": "должен существовать один реквизит «Сведения о суммах распределенных ввозных таможенных пошлин, приостановленных к перечислению» (ds01cdo:StopTransferDistributedDutyDetails), имеющий индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «1»",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R029",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 90,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R030",
+      "requirement_code": 30,
+      "source_text": "если существует реквизит «Сведения о суммах распределенных ввозных таможенных пошлин, приостановленных к перечислению» (ds01cdo:StopTransferDistributedDutyDetails), имеющий индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «1», то должен быть хотя бы один реквизит «Сведения о суммах распределенных ввозных таможенных пошлин, приостановленных к перечислению» (ds01cdo:StopTransferDistributedDutyDetails), имеющий индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «0»",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R030",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 90,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R031",
+      "requirement_code": 31,
+      "source_text": "для реквизита «Сведения о суммах распределенных ввозных таможенных пошлин, приостановленных к перечислению» (ds01cdo:StopTransferDistributedDutyDetails), имеющего индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «1», не должно быть заполнено значение реквизита «Код страны» (csdo:CountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R031",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 90,
+          "table": "11"
+        }
+      ],
+      "normalized_field_reference": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails/csdo:UnifiedCountryCode"
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R032",
+      "requirement_code": 32,
+      "source_text": "для реквизита «Сведения о суммах распределенных ввозных таможенных пошлин, приостановленных к перечислению» (ds01cdo:StopTransferDistributedDutyDetails), имеющего индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «0», должно быть заполнено значение реквизита «Код страны» (csdo:CountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R032",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 90,
+          "table": "11"
+        }
+      ],
+      "normalized_field_reference": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails/csdo:UnifiedCountryCode"
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R033",
+      "requirement_code": 33,
+      "source_text": "если для реквизита «Сведения о суммах распределенных ввозных таможенных пошлин, приостановленных к перечислению» (ds01cdo:StopTransferDistributedDutyDetails) реквизит «Признак общей суммы» (ds01sdo:TotalAmountIndicator) имеет значение «1», то значение реквизита «Суммы распределенных ввозных таможенных пошлин, приостановленные к перечислению» (ds01sdo:StopTransferDistributedDutyAmount) должно быть равно сумме всех значений реквизитов «Суммы распределенных ввозных таможенных пошлин, приостановленные к перечислению» (ds01sdo:StopTransferDistributedDutyAmount), указанных в реквизите «Сведения о суммах распределенных ввозных таможенных пошлин, приостановленных к перечислению» (ds01cdo:StopTransferDistributedDutyDetails) с индикатором «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «0»",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R033",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 91,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R034",
+      "requirement_code": 34,
+      "source_text": "для реквизита «Суммы распределенных ввозных таможенных пошлин, приостановленные к перечислению» (ds01sdo:StopTransferDistributedDutyAmount) должно быть указано значение атрибута «Код валюты» (атрибут currencyCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R034",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 91,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R035",
+      "requirement_code": 35,
+      "source_text": "для реквизита «Суммы распределенных ввозных таможенных пошлин, приостановленные к перечислению» (ds01sdo:StopTransferDistributedDutyAmount) значение атрибута «Код валюты» (атрибут currencyCode) должно соответствовать буквенному коду валюты того государства-члена, код которого указан в реквизите «Код страны, предоставившей информацию» (ds01sdo:ReportCountryCode)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R035",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 91,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R036",
+      "requirement_code": 36,
+      "source_text": "для реквизита «Суммы поступлений на счета в иностранной валюте» (ds01sdo:TotalExternalRevenueDistributedDutyAmount) значение атрибута «Код валюты» (атрибут currencyCode)должно соответствовать буквенному коду валюты того государства-члена, код которого указан для реквизита «Сведения о суммах поступлений на счета в иностранной валюте» (ds01cdo:ExternalRevenueDistributedDutyDetails)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R036",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 91,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R037",
+      "requirement_code": 37,
+      "source_text": "для реквизита «Доходы от распределения ввозных таможенных пошлин» (ds01sdo:ExternalRevenueDistributedDutyAmount) значение атрибута «Код валюты» (атрибут currencyCode) должно соответствовать буквенному коду валюты того государства-члена, код которого указан для реквизита «Сведения о суммах поступлений на счета в иностранной валюте» (ds01cdo:ExternalRevenueDistributedDutyDetails)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R037",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 91,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R038",
+      "requirement_code": 38,
+      "source_text": "для реквизита «Суммы поступивших процентов за просрочку» (ds01sdo:DefaultInterestAmount) значение атрибута «Код валюты» (атрибут currencyCode) должно соответствовать буквенному коду валюты того государства-члена, код которого указан для реквизита «Сведения о суммах поступлений на счета в иностранной валюте» (ds01cdo:ExternalRevenueDistributedDutyDetails)",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R038",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 92,
+          "table": "11"
+        }
+      ]
+    }
+  ],
+  "correlation_rules": [],
+  "classifier_refs": [],
+  "source_refs": [
+    {
+      "source_id": "49OP-P.DS.01.MSG.002-R001",
+      "document": "49 ОП.pdf",
+      "location": "Таблица 11",
+      "status": "CONFIRMED",
+      "page": 85,
+      "table": "11"
+    }
+  ]
+}

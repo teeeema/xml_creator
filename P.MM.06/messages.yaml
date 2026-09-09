@@ -1,0 +1,844 @@
+{
+  "messages": [
+    {
+      "message_code": "P.MM.06.MSG.001",
+      "name": "сведения о поступившем заявлении",
+      "structure_id": "R.HC.MM.06.001",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "REQUEST",
+      "role": "request",
+      "purpose": "сведения о поступившем заявлении",
+      "context": [
+        "P.MM.06.TRN.001"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-001",
+          "document": "32_ОП.pdf",
+          "location": "Message-specific requirements table",
+          "status": "CONFIRMED",
+          "page": 108,
+          "table": "13"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-001",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 95,
+          "item": "P.MM.06.MSG.001"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.002",
+      "name": "сведения о регистрации медицинского изделия",
+      "structure_id": "R.HC.MM.06.001",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "REQUEST",
+      "role": "request",
+      "purpose": "сведения о регистрации медицинского изделия",
+      "context": [
+        "P.MM.06.TRN.002"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-002",
+          "document": "32_ОП.pdf",
+          "location": "Message-specific requirements table",
+          "status": "CONFIRMED",
+          "page": 110,
+          "table": "14"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-002",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 95,
+          "item": "P.MM.06.MSG.002"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.003",
+      "name": "сведения о прекращении рассмотрения заявления",
+      "structure_id": "R.HC.MM.06.001",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "REQUEST",
+      "role": "request",
+      "purpose": "сведения о прекращении рассмотрения заявления",
+      "context": [
+        "P.MM.06.TRN.003"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-003",
+          "document": "32_ОП.pdf",
+          "location": "Message-specific requirements table",
+          "status": "CONFIRMED",
+          "page": 116,
+          "table": "15"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-003",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 95,
+          "item": "P.MM.06.MSG.003"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.004",
+      "name": "уведомление о результатах обработки сведений",
+      "structure_id": "R.006",
+      "structure_version": null,
+      "structure_version_source": "32_ОП.pdf; Y.Y.Y unresolved placeholder",
+      "direction": "RESPONSE",
+      "role": "response",
+      "purpose": "уведомление о результатах обработки сведений",
+      "context": [
+        "P.MM.06.TRN.001",
+        "P.MM.06.TRN.002",
+        "P.MM.06.TRN.003",
+        "P.MM.06.TRN.009",
+        "P.MM.06.TRN.010",
+        "P.MM.06.TRN.011",
+        "P.MM.06.TRN.012"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "NO_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-004",
+          "document": "32_ОП.pdf",
+          "location": "No separate requirements table found in audited sections",
+          "status": "CONFIRMED",
+          "page": 95
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-004",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 95,
+          "item": "P.MM.06.MSG.004"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.005",
+      "name": "запрос даты и времени обновления",
+      "structure_id": "R.007",
+      "structure_version": null,
+      "structure_version_source": "32_ОП.pdf; Y.Y.Y unresolved placeholder",
+      "direction": "REQUEST",
+      "role": "request",
+      "purpose": "запрос даты и времени обновления",
+      "context": [
+        "P.MM.06.TRN.004"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "NO_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-005",
+          "document": "32_ОП.pdf",
+          "location": "No separate requirements table found in audited sections",
+          "status": "CONFIRMED",
+          "page": 95
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-005",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 95,
+          "item": "P.MM.06.MSG.005"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.006",
+      "name": "дата и время обновления",
+      "structure_id": "R.007",
+      "structure_version": null,
+      "structure_version_source": "32_ОП.pdf; Y.Y.Y unresolved placeholder",
+      "direction": "RESPONSE",
+      "role": "response",
+      "purpose": "дата и время обновления",
+      "context": [
+        "P.MM.06.TRN.004"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "NO_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-006",
+          "document": "32_ОП.pdf",
+          "location": "No separate requirements table found in audited sections",
+          "status": "CONFIRMED",
+          "page": 95
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-006",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 95,
+          "item": "P.MM.06.MSG.006"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.007",
+      "name": "запрос сведений о регистрации",
+      "structure_id": "R.007",
+      "structure_version": null,
+      "structure_version_source": "32_ОП.pdf; Y.Y.Y unresolved placeholder",
+      "direction": "REQUEST",
+      "role": "request",
+      "purpose": "запрос сведений о регистрации",
+      "context": [
+        "P.MM.06.TRN.005"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "NO_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-007",
+          "document": "32_ОП.pdf",
+          "location": "No separate requirements table found in audited sections",
+          "status": "CONFIRMED",
+          "page": 95
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-007",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 95,
+          "item": "P.MM.06.MSG.007"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.008",
+      "name": "сведения о регистрации",
+      "structure_id": "R.HC.MM.06.001",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "RESPONSE",
+      "role": "alternative_response",
+      "purpose": "сведения о регистрации",
+      "context": [
+        "P.MM.06.TRN.005"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "NO_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-008",
+          "document": "32_ОП.pdf",
+          "location": "No separate requirements table found in audited sections",
+          "status": "CONFIRMED",
+          "page": 95
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-008",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 95,
+          "item": "P.MM.06.MSG.008"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.009",
+      "name": "уведомление об отсутствии сведений",
+      "structure_id": "R.006",
+      "structure_version": null,
+      "structure_version_source": "32_ОП.pdf; Y.Y.Y unresolved placeholder",
+      "direction": "RESPONSE",
+      "role": "alternative_response",
+      "purpose": "уведомление об отсутствии сведений",
+      "context": [
+        "P.MM.06.TRN.005",
+        "P.MM.06.TRN.006",
+        "P.MM.06.TRN.013",
+        "P.MM.06.TRN.014",
+        "P.MM.06.TRN.015"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "NO_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-009",
+          "document": "32_ОП.pdf",
+          "location": "No separate requirements table found in audited sections",
+          "status": "CONFIRMED",
+          "page": 95
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-009",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 95,
+          "item": "P.MM.06.MSG.009"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.010",
+      "name": "запрос измененных сведений",
+      "structure_id": "R.007",
+      "structure_version": null,
+      "structure_version_source": "32_ОП.pdf; Y.Y.Y unresolved placeholder",
+      "direction": "REQUEST",
+      "role": "request",
+      "purpose": "запрос измененных сведений",
+      "context": [
+        "P.MM.06.TRN.006"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "NO_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-010",
+          "document": "32_ОП.pdf",
+          "location": "No separate requirements table found in audited sections",
+          "status": "CONFIRMED",
+          "page": 95
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-010",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 95,
+          "item": "P.MM.06.MSG.010"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.011",
+      "name": "измененные сведения",
+      "structure_id": "R.HC.MM.06.001",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "RESPONSE",
+      "role": "alternative_response",
+      "purpose": "измененные сведения",
+      "context": [
+        "P.MM.06.TRN.006"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "NO_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-011",
+          "document": "32_ОП.pdf",
+          "location": "No separate requirements table found in audited sections",
+          "status": "CONFIRMED",
+          "page": 95
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-011",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 95,
+          "item": "P.MM.06.MSG.011"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.012",
+      "name": "запрос номера регистрационного удостоверения",
+      "structure_id": "R.HC.MM.06.004",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "REQUEST",
+      "role": "request",
+      "purpose": "запрос номера регистрационного удостоверения",
+      "context": [
+        "P.MM.06.TRN.007"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-012",
+          "document": "32_ОП.pdf",
+          "location": "Message-specific requirements table",
+          "status": "CONFIRMED",
+          "page": 117,
+          "table": "16"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-012",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 95,
+          "item": "P.MM.06.MSG.012"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.013",
+      "name": "сведения о номере регистрационного удостоверения",
+      "structure_id": "R.HC.MM.06.004",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "RESPONSE",
+      "role": "response",
+      "purpose": "сведения о номере регистрационного удостоверения",
+      "context": [
+        "P.MM.06.TRN.007"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "NO_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-013",
+          "document": "32_ОП.pdf",
+          "location": "No separate requirements table found in audited sections",
+          "status": "CONFIRMED",
+          "page": 95
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-013",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 95,
+          "item": "P.MM.06.MSG.013"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.014",
+      "name": "замечания и предложения к досье",
+      "structure_id": "R.HC.MM.06.002",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "REQUEST",
+      "role": "request",
+      "purpose": "замечания и предложения к досье",
+      "context": [
+        "P.MM.06.TRN.010"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-014",
+          "document": "32_ОП.pdf",
+          "location": "Message-specific requirements table",
+          "status": "CONFIRMED",
+          "page": 145,
+          "table": "16"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-014",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 130,
+          "item": "P.MM.06.MSG.014"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.015",
+      "name": "сведения экспертного заключения",
+      "structure_id": "R.HC.MM.06.002",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "REQUEST",
+      "role": "request",
+      "purpose": "сведения экспертного заключения",
+      "context": [
+        "P.MM.06.TRN.009"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-015",
+          "document": "32_ОП.pdf",
+          "location": "Message-specific requirements table",
+          "status": "CONFIRMED",
+          "page": 146,
+          "table": "17"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-015",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 130,
+          "item": "P.MM.06.MSG.015"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.016",
+      "name": "подтверждение признания экспертного заключения",
+      "structure_id": "R.HC.MM.06.002",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "REQUEST",
+      "role": "request",
+      "purpose": "подтверждение признания экспертного заключения",
+      "context": [
+        "P.MM.06.TRN.011"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-016",
+          "document": "32_ОП.pdf",
+          "location": "Message-specific requirements table",
+          "status": "CONFIRMED",
+          "page": 147,
+          "table": "18"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-016",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 130,
+          "item": "P.MM.06.MSG.016"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.017",
+      "name": "уведомление об изменении статуса удостоверения",
+      "structure_id": "R.HC.MM.06.001",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "NOTIFICATION",
+      "role": "notification",
+      "purpose": "уведомление об изменении статуса удостоверения",
+      "context": [
+        "P.MM.06.TRN.008"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "NO_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-017",
+          "document": "32_ОП.pdf",
+          "location": "No separate requirements table found in audited sections",
+          "status": "CONFIRMED",
+          "page": 130
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-017",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 130,
+          "item": "P.MM.06.MSG.017"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.018",
+      "name": "уведомление об изменении состава документов",
+      "structure_id": "R.HC.MM.06.003",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "REQUEST",
+      "role": "request",
+      "purpose": "уведомление об изменении состава документов",
+      "context": [
+        "P.MM.06.TRN.012"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-018",
+          "document": "32_ОП.pdf",
+          "location": "Message-specific requirements table",
+          "status": "CONFIRMED",
+          "page": 148,
+          "table": "19"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-018",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 130,
+          "item": "P.MM.06.MSG.018"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.019",
+      "name": "запрос состава документов",
+      "structure_id": "R.HC.MM.06.003",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "REQUEST",
+      "role": "request",
+      "purpose": "запрос состава документов",
+      "context": [
+        "P.MM.06.TRN.013"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-019",
+          "document": "32_ОП.pdf",
+          "location": "Message-specific requirements table",
+          "status": "CONFIRMED",
+          "page": 150,
+          "table": "20"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-019",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 130,
+          "item": "P.MM.06.MSG.019"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.020",
+      "name": "сведения о составе документов",
+      "structure_id": "R.HC.MM.06.003",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "RESPONSE",
+      "role": "alternative_response",
+      "purpose": "сведения о составе документов",
+      "context": [
+        "P.MM.06.TRN.013"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-020",
+          "document": "32_ОП.pdf",
+          "location": "Message-specific requirements table",
+          "status": "CONFIRMED",
+          "page": 151,
+          "table": "21"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-020",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 130,
+          "item": "P.MM.06.MSG.020"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.021",
+      "name": "запрос документов",
+      "structure_id": "R.HC.MM.06.003",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "REQUEST",
+      "role": "request",
+      "purpose": "запрос документов",
+      "context": [
+        "P.MM.06.TRN.014"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-021",
+          "document": "32_ОП.pdf",
+          "location": "Message-specific requirements table",
+          "status": "CONFIRMED",
+          "page": 153,
+          "table": "22"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-021",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 130,
+          "item": "P.MM.06.MSG.021"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.022",
+      "name": "документы",
+      "structure_id": "R.HC.MM.06.003",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "RESPONSE",
+      "role": "alternative_response",
+      "purpose": "документы",
+      "context": [
+        "P.MM.06.TRN.014"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-022",
+          "document": "32_ОП.pdf",
+          "location": "Message-specific requirements table",
+          "status": "CONFIRMED",
+          "page": 155,
+          "table": "23"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-022",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 130,
+          "item": "P.MM.06.MSG.022"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.023",
+      "name": "запрос кода вида изделий",
+      "structure_id": "R.HC.MM.06.005",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "REQUEST",
+      "role": "request",
+      "purpose": "запрос кода вида изделий",
+      "context": [
+        "P.MM.06.TRN.015"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-023",
+          "document": "32_ОП.pdf",
+          "location": "Message-specific requirements table",
+          "status": "CONFIRMED",
+          "page": 156,
+          "table": "24"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-023",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 130,
+          "item": "P.MM.06.MSG.023"
+        }
+      ]
+    },
+    {
+      "message_code": "P.MM.06.MSG.024",
+      "name": "код вида изделий",
+      "structure_id": "R.HC.MM.06.005",
+      "structure_version": "1.1.0",
+      "structure_version_source": "32_ОП.pdf structure metadata, 1.1.0",
+      "direction": "RESPONSE",
+      "role": "alternative_response",
+      "purpose": "код вида изделий",
+      "context": [
+        "P.MM.06.TRN.015"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "32OP-RULESTATUS-024",
+          "document": "32_ОП.pdf",
+          "location": "Message-specific requirements table",
+          "status": "CONFIRMED",
+          "page": 157,
+          "table": "25"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "32OP-MSG-024",
+          "document": "32_ОП.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 130,
+          "item": "P.MM.06.MSG.024"
+        }
+      ]
+    }
+  ]
+}

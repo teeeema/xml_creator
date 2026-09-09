@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope
+    xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:wsa="http://www.w3.org/2005/08/addressing"
+    xmlns:int="urn:EEC:Interaction:v1.0"
+
+    xmlns="urn:EEC:R:ProcessingResultDetails:vY.Y.Y"
+    xmlns:ccdo="urn:EEC:M:ComplexDataObjects:vX.X.X"
+    xmlns:csdo="urn:EEC:M:SimpleDataObjects:vX.X.X">
+    <!--
+      Y.Y.Y — версия структуры электронного документа R.006.
+      Определяется с учетом версии базисной модели данных,
+      использованной при разработке технической схемы структуры.
+
+      X.X.X — версия базисной модели данных,
+      использованной для импортируемых пространств имен ccdo, csdo.
+
+      Значения определяются в соответствии с п. 2 Решения
+      Коллегии ЕЭК от 25.10.2016 № 122.
+    -->
+    <soap:Header>
+        <wsa:To>EAEU://RU/CP/P.MM.01/P.MM.01.ACT.003</wsa:To>
+        <wsa:ReplyTo>
+            <wsa:Address>EAEU://RU/CP/P.MM.01/P.MM.01.ACT.002</wsa:Address>
+        </wsa:ReplyTo>
+        <wsa:MessageID>urn:uuid:00000000-0000-0000-0000-000000002727</wsa:MessageID>
+        <wsa:RelatesTo>urn:uuid:00000000-0000-0000-0000-000000002726</wsa:RelatesTo>
+        <wsa:Action>int://CP/P.MM.01/1.1.0/P.MM.01.PRC.005/P.MM.01.TRN.010/P.MM.01.MSG.004</wsa:Action>
+        <int:ProcedureID>urn:uuid:00000000-0000-0000-0000-000000002724</int:ProcedureID>
+        <int:ConversationID>urn:uuid:00000000-0000-0000-0000-000000002725</int:ConversationID>
+    </soap:Header>
+    <soap:Body>
+        <ProcessingResultDetails>
+            <ccdo:EDocHeader>
+                <csdo:InfEnvelopeCode>P.MM.01.MSG.004</csdo:InfEnvelopeCode>
+                <csdo:EDocCode>R.006</csdo:EDocCode>
+                <csdo:EDocId>00000000-0000-0000-0000-000000000004</csdo:EDocId>
+                <csdo:EDocRefId>00000000-0000-0000-0000-000000000016</csdo:EDocRefId>
+                <csdo:EDocDateTime>2026-08-24T00:00:00</csdo:EDocDateTime>
+            </ccdo:EDocHeader>
+            <csdo:EventDateTime>2026-08-24T00:00:00</csdo:EventDateTime>
+            <csdo:ProcessingResultV2Code>TEST</csdo:ProcessingResultV2Code>
+        </ProcessingResultDetails>
+    </soap:Body>
+</soap:Envelope>

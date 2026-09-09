@@ -1,0 +1,214 @@
+{
+  "message_code": "P.SP.03.MSG.015",
+  "structure_id": "R.IP.SP.03.002",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.03.MSG.015.REQ.001",
+      "requirement_code": "1",
+      "source_text": "в электронном документе (сведениях) должно быть заполнено 2 экземпляра реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails), содержащих соответственно изменяемые сведения Единого реестра НМПТ Союза и измененные сведения Единого реестра НМПТ Союза, содержащие информацию о прекращении действия свидетельства о праве использования НМПТ Союза (далее – измененные сведения Единого реестра НМПТ Союза)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.015-1",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.015",
+          "status": "CONFIRMED",
+          "page": 279,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.015.REQ.002",
+      "requirement_code": "2",
+      "source_text": "в составе экземпляров реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails) значение реквизита «Код вида записи общего информационного ресурса» (ipsdo:ResourceItemKindCode) должно принимать значение «RH» – «сведения о праве использования НМПТ Союза»",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.015-2",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.015",
+          "status": "CONFIRMED",
+          "page": 279,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "2"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.015.REQ.003",
+      "requirement_code": "3-29",
+      "source_text": "соответствуют требованиям 3-29 таблицы 20 настоящего Регламента, которые применяются при заполнении экземпляров реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails) (значения кодов требований в таблице 20 и таблице 24 совпадают)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.015-3-29",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.015",
+          "status": "CONFIRMED",
+          "page": 279,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "3-29"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.015.REQ.004",
+      "requirement_code": "30",
+      "source_text": "если в составе электронного документа (сведений) заполнен 1 или несколько экземпляров реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails), в составе такого экземпляра реквизита «Документ в бинарном формате» (csdo:DocBinaryText) и «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) не заполняются",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.015-30",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.015",
+          "status": "CONFIRMED",
+          "page": 279,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "30"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.015.REQ.005",
+      "requirement_code": "31",
+      "source_text": "если в составе электронного документа (сведений) заполнен 1 или несколько экземпляров реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails), то в составе таких экземпляров реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) должны быть заполнены реквизиты «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) и «Количество листов» (csdo:PageQuantity)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.015-31",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.015",
+          "status": "CONFIRMED",
+          "page": 280,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "31"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.015.REQ.006",
+      "requirement_code": "32",
+      "source_text": "если в составе электронного документа (сведений) заполнен 1 или несколько экземпляров реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails), то если в составе таких экземпляров «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) значение реквизита «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) соответствует значению «05999», «06999», «07030», «07180», «07185», «99025» или «99999», то реквизит «Наименование документа» (csdo:DocName) должен быть заполнен",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.015-32",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.015",
+          "status": "CONFIRMED",
+          "page": 280,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "32"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.015.REQ.007",
+      "requirement_code": "33",
+      "source_text": "если в составе электронного документа (сведений) заполнено несколько экземпляров реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) и значение реквизита «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) совпадает в составе некоторых из таких экземпляров, в составе всех таких экземпляров реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) должен быть заполнен как минимум один из следующих реквизитов: «Наименование документа» (csdo:DocName), «Номер документа» (csdo:DocId), «Дата документа» (csdo:DocCreationDate), и значения как минимум одного из перечисленных реквизитов в составе всех экземпляров реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) должны отличаться",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.015-33",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.015",
+          "status": "CONFIRMED",
+          "page": 280,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "33"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.015.REQ.008",
+      "requirement_code": "34",
+      "source_text": "в составе реквизита «Сведения о статусном состоянии» (ipcdo:IPStatusDetails) должны быть заполнены реквизиты: «Дата» (csdo:EventDate); «Описание» (csdo:DescriptionText)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.015-34",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.015",
+          "status": "CONFIRMED",
+          "page": 280,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "34"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.015.REQ.009",
+      "requirement_code": "35",
+      "source_text": "в составе экземпляра реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails), содержащего измененные сведения Единого реестра НМПТ Союза, в составе реквизита «Сведения о статусном состоянии» (ipcdo:IPEntityStatusDetails) реквизит «Дата» (csdo:EventDate) должен быть заполнен, значение реквизита «Код статуса» (csdo:StatusCode) должно соответствовать значению «19» – «действие права использования НМПТ Союза прекращено», а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в составе реквизита «Код статуса» (csdo:StatusCode) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.015-35",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.015",
+          "status": "CONFIRMED",
+          "page": 280,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "35"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.015.REQ.010",
+      "requirement_code": "36",
+      "source_text": "в составе экземпляра реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails), содержащего измененные сведения Единого реестра НМПТ Союза, значение реквизита «Дата истечения срока действия документа» (csdo:DocValidityDate) должно совпадать со значением соответствующего реквизита в составе экземпляра реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails), содержащего изменяемые сведения Единого реестра НМПТ Союза",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.015-36",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.015",
+          "status": "CONFIRMED",
+          "page": 281,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "36"
+        }
+      ]
+    }
+  ],
+  "structured_rules": [],
+  "correlation_rules": [],
+  "classifier_refs": [],
+  "source_text": null,
+  "normalized_field_reference": null,
+  "source_refs": [
+    {
+      "source_id": "23OP-RULE-P.SP.03.MSG.015",
+      "document": "ОП_23.pdf",
+      "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.015",
+      "status": "CONFIRMED",
+      "page": 279,
+      "table": "24",
+      "version_context": "P.SP.03 1.0.0"
+    }
+  ]
+}

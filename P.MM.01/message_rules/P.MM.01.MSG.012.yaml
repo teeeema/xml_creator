@@ -1,0 +1,152 @@
+{
+  "message_code": "P.MM.01.MSG.012",
+  "structure_id": "R.HC.MM.01.003",
+  "fixed_values": {},
+  "field_usage": {
+    "ApplicationId": "REQUIRED",
+    "RegistrationNumberId": "FORBIDDEN",
+    "RegistrationKindCode": "REQUIRED"
+  },
+  "business_rules": [
+    {
+      "rule_id": "P.MM.01.MSG.012.R1",
+      "message_code": "P.MM.01.MSG.012",
+      "field_paths": [
+        "ApplicationId"
+      ],
+      "condition": null,
+      "requirement": "реквизит «Номер заявления о регистрации лекарственного препарата» (hcsdo:ApplicationId) заполняется обязательно",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "16",
+          "item": "1",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.012.R2",
+      "message_code": "P.MM.01.MSG.012",
+      "field_paths": [
+        "RegistrationNumberId"
+      ],
+      "condition": null,
+      "requirement": "реквизит «Порядковый номер регистрационного удостоверения лекарственного препарата» (hcsdo:RegistrationNumberId) не заполняется",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "16",
+          "item": "2",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.012.R3",
+      "message_code": "P.MM.01.MSG.012",
+      "field_paths": [
+        "RegistrationKindCode"
+      ],
+      "condition": null,
+      "requirement": "реквизит «Код вида процедуры регистрации» (hcsdo:RegistrationKindCode) заполняется обязательно",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "16",
+          "item": "3",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.012.R4",
+      "message_code": "P.MM.01.MSG.012",
+      "field_paths": [
+        "RegistrationDossierDocDetails/DrugRegistrationDocCode",
+        "RegistrationDossierDocDetails/DrugRegistrationDocName"
+      ],
+      "condition": null,
+      "requirement": "значение реквизитов «Код вида документа регистрационного досье на лекарственный препарат» (hcsdo:DrugRegistrationDocCode) или «Наименование вида документа регистрационного досье на лекарственный препарат» (hcsdo:DrugRegistrationDocName) должно соответствовать значению «заявление на регистрацию лекарственного препарата, оформленное в соответствии с приложением № 2 к Правилам регистрации и экспертизы лекарственных средств для медицинского применения»",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "16",
+          "item": "4",
+          "page": 288,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.012.R5",
+      "message_code": "P.MM.01.MSG.012",
+      "field_paths": [
+        "RegistrationDossierDocDetails/DocCopyBinaryText",
+        "RegistrationDossierDocDetails/AnyDetails"
+      ],
+      "condition": null,
+      "requirement": "в электронном сообщении должен быть заполнен реквизит «Документ в бинарном формате» (hcsdo: DocCopyBinaryText) и (или) реквизит «XML-документ» (ccdo:AnyDetails) 28. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление о невозможности рассмотрения заявления на проведение процедур регистрации лекарственного препарата» (P.MM.01.MSG.016), приведены в таблице 17.",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "16",
+          "item": "5",
+          "page": 288,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED"
+    }
+  ],
+  "correlation_rules": [],
+  "classifier_refs": [],
+  "source_refs": [
+    {
+      "source_id": "SRC-PMM01-068",
+      "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+      "location": "Требования к заполнению",
+      "status": "CONFIRMED",
+      "section": "IX",
+      "table": "16",
+      "item": "all",
+      "page": null,
+      "version_context": "P.MM.01 1.1.0"
+    }
+  ]
+}

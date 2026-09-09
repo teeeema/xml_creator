@@ -1,0 +1,2972 @@
+{
+  "structure_id": "R.FP.DS.01.001",
+  "version": "1.0.0",
+  "official_name": "отчет о зачислении и распределении сумм ввозных таможенных пошлин",
+  "namespace": "urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0",
+  "root_element": "ChargedDistributedReport",
+  "xsd_file": "EEC_R_FP_DS_01_ChargedDistributedReport_v1.0.0.xsd",
+  "imported_namespaces": {
+    "ccdo": "urn:EEC:M:ComplexDataObjects:vX.X.X",
+    "ds01cdo": "urn:EEC:M:DS:01:ComplexDataObjects:vX.X.X",
+    "ds01sdo": "urn:EEC:M:DS:01:SimpleDataObjects:vX.X.X",
+    "fpcdo": "urn:EEC:M:FP:ComplexDataObjects:vX.X.X",
+    "fpsdo": "urn:EEC:M:FP:SimpleDataObjects:vX.X.X",
+    "csdo": "urn:EEC:M:SimpleDataObjects:vX.X.X"
+  },
+  "source_refs": [
+    {
+      "source_id": "49OP-STRUCT-001",
+      "document": "49 ОП.pdf",
+      "location": "Описание структуры отчета о зачислении и распределении сумм ввозных таможенных пошлин",
+      "status": "CONFIRMED",
+      "page": 151,
+      "table": "5"
+    }
+  ],
+  "status": "NEEDS_XSD",
+  "fields": [
+    {
+      "field_id": "1",
+      "order": 1,
+      "depth": 0,
+      "parent": null,
+      "path": "ChargedDistributedReport/ccdo:EDocHeader",
+      "official_name": "EDocHeader",
+      "xml_name": "EDocHeader",
+      "namespace_prefix": "ccdo",
+      "kind": "ELEMENT",
+      "datatype": "ccdo:EDocHeaderType",
+      "datatype_text": "M.CDT.90001",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "совокупность технологических реквизитов электронного документа (сведений)",
+      "constraints": "Определяется областями значений вложенных элементов",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "1"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "1"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.CDE.90001"
+    },
+    {
+      "field_id": "1.1",
+      "order": 2,
+      "depth": 1,
+      "parent": "1",
+      "path": "ChargedDistributedReport/ccdo:EDocHeader/csdo:InfEnvelopeCode",
+      "official_name": "InfEnvelopeCode",
+      "xml_name": "InfEnvelopeCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:InfEnvelopeCodeType",
+      "datatype_text": "M.SDT.90004",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "кодовое обозначение сообщения общего процесса",
+      "constraints": "Шаблон: P\\.[A-Z]{2}\\.[0-9]{2}\\.MSG\\.[0-9]{3}",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-1.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "1.1"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-1.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "1.1"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.90010"
+    },
+    {
+      "field_id": "1.2",
+      "order": 3,
+      "depth": 1,
+      "parent": "1",
+      "path": "ChargedDistributedReport/ccdo:EDocHeader/csdo:EDocCode",
+      "official_name": "EDocCode",
+      "xml_name": "EDocCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:EDocCodeType",
+      "datatype_text": "M.SDT.90001",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "кодовое обозначение электронного документа (сведений) в соответствии с реестром структур электронных документов и сведений",
+      "constraints": "Шаблон: R(\\.[A-Z]{2}\\.[A-Z]{2}\\.[0-9]{2})?\\.[0-9]{3}",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-1.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "1.2"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-1.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "1.2"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.90001"
+    },
+    {
+      "field_id": "1.3",
+      "order": 4,
+      "depth": 1,
+      "parent": "1",
+      "path": "ChargedDistributedReport/ccdo:EDocHeader/csdo:EDocId",
+      "official_name": "EDocId",
+      "xml_name": "EDocId",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "datatype_text": "M.SDT.90003",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "строка символов, однозначно идентифицирующая электронный документ (сведения)",
+      "constraints": "ISO/IEC 9834-8; шаблон UUID",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-1.3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "1.3"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-1.3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "1.3"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.90007"
+    },
+    {
+      "field_id": "1.4",
+      "order": 5,
+      "depth": 1,
+      "parent": "1",
+      "path": "ChargedDistributedReport/ccdo:EDocHeader/csdo:EDocRefId",
+      "official_name": "EDocRefId",
+      "xml_name": "EDocRefId",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "datatype_text": "M.SDT.90003",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "идентификатор электронного документа (сведений), в ответ на который был сформирован данный электронный документ (сведения)",
+      "constraints": "ISO/IEC 9834-8; шаблон UUID",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-1.4",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "1.4"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-1.4",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "1.4"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.90008"
+    },
+    {
+      "field_id": "1.5",
+      "order": 6,
+      "depth": 1,
+      "parent": "1",
+      "path": "ChargedDistributedReport/ccdo:EDocHeader/csdo:EDocDateTime",
+      "official_name": "EDocDateTime",
+      "xml_name": "EDocDateTime",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateTimeType",
+      "datatype_text": "M.BDT.00006",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "дата и время создания электронного документа (сведений)",
+      "constraints": "ГОСТ ИСО 8601–2001",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-1.5",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "1.5"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-1.5",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "1.5"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.90002"
+    },
+    {
+      "field_id": "1.6",
+      "order": 7,
+      "depth": 1,
+      "parent": "1",
+      "path": "ChargedDistributedReport/ccdo:EDocHeader/csdo:LanguageCode",
+      "official_name": "LanguageCode",
+      "xml_name": "LanguageCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:LanguageCodeType",
+      "datatype_text": "M.SDT.00051",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение языка",
+      "constraints": "ISO 639-1; шаблон: [a-z]{2}",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-1.6",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "1.6"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-1.6",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "1.6"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00051",
+      "facets": {
+        "pattern": "[a-z]{2}"
+      }
+    },
+    {
+      "field_id": "2",
+      "order": 8,
+      "depth": 0,
+      "parent": null,
+      "path": "ChargedDistributedReport/ds01sdo:ReportCountryCode",
+      "official_name": "ReportCountryCode",
+      "xml_name": "ReportCountryCode",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "datatype_text": "M.SDT.00112",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "кодовое обозначение страны, предоставившей информацию",
+      "constraints": "Значение двухбуквенного кода из классификатора стран мира; шаблон: [A-Z]{2}",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "2"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "2"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00017",
+      "facets": {
+        "pattern": "[A-Z]{2}"
+      }
+    },
+    {
+      "field_id": "2.@codeListId",
+      "order": 9,
+      "depth": 1,
+      "parent": "2",
+      "path": "ChargedDistributedReport/ds01sdo:ReportCountryCode/@codeListId",
+      "official_name": "codeListId",
+      "xml_name": "codeListId",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:ReferenceDataIdType",
+      "datatype_text": "M.SDT.00091",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "обозначение классификатора, в соответствии с которым указан код",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 20",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-2.@codeListId",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "2.@codeListId"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": null
+    },
+    {
+      "field_id": "3",
+      "order": 10,
+      "depth": 0,
+      "parent": null,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails",
+      "official_name": "ChargedDistributedReportDetails",
+      "xml_name": "ChargedDistributedDutyReportDetails",
+      "namespace_prefix": "ds01cdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01cdo:ChargedDistributedDutyReportDetailsType",
+      "datatype_text": "ds01cdo:ChargedDistributedDutyReportDetailsType (M.DS.01.CDT.00010)",
+      "min_occurs": 1,
+      "max_occurs": null,
+      "description": null,
+      "constraints": "Определяется областями значений вложенных элементов",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.CDE.00009"
+    },
+    {
+      "field_id": "3.1",
+      "order": 11,
+      "depth": 1,
+      "parent": "3",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/csdo:EventDate",
+      "official_name": "EventDate",
+      "xml_name": "EventDate",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateType",
+      "datatype_text": "M.BDT.00005",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "ГОСТ ИСО 8601–2001",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.1"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.1"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00131"
+    },
+    {
+      "field_id": "3.2",
+      "order": 12,
+      "depth": 1,
+      "parent": "3",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01sdo:ReportDate",
+      "official_name": "ReportDate",
+      "xml_name": "ReportDate",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateType",
+      "datatype_text": "M.BDT.00005",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "ГОСТ ИСО 8601–2001",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.2"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.2"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00018"
+    },
+    {
+      "field_id": "3.3",
+      "order": 13,
+      "depth": 1,
+      "parent": "3",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01sdo:PreviousReportDate",
+      "official_name": "PreviousReportDate",
+      "xml_name": "PreviousReportDate",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateType",
+      "datatype_text": "M.BDT.00005",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "ГОСТ ИСО 8601–2001",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.3"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.3"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00023"
+    },
+    {
+      "field_id": "3.4",
+      "order": 14,
+      "depth": 1,
+      "parent": "3",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01sdo:ModificationDateTime",
+      "official_name": "ModificationDateTime",
+      "xml_name": "ModificationDateTime",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateTimeType",
+      "datatype_text": "M.BDT.00006",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "дата внесения изменений в отчет",
+      "constraints": "ГОСТ ИСО 8601–2001",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.4",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.4"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.4",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.4"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00024"
+    },
+    {
+      "field_id": "3.5",
+      "order": 15,
+      "depth": 1,
+      "parent": "3",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails",
+      "official_name": "ChargedDistributedDutyDetails",
+      "xml_name": "ChargedDistributedDutyDetails",
+      "namespace_prefix": "ds01cdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01cdo:ChargedDistributedDutyDetailsType",
+      "datatype_text": "ds01cdo:ChargedDistributedDutyDetailsType (M.DS.01.CDT.00001)",
+      "min_occurs": 1,
+      "max_occurs": 2,
+      "description": null,
+      "constraints": "Определяется областями значений вложенных элементов",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.5",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.CDE.00001"
+    },
+    {
+      "field_id": "3.5.1",
+      "order": 16,
+      "depth": 2,
+      "parent": "3.5",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:DailyInfoIndicator",
+      "official_name": "DailyInfoIndicator",
+      "xml_name": "DailyInfoIndicator",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:DailyInfoIndicatorType",
+      "datatype_text": "M.DS.01.SDT.00002",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "индикатор передачи сведений за отчетный день или за отчетный месяц",
+      "constraints": "Одно из двух значений: true или false",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.5.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.1"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.1"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00021"
+    },
+    {
+      "field_id": "3.5.2",
+      "order": 17,
+      "depth": 2,
+      "parent": "3.5",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:EnteredDutyAmount",
+      "official_name": "EnteredDutyAmount",
+      "xml_name": "EnteredDutyAmount",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:PaymentAmountType",
+      "datatype_text": "ds01sdo:PaymentAmountType (M.DS.01.SDT.00001)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "Число в десятичной системе счисления; мин. значение: 0; макс. количество цифр: 20; макс. количество дробных цифр: 2",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.5.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.2"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.2"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00004",
+      "facets": {
+        "min_value": "0",
+        "total_digits": 20,
+        "fraction_digits": 2
+      }
+    },
+    {
+      "field_id": "3.5.2.@currencyCode",
+      "order": 18,
+      "depth": 3,
+      "parent": "3.5.2",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:EnteredDutyAmount/@currencyCode",
+      "official_name": "currencyCode",
+      "xml_name": "currencyCode",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:CurrencyCodeV3Type",
+      "datatype_text": "M.SDT.00144",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "код валюты в соответствии с классификатором валют",
+      "constraints": "Значение буквенного кода из классификатора валют; шаблон: [A-Z]{3}",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.2.@currencyCode",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.2.@currencyCode"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": null
+    },
+    {
+      "field_id": "3.5.2.@currencyCodeListId",
+      "order": 19,
+      "depth": 3,
+      "parent": "3.5.2",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:EnteredDutyAmount/@currencyCodeListId",
+      "official_name": "currencyCodeListId",
+      "xml_name": "currencyCodeListId",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:ReferenceDataIdType",
+      "datatype_text": "M.SDT.00091",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "идентификатор классификатора валют",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 20",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.2.@currencyCodeListId",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.2.@currencyCodeListId"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": null
+    },
+    {
+      "field_id": "3.5.2.@scaleNumber",
+      "order": 20,
+      "depth": 3,
+      "parent": "3.5.2",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:EnteredDutyAmount/@scaleNumber",
+      "official_name": "scaleNumber",
+      "xml_name": "scaleNumber",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:Number2Type",
+      "datatype_text": "M.SDT.00096",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "масштаб денежной суммы, представленный в виде показателя степени числа 10",
+      "constraints": "Макс. количество цифр: 2; макс. дробных цифр: 0; значение по умолчанию: 0",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.2.@scaleNumber",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.2.@scaleNumber"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": null,
+      "facets": {
+        "default_value": 0
+      }
+    },
+    {
+      "field_id": "3.5.3",
+      "order": 21,
+      "depth": 2,
+      "parent": "3.5",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:ExecutedAccountDutyAmount",
+      "official_name": "ExecutedDutyAmount",
+      "xml_name": "ExecutedAccountDutyAmount",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:PaymentAmountType",
+      "datatype_text": "ds01sdo:PaymentAmountType (M.DS.01.SDT.00001)",
+      "min_occurs": null,
+      "max_occurs": null,
+      "description": null,
+      "constraints": "Число в десятичной системе счисления; мин. значение: 0; макс. количество цифр: 20; макс. количество дробных цифр: 2",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.5.3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.3"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.3"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00005",
+      "facets": {
+        "min_value": "0",
+        "total_digits": 20,
+        "fraction_digits": 2
+      }
+    },
+    {
+      "field_id": "3.5.4",
+      "order": 22,
+      "depth": 2,
+      "parent": "3.5",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:ScoreDutyDeptRepayReptDayAmount",
+      "official_name": "OffsetDutyAmount",
+      "xml_name": "ScoreDutyDeptRepayReptDayAmount",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:PaymentAmountType",
+      "datatype_text": "ds01sdo:PaymentAmountType (M.DS.01.SDT.00001)",
+      "min_occurs": null,
+      "max_occurs": null,
+      "description": null,
+      "constraints": "Число в десятичной системе счисления; мин. значение: 0; макс. количество цифр: 20; макс. количество дробных цифр: 2",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.5.4",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.4"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.4",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.4"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00013",
+      "facets": {
+        "min_value": "0",
+        "total_digits": 20,
+        "fraction_digits": 2
+      }
+    },
+    {
+      "field_id": "3.5.5",
+      "order": 23,
+      "depth": 2,
+      "parent": "3.5",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:ScoreDutyDeptRepayCurrentDayAmount",
+      "official_name": "OffsetDistributedDutyAmount",
+      "xml_name": "ScoreDutyDeptRepayCurrentDayAmount",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:PaymentAmountType",
+      "datatype_text": "ds01sdo:PaymentAmountType (M.DS.01.SDT.00001)",
+      "min_occurs": null,
+      "max_occurs": null,
+      "description": null,
+      "constraints": "Число в десятичной системе счисления; мин. значение: 0; макс. количество цифр: 20; макс. количество дробных цифр: 2",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.5.5",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.5"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.5",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.5"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00012",
+      "facets": {
+        "min_value": "0",
+        "total_digits": 20,
+        "fraction_digits": 2
+      }
+    },
+    {
+      "field_id": "3.5.6",
+      "order": 24,
+      "depth": 2,
+      "parent": "3.5",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:ReturnDutyReptDayAmount",
+      "official_name": "ReturnedDutyAmount",
+      "xml_name": "ReturnDutyReptDayAmount",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:PaymentAmountType",
+      "datatype_text": "ds01sdo:PaymentAmountType (M.DS.01.SDT.00001)",
+      "min_occurs": null,
+      "max_occurs": null,
+      "description": null,
+      "constraints": "Число в десятичной системе счисления; мин. значение: 0; макс. количество цифр: 20; макс. количество дробных цифр: 2",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.5.6",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.6"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.6",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.6"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00011",
+      "facets": {
+        "min_value": "0",
+        "total_digits": 20,
+        "fraction_digits": 2
+      }
+    },
+    {
+      "field_id": "3.5.7",
+      "order": 25,
+      "depth": 2,
+      "parent": "3.5",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:ReturnDutyCurrentDayAmount",
+      "official_name": "ReturnedDistributedDutyAmount",
+      "xml_name": "ReturnDutyCurrentDayAmount",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:PaymentAmountType",
+      "datatype_text": "ds01sdo:PaymentAmountType (M.DS.01.SDT.00001)",
+      "min_occurs": null,
+      "max_occurs": null,
+      "description": null,
+      "constraints": "Число в десятичной системе счисления; мин. значение: 0; макс. количество цифр: 20; макс. количество дробных цифр: 2",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.5.7",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.7"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.7",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.7"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00010",
+      "facets": {
+        "min_value": "0",
+        "total_digits": 20,
+        "fraction_digits": 2
+      }
+    },
+    {
+      "field_id": "3.5.8",
+      "order": 26,
+      "depth": 2,
+      "parent": "3.5",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:UnacceptedDutyReturnAmount",
+      "official_name": "UnacceptedDutyReturnAmount",
+      "xml_name": "UnacceptedDutyReturnAmount",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:PaymentAmountType",
+      "datatype_text": "ds01sdo:PaymentAmountType (M.DS.01.SDT.00001)",
+      "min_occurs": null,
+      "max_occurs": null,
+      "description": null,
+      "constraints": "Число в десятичной системе счисления; мин. значение: 0; макс. количество цифр: 20; макс. количество дробных цифр: 2",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.5.8",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.8"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.8",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.8"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00016",
+      "facets": {
+        "min_value": "0",
+        "total_digits": 20,
+        "fraction_digits": 2
+      }
+    },
+    {
+      "field_id": "3.5.9",
+      "order": 27,
+      "depth": 2,
+      "parent": "3.5",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails",
+      "official_name": "DistributableDutyDetails",
+      "xml_name": "DistributableDutyDetails",
+      "namespace_prefix": "ds01cdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01cdo:DistributableDutyDetailsType",
+      "datatype_text": "ds01cdo:DistributableDutyDetailsType (M.DS.01.CDT.00003)",
+      "min_occurs": 0,
+      "max_occurs": null,
+      "description": null,
+      "constraints": "Определяется областями значений вложенных элементов",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.5.9",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.9"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.9",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.9"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.CDE.00002"
+    },
+    {
+      "field_id": "3.5.9.1",
+      "order": 28,
+      "depth": 3,
+      "parent": "3.5.9",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails/ds01sdo:TotalAmountIndicator",
+      "official_name": "TotalAmountIndicator",
+      "xml_name": "TotalAmountIndicator",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:TotalAmountIndicatorType",
+      "datatype_text": "M.DS.01.SDT.00003",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "индикатор сведений об общей сумме или о суммах для конкретного государства-члена",
+      "constraints": "Одно из двух значений: true или false",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.9.1",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.9.1"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.9.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.9.1"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00020"
+    },
+    {
+      "field_id": "3.5.9.2",
+      "order": 29,
+      "depth": 3,
+      "parent": "3.5.9",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails/ds01sdo:DistributableDutyAmount",
+      "official_name": "DistributableDutyAmount",
+      "xml_name": "DistributableDutyAmount",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:PaymentAmountType",
+      "datatype_text": "ds01sdo:PaymentAmountType (M.DS.01.SDT.00001)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "Число в десятичной системе счисления; мин. значение: 0; макс. количество цифр: 20; макс. количество дробных цифр: 2",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.9.2",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.9.2"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.9.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.9.2"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00003",
+      "facets": {
+        "min_value": "0",
+        "total_digits": 20,
+        "fraction_digits": 2
+      }
+    },
+    {
+      "field_id": "3.5.9.3",
+      "order": 30,
+      "depth": 3,
+      "parent": "3.5.9",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails/csdo:UnifiedCountryCode",
+      "official_name": "UnifiedCountryCode",
+      "xml_name": "UnifiedCountryCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "datatype_text": "M.SDT.00112",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение страны в соответствии с указанным классификатором стран мира",
+      "constraints": "Значение двухбуквенного кода из классификатора стран мира; шаблон: [A-Z]{2}",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.9.3",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.9.3"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.9.3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.9.3"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00162",
+      "facets": {
+        "pattern": "[A-Z]{2}"
+      }
+    },
+    {
+      "field_id": "3.5.9.3.@codeListId",
+      "order": 31,
+      "depth": 4,
+      "parent": "3.5.9.3",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails/csdo:UnifiedCountryCode/@codeListId",
+      "official_name": "codeListId",
+      "xml_name": "codeListId",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:ReferenceDataIdType",
+      "datatype_text": "M.SDT.00091",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "обозначение классификатора, в соответствии с которым указан код",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 20",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.9.3.@codeListId",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.9.3.@codeListId"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": null
+    },
+    {
+      "field_id": "3.5.10",
+      "order": 32,
+      "depth": 2,
+      "parent": "3.5",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails",
+      "official_name": "TransferDistributedDutyDetails",
+      "xml_name": "TransferDistributedDutyDetails",
+      "namespace_prefix": "ds01cdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01cdo:TransferDistributedDutyDetailsType",
+      "datatype_text": "ds01cdo:TransferDistributedDutyDetailsType (M.DS.01.CDT.00004)",
+      "min_occurs": 0,
+      "max_occurs": null,
+      "description": null,
+      "constraints": "Определяется областями значений вложенных элементов",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.5.10",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.10"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.10",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.10"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.CDE.00004"
+    },
+    {
+      "field_id": "3.5.10.1",
+      "order": 33,
+      "depth": 3,
+      "parent": "3.5.10",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails/ds01sdo:TotalAmountIndicator",
+      "official_name": "TotalAmountIndicator",
+      "xml_name": "TotalAmountIndicator",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:TotalAmountIndicatorType",
+      "datatype_text": "M.DS.01.SDT.00003",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "индикатор сведений об общей сумме или о суммах для конкретного государства-члена",
+      "constraints": "Одно из двух значений: true или false",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.10.1",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.10.1"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.10.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.10.1"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00020"
+    },
+    {
+      "field_id": "3.5.10.2",
+      "order": 34,
+      "depth": 3,
+      "parent": "3.5.10",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails/ds01sdo:TransferDistributedDutyAmount",
+      "official_name": "TransferDistributedDutyAmount",
+      "xml_name": "TransferDistributedDutyAmount",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:PaymentAmountType",
+      "datatype_text": "ds01sdo:PaymentAmountType (M.DS.01.SDT.00001)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "Число в десятичной системе счисления; мин. значение: 0; макс. количество цифр: 20; макс. количество дробных цифр: 2",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.10.2",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.10.2"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.10.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.10.2"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00015",
+      "facets": {
+        "min_value": "0",
+        "total_digits": 20,
+        "fraction_digits": 2
+      }
+    },
+    {
+      "field_id": "3.5.10.3",
+      "order": 35,
+      "depth": 3,
+      "parent": "3.5.10",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails/csdo:UnifiedCountryCode",
+      "official_name": "UnifiedCountryCode",
+      "xml_name": "UnifiedCountryCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "datatype_text": "M.SDT.00112",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение страны в соответствии с указанным классификатором стран мира",
+      "constraints": "Значение двухбуквенного кода из классификатора стран мира; шаблон: [A-Z]{2}",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.10.3",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.10.3"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.10.3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.10.3"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00162",
+      "facets": {
+        "pattern": "[A-Z]{2}"
+      }
+    },
+    {
+      "field_id": "3.5.10.3.@codeListId",
+      "order": 36,
+      "depth": 4,
+      "parent": "3.5.10.3",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails/csdo:UnifiedCountryCode/codeListId",
+      "official_name": "codeListId",
+      "xml_name": "codeListId",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:ReferenceDataIdType",
+      "datatype_text": "M.SDT.00091",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "обозначение классификатора, в соответствии с которым указан код",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 20",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.10.3.@codeListId",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.10.3.@codeListId"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": null
+    },
+    {
+      "field_id": "3.5.11",
+      "order": 37,
+      "depth": 2,
+      "parent": "3.5",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:InternalRevenueDistributedDutyAmount",
+      "official_name": "InternalRevenueDistributedDutyAmount",
+      "xml_name": "InternalRevenueDistributedDutyAmount",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:PaymentAmountType",
+      "datatype_text": "ds01sdo:PaymentAmountType (M.DS.01.SDT.00001)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "Число в десятичной системе счисления; мин. значение: 0; макс. количество цифр: 20; макс. количество дробных цифр: 2",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.5.11",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.11"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.11",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.11"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00009",
+      "facets": {
+        "min_value": "0",
+        "total_digits": 20,
+        "fraction_digits": 2
+      }
+    },
+    {
+      "field_id": "3.5.12",
+      "order": 38,
+      "depth": 2,
+      "parent": "3.5",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:StopTransferDistributedDutyDetails",
+      "official_name": "StopTransferDistributedDutyDetails",
+      "xml_name": "StopTransferDistributedDutyDetails",
+      "namespace_prefix": "ds01cdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01cdo:StopTransferDistributedDutyDetailsType",
+      "datatype_text": "ds01cdo:StopTransferDistributedDutyDetailsType (M.DS.01.CDT.00005)",
+      "min_occurs": 0,
+      "max_occurs": null,
+      "description": null,
+      "constraints": "Определяется областями значений вложенных элементов",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.5.12",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.12"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.12",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.12"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.CDE.00005"
+    },
+    {
+      "field_id": "3.5.12.1",
+      "order": 39,
+      "depth": 3,
+      "parent": "3.5.12",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:StopTransferDistributedDutyDetails/ds01sdo:TotalAmountIndicator",
+      "official_name": "TotalAmountIndicator",
+      "xml_name": "TotalAmountIndicator",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:TotalAmountIndicatorType",
+      "datatype_text": "M.DS.01.SDT.00003",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "индикатор сведений об общей сумме или о суммах для конкретного государства-члена",
+      "constraints": "Одно из двух значений: true или false",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.12.1",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.12.1"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.12.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.12.1"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00020"
+    },
+    {
+      "field_id": "3.5.12.2",
+      "order": 40,
+      "depth": 3,
+      "parent": "3.5.12",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:StopTransferDistributedDutyDetails/ds01sdo:StopTransferDistributedDutyAmount",
+      "official_name": "StopTransferDistributedDutyAmount",
+      "xml_name": "StopTransferDistributedDutyAmount",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:PaymentAmountType",
+      "datatype_text": "ds01sdo:PaymentAmountType (M.DS.01.SDT.00001)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "Число в десятичной системе счисления; мин. значение: 0; макс. количество цифр: 20; макс. количество дробных цифр: 2",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.12.2",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.12.2"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.12.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.12.2"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00014",
+      "facets": {
+        "min_value": "0",
+        "total_digits": 20,
+        "fraction_digits": 2
+      }
+    },
+    {
+      "field_id": "3.5.12.3",
+      "order": 41,
+      "depth": 3,
+      "parent": "3.5.12",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:StopTransferDistributedDutyDetails/csdo:UnifiedCountryCode",
+      "official_name": "UnifiedCountryCode",
+      "xml_name": "UnifiedCountryCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "datatype_text": "M.SDT.00112",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение страны в соответствии с указанным классификатором стран мира",
+      "constraints": "Значение двухбуквенного кода из классификатора стран мира; шаблон: [A-Z]{2}",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.12.3",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.12.3"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.12.3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.12.3"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00162",
+      "facets": {
+        "pattern": "[A-Z]{2}"
+      }
+    },
+    {
+      "field_id": "3.5.12.3.@codeListId",
+      "order": 42,
+      "depth": 4,
+      "parent": "3.5.12.3",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:StopTransferDistributedDutyDetails/csdo:UnifiedCountryCode/codeListId",
+      "official_name": "codeListId",
+      "xml_name": "codeListId",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:ReferenceDataIdType",
+      "datatype_text": "M.SDT.00091",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "обозначение классификатора, в соответствии с которым указан код",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 20",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.12.3.@codeListId",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.12.3.@codeListId"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": null
+    },
+    {
+      "field_id": "3.5.13",
+      "order": 43,
+      "depth": 2,
+      "parent": "3.5",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:ExternalRevenueDistributedDutyDetails",
+      "official_name": "ExternalRevenueDistributedDutyDetails",
+      "xml_name": "ExternalRevenueDistributedDutyDetails",
+      "namespace_prefix": "ds01cdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01cdo:ExternalRevenueDistributedDutyDetailsType",
+      "datatype_text": "ds01cdo:ExternalRevenueDistributedDutyDetailsType (M.DS.01.CDT.00006)",
+      "min_occurs": 0,
+      "max_occurs": null,
+      "description": null,
+      "constraints": "Определяется областями значений вложенных элементов",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.5.13",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.13"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.13",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.13"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.CDE.00006"
+    },
+    {
+      "field_id": "3.5.13.1",
+      "order": 44,
+      "depth": 3,
+      "parent": "3.5.13",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:ExternalRevenueDistributedDutyDetails/csdo:UnifiedCountryCode",
+      "official_name": "UnifiedCountryCode",
+      "xml_name": "UnifiedCountryCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "datatype_text": "M.SDT.00112",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "кодовое обозначение страны в соответствии с указанным классификатором стран мира",
+      "constraints": "Значение двухбуквенного кода из классификатора стран мира; шаблон: [A-Z]{2}",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.13.1",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.13.1"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.13.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.13.1"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00162",
+      "facets": {
+        "pattern": "[A-Z]{2}"
+      }
+    },
+    {
+      "field_id": "3.5.13.1.@codeListId",
+      "order": 45,
+      "depth": 4,
+      "parent": "3.5.13.1",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:ExternalRevenueDistributedDutyDetails/csdo:UnifiedCountryCode/codeListId",
+      "official_name": "codeListId",
+      "xml_name": "codeListId",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:ReferenceDataIdType",
+      "datatype_text": "M.SDT.00091",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "обозначение классификатора, в соответствии с которым указан код",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 20",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.13.1.@codeListId",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.13.1.@codeListId"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": null
+    },
+    {
+      "field_id": "3.5.13.2",
+      "order": 46,
+      "depth": 3,
+      "parent": "3.5.13",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:ExternalRevenueDistributedDutyDetails/ds01sdo:TotalExternalRevenueDistributedDutyAmount",
+      "official_name": "TotalExternalRevenueDistributedDutyAmount",
+      "xml_name": "TotalExternalRevenueDistributedDutyAmount",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:PaymentAmountType",
+      "datatype_text": "ds01sdo:PaymentAmountType (M.DS.01.SDT.00001)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "Число в десятичной системе счисления; мин. значение: 0; макс. количество цифр: 20; макс. количество дробных цифр: 2",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.13.2",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.13.2"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.13.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.13.2"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00022",
+      "facets": {
+        "min_value": "0",
+        "total_digits": 20,
+        "fraction_digits": 2
+      }
+    },
+    {
+      "field_id": "3.5.13.3",
+      "order": 47,
+      "depth": 3,
+      "parent": "3.5.13",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:ExternalRevenueDistributedDutyDetails/ds01sdo:ExternalRevenueDistributedDutyAmount",
+      "official_name": "ExternalRevenueDistributedDutyAmount",
+      "xml_name": "ExternalRevenueDistributedDutyAmount",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:PaymentAmountType",
+      "datatype_text": "ds01sdo:PaymentAmountType (M.DS.01.SDT.00001)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "Число в десятичной системе счисления; мин. значение: 0; макс. количество цифр: 20; макс. количество дробных цифр: 2",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.13.3",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.13.3"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.13.3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.13.3"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00007",
+      "facets": {
+        "min_value": "0",
+        "total_digits": 20,
+        "fraction_digits": 2
+      }
+    },
+    {
+      "field_id": "3.5.13.4",
+      "order": 48,
+      "depth": 3,
+      "parent": "3.5.13",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:ExternalRevenueDistributedDutyDetails/ds01sdo:DefaultInterestAmount",
+      "official_name": "DefaultInterestAmount",
+      "xml_name": "DefaultInterestAmount",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01sdo:PaymentAmountType",
+      "datatype_text": "ds01sdo:PaymentAmountType (M.DS.01.SDT.00001)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "Число в десятичной системе счисления; мин. значение: 0; макс. количество цифр: 20; макс. количество дробных цифр: 2",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.5.13.4",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.13.4"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.5.13.4",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.5.13.4"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00001",
+      "facets": {
+        "min_value": "0",
+        "total_digits": 20,
+        "fraction_digits": 2
+      }
+    },
+    {
+      "field_id": "3.6",
+      "order": 49,
+      "depth": 1,
+      "parent": "3",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/fpcdo:OfficerDetails",
+      "official_name": "OfficerDetails",
+      "xml_name": "OfficerDetails",
+      "namespace_prefix": "fpcdo",
+      "kind": "ELEMENT",
+      "datatype": "ccdo:OfficerDetailsType",
+      "datatype_text": "ccdo:OfficerDetailsType (M.CDT.00031)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "Определяется областями значений вложенных элементов",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.6",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.6"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.6",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.6"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.FP.CDE.00007"
+    },
+    {
+      "field_id": "3.6.1",
+      "order": 50,
+      "depth": 2,
+      "parent": "3.6",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/fpcdo:OfficerDetails/ccdo:FullNameDetails",
+      "official_name": "FullNameDetails",
+      "xml_name": "FullNameDetails",
+      "namespace_prefix": "ccdo",
+      "kind": "ELEMENT",
+      "datatype": "ccdo:FullNameDetailsType",
+      "datatype_text": "M.CDT.00016",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "фамилия, имя, отчество физического лица",
+      "constraints": "Определяется областями значений вложенных элементов",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.6.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.6.1"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.6.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.6.1"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.CDE.00029"
+    },
+    {
+      "field_id": "3.6.1.1",
+      "order": 51,
+      "depth": 3,
+      "parent": "3.6.1",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/fpcdo:OfficerDetails/ccdo:FullNameDetails/csdo:FirstName",
+      "official_name": "FirstName",
+      "xml_name": "FirstName",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name120Type",
+      "datatype_text": "M.SDT.00055",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "имя физического лица",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 120",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.6.1.1",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.6.1.1"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.6.1.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.6.1.1"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00109",
+      "facets": {
+        "min_length": 1,
+        "max_length": 120
+      }
+    },
+    {
+      "field_id": "3.6.1.2",
+      "order": 52,
+      "depth": 3,
+      "parent": "3.6.1",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/fpcdo:OfficerDetails/ccdo:FullNameDetails/csdo:MiddleName",
+      "official_name": "MiddleName",
+      "xml_name": "MiddleName",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name120Type",
+      "datatype_text": "M.SDT.00055",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "отчество (второе или среднее имя) физического лица",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 120",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.6.1.2",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.6.1.2"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.6.1.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.6.1.2"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00111",
+      "facets": {
+        "min_length": 1,
+        "max_length": 120
+      }
+    },
+    {
+      "field_id": "3.6.1.3",
+      "order": 53,
+      "depth": 3,
+      "parent": "3.6.1",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/fpcdo:OfficerDetails/ccdo:FullNameDetails/csdo:LastName",
+      "official_name": "LastName",
+      "xml_name": "LastName",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name120Type",
+      "datatype_text": "M.SDT.00055",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "фамилия физического лица",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 120",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.6.1.3",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.6.1.3"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.6.1.3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.6.1.3"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00110",
+      "facets": {
+        "min_length": 1,
+        "max_length": 120
+      }
+    },
+    {
+      "field_id": "3.6.2",
+      "order": 54,
+      "depth": 2,
+      "parent": "3.6",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/fpcdo:OfficerDetails/csdo:PositionName",
+      "official_name": "PositionName",
+      "xml_name": "PositionName",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name120Type",
+      "datatype_text": "M.SDT.00055",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "наименование должности сотрудника",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 120",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.6.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.6.2"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.6.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.6.2"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00127",
+      "facets": {
+        "min_length": 1,
+        "max_length": 120
+      }
+    },
+    {
+      "field_id": "3.7",
+      "order": 55,
+      "depth": 1,
+      "parent": "3",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails",
+      "official_name": "ExecutorDetails",
+      "xml_name": "ExecutorDetails",
+      "namespace_prefix": "ds01cdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01cdo:ExecutorDetailsType",
+      "datatype_text": "ds01cdo:ExecutorDetailsType (M.DS.01.CDT.00007)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "Определяется областями значений вложенных элементов",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.7",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.7",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.CDE.00008"
+    },
+    {
+      "field_id": "3.7.1",
+      "order": 56,
+      "depth": 2,
+      "parent": "3.7",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/ccdo:FullNameDetails",
+      "official_name": "FullNameDetails",
+      "xml_name": "FullNameDetails",
+      "namespace_prefix": "ccdo",
+      "kind": "ELEMENT",
+      "datatype": "ccdo:FullNameDetailsType",
+      "datatype_text": "M.CDT.00016",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "фамилия, имя, отчество физического лица",
+      "constraints": "Определяется областями значений вложенных элементов",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.7.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.1"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.7.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.1"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.CDE.00029"
+    },
+    {
+      "field_id": "3.7.1.1",
+      "order": 57,
+      "depth": 3,
+      "parent": "3.7.1",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/ccdo:FullNameDetails/csdo:FirstName",
+      "official_name": "FirstName",
+      "xml_name": "FirstName",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name120Type",
+      "datatype_text": "M.SDT.00055",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "имя физического лица",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 120",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.7.1.1",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.1.1"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.7.1.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.1.1"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00109",
+      "facets": {
+        "min_length": 1,
+        "max_length": 120
+      }
+    },
+    {
+      "field_id": "3.7.1.2",
+      "order": 58,
+      "depth": 3,
+      "parent": "3.7.1",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/ccdo:FullNameDetails/csdo:MiddleName",
+      "official_name": "MiddleName",
+      "xml_name": "MiddleName",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name120Type",
+      "datatype_text": "M.SDT.00055",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "отчество (второе или среднее имя) физического лица",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 120",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.7.1.2",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.1.2"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.7.1.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.1.2"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00111",
+      "facets": {
+        "min_length": 1,
+        "max_length": 120
+      }
+    },
+    {
+      "field_id": "3.7.1.3",
+      "order": 59,
+      "depth": 3,
+      "parent": "3.7.1",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/ccdo:FullNameDetails/csdo:LastName",
+      "official_name": "LastName",
+      "xml_name": "LastName",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name120Type",
+      "datatype_text": "M.SDT.00055",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "фамилия физического лица",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 120",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.7.1.3",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.1.3"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.7.1.3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.1.3"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00110",
+      "facets": {
+        "min_length": 1,
+        "max_length": 120
+      }
+    },
+    {
+      "field_id": "3.7.2",
+      "order": 60,
+      "depth": 2,
+      "parent": "3.7",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/csdo:PositionName",
+      "official_name": "PositionName",
+      "xml_name": "PositionName",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name120Type",
+      "datatype_text": "M.SDT.00055",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "наименование должности сотрудника",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 120",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.7.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.2"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.7.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.2"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00127",
+      "facets": {
+        "min_length": 1,
+        "max_length": 120
+      }
+    },
+    {
+      "field_id": "3.7.3",
+      "order": 61,
+      "depth": 2,
+      "parent": "3.7",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/ccdo:CommunicationDetails",
+      "official_name": "CommunicationDetails",
+      "xml_name": "CommunicationDetails",
+      "namespace_prefix": "ccdo",
+      "kind": "ELEMENT",
+      "datatype": "ccdo:CommunicationDetailsType",
+      "datatype_text": "M.CDT.00003",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "контактный реквизит с указанием способа и идентификатора средства (канала) связи",
+      "constraints": "Определяется областями значений вложенных элементов",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.7.3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.3"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.7.3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.3"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.CDE.00003"
+    },
+    {
+      "field_id": "3.7.3.1",
+      "order": 62,
+      "depth": 3,
+      "parent": "3.7.3",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelCode",
+      "official_name": "CommunicationChannelCode",
+      "xml_name": "CommunicationChannelCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:CommunicationChannelCodeType",
+      "datatype_text": "M.SDT.00014",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение вида средства (канала) связи",
+      "constraints": "Одно значение из перечисления",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.7.3.1",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.3.1"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.7.3.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.3.1"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00014",
+      "facets": {
+        "enum": [
+          "AO",
+          "EM",
+          "FX",
+          "TE",
+          "TG",
+          "TL"
+        ]
+      }
+    },
+    {
+      "field_id": "3.7.3.2",
+      "order": 63,
+      "depth": 3,
+      "parent": "3.7.3",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelName",
+      "official_name": "CommunicationChannelName",
+      "xml_name": "CommunicationChannelName",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name120Type",
+      "datatype_text": "M.SDT.00055",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "наименование вида средства (канала) связи",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 120",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.7.3.2",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.3.2"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.7.3.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.3.2"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00093",
+      "facets": {
+        "min_length": 1,
+        "max_length": 120
+      }
+    },
+    {
+      "field_id": "3.7.3.3",
+      "order": 64,
+      "depth": 3,
+      "parent": "3.7.3",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelId",
+      "official_name": "CommunicationChannelId",
+      "xml_name": "CommunicationChannelId",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:CommunicationChannelIdType",
+      "datatype_text": "M.SDT.00015",
+      "min_occurs": 1,
+      "max_occurs": null,
+      "description": "последовательность символов, идентифицирующая канал связи",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 1000",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-3.7.3.3",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.3.3"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.7.3.3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.7.3.3"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00015",
+      "facets": {
+        "min_length": 1,
+        "max_length": 1000
+      }
+    },
+    {
+      "field_id": "3.8",
+      "order": 65,
+      "depth": 1,
+      "parent": "3",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/csdo:NoteText",
+      "official_name": "Note",
+      "xml_name": "NoteText",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Text4000Type",
+      "datatype_text": "M.SDT.00088",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "Строка символов; мин. длина: 1; макс. длина: 4000",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.FP.DS.01.001-3.8",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.8"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-3.8",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "3.8"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00076",
+      "facets": {
+        "min_length": 1,
+        "max_length": 4000
+      }
+    },
+    {
+      "field_id": "4",
+      "order": 66,
+      "depth": 0,
+      "parent": null,
+      "path": "ChargedDistributedReport/ds01cdo:VerificationProDetails",
+      "official_name": "VerificationProDetails",
+      "xml_name": "VerificationProDetails",
+      "namespace_prefix": "ds01cdo",
+      "kind": "ELEMENT",
+      "datatype": "ds01cdo:VerificationProDetailsType",
+      "datatype_text": "ds01cdo:VerificationProDetailsType (M.DS.01.CDT.00011)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "Определяется областями значений вложенных элементов",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-4",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "4"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-4",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "4"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.CDE.00010"
+    },
+    {
+      "field_id": "4.1",
+      "order": 67,
+      "depth": 1,
+      "parent": "4",
+      "path": "ChargedDistributedReport/ds01cdo:VerificationProDetails/ds01sdo:ReportCountryCode",
+      "official_name": "ReportCountryCode",
+      "xml_name": "ReportCountryCode",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "datatype_text": "M.SDT.00112",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение страны, предоставившей информацию",
+      "constraints": "Значение двухбуквенного кода из классификатора стран мира; шаблон: [A-Z]{2}",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-4.1",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "4.1"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-4.1",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "4.1"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00017",
+      "facets": {
+        "pattern": "[A-Z]{2}"
+      }
+    },
+    {
+      "field_id": "4.1.@codeListId",
+      "order": 68,
+      "depth": 2,
+      "parent": "4.1",
+      "path": "ChargedDistributedReport/ds01cdo:VerificationProDetails/ds01sdo:ReportCountryCode/codeListId",
+      "official_name": "codeListId",
+      "xml_name": "codeListId",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:ReferenceDataIdType",
+      "datatype_text": "M.SDT.00091",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "обозначение классификатора, в соответствии с которым указан код",
+      "constraints": "Нормализованная строка; мин. длина: 1; макс. длина: 20",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-4.1.@codeListId",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "4.1.@codeListId"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": null
+    },
+    {
+      "field_id": "4.2",
+      "order": 69,
+      "depth": 1,
+      "parent": "4",
+      "path": "ChargedDistributedReport/ds01cdo:VerificationProDetails/ds01sdo:ReportDate",
+      "official_name": "ReportDate",
+      "xml_name": "ReportDate",
+      "namespace_prefix": "ds01sdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateType",
+      "datatype_text": "M.BDT.00005",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "ГОСТ ИСО 8601–2001",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-4.2",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "4.2"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-4.2",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "4.2"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.DS.01.SDE.00018"
+    },
+    {
+      "field_id": "4.3",
+      "order": 70,
+      "depth": 1,
+      "parent": "4",
+      "path": "ChargedDistributedReport/ds01cdo:VerificationProDetails/csdo:NoteText",
+      "official_name": "NoteText",
+      "xml_name": "NoteText",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Text4000Type",
+      "datatype_text": "M.SDT.00088",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": null,
+      "constraints": "Строка символов; мин. длина: 1; макс. длина: 4000",
+      "classifier_ref": null,
+      "source_refs": [
+        {
+          "source_id": "49OP-R.R.FP.DS.01.001-4.3",
+          "document": "49 ОП.pdf",
+          "location": "Утверждённая карта поля; нормативная реквизитная таблица",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "4.3"
+        },
+        {
+          "source_id": "49OP-IDENTIFIER-R.FP.DS.01.001-4.3",
+          "document": "49 ОП.pdf",
+          "location": "Реквизитный состав структуры; колонка «Идентификатор»",
+          "status": "CONFIRMED",
+          "page": 154,
+          "table": "7",
+          "item": "4.3"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "identifier": "M.SDE.00076",
+      "facets": {
+        "min_length": 1,
+        "max_length": 4000
+      }
+    }
+  ],
+  "expected_normative_rows": 70,
+  "imported_normative_rows": 70
+}

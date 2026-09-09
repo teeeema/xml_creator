@@ -1,0 +1,157 @@
+{
+  "message_code": "P.SP.03.MSG.025",
+  "structure_id": "R.IP.SP.03.007",
+  "fixed_values": {},
+  "field_usage": {},
+  "business_rules": [
+    {
+      "rule_id": "P.SP.03.MSG.025.REQ.001",
+      "requirement_code": "1",
+      "source_text": "реквизиты «Дата и время обновления» (csdo:UpdateDateTime) и «Код страны» (csdo:UnifiedCountryCode) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.025-1",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 29. Требования к электронному документу (сведениям) P.SP.03.MSG.025",
+          "status": "CONFIRMED",
+          "page": 288,
+          "table": "29",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.025.REQ.002",
+      "requirement_code": "2",
+      "source_text": "если заполнен реквизит «Регистрационный номер заявки на НМПТ» Союза» (ipsdo:ApellationOfOriginApplicationId), реквизиты «Регистрационный номер НМПТ Союза» (ipsdo:ApellationOfOriginEAEUId), «Регистрационный номер свидетельства о праве использования НМПТ Союза» (ipsdo:ApellationOfOriginEAEUCertificateId) не заполняются",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.025-2",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 29. Требования к электронному документу (сведениям) P.SP.03.MSG.025",
+          "status": "CONFIRMED",
+          "page": 288,
+          "table": "29",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "2"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.025.REQ.003",
+      "requirement_code": "3",
+      "source_text": "если заполнен реквизит «Регистрационный номер свидетельства о праве использования НМПТ Союза» (ipsdo:ApellationOfOriginEAEUCertificateId), реквизиты «Регистрационный номер НМПТ Союза» (ipsdo:ApellationOfOriginEAEUId) и «Регистрационный номер заявки на НМПТ» Союза» (ipsdo:ApellationOfOriginApplicationId) не заполняются",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.025-3",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 29. Требования к электронному документу (сведениям) P.SP.03.MSG.025",
+          "status": "CONFIRMED",
+          "page": 288,
+          "table": "29",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "3"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.025.REQ.004",
+      "requirement_code": "4",
+      "source_text": "если заполнен реквизит «Регистрационный номер НМПТ Союза» (ipsdo:ApellationOfOriginEAEUId), реквизиты «Регистрационный номер свидетельства о праве использования НМПТ Союза» (ipsdo:ApellationOfOriginEAEUCertificateId) и «Регистрационный номер заявки на НМПТ» Союза» (ipsdo:ApellationOfOriginApplicationId) не заполняются",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.025-4",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 29. Требования к электронному документу (сведениям) P.SP.03.MSG.025",
+          "status": "CONFIRMED",
+          "page": 288,
+          "table": "29",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "4"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.025.REQ.005",
+      "requirement_code": "5",
+      "source_text": "в составе электронного документа (сведений) должен быть заполнен реквизит «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.025-5",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 29. Требования к электронному документу (сведениям) P.SP.03.MSG.025",
+          "status": "CONFIRMED",
+          "page": 288,
+          "table": "29",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "5"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.025.REQ.006",
+      "requirement_code": "6",
+      "source_text": "в составе реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) реквизиты «Документ в бинарном формате» (csdo:DocBinaryText) и «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) не заполняются",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.025-6",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 29. Требования к электронному документу (сведениям) P.SP.03.MSG.025",
+          "status": "CONFIRMED",
+          "page": 288,
+          "table": "29",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "6"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.03.MSG.025.REQ.007",
+      "requirement_code": "7",
+      "source_text": "в составе реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) должен быть заполнены реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.025-7",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 29. Требования к электронному документу (сведениям) P.SP.03.MSG.025",
+          "status": "CONFIRMED",
+          "page": 288,
+          "table": "29",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "7"
+        }
+      ]
+    }
+  ],
+  "structured_rules": [],
+  "correlation_rules": [],
+  "classifier_refs": [],
+  "source_text": null,
+  "normalized_field_reference": null,
+  "source_refs": [
+    {
+      "source_id": "23OP-RULE-P.SP.03.MSG.025",
+      "document": "ОП_23.pdf",
+      "location": "Таблица 29. Требования к электронному документу (сведениям) P.SP.03.MSG.025",
+      "status": "CONFIRMED",
+      "page": 288,
+      "table": "29",
+      "version_context": "P.SP.03 1.0.0"
+    }
+  ]
+}

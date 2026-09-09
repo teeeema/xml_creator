@@ -1,0 +1,1486 @@
+{
+  "artifact_kind": "requirement_candidates",
+  "source": "32_ОП.pdf",
+  "status": "CANDIDATE_ONLY",
+  "method": "PyMuPDF table-cell extraction; PNG verification required",
+  "messages": [
+    {
+      "msg_code": "P.MM.06.MSG.001",
+      "table": "13",
+      "page_start": 108,
+      "page_end": 110,
+      "first_requirement": "1",
+      "last_requirement": "24",
+      "total_requirements": 24,
+      "numbering_gaps": [],
+      "duplicate_numbers": [],
+      "requirements": [
+        {
+          "number": "1",
+          "raw_text": "в электронном сообщении должен передаваться 1 экземпляр реквизита \"Сведения о зарегистрированном медицинском изделии\" (hccdo:MedicalProductDetails)",
+          "page_start": 108,
+          "page_end": 108,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "2",
+          "raw_text": "реквизит \"Сведения о заявлении на проведение процедур экспертизы и регистрации медицинского изделия\" (hccdo:MedicalProductApplicationDetails) заполняется обязательно",
+          "page_start": 108,
+          "page_end": 108,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "3",
+          "raw_text": "реквизит \"Начальная дата и время\" (csdo:StartDateTime) заполняется обязательно",
+          "page_start": 108,
+          "page_end": 108,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "4",
+          "raw_text": "реквизит \"Конечная дата и время\" (csdo: EndDateTime) не заполняется",
+          "page_start": 108,
+          "page_end": 108,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "5",
+          "raw_text": "в сведениях о регистрации медицинских изделий, хранящихся в Комиссии, не должно быть записи, совпадающей по значению реквизита \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId) и с незаполненным реквизитом \"Конечная дата и время\" (csdo:EndDateTime)",
+          "page_start": 108,
+          "page_end": 108,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "6",
+          "raw_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) не соответствует значению \"заявление на проведение регистрации медицинского изделия\" или \"заявление на проведение экспертизы медицинского изделия\", то реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполняется обязательно",
+          "page_start": 108,
+          "page_end": 108,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "7",
+          "raw_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) не соответствует значению \"заявление на проведение регистрации медицинского изделия\" или \"заявление на проведение экспертизы медицинского изделия\", то сведения о регистрации медицинских изделий, хранящиеся в Комиссии, должны включать в себя сведения, совпадающие по значению реквизита \"Номер регистрационного удостоверения\" (hcsdo:RegistrationCertificateId)",
+          "page_start": 108,
+          "page_end": 108,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "8",
+          "raw_text": "если реквизит \"Сведения о заявлении на проведение процедур экспертизы и регистрации медицинского изделия\" (hccdo:MedicalProductApplicationDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) или \"Наименование статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusName)",
+          "page_start": 108,
+          "page_end": 108,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "9",
+          "raw_text": "если значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"другое\", то реквизит \"Наименование статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusName) заполняется обязательно",
+          "page_start": 108,
+          "page_end": 108,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "10",
+          "raw_text": "если реквизит \"Код референтного государства\" (hcsdo:ReferenceUnifiedCountryCode) или \"Код государства признания\" (hcsdo:RecognitionUnifiedCountryCode) заполнен, то значение атрибута \"Идентификатор классификатора\" (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+          "page_start": 109,
+          "page_end": 109,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "11",
+          "raw_text": "если реквизит \"Код референтного государства\" (hcsdo:ReferenceUnifiedCountryCode) или \"Код государства признания\" (hcsdo:RecognitionUnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны согласно классификатору стран мира в соответствии со стандартом ISO 3166-1",
+          "page_start": 109,
+          "page_end": 109,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "12",
+          "raw_text": "реквизит \"Сведения о составной части медицинского изделия\" (hccdo:MedicalProductSetDetails) не заполняется",
+          "page_start": 109,
+          "page_end": 109,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "13",
+          "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) или \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName)",
+          "page_start": 109,
+          "page_end": 109,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "14",
+          "raw_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) соответствует значению \"другое\", то реквизит \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName) заполняется обязательно",
+          "page_start": 109,
+          "page_end": 109,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "15",
+          "raw_text": "реквизит \"Дата внесения изменений в регистрационное досье медицинского изделия\" (hcsdo:RegistrationCertificateModificationDate) не заполняется",
+          "page_start": 109,
+          "page_end": 109,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "16",
+          "raw_text": "реквизит \"Код вида медицинского изделия\" (hcsdo:MedicalProductClassificationCode) не заполняется",
+          "page_start": 109,
+          "page_end": 109,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "17",
+          "raw_text": "реквизит \"Наименование вида медицинского изделия\" (hcsdo:MedicalProductClassificationName) не заполняется",
+          "page_start": 109,
+          "page_end": 109,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "18",
+          "raw_text": "реквизит \"Код класса потенциального риска медицинского изделия\" (hcsdo:RiskClassCode) не заполняется",
+          "page_start": 109,
+          "page_end": 109,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "19",
+          "raw_text": "реквизит \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) не заполняется",
+          "page_start": 109,
+          "page_end": 109,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "20",
+          "raw_text": "реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) не заполняется",
+          "page_start": 109,
+          "page_end": 109,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "21",
+          "raw_text": "реквизит \"Инструкция по применению медицинского изделия\" (hcsdo:UserGuidePdfBinaryText) не заполняется",
+          "page_start": 109,
+          "page_end": 109,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "22",
+          "raw_text": "реквизит \"Изображение маркировки медицинского изделия\" (hcsdo:ImageMarkingPdfBinaryText) не заполняется",
+          "page_start": 109,
+          "page_end": 109,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "23",
+          "raw_text": "реквизит \"Код государства признания\" (hcsdo:RecognitionUnifiedCountryCode) заполняется обязательно",
+          "page_start": 110,
+          "page_end": 110,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "24",
+          "raw_text": "если реквизит \"Наименование медицинского изделия\" (hcsdo:MedicalProductName) заполнен, то его значение не должно совпадать с наименованием медицинских изделий в существующих записях реестра медицинских изделий и в существующих записях единого реестра зарегистрированных лекарственных средств Евразийского экономического союза, а также не должно совпадать с наименованием биологически активных добавок к пище, сведения о которых содержатся в едином реестре свидетельств о государственной регистрации продукции",
+          "page_start": 110,
+          "page_end": 110,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        }
+      ]
+    },
+    {
+      "msg_code": "P.MM.06.MSG.002",
+      "table": "14",
+      "page_start": 110,
+      "page_end": 116,
+      "first_requirement": "1",
+      "last_requirement": "47",
+      "total_requirements": 47,
+      "numbering_gaps": [],
+      "duplicate_numbers": [],
+      "requirements": [
+        {
+          "number": "1",
+          "raw_text": "в электронном сообщении должен передаваться 1 экземпляр реквизита \"Сведения о зарегистрированном медицинском изделии\" (hccdo:MedicalProductDetails)",
+          "page_start": 110,
+          "page_end": 110,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "2",
+          "raw_text": "реквизит \"Начальная дата и время\" (csdo:StartDateTime) заполняется обязательно",
+          "page_start": 110,
+          "page_end": 110,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "3",
+          "raw_text": "реквизит \"Конечная дата и время\" (csdo:EndDateTime) не заполняется",
+          "page_start": 110,
+          "page_end": 110,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "4",
+          "raw_text": "значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) не должно быть равно значению \"прием заявки\"",
+          "page_start": 110,
+          "page_end": 110,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "5",
+          "raw_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) соответствует значению \"заявление об отмене (аннулировании) регистрационного удостоверения медицинского изделия\", то реквизиты \"Дата истечения срока действия документа\" (csdo:DocValidityDate) и \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) заполняются обязательно",
+          "page_start": 110,
+          "page_end": 110,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "6",
+          "raw_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) соответствует значению \"заявление о выдаче дубликата регистрационного удостоверения на медицинское изделие\", то реквизит \"Дата выдачи дубликата регистрационного удостоверения\" (hcsdo:CertificateDuplicateDate) заполняется обязательно",
+          "page_start": 110,
+          "page_end": 111,
+          "continues_across_pages": true,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "7",
+          "raw_text": "если значение реквизита \"Код вида заявления на проведение регистрации медицинского изделия и (или) связанных процедур\" (hcsdo:MedicalProductApplicationKindV2Code) соответствует значению \"заявление о внесении изменений в регистрационное досье медицинского изделия\" и значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"одобрение экспертного заключения\", то реквизит \"Дата внесения изменений в регистрационное досье медицинского изделия\" (hcsdo:RegistrationCertificateModificationDate) заполняется обязательно",
+          "page_start": 111,
+          "page_end": 111,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "8",
+          "raw_text": "если значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"одобрение экспертного заключения\", то реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполняется обязательно",
+          "page_start": 111,
+          "page_end": 111,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "9",
+          "raw_text": "если реквизит \"Код референтного государства\" (hcsdo:ReferenceUnifiedCountryCode), \"Код государства признания\" (hcsdo:RecognitionUnifiedCountryCode) или \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то значение атрибута \"Идентификатор классификатора\" (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+          "page_start": 111,
+          "page_end": 111,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "10",
+          "raw_text": "если реквизит \"Код референтного государства\" (hcsdo:ReferenceUnifiedCountryCode), \"Код государства признания\" (hcsdo:RecognitionUnifiedCountryCode) или \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны согласно классификатору стран мира в соответствии со стандартом ISO 3166-1",
+          "page_start": 111,
+          "page_end": 111,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "11",
+          "raw_text": "если реквизит \"Сведения о заявлении на проведение процедур экспертизы и регистрации медицинского изделия\" (hccdo:MedicalProductApplicationDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) или \"Наименование статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusName)",
+          "page_start": 111,
+          "page_end": 111,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "12",
+          "raw_text": "если значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"другое\", то реквизит \"Наименование статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusName) заполняется обязательно",
+          "page_start": 111,
+          "page_end": 111,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "13",
+          "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) или \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName)",
+          "page_start": 111,
+          "page_end": 112,
+          "continues_across_pages": true,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "14",
+          "raw_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) соответствует значению \"другое\", то реквизит \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName) заполняется обязательно",
+          "page_start": 112,
+          "page_end": 112,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "15",
+          "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Сведения о составной части медицинского изделия\" (hccdo:MedicalProductSetDetails) не заполняется",
+          "page_start": 112,
+          "page_end": 112,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "16",
+          "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Код вида медицинского изделия\" (hcsdo:MedicalProductClassificationCode) не заполняется",
+          "page_start": 112,
+          "page_end": 112,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "17",
+          "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Код класса потенциального риска медицинского изделия\" (hcsdo:RiskClassCode) не заполняется",
+          "page_start": 112,
+          "page_end": 112,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "18",
+          "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) не заполняется",
+          "page_start": 112,
+          "page_end": 112,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "19",
+          "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) не заполняется",
+          "page_start": 112,
+          "page_end": 112,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "20",
+          "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Инструкция по применению медицинского изделия\" (hcsdo:UserGuidePdfBinaryText) не заполняется",
+          "page_start": 112,
+          "page_end": 112,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "21",
+          "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Изображение маркировки медицинского изделия\" (hcsdo:ImageMarkingPdfBinaryText) не заполняется",
+          "page_start": 112,
+          "page_end": 112,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "22",
+          "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то реквизит \"Код класса потенциального риска медицинского изделия\" (hcsdo:RiskClassCode) заполняется обязательно",
+          "page_start": 113,
+          "page_end": 113,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "23",
+          "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то реквизит \"Инструкция по применению медицинского изделия\" (hcsdo:UserGuidePdfBinaryText) заполняется обязательно",
+          "page_start": 113,
+          "page_end": 113,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "24",
+          "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то реквизит \"Изображение маркировки медицинского изделия\" (hcsdo:ImageMarkingPdfBinaryText) заполняется обязательно",
+          "page_start": 113,
+          "page_end": 113,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "25",
+          "raw_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) не соответствует значению \"действует\", то реквизит \"Дата\" (csdo:EventDate) в составе реквизита \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполняется обязательно",
+          "page_start": 113,
+          "page_end": 113,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "26",
+          "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то в составе реквизита \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) реквизит \"Наименование хозяйствующего субъекта\" (csdo:BusinessEntityName) заполняется обязательно",
+          "page_start": 113,
+          "page_end": 113,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "27",
+          "raw_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) не равно значению \"аннулировано\", то реквизит \"Дата истечения срока действия документа\" (csdo:DocValidityDate) не заполняется",
+          "page_start": 113,
+          "page_end": 113,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "28",
+          "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) или \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName)",
+          "page_start": 113,
+          "page_end": 113,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "29",
+          "raw_text": "в сведениях о регистрации медицинских изделий, хранящихся в Комиссии, должны содержаться сведения с таким же значением реквизита \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId), в которых реквизит \"Конечная дата и время\" (csdo:EndDateTime) не заполнен, а также меньшим значением реквизита \"Начальная дата и время\" (csdo:StartDateTime)",
+          "page_start": 113,
+          "page_end": 113,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "30",
+          "raw_text": "если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) заполнен, то должен быть заполнен реквизит \"Код вида медицинского изделия\" (hcsdo:MedicalProductClassificationCode)",
+          "page_start": 114,
+          "page_end": 114,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "31",
+          "raw_text": "если реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполнен, то в его составе реквизит \"Наименование хозяйствующего субъекта\" (csdo:BusinessEntityName) заполняется обязательно",
+          "page_start": 114,
+          "page_end": 114,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "32",
+          "raw_text": "в составе реквизитов \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) и \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) может быть заполнен только один из реквизитов \"Код организационно-правовой формы\" (csdo:BusinessEntityTypeCode) или \"Наименование организационно- правовой формы\" (csdo:BusinessEntityTypeName)",
+          "page_start": 114,
+          "page_end": 114,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "33",
+          "raw_text": "если реквизит \"Код организационно-правовой формы\" (csdo:BusinessEntityTypeCode) заполнен, то его значение должно соответствовать коду организационно-правовой формы согласно классификатору, указанному в разделе VII Правил информационного взаимодействия",
+          "page_start": 114,
+          "page_end": 114,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "34",
+          "raw_text": "реквизит \"Идентификатор налогоплательщика\" (csdo:TaxpayerId) не заполняется",
+          "page_start": 114,
+          "page_end": 114,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "35",
+          "raw_text": "реквизит \"Код причины постановки на учет\" (csdo:TaxRegistrationReasonCode) не заполняется",
+          "page_start": 114,
+          "page_end": 114,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "36",
+          "raw_text": "если реквизит \"Адрес\" (ccdo:SubjectAddressDetails) в составе любых реквизитов заполнен, то реквизит \"Код страны\" (csdo:UnifiedCountryCode) в его составе заполняется обязательно",
+          "page_start": 114,
+          "page_end": 114,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "37",
+          "raw_text": "если в составе любого реквизита реквизит \"Адрес\" (ccdo:SubjectAddressDetails) заполнен, то в его составе должен быть заполнен реквизит \"Код вида адреса\" (csdo:AddressKindCode)",
+          "page_start": 114,
+          "page_end": 114,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "38",
+          "raw_text": "если реквизит \"Код вида адреса\" (csdo:AddressKindCode) в составе реквизита \"Адрес\" (ccdo:SubjectAddressDetails) заполнен, то его значение должно соответствовать одному из следующих значений: 1 – \"адрес регистрации\"; 2 – \"фактический адрес\"; 3 – \"почтовый адрес\"",
+          "page_start": 114,
+          "page_end": 114,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "39",
+          "raw_text": "если в составе любого реквизита реквизит \"Адрес\" (ccdo:SubjectAddressDetails) заполнен, то в его составе должен быть заполнен один из следующих реквизитов: \"Город\" (csdo:CityName); \"Населенный пункт\" (csdo:SettlementName)",
+          "page_start": 114,
+          "page_end": 114,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "40",
+          "raw_text": "если реквизиты \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) и (или) \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполнены, то в их составе должны быть заполнен хотя бы один экземпляр реквизита \"Контактный реквизит\" (ccdo:CommunicationDetails), в котором значение реквизита \"Код вида связи\" (csdo:CommunicationChannelCode) или \"Наименование вида связи\" (csdo:CommunicationChannelName) должно соответствовать значению \"телефон\"",
+          "page_start": 114,
+          "page_end": 115,
+          "continues_across_pages": true,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "41",
+          "raw_text": "если значение реквизита \"Код вида связи\" (ccdo:CommunicationChannelCode) или \"Наименование вида связи\" (csdo:CommunicationChannelName) соответствует значению \"электронная почта\", значение реквизита \"Идентификатор канала связи\" (ccdo:CommunicationChannelId) должно соответствовать шаблону \".+@.+\\..+\"",
+          "page_start": 115,
+          "page_end": 115,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "42",
+          "raw_text": "если реквизит \"Код вида связи\" (csdo:CommunicationChannelCode) заполнен, то его значение должно соответствовать одному из следующих значений: AO – \"адрес сайта в сети Интернет\"; TE – \"телефон\"; EM – \"электронная почта\"; FX – \"телефакс\"",
+          "page_start": 115,
+          "page_end": 115,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "43",
+          "raw_text": "если реквизит \"Количество составных частей медицинского изделия\" (hcsdo:MedicalProductSetMeasure) заполнен, то значение реквизита в его составе \"единица измерения\" (атрибут measurementUnitCode) должно соответствовать коду единицы измерения согласно классификатору, указанному в разделе VII Правил информационного взаимодействия",
+          "page_start": 115,
+          "page_end": 115,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "44",
+          "raw_text": "если реквизит \"Наименование медицинского изделия\" (hcsdo:MedicalProductName) заполнен, то его значение не должно совпадать с наименованием медицинских изделий в существующих записях реестра медицинских изделий и в существующих записях единого реестра зарегистрированных лекарственных средств Евразийского экономического союза, а также не должно совпадать с наименованием биологически активных добавок к пище, сведения о которых содержатся в едином реестре свидетельств о государственной регистрации продукции",
+          "page_start": 115,
+          "page_end": 115,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "45",
+          "raw_text": "если реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполнен, то в его составе реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполняется обязательно и его значение должно соответствовать коду государства- члена Союза",
+          "page_start": 115,
+          "page_end": 115,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "46",
+          "raw_text": "если реквизит \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) заполнен, то в его составе реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполняется обязательно",
+          "page_start": 115,
+          "page_end": 115,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "47",
+          "raw_text": "если реквизит \"Сведения о производителе медицинского изделия\" (hccdo:MedicalProductManufacturingAuthorizationHolderDetails) заполнен, и в его составе реквизит \"Код страны\" (csdo:UnifiedCountryCode) не соответствует коду государства-члена Союза, то если реквизит \"Сведения об уполномоченном представителе производителя медицинского изделия\" (hccdo:MedicalProductManufacturerAgentDetails) заполняется обязательно",
+          "page_start": 115,
+          "page_end": 116,
+          "continues_across_pages": true,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        }
+      ]
+    },
+    {
+      "msg_code": "P.MM.06.MSG.003",
+      "table": "15",
+      "page_start": 116,
+      "page_end": 117,
+      "first_requirement": "1",
+      "last_requirement": "10",
+      "total_requirements": 10,
+      "numbering_gaps": [],
+      "duplicate_numbers": [],
+      "requirements": [
+        {
+          "number": "1",
+          "raw_text": "в электронном сообщении должен передаваться 1 экземпляр реквизита \"Сведения о зарегистрированном медицинском изделии\" (hccdo:MedicalProductDetails)",
+          "page_start": 116,
+          "page_end": 116,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "2",
+          "raw_text": "реквизит \"Сведения о заявлении на проведение процедур экспертизы и регистрации медицинского изделия\" (hccdo:MedicalProductApplicationDetails) заполняется обязательно",
+          "page_start": 116,
+          "page_end": 116,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "3",
+          "raw_text": "реквизит \"Конечная дата и время\" (csdo: EndDateTime) заполняется обязательно",
+          "page_start": 116,
+          "page_end": 116,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "4",
+          "raw_text": "реквизит \"Начальная дата и время\" (csdo:StartDateTime) заполняется обязательно",
+          "page_start": 116,
+          "page_end": 116,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "5",
+          "raw_text": "сведения о регистрации медицинских изделий, хранящиеся в Комиссии, должны включать в себя сведения, совпадающие по значению реквизита \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId) и с незаполненным реквизитом \"Конечная дата и время\" (csdo:EndDateTime)",
+          "page_start": 116,
+          "page_end": 116,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "6",
+          "raw_text": "в электронном сообщении значение реквизита \"Конечная дата и время\" (csdo:EndDateTime) должно быть больше значения реквизита \"Начальная дата и время\" (csdo:StartDateTime)",
+          "page_start": 116,
+          "page_end": 116,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "7",
+          "raw_text": "если реквизит \"Код референтного государства\" (hcsdo:ReferenceUnifiedCountryCode), \"Код государства признания\" (hcsdo:RecognitionUnifiedCountryCode) или \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то значение атрибута \"Идентификатор классификатора\" (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+          "page_start": 116,
+          "page_end": 116,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "8",
+          "raw_text": "если реквизит \"Код референтного государства\" (hcsdo:ReferenceUnifiedCountryCode), \"Код государства признания\" (hcsdo:RecognitionUnifiedCountryCode) или \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны согласно классификатору стран мира в соответствии со стандартом ISO 3166-1",
+          "page_start": 116,
+          "page_end": 117,
+          "continues_across_pages": true,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "9",
+          "raw_text": "если реквизит \"Сведения о заявлении на проведение процедур экспертизы и регистрации медицинского изделия\" (hccdo:MedicalProductApplicationDetails) заполнен, то должен быть заполнен один из реквизитов \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) или \"Наименование статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusName)",
+          "page_start": 117,
+          "page_end": 117,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "10",
+          "raw_text": "если значение реквизита \"Код статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusCode) соответствует значению \"другое\", то реквизит \"Наименование статуса для отслеживания хода рассмотрения заявления о регистрации медицинского изделия\" (hcsdo:MedicalProductRegistrationStatusName) заполняется обязательно",
+          "page_start": 117,
+          "page_end": 117,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        }
+      ]
+    },
+    {
+      "msg_code": "P.MM.06.MSG.012",
+      "table": "16",
+      "page_start": 117,
+      "page_end": 117,
+      "first_requirement": "1",
+      "last_requirement": "2",
+      "total_requirements": 2,
+      "numbering_gaps": [],
+      "duplicate_numbers": [],
+      "requirements": [
+        {
+          "number": "1",
+          "raw_text": "реквизит \"Номер регистрационного удостоверения\" (hcsdo:RegistrationCertificateId) не заполняется",
+          "page_start": 117,
+          "page_end": 117,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "2",
+          "raw_text": "в сведениях о регистрации медицинских изделий, хранящихся в Комиссии, должны содержаться сведения с таким же значением реквизита \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId)",
+          "page_start": 117,
+          "page_end": 117,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        }
+      ]
+    },
+    {
+      "msg_code": "P.MM.06.MSG.014",
+      "table": "16",
+      "page_start": 145,
+      "page_end": 146,
+      "first_requirement": "1",
+      "last_requirement": "4",
+      "total_requirements": 4,
+      "numbering_gaps": [],
+      "duplicate_numbers": [],
+      "requirements": [
+        {
+          "number": "1",
+          "raw_text": "если реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то значение атрибута \"Идентификатор классификатора\" (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+          "page_start": 145,
+          "page_end": 146,
+          "continues_across_pages": true,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "2",
+          "raw_text": "если реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны согласно классификатору стран мира в соответствии со стандартом ISO 3166-1",
+          "page_start": 146,
+          "page_end": 146,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "3",
+          "raw_text": "в электронном сообщении должен быть заполнен реквизит \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) или реквизит \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName)",
+          "page_start": 146,
+          "page_end": 146,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "4",
+          "raw_text": "если значение реквизита \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) соответствует значению \"другое\", то реквизит \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName) заполняется обязательно",
+          "page_start": 146,
+          "page_end": 146,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        }
+      ]
+    },
+    {
+      "msg_code": "P.MM.06.MSG.015",
+      "table": "17",
+      "page_start": 146,
+      "page_end": 147,
+      "first_requirement": "1",
+      "last_requirement": "7",
+      "total_requirements": 7,
+      "numbering_gaps": [],
+      "duplicate_numbers": [],
+      "requirements": [
+        {
+          "number": "1",
+          "raw_text": "если реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то значение атрибута \"Идентификатор классификатора\" (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+          "page_start": 146,
+          "page_end": 146,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "2",
+          "raw_text": "если реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны согласно классификатору стран мира в соответствии со стандартом ISO 3166-1",
+          "page_start": 146,
+          "page_end": 146,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "3",
+          "raw_text": "в электронном сообщении должен быть заполнен реквизит \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) или реквизит \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName)",
+          "page_start": 146,
+          "page_end": 146,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "4",
+          "raw_text": "если значение реквизита \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) соответствует значению \"другое\", то реквизит \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName) заполняется обязательно",
+          "page_start": 146,
+          "page_end": 147,
+          "continues_across_pages": true,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "5",
+          "raw_text": "значение реквизита \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) или реквизита \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName) должно соответствовать значению \"Экспертное заключение\"",
+          "page_start": 147,
+          "page_end": 147,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "6",
+          "raw_text": "реквизит \"Признак согласования документа\" (hcsdo:DocAgreementIndicator) не заполняется",
+          "page_start": 147,
+          "page_end": 147,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "7",
+          "raw_text": "реквизит \"Документ в формате PDF\" (hcsdo:PdfBinaryText) заполняется обязательно и должен содержать экспертное заключение",
+          "page_start": 147,
+          "page_end": 147,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        }
+      ]
+    },
+    {
+      "msg_code": "P.MM.06.MSG.016",
+      "table": "18",
+      "page_start": 147,
+      "page_end": 148,
+      "first_requirement": "1",
+      "last_requirement": "6",
+      "total_requirements": 6,
+      "numbering_gaps": [],
+      "duplicate_numbers": [],
+      "requirements": [
+        {
+          "number": "1",
+          "raw_text": "если реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то значение атрибута \"Идентификатор классификатора\" (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+          "page_start": 147,
+          "page_end": 147,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "2",
+          "raw_text": "если реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны согласно классификатору стран мира в соответствии со стандартом ISO 3166-1",
+          "page_start": 147,
+          "page_end": 147,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "3",
+          "raw_text": "в электронном сообщении должен быть заполнен реквизит \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) или реквизит \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName)",
+          "page_start": 147,
+          "page_end": 147,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "4",
+          "raw_text": "если значение реквизита \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) соответствует значению \"другое\", то реквизит \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName) заполняется обязательно",
+          "page_start": 147,
+          "page_end": 147,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "5",
+          "raw_text": "значение реквизита \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) или реквизита \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName) должно соответствовать значению \"Подтверждение признания (непризнания) экспертного заключения\"",
+          "page_start": 148,
+          "page_end": 148,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "6",
+          "raw_text": "реквизит \"Признак согласования документа\" (hcsdo:DocAgreementIndicator) заполняется обязательно",
+          "page_start": 148,
+          "page_end": 148,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        }
+      ]
+    },
+    {
+      "msg_code": "P.MM.06.MSG.018",
+      "table": "19",
+      "page_start": 148,
+      "page_end": 150,
+      "first_requirement": "1",
+      "last_requirement": "13",
+      "total_requirements": 13,
+      "numbering_gaps": [],
+      "duplicate_numbers": [],
+      "requirements": [
+        {
+          "number": "1",
+          "raw_text": "если реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то значение атрибута \"Идентификатор классификатора\" (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+          "page_start": 148,
+          "page_end": 148,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "2",
+          "raw_text": "если реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны согласно классификатору стран мира в соответствии со стандартом ISO 3166-1",
+          "page_start": 148,
+          "page_end": 148,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "3",
+          "raw_text": "в электронном сообщении должен быть заполнен реквизит \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId) или реквизит \"Номер регистрационного удостоверения\" (hcsdo:RegistrationCertificateId)",
+          "page_start": 148,
+          "page_end": 148,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "4",
+          "raw_text": "если значение реквизита \"Признак принадлежности документа к регистрационному досье\" (hcsdo:RegistrationFileIndicator) соответствует значению \"документ, содержащийся в регистрационном досье на медицинское изделие\", то должен быть заполнен реквизит \"Код вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocCode) или реквизит \"Наименование вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocName)",
+          "page_start": 148,
+          "page_end": 149,
+          "continues_across_pages": true,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "5",
+          "raw_text": "если значение реквизита \"Признак принадлежности документа к регистрационному досье\" (hcsdo:RegistrationFileIndicator) соответствует значению \"документ, оформленный при рассмотрении регистрационного досье\", то должен быть заполнен реквизит \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) или реквизит \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName)",
+          "page_start": 149,
+          "page_end": 149,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "6",
+          "raw_text": "если значение реквизита \"Код вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocCode) соответствует значению \"другое\", то реквизит \"Наименование вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocName) заполняется обязательно",
+          "page_start": 149,
+          "page_end": 149,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "7",
+          "raw_text": "если значение реквизита \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) соответствует значению \"другое\", то реквизит \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName) заполняется обязательно",
+          "page_start": 149,
+          "page_end": 149,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "8",
+          "raw_text": "если реквизит \"Описание элемента документа, оформленного при рассмотрении регистрационного досье на медицинское изделие, или документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductAttributeText) заполнен, то должен быть заполнен реквизит \"Код вида элемента документа\" (атрибут MedicalProductAttributeKindCode) или реквизит \"Наименование вида элемента документа\" (атрибут MedicalProductAttributeKindName)",
+          "page_start": 149,
+          "page_end": 149,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "9",
+          "raw_text": "если значение реквизита \"Код вида элемента документа\" (атрибут MedicalProductAttributeKindCode) соответствует значению \"другое\", то реквизит \"Наименование вида элемента документа\" (атрибут MedicalProductAttributeKindName) заполняется обязательно",
+          "page_start": 149,
+          "page_end": 149,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "10",
+          "raw_text": "если значение реквизита \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) или реквизита \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName) соответствует значению \"Запрос заявителю с указанием характера замечаний\", то значение реквизита \"Код вида элемента документа\" (атрибут MedicalProductAttributeKindCode) или реквизита \"Наименование вида элемента документа\" (атрибут MedicalProductAttributeKindName) должно соответствовать значению \"срок ответа на запрос\"",
+          "page_start": 149,
+          "page_end": 149,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "11",
+          "raw_text": "если значение реквизита \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) или реквизита \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName) соответствует значению \"Ответ заявителя с указанием характера замечаний\", то значение реквизита \"Код вида элемента документа\" (атрибут MedicalProductAttributeKindCode) или реквизита \"Наименование вида элемента документа\" (атрибут MedicalProductAttributeKindName) должно соответствовать значению \"Номер документа основания\"",
+          "page_start": 149,
+          "page_end": 150,
+          "continues_across_pages": true,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "12",
+          "raw_text": "реквизит \"Документ в формате PDF\" (hcsdo:PdfBinaryText) не заполняется",
+          "page_start": 150,
+          "page_end": 150,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "13",
+          "raw_text": "реквизит \"Документ в формате XML\" не заполняется",
+          "page_start": 150,
+          "page_end": 150,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        }
+      ]
+    },
+    {
+      "msg_code": "P.MM.06.MSG.019",
+      "table": "20",
+      "page_start": 150,
+      "page_end": 151,
+      "first_requirement": "1",
+      "last_requirement": "10",
+      "total_requirements": 10,
+      "numbering_gaps": [],
+      "duplicate_numbers": [],
+      "requirements": [
+        {
+          "number": "1",
+          "raw_text": "если реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то значение атрибута \"Идентификатор классификатора\" (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+          "page_start": 150,
+          "page_end": 150,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "2",
+          "raw_text": "если реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны согласно классификатору стран мира в соответствии со стандартом ISO 3166-1",
+          "page_start": 150,
+          "page_end": 150,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "3",
+          "raw_text": "в электронном сообщении должен быть заполнен реквизит \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId) или реквизит \"Номер регистрационного удостоверения\" (hcsdo:RegistrationCertificateId)",
+          "page_start": 150,
+          "page_end": 150,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "4",
+          "raw_text": "реквизит \"Код вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocCode) не заполняется",
+          "page_start": 150,
+          "page_end": 150,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "5",
+          "raw_text": "реквизит \"Наименование вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocName) не заполняется",
+          "page_start": 150,
+          "page_end": 150,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "6",
+          "raw_text": "реквизит \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) не заполняется",
+          "page_start": 150,
+          "page_end": 150,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "7",
+          "raw_text": "реквизит \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName) не заполняется",
+          "page_start": 151,
+          "page_end": 151,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "8",
+          "raw_text": "реквизит \"Описание элемента документа, оформленного при рассмотрении регистрационного досье на медицинское изделие, или документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductAttributeText) не заполняется",
+          "page_start": 151,
+          "page_end": 151,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "9",
+          "raw_text": "реквизит \"Документ в формате PDF\" (hcsdo:PdfBinaryText) не заполняется",
+          "page_start": 151,
+          "page_end": 151,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "10",
+          "raw_text": "реквизит \"Документ в формате XML\" не заполняется",
+          "page_start": 151,
+          "page_end": 151,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        }
+      ]
+    },
+    {
+      "msg_code": "P.MM.06.MSG.020",
+      "table": "21",
+      "page_start": 151,
+      "page_end": 153,
+      "first_requirement": "1",
+      "last_requirement": "13",
+      "total_requirements": 13,
+      "numbering_gaps": [],
+      "duplicate_numbers": [],
+      "requirements": [
+        {
+          "number": "1",
+          "raw_text": "если реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то значение атрибута \"Идентификатор классификатора\" (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+          "page_start": 151,
+          "page_end": 151,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "2",
+          "raw_text": "если реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны согласно классификатору стран мира в соответствии со стандартом ISO 3166-1",
+          "page_start": 151,
+          "page_end": 151,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "3",
+          "raw_text": "в электронном сообщении должен быть заполнен реквизит \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId) или реквизит \"Номер регистрационного удостоверения\" (hcsdo:RegistrationCertificateId)",
+          "page_start": 151,
+          "page_end": 151,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "4",
+          "raw_text": "если значение реквизита \"Признак принадлежности документа к регистрационному досье\" (hcsdo:RegistrationFileIndicator) соответствует значению \"документ, содержащийся в регистрационном досье на медицинское изделие\", то должен быть заполнен реквизит \"Код вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocCode) или реквизит \"Наименование вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocName)",
+          "page_start": 151,
+          "page_end": 151,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "5",
+          "raw_text": "если значение реквизита \"Признак принадлежности документа к регистрационному досье\" (hcsdo:RegistrationFileIndicator) соответствует значению \"документ, оформленный при рассмотрении регистрационного досье\", то должен быть заполнен реквизит \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) или реквизит \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName)",
+          "page_start": 152,
+          "page_end": 152,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "6",
+          "raw_text": "если значение реквизита \"Код вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocCode) соответствует значению \"другое\", то реквизит \"Наименование вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocName) заполняется обязательно",
+          "page_start": 152,
+          "page_end": 152,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "7",
+          "raw_text": "если значение реквизита \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) соответствует значению \"другое\", то реквизит \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName) заполняется обязательно",
+          "page_start": 152,
+          "page_end": 152,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "8",
+          "raw_text": "если значение реквизита \"Код вида элемента документа\" (атрибут MedicalProductAttributeKindCode) соответствует значению \"другое\", то реквизит \"Наименование вида элемента документа\" (атрибут MedicalProductAttributeKindName) заполняется обязательно",
+          "page_start": 152,
+          "page_end": 152,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "9",
+          "raw_text": "если значение реквизита \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) или реквизита \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName) соответствует значению \"Запрос заявителю с указанием характера замечаний\", то значение реквизита \"Код вида элемента документа\" (атрибут MedicalProductAttributeKindCode) или реквизита \"Наименование вида элемента документа\" (атрибут MedicalProductAttributeKindName) должно соответствовать значению \"срок ответа на запрос\"",
+          "page_start": 152,
+          "page_end": 152,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "10",
+          "raw_text": "если значение реквизита \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) или реквизита \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName) соответствует значению \"ответ заявителя с указанием характера замечаний\", то значение реквизита \"Код вида элемента документа\" (атрибут MedicalProductAttributeKindCode) или реквизита \"Наименование вида элемента документа\" (атрибут MedicalProductAttributeKindName) должно соответствовать значению \"Номер документа основания\"",
+          "page_start": 152,
+          "page_end": 152,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "11",
+          "raw_text": "если реквизит \"Описание элемента документа, оформленного при рассмотрении регистрационного досье на медицинское изделие, или документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductAttributeText) заполнен, то должен быть заполнен реквизит \"Код вида элемента документа\" (атрибут MedicalProductAttributeKindCode) или реквизит \"Наименование вида элемента документа\" (атрибут MedicalProductAttributeKindName)",
+          "page_start": 152,
+          "page_end": 153,
+          "continues_across_pages": true,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "12",
+          "raw_text": "реквизит \"Документ в формате PDF\" (hcsdo:PdfBinaryText) не заполняется",
+          "page_start": 153,
+          "page_end": 153,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "13",
+          "raw_text": "реквизит \"Документ в формате XML\" не заполняется",
+          "page_start": 153,
+          "page_end": 153,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        }
+      ]
+    },
+    {
+      "msg_code": "P.MM.06.MSG.021",
+      "table": "22",
+      "page_start": 153,
+      "page_end": 154,
+      "first_requirement": "1",
+      "last_requirement": "11",
+      "total_requirements": 11,
+      "numbering_gaps": [],
+      "duplicate_numbers": [],
+      "requirements": [
+        {
+          "number": "1",
+          "raw_text": "если реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то значение атрибута \"Идентификатор классификатора\" (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+          "page_start": 153,
+          "page_end": 153,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "2",
+          "raw_text": "если реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны согласно классификатору стран мира в соответствии со стандартом ISO 3166-1",
+          "page_start": 153,
+          "page_end": 153,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "3",
+          "raw_text": "в электронном сообщении должен быть заполнен реквизит \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId) или реквизит \"Номер регистрационного удостоверения\" (hcsdo:RegistrationCertificateId)",
+          "page_start": 153,
+          "page_end": 153,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "4",
+          "raw_text": "если значение реквизита \"Признак принадлежности документа к регистрационному досье\" (hcsdo:RegistrationFileIndicator) соответствует значению \"документ, содержащийся в регистрационном досье на медицинское изделие\", то должен быть заполнен реквизит \"Код вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocCode) или реквизит \"Наименование вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocName)",
+          "page_start": 153,
+          "page_end": 153,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "5",
+          "raw_text": "если значение реквизита \"Признак принадлежности документа к регистрационному досье\" (hcsdo:RegistrationFileIndicator) соответствует значению \"документ, оформленный при рассмотрении регистрационного досье\", то должен быть заполнен реквизит \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) или реквизит \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName)",
+          "page_start": 153,
+          "page_end": 154,
+          "continues_across_pages": true,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "6",
+          "raw_text": "если значение реквизита \"Код вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocCode) соответствует значению \"другое\", то реквизит \"Наименование вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocName) заполняется обязательно",
+          "page_start": 154,
+          "page_end": 154,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "7",
+          "raw_text": "если значение реквизита \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) соответствует значению \"другое\", то реквизит \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName) заполняется обязательно",
+          "page_start": 154,
+          "page_end": 154,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "8",
+          "raw_text": "если реквизит \"Описание элемента документа, оформленного при рассмотрении регистрационного досье на медицинское изделие, или документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductAttributeText) заполнен, то должен быть заполнен реквизит \"Код вида элемента документа\" (атрибут MedicalProductAttributeKindCode) или реквизит \"Наименование вида элемента документа\" (атрибут MedicalProductAttributeKindName)",
+          "page_start": 154,
+          "page_end": 154,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "9",
+          "raw_text": "если значение реквизита \"Код вида элемента документа\" (атрибут MedicalProductAttributeKindCode) соответствует значению \"другое\", то реквизит \"Наименование вида элемента документа\" (атрибут MedicalProductAttributeKindName) заполняется обязательно",
+          "page_start": 154,
+          "page_end": 154,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "10",
+          "raw_text": "реквизит \"Документ в формате PDF\" (hcsdo:PdfBinaryText) не заполняется",
+          "page_start": 154,
+          "page_end": 154,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "11",
+          "raw_text": "реквизит \"Документ в формате XML\" не заполняется",
+          "page_start": 154,
+          "page_end": 154,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        }
+      ]
+    },
+    {
+      "msg_code": "P.MM.06.MSG.022",
+      "table": "23",
+      "page_start": 155,
+      "page_end": 156,
+      "first_requirement": "1",
+      "last_requirement": "12",
+      "total_requirements": 12,
+      "numbering_gaps": [],
+      "duplicate_numbers": [],
+      "requirements": [
+        {
+          "number": "1",
+          "raw_text": "если реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то значение атрибута \"Идентификатор классификатора\" (атрибут codeListId) в его составе должно содержать кодовое обозначение классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия",
+          "page_start": 155,
+          "page_end": 155,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "2",
+          "raw_text": "если реквизит \"Код страны\" (csdo:UnifiedCountryCode) заполнен, то его значение должно соответствовать коду страны согласно классификатору стран мира в соответствии со стандартом ISO 3166-1",
+          "page_start": 155,
+          "page_end": 155,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "3",
+          "raw_text": "в электронном сообщении должен быть заполнен реквизит \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId) или реквизит \"Номер регистрационного удостоверения\" (hcsdo:RegistrationCertificateId)",
+          "page_start": 155,
+          "page_end": 155,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "4",
+          "raw_text": "если значение реквизита \"Признак принадлежности документа к регистрационному досье\" (hcsdo:RegistrationFileIndicator) соответствует значению \"документ, содержащийся в регистрационном досье на медицинское изделие\", то должен быть заполнен реквизит \"Код вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocCode) или реквизит \"Наименование вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocName)",
+          "page_start": 155,
+          "page_end": 155,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "5",
+          "raw_text": "если значение реквизита \"Признак принадлежности документа к регистрационному досье\" (hcsdo:RegistrationFileIndicator) соответствует значению \"документ, оформленный при рассмотрении регистрационного досье\", то должен быть заполнен реквизит \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) или реквизит \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName)",
+          "page_start": 155,
+          "page_end": 155,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "6",
+          "raw_text": "если значение реквизита \"Код вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocCode) соответствует значению \"другое\", то реквизит \"Наименование вида документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationDocName) заполняется обязательно",
+          "page_start": 155,
+          "page_end": 155,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "7",
+          "raw_text": "если значение реквизита \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) соответствует значению \"другое\", то реквизит \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName) заполняется обязательно",
+          "page_start": 155,
+          "page_end": 155,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "8",
+          "raw_text": "если реквизит \"Описание элемента документа, оформленного при рассмотрении регистрационного досье на медицинское изделие, или документа, содержащегося в регистрационном досье на медицинское изделие\" (hcsdo:MedicalProductAttributeText) заполнен, то должен быть заполнен реквизит \"Код вида элемента документа\" (атрибут MedicalProductAttributeKindCode) или реквизит \"Наименование вида элемента документа\" (атрибут MedicalProductAttributeKindName)",
+          "page_start": 155,
+          "page_end": 155,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "9",
+          "raw_text": "если значение реквизита \"Код вида элемента документа\" (атрибут MedicalProductAttributeKindCode) соответствует значению \"другое\", то реквизит \"Наименование вида элемента документа\" (атрибут MedicalProductAttributeKindName) заполняется обязательно",
+          "page_start": 156,
+          "page_end": 156,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "10",
+          "raw_text": "если значение реквизита \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) или реквизита \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName) соответствует значению \"запрос заявителю с указанием характера замечаний\", то значение реквизита \"Код вида элемента документа\" (атрибут MedicalProductAttributeKindCode) или реквизита \"Наименование вида элемента документа\" (атрибут MedicalProductAttributeKindName) должно соответствовать значению \"срок ответа на запрос\"",
+          "page_start": 156,
+          "page_end": 156,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "11",
+          "raw_text": "если значение реквизита \"Код вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileCode) или реквизита \"Наименование вида документа, оформленного при рассмотрении регистрационного досье на медицинское изделие\" (hcsdo:MedicalProductRegistrationFileName) соответствует значению \"ответ заявителя с указанием характера замечаний\", то значение реквизита \"Код вида элемента документа\" (атрибут MedicalProductAttributeKindCode) или реквизита \"Наименование вида элемента документа\" (атрибут MedicalProductAttributeKindName) должно соответствовать значению \"номер документа основания\"",
+          "page_start": 156,
+          "page_end": 156,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "12",
+          "raw_text": "реквизит \"Документ в формате PDF\" (hcsdo:PdfBinaryText) или реквизит \"Документ в формате XML\" в составе сложного реквизита \"Сведения о документе, оформленном при рассмотрении регистрационного досье на медицинское изделие, или документе, содержащемся в регистрационном досье на медицинское изделие\" (hccdo:MedicalProductRegistrationFileDetails) должен быть заполнен",
+          "page_start": 156,
+          "page_end": 156,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        }
+      ]
+    },
+    {
+      "msg_code": "P.MM.06.MSG.023",
+      "table": "24",
+      "page_start": 156,
+      "page_end": 157,
+      "first_requirement": "1",
+      "last_requirement": "2",
+      "total_requirements": 2,
+      "numbering_gaps": [],
+      "duplicate_numbers": [],
+      "requirements": [
+        {
+          "number": "1",
+          "raw_text": "реквизит \"Код вида медицинского изделия\" (hcsdo:MedicalProductClassificationCode) не заполняется",
+          "page_start": 156,
+          "page_end": 156,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        },
+        {
+          "number": "2",
+          "raw_text": "реквизит \"Наименование вида медицинского изделия\" (hcsdo:MedicalProductClassificationName) не заполняется",
+          "page_start": 157,
+          "page_end": 157,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        }
+      ]
+    },
+    {
+      "msg_code": "P.MM.06.MSG.024",
+      "table": "25",
+      "page_start": 157,
+      "page_end": 157,
+      "first_requirement": "1",
+      "last_requirement": "1",
+      "total_requirements": 1,
+      "numbering_gaps": [],
+      "duplicate_numbers": [],
+      "requirements": [
+        {
+          "number": "1",
+          "raw_text": "реквизит \"Код вида медицинского изделия\" (hcsdo:MedicalProductClassificationCode) должен быть заполнен",
+          "page_start": 157,
+          "page_end": 157,
+          "continues_across_pages": false,
+          "candidate_status": "PENDING_VISUAL_VERIFICATION"
+        }
+      ]
+    }
+  ]
+}
