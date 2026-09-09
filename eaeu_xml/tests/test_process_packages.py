@@ -106,6 +106,14 @@ class ProcessPackageTests(unittest.TestCase):
             with self.assertRaises(ProcessPackageValidationError): ProcessPackageLoader.load(target)
         finally: temporary.cleanup()
 
+    def test_message_structure_id_must_be_a_string_or_null(self):
+        temporary, target = self.copy_fixture()
+        try:
+            self.rewrite(target / "messages.yaml", lambda data: data["messages"][0].update(structure_id=["R.TEST.001"]))
+            with self.assertRaisesRegex(ProcessPackageValidationError, "structure_id должен быть строкой или null"):
+                ProcessPackageLoader.load(target)
+        finally: temporary.cleanup()
+
     def test_invalid_namespace_is_rejected(self):
         temporary, target = self.copy_fixture()
         try:

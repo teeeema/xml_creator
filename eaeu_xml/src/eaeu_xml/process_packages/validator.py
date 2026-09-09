@@ -46,6 +46,12 @@ class ProcessPackageValidator:
             if transaction.retry_count is not None and transaction.retry_count < 0:
                 self._fail("INVALID_RETRY_COUNT", "retry_count не может быть отрицательным.")
         for message in package.messages.values():
+            if message.structure_id is not None and not isinstance(message.structure_id, str):
+                self._fail(
+                    "INVALID_MESSAGE_STRUCTURE_ID",
+                    f"{message.message_code}: structure_id должен быть строкой или null; "
+                    f"получен {type(message.structure_id).__name__}.",
+                )
             if message.message_rules_status not in MESSAGE_RULES_STATUSES:
                 self._fail("UNKNOWN_MESSAGE_RULES_STATUS", f"Неизвестный статус правил {message.message_code}: {message.message_rules_status}.")
             if not message.message_rules_source_refs:
