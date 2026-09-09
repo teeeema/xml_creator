@@ -1,202 +1,796 @@
 {
   "structure_id": "R.IP.SP.02.008",
-  "name": "запрос сведений из национальных разделов Единого реестра ТЗ Союза",
-  "active_version": "1.0.0",
+  "version": "1.0.0",
+  "official_name": "запрос сведений из национальных разделов Единого реестра ТЗ Союза",
   "namespace": "urn:EEC:R:IP:SP:02:TrademarkRegisterRequestDetails:v1.0.0",
   "root_element": "TrademarkRegisterRequestDetails",
   "xsd_file": "EEC_R_IP_SP_02_TrademarkRegisterRequestDetails_v1.0.0.xsd",
-  "imports": {
+  "imported_namespaces": {
     "ccdo": "urn:EEC:M:ComplexDataObjects:vX.X.X",
     "ipcdo": "urn:EEC:M:IP:ComplexDataObjects:vZ.Z.Z",
     "ipsdo": "urn:EEC:M:IP:SimpleDataObjects:vZ.Z.Z",
     "csdo": "urn:EEC:M:SimpleDataObjects:vX.X.X"
   },
-  "table": 16,
-  "fields": [
-    {
-      "n": "1",
-      "element": "ccdo:EDocHeader",
-      "id": "M.CDE.90001",
-      "type": "ccdo:EDocHeaderType (M.CDT.90001)",
-      "cardinality": "1",
-      "children": [
-        {
-          "n": "1.1",
-          "element": "csdo:InfEnvelopeCode",
-          "id": "M.SDE.90010",
-          "type": "csdo:InfEnvelopeCodeType (M.SDT.90004)",
-          "cardinality": "1"
-        },
-        {
-          "n": "1.2",
-          "element": "csdo:EDocCode",
-          "id": "M.SDE.90001",
-          "type": "csdo:EDocCodeType (M.SDT.90001)",
-          "cardinality": "1"
-        },
-        {
-          "n": "1.3",
-          "element": "csdo:EDocId",
-          "id": "M.SDE.90007",
-          "type": "csdo:UniversallyUniqueIdType (M.SDT.90003)",
-          "cardinality": "1"
-        },
-        {
-          "n": "1.4",
-          "element": "csdo:EDocRefId",
-          "id": "M.SDE.90008",
-          "type": "csdo:UniversallyUniqueIdType (M.SDT.90003)",
-          "cardinality": "0..1"
-        },
-        {
-          "n": "1.5",
-          "element": "csdo:EDocDateTime",
-          "id": "M.SDE.90002",
-          "type": "bdt:DateTimeType (M.BDT.00006)",
-          "cardinality": "1"
-        },
-        {
-          "n": "1.6",
-          "element": "csdo:LanguageCode",
-          "id": "M.SDE.00051",
-          "type": "csdo:LanguageCodeType (M.SDT.00051)",
-          "cardinality": "0..1"
-        }
-      ]
-    },
-    {
-      "n": "2",
-      "element": "csdo:UpdateDateTime",
-      "id": "M.SDE.00079",
-      "type": "bdt:DateTimeType (M.BDT.00006)",
-      "cardinality": "0..1"
-    },
-    {
-      "n": "3",
-      "element": "csdo:UnifiedCountryCode",
-      "id": "M.SDE.00162",
-      "type": "csdo:UnifiedCountryCodeType (M.SDT.00112)",
-      "cardinality": "0..*",
-      "attributes": [
-        {
-          "name": "codeListId",
-          "type": "csdo:ReferenceDataIdType (M.SDT.00091)",
-          "cardinality": "1"
-        }
-      ]
-    },
-    {
-      "n": "4",
-      "element": "ipsdo:TrademarkId",
-      "id": "M.IP.SDE.00068",
-      "type": "ipsdo:TrademarkCertificateIdType (M.IP.SDT.00504)",
-      "cardinality": "0..1"
-    },
-    {
-      "n": "5",
-      "element": "ipsdo:TrademarkApplicationId",
-      "id": "M.IP.SDE.00065",
-      "type": "ipsdo:ApplicationIdType (M.IP.SDT.00016)",
-      "cardinality": "0..1"
-    },
-    {
-      "n": "6",
-      "element": "ipcdo:AccompanyingDocumentsDetails",
-      "id": "M.IP.CDE.00004",
-      "type": "ipcdo:IPDocDetailsType (M.IP.CDT.00003)",
-      "cardinality": "0..1",
-      "children": [
-        {
-          "n": "6.1",
-          "element": "ipsdo:IPDocKindCode",
-          "id": "M.IP.SDE.00007",
-          "type": "ipsdo:IPDocKindCodeType (M.IP.SDT.00009)",
-          "cardinality": "0..1"
-        },
-        {
-          "n": "6.2",
-          "element": "ipsdo:IPDocKindName",
-          "id": "M.IP.SDE.00187",
-          "type": "csdo:Name500Type (M.SDT.00134)",
-          "cardinality": "0..1"
-        },
-        {
-          "n": "6.3",
-          "element": "csdo:DocName",
-          "id": "M.SDE.00108",
-          "type": "csdo:Name500Type (M.SDT.00134)",
-          "cardinality": "0..1"
-        },
-        {
-          "n": "6.4",
-          "element": "csdo:DocId",
-          "id": "M.SDE.00044",
-          "type": "csdo:Id50Type (M.SDT.00093)",
-          "cardinality": "0..1"
-        },
-        {
-          "n": "6.5",
-          "element": "csdo:DocCreationDate",
-          "id": "M.SDE.00045",
-          "type": "bdt:DateType (M.BDT.00005)",
-          "cardinality": "0..1"
-        },
-        {
-          "n": "6.6",
-          "element": "csdo:DocValidityDate",
-          "id": "M.SDE.00052",
-          "type": "bdt:DateType (M.BDT.00005)",
-          "cardinality": "0..1"
-        },
-        {
-          "n": "6.7",
-          "element": "csdo:DescriptionText",
-          "id": "M.SDE.00002",
-          "type": "csdo:Text4000Type (M.SDT.00088)",
-          "cardinality": "0..1"
-        },
-        {
-          "n": "6.8",
-          "element": "csdo:PageQuantity",
-          "id": "M.SDE.00018",
-          "type": "csdo:Quantity4Type (M.SDT.00097)",
-          "cardinality": "0..1"
-        },
-        {
-          "n": "6.9",
-          "element": "csdo:DocBinaryText",
-          "id": "M.SDE.00106",
-          "type": "csdo:BinaryTextType (M.SDT.00143)",
-          "cardinality": "0..1",
-          "attributes": [
-            {
-              "name": "mediaTypeCode",
-              "type": "csdo:MediaTypeCodeType (M.SDT.00147)",
-              "cardinality": "0..1"
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "status": "CONFIRMED",
+  "field_table_reference": {
+    "table": "16",
+    "start_page": 987,
+    "end_page": 992,
+    "status": "VERIFIED_FROM_PDF"
+  },
   "source_refs": [
     {
-      "source_id": "22OP-STRUCT-R-IP-SP-02-008",
+      "source_id": "22OP-STRUCT-R.IP.SP.02.008",
       "document": "ОП_22.pdf",
-      "location": "Описание технической схемы R.IP.SP.02.008, таблицы 14–16",
+      "location": "Описание форматов и структур электронных документов и сведений, таблицы 14–16",
       "status": "CONFIRMED",
-      "pages": [
-        985,
-        986,
-        987,
-        988,
-        989,
-        990,
-        991,
-        992
+      "page": 985,
+      "table": "14-16",
+      "item": "R.IP.SP.02.008",
+      "version_context": "1.0.0"
+    }
+  ],
+  "status": "NEEDS_XSD",
+  "expected_normative_rows": 23,
+  "imported_normative_rows": 23,
+  "fields": [
+    {
+      "field_id": "1",
+      "order": 1,
+      "depth": 0,
+      "parent": null,
+      "path": "ccdo:EDocHeader",
+      "official_name": "Заголовок электронного документа (сведений)",
+      "xml_name": "EDocHeader",
+      "namespace_prefix": "ccdo",
+      "kind": "ELEMENT",
+      "datatype": "ccdo:EDocHeaderType",
+      "datatype_text": "ccdo:EDocHeaderType (M.CDT.90001)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "совокупность технологических реквизитов электронного документа (сведений)",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.CDE.90001",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-1",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 987,
+          "table": "16",
+          "item": "1",
+          "version_context": "P.SP.02 1.0.0"
+        }
       ],
-      "version_context": "P.SP.02 1.0.0"
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "1.1",
+      "order": 2,
+      "depth": 1,
+      "parent": "1",
+      "path": "ccdo:EDocHeader/csdo:InfEnvelopeCode",
+      "official_name": "Код сообщения общего процесса",
+      "xml_name": "InfEnvelopeCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:InfEnvelopeCodeType",
+      "datatype_text": "csdo:InfEnvelopeCodeType (M.SDT.90004)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "кодовое обозначение сообщения общего процесса",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.90010",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-1.1",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 987,
+          "table": "16",
+          "item": "1.1",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "1.2",
+      "order": 3,
+      "depth": 1,
+      "parent": "1",
+      "path": "ccdo:EDocHeader/csdo:EDocCode",
+      "official_name": "Код электронного документа (сведений)",
+      "xml_name": "EDocCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:EDocCodeType",
+      "datatype_text": "csdo:EDocCodeType (M.SDT.90001)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "кодовое обозначение электронного документа (сведений) в соответствии с реестром структур электронных документов и сведений",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.90001",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-1.2",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 987,
+          "table": "16",
+          "item": "1.2",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "1.3",
+      "order": 4,
+      "depth": 1,
+      "parent": "1",
+      "path": "ccdo:EDocHeader/csdo:EDocId",
+      "official_name": "Идентификатор электронного документа (сведений)",
+      "xml_name": "EDocId",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "datatype_text": "csdo:UniversallyUniqueIdType (M.SDT.90003)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "строка символов, однозначно идентифицирующая электронный документ (сведения)",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.90007",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-1.3",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 988,
+          "table": "16",
+          "item": "1.3",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "1.4",
+      "order": 5,
+      "depth": 1,
+      "parent": "1",
+      "path": "ccdo:EDocHeader/csdo:EDocRefId",
+      "official_name": "Идентификатор исходного электронного документа (сведений)",
+      "xml_name": "EDocRefId",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "datatype_text": "csdo:UniversallyUniqueIdType (M.SDT.90003)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "идентификатор электронного документа (сведений), в ответ на который был сформирован данный электронный документ (сведения)",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.90008",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-1.4",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 988,
+          "table": "16",
+          "item": "1.4",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "1.5",
+      "order": 6,
+      "depth": 1,
+      "parent": "1",
+      "path": "ccdo:EDocHeader/csdo:EDocDateTime",
+      "official_name": "Дата и время электронного документа (сведений)",
+      "xml_name": "EDocDateTime",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateTimeType",
+      "datatype_text": "bdt:DateTimeType (M.BDT.00006)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "дата и время создания электронного документа (сведений)",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.90002",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-1.5",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 988,
+          "table": "16",
+          "item": "1.5",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "1.6",
+      "order": 7,
+      "depth": 1,
+      "parent": "1",
+      "path": "ccdo:EDocHeader/csdo:LanguageCode",
+      "official_name": "Код языка",
+      "xml_name": "LanguageCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:LanguageCodeType",
+      "datatype_text": "csdo:LanguageCodeType (M.SDT.00051)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение языка",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.00051",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-1.6",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 988,
+          "table": "16",
+          "item": "1.6",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "2",
+      "order": 8,
+      "depth": 0,
+      "parent": null,
+      "path": "csdo:UpdateDateTime",
+      "official_name": "Дата и время обновления",
+      "xml_name": "UpdateDateTime",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateTimeType",
+      "datatype_text": "bdt:DateTimeType (M.BDT.00006)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "дата и время обновления Единого реестра ТЗ Союза",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.00079",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-2",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 988,
+          "table": "16",
+          "item": "2",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "3",
+      "order": 9,
+      "depth": 0,
+      "parent": null,
+      "path": "csdo:UnifiedCountryCode",
+      "official_name": "Код страны",
+      "xml_name": "UnifiedCountryCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "datatype_text": "csdo:UnifiedCountryCodeType (M.SDT.00112)",
+      "min_occurs": 0,
+      "max_occurs": "*",
+      "description": "кодовое обозначение страны, представившей сведения национального раздела Единого реестра ТЗ Союза",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.00162",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-3",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 989,
+          "table": "16",
+          "item": "3",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "3.a",
+      "order": 10,
+      "depth": 1,
+      "parent": "3",
+      "path": "csdo:UnifiedCountryCode/@codeListId",
+      "official_name": "идентификатор справочника (классификатора)",
+      "xml_name": "codeListId",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:ReferenceDataIdType",
+      "datatype_text": "csdo:ReferenceDataIdType (M.SDT.00091)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "обозначение справочника (классификатора), в соответствии с которым указан код",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-3.a",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 989,
+          "table": "16",
+          "item": "3.a",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "4",
+      "order": 11,
+      "depth": 0,
+      "parent": null,
+      "path": "ipsdo:TrademarkId",
+      "official_name": "Регистрационный номер товарного знака Союза",
+      "xml_name": "TrademarkId",
+      "namespace_prefix": "ipsdo",
+      "kind": "ELEMENT",
+      "datatype": "ipsdo:TrademarkCertificateIdType",
+      "datatype_text": "ipsdo:TrademarkCertificateIdType (M.IP.SDT.00504)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "регистрационный номер товарного знака Союза в едином реестре товарных знаков Союза",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.IP.SDE.00068",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-4",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 989,
+          "table": "16",
+          "item": "4",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "5",
+      "order": 12,
+      "depth": 0,
+      "parent": null,
+      "path": "ipsdo:TrademarkApplicationId",
+      "official_name": "Регистрационный номер заявки на товарный знак Союза",
+      "xml_name": "TrademarkApplicationId",
+      "namespace_prefix": "ipsdo",
+      "kind": "ELEMENT",
+      "datatype": "ipsdo:ApplicationIdType",
+      "datatype_text": "ipsdo:ApplicationIdType (M.IP.SDT.00016)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "регистрационный номер заявки на регистрацию и (или) предоставление права использования ТЗ Союза",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.IP.SDE.00065",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-5",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 989,
+          "table": "16",
+          "item": "5",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "6",
+      "order": 13,
+      "depth": 0,
+      "parent": null,
+      "path": "ipcdo:AccompanyingDocumentsDetails",
+      "official_name": "Прилагаемый документ",
+      "xml_name": "AccompanyingDocumentsDetails",
+      "namespace_prefix": "ipcdo",
+      "kind": "ELEMENT",
+      "datatype": "ipcdo:IPDocDetailsType",
+      "datatype_text": "ipcdo:IPDocDetailsType (M.IP.CDT.00003)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "сведения о прилагаемом документе",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.IP.CDE.00004",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-6",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 990,
+          "table": "16",
+          "item": "6",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "6.1",
+      "order": 14,
+      "depth": 1,
+      "parent": "6",
+      "path": "ipcdo:AccompanyingDocumentsDetails/ipsdo:IPDocKindCode",
+      "official_name": "Код вида документа, используемого в сфере интеллектуальной собственности",
+      "xml_name": "IPDocKindCode",
+      "namespace_prefix": "ipsdo",
+      "kind": "ELEMENT",
+      "datatype": "ipsdo:IPDocKindCodeType",
+      "datatype_text": "ipsdo:IPDocKindCodeType (M.IP.SDT.00009)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение вида документа, используемого в сфере интеллектуальной собственности",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.IP.SDE.00007",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-6.1",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 990,
+          "table": "16",
+          "item": "6.1",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "6.2",
+      "order": 15,
+      "depth": 1,
+      "parent": "6",
+      "path": "ipcdo:AccompanyingDocumentsDetails/ipsdo:IPDocKindName",
+      "official_name": "Наименование вида документа, используемого в сфере интеллектуальной собственности",
+      "xml_name": "IPDocKindName",
+      "namespace_prefix": "ipsdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name500Type",
+      "datatype_text": "csdo:Name500Type (M.SDT.00134)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "наименование вида документа, используемого в сфере интеллектуальной собственности",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.IP.SDE.00187",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-6.2",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 990,
+          "table": "16",
+          "item": "6.2",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "6.3",
+      "order": 16,
+      "depth": 1,
+      "parent": "6",
+      "path": "ipcdo:AccompanyingDocumentsDetails/csdo:DocName",
+      "official_name": "Наименование документа",
+      "xml_name": "DocName",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name500Type",
+      "datatype_text": "csdo:Name500Type (M.SDT.00134)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "наименование документа",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.00108",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-6.3",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 990,
+          "table": "16",
+          "item": "6.3",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "6.4",
+      "order": 17,
+      "depth": 1,
+      "parent": "6",
+      "path": "ipcdo:AccompanyingDocumentsDetails/csdo:DocId",
+      "official_name": "Номер документа",
+      "xml_name": "DocId",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Id50Type",
+      "datatype_text": "csdo:Id50Type (M.SDT.00093)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "цифровое или буквенно-цифровое обозначение, присвоенное документу при его регистрации",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.00044",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-6.4",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 991,
+          "table": "16",
+          "item": "6.4",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "6.5",
+      "order": 18,
+      "depth": 1,
+      "parent": "6",
+      "path": "ipcdo:AccompanyingDocumentsDetails/csdo:DocCreationDate",
+      "official_name": "Дата документа",
+      "xml_name": "DocCreationDate",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateType",
+      "datatype_text": "bdt:DateType (M.BDT.00005)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "дата выдачи, подписания, утверждения или регистрации документа",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.00045",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-6.5",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 991,
+          "table": "16",
+          "item": "6.5",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "6.6",
+      "order": 19,
+      "depth": 1,
+      "parent": "6",
+      "path": "ipcdo:AccompanyingDocumentsDetails/csdo:DocValidityDate",
+      "official_name": "Дата истечения срока действия документа",
+      "xml_name": "DocValidityDate",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateType",
+      "datatype_text": "bdt:DateType (M.BDT.00005)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "дата окончания срока, в течение которого документ имеет силу",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.00052",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-6.6",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 991,
+          "table": "16",
+          "item": "6.6",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "6.7",
+      "order": 20,
+      "depth": 1,
+      "parent": "6",
+      "path": "ipcdo:AccompanyingDocumentsDetails/csdo:DescriptionText",
+      "official_name": "Описание",
+      "xml_name": "DescriptionText",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Text4000Type",
+      "datatype_text": "csdo:Text4000Type (M.SDT.00088)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "описание документа",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.00002",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-6.7",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 991,
+          "table": "16",
+          "item": "6.7",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "6.8",
+      "order": 21,
+      "depth": 1,
+      "parent": "6",
+      "path": "ipcdo:AccompanyingDocumentsDetails/csdo:PageQuantity",
+      "official_name": "Количество листов",
+      "xml_name": "PageQuantity",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Quantity4Type",
+      "datatype_text": "csdo:Quantity4Type (M.SDT.00097)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "общее количество листов в документе",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.00018",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-6.8",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 991,
+          "table": "16",
+          "item": "6.8",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "6.9",
+      "order": 22,
+      "depth": 1,
+      "parent": "6",
+      "path": "ipcdo:AccompanyingDocumentsDetails/csdo:DocBinaryText",
+      "official_name": "Документ в бинарном формате",
+      "xml_name": "DocBinaryText",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:BinaryTextType",
+      "datatype_text": "csdo:BinaryTextType (M.SDT.00143)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "документ в бинарном текстовом формате",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.00106",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-6.9",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 991,
+          "table": "16",
+          "item": "6.9",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "6.9.a",
+      "order": 23,
+      "depth": 2,
+      "parent": "6.9",
+      "path": "ipcdo:AccompanyingDocumentsDetails/csdo:DocBinaryText/@mediaTypeCode",
+      "official_name": "код формата данных",
+      "xml_name": "mediaTypeCode",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:MediaTypeCodeType",
+      "datatype_text": "csdo:MediaTypeCodeType (M.SDT.00147)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение формата данных",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-R.IP.SP.02.008-6.9.a",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 992,
+          "table": "16",
+          "item": "6.9.a",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
     }
   ]
 }
