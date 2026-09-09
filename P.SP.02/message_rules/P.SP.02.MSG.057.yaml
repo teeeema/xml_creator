@@ -5,14 +5,15 @@
   "field_usage": {},
   "business_rules": [
     {
-      "rule_id": "P.SP.02.MSG.057.REQ.1_19",
+      "rule_id": "P.SP.02.MSG.057.T75.REQ.1_19",
       "requirement_code": "1-19",
-      "source_text": "Соответствуют требованиям 1–19 таблицы 74.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "соответствуют требованиям 1-19 таблицы 74 настоящего Регламента (значения кодов требований в таблице 74 и таблице 75 совпадают)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.057-1_19",
+          "source_id": "22OP-RULE-P.SP.02.MSG.057-T75-1-19",
           "document": "ОП_22.pdf",
           "location": "Таблица 75",
           "status": "CONFIRMED",
@@ -24,14 +25,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.057.REQ.20",
+      "rule_id": "P.SP.02.MSG.057.T75.REQ.20",
       "requirement_code": "20",
-      "source_text": "DutyPaymentIndicator должен быть заполнен.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "реквизит «Признак подтверждения уплаты пошлины» (ipsdo:DutyPaymentIndicator) должен быть заполнен",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.057-20",
+          "source_id": "22OP-RULE-P.SP.02.MSG.057-T75-20",
           "document": "ОП_22.pdf",
           "location": "Таблица 75",
           "status": "CONFIRMED",
@@ -43,14 +45,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.057.REQ.21",
+      "rule_id": "P.SP.02.MSG.057.T75.REQ.21",
       "requirement_code": "21",
-      "source_text": "Если DutyPaymentIndicator=true, PaymentAmount=0.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "если значение реквизита реквизит «Признак подтверждения уплаты пошлины» (ipsdo:DutyPaymentIndicator) соответствует значению «истина (true)», значение реквизита «Сумма платежа» (csdo:PaymentAmount) должна соответствовать значению «0»",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.057-21",
+          "source_id": "22OP-RULE-P.SP.02.MSG.057-T75-21",
           "document": "ОП_22.pdf",
           "location": "Таблица 75",
           "status": "CONFIRMED",
@@ -62,14 +65,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.057.REQ.22",
+      "rule_id": "P.SP.02.MSG.057.T75.REQ.22",
       "requirement_code": "22",
-      "source_text": "Если DutyPaymentIndicator=false, PaymentAmount должен быть >0.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "если значение реквизита реквизит «Признак подтверждения уплаты пошлины» (ipsdo:DutyPaymentIndicator) соответствует значению «ложь (false)», значение реквизита «Сумма платежа» (csdo:PaymentAmount) должно быть заполнено и содержать значение, большее, чем «0»",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.057-22",
+          "source_id": "22OP-RULE-P.SP.02.MSG.057-T75-22",
           "document": "ОП_22.pdf",
           "location": "Таблица 75",
           "status": "CONFIRMED",

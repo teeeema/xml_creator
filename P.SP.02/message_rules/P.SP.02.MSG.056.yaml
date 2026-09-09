@@ -5,14 +5,15 @@
   "field_usage": {},
   "business_rules": [
     {
-      "rule_id": "P.SP.02.MSG.056.REQ.1_6",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.1_6",
       "requirement_code": "1-6",
-      "source_text": "Соответствуют требованиям 1–6 таблицы 72.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "соответствуют требованиям 1-6 таблицы 72 настоящего Регламента (значения кодов требований в таблице 72 и таблице 74 совпадают)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.056-1_6",
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-1-6",
           "document": "ОП_22.pdf",
           "location": "Таблица 74",
           "status": "CONFIRMED",
@@ -24,14 +25,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.056.REQ.7",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.7",
       "requirement_code": "7",
-      "source_text": "IPPaymentDetails должен быть заполнен; BankAccountDetails и PaymentSystemAccountDetails не заполняются.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "реквизит «Сведения о пошлине за осуществление юридически значимых действий» (ipcdo:IPPaymentDetails) должен быть заполнен, в его составе реквизиты «Банковский счет» (ccdo:BankAccountDetails) и «Счет в платежной системе» (ccdo:PaymentSystemAccountDetails) не заполняются",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.056-7",
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-7",
           "document": "ОП_22.pdf",
           "location": "Таблица 74",
           "status": "CONFIRMED",
@@ -43,14 +45,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.056.REQ.8",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.8",
       "requirement_code": "8",
-      "source_text": "В IPPaymentDetails EventDateTime, IPPartyDetails и AccompanyingDocumentsDetails должны быть заполнены.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "в составе реквизита «Сведения о пошлине за осуществление юридически значимых действий» (ipcdo:IPPaymentDetails) реквизиты «Дата и время» (csdo:EventDateTime), «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) и «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) должны быть заполнены",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.056-8",
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-8",
           "document": "ОП_22.pdf",
           "location": "Таблица 74",
           "status": "CONFIRMED",
@@ -62,14 +65,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.056.REQ.9",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.9",
       "requirement_code": "9",
-      "source_text": "Должен быть 1 IPPartyDetails с IPPartyKindCode AP, PA или RE.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "в электронном документе (сведениях) должен быть заполнен 1 экземпляр реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails), в составе которого значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) должно соответствовать одному из следующих значений: «AP» – «заявитель», «PA» – «представитель заявителя, являющийся патентным поверенным» или «RE» – «представитель заявителя, не являющийся патентным поверенным»",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.056-9",
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-9",
           "document": "ОП_22.pdf",
           "location": "Таблица 74",
           "status": "CONFIRMED",
@@ -81,14 +85,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.056.REQ.10",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.10",
       "requirement_code": "10",
-      "source_text": "В IPPartyDetails обязательны UnifiedCountryCode и IPSubjectName.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) должны быть заполнены реквизиты: «Код страны» (csdo:UnifiedCountryCode); «Полное наименование субъекта c указанием вида представления сведений и кода языка» (ipsdo:IPSubjectName)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.056-10",
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-10",
           "document": "ОП_22.pdf",
           "location": "Таблица 74",
           "status": "CONFIRMED",
@@ -100,14 +105,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.056.REQ.11",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.11",
       "requirement_code": "11",
-      "source_text": "Для AP nameRepresentationKindCode=OR и languageCode=RU.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "если в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) соответствует значению «AP» – «заявитель», то значение атрибута «код вида представления наименования» (атрибут nameRepresentationKindCode) в составе реквизита «Полное наименование субъекта c указанием вида представления сведений и кода языка (ipsdo:IPSubjectName) должно соответствовать значению «OR» – «сведения, представленные на исходном (оригинальном) языке», значение атрибута «код языка» (атрибут languageCode) должно соответствовать значению «RU»",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.056-11",
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-11",
           "document": "ОП_22.pdf",
           "location": "Таблица 74",
           "status": "CONFIRMED",
@@ -119,14 +125,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.056.REQ.12",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.12",
       "requirement_code": "12",
-      "source_text": "Для PA должен быть заполнен PatentAttorneyId.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "если в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) соответствует значению «PA» – «представитель заявителя, являющийся патентным поверенным», то в составе такого экземпляра реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» должен быть заполнен реквизит «Регистрационный номер патентного поверенного» (ipsdo:PatentAttorneyId)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.056-12",
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-12",
           "document": "ОП_22.pdf",
           "location": "Таблица 74",
           "status": "CONFIRMED",
@@ -138,14 +145,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.056.REQ.13",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.13",
       "requirement_code": "13",
-      "source_text": "Для PA/RE UnifiedCountryCode ∈ {AM,BY,KZ,KG,RU}.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "если в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) соответствует значению «PA» – «представитель заявителя, являющийся патентным поверенным» или «RE» – «представитель заявителя, не являющийся патентным поверенным», то в составе реквизита «Участник отношений сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) значение реквизита «Код страны» (csdo:UnifiedCountryCode), должно соответствовать одному из следующих значений: «AM», «BY», «KZ», «KG» или «RU»",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.056-13",
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-13",
           "document": "ОП_22.pdf",
           "location": "Таблица 74",
           "status": "CONFIRMED",
@@ -157,14 +165,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.056.REQ.14",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.14",
       "requirement_code": "14",
-      "source_text": "Для PA/RE nameRepresentationKindCode не заполняется, languageCode=RU.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "если в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) соответствует значению «PA» – «представитель заявителя, являющийся патентным поверенным» или «RE» – «представитель заявителя, не являющийся патентным поверенным», то в составе такого экземпляра реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» в составе реквизита «Полное наименование субъекта c указанием вида представления сведений и кода языка» (ipsdo:IPSubjectName) атрибут «код вида представления наименования» (атрибут nameRepresentationKindCode) не заполняется, а атрибут «код языка» (атрибут languageCode) должен быть заполнен и его значение должно соответствовать значению «RU»",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.056-14",
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-14",
           "document": "ОП_22.pdf",
           "location": "Таблица 74",
           "status": "CONFIRMED",
@@ -176,14 +185,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.056.REQ.15",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.15",
       "requirement_code": "15",
-      "source_text": "Должен быть заполнен 1 AccompanyingDocumentsDetails.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "в составе электронного документа (сведений) должен быть заполнен 1 экземпляр реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.056-15",
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-15",
           "document": "ОП_22.pdf",
           "location": "Таблица 74",
           "status": "CONFIRMED",
@@ -195,14 +205,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.056.REQ.16",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.16",
       "requirement_code": "16",
-      "source_text": "В AccompanyingDocumentsDetails IPDocKindName не заполняется.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "в составе реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) реквизит «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.056-16",
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-16",
           "document": "ОП_22.pdf",
           "location": "Таблица 74",
           "status": "CONFIRMED",
@@ -214,14 +225,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.056.REQ.17",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.17",
       "requirement_code": "17",
-      "source_text": "IPDocKindCode=«07015».",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "в составе реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) должен быть заполнен реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) и его значение должно соответствовать значению «07015»",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.056-17",
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-17",
           "document": "ОП_22.pdf",
           "location": "Таблица 74",
           "status": "CONFIRMED",
@@ -233,14 +245,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.056.REQ.18",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.18",
       "requirement_code": "18",
-      "source_text": "DocId и DocCreationDate должны быть заполнены.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "в составе реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) должны быть заполнены реквизиты «Номер документа» (csdo:DocId) и «Дата документа» (csdo:DocCreationDate)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.056-18",
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-18",
           "document": "ОП_22.pdf",
           "location": "Таблица 74",
           "status": "CONFIRMED",
@@ -252,14 +265,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.056.REQ.19",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.19",
       "requirement_code": "19",
-      "source_text": "DocBinaryText обязателен; mediaTypeCode из установленного списка; размер ≤5 Мб.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "в составе реквизита «Прилагаемый документ» реквизит «Документ в бинарном формате» (csdo:DocBinaryText) заполняется обязательно, атрибут «код формата данных» (атрибут mediaTypeCode) должен соответствовать одному из следующих значений: «tif», «tiff», «bmp», «jpg», «jpeg», «png», «gif», «doc», «docx», «rtf», «pdf», и размер документа в бинарном текстовом формате не должен превышать 5 Мб",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.056-19",
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-19",
           "document": "ОП_22.pdf",
           "location": "Таблица 74",
           "status": "CONFIRMED",
@@ -271,14 +285,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.056.REQ.20",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.20",
       "requirement_code": "20",
-      "source_text": "ApellationOfOriginApplicationId, DocId, DutyPaymentIndicator и PaymentAmount не заполняются.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "реквизиты «Регистрационный номер заявки на НМПТ Союза» (ipsdo:ApellationOfOriginApplicationId), «Номер документа» (csdo:DocId), «Признак подтверждения уплаты пошлины» (ipsdo:DutyPaymentIndicator), «Сумма платежа» (csdo:PaymentAmount) не заполняются",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.056-20",
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-20",
           "document": "ОП_22.pdf",
           "location": "Таблица 74",
           "status": "CONFIRMED",

@@ -5,14 +5,15 @@
   "field_usage": {},
   "business_rules": [
     {
-      "rule_id": "P.SP.02.MSG.054.REQ.1",
+      "rule_id": "P.SP.02.MSG.054.T72.REQ.1",
       "requirement_code": "1",
-      "source_text": "В PatentAuthorityDetails должен быть заполнен UnifiedCountryCode.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "в составе реквизита «Национальное патентное ведомство» (ipcdo:PatentAuthorityDetails) должен быть заполнен реквизит «Код страны» (csdo:UnifiedCountryCode)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.054-1",
+          "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-1",
           "document": "ОП_22.pdf",
           "location": "Таблица 72",
           "status": "CONFIRMED",
@@ -24,14 +25,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.054.REQ.2",
+      "rule_id": "P.SP.02.MSG.054.T72.REQ.2",
       "requirement_code": "2",
-      "source_text": "В PatentAuthorityDetails должен быть заполнен AuthorityName.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "в составе реквизита «Национальное патентное ведомство» (ipcdo:PatentAuthorityDetails) должен быть заполнен реквизит «Наименование уполномоченного органа» (csdo:AuthorityName)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.054-2",
+          "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-2",
           "document": "ОП_22.pdf",
           "location": "Таблица 72",
           "status": "CONFIRMED",
@@ -43,14 +45,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.054.REQ.3",
+      "rule_id": "P.SP.02.MSG.054.T72.REQ.3",
       "requirement_code": "3",
-      "source_text": "В PatentAuthorityDetails должен быть заполнен SubjectAddressDetails с AddressKindCode=«2».",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "в составе реквизита «Национальное патентное ведомство» (ipcdo:PatentAuthorityDetails) должен быть заполнен реквизит «Адрес» (ccdo:SubjectAddressDetails), в составе которого значение реквизита «Код вида адреса» (csdo:AddressKindCode) должно соответствовать значению «2» – «фактический адрес (адрес места нахождения или места жительства)»",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.054-3",
+          "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-3",
           "document": "ОП_22.pdf",
           "location": "Таблица 72",
           "status": "CONFIRMED",
@@ -62,18 +65,19 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.054.REQ.4",
+      "rule_id": "P.SP.02.MSG.054.T72.REQ.4",
       "requirement_code": "4",
-      "source_text": "При наличии справочника IPLegalActionKindCode заполняется кодом допустимого юридически значимого действия, IPLegalActionKindName не заполняется.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "при включении справочника видов юридически значимых действий при регистрации, правовой охране и использовании товарных знаков Союза, знаков обслуживания Союза и наименований мест происхождения товаров Союза в состав ресурсов единой системы нормативно-справочной информации Союза, реквизит «Код вида юридически значимого действия» (ipsdo:IPLegalActionKindCode) должен быть заполнен и должен соответствовать значению, соответствующему одному из следующих видов документов: «Экспертиза обозначения, заявленного на регистрацию в качестве товарного (коллективного) знака Союза (если регистрация испрашивается для одного - трех классов МКТУ) (уплата пошлины в каждое национальное патентное ведомство)»; «Экспертиза обозначения, заявленного на регистрацию в качестве товарного (коллективного) знака Союза (если регистрация испрашивается более чем для трех классов МКТУ) (уплата пошлины в каждое национальное патентное ведомство)»; «Регистрация товарного (коллективного) знака Союза и выдача свидетельства на товарный (коллективный) знак Союза»; «Продление срока действия исключительного права на товарный (коллективный) знак Союза (оплата в каждое национальное патентное ведомство)», а реквизит «Наименование вида юридически значимого действия» (ipsdo:IPLegalActionKindName) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.054-4",
+          "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-4",
           "document": "ОП_22.pdf",
           "location": "Таблица 72",
           "status": "CONFIRMED",
-          "page": 801,
+          "page": 802,
           "table": "72",
           "version_context": "P.SP.02 1.0.0",
           "item": "4"
@@ -81,14 +85,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.054.REQ.5",
+      "rule_id": "P.SP.02.MSG.054.T72.REQ.5",
       "requirement_code": "5",
-      "source_text": "При отсутствии справочника IPLegalActionKindCode не заполняется, IPLegalActionKindName заполняется допустимым нормативным наименованием.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "при отсутствии справочника видов юридически значимых действий при регистрации, правовой охране и использовании товарных знаков Союза, знаков обслуживания Союза и НМПТ Союза в составе ресурсов единой системы нормативно-справочной информации Союза, реквизит «Код вида юридически значимого действия» (ipsdo:IPLegalActionKindCode) не заполняется, а реквизит «Наименование вида юридически значимого действия» (ipsdo:IPLegalActionKindName) должен быть заполнен и должен соответствовать значению, соответствующему одному из следующих видов документов: «Экспертиза обозначения, заявленного на регистрацию в качестве товарного (коллективного) знака Союза (если регистрация испрашивается для одного - трех классов МКТУ) (уплата пошлины в каждое национальное патентное ведомство)»; «Экспертиза обозначения, заявленного на регистрацию в качестве товарного (коллективного) знака Союза (если регистрация испрашивается более чем для трех классов МКТУ) (уплата пошлины в каждое национальное патентное ведомство)»; «Регистрация товарного (коллективного) знака Союза и выдача свидетельства на товарный (коллективный) знак Союза»; «Продление срока действия исключительного права на товарный (коллективный) знак Союза (оплата в каждое национальное патентное ведомство)»",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.054-5",
+          "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-5",
           "document": "ОП_22.pdf",
           "location": "Таблица 72",
           "status": "CONFIRMED",
@@ -100,14 +105,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.054.REQ.6",
+      "rule_id": "P.SP.02.MSG.054.T72.REQ.6",
       "requirement_code": "6",
-      "source_text": "TrademarkApplicationId должен быть заполнен.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "реквизит «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) должен быть заполнен",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.054-6",
+          "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-6",
           "document": "ОП_22.pdf",
           "location": "Таблица 72",
           "status": "CONFIRMED",
@@ -119,14 +125,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.054.REQ.7",
+      "rule_id": "P.SP.02.MSG.054.T72.REQ.7",
       "requirement_code": "7",
-      "source_text": "ApellationOfOriginApplicationId, DocId, IPPaymentDetails, DutyPaymentIndicator и PaymentAmount не заполняются.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "реквизиты «Регистрационный номер заявки на НМПТ Союза» (ipsdo:ApellationOfOriginApplicationId), «Номер документа» (csdo:DocId), «Сведения о пошлине за осуществление юридически значимых действий» (ipcdo:IPPaymentDetails), «Признак подтверждения уплаты пошлины» (ipsdo:DutyPaymentIndicator), «Сумма платежа» (csdo:PaymentAmount) не заполняются",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.054-7",
+          "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-7",
           "document": "ОП_22.pdf",
           "location": "Таблица 72",
           "status": "CONFIRMED",

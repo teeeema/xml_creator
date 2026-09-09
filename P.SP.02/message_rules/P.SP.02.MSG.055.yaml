@@ -5,14 +5,15 @@
   "field_usage": {},
   "business_rules": [
     {
-      "rule_id": "P.SP.02.MSG.055.REQ.1_6",
+      "rule_id": "P.SP.02.MSG.055.T73.REQ.1_6",
       "requirement_code": "1-6",
-      "source_text": "Соответствуют требованиям 1–6 таблицы 72.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "соответствуют требованиям 1-6 таблицы 72 настоящего Регламента (значения кодов требований в таблице 72 и таблице 73 совпадают)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.055-1_6",
+          "source_id": "22OP-RULE-P.SP.02.MSG.055-T73-1-6",
           "document": "ОП_22.pdf",
           "location": "Таблица 73",
           "status": "CONFIRMED",
@@ -24,14 +25,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.055.REQ.7",
+      "rule_id": "P.SP.02.MSG.055.T73.REQ.7",
       "requirement_code": "7",
-      "source_text": "IPPaymentDetails должен быть заполнен; BankAccountDetails и/или PaymentSystemAccountDetails должны быть заполнены.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "реквизит «Сведения о пошлине за осуществление юридически значимых действий» (ipcdo:IPPaymentDetails) должен быть заполнен, в его составе реквизит «Банковский счет» (ccdo:BankAccountDetails) и (или) «Счет в платежной системе» (ccdo:PaymentSystemAccountDetails) должен быть заполнен",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.055-7",
+          "source_id": "22OP-RULE-P.SP.02.MSG.055-T73-7",
           "document": "ОП_22.pdf",
           "location": "Таблица 73",
           "status": "CONFIRMED",
@@ -43,14 +45,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.055.REQ.8",
+      "rule_id": "P.SP.02.MSG.055.T73.REQ.8",
       "requirement_code": "8",
-      "source_text": "В IPPaymentDetails EventDateTime, IPPartyDetails и AccompanyingDocumentsDetails не заполняются.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "в составе реквизита «Сведения о пошлине за осуществление юридически значимых действий» (ipcdo:IPPaymentDetails) реквизиты «Дата и время» (csdo:EventDateTime), «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) и «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) не заполняются",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.055-8",
+          "source_id": "22OP-RULE-P.SP.02.MSG.055-T73-8",
           "document": "ОП_22.pdf",
           "location": "Таблица 73",
           "status": "CONFIRMED",
@@ -62,18 +65,19 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.055.REQ.9",
+      "rule_id": "P.SP.02.MSG.055.T73.REQ.9",
       "requirement_code": "9",
-      "source_text": "TrademarkApplicationId, DocId, PaymentAmount и DutyPaymentIndicator не заполняются.",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_text": "реквизиты «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId), «Номер документа» (csdo:DocId), «Сумма платежа» (csdo:PaymentAmount) и «Признак подтверждения уплаты пошлины» (ipsdo:DutyPaymentIndicator) не заполняются",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.055-9",
+          "source_id": "22OP-RULE-P.SP.02.MSG.055-T73-9",
           "document": "ОП_22.pdf",
           "location": "Таблица 73",
           "status": "CONFIRMED",
-          "page": 803,
+          "page": 804,
           "table": "73",
           "version_context": "P.SP.02 1.0.0",
           "item": "9"

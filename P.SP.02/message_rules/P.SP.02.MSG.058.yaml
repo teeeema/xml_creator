@@ -5,14 +5,15 @@
   "field_usage": {},
   "business_rules": [
     {
-      "rule_id": "P.SP.02.MSG.058.REQ.1",
+      "rule_id": "P.SP.02.MSG.058.T76.REQ.1",
       "requirement_code": "1",
-      "source_text": "UpdateDateTime и UnifiedCountryCode не заполняются.",
+      "applies_to_structure": "R.IP.SP.02.008",
+      "source_text": "реквизиты «Дата и время обновления» (csdo:UpdateDateTime) и «Код страны» (csdo:UnifiedCountryCode) не заполняются",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.058-1",
+          "source_id": "22OP-RULE-P.SP.02.MSG.058-T76-1",
           "document": "ОП_22.pdf",
           "location": "Таблица 76",
           "status": "CONFIRMED",
@@ -24,14 +25,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.058.REQ.2",
+      "rule_id": "P.SP.02.MSG.058.T76.REQ.2",
       "requirement_code": "2",
-      "source_text": "Если TrademarkApplicationId заполнен, TrademarkId не заполняется.",
+      "applies_to_structure": "R.IP.SP.02.008",
+      "source_text": "если заполнен реквизит «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId), реквизит «Регистрационный номер товарного знака Союза» (ipsdo:TrademarkId) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.058-2",
+          "source_id": "22OP-RULE-P.SP.02.MSG.058-T76-2",
           "document": "ОП_22.pdf",
           "location": "Таблица 76",
           "status": "CONFIRMED",
@@ -43,14 +45,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.058.REQ.3",
+      "rule_id": "P.SP.02.MSG.058.T76.REQ.3",
       "requirement_code": "3",
-      "source_text": "Если TrademarkId заполнен, TrademarkApplicationId не заполняется.",
+      "applies_to_structure": "R.IP.SP.02.008",
+      "source_text": "если заполнен реквизит «Регистрационный номер товарного знака Союза» (ipsdo:TrademarkId), реквизит «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) не заполняются",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.058-3",
+          "source_id": "22OP-RULE-P.SP.02.MSG.058-T76-3",
           "document": "ОП_22.pdf",
           "location": "Таблица 76",
           "status": "CONFIRMED",
@@ -62,14 +65,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.058.REQ.4",
+      "rule_id": "P.SP.02.MSG.058.T76.REQ.4",
       "requirement_code": "4",
-      "source_text": "AccompanyingDocumentsDetails должен быть заполнен.",
+      "applies_to_structure": "R.IP.SP.02.008",
+      "source_text": "в составе электронного документа (сведений) должен быть заполнен реквизит «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.058-4",
+          "source_id": "22OP-RULE-P.SP.02.MSG.058-T76-4",
           "document": "ОП_22.pdf",
           "location": "Таблица 76",
           "status": "CONFIRMED",
@@ -81,14 +85,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.058.REQ.5",
+      "rule_id": "P.SP.02.MSG.058.T76.REQ.5",
       "requirement_code": "5",
-      "source_text": "В AccompanyingDocumentsDetails DocBinaryText не заполняется.",
+      "applies_to_structure": "R.IP.SP.02.008",
+      "source_text": "в составе реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) реквизит «Документ в бинарном формате» (csdo:DocBinaryText) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.058-5",
+          "source_id": "22OP-RULE-P.SP.02.MSG.058-T76-5",
           "document": "ОП_22.pdf",
           "location": "Таблица 76",
           "status": "CONFIRMED",
@@ -100,14 +105,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.058.REQ.6",
+      "rule_id": "P.SP.02.MSG.058.T76.REQ.6",
       "requirement_code": "6",
-      "source_text": "В AccompanyingDocumentsDetails должен быть заполнен один из IPDocKindCode/IPDocKindName.",
+      "applies_to_structure": "R.IP.SP.02.008",
+      "source_text": "в составе реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) должен быть заполнен один из реквизитов: «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode); «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.058-6",
+          "source_id": "22OP-RULE-P.SP.02.MSG.058-T76-6",
           "document": "ОП_22.pdf",
           "location": "Таблица 76",
           "status": "CONFIRMED",
@@ -119,14 +125,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.058.REQ.7",
+      "rule_id": "P.SP.02.MSG.058.T76.REQ.7",
       "requirement_code": "7",
-      "source_text": "В AccompanyingDocumentsDetails обязательны DocName, DocId, DocCreationDate.",
+      "applies_to_structure": "R.IP.SP.02.008",
+      "source_text": "в составе реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) должны быть заполнены реквизиты: «Наименование документа» (csdo:DocName); «Номер документа» (csdo:DocId); «Дата документа» (csdo:DocCreationDate)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.058-7",
+          "source_id": "22OP-RULE-P.SP.02.MSG.058-T76-7",
           "document": "ОП_22.pdf",
           "location": "Таблица 76",
           "status": "CONFIRMED",
