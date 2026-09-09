@@ -1,66 +1,148 @@
 {
   "message_code": "P.SP.02.MSG.027",
   "structure_id": "R.IP.SP.02.002",
-  "rule_tables": [
-    57
-  ],
   "fixed_values": {},
   "field_usage": {},
   "business_rules": [
     {
-      "rule_id": "P.SP.02.MSG.027.REQ.1",
+      "rule_id": "P.SP.02.MSG.027.T57.REQ.1",
       "requirement_code": "1",
-      "source_text": "В электронном документе должен быть заполнен 1 экземпляр ipcdo:TrademarkApplicationDetails.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в электронном документе (сведениях) должен быть заполнен 1 экземпляр реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.027-1",
+          "source_id": "22OP-RULE-P.SP.02.MSG.027-T57-1",
           "document": "ОП_22.pdf",
-          "location": "Таблица 57",
+          "location": "Таблица 57. Требования к заполнению реквизитов P.SP.02.MSG.027",
           "status": "CONFIRMED",
           "page": 578,
+          "table": "57",
           "version_context": "P.SP.02 1.0.0",
           "item": "1"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.027.REQ.2",
+      "rule_id": "P.SP.02.MSG.027.T57.REQ.2",
       "requirement_code": "2",
-      "source_text": "При наличии вида документа «Уведомление о признании заявки ... отозванной» ipsdo:IPDocKindCode заполняется его кодом, ipsdo:IPDocKindName не заполняется.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "при включении в классификатор видов документов, сведений и материалов значения, соответствующего виду документа «Уведомление о признании заявки на регистрацию товарного знака, знака обслуживания Евразийского экономического союза отозванной», в составе реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails) реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) должен быть заполнен и должен содержать кодовое обозначение указанного вида документа, а реквизит «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.027-2",
+          "source_id": "22OP-RULE-P.SP.02.MSG.027-T57-2",
           "document": "ОП_22.pdf",
-          "location": "Таблица 57",
+          "location": "Таблица 57. Требования к заполнению реквизитов P.SP.02.MSG.027",
           "status": "CONFIRMED",
           "page": 578,
+          "table": "57",
           "version_context": "P.SP.02 1.0.0",
           "item": "2"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.027.REQ.3",
+      "rule_id": "P.SP.02.MSG.027.T57.REQ.3",
       "requirement_code": "3",
-      "source_text": "При отсутствии указанного вида документа ipsdo:IPDocKindCode не заполняется, ipsdo:IPDocKindName заполняется нормативным наименованием уведомления.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "при отсутствии в классификаторе видов документов, сведений и материалов значения, соответствующего виду документа «Уведомление о признании заявки на регистрацию товарного знака, знака обслуживания Евразийского экономического союза отозванной», в составе реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails) реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) не заполняется, а реквизит «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) должен быть заполнен, и его значение должно соответствовать значению: «Уведомление о признании заявки на регистрацию товарного знака, знака обслуживания Евразийского экономического союза отозванной»",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.027-3",
+          "source_id": "22OP-RULE-P.SP.02.MSG.027-T57-3",
           "document": "ОП_22.pdf",
-          "location": "Таблица 57",
+          "location": "Таблица 57. Требования к заполнению реквизитов P.SP.02.MSG.027",
           "status": "CONFIRMED",
-          "page": 578,
+          "page": 579,
+          "table": "57",
           "version_context": "P.SP.02 1.0.0",
           "item": "3"
         }
       ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.027.T57.REQ.4",
+      "requirement_code": "4",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "реквизит «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) должен быть заполнен. В информационных ресурсах Комиссии, содержащих сведения о заявках на ТЗ Союза, должна содержаться запись, у которой реквизит «Код статуса» (csdo:StatusCode) равен значению «01» – «новая заявка на ТЗ Союза» или «02» – «заявка на ТЗ Союза изменена», реквизит «Конечная дата и время» (csdo:EndDateTime) не заполнен и в составе которой значение реквизита «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) совпадает со значением реквизита «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) в составе сообщения",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.027-T57-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 57. Требования к заполнению реквизитов P.SP.02.MSG.027",
+          "status": "CONFIRMED",
+          "page": 579,
+          "table": "57",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.027.T57.REQ.5",
+      "requirement_code": "5",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Сведения о статусном состоянии» (ipcdo:IPEntityStatusDetails) значение реквизита «Код статуса» (csdo:StatusCode) должно соответствовать значению «32» – «заявка на ТЗ Союза отозвана (неуплата заявителем пошлины за экспертизу заявки)» или «33» – «заявка на ТЗ Союза отозвана (неуплата заявителем пошлины за регистрацию товарного знака)», атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в составе реквизита «Код статуса» (csdo:StatusCode) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.027-T57-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 57. Требования к заполнению реквизитов P.SP.02.MSG.027",
+          "status": "CONFIRMED",
+          "page": 579,
+          "table": "57",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.027.T57.REQ.6_29",
+      "requirement_code": "6-29",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "соответствуют требованиям 6-29 таблицы 34 настоящего Регламента, которые применяются при заполнении экземпляра реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails) (значения кодов требований в таблице 34 и таблице 57 совпадают)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.027-T57-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 57. Требования к заполнению реквизитов P.SP.02.MSG.027",
+          "status": "CONFIRMED",
+          "page": 579,
+          "table": "57",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.027.T57.REQ.30",
+      "requirement_code": "30",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Технологические характеристики записи общего ресурса» (ccdo:ResourceItemStatusDetails) реквизит «Конечная дата и время» (csdo:EndDateTime) заполняется обязательно",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.027-T57-30",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 57. Требования к заполнению реквизитов P.SP.02.MSG.027",
+          "status": "CONFIRMED",
+          "page": 579,
+          "table": "57",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "30"
+        }
+      ]
     }
-  ],
-  "status": "PARTIAL"
+  ]
 }
