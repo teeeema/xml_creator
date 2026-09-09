@@ -1,0 +1,115 @@
+{
+    "structure_id": "R.TEST.001",
+    "version": "2.0.0",
+    "namespace": "urn:test:structure:v2.0.0",
+    "root_element": "TestPayload",
+    "xsd_file": null,
+    "imported_namespaces": {
+        "t": "urn:test:fields"
+    },
+    "expected_normative_rows": 4,
+    "imported_normative_rows": 4,
+    "fields": [
+        {
+            "field_id": "1",
+            "order": 1,
+            "depth": 0,
+            "parent": null,
+            "path": "Items",
+            "official_name": "Items",
+            "xml_name": "Items",
+            "namespace_prefix": "t",
+            "kind": "ELEMENT",
+            "datatype": "t:ItemsType",
+            "datatype_text": "complex",
+            "min_occurs": 1,
+            "max_occurs": null,
+            "source_refs": [
+                {
+                    "source_id": "TEST-001",
+                    "document": "TEST_FIXTURE_ONLY",
+                    "location": "field 1",
+                    "status": "TEST_ONLY"
+                }
+            ]
+        },
+        {
+            "field_id": "1.1",
+            "order": 2,
+            "depth": 1,
+            "parent": "1",
+            "path": "Items/Name",
+            "official_name": "Name",
+            "xml_name": "Name",
+            "namespace_prefix": "t",
+            "kind": "ELEMENT",
+            "datatype": "t:StringType",
+            "datatype_text": "string",
+            "min_occurs": 1,
+            "max_occurs": null,
+            "source_refs": [
+                {
+                    "source_id": "TEST-001",
+                    "document": "TEST_FIXTURE_ONLY",
+                    "location": "field 1.1",
+                    "status": "TEST_ONLY"
+                }
+            ]
+        },
+        {
+            "field_id": "1.a",
+            "order": 3,
+            "depth": 1,
+            "parent": "1",
+            "path": "Items/@code",
+            "official_name": "code",
+            "xml_name": "code",
+            "namespace_prefix": null,
+            "kind": "ATTRIBUTE",
+            "datatype": "t:StringType",
+            "datatype_text": "string",
+            "min_occurs": 0,
+            "max_occurs": 1,
+            "source_refs": [
+                {
+                    "source_id": "TEST-001",
+                    "document": "TEST_FIXTURE_ONLY",
+                    "location": "field 1.a",
+                    "status": "TEST_ONLY"
+                }
+            ]
+        },
+        {
+            "field_id": "2",
+            "order": 4,
+            "depth": 0,
+            "parent": null,
+            "path": "Note",
+            "official_name": "Note",
+            "xml_name": "Note",
+            "namespace_prefix": "t",
+            "kind": "ELEMENT",
+            "datatype": "t:StringType",
+            "datatype_text": "string",
+            "min_occurs": 0,
+            "max_occurs": 1,
+            "source_refs": [
+                {
+                    "source_id": "TEST-001",
+                    "document": "TEST_FIXTURE_ONLY",
+                    "location": "field 2",
+                    "status": "TEST_ONLY"
+                }
+            ]
+        }
+    ],
+    "status": "TEST_FIXTURE_ONLY",
+    "source_refs": [
+        {
+            "source_id": "TEST-001",
+            "document": "TEST_FIXTURE_ONLY",
+            "location": "structure 2.0.0",
+            "status": "TEST_ONLY"
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:int="urn:EEC:Interaction:v1.0" xmlns:sgn="urn:EEC:signal:v1.0" xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    <soap:Header>
+        <wsa:To>EAEU://RU/CP/P.SP.03/P.SP.03.ACT.002</wsa:To>
+        <wsa:ReplyTo>
+            <wsa:Address>EAEU://EEC/CP/P.SP.03/P.ACT.001</wsa:Address>
+        </wsa:ReplyTo>
+        <wsa:MessageID>urn:uuid:0b337ce6-2405-4b81-b3ad-ab8d5b3169f2</wsa:MessageID>
+        <wsa:RelatesTo>urn:uuid:0a3456d4-abea-4057-96e9-44d4c2b1dddc</wsa:RelatesTo>
+        <wsa:Action>int://CP/P.SP.03/0.1/P.SP.03.PRC.001/P.SP.03.TRN.002/P.MSG.ERR</wsa:Action>
+        <int:ProcedureID>urn:uuid:8890b754-dc7e-46bf-9144-f8ad7bbf45b2</int:ProcedureID>
+        <int:ConversationID>urn:uuid:589c3e40-5b1e-41c7-8cf0-f52e281c97c9</int:ConversationID>
+    </soap:Header>
+    <soap:Body>
+        <sgn:ValidationError>
+            <sgn:SignalId>dc13287d-ebe2-4415-af16-1636c0783d15</sgn:SignalId>
+            <sgn:DateTime>2026-08-20T11:32:28.831401+00:00</sgn:DateTime>
+            <sgn:Error>
+                <sgn:Code>Common:DataError</sgn:Code>
+                <sgn:Description>Ошибка структуры данных</sgn:Description>
+            </sgn:Error>
+        </sgn:ValidationError>
+    </soap:Body>
+</soap:Envelope>

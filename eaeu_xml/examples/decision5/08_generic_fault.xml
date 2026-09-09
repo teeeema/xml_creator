@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:int="urn:EEC:Interaction:v1.0" xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    <soap:Header>
+        <wsa:To>EAEU://RU/CP/P.SP.03/P.SP.03.ACT.002</wsa:To>
+        <wsa:From>
+            <wsa:Address>EAEU://EEC/CP/P.SP.03/P.ACT.001</wsa:Address>
+        </wsa:From>
+        <wsa:MessageID>urn:uuid:28adfb56-bfe0-4369-b40c-8fed72fe538b</wsa:MessageID>
+        <wsa:RelatesTo int:RelatesAction="int://CP/P.SP.03/0.1/P.SP.03.PRC.001/P.SP.03.TRN.002/P.CC.04.MSG.003">urn:uuid:0a3456d4-abea-4057-96e9-44d4c2b1dddc</wsa:RelatesTo>
+        <wsa:Action>http://www.w3.org/2005/08/addressing/soap/fault</wsa:Action>
+        <int:ProcedureID>urn:uuid:8890b754-dc7e-46bf-9144-f8ad7bbf45b2</int:ProcedureID>
+        <int:ConversationID>urn:uuid:589c3e40-5b1e-41c7-8cf0-f52e281c97c9</int:ConversationID>
+    </soap:Header>
+    <soap:Body>
+        <soap:Fault>
+            <soap:Code>
+                <soap:Value>soap:Receiver</soap:Value>
+                <soap:Subcode>
+                    <soap:Value>int:InternalError</soap:Value>
+                </soap:Subcode>
+            </soap:Code>
+            <soap:Reason>
+                <soap:Text xml:lang="ru">Внутренняя ошибка</soap:Text>
+            </soap:Reason>
+        </soap:Fault>
+    </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:int="urn:EEC:Interaction:v1.0" xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:test="urn:test:payload" xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    <soap:Header>
+        <wsa:To>EAEU://EEC/CP/P.SP.03/P.ACT.001</wsa:To>
+        <wsa:ReplyTo>
+            <wsa:Address>EAEU://RU/CP/P.SP.03/P.SP.03.ACT.002</wsa:Address>
+        </wsa:ReplyTo>
+        <wsa:MessageID>urn:uuid:0a3456d4-abea-4057-96e9-44d4c2b1dddc</wsa:MessageID>
+        <wsa:Action>int://CP/P.SP.03/0.1/P.SP.03.PRC.001/P.SP.03.TRN.002/P.CC.04.MSG.003</wsa:Action>
+        <int:ProcedureID>urn:uuid:8890b754-dc7e-46bf-9144-f8ad7bbf45b2</int:ProcedureID>
+        <int:ConversationID>urn:uuid:589c3e40-5b1e-41c7-8cf0-f52e281c97c9</int:ConversationID>
+        <int:Integration>
+            <int:TrackID>urn:uuid:00000000-0000-4000-8000-000000000010</int:TrackID>
+            <int:AcceptTime>2026-08-20T00:00:00Z</int:AcceptTime>
+        </int:Integration>
+    </soap:Header>
+    <soap:Body>
+        <test:Payload>reference initial</test:Payload>
+    </soap:Body>
+</soap:Envelope>
