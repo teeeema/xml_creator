@@ -1,0 +1,202 @@
+{
+  "structure_id": "R.IP.SP.02.008",
+  "name": "запрос сведений из национальных разделов Единого реестра ТЗ Союза",
+  "active_version": "1.0.0",
+  "namespace": "urn:EEC:R:IP:SP:02:TrademarkRegisterRequestDetails:v1.0.0",
+  "root_element": "TrademarkRegisterRequestDetails",
+  "xsd_file": "EEC_R_IP_SP_02_TrademarkRegisterRequestDetails_v1.0.0.xsd",
+  "imports": {
+    "ccdo": "urn:EEC:M:ComplexDataObjects:vX.X.X",
+    "ipcdo": "urn:EEC:M:IP:ComplexDataObjects:vZ.Z.Z",
+    "ipsdo": "urn:EEC:M:IP:SimpleDataObjects:vZ.Z.Z",
+    "csdo": "urn:EEC:M:SimpleDataObjects:vX.X.X"
+  },
+  "table": 16,
+  "fields": [
+    {
+      "n": "1",
+      "element": "ccdo:EDocHeader",
+      "id": "M.CDE.90001",
+      "type": "ccdo:EDocHeaderType (M.CDT.90001)",
+      "cardinality": "1",
+      "children": [
+        {
+          "n": "1.1",
+          "element": "csdo:InfEnvelopeCode",
+          "id": "M.SDE.90010",
+          "type": "csdo:InfEnvelopeCodeType (M.SDT.90004)",
+          "cardinality": "1"
+        },
+        {
+          "n": "1.2",
+          "element": "csdo:EDocCode",
+          "id": "M.SDE.90001",
+          "type": "csdo:EDocCodeType (M.SDT.90001)",
+          "cardinality": "1"
+        },
+        {
+          "n": "1.3",
+          "element": "csdo:EDocId",
+          "id": "M.SDE.90007",
+          "type": "csdo:UniversallyUniqueIdType (M.SDT.90003)",
+          "cardinality": "1"
+        },
+        {
+          "n": "1.4",
+          "element": "csdo:EDocRefId",
+          "id": "M.SDE.90008",
+          "type": "csdo:UniversallyUniqueIdType (M.SDT.90003)",
+          "cardinality": "0..1"
+        },
+        {
+          "n": "1.5",
+          "element": "csdo:EDocDateTime",
+          "id": "M.SDE.90002",
+          "type": "bdt:DateTimeType (M.BDT.00006)",
+          "cardinality": "1"
+        },
+        {
+          "n": "1.6",
+          "element": "csdo:LanguageCode",
+          "id": "M.SDE.00051",
+          "type": "csdo:LanguageCodeType (M.SDT.00051)",
+          "cardinality": "0..1"
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "element": "csdo:UpdateDateTime",
+      "id": "M.SDE.00079",
+      "type": "bdt:DateTimeType (M.BDT.00006)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "3",
+      "element": "csdo:UnifiedCountryCode",
+      "id": "M.SDE.00162",
+      "type": "csdo:UnifiedCountryCodeType (M.SDT.00112)",
+      "cardinality": "0..*",
+      "attributes": [
+        {
+          "name": "codeListId",
+          "type": "csdo:ReferenceDataIdType (M.SDT.00091)",
+          "cardinality": "1"
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "element": "ipsdo:TrademarkId",
+      "id": "M.IP.SDE.00068",
+      "type": "ipsdo:TrademarkCertificateIdType (M.IP.SDT.00504)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "5",
+      "element": "ipsdo:TrademarkApplicationId",
+      "id": "M.IP.SDE.00065",
+      "type": "ipsdo:ApplicationIdType (M.IP.SDT.00016)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "6",
+      "element": "ipcdo:AccompanyingDocumentsDetails",
+      "id": "M.IP.CDE.00004",
+      "type": "ipcdo:IPDocDetailsType (M.IP.CDT.00003)",
+      "cardinality": "0..1",
+      "children": [
+        {
+          "n": "6.1",
+          "element": "ipsdo:IPDocKindCode",
+          "id": "M.IP.SDE.00007",
+          "type": "ipsdo:IPDocKindCodeType (M.IP.SDT.00009)",
+          "cardinality": "0..1"
+        },
+        {
+          "n": "6.2",
+          "element": "ipsdo:IPDocKindName",
+          "id": "M.IP.SDE.00187",
+          "type": "csdo:Name500Type (M.SDT.00134)",
+          "cardinality": "0..1"
+        },
+        {
+          "n": "6.3",
+          "element": "csdo:DocName",
+          "id": "M.SDE.00108",
+          "type": "csdo:Name500Type (M.SDT.00134)",
+          "cardinality": "0..1"
+        },
+        {
+          "n": "6.4",
+          "element": "csdo:DocId",
+          "id": "M.SDE.00044",
+          "type": "csdo:Id50Type (M.SDT.00093)",
+          "cardinality": "0..1"
+        },
+        {
+          "n": "6.5",
+          "element": "csdo:DocCreationDate",
+          "id": "M.SDE.00045",
+          "type": "bdt:DateType (M.BDT.00005)",
+          "cardinality": "0..1"
+        },
+        {
+          "n": "6.6",
+          "element": "csdo:DocValidityDate",
+          "id": "M.SDE.00052",
+          "type": "bdt:DateType (M.BDT.00005)",
+          "cardinality": "0..1"
+        },
+        {
+          "n": "6.7",
+          "element": "csdo:DescriptionText",
+          "id": "M.SDE.00002",
+          "type": "csdo:Text4000Type (M.SDT.00088)",
+          "cardinality": "0..1"
+        },
+        {
+          "n": "6.8",
+          "element": "csdo:PageQuantity",
+          "id": "M.SDE.00018",
+          "type": "csdo:Quantity4Type (M.SDT.00097)",
+          "cardinality": "0..1"
+        },
+        {
+          "n": "6.9",
+          "element": "csdo:DocBinaryText",
+          "id": "M.SDE.00106",
+          "type": "csdo:BinaryTextType (M.SDT.00143)",
+          "cardinality": "0..1",
+          "attributes": [
+            {
+              "name": "mediaTypeCode",
+              "type": "csdo:MediaTypeCodeType (M.SDT.00147)",
+              "cardinality": "0..1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "status": "CONFIRMED",
+  "source_refs": [
+    {
+      "source_id": "22OP-STRUCT-R-IP-SP-02-008",
+      "document": "ОП_22.pdf",
+      "location": "Описание технической схемы R.IP.SP.02.008, таблицы 14–16",
+      "status": "CONFIRMED",
+      "pages": [
+        985,
+        986,
+        987,
+        988,
+        989,
+        990,
+        991,
+        992
+      ],
+      "version_context": "P.SP.02 1.0.0"
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "structure_id": "R.IP.SP.02.007",
+  "name": "сведения о ТЗ Союза из Единого реестра ТЗ Союза",
+  "active_version": "1.0.0",
+  "namespace": "urn:EEC:R:IP:SP:02:TrademarkRegisterDetails:v1.0.0",
+  "root_element": "TrademarkRegisterDetails",
+  "xsd_file": "EEC_R_IP_SP_02_TrademarkRegisterDetails_v1.0.0.xsd",
+  "imports": {
+    "ccdo": "urn:EEC:M:ComplexDataObjects:vX.X.X",
+    "ipcdo": "urn:EEC:M:IP:ComplexDataObjects:vZ.Z.Z",
+    "ipsdo": "urn:EEC:M:IP:SimpleDataObjects:vZ.Z.Z",
+    "csdo": "urn:EEC:M:SimpleDataObjects:vX.X.X"
+  },
+  "table": 13,
+  "top_level_fields": [
+    {
+      "n": "1",
+      "element": "ccdo:EDocHeader",
+      "id": "M.CDE.90001",
+      "type": "ccdo:EDocHeaderType (M.CDT.90001)",
+      "cardinality": "1"
+    },
+    {
+      "n": "2",
+      "element": "ipcdo:UnifiedRegisterRecordsDetails",
+      "id": "M.IP.CDE.00512",
+      "type": "ipcdo:UnifiedRegisterRecordsDetailsType (M.IP.CDT.00512)",
+      "cardinality": "1..*"
+    }
+  ],
+  "unified_register_records_children": [
+    {
+      "n": "2.1",
+      "element": "ipsdo:IPDocKindCode",
+      "id": "M.IP.SDE.00007",
+      "type": "ipsdo:IPDocKindCodeType (M.IP.SDT.00009)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.2",
+      "element": "ipsdo:IPDocKindName",
+      "id": "M.IP.SDE.00187",
+      "type": "csdo:Name500Type (M.SDT.00134)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.3",
+      "element": "csdo:DocId",
+      "id": "M.SDE.00044",
+      "type": "csdo:Id50Type (M.SDT.00093)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.4",
+      "element": "ipsdo:TrademarkApplicationId",
+      "id": "M.IP.SDE.00065",
+      "type": "ipsdo:ApplicationIdType (M.IP.SDT.00016)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.5",
+      "element": "ipsdo:ApplicationReceiptDate",
+      "id": "M.IP.SDE.00009",
+      "type": "bdt:DateType (M.BDT.00005)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.6",
+      "element": "ipsdo:TrademarkId",
+      "id": "M.IP.SDE.00068",
+      "type": "ipsdo:TrademarkCertificateIdType (M.IP.SDT.00504)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.7",
+      "element": "ipcdo:IPEntityStatusDetails",
+      "id": "M.IP.CDE.00505",
+      "type": "ipcdo:IPEntityStatusDetailsType (M.IP.CDT.00505)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.8",
+      "element": "ipsdo:RegistrationDate",
+      "id": "M.IP.SDE.00058",
+      "type": "bdt:DateType (M.BDT.00005)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.9",
+      "element": "csdo:DocValidityDate",
+      "id": "M.SDE.00052",
+      "type": "bdt:DateType (M.BDT.00005)",
+      "cardinality": "0..*"
+    },
+    {
+      "n": "2.10",
+      "element": "ipsdo:PublicationDate",
+      "id": "M.IP.SDE.00503",
+      "type": "bdt:DateType (M.BDT.00005)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.11",
+      "element": "ipcdo:PatentAuthorityDetails",
+      "id": "M.IP.CDE.00029",
+      "type": "ipcdo:PatentAuthorityDetailsType (M.IP.CDT.00119)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.12",
+      "element": "ipcdo:CorrespondenceAddressDetails",
+      "id": "M.IP.CDE.00007",
+      "type": "ipcdo:CorrespondenceAddressDetailsType (M.IP.CDT.00005)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.13",
+      "element": "ipcdo:IPPartyDetails",
+      "id": "M.IP.CDE.00501",
+      "type": "ipcdo:IPPartyDetailsType (M.IP.CDT.00500)",
+      "cardinality": "0..*"
+    },
+    {
+      "n": "2.14",
+      "element": "ipcdo:TrademarkDetails",
+      "id": "M.IP.CDE.00038",
+      "type": "ipcdo:TMBaseDetailsType (M.IP.CDT.00407)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.15",
+      "element": "ipcdo:GoodsBaseDetails",
+      "id": "M.IP.CDE.00086",
+      "type": "ipcdo:GoodsBaseDetailsType (M.IP.CDT.00089)",
+      "cardinality": "0..*"
+    },
+    {
+      "n": "2.16",
+      "element": "ipcdo:TrademarkPriorityDetails",
+      "id": "M.IP.CDE.00041",
+      "type": "ipcdo:TrademarkPriorityDetailsType (M.IP.CDT.00031)",
+      "cardinality": "0..*"
+    },
+    {
+      "n": "2.17",
+      "element": "ipcdo:AccompanyingDocumentsDetails",
+      "id": "M.IP.CDE.00004",
+      "type": "ipcdo:IPDocDetailsType (M.IP.CDT.00003)",
+      "cardinality": "0..*"
+    },
+    {
+      "n": "2.18",
+      "element": "ipcdo:TrademarkNationalRegistrationDetails",
+      "id": "M.IP.CDE.00132",
+      "type": "ipcdo:TrademarkNationalRegistrationDetailsType (M.IP.CDT.00224)",
+      "cardinality": "0..*"
+    },
+    {
+      "n": "2.19",
+      "element": "ipcdo:TransformationDetails",
+      "id": "M.IP.CDE.00507",
+      "type": "ipcdo:TransformationDetailsType (M.IP.CDT.00507)",
+      "cardinality": "0..*"
+    },
+    {
+      "n": "2.20",
+      "element": "ipcdo:TrademarkNationalApplicationDetails",
+      "id": "M.IP.CDE.00111",
+      "type": "ipcdo:TrademarkNationalApplicationDetailsType (M.IP.CDT.00179)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.21",
+      "element": "ipsdo:TechnicalErrorText",
+      "id": "M.IP.SDE.00064",
+      "type": "csdo:Text4000Type (M.SDT.00088)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.22",
+      "element": "ipcdo:RegistrationCancellationDetails",
+      "id": "M.IP.CDE.00138",
+      "type": "ipcdo:RegistrationCancellationDetailsType (M.IP.CDT.00136)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.23",
+      "element": "ipcdo:SignatureDetails",
+      "id": "M.IP.CDE.00500",
+      "type": "ipcdo:SignatureDetailsType (M.IP.CDT.00501)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.24",
+      "element": "ccdo:ResourceItemStatusDetails",
+      "id": "M.CDE.00032",
+      "type": "ccdo:ResourceItemStatusDetailsType (M.CDT.00033)",
+      "cardinality": "1"
+    }
+  ],
+  "status": "CONFIRMED",
+  "source_refs": [
+    {
+      "document": "ОП_22.pdf",
+      "location": "Описание технической схемы R.IP.SP.02.007, таблицы 11–13",
+      "pages": [
+        929,
+        930,
+        "931-984"
+      ],
+      "version_context": "P.SP.02 1.0.0"
+    }
+  ]
+}

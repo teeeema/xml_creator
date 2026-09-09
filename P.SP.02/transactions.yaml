@@ -1,19 +1,19 @@
 {
   "transactions": [
     {
-      "transaction_code": "P.SP.03.TRN.001",
-      "name": "Представление сведений о новой заявке на НМПТ Союза для опубликования на информационном портале Союза",
-      "procedure_code": "P.SP.03.PRC.001",
+      "transaction_code": "P.SP.02.TRN.001",
+      "name": "представление сведений о заявке на ТЗ Союза для опубликования",
+      "procedure_code": "P.SP.02.PRC.001",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.001",
-      "responding_operation": "P.SP.03.OPR.002",
-      "initiating_participant": "P.SP.03.ACT.001",
+      "initiating_operation": "P.SP.02.OPR.001",
+      "responding_operation": "P.SP.02.OPR.002",
+      "initiating_participant": "P.SP.02.ACT.001",
       "responding_participant": "P.ACT.001",
-      "initiating_message": "P.SP.03.MSG.001",
+      "initiating_message": "P.SP.02.MSG.001",
       "response_messages": [
-        "P.SP.03.MSG.002"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
         "receipt_confirmation": "PT5M",
@@ -31,31 +31,31 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-001",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-001",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 299,
-          "item": "P.SP.03.TRN.001",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 457,
+          "item": "P.SP.02.TRN.001",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.002",
-      "name": "Представление сведений о внесении изменений в заявку на НМПТ Союза для опубликования на информационном портале Союза",
-      "procedure_code": "P.SP.03.PRC.002",
+      "transaction_code": "P.SP.02.TRN.002",
+      "name": "представление сведений о регистрации (отказе в регистрации) ТЗ Союза для опубликования",
+      "procedure_code": "P.SP.02.PRC.005",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.010",
-      "responding_operation": "P.SP.03.OPR.011",
-      "initiating_participant": "P.SP.03.ACT.001",
+      "initiating_operation": "P.SP.02.OPR.018",
+      "responding_operation": "P.SP.02.OPR.019",
+      "initiating_participant": "P.SP.02.ACT.001",
       "responding_participant": "P.ACT.001",
-      "initiating_message": "P.SP.03.MSG.003",
+      "initiating_message": "P.SP.02.MSG.003",
       "response_messages": [
-        "P.SP.03.MSG.002"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
         "receipt_confirmation": "PT5M",
@@ -73,31 +73,31 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-002",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-002",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 300,
-          "item": "P.SP.03.TRN.002",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 459,
+          "item": "P.SP.02.TRN.002",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.003",
-      "name": "Представление сведений о регистрации НМПТ Союза и (или) предоставлении права использования НМПТ Союза для опубликования на информационном портале Союза",
-      "procedure_code": "P.SP.03.PRC.003",
+      "transaction_code": "P.SP.02.TRN.003",
+      "name": "представление обращения заинтересованного лица для опубликования",
+      "procedure_code": "P.SP.02.PRC.008",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.018",
-      "responding_operation": "P.SP.03.OPR.019",
-      "initiating_participant": "P.SP.03.ACT.001",
+      "initiating_operation": "P.SP.02.OPR.028",
+      "responding_operation": "P.SP.02.OPR.029",
+      "initiating_participant": "P.SP.02.ACT.001",
       "responding_participant": "P.ACT.001",
-      "initiating_message": "P.SP.03.MSG.004",
+      "initiating_message": "P.SP.02.MSG.004",
       "response_messages": [
-        "P.SP.03.MSG.002"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
         "receipt_confirmation": "PT5M",
@@ -115,31 +115,31 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-003",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-003",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 301,
-          "item": "P.SP.03.TRN.003",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 461,
+          "item": "P.SP.02.TRN.003",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.004",
-      "name": "Представление сведений об отказе в регистрации и (или) предоставлении права использования НМПТ Союза или о том, что заявка на НМПТ Союза считается отозванной для опубликования на информационном портале Союза",
-      "procedure_code": "P.SP.03.PRC.004",
+      "transaction_code": "P.SP.02.TRN.004",
+      "name": "представление доводов заявителя в отношении обращения заинтересованного лица для опубликования",
+      "procedure_code": "P.SP.02.PRC.009",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.026",
-      "responding_operation": "P.SP.03.OPR.027",
-      "initiating_participant": "P.SP.03.ACT.001",
+      "initiating_operation": "P.SP.02.OPR.032",
+      "responding_operation": "P.SP.02.OPR.033",
+      "initiating_participant": "P.SP.02.ACT.001",
       "responding_participant": "P.ACT.001",
-      "initiating_message": "P.SP.03.MSG.005",
+      "initiating_message": "P.SP.02.MSG.005",
       "response_messages": [
-        "P.SP.03.MSG.002"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
         "receipt_confirmation": "PT5M",
@@ -157,31 +157,31 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-004",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-004",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 302,
-          "item": "P.SP.03.TRN.004",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 464,
+          "item": "P.SP.02.TRN.004",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.005",
-      "name": "Представление сведений о внесении изменений в сведения Единого реестра НМПТ Союза для опубликования на информационном портале Союза",
-      "procedure_code": "P.SP.03.PRC.005",
+      "transaction_code": "P.SP.02.TRN.005",
+      "name": "представление доказательства приобретения обозначением различительной способности для опубликования",
+      "procedure_code": "P.SP.02.PRC.010",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.034",
-      "responding_operation": "P.SP.03.OPR.035",
-      "initiating_participant": "P.SP.03.ACT.001",
+      "initiating_operation": "P.SP.02.OPR.040",
+      "responding_operation": "P.SP.02.OPR.041",
+      "initiating_participant": "P.SP.02.ACT.001",
       "responding_participant": "P.ACT.001",
-      "initiating_message": "P.SP.03.MSG.006",
+      "initiating_message": "P.SP.02.MSG.006",
       "response_messages": [
-        "P.SP.03.MSG.002"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
         "receipt_confirmation": "PT5M",
@@ -199,31 +199,31 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-005",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-005",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 305,
-          "item": "P.SP.03.TRN.005",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 466,
+          "item": "P.SP.02.TRN.005",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.006",
-      "name": "Представление сведений о продлении в Едином реестре НМПТ Союза срока действия свидетельства о праве использования НМПТ Союза для опубликования на информационном портале Союза",
-      "procedure_code": "P.SP.03.PRC.006",
+      "transaction_code": "P.SP.02.TRN.006",
+      "name": "представление сведений о документах, подтверждающих испрашиваемый приоритет ТЗ Союза, для опубликования",
+      "procedure_code": "P.SP.02.PRC.014",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.042",
-      "responding_operation": "P.SP.03.OPR.043",
-      "initiating_participant": "P.SP.03.ACT.001",
+      "initiating_operation": "P.SP.02.OPR.057",
+      "responding_operation": "P.SP.02.OPR.058",
+      "initiating_participant": "P.SP.02.ACT.001",
       "responding_participant": "P.ACT.001",
-      "initiating_message": "P.SP.03.MSG.007",
+      "initiating_message": "P.SP.02.MSG.007",
       "response_messages": [
-        "P.SP.03.MSG.002"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
         "receipt_confirmation": "PT5M",
@@ -241,31 +241,31 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-006",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-006",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 306,
-          "item": "P.SP.03.TRN.006",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 469,
+          "item": "P.SP.02.TRN.006",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.007",
-      "name": "Представление сведений о прекращении в Едином реестре НМПТ Союза действия свидетельства о праве использования НМПТ Союза для опубликования на информационном портале Союза",
-      "procedure_code": "P.SP.03.PRC.007",
+      "transaction_code": "P.SP.02.TRN.007",
+      "name": "представление сведений о преобразовании заявки на ТЗ Союза в национальную заявку на регистрацию ТЗ для опубликования",
+      "procedure_code": "P.SP.02.PRC.017",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.050",
-      "responding_operation": "P.SP.03.OPR.051",
-      "initiating_participant": "P.SP.03.ACT.001",
+      "initiating_operation": "P.SP.02.OPR.067",
+      "responding_operation": "P.SP.02.OPR.068",
+      "initiating_participant": "P.SP.02.ACT.002",
       "responding_participant": "P.ACT.001",
-      "initiating_message": "P.SP.03.MSG.008",
+      "initiating_message": "P.SP.02.MSG.009",
       "response_messages": [
-        "P.SP.03.MSG.002"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
         "receipt_confirmation": "PT5M",
@@ -283,37 +283,38 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-007",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-007",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 307,
-          "item": "P.SP.03.TRN.007",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 471,
+          "item": "P.SP.02.TRN.007",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.008",
-      "name": "Получение информации о дате и времени последнего обновления Единого реестра НМПТ Союза",
-      "procedure_code": "P.SP.03.PRC.010",
+      "transaction_code": "P.SP.02.TRN.008",
+      "name": "представление сведений о преобразовании заявки на коллективный знак Союза в заявку на ТЗ Союза для опубликования",
+      "procedure_code": "P.SP.02.PRC.018",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.063",
-      "responding_operation": "P.SP.03.OPR.064",
-      "initiating_participant": "P.SP.03.ACT.002",
+      "initiating_operation": "P.SP.02.OPR.075",
+      "responding_operation": "P.SP.02.OPR.076",
+      "initiating_participant": "P.SP.02.ACT.001",
       "responding_participant": "P.ACT.001",
-      "initiating_message": "P.SP.03.MSG.016",
+      "initiating_message": "P.SP.02.MSG.010",
       "response_messages": [
-        "P.SP.03.MSG.017"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
+        "receipt_confirmation": "PT5M",
         "processing_confirmation": "PT10M",
-        "response": "PT15M"
+        "response": "PT20M"
       },
-      "retry_count": 1,
+      "retry_count": 3,
       "authorization": {
         "required": true
       },
@@ -324,38 +325,543 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-008",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-008",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 309,
-          "item": "P.SP.03.TRN.008",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 474,
+          "item": "P.SP.02.TRN.008",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.009",
-      "name": "Получение сведений, измененных в Едином реестре НМПТ Союза",
-      "procedure_code": "P.SP.03.PRC.011",
+      "transaction_code": "P.SP.02.TRN.009",
+      "name": "представление сведений о преобразовании заявки на ТЗ Союза в заявку на коллективный знак Союза для опубликования",
+      "procedure_code": "P.SP.02.PRC.019",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.066",
-      "responding_operation": "P.SP.03.OPR.067",
-      "initiating_participant": "P.SP.03.ACT.002",
+      "initiating_operation": "P.SP.02.OPR.083",
+      "responding_operation": "P.SP.02.OPR.084",
+      "initiating_participant": "P.SP.02.ACT.001",
       "responding_participant": "P.ACT.001",
-      "initiating_message": "P.SP.03.MSG.018",
+      "initiating_message": "P.SP.02.MSG.011",
       "response_messages": [
-        "P.SP.03.MSG.019",
-        "P.SP.03.MSG.020"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-009",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 476,
+          "item": "P.SP.02.TRN.009",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.010",
+      "name": "представление сведений о выделении заявки на ТЗ Союза из ранее поданной заявки на ТЗ Союза для опубликования",
+      "procedure_code": "P.SP.02.PRC.020",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.091",
+      "responding_operation": "P.SP.02.OPR.092",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.SP.02.MSG.012",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-010",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 479,
+          "item": "P.SP.02.TRN.010",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.011",
+      "name": "представление сведений о признании заявки на ТЗ Союза отозванной по ходатайству заявителя для опубликования",
+      "procedure_code": "P.SP.02.PRC.021",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.099",
+      "responding_operation": "P.SP.02.OPR.100",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.SP.02.MSG.013",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-011",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 481,
+          "item": "P.SP.02.TRN.011",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.012",
+      "name": "представление сведений о внесении изменений в заявку на ТЗ Союза для опубликования",
+      "procedure_code": "P.SP.02.PRC.022",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.107",
+      "responding_operation": "P.SP.02.OPR.108",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.SP.02.MSG.014",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-012",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 484,
+          "item": "P.SP.02.TRN.012",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.013",
+      "name": "представление сведений о преобразовании аннулированной регистрации ТЗ Союза в национальную заявку на регистрацию ТЗ для опубликования",
+      "procedure_code": "P.SP.02.PRC.023",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.115",
+      "responding_operation": "P.SP.02.OPR.116",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.SP.02.MSG.015",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-013",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 486,
+          "item": "P.SP.02.TRN.013",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.014",
+      "name": "представление сведений о преобразовании коллективного знака Союза в ТЗ Союза для опубликования",
+      "procedure_code": "P.SP.02.PRC.024",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.123",
+      "responding_operation": "P.SP.02.OPR.124",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.SP.02.MSG.016",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-014",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 489,
+          "item": "P.SP.02.TRN.014",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.015",
+      "name": "представление сведений о преобразовании ТЗ Союза в коллективный знак Союза для опубликования",
+      "procedure_code": "P.SP.02.PRC.025",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.131",
+      "responding_operation": "P.SP.02.OPR.132",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.SP.02.MSG.017",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-015",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 492,
+          "item": "P.SP.02.TRN.015",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.016",
+      "name": "представление сведений о внесении изменений в сведения Единого реестра ТЗ Союза для опубликования",
+      "procedure_code": "P.SP.02.PRC.026",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.139",
+      "responding_operation": "P.SP.02.OPR.140",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.SP.02.MSG.018",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-016",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 494,
+          "item": "P.SP.02.TRN.016",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.017",
+      "name": "представление сведений об отказе от исключительного права на ТЗ Союза для опубликования",
+      "procedure_code": "P.SP.02.PRC.027",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.147",
+      "responding_operation": "P.SP.02.OPR.148",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.SP.02.MSG.019",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-017",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 497,
+          "item": "P.SP.02.TRN.017",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.018",
+      "name": "представление сведений об аннулировании регистрации ТЗ Союза для опубликования",
+      "procedure_code": "P.SP.02.PRC.029",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.158",
+      "responding_operation": "P.SP.02.OPR.159",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.SP.02.MSG.020",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-018",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 499,
+          "item": "P.SP.02.TRN.018",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.019",
+      "name": "представление сведений о продлении срока действия исключительного права на ТЗ Союза для опубликования",
+      "procedure_code": "P.SP.02.PRC.030",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.166",
+      "responding_operation": "P.SP.02.OPR.167",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.SP.02.MSG.021",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-019",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 501,
+          "item": "P.SP.02.TRN.019",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.020",
+      "name": "получение информации о дате и времени обновления Единого реестра ТЗ Союза",
+      "procedure_code": "P.SP.02.PRC.031",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.170",
+      "responding_operation": "P.SP.02.OPR.171",
+      "initiating_participant": "P.SP.02.ACT.002",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.SP.02.MSG.022",
+      "response_messages": [
+        "P.SP.02.MSG.023"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-020",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 504,
+          "item": "P.SP.02.TRN.020",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.021",
+      "name": "получение изменений сведений Единого реестра ТЗ Союза",
+      "procedure_code": "P.SP.02.PRC.032",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.173",
+      "responding_operation": "P.SP.02.OPR.174",
+      "initiating_participant": "P.SP.02.ACT.002",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.SP.02.MSG.024",
+      "response_messages": [
+        "P.SP.02.MSG.026",
+        "P.SP.02.MSG.025"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
         "processing_confirmation": "PT10M",
         "response": "PT30M"
       },
-      "retry_count": 1,
+      "retry_count": 3,
       "authorization": {
         "required": true
       },
@@ -366,31 +872,31 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-009",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-021",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 310,
-          "item": "P.SP.03.TRN.009",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 506,
+          "item": "P.SP.02.TRN.021",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.010",
-      "name": "Уведомление о новой заявке на НМПТ Союза",
-      "procedure_code": "P.SP.03.PRC.001",
+      "transaction_code": "P.SP.02.TRN.022",
+      "name": "представление сведений о признании заявки на ТЗ Союза отозванной по причине неуплаты пошлин для опубликования",
+      "procedure_code": "P.SP.02.PRC.034",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.005",
-      "responding_operation": "P.SP.03.OPR.006",
-      "initiating_participant": "P.SP.03.ACT.001",
-      "responding_participant": "P.SP.03.ACT.002",
-      "initiating_message": "P.SP.03.MSG.009",
+      "initiating_operation": "P.SP.02.OPR.179",
+      "responding_operation": "P.SP.02.OPR.180",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.ACT.001",
+      "initiating_message": "P.SP.02.MSG.027",
       "response_messages": [
-        "P.SP.03.MSG.002"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
         "receipt_confirmation": "PT5M",
@@ -408,31 +914,31 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-010",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-022",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 177,
-          "item": "P.SP.03.TRN.010",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 509,
+          "item": "P.SP.02.TRN.022",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.011",
-      "name": "Уведомление о внесении изменений в заявку на НМПТ Союза",
-      "procedure_code": "P.SP.03.PRC.002",
+      "transaction_code": "P.SP.02.TRN.023",
+      "name": "направление заявки на ТЗ Союза для экспертизы",
+      "procedure_code": "P.SP.02.PRC.002",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.014",
-      "responding_operation": "P.SP.03.OPR.015",
-      "initiating_participant": "P.SP.03.ACT.001",
-      "responding_participant": "P.SP.03.ACT.002",
-      "initiating_message": "P.SP.03.MSG.010",
+      "initiating_operation": "P.SP.02.OPR.005",
+      "responding_operation": "P.SP.02.OPR.006",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.028",
       "response_messages": [
-        "P.SP.03.MSG.002"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
         "receipt_confirmation": "PT5M",
@@ -450,31 +956,31 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-011",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-023",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 178,
-          "item": "P.SP.03.TRN.011",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 639,
+          "item": "P.SP.02.TRN.023",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.012",
-      "name": "Уведомление о регистрации НМПТ Союза и (или) предоставлении права использования НМПТ Союза",
-      "procedure_code": "P.SP.03.PRC.003",
+      "transaction_code": "P.SP.02.TRN.024",
+      "name": "направление заключения (решения) о результатах экспертизы",
+      "procedure_code": "P.SP.02.PRC.003",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.022",
-      "responding_operation": "P.SP.03.OPR.023",
-      "initiating_participant": "P.SP.03.ACT.001",
-      "responding_participant": "P.SP.03.ACT.002",
-      "initiating_message": "P.SP.03.MSG.011",
+      "initiating_operation": "P.SP.02.OPR.008",
+      "responding_operation": "P.SP.02.OPR.009",
+      "initiating_participant": "P.SP.02.ACT.002",
+      "responding_participant": "P.SP.02.ACT.001",
+      "initiating_message": "P.SP.02.MSG.029",
       "response_messages": [
-        "P.SP.03.MSG.002"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
         "receipt_confirmation": "PT5M",
@@ -492,31 +998,31 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-012",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-024",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 179,
-          "item": "P.SP.03.TRN.012",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 641,
+          "item": "P.SP.02.TRN.024",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.013",
-      "name": "Уведомление об отказе в регистрации и (или) предоставлении права использования НМПТ Союза или о том, что заявка на НМПТ Союза считается отозванной",
-      "procedure_code": "P.SP.03.PRC.004",
+      "transaction_code": "P.SP.02.TRN.025",
+      "name": "направление доводов и замечаний по результатам экспертизы",
+      "procedure_code": "P.SP.02.PRC.004",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.030",
-      "responding_operation": "P.SP.03.OPR.031",
-      "initiating_participant": "P.SP.03.ACT.001",
-      "responding_participant": "P.SP.03.ACT.002",
-      "initiating_message": "P.SP.03.MSG.012",
+      "initiating_operation": "P.SP.02.OPR.011",
+      "responding_operation": "P.SP.02.OPR.012",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.030",
       "response_messages": [
-        "P.SP.03.MSG.002"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
         "receipt_confirmation": "PT5M",
@@ -534,31 +1040,31 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-013",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-025",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 180,
-          "item": "P.SP.03.TRN.013",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 643,
+          "item": "P.SP.02.TRN.025",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.014",
-      "name": "Уведомление о внесении изменений в сведения Единого реестра НМПТ Союза",
-      "procedure_code": "P.SP.03.PRC.005",
+      "transaction_code": "P.SP.02.TRN.026",
+      "name": "направление сведений о регистрации (отказе в регистрации) ТЗ Союза",
+      "procedure_code": "P.SP.02.PRC.005",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.038",
-      "responding_operation": "P.SP.03.OPR.039",
-      "initiating_participant": "P.SP.03.ACT.001",
-      "responding_participant": "P.SP.03.ACT.002",
-      "initiating_message": "P.SP.03.MSG.013",
+      "initiating_operation": "P.SP.02.OPR.015",
+      "responding_operation": "P.SP.02.OPR.016",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.031",
       "response_messages": [
-        "P.SP.03.MSG.002"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
         "receipt_confirmation": "PT5M",
@@ -576,31 +1082,31 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-014",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-026",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 183,
-          "item": "P.SP.03.TRN.014",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 645,
+          "item": "P.SP.02.TRN.026",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.015",
-      "name": "Уведомление о продлении в Едином реестре НМПТ Союза срока действия свидетельства о праве использования НМПТ Союза",
-      "procedure_code": "P.SP.03.PRC.006",
+      "transaction_code": "P.SP.02.TRN.027",
+      "name": "направление уведомления о поступившей жалобе на решение по экспертизе",
+      "procedure_code": "P.SP.02.PRC.006",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.046",
-      "responding_operation": "P.SP.03.OPR.047",
-      "initiating_participant": "P.SP.03.ACT.001",
-      "responding_participant": "P.SP.03.ACT.002",
-      "initiating_message": "P.SP.03.MSG.014",
+      "initiating_operation": "P.SP.02.OPR.022",
+      "responding_operation": "P.SP.02.OPR.023",
+      "initiating_participant": "P.SP.02.ACT.002",
+      "responding_participant": "P.SP.02.ACT.001",
+      "initiating_message": "P.SP.02.MSG.032",
       "response_messages": [
-        "P.SP.03.MSG.002"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
         "receipt_confirmation": "PT5M",
@@ -618,31 +1124,31 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-015",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-027",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 184,
-          "item": "P.SP.03.TRN.015",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 647,
+          "item": "P.SP.02.TRN.027",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.016",
-      "name": "Уведомление о прекращении в Едином реестре НМПТ Союза действия свидетельства о праве использования НМПТ Союза",
-      "procedure_code": "P.SP.03.PRC.007",
+      "transaction_code": "P.SP.02.TRN.028",
+      "name": "направление сведений о результатах внутригосударственного обжалования решения по экспертизе",
+      "procedure_code": "P.SP.02.PRC.007",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.054",
-      "responding_operation": "P.SP.03.OPR.055",
-      "initiating_participant": "P.SP.03.ACT.001",
-      "responding_participant": "P.SP.03.ACT.002",
-      "initiating_message": "P.SP.03.MSG.015",
+      "initiating_operation": "P.SP.02.OPR.025",
+      "responding_operation": "P.SP.02.OPR.026",
+      "initiating_participant": "P.SP.02.ACT.002",
+      "responding_participant": "P.SP.02.ACT.001",
+      "initiating_message": "P.SP.02.MSG.033",
       "response_messages": [
-        "P.SP.03.MSG.002"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
         "receipt_confirmation": "PT5M",
@@ -660,38 +1166,964 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-016",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-028",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 185,
-          "item": "P.SP.03.TRN.016",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 650,
+          "item": "P.SP.02.TRN.028",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.017",
-      "name": "Получение сведений о суммах и платежных реквизитах для уплаты пошлины",
-      "procedure_code": "P.SP.03.PRC.008",
+      "transaction_code": "P.SP.02.TRN.029",
+      "name": "направление доказательства приобретения обозначением различительной способности",
+      "procedure_code": "P.SP.02.PRC.010",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.037",
+      "responding_operation": "P.SP.02.OPR.038",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.034",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-029",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 652,
+          "item": "P.SP.02.TRN.029",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.030",
+      "name": "направление уведомления о необходимости представления документа о согласии",
+      "procedure_code": "P.SP.02.PRC.011",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.044",
+      "responding_operation": "P.SP.02.OPR.045",
+      "initiating_participant": "P.SP.02.ACT.002",
+      "responding_participant": "P.SP.02.ACT.001",
+      "initiating_message": "P.SP.02.MSG.035",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-030",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 654,
+          "item": "P.SP.02.TRN.030",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.031",
+      "name": "направление документа о согласии",
+      "procedure_code": "P.SP.02.PRC.012",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.047",
+      "responding_operation": "P.SP.02.OPR.048",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.036",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-031",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 656,
+          "item": "P.SP.02.TRN.031",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.032",
+      "name": "направление сведений о признании заявки на ТЗ Союза отозванной по причине непоступления документа о согласии",
+      "procedure_code": "P.SP.02.PRC.013",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.050",
+      "responding_operation": "P.SP.02.OPR.051",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.037",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-032",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 659,
+          "item": "P.SP.02.TRN.032",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.033",
+      "name": "направление сведений о документах, подтверждающих испрашиваемый приоритет ТЗ Союза",
+      "procedure_code": "P.SP.02.PRC.014",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.054",
+      "responding_operation": "P.SP.02.OPR.055",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.038",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-033",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 661,
+          "item": "P.SP.02.TRN.033",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.034",
+      "name": "направление уведомления о прекращении делопроизводства по заявке на ТЗ Союза",
+      "procedure_code": "P.SP.02.PRC.015",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.061",
+      "responding_operation": "P.SP.02.OPR.062",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.039",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-034",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 663,
+          "item": "P.SP.02.TRN.034",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.035",
+      "name": "направление ходатайства о преобразовании заявки на ТЗ Союза в национальную заявку на регистрацию ТЗ",
+      "procedure_code": "P.SP.02.PRC.016",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.064",
+      "responding_operation": "P.SP.02.OPR.065",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.040",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-035",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 666,
+          "item": "P.SP.02.TRN.035",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.036",
+      "name": "направление сведений о преобразовании заявки на коллективный знак Союза в заявку на ТЗ Союза",
+      "procedure_code": "P.SP.02.PRC.018",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.072",
+      "responding_operation": "P.SP.02.OPR.073",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.041",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-036",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 668,
+          "item": "P.SP.02.TRN.036",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.037",
+      "name": "направление сведений о преобразовании заявки на ТЗ Союза в заявку на коллективный знак Союза",
+      "procedure_code": "P.SP.02.PRC.019",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.080",
+      "responding_operation": "P.SP.02.OPR.081",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.042",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-037",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 671,
+          "item": "P.SP.02.TRN.037",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.038",
+      "name": "направление сведений о выделении заявки на ТЗ Союза из ранее поданной заявки на ТЗ Союза",
+      "procedure_code": "P.SP.02.PRC.020",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.088",
+      "responding_operation": "P.SP.02.OPR.089",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.043",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-038",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 673,
+          "item": "P.SP.02.TRN.038",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.039",
+      "name": "направление сведений о признании заявки на ТЗ Союза отозванной по ходатайству заявителя",
+      "procedure_code": "P.SP.02.PRC.021",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.096",
+      "responding_operation": "P.SP.02.OPR.097",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.044",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-039",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 676,
+          "item": "P.SP.02.TRN.039",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.040",
+      "name": "направление сведений о внесении изменений в заявку на ТЗ Союза",
+      "procedure_code": "P.SP.02.PRC.022",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.104",
+      "responding_operation": "P.SP.02.OPR.105",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.045",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-040",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 678,
+          "item": "P.SP.02.TRN.040",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.041",
+      "name": "направление сведений о преобразовании аннулированной регистрации ТЗ Союза в национальную заявку на регистрацию ТЗ",
+      "procedure_code": "P.SP.02.PRC.023",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.112",
+      "responding_operation": "P.SP.02.OPR.113",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.046",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-041",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 680,
+          "item": "P.SP.02.TRN.041",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.042",
+      "name": "направление сведений о преобразовании коллективного знака Союза в ТЗ Союза",
+      "procedure_code": "P.SP.02.PRC.024",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.120",
+      "responding_operation": "P.SP.02.OPR.121",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.047",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-042",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 683,
+          "item": "P.SP.02.TRN.042",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.043",
+      "name": "направление сведений о преобразовании ТЗ Союза в коллективный знак Союза",
+      "procedure_code": "P.SP.02.PRC.025",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.128",
+      "responding_operation": "P.SP.02.OPR.129",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.048",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-043",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 685,
+          "item": "P.SP.02.TRN.043",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.044",
+      "name": "направление сведений о внесении изменений в сведения Единого реестра ТЗ Союза",
+      "procedure_code": "P.SP.02.PRC.026",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.136",
+      "responding_operation": "P.SP.02.OPR.137",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.049",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-044",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 687,
+          "item": "P.SP.02.TRN.044",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.045",
+      "name": "направление сведений об отказе от исключительного права на ТЗ Союза",
+      "procedure_code": "P.SP.02.PRC.027",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.144",
+      "responding_operation": "P.SP.02.OPR.145",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.050",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-045",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 690,
+          "item": "P.SP.02.TRN.045",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.046",
+      "name": "представление сведений о признании предоставления правовой охраны ТЗ Союза недействительным (о прекращении правовой охраны)",
+      "procedure_code": "P.SP.02.PRC.028",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.151",
+      "responding_operation": "P.SP.02.OPR.152",
+      "initiating_participant": "P.SP.02.ACT.002",
+      "responding_participant": "P.SP.02.ACT.001",
+      "initiating_message": "P.SP.02.MSG.051",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-046",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 692,
+          "item": "P.SP.02.TRN.046",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.047",
+      "name": "направление сведений об аннулировании регистрации ТЗ Союза",
+      "procedure_code": "P.SP.02.PRC.029",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.155",
+      "responding_operation": "P.SP.02.OPR.156",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.052",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-047",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 694,
+          "item": "P.SP.02.TRN.047",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.048",
+      "name": "направление сведений о продлении срока действия исключительного права на ТЗ Союза",
+      "procedure_code": "P.SP.02.PRC.030",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.163",
+      "responding_operation": "P.SP.02.OPR.164",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.053",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-048",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 696,
+          "item": "P.SP.02.TRN.048",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.049",
+      "name": "запрос сведений о сумме и платежных реквизитах для уплаты пошлины",
+      "procedure_code": "P.SP.02.PRC.033",
       "pattern": "MUTUAL_OBLIGATIONS",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.057",
-      "responding_operation": "P.SP.03.OPR.058",
-      "initiating_participant": "P.SP.03.ACT.001",
-      "responding_participant": "P.SP.03.ACT.002",
-      "initiating_message": "P.SP.03.MSG.021",
+      "initiating_operation": "P.SP.02.OPR.176",
+      "responding_operation": "P.SP.02.OPR.177",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.054",
       "response_messages": [
-        "P.SP.03.MSG.022"
+        "P.SP.02.MSG.055",
+        "P.SP.02.MSG.025"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "5 рабочих дней"
+      },
+      "retry_count": 1,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-049",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 699,
+          "item": "P.SP.02.TRN.049",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.050",
+      "name": "запрос сведений о подтверждении уплаты пошлины",
+      "procedure_code": "P.SP.02.PRC.035",
+      "pattern": "MUTUAL_OBLIGATIONS",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.183",
+      "responding_operation": "P.SP.02.OPR.184",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.056",
+      "response_messages": [
+        "P.SP.02.MSG.057"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "5 рабочих дней"
+      },
+      "retry_count": 1,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-050",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 701,
+          "item": "P.SP.02.TRN.050",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.051",
+      "name": "получение материалов и документов, используемых в ходе регистрации или иных процедур, связанных с ТЗ Союза",
+      "procedure_code": "P.SP.02.PRC.036",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.186",
+      "responding_operation": "P.SP.02.OPR.187",
+      "initiating_participant": "P.SP.02.ACT.002",
+      "responding_participant": "P.SP.02.ACT.001",
+      "initiating_message": "P.SP.02.MSG.058",
+      "response_messages": [
+        "P.SP.02.MSG.059",
+        "P.SP.02.MSG.025"
       ],
       "timeouts": {
         "receipt_confirmation": "PT5M",
         "processing_confirmation": "PT10M",
         "response": "PT20M"
       },
-      "retry_count": 1,
+      "retry_count": 3,
       "authorization": {
         "required": true
       },
@@ -702,82 +2134,38 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-017",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-051",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 187,
-          "item": "P.SP.03.TRN.017",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 703,
+          "item": "P.SP.02.TRN.051",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"
     },
     {
-      "transaction_code": "P.SP.03.TRN.018",
-      "name": "Получение сведений о подтверждении уплаты пошлин",
-      "procedure_code": "P.SP.03.PRC.009",
-      "pattern": "MUTUAL_OBLIGATIONS",
-      "initiating_role": "инициатор",
-      "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.060",
-      "responding_operation": "P.SP.03.OPR.061",
-      "initiating_participant": "P.SP.03.ACT.001",
-      "responding_participant": "P.SP.03.ACT.002",
-      "initiating_message": "P.SP.03.MSG.023",
-      "response_messages": [
-        "P.SP.03.MSG.024"
-      ],
-      "timeouts": {
-        "receipt_confirmation": "PT5M",
-        "processing_confirmation": "PT10M",
-        "response": "PT4H"
-      },
-      "retry_count": 1,
-      "authorization": {
-        "required": true
-      },
-      "signature_requirements": {
-        "required": false,
-        "invalid_signature_delivery": null
-      },
-      "guaranteed_delivery": null,
-      "source_refs": [
-        {
-          "source_id": "23OP-TRN-P-SP-03-TRN-018",
-          "document": "ОП_23.pdf",
-          "location": "Перечень и описание транзакций общего процесса",
-          "status": "CONFIRMED",
-          "page": 188,
-          "item": "P.SP.03.TRN.018",
-          "version_context": "P.SP.03 1.0.0"
-        }
-      ],
-      "status": "CONFIRMED"
-    },
-    {
-      "transaction_code": "P.SP.03.TRN.019",
-      "name": "Получение документов, прилагаемых к заявке на НМПТ Союза, или иных видов прилагаемых документов",
-      "procedure_code": "P.SP.03.PRC.012",
+      "transaction_code": "P.SP.02.TRN.052",
+      "name": "направление обращения заинтересованного лица",
+      "procedure_code": "P.SP.02.PRC.008",
       "pattern": "REQUEST_RESPONSE",
       "initiating_role": "инициатор",
       "responding_role": "респондент",
-      "initiating_operation": "P.SP.03.OPR.069",
-      "responding_operation": "P.SP.03.OPR.070",
-      "initiating_participant": "P.SP.03.ACT.002",
-      "responding_participant": "P.SP.03.ACT.001",
-      "initiating_message": "P.SP.03.MSG.025",
+      "initiating_operation": "P.SP.02.OPR.190",
+      "responding_operation": "P.SP.02.OPR.191",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.061",
       "response_messages": [
-        "P.SP.03.MSG.026",
-        "P.SP.03.MSG.027",
-        "P.SP.03.MSG.020"
+        "P.SP.02.MSG.002"
       ],
       "timeouts": {
         "receipt_confirmation": "PT5M",
         "processing_confirmation": "PT10M",
-        "response": "PT4H"
+        "response": "PT20M"
       },
-      "retry_count": 1,
+      "retry_count": 3,
       "authorization": {
         "required": true
       },
@@ -788,13 +2176,97 @@
       "guaranteed_delivery": null,
       "source_refs": [
         {
-          "source_id": "23OP-TRN-P-SP-03-TRN-019",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-TRN-P-SP-02-TRN-052",
+          "document": "ОП_22.pdf",
           "location": "Перечень и описание транзакций общего процесса",
           "status": "CONFIRMED",
-          "page": 190,
-          "item": "P.SP.03.TRN.019",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 706,
+          "item": "P.SP.02.TRN.052",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.053",
+      "name": "направление доводов заявителя в отношении обращения заинтересованного лица",
+      "procedure_code": "P.SP.02.PRC.009",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.194",
+      "responding_operation": "P.SP.02.OPR.195",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.062",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-053",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 708,
+          "item": "P.SP.02.TRN.053",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "transaction_code": "P.SP.02.TRN.054",
+      "name": "направление сведений о признании заявки на ТЗ Союза отозванной по причине неуплаты пошлин",
+      "procedure_code": "P.SP.02.PRC.034",
+      "pattern": "REQUEST_RESPONSE",
+      "initiating_role": "инициатор",
+      "responding_role": "респондент",
+      "initiating_operation": "P.SP.02.OPR.198",
+      "responding_operation": "P.SP.02.OPR.199",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "initiating_message": "P.SP.02.MSG.063",
+      "response_messages": [
+        "P.SP.02.MSG.002"
+      ],
+      "timeouts": {
+        "receipt_confirmation": "PT5M",
+        "processing_confirmation": "PT10M",
+        "response": "PT20M"
+      },
+      "retry_count": 3,
+      "authorization": {
+        "required": true
+      },
+      "signature_requirements": {
+        "required": false,
+        "invalid_signature_delivery": null
+      },
+      "guaranteed_delivery": null,
+      "source_refs": [
+        {
+          "source_id": "22OP-TRN-P-SP-02-TRN-054",
+          "document": "ОП_22.pdf",
+          "location": "Перечень и описание транзакций общего процесса",
+          "status": "CONFIRMED",
+          "page": 710,
+          "item": "P.SP.02.TRN.054",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "status": "CONFIRMED"

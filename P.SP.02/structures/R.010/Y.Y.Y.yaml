@@ -1,10 +1,10 @@
 {
-  "structure_id": "R.006",
-  "name": "уведомление о результате обработки",
+  "structure_id": "R.010",
+  "name": "обобщенная структура электронного документа (сведений)",
   "active_version": "Y.Y.Y",
-  "namespace": "urn:EEC:R:ProcessingResultDetails:vY.Y.Y",
-  "root_element": "ProcessingResultDetails",
-  "xsd_file": "EEC_R_ProcessingResultDetails_vY.Y.Y.xsd",
+  "namespace": "urn:EEC:R:GenericEDocDetails:vY.Y.Y",
+  "root_element": "GenericEDocDetails",
+  "xsd_file": "EEC_R_GenericEDocDetails_vY.Y.Y.xsd",
   "imports": {
     "ccdo": "urn:EEC:M:ComplexDataObjects:vX.X.X",
     "csdo": "urn:EEC:M:SimpleDataObjects:vX.X.X"
@@ -53,35 +53,25 @@
       "cardinality": "0..1"
     },
     {
-      "path": "csdo:EventDateTime",
-      "id": "M.SDE.00132",
-      "type": "bdt:DateTimeType (M.BDT.00006)",
-      "cardinality": "1"
-    },
-    {
-      "path": "csdo:ProcessingResultV2Code",
-      "id": "M.SDE.90014",
-      "type": "csdo:ProcessingResultCodeV2Type (M.SDT.90006)",
-      "cardinality": "1"
-    },
-    {
-      "path": "csdo:DescriptionText",
-      "id": "M.SDE.00002",
-      "type": "csdo:Text4000Type (M.SDT.00088)",
-      "cardinality": "0..1"
+      "path": "*",
+      "name": "Произвольное содержимое",
+      "id": null,
+      "type": "xs:any / произвольный элемент",
+      "namespace": "##any",
+      "validation": "strict",
+      "cardinality": "1..*"
     }
   ],
   "status": "CONFIRMED",
   "source_refs": [
     {
       "document": "ОП_22.pdf",
-      "location": "Описание технической схемы, таблицы 2–4",
+      "location": "Описание технической схемы, таблицы 5–7",
       "pages": [
-        829,
-        830,
-        831,
-        832,
-        833
+        834,
+        835,
+        836,
+        837
       ],
       "version_context": "P.SP.02 1.0.0"
     }

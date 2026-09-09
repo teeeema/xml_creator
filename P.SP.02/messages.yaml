@@ -1,1015 +1,2263 @@
 {
   "messages": [
     {
-      "message_code": "P.SP.03.MSG.001",
-      "name": "сведения о заявке на НМПТ Союза для опубликования",
-      "structure_id": "R.IP.SP.03.001",
+      "message_code": "P.SP.02.MSG.001",
+      "name": "сведения о заявке на ТЗ Союза для опубликования",
+      "structure_id": "R.IP.SP.02.002",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "сведения о заявке на НМПТ Союза для опубликования",
-      "context": [
-        "P.SP.03.TRN.001"
-      ],
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о заявке на ТЗ Союза для опубликования",
+      "context": [],
       "status": "CONFIRMED",
       "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-001",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-001",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 34",
           "status": "CONFIRMED",
-          "page": 311,
-          "item": "P.SP.03.MSG.001",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 513,
+          "item": "P.SP.02.MSG.001",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-001",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-001",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 311,
-          "item": "P.SP.03.MSG.001",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 453,
+          "item": "P.SP.02.MSG.001",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.002",
+      "message_code": "P.SP.02.MSG.002",
       "name": "уведомление о приеме и обработке сведений",
       "structure_id": "R.006",
       "structure_version": "Y.Y.Y",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
       "direction": "RESPONSE",
       "role": "response",
       "purpose": "уведомление о приеме и обработке сведений",
       "context": [
-        "P.SP.03.TRN.001",
-        "P.SP.03.TRN.002",
-        "P.SP.03.TRN.003",
-        "P.SP.03.TRN.004",
-        "P.SP.03.TRN.005",
-        "P.SP.03.TRN.006",
-        "P.SP.03.TRN.007",
-        "P.SP.03.TRN.010",
-        "P.SP.03.TRN.011",
-        "P.SP.03.TRN.012",
-        "P.SP.03.TRN.013",
-        "P.SP.03.TRN.014",
-        "P.SP.03.TRN.015",
-        "P.SP.03.TRN.016"
+        "P.SP.02.TRN.001",
+        "P.SP.02.TRN.002",
+        "P.SP.02.TRN.003",
+        "P.SP.02.TRN.004",
+        "P.SP.02.TRN.005",
+        "P.SP.02.TRN.006",
+        "P.SP.02.TRN.007",
+        "P.SP.02.TRN.008",
+        "P.SP.02.TRN.009",
+        "P.SP.02.TRN.010",
+        "P.SP.02.TRN.011",
+        "P.SP.02.TRN.012",
+        "P.SP.02.TRN.013",
+        "P.SP.02.TRN.014",
+        "P.SP.02.TRN.015",
+        "P.SP.02.TRN.016",
+        "P.SP.02.TRN.017",
+        "P.SP.02.TRN.018",
+        "P.SP.02.TRN.019",
+        "P.SP.02.TRN.022",
+        "P.SP.02.TRN.023",
+        "P.SP.02.TRN.024",
+        "P.SP.02.TRN.025",
+        "P.SP.02.TRN.026",
+        "P.SP.02.TRN.027",
+        "P.SP.02.TRN.028",
+        "P.SP.02.TRN.029",
+        "P.SP.02.TRN.030",
+        "P.SP.02.TRN.031",
+        "P.SP.02.TRN.032",
+        "P.SP.02.TRN.033",
+        "P.SP.02.TRN.034",
+        "P.SP.02.TRN.035",
+        "P.SP.02.TRN.036",
+        "P.SP.02.TRN.037",
+        "P.SP.02.TRN.038",
+        "P.SP.02.TRN.039",
+        "P.SP.02.TRN.040",
+        "P.SP.02.TRN.041",
+        "P.SP.02.TRN.042",
+        "P.SP.02.TRN.043",
+        "P.SP.02.TRN.044",
+        "P.SP.02.TRN.045",
+        "P.SP.02.TRN.046",
+        "P.SP.02.TRN.047",
+        "P.SP.02.TRN.048",
+        "P.SP.02.TRN.052",
+        "P.SP.02.TRN.053",
+        "P.SP.02.TRN.054"
       ],
       "status": "CONFIRMED",
       "message_rules_status": "NO_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-002",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-002",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений: отдельная таблица для сообщения отсутствует",
           "status": "CONFIRMED",
-          "page": 192,
-          "item": "P.SP.03.MSG.002",
-          "version_context": "P.SP.03 1.0.0"
+          "item": "P.SP.02.MSG.002",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-002",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-002",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 192,
-          "item": "P.SP.03.MSG.002",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 453,
+          "item": "P.SP.02.MSG.002",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.003",
-      "name": "измененные сведения о заявке на НМПТ Союза для опубликования",
-      "structure_id": "R.IP.SP.03.001",
-      "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "измененные сведения о заявке на НМПТ Союза для опубликования",
-      "context": [
-        "P.SP.03.TRN.002"
+      "message_code": "P.SP.02.MSG.003",
+      "name": "сведения о регистрации (отказе в регистрации) ТЗ Союза для опубликования",
+      "structure_id": [
+        "R.010",
+        "R.IP.SP.02.002",
+        "R.IP.SP.02.007"
       ],
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о регистрации (отказе в регистрации) ТЗ Союза для опубликования",
+      "context": [],
       "status": "CONFIRMED",
       "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-003",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-003-T35",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 35",
           "status": "CONFIRMED",
-          "page": 311,
-          "item": "P.SP.03.MSG.003",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 523,
+          "item": "P.SP.02.MSG.003",
+          "version_context": "P.SP.02 1.0.0"
+        },
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-003-T36",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 36",
+          "status": "CONFIRMED",
+          "page": 524,
+          "item": "P.SP.02.MSG.003",
+          "version_context": "P.SP.02 1.0.0"
+        },
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-003-T37",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 37",
+          "status": "CONFIRMED",
+          "page": 526,
+          "item": "P.SP.02.MSG.003",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-003",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-003",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 311,
-          "item": "P.SP.03.MSG.003",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 453,
+          "item": "P.SP.02.MSG.003",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.004",
-      "name": "сведения о регистрации НМПТ Союза в Едином реестре НМПТ Союза и (или) выдаче свидетельства о праве использования НМПТ Союза для опубликования",
-      "structure_id": "R.IP.SP.03.002",
+      "message_code": "P.SP.02.MSG.004",
+      "name": "обращение заинтересованного лица для опубликования",
+      "structure_id": "R.IP.SP.02.002",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "сведения о регистрации НМПТ Союза в Едином реестре НМПТ Союза и (или) выдаче свидетельства о праве использования НМПТ Союза для опубликования",
-      "context": [
-        "P.SP.03.TRN.003"
-      ],
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "обращение заинтересованного лица для опубликования",
+      "context": [],
       "status": "CONFIRMED",
       "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-004",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-004",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 38",
           "status": "CONFIRMED",
-          "page": 312,
-          "item": "P.SP.03.MSG.004",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 531,
+          "item": "P.SP.02.MSG.004",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-004",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-004",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 312,
-          "item": "P.SP.03.MSG.004",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 453,
+          "item": "P.SP.02.MSG.004",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.005",
-      "name": "сведения об отказе в регистрации и (или) предоставлении права использования НМПТ Союза (или о том, что заявка на НМПТ Союза считается отозванной) для опубликования",
-      "structure_id": "R.IP.SP.03.001",
+      "message_code": "P.SP.02.MSG.005",
+      "name": "доводы заявителя в отношении обращения заинтересованного лица для опубликования",
+      "structure_id": "R.IP.SP.02.002",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "сведения об отказе в регистрации и (или) предоставлении права использования НМПТ Союза (или о том, что заявка на НМПТ Союза считается отозванной) для опубликования",
-      "context": [
-        "P.SP.03.TRN.004"
-      ],
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "доводы заявителя в отношении обращения заинтересованного лица для опубликования",
+      "context": [],
       "status": "CONFIRMED",
       "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-005",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-005",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 39",
           "status": "CONFIRMED",
-          "page": 312,
-          "item": "P.SP.03.MSG.005",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 535,
+          "item": "P.SP.02.MSG.005",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-005",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-005",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 312,
-          "item": "P.SP.03.MSG.005",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 454,
+          "item": "P.SP.02.MSG.005",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.006",
-      "name": "измененные сведения Единого реестра НМПТ Союза для опубликования",
-      "structure_id": "R.IP.SP.03.002",
+      "message_code": "P.SP.02.MSG.006",
+      "name": "доказательства приобретения обозначением различительной способности для опубликования",
+      "structure_id": "R.IP.SP.02.002",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "измененные сведения Единого реестра НМПТ Союза для опубликования",
-      "context": [
-        "P.SP.03.TRN.005"
-      ],
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "доказательства приобретения обозначением различительной способности для опубликования",
+      "context": [],
       "status": "CONFIRMED",
       "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-006",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-006",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 40",
           "status": "CONFIRMED",
-          "page": 312,
-          "item": "P.SP.03.MSG.006",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 538,
+          "item": "P.SP.02.MSG.006",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-006",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-006",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 312,
-          "item": "P.SP.03.MSG.006",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 454,
+          "item": "P.SP.02.MSG.006",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.007",
-      "name": "сведения о продлении срока действия свидетельства о праве использования НМПТ Союза в Едином реестре НМПТ Союза для опубликования",
-      "structure_id": "R.IP.SP.03.002",
+      "message_code": "P.SP.02.MSG.007",
+      "name": "сведения о документах, подтверждающих испрашиваемый приоритет ТЗ Союза для опубликования",
+      "structure_id": "R.IP.SP.02.002",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "сведения о продлении срока действия свидетельства о праве использования НМПТ Союза в Едином реестре НМПТ Союза для опубликования",
-      "context": [
-        "P.SP.03.TRN.006"
-      ],
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о документах, подтверждающих испрашиваемый приоритет ТЗ Союза для опубликования",
+      "context": [],
       "status": "CONFIRMED",
       "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-007",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-007",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 41",
           "status": "CONFIRMED",
-          "page": 312,
-          "item": "P.SP.03.MSG.007",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 541,
+          "item": "P.SP.02.MSG.007",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-007",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-007",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 312,
-          "item": "P.SP.03.MSG.007",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 454,
+          "item": "P.SP.02.MSG.007",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.008",
-      "name": "сведения о прекращении действия свидетельства о праве использования НМПТ Союза в Едином реестре НМПТ Союза для опубликования",
-      "structure_id": "R.IP.SP.03.002",
+      "message_code": "P.SP.02.MSG.009",
+      "name": "cведения о преобразовании заявки на ТЗ Союза в национальную заявку на регистрацию ТЗ для опубликования",
+      "structure_id": "R.IP.SP.02.002",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "сведения о прекращении действия свидетельства о праве использования НМПТ Союза в Едином реестре НМПТ Союза для опубликования",
-      "context": [
-        "P.SP.03.TRN.007"
-      ],
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "cведения о преобразовании заявки на ТЗ Союза в национальную заявку на регистрацию ТЗ для опубликования",
+      "context": [],
       "status": "CONFIRMED",
       "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-008",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-009",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 42",
           "status": "CONFIRMED",
-          "page": 312,
-          "item": "P.SP.03.MSG.008",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 544,
+          "item": "P.SP.02.MSG.009",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-008",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-009",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 312,
-          "item": "P.SP.03.MSG.008",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 454,
+          "item": "P.SP.02.MSG.009",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.009",
-      "name": "сведения о заявке на НМПТ Союза",
-      "structure_id": "R.IP.SP.03.001",
+      "message_code": "P.SP.02.MSG.010",
+      "name": "сведения о преобразовании заявки на коллективный знак Союза в заявку на ТЗ Союза для опубликования",
+      "structure_id": "R.IP.SP.02.002",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "сведения о заявке на НМПТ Союза",
-      "context": [
-        "P.SP.03.TRN.010"
-      ],
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о преобразовании заявки на коллективный знак Союза в заявку на ТЗ Союза для опубликования",
+      "context": [],
       "status": "CONFIRMED",
       "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-009",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-010",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 43",
           "status": "CONFIRMED",
-          "page": 192,
-          "item": "P.SP.03.MSG.009",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 546,
+          "item": "P.SP.02.MSG.010",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-009",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-010",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 192,
-          "item": "P.SP.03.MSG.009",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 454,
+          "item": "P.SP.02.MSG.010",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.010",
-      "name": "измененные сведения о заявке на НМПТ Союза",
-      "structure_id": "R.IP.SP.03.001",
+      "message_code": "P.SP.02.MSG.011",
+      "name": "сведения о преобразовании заявки на ТЗ Союза в заявку на коллективный знак Союза для опубликования",
+      "structure_id": "R.IP.SP.02.002",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "измененные сведения о заявке на НМПТ Союза",
-      "context": [
-        "P.SP.03.TRN.011"
-      ],
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о преобразовании заявки на ТЗ Союза в заявку на коллективный знак Союза для опубликования",
+      "context": [],
       "status": "CONFIRMED",
       "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-010",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-011",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 44",
           "status": "CONFIRMED",
-          "page": 192,
-          "item": "P.SP.03.MSG.010",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 548,
+          "item": "P.SP.02.MSG.011",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-010",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-011",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 192,
-          "item": "P.SP.03.MSG.010",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 454,
+          "item": "P.SP.02.MSG.011",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.011",
-      "name": "сведения о регистрации НМПТ Союза в Едином реестре НМПТ Союза и (или) выдаче свидетельства о праве использования НМПТ Союза",
-      "structure_id": "R.IP.SP.03.002",
+      "message_code": "P.SP.02.MSG.012",
+      "name": "сведения о выделении заявки на ТЗ Союза из ранее поданной заявки на ТЗ Союза для опубликования",
+      "structure_id": "R.IP.SP.02.002",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "сведения о регистрации НМПТ Союза в Едином реестре НМПТ Союза и (или) выдаче свидетельства о праве использования НМПТ Союза",
-      "context": [
-        "P.SP.03.TRN.012"
-      ],
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о выделении заявки на ТЗ Союза из ранее поданной заявки на ТЗ Союза для опубликования",
+      "context": [],
       "status": "CONFIRMED",
       "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-011",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-012",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 45",
           "status": "CONFIRMED",
-          "page": 193,
-          "item": "P.SP.03.MSG.011",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 550,
+          "item": "P.SP.02.MSG.012",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-011",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-012",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 193,
-          "item": "P.SP.03.MSG.011",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 454,
+          "item": "P.SP.02.MSG.012",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.012",
-      "name": "сведения об отказе в регистрации (предоставлении права использования) НМПТ Союза или о том, что заявка на НМПТ Союза считается отозванной",
-      "structure_id": "R.IP.SP.03.001",
+      "message_code": "P.SP.02.MSG.013",
+      "name": "cведения о признании заявки на ТЗ Союза отозванной по ходатайству заявителя для опубликования",
+      "structure_id": "R.IP.SP.02.002",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "сведения об отказе в регистрации (предоставлении права использования) НМПТ Союза или о том, что заявка на НМПТ Союза считается отозванной",
-      "context": [
-        "P.SP.03.TRN.013"
-      ],
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "cведения о признании заявки на ТЗ Союза отозванной по ходатайству заявителя для опубликования",
+      "context": [],
       "status": "CONFIRMED",
       "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-012",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-013",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 46",
           "status": "CONFIRMED",
-          "page": 193,
-          "item": "P.SP.03.MSG.012",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 553,
+          "item": "P.SP.02.MSG.013",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-012",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-013",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 193,
-          "item": "P.SP.03.MSG.012",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 454,
+          "item": "P.SP.02.MSG.013",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.013",
-      "name": "сведения о внесении изменений в сведения Единого реестра НМПТ Союза",
-      "structure_id": "R.IP.SP.03.002",
+      "message_code": "P.SP.02.MSG.014",
+      "name": "сведения о внесении изменений в заявку на ТЗ Союза для опубликования",
+      "structure_id": "R.IP.SP.02.002",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "сведения о внесении изменений в сведения Единого реестра НМПТ Союза",
-      "context": [
-        "P.SP.03.TRN.014"
-      ],
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о внесении изменений в заявку на ТЗ Союза для опубликования",
+      "context": [],
       "status": "CONFIRMED",
       "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-013",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-014",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 47",
           "status": "CONFIRMED",
-          "page": 193,
-          "item": "P.SP.03.MSG.013",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 555,
+          "item": "P.SP.02.MSG.014",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-013",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-014",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 193,
-          "item": "P.SP.03.MSG.013",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 454,
+          "item": "P.SP.02.MSG.014",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.014",
-      "name": "сведения о продлении срока действия свидетельства о праве использования НМПТ Союза в Едином реестре НМПТ Союза",
-      "structure_id": "R.IP.SP.03.002",
+      "message_code": "P.SP.02.MSG.015",
+      "name": "сведения о преобразовании аннулированной регистрации ТЗ Союза в национальную заявку на регистрацию ТЗ для опубликования",
+      "structure_id": "R.IP.SP.02.007",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "сведения о продлении срока действия свидетельства о праве использования НМПТ Союза в Едином реестре НМПТ Союза",
-      "context": [
-        "P.SP.03.TRN.015"
-      ],
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о преобразовании аннулированной регистрации ТЗ Союза в национальную заявку на регистрацию ТЗ для опубликования",
+      "context": [],
       "status": "CONFIRMED",
       "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-014",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-015",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 48",
           "status": "CONFIRMED",
-          "page": 193,
-          "item": "P.SP.03.MSG.014",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 559,
+          "item": "P.SP.02.MSG.015",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-014",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-015",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 193,
-          "item": "P.SP.03.MSG.014",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 455,
+          "item": "P.SP.02.MSG.015",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.015",
-      "name": "сведения о прекращении действия свидетельства о праве использования НМПТ Союза в Едином реестре НМПТ Союза",
-      "structure_id": "R.IP.SP.03.002",
+      "message_code": "P.SP.02.MSG.016",
+      "name": "сведения о преобразовании коллективного знака Союза в ТЗ Союза для опубликования",
+      "structure_id": "R.IP.SP.02.007",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "сведения о прекращении действия свидетельства о праве использования НМПТ Союза в Едином реестре НМПТ Союза",
-      "context": [
-        "P.SP.03.TRN.016"
-      ],
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о преобразовании коллективного знака Союза в ТЗ Союза для опубликования",
+      "context": [],
       "status": "CONFIRMED",
       "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-015",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-016",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 49",
           "status": "CONFIRMED",
-          "page": 193,
-          "item": "P.SP.03.MSG.015",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 561,
+          "item": "P.SP.02.MSG.016",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-015",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-016",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 193,
-          "item": "P.SP.03.MSG.015",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 455,
+          "item": "P.SP.02.MSG.016",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.016",
-      "name": "запрос информации о дате и времени обновления Единого реестра НМПТ Союза",
-      "structure_id": "R.IP.SP.03.007",
+      "message_code": "P.SP.02.MSG.017",
+      "name": "сведения о преобразовании ТЗ Союза в коллективный знак Союза для опубликования",
+      "structure_id": "R.IP.SP.02.007",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "запрос информации о дате и времени обновления Единого реестра НМПТ Союза",
-      "context": [
-        "P.SP.03.TRN.008"
-      ],
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о преобразовании ТЗ Союза в коллективный знак Союза для опубликования",
+      "context": [],
       "status": "CONFIRMED",
       "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-016",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-017",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 50",
           "status": "CONFIRMED",
-          "page": 312,
-          "item": "P.SP.03.MSG.016",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 563,
+          "item": "P.SP.02.MSG.017",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-016",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-017",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 312,
-          "item": "P.SP.03.MSG.016",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 455,
+          "item": "P.SP.02.MSG.017",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.017",
-      "name": "информация о дате и времени обновления Единого реестра НМПТ Союза",
-      "structure_id": "R.IP.SP.03.007",
+      "message_code": "P.SP.02.MSG.018",
+      "name": "сведения о внесении изменений в сведения Единого реестра ТЗ Союза для опубликования",
+      "structure_id": "R.IP.SP.02.007",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о внесении изменений в сведения Единого реестра ТЗ Союза для опубликования",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-018",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 51",
+          "status": "CONFIRMED",
+          "page": 564,
+          "item": "P.SP.02.MSG.018",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-018",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 455,
+          "item": "P.SP.02.MSG.018",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.019",
+      "name": "сведения об отказе от исключительного права на ТЗ Союза для опубликования",
+      "structure_id": "R.IP.SP.02.007",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения об отказе от исключительного права на ТЗ Союза для опубликования",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-019",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 52",
+          "status": "CONFIRMED",
+          "page": 567,
+          "item": "P.SP.02.MSG.019",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-019",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 455,
+          "item": "P.SP.02.MSG.019",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.020",
+      "name": "сведения об аннулировании регистрации ТЗ Союза для опубликования",
+      "structure_id": "R.IP.SP.02.007",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения об аннулировании регистрации ТЗ Союза для опубликования",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-020",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 53",
+          "status": "CONFIRMED",
+          "page": 569,
+          "item": "P.SP.02.MSG.020",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-020",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 455,
+          "item": "P.SP.02.MSG.020",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.021",
+      "name": "сведения о продлении срока действия исключительного права на ТЗ Союза для опубликования",
+      "structure_id": "R.IP.SP.02.007",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о продлении срока действия исключительного права на ТЗ Союза для опубликования",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-021",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 54",
+          "status": "CONFIRMED",
+          "page": 574,
+          "item": "P.SP.02.MSG.021",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-021",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 455,
+          "item": "P.SP.02.MSG.021",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.022",
+      "name": "запрос информации о дате и времени обновления Единого реестра ТЗ Союза",
+      "structure_id": "R.IP.SP.02.008",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "запрос информации о дате и времени обновления Единого реестра ТЗ Союза",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-022",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 55",
+          "status": "CONFIRMED",
+          "page": 577,
+          "item": "P.SP.02.MSG.022",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-022",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 455,
+          "item": "P.SP.02.MSG.022",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.023",
+      "name": "информация о дате и времени обновления Единого реестра ТЗ Союза",
+      "structure_id": "R.IP.SP.02.007",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
       "direction": "RESPONSE",
       "role": "response",
-      "purpose": "информация о дате и времени обновления Единого реестра НМПТ Союза",
+      "purpose": "информация о дате и времени обновления Единого реестра ТЗ Союза",
       "context": [
-        "P.SP.03.TRN.008"
+        "P.SP.02.TRN.020"
       ],
       "status": "CONFIRMED",
       "message_rules_status": "NO_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-017",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-023",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений: отдельная таблица для сообщения отсутствует",
           "status": "CONFIRMED",
-          "page": 312,
-          "item": "P.SP.03.MSG.017",
-          "version_context": "P.SP.03 1.0.0"
+          "item": "P.SP.02.MSG.023",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-017",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-023",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 312,
-          "item": "P.SP.03.MSG.017",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 455,
+          "item": "P.SP.02.MSG.023",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.018",
-      "name": "запрос измененных сведений из Единого реестра НМПТ Союза",
-      "structure_id": "R.IP.SP.03.007",
+      "message_code": "P.SP.02.MSG.024",
+      "name": "запрос изменений сведений Единого реестра ТЗ Союза",
+      "structure_id": "R.IP.SP.02.008",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "запрос измененных сведений из Единого реестра НМПТ Союза",
-      "context": [
-        "P.SP.03.TRN.009"
-      ],
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "запрос изменений сведений Единого реестра ТЗ Союза",
+      "context": [],
       "status": "CONFIRMED",
       "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-018",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-024",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 56",
           "status": "CONFIRMED",
-          "page": 313,
-          "item": "P.SP.03.MSG.018",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 577,
+          "item": "P.SP.02.MSG.024",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-018",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-024",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 313,
-          "item": "P.SP.03.MSG.018",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 455,
+          "item": "P.SP.02.MSG.024",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.019",
-      "name": "измененные сведения из Единого реестра НМПТ Союза",
-      "structure_id": "R.IP.SP.03.002",
-      "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "RESPONSE",
-      "role": "response",
-      "purpose": "измененные сведения из Единого реестра НМПТ Союза",
-      "context": [
-        "P.SP.03.TRN.009"
-      ],
-      "status": "CONFIRMED",
-      "message_rules_status": "NO_SEPARATE_RULE_TABLE",
-      "message_rules_source_refs": [
-        {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-019",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
-          "status": "CONFIRMED",
-          "page": 313,
-          "item": "P.SP.03.MSG.019",
-          "version_context": "P.SP.03 1.0.0"
-        }
-      ],
-      "source_refs": [
-        {
-          "source_id": "23OP-MSG-P-SP-03-MSG-019",
-          "document": "ОП_23.pdf",
-          "location": "Перечень сообщений общего процесса",
-          "status": "CONFIRMED",
-          "page": 313,
-          "item": "P.SP.03.MSG.019",
-          "version_context": "P.SP.03 1.0.0"
-        }
-      ]
-    },
-    {
-      "message_code": "P.SP.03.MSG.020",
-      "name": "уведомление об отсутствии запрашиваемых сведений",
+      "message_code": "P.SP.02.MSG.025",
+      "name": "уведомление об отсутствии сведений",
       "structure_id": "R.006",
       "structure_version": "Y.Y.Y",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
       "direction": "RESPONSE",
       "role": "response",
-      "purpose": "уведомление об отсутствии запрашиваемых сведений",
+      "purpose": "уведомление об отсутствии сведений",
       "context": [
-        "P.SP.03.TRN.009",
-        "P.SP.03.TRN.019"
+        "P.SP.02.TRN.021",
+        "P.SP.02.TRN.049",
+        "P.SP.02.TRN.051"
       ],
       "status": "CONFIRMED",
       "message_rules_status": "NO_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-020",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-025",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений: отдельная таблица для сообщения отсутствует",
           "status": "CONFIRMED",
-          "page": 193,
-          "item": "P.SP.03.MSG.020",
-          "version_context": "P.SP.03 1.0.0"
+          "item": "P.SP.02.MSG.025",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-020",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-025",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 193,
-          "item": "P.SP.03.MSG.020",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 456,
+          "item": "P.SP.02.MSG.025",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.021",
-      "name": "запрос документов и сведений о сумме пошлины за регистрацию и (или) выдачу свидетельства о праве использования НМПТ Союза",
-      "structure_id": "R.IP.SP.03.003",
+      "message_code": "P.SP.02.MSG.026",
+      "name": "изменения сведений Единого реестра ТЗ Союза",
+      "structure_id": "R.IP.SP.02.007",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "запрос документов и сведений о сумме пошлины за регистрацию и (или) выдачу свидетельства о праве использования НМПТ Союза",
-      "context": [
-        "P.SP.03.TRN.017"
-      ],
-      "status": "CONFIRMED",
-      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
-      "message_rules_source_refs": [
-        {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-021",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
-          "status": "CONFIRMED",
-          "page": 193,
-          "item": "P.SP.03.MSG.021",
-          "version_context": "P.SP.03 1.0.0"
-        }
-      ],
-      "source_refs": [
-        {
-          "source_id": "23OP-MSG-P-SP-03-MSG-021",
-          "document": "ОП_23.pdf",
-          "location": "Перечень сообщений общего процесса",
-          "status": "CONFIRMED",
-          "page": 193,
-          "item": "P.SP.03.MSG.021",
-          "version_context": "P.SP.03 1.0.0"
-        }
-      ]
-    },
-    {
-      "message_code": "P.SP.03.MSG.022",
-      "name": "документы и сведения о сумме пошлины за регистрацию и (или) выдачу свидетельства о праве использования НМПТ Союза",
-      "structure_id": "R.IP.SP.03.003",
-      "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
       "direction": "RESPONSE",
       "role": "response",
-      "purpose": "документы и сведения о сумме пошлины за регистрацию и (или) выдачу свидетельства о праве использования НМПТ Союза",
+      "purpose": "изменения сведений Единого реестра ТЗ Союза",
       "context": [
-        "P.SP.03.TRN.017"
-      ],
-      "status": "CONFIRMED",
-      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
-      "message_rules_source_refs": [
-        {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-022",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
-          "status": "CONFIRMED",
-          "page": 193,
-          "item": "P.SP.03.MSG.022",
-          "version_context": "P.SP.03 1.0.0"
-        }
-      ],
-      "source_refs": [
-        {
-          "source_id": "23OP-MSG-P-SP-03-MSG-022",
-          "document": "ОП_23.pdf",
-          "location": "Перечень сообщений общего процесса",
-          "status": "CONFIRMED",
-          "page": 193,
-          "item": "P.SP.03.MSG.022",
-          "version_context": "P.SP.03 1.0.0"
-        }
-      ]
-    },
-    {
-      "message_code": "P.SP.03.MSG.023",
-      "name": "запрос подтверждения уплаты пошлин за регистрацию и (или) выдачу свидетельства о праве использования НМПТ Союза",
-      "structure_id": "R.IP.SP.03.003",
-      "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "запрос подтверждения уплаты пошлин за регистрацию и (или) выдачу свидетельства о праве использования НМПТ Союза",
-      "context": [
-        "P.SP.03.TRN.018"
-      ],
-      "status": "CONFIRMED",
-      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
-      "message_rules_source_refs": [
-        {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-023",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
-          "status": "CONFIRMED",
-          "page": 194,
-          "item": "P.SP.03.MSG.023",
-          "version_context": "P.SP.03 1.0.0"
-        }
-      ],
-      "source_refs": [
-        {
-          "source_id": "23OP-MSG-P-SP-03-MSG-023",
-          "document": "ОП_23.pdf",
-          "location": "Перечень сообщений общего процесса",
-          "status": "CONFIRMED",
-          "page": 194,
-          "item": "P.SP.03.MSG.023",
-          "version_context": "P.SP.03 1.0.0"
-        }
-      ]
-    },
-    {
-      "message_code": "P.SP.03.MSG.024",
-      "name": "сведения о подтверждении уплаты пошлин за регистрацию и (или) выдачу свидетельства о праве использования НМПТ Союза",
-      "structure_id": "R.IP.SP.03.003",
-      "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "RESPONSE",
-      "role": "response",
-      "purpose": "сведения о подтверждении уплаты пошлин за регистрацию и (или) выдачу свидетельства о праве использования НМПТ Союза",
-      "context": [
-        "P.SP.03.TRN.018"
-      ],
-      "status": "CONFIRMED",
-      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
-      "message_rules_source_refs": [
-        {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-024",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
-          "status": "CONFIRMED",
-          "page": 194,
-          "item": "P.SP.03.MSG.024",
-          "version_context": "P.SP.03 1.0.0"
-        }
-      ],
-      "source_refs": [
-        {
-          "source_id": "23OP-MSG-P-SP-03-MSG-024",
-          "document": "ОП_23.pdf",
-          "location": "Перечень сообщений общего процесса",
-          "status": "CONFIRMED",
-          "page": 194,
-          "item": "P.SP.03.MSG.024",
-          "version_context": "P.SP.03 1.0.0"
-        }
-      ]
-    },
-    {
-      "message_code": "P.SP.03.MSG.025",
-      "name": "запрос файла прилагаемого документа",
-      "structure_id": "R.IP.SP.03.007",
-      "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "REQUEST",
-      "role": "request",
-      "purpose": "запрос файла прилагаемого документа",
-      "context": [
-        "P.SP.03.TRN.019"
-      ],
-      "status": "CONFIRMED",
-      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
-      "message_rules_source_refs": [
-        {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-025",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
-          "status": "CONFIRMED",
-          "page": 194,
-          "item": "P.SP.03.MSG.025",
-          "version_context": "P.SP.03 1.0.0"
-        }
-      ],
-      "source_refs": [
-        {
-          "source_id": "23OP-MSG-P-SP-03-MSG-025",
-          "document": "ОП_23.pdf",
-          "location": "Перечень сообщений общего процесса",
-          "status": "CONFIRMED",
-          "page": 194,
-          "item": "P.SP.03.MSG.025",
-          "version_context": "P.SP.03 1.0.0"
-        }
-      ]
-    },
-    {
-      "message_code": "P.SP.03.MSG.026",
-      "name": "документ, прилагаемый к заявке на НМПТ Союза",
-      "structure_id": "R.IP.SP.03.001",
-      "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "RESPONSE",
-      "role": "response",
-      "purpose": "документ, прилагаемый к заявке на НМПТ Союза",
-      "context": [
-        "P.SP.03.TRN.019"
+        "P.SP.02.TRN.021"
       ],
       "status": "CONFIRMED",
       "message_rules_status": "NO_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-026",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-026",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений: отдельная таблица для сообщения отсутствует",
           "status": "CONFIRMED",
-          "page": 194,
-          "item": "P.SP.03.MSG.026",
-          "version_context": "P.SP.03 1.0.0"
+          "item": "P.SP.02.MSG.026",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-026",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-026",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 194,
-          "item": "P.SP.03.MSG.026",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 456,
+          "item": "P.SP.02.MSG.026",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     },
     {
-      "message_code": "P.SP.03.MSG.027",
-      "name": "документ, на основании которого внесены изменения в сведения Единого реестра НМПТ Союза",
-      "structure_id": "R.IP.SP.03.002",
+      "message_code": "P.SP.02.MSG.027",
+      "name": "сведения о признании заявки на ТЗ Союза отозванной по причине неуплаты пошлин для опубликования",
+      "structure_id": "R.IP.SP.02.002",
       "structure_version": "1.0.0",
-      "structure_version_source": "ОП_23.pdf, перечень сообщений и метаданные структуры",
-      "direction": "RESPONSE",
-      "role": "response",
-      "purpose": "документ, на основании которого внесены изменения в сведения Единого реестра НМПТ Союза",
-      "context": [
-        "P.SP.03.TRN.019"
-      ],
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о признании заявки на ТЗ Союза отозванной по причине неуплаты пошлин для опубликования",
+      "context": [],
       "status": "CONFIRMED",
-      "message_rules_status": "NO_SEPARATE_RULE_TABLE",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
       "message_rules_source_refs": [
         {
-          "source_id": "23OP-RULESTATUS-P-SP-03-MSG-027",
-          "document": "ОП_23.pdf",
-          "location": "Наличие или отсутствие отдельной таблицы требований сообщения",
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-027",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 57",
           "status": "CONFIRMED",
-          "page": 194,
-          "item": "P.SP.03.MSG.027",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 578,
+          "item": "P.SP.02.MSG.027",
+          "version_context": "P.SP.02 1.0.0"
         }
       ],
       "source_refs": [
         {
-          "source_id": "23OP-MSG-P-SP-03-MSG-027",
-          "document": "ОП_23.pdf",
+          "source_id": "22OP-MSG-P-SP-02-MSG-027",
+          "document": "ОП_22.pdf",
           "location": "Перечень сообщений общего процесса",
           "status": "CONFIRMED",
-          "page": 194,
-          "item": "P.SP.03.MSG.027",
-          "version_context": "P.SP.03 1.0.0"
+          "page": 456,
+          "item": "P.SP.02.MSG.027",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.028",
+      "name": "сведения о заявке на ТЗ Союза для экспертизы",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о заявке на ТЗ Союза для экспертизы",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-028",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 44",
+          "status": "CONFIRMED",
+          "page": 714,
+          "item": "P.SP.02.MSG.028",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-028",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 634,
+          "item": "P.SP.02.MSG.028",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.029",
+      "name": "заключение (решение) о результатах экспертизы",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "заключение (решение) о результатах экспертизы",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-029",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 45",
+          "status": "CONFIRMED",
+          "page": 724,
+          "item": "P.SP.02.MSG.029",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-029",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 634,
+          "item": "P.SP.02.MSG.029",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.030",
+      "name": "доводы и замечания по результатам экспертизы",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "доводы и замечания по результатам экспертизы",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-030",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 46",
+          "status": "CONFIRMED",
+          "page": 728,
+          "item": "P.SP.02.MSG.030",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-030",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 634,
+          "item": "P.SP.02.MSG.030",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.031",
+      "name": "сведения о регистрации (отказе в регистрации) ТЗ Союза",
+      "structure_id": [
+        "R.010",
+        "R.IP.SP.02.002",
+        "R.IP.SP.02.007"
+      ],
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о регистрации (отказе в регистрации) ТЗ Союза",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-031-T47",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 47",
+          "status": "CONFIRMED",
+          "page": 732,
+          "item": "P.SP.02.MSG.031",
+          "version_context": "P.SP.02 1.0.0"
+        },
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-031-T48",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 48",
+          "status": "CONFIRMED",
+          "page": 733,
+          "item": "P.SP.02.MSG.031",
+          "version_context": "P.SP.02 1.0.0"
+        },
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-031-T49",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 49",
+          "status": "CONFIRMED",
+          "page": 735,
+          "item": "P.SP.02.MSG.031",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-031",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 634,
+          "item": "P.SP.02.MSG.031",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.032",
+      "name": "уведомление о поступившей жалобе на решение по экспертизе",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "уведомление о поступившей жалобе на решение по экспертизе",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-032",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 50",
+          "status": "CONFIRMED",
+          "page": 741,
+          "item": "P.SP.02.MSG.032",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-032",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 635,
+          "item": "P.SP.02.MSG.032",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.033",
+      "name": "сведения о результатах внутригосударственного обжалования решения по экспертизе",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о результатах внутригосударственного обжалования решения по экспертизе",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-033",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 51",
+          "status": "CONFIRMED",
+          "page": 743,
+          "item": "P.SP.02.MSG.033",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-033",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 635,
+          "item": "P.SP.02.MSG.033",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.034",
+      "name": "доказательство приобретения обозначением различительной способности",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "доказательство приобретения обозначением различительной способности",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-034",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 52",
+          "status": "CONFIRMED",
+          "page": 746,
+          "item": "P.SP.02.MSG.034",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-034",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 635,
+          "item": "P.SP.02.MSG.034",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.035",
+      "name": "уведомление о необходимости представления документа о согласии",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "уведомление о необходимости представления документа о согласии",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-035",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 53",
+          "status": "CONFIRMED",
+          "page": 749,
+          "item": "P.SP.02.MSG.035",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-035",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 635,
+          "item": "P.SP.02.MSG.035",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.036",
+      "name": "документ о согласии",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "документ о согласии",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-036",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 54",
+          "status": "CONFIRMED",
+          "page": 750,
+          "item": "P.SP.02.MSG.036",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-036",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 635,
+          "item": "P.SP.02.MSG.036",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.037",
+      "name": "сведения о признании заявки на ТЗ Союза отозванной по причине непоступления документа о согласии",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о признании заявки на ТЗ Союза отозванной по причине непоступления документа о согласии",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-037",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 55",
+          "status": "CONFIRMED",
+          "page": 752,
+          "item": "P.SP.02.MSG.037",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-037",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 635,
+          "item": "P.SP.02.MSG.037",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.038",
+      "name": "сведения о документах, подтверждающих испрашиваемый приоритет ТЗ Союза",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о документах, подтверждающих испрашиваемый приоритет ТЗ Союза",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-038",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 56",
+          "status": "CONFIRMED",
+          "page": 754,
+          "item": "P.SP.02.MSG.038",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-038",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 635,
+          "item": "P.SP.02.MSG.038",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.039",
+      "name": "уведомление о прекращении делопроизводства по заявке на ТЗ Союза",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "уведомление о прекращении делопроизводства по заявке на ТЗ Союза",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-039",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 57",
+          "status": "CONFIRMED",
+          "page": 757,
+          "item": "P.SP.02.MSG.039",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-039",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 636,
+          "item": "P.SP.02.MSG.039",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.040",
+      "name": "ходатайство о преобразовании заявки на ТЗ Союза в национальную заявку на регистрацию ТЗ",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "ходатайство о преобразовании заявки на ТЗ Союза в национальную заявку на регистрацию ТЗ",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-040",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 58",
+          "status": "CONFIRMED",
+          "page": 759,
+          "item": "P.SP.02.MSG.040",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-040",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 636,
+          "item": "P.SP.02.MSG.040",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.041",
+      "name": "сведения о преобразовании заявки на коллективный знак Союза в заявку на ТЗ Союза",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о преобразовании заявки на коллективный знак Союза в заявку на ТЗ Союза",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-041",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 59",
+          "status": "CONFIRMED",
+          "page": 762,
+          "item": "P.SP.02.MSG.041",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-041",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 636,
+          "item": "P.SP.02.MSG.041",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.042",
+      "name": "сведения о преобразовании заявки на ТЗ Союза в заявку на коллективный знак Союза",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о преобразовании заявки на ТЗ Союза в заявку на коллективный знак Союза",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-042",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 60",
+          "status": "CONFIRMED",
+          "page": 764,
+          "item": "P.SP.02.MSG.042",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-042",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 636,
+          "item": "P.SP.02.MSG.042",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.043",
+      "name": "сведения о выделении заявки на ТЗ Союза из ранее поданной заявки на ТЗ Союза",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о выделении заявки на ТЗ Союза из ранее поданной заявки на ТЗ Союза",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-043",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 61",
+          "status": "CONFIRMED",
+          "page": 767,
+          "item": "P.SP.02.MSG.043",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-043",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 636,
+          "item": "P.SP.02.MSG.043",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.044",
+      "name": "сведения о признании заявки на ТЗ Союза отозванной по ходатайству заявителя",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о признании заявки на ТЗ Союза отозванной по ходатайству заявителя",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-044",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 62",
+          "status": "CONFIRMED",
+          "page": 770,
+          "item": "P.SP.02.MSG.044",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-044",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 636,
+          "item": "P.SP.02.MSG.044",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.045",
+      "name": "сведения о внесении изменений в заявку на ТЗ Союза",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о внесении изменений в заявку на ТЗ Союза",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-045",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 63",
+          "status": "CONFIRMED",
+          "page": 773,
+          "item": "P.SP.02.MSG.045",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-045",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 636,
+          "item": "P.SP.02.MSG.045",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.046",
+      "name": "сведения о преобразовании аннулированной регистрации ТЗ Союза в национальную заявку на регистрацию ТЗ",
+      "structure_id": "R.IP.SP.02.007",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о преобразовании аннулированной регистрации ТЗ Союза в национальную заявку на регистрацию ТЗ",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-046",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 64",
+          "status": "CONFIRMED",
+          "page": 778,
+          "item": "P.SP.02.MSG.046",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-046",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 636,
+          "item": "P.SP.02.MSG.046",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.047",
+      "name": "сведения о преобразовании коллективного знака Союза в ТЗ Союза",
+      "structure_id": "R.IP.SP.02.007",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о преобразовании коллективного знака Союза в ТЗ Союза",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-047",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 65",
+          "status": "CONFIRMED",
+          "page": 780,
+          "item": "P.SP.02.MSG.047",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-047",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 636,
+          "item": "P.SP.02.MSG.047",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.048",
+      "name": "сведения о преобразовании ТЗ Союза в коллективный знак Союза",
+      "structure_id": "R.IP.SP.02.007",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о преобразовании ТЗ Союза в коллективный знак Союза",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-048",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 66",
+          "status": "CONFIRMED",
+          "page": 783,
+          "item": "P.SP.02.MSG.048",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-048",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 637,
+          "item": "P.SP.02.MSG.048",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.049",
+      "name": "сведения о внесении изменений в сведения Единого реестра ТЗ Союза",
+      "structure_id": "R.IP.SP.02.007",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о внесении изменений в сведения Единого реестра ТЗ Союза",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-049",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 67",
+          "status": "CONFIRMED",
+          "page": 785,
+          "item": "P.SP.02.MSG.049",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-049",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 637,
+          "item": "P.SP.02.MSG.049",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.050",
+      "name": "сведения об отказе от исключительного права на ТЗ Союза",
+      "structure_id": "R.IP.SP.02.007",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения об отказе от исключительного права на ТЗ Союза",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-050",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 68",
+          "status": "CONFIRMED",
+          "page": 788,
+          "item": "P.SP.02.MSG.050",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-050",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 637,
+          "item": "P.SP.02.MSG.050",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.051",
+      "name": "сведения о признании предоставления правовой охраны ТЗ Союза недействительным (о прекращении правовой охраны)",
+      "structure_id": "R.IP.SP.02.007",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о признании предоставления правовой охраны ТЗ Союза недействительным (о прекращении правовой охраны)",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-051",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 69",
+          "status": "CONFIRMED",
+          "page": 790,
+          "item": "P.SP.02.MSG.051",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-051",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 637,
+          "item": "P.SP.02.MSG.051",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.052",
+      "name": "сведения об аннулировании регистрации ТЗ Союза",
+      "structure_id": "R.IP.SP.02.007",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения об аннулировании регистрации ТЗ Союза",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-052",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 70",
+          "status": "CONFIRMED",
+          "page": 793,
+          "item": "P.SP.02.MSG.052",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-052",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 637,
+          "item": "P.SP.02.MSG.052",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.053",
+      "name": "сведения о продлении срока действия исключительного права на ТЗ Союза",
+      "structure_id": "R.IP.SP.02.007",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о продлении срока действия исключительного права на ТЗ Союза",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-053",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 71",
+          "status": "CONFIRMED",
+          "page": 798,
+          "item": "P.SP.02.MSG.053",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-053",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 637,
+          "item": "P.SP.02.MSG.053",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.054",
+      "name": "запрос сведений о сумме и платежных реквизитах для уплаты пошлины",
+      "structure_id": "R.IP.SP.03.003",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "запрос сведений о сумме и платежных реквизитах для уплаты пошлины",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-054",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 72",
+          "status": "CONFIRMED",
+          "page": 801,
+          "item": "P.SP.02.MSG.054",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-054",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 637,
+          "item": "P.SP.02.MSG.054",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.055",
+      "name": "сведения о сумме и платежных реквизитах для уплаты пошлины",
+      "structure_id": "R.IP.SP.03.003",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": "RESPONSE",
+      "role": "response",
+      "purpose": "сведения о сумме и платежных реквизитах для уплаты пошлины",
+      "context": [
+        "P.SP.02.TRN.049"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-055",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 73",
+          "status": "CONFIRMED",
+          "page": 803,
+          "item": "P.SP.02.MSG.055",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-055",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 637,
+          "item": "P.SP.02.MSG.055",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.056",
+      "name": "запрос сведений о подтверждении уплаты пошлины",
+      "structure_id": "R.IP.SP.03.003",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "запрос сведений о подтверждении уплаты пошлины",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-056",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 74",
+          "status": "CONFIRMED",
+          "page": 804,
+          "item": "P.SP.02.MSG.056",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-056",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 637,
+          "item": "P.SP.02.MSG.056",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.057",
+      "name": "сведения о подтверждении уплаты пошлины",
+      "structure_id": "R.IP.SP.03.003",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": "RESPONSE",
+      "role": "response",
+      "purpose": "сведения о подтверждении уплаты пошлины",
+      "context": [
+        "P.SP.02.TRN.050"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-057",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 75",
+          "status": "CONFIRMED",
+          "page": 807,
+          "item": "P.SP.02.MSG.057",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-057",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 637,
+          "item": "P.SP.02.MSG.057",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.058",
+      "name": "запрос материалов и документов, используемых в ходе регистрации или иных процедур, связанных с ТЗ Союза",
+      "structure_id": "R.IP.SP.02.008",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "запрос материалов и документов, используемых в ходе регистрации или иных процедур, связанных с ТЗ Союза",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-058",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 76",
+          "status": "CONFIRMED",
+          "page": 808,
+          "item": "P.SP.02.MSG.058",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-058",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 638,
+          "item": "P.SP.02.MSG.058",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.059",
+      "name": "материалы и документы, используемые в ходе регистрации или иных процедур, связанных с ТЗ Союза",
+      "structure_id": [
+        "R.010",
+        "R.IP.SP.02.002",
+        "R.IP.SP.02.007"
+      ],
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": "RESPONSE",
+      "role": "response",
+      "purpose": "материалы и документы, используемые в ходе регистрации или иных процедур, связанных с ТЗ Союза",
+      "context": [
+        "P.SP.02.TRN.051"
+      ],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-059-T77",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 77",
+          "status": "CONFIRMED",
+          "page": 810,
+          "item": "P.SP.02.MSG.059",
+          "version_context": "P.SP.02 1.0.0"
+        },
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-059-T78",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 78",
+          "status": "CONFIRMED",
+          "page": 810,
+          "item": "P.SP.02.MSG.059",
+          "version_context": "P.SP.02 1.0.0"
+        },
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-059-T79",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 79",
+          "status": "CONFIRMED",
+          "page": 812,
+          "item": "P.SP.02.MSG.059",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-059",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 638,
+          "item": "P.SP.02.MSG.059",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.061",
+      "name": "обращение заинтересованного лица",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "обращение заинтересованного лица",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-061",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 80",
+          "status": "CONFIRMED",
+          "page": 813,
+          "item": "P.SP.02.MSG.061",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-061",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 638,
+          "item": "P.SP.02.MSG.061",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.062",
+      "name": "доводы заявителя в отношении обращения заинтересованного лица",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "доводы заявителя в отношении обращения заинтересованного лица",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-062",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 81",
+          "status": "CONFIRMED",
+          "page": 817,
+          "item": "P.SP.02.MSG.062",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-062",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 638,
+          "item": "P.SP.02.MSG.062",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "message_code": "P.SP.02.MSG.063",
+      "name": "сведения о признании заявки на ТЗ Союза отозванной по причине неуплаты пошлин",
+      "structure_id": "R.IP.SP.02.002",
+      "structure_version": "1.0.0",
+      "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
+      "direction": null,
+      "role": null,
+      "purpose": "сведения о признании заявки на ТЗ Союза отозванной по причине неуплаты пошлин",
+      "context": [],
+      "status": "CONFIRMED",
+      "message_rules_status": "HAS_SEPARATE_RULE_TABLE",
+      "message_rules_source_refs": [
+        {
+          "source_id": "22OP-RULESTATUS-P-SP-02-MSG-063",
+          "document": "ОП_22.pdf",
+          "location": "IX. Требования к заполнению электронных документов и сведений, таблица 82",
+          "status": "CONFIRMED",
+          "page": 820,
+          "item": "P.SP.02.MSG.063",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-MSG-P-SP-02-MSG-063",
+          "document": "ОП_22.pdf",
+          "location": "Перечень сообщений общего процесса",
+          "status": "CONFIRMED",
+          "page": 638,
+          "item": "P.SP.02.MSG.063",
+          "version_context": "P.SP.02 1.0.0"
         }
       ]
     }

@@ -1,0 +1,290 @@
+{
+  "structure_id": "R.IP.SP.02.002",
+  "name": "сведения о заявке, ходатайстве для прохождения процедур регистрации ТЗ Союза",
+  "active_version": "1.0.0",
+  "namespace": "urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0",
+  "root_element": "TrademarkRegistrationDetails",
+  "xsd_file": "EEC_R_IP_SP_02_TrademarkRegistrationDetails_v1.0.0.xsd",
+  "imports": {
+    "ccdo": "urn:EEC:M:ComplexDataObjects:vX.X.X",
+    "ipcdo": "urn:EEC:M:IP:ComplexDataObjects:vZ.Z.Z",
+    "ipsdo": "urn:EEC:M:IP:SimpleDataObjects:vZ.Z.Z",
+    "csdo": "urn:EEC:M:SimpleDataObjects:vX.X.X"
+  },
+  "table": 10,
+  "top_level_fields": [
+    {
+      "n": "1",
+      "element": "ccdo:EDocHeader",
+      "id": "M.CDE.90001",
+      "type": "ccdo:EDocHeaderType (M.CDT.90001)",
+      "cardinality": "1"
+    },
+    {
+      "n": "2",
+      "element": "ipcdo:TrademarkApplicationDetails",
+      "id": "M.IP.CDE.00235",
+      "type": "ipcdo:TrademarkApplicationDetailsType (M.IP.CDT.00225)",
+      "cardinality": "1..*"
+    },
+    {
+      "n": "3",
+      "element": "ipcdo:RefusalDetails",
+      "id": "M.IP.CDE.00034",
+      "type": "ipcdo:RefusalDetailsType (M.IP.CDT.00023)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "4",
+      "element": "ccdo:ResourceItemStatusDetails",
+      "id": "M.CDE.00032",
+      "type": "ccdo:ResourceItemStatusDetailsType (M.CDT.00033)",
+      "cardinality": "1"
+    }
+  ],
+  "trademark_application_children": [
+    {
+      "n": "2.1",
+      "element": "ipsdo:IPDocKindCode",
+      "id": "M.IP.SDE.00007",
+      "type": "ipsdo:IPDocKindCodeType (M.IP.SDT.00009)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.2",
+      "element": "ipsdo:IPDocKindName",
+      "id": "M.IP.SDE.00187",
+      "type": "csdo:Name500Type (M.SDT.00134)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.3",
+      "element": "csdo:DocId",
+      "id": "M.SDE.00044",
+      "type": "csdo:Id50Type (M.SDT.00093)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.4",
+      "element": "ipsdo:IPDocReceiptDate",
+      "id": "M.IP.SDE.00500",
+      "type": "bdt:DateType (M.BDT.00005)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.5",
+      "element": "ipsdo:ApplicationReceiptDate",
+      "id": "M.IP.SDE.00009",
+      "type": "bdt:DateType (M.BDT.00005)",
+      "cardinality": "1"
+    },
+    {
+      "n": "2.6",
+      "element": "ipsdo:TrademarkApplicationId",
+      "id": "M.IP.SDE.00065",
+      "type": "ipsdo:ApplicationIdType (M.IP.SDT.00016)",
+      "cardinality": "1"
+    },
+    {
+      "n": "2.7",
+      "element": "ipcdo:IPEntityStatusDetails",
+      "id": "M.IP.CDE.00505",
+      "type": "ipcdo:IPEntityStatusDetailsType (M.IP.CDT.00505)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.8",
+      "element": "ipcdo:PatentAuthorityDetails",
+      "id": "M.IP.CDE.00029",
+      "type": "ipcdo:PatentAuthorityDetailsType (M.IP.CDT.00119)",
+      "cardinality": "0..*"
+    },
+    {
+      "n": "2.9",
+      "element": "ipcdo:IPPartyDetails",
+      "id": "M.IP.CDE.00501",
+      "type": "ipcdo:IPPartyDetailsType (M.IP.CDT.00500)",
+      "cardinality": "0..*"
+    },
+    {
+      "n": "2.10",
+      "element": "ipcdo:CorrespondenceAddressDetails",
+      "id": "M.IP.CDE.00007",
+      "type": "ipcdo:CorrespondenceAddressDetailsType (M.IP.CDT.00005)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.11",
+      "element": "ipcdo:TrademarkDetails",
+      "id": "M.IP.CDE.00038",
+      "type": "ipcdo:TMBaseDetailsType (M.IP.CDT.00407)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.12",
+      "element": "ipcdo:GoodsBaseDetails",
+      "id": "M.IP.CDE.00086",
+      "type": "ipcdo:GoodsBaseDetailsType (M.IP.CDT.00089)",
+      "cardinality": "0..*"
+    },
+    {
+      "n": "2.13",
+      "element": "ipsdo:InconsistencyText",
+      "id": "M.IP.SDE.00028",
+      "type": "csdo:Text4000Type (M.SDT.00088)",
+      "cardinality": "0..*"
+    },
+    {
+      "n": "2.14",
+      "element": "ipcdo:TrademarkPriorityDetails",
+      "id": "M.IP.CDE.00041",
+      "type": "ipcdo:TrademarkPriorityDetailsType (M.IP.CDT.00031)",
+      "cardinality": "0..*"
+    },
+    {
+      "n": "2.15",
+      "element": "ipsdo:SourceTrademarkApplicationId",
+      "id": "M.IP.SDE.00063",
+      "type": "ipsdo:ApplicationIdType (M.IP.SDT.00016)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.16",
+      "element": "ipcdo:AccompanyingDocumentsDetails",
+      "id": "M.IP.CDE.00004",
+      "type": "ipcdo:IPDocDetailsType (M.IP.CDT.00003)",
+      "cardinality": "0..*"
+    },
+    {
+      "n": "2.17",
+      "element": "ipsdo:ConsentToDataProcessingIndicator",
+      "id": "M.IP.SDE.00501",
+      "type": "bdt:IndicatorType (M.BDT.00013)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.18",
+      "element": "ipcdo:SignatureDetails",
+      "id": "M.IP.CDE.00500",
+      "type": "ipcdo:SignatureDetailsType (M.IP.CDT.00501)",
+      "cardinality": "0..*"
+    },
+    {
+      "n": "2.19",
+      "element": "ipsdo:TrademarkRegistrationCode",
+      "id": "M.IP.SDE.00510",
+      "type": "ipsdo:TrademarkRegistrationCodeType (M.IP.SDT.00507)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.20",
+      "element": "ipcdo:TrademarkNationalApplicationDetails",
+      "id": "M.IP.CDE.00111",
+      "type": "ipcdo:TrademarkNationalApplicationDetailsType (M.IP.CDT.00179)",
+      "cardinality": "0..*"
+    },
+    {
+      "n": "2.21",
+      "element": "ipcdo:ApplicantChangeDetails",
+      "id": "M.IP.CDE.00215",
+      "type": "ipcdo:ApplicantChangeDetailsType (M.IP.CDT.00216)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.22",
+      "element": "ipcdo:TrademarkClaimDetails",
+      "id": "M.IP.CDE.00506",
+      "type": "ipcdo:TrademarkClaimDetailsType (M.IP.CDT.01000)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.23",
+      "element": "ipcdo:ArgumentDetails",
+      "id": "M.IP.CDE.00003",
+      "type": "ipcdo:ArgumentDetailsType (M.IP.CDT.00002)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.24",
+      "element": "ipcdo:ComplaintDetails",
+      "id": "M.IP.CDE.00510",
+      "type": "ipcdo:ComplaintDetailsType (M.IP.CDT.00510)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.25",
+      "element": "ipcdo:ApplicantComplainResponseDetails",
+      "id": "M.IP.CDE.00514",
+      "type": "ipcdo:ApplicantComplainResponseDetailsType (M.IP.CDT.00513)",
+      "cardinality": "0..1"
+    },
+    {
+      "n": "2.26",
+      "element": "ipcdo:NamingAbilityProofDetails",
+      "id": "M.IP.CDE.00511",
+      "type": "ipcdo:NamingAbilityProofDetailsType (M.IP.CDT.00511)",
+      "cardinality": "0..*"
+    }
+  ],
+  "refusal_children": [
+    {
+      "n": "3.1",
+      "element": "csdo:EventDate",
+      "id": "M.SDE.00131",
+      "type": "bdt:DateType (M.BDT.00005)",
+      "cardinality": "1"
+    },
+    {
+      "n": "3.2",
+      "element": "csdo:DescriptionText",
+      "id": "M.SDE.00002",
+      "type": "csdo:Text4000Type (M.SDT.00088)",
+      "cardinality": "1..*"
+    }
+  ],
+  "resource_status_children": [
+    {
+      "n": "4.1",
+      "element": "ccdo:ValidityPeriodDetails",
+      "id": "M.CDE.00033",
+      "type": "ccdo:PeriodDetailsType (M.CDT.00026)",
+      "cardinality": "0..1",
+      "children": [
+        {
+          "n": "4.1.1",
+          "element": "csdo:StartDateTime",
+          "id": "M.SDE.00133",
+          "type": "bdt:DateTimeType (M.BDT.00006)",
+          "cardinality": "0..1"
+        },
+        {
+          "n": "4.1.2",
+          "element": "csdo:EndDateTime",
+          "id": "M.SDE.00134",
+          "type": "bdt:DateTimeType (M.BDT.00006)",
+          "cardinality": "0..1"
+        }
+      ]
+    },
+    {
+      "n": "4.2",
+      "element": "csdo:UpdateDateTime",
+      "id": "M.SDE.00079",
+      "type": "bdt:DateTimeType (M.BDT.00006)",
+      "cardinality": "0..1"
+    }
+  ],
+  "status": "CONFIRMED",
+  "source_refs": [
+    {
+      "document": "ОП_22.pdf",
+      "location": "Описание технической схемы, таблицы 8–10",
+      "pages": [
+        838,
+        839,
+        "840-928"
+      ],
+      "version_context": "P.SP.02 1.0.0"
+    }
+  ]
+}
