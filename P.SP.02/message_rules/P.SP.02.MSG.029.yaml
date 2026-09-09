@@ -1,174 +1,328 @@
 {
   "message_code": "P.SP.02.MSG.029",
   "structure_id": "R.IP.SP.02.002",
-  "rule_tables": [
-    45
-  ],
   "fixed_values": {},
   "field_usage": {},
   "business_rules": [
     {
-      "rule_id": "P.SP.02.MSG.029.REQ.1",
+      "rule_id": "P.SP.02.MSG.029.T45.REQ.1",
       "requirement_code": "1",
-      "source_text": "Должен быть заполнен 1 экземпляр ipcdo:TrademarkApplicationDetails.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в электронном документе (сведениях) должен быть заполнен 1 экземпляр реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.029-1",
+          "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-1",
           "document": "ОП_22.pdf",
           "location": "Таблица 45",
           "status": "CONFIRMED",
           "page": 724,
+          "table": "45",
           "version_context": "P.SP.02 1.0.0",
           "item": "1"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.029.REQ.2",
+      "rule_id": "P.SP.02.MSG.029.T45.REQ.2",
       "requirement_code": "2",
-      "source_text": "TrademarkApplicationId обязателен и должен соответствовать активной заявке ведомства подачи со статусом «01» или «02».",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "реквизит «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) должен быть заполнен. В информационных ресурсах ведомства подачи, содержащих сведения о заявках на ТЗ Союза, должна содержаться запись, у которой реквизит «Код статуса» (csdo:StatusCode) равен значению «01» – «новая заявка на ТЗ Союза» или «02» – «заявка на ТЗ Союза изменена», реквизит «Конечная дата и время» (csdo:EndDateTime) не заполнен и в составе которой значение реквизита «Регистрационный номер заявки на ТЗ Союза» (ipsdo:TrademarkApplicationId) совпадает со значением реквизита «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) в составе сообщения",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.029-2",
+          "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-2",
           "document": "ОП_22.pdf",
           "location": "Таблица 45",
           "status": "CONFIRMED",
           "page": 724,
+          "table": "45",
           "version_context": "P.SP.02 1.0.0",
           "item": "2"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.029.REQ.3",
+      "rule_id": "P.SP.02.MSG.029.T45.REQ.3",
       "requirement_code": "3",
-      "source_text": "TrademarkRegistrationCode должен быть заполнен.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "реквизит «Вид регистрации ТЗ» (ipsdo:TrademarkRegistrationCode) должен быть заполнен",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.029-3",
+          "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-3",
           "document": "ОП_22.pdf",
           "location": "Таблица 45",
           "status": "CONFIRMED",
           "page": 724,
+          "table": "45",
           "version_context": "P.SP.02 1.0.0",
           "item": "3"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.029.REQ.4_5",
-      "requirement_code": "4-5",
-      "source_text": "IPDocKindCode/IPDocKindName заполняются в зависимости от наличия соответствующего вида заключения/решения в классификаторе.",
+      "rule_id": "P.SP.02.MSG.029.T45.REQ.4",
+      "requirement_code": "4",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "при включении в классификатор видов документов, сведений и материалов значений, соответствующих видам документов: «Заключение национального патентного ведомства по результатам экспертизы заявленного обозначения о возможности (невозможности) регистрации товарного знака, знака обслуживания Евразийского экономического союза»; «Решение национального патентного ведомства об отказе в регистрации товарного знака, знака обслуживания Евразийского экономического союза»; «Решение национального патентного ведомства о регистрации товарного знака, знака обслуживания Евразийского экономического союза» реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) должен быть заполнен и должен содержать кодовое обозначение указанных видов документов, а реквизит «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.029-4-5",
+          "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-4",
           "document": "ОП_22.pdf",
           "location": "Таблица 45",
           "status": "CONFIRMED",
           "page": 725,
+          "table": "45",
           "version_context": "P.SP.02 1.0.0",
-          "item": "4-5"
+          "item": "4"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.029.REQ.6_29",
-      "requirement_code": "6-29",
-      "source_text": "Соответствуют требованиям 6–29 таблицы 44.",
+      "rule_id": "P.SP.02.MSG.029.T45.REQ.5",
+      "requirement_code": "5",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "при отсутствии в классификаторе видов документов, сведений и материалов значений, соответствующих видам документов: «Заключение национального патентного ведомства по результатам экспертизы заявленного обозначения о возможности (невозможности) регистрации товарного знака, знака обслуживания Евразийского экономического союза»; «Решение национального патентного ведомства об отказе в регистрации товарного знака, знака обслуживания Евразийского экономического союза»; «Решение национального патентного ведомства о регистрации товарного знака, знака обслуживания Евразийского экономического союза» в составе реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails) реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) не заполняется, а реквизит «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) должен быть заполнен, и его значение должно соответствовать значениям указанных видов документов",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.029-6-29",
+          "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-5",
           "document": "ОП_22.pdf",
           "location": "Таблица 45",
           "status": "CONFIRMED",
           "page": 725,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.029.T45.REQ.6_29",
+      "requirement_code": "6-29",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "соответствуют требованиям 6-29 таблицы 44 настоящего Регламента, которые применяются при заполнении экземпляра реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails) (значения кодов требований в таблице 44 и таблице 45 совпадают)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45",
+          "status": "CONFIRMED",
+          "page": 725,
+          "table": "45",
           "version_context": "P.SP.02 1.0.0",
           "item": "6-29"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.029.REQ.30",
+      "rule_id": "P.SP.02.MSG.029.T45.REQ.30",
       "requirement_code": "30",
-      "source_text": "При TrademarkRegistrationCode=«01» не должно быть GoodsBaseDetails с TrademarkDecisionIndicator=«0».",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если значение реквизита «Вид регистрации ТЗ» (ipsdo:TrademarkRegistrationCode) соответствует значению «01» – «решение (заключение) о регистрации товарного знака Союза в отношении всех заявленных товаров (услуг)», то в составе реквизита «Товар в соответствии с МКТУ» (ipcdo:GoodsBaseDetails) не должно быть записей, для которых значение реквизита «Признак возможности регистрации товарного знака Союза» (ipsdo:TrademarkDecisionIndicator) соответствует значению «0» – «регистрация товарного знака Союза невозможна»",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.029-30",
+          "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-30",
           "document": "ОП_22.pdf",
           "location": "Таблица 45",
           "status": "CONFIRMED",
           "page": 726,
+          "table": "45",
           "version_context": "P.SP.02 1.0.0",
           "item": "30"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.029.REQ.31",
+      "rule_id": "P.SP.02.MSG.029.T45.REQ.31",
       "requirement_code": "31",
-      "source_text": "При TrademarkRegistrationCode=«02» или «03» должна быть ≥1 запись GoodsBaseDetails с TrademarkDecisionIndicator=«0».",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если значение реквизита «Вид регистрации ТЗ» (ipsdo:TrademarkRegistrationCode) соответствует значению «02» – «решение (заключение) о регистрации товарного знака Союза в отношении части заявленных товаров (услуг)» или «03» – «решение (заключение) об отказе в регистрации товарного знака Союза», то в составе реквизита «Товар в соответствии с МКТУ» (ipcdo:GoodsBaseDetails) должна быть одна или более записей для которых значение реквизита «Признак возможности регистрации товарного знака Союза» (ipsdo:TrademarkDecisionIndicator) соответствует значению «0» – «регистрация товарного знака Союза невозможна»",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.029-31",
+          "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-31",
           "document": "ОП_22.pdf",
           "location": "Таблица 45",
           "status": "CONFIRMED",
           "page": 726,
+          "table": "45",
           "version_context": "P.SP.02 1.0.0",
           "item": "31"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.029.REQ.32",
+      "rule_id": "P.SP.02.MSG.029.T45.REQ.32",
       "requirement_code": "32",
-      "source_text": "Для отказанного товара обязательны TrademarkApplicationId, TrademarkRegRefusalReasonText, InconsistencyText.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в составе экземпляпа реквизита «Товар в соответствии с МКТУ» (ipcdo:GoodsBaseDetails) значение реквизита «Признак возможности регистрации товарного знака Союза» (ipsdo:TrademarkDecisionIndicator) соответствует значению «0» – «регистрация товарного знака Союза невозможна», то для такого экземпляра реквизита «Товар в соответствии с МКТУ» (ipcdo:GoodsBaseDetails) должны быть заполнены реквизиты: «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId); «Описание основания для отказа в регистрации товарного знака Союза в отношении товара» (ipsdo:TrademarkRegRefusalReasonText); «Описание несоответствия» (ipsdo:InconsistencyText)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.029-32",
+          "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-32",
           "document": "ОП_22.pdf",
           "location": "Таблица 45",
           "status": "CONFIRMED",
           "page": 726,
+          "table": "45",
           "version_context": "P.SP.02 1.0.0",
           "item": "32"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.029.REQ.33_39",
-      "requirement_code": "33-39",
-      "source_text": "Требования к AccompanyingDocumentsDetails, RefusalDetails, ResourceItemStatusDetails и SignatureDetails применяются по строкам 33–39 таблицы 45.",
+      "rule_id": "P.SP.02.MSG.029.T45.REQ.33",
+      "requirement_code": "33",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в состав электронного документа (сведений) включен экземпляр реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails), то в составе такого экземпляра реквизита должен быть заполнен реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) или «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName). В составе реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails должны быть заполнены реквизиты: «Наименование документа» (csdo:DocName); «Номер документа» (csdo:DocId); «Дата документа» (csdo:DocCreationDate); «Дата истечения срока действия документа» (csdo:DocValidityDate); «Описание» (csdo:DescriptionText); «Количество листов» (csdo:PageQuantity)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.029-33-39",
+          "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-33",
           "document": "ОП_22.pdf",
           "location": "Таблица 45",
           "status": "CONFIRMED",
           "page": 727,
+          "table": "45",
           "version_context": "P.SP.02 1.0.0",
-          "item": "33-39"
+          "item": "33"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.029.T45.REQ.34",
+      "requirement_code": "34",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "реквизит «Отказ в регистрации объекта интеллектуальной собственности» (ipcdo:RefusalDetails) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-34",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45",
+          "status": "CONFIRMED",
+          "page": 727,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "34"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.029.T45.REQ.35",
+      "requirement_code": "35",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Технологические характеристики записи общего ресурса» (ccdo:ResourceItemStatusDetails) реквизит «Начальная дата и время» (csdo:StartDateTime) заполняется обязательно и соответствует дате и времени включения сведений в информационный ресурс национального патентного ведомства, содержащего сведения о заявках на ТЗ Союза",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-35",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45",
+          "status": "CONFIRMED",
+          "page": 727,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "35"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.029.T45.REQ.36",
+      "requirement_code": "36",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Технологические характеристики записи общего ресурса» (ccdo:ResourceItemStatusDetails) реквизит «Конечная дата и время» (csdo:EndDateTime) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-36",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45",
+          "status": "CONFIRMED",
+          "page": 727,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "36"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.029.T45.REQ.37",
+      "requirement_code": "37",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "реквизит «Сведения о подписании документа» (ipcdo:SignatureDetails) должен быть заполнен, и в его составе если реквизит «Сотрудник организации» (ipcdo:OfficerDetails) заполнен, то реквизит «ФИО» (ccdo:FullNameDetails), непосредственно подчиненный реквизиту «Сведения о подписании документа» (ipcdo:SignatureDetails), не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-37",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45",
+          "status": "CONFIRMED",
+          "page": 727,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "37"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.029.T45.REQ.38",
+      "requirement_code": "38",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в составе реквизита «Сведения о подписании документа» (ipcdo:SignatureDetails) реквизит «ФИО» (ccdo:FullNameDetails), непосредственно подчиненный реквизиту «Сведения о подписании документа» (ipcdo:SignatureDetails), заполнен, то реквизит «Сотрудник организации» (ipcdo:OfficerDetails) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-38",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45",
+          "status": "CONFIRMED",
+          "page": 727,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "38"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.029.T45.REQ.39",
+      "requirement_code": "39",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в составе реквизита «Сведения о подписании документа» (ipcdo:SignatureDetails) заполнен реквизит «Сотрудник организации» (ipcdo:OfficerDetails), в его составе должны быть заполнены реквизиты «Фамилия» (csdo:LastName), «Имя» (csdo:FirstName) и «Наименование должности» (csdo:PositionName), а реквизит «Контактный реквизит» (ccdo:CommunicationDetails) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-39",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 45",
+          "status": "CONFIRMED",
+          "page": 728,
+          "table": "45",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "39"
         }
       ]
     }
-  ],
-  "status": "CONFIRMED"
+  ]
 }
