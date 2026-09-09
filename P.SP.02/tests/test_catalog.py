@@ -115,26 +115,28 @@ def test_structure_files_and_counts():
             assert len(data["fields"]) == n
 
 
+def _structure_ids(value):
+    """Normalize structure_id/structure_ids: string or arbitrarily nested lists."""
+    if value is None:
+        return []
+    if isinstance(value, str):
+        return [value]
+    if isinstance(value, (list, tuple)):
+        result = []
+        for item in value:
+            result.extend(_structure_ids(item))
+        return result
+    raise AssertionError(f"Недопустимый формат structure id: {value!r}")
+
+
 def test_message_structures_exist_in_profile():
     valid = set(load("version_profiles/current.yaml")["structures"])
     for msg in records(load("messages.yaml"), "messages"):
-        ids = []
-        if msg.get("structure_id"):
-            ids.append(msg["structure_id"])
-
-        extra = msg.get("structure_ids") or []
-        # В каталоге встречаются как плоские, так и вложенные списки.
-        def flatten(values):
-            for value in values:
-                if isinstance(value, list):
-                    yield from flatten(value)
-                else:
-                    yield value
-
-        ids.extend(flatten(extra))
+        ids = _structure_ids(msg.get("structure_id"))
+        ids += _structure_ids(msg.get("structure_ids"))
         assert ids, f"{msg.get('message_code')} не содержит structure_id/structure_ids"
-        assert set(ids) <= valid, f"{msg.get('message_code')}: неизвестные структуры {set(ids)-valid}"
-
+        unknown = set(ids) - valid
+        assert not unknown, f"{msg.get('message_code')}: неизвестные структуры {unknown}"
 
 def test_message_rules_catalog():
     rules_dir = PACKAGE / "message_rules"
@@ -153,8 +155,8 @@ def test_message_rules_catalog():
 
 
 def test_every_message_rule_file():
-    valid_messages = {
-        code_of(x, "message_code", "code")
+    messages = {
+        code_of(x, "message_code", "code"): x
         for x in records(load("messages.yaml"), "messages")
     }
     valid_structures = set(load("version_profiles/current.yaml")["structures"])
@@ -163,17 +165,41 @@ def test_every_message_rule_file():
         data = json.loads(path.read_text(encoding="utf-8"))
         msg = data["message_code"]
         assert path.name == f"{msg}.yaml"
-        assert msg in valid_messages
+        assert msg in messages
 
         rules = data["business_rules"]
         assert isinstance(rules, list)
         assert rules, f"{path.name}: business_rules пуст"
 
+        file_structures = _structure_ids(data.get("structure_id"))
+        file_structures += _structure_ids(data.get("structure_ids"))
+        if not file_structures:
+            file_structures = _structure_ids(messages[msg].get("structure_id"))
+            file_structures += _structure_ids(messages[msg].get("structure_ids"))
+
+        assert file_structures, f"{path.name}: структура сообщения не определена"
+        assert not (set(file_structures) - valid_structures), (
+            f"{path.name}: неизвестные структуры {set(file_structures)-valid_structures}"
+        )
+
         rule_ids = []
         for rule in rules:
             rule_ids.append(rule["rule_id"])
             assert rule.get("requirement_code") not in (None, "")
-            assert rule.get("applies_to_structure") in valid_structures
+
+            # applies_to_structure есть не во всех исторически созданных правилах.
+            # Если поле есть — проверяем его; если нет — наследуем structure_id файла.
+            applies = _structure_ids(rule.get("applies_to_structure"))
+            if applies:
+                assert not (set(applies) - valid_structures), (
+                    f"{path.name}: неизвестная applies_to_structure "
+                    f"{set(applies)-valid_structures}"
+                )
+                assert set(applies) <= set(file_structures), (
+                    f"{path.name}: applies_to_structure {applies} "
+                    f"не входит в структуры сообщения {file_structures}"
+                )
+
             refs = rule.get("source_refs")
             assert isinstance(refs, list) and refs
             for ref in refs:
@@ -181,7 +207,6 @@ def test_every_message_rule_file():
                 assert ref["version_context"] == "P.SP.02 1.0.0"
 
         assert len(rule_ids) == len(set(rule_ids)), f"{path.name}: duplicate rule_id"
-
 
 def test_no_rules_for_messages_without_separate_tables():
     for n in (2, 23, 25, 26, 8, 60):
