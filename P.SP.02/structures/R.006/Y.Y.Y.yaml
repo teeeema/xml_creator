@@ -1,89 +1,365 @@
 {
   "structure_id": "R.006",
-  "name": "уведомление о результате обработки",
-  "active_version": "Y.Y.Y",
+  "version": "Y.Y.Y",
+  "official_name": "уведомление о результате обработки",
   "namespace": "urn:EEC:R:ProcessingResultDetails:vY.Y.Y",
   "root_element": "ProcessingResultDetails",
   "xsd_file": "EEC_R_ProcessingResultDetails_vY.Y.Y.xsd",
-  "imports": {
+  "imported_namespaces": {
     "ccdo": "urn:EEC:M:ComplexDataObjects:vX.X.X",
     "csdo": "urn:EEC:M:SimpleDataObjects:vX.X.X"
   },
-  "fields": [
-    {
-      "path": "ccdo:EDocHeader",
-      "id": "M.CDE.90001",
-      "type": "ccdo:EDocHeaderType (M.CDT.90001)",
-      "cardinality": "1"
-    },
-    {
-      "path": "ccdo:EDocHeader/csdo:InfEnvelopeCode",
-      "id": "M.SDE.90010",
-      "type": "csdo:InfEnvelopeCodeType (M.SDT.90004)",
-      "cardinality": "1"
-    },
-    {
-      "path": "ccdo:EDocHeader/csdo:EDocCode",
-      "id": "M.SDE.90001",
-      "type": "csdo:EDocCodeType (M.SDT.90001)",
-      "cardinality": "1"
-    },
-    {
-      "path": "ccdo:EDocHeader/csdo:EDocId",
-      "id": "M.SDE.90007",
-      "type": "csdo:UniversallyUniqueIdType (M.SDT.90003)",
-      "cardinality": "1"
-    },
-    {
-      "path": "ccdo:EDocHeader/csdo:EDocRefId",
-      "id": "M.SDE.90008",
-      "type": "csdo:UniversallyUniqueIdType (M.SDT.90003)",
-      "cardinality": "0..1"
-    },
-    {
-      "path": "ccdo:EDocHeader/csdo:EDocDateTime",
-      "id": "M.SDE.90002",
-      "type": "bdt:DateTimeType (M.BDT.00006)",
-      "cardinality": "1"
-    },
-    {
-      "path": "ccdo:EDocHeader/csdo:LanguageCode",
-      "id": "M.SDE.00051",
-      "type": "csdo:LanguageCodeType (M.SDT.00051)",
-      "cardinality": "0..1"
-    },
-    {
-      "path": "csdo:EventDateTime",
-      "id": "M.SDE.00132",
-      "type": "bdt:DateTimeType (M.BDT.00006)",
-      "cardinality": "1"
-    },
-    {
-      "path": "csdo:ProcessingResultV2Code",
-      "id": "M.SDE.90014",
-      "type": "csdo:ProcessingResultCodeV2Type (M.SDT.90006)",
-      "cardinality": "1"
-    },
-    {
-      "path": "csdo:DescriptionText",
-      "id": "M.SDE.00002",
-      "type": "csdo:Text4000Type (M.SDT.00088)",
-      "cardinality": "0..1"
-    }
-  ],
-  "status": "CONFIRMED",
+  "field_table_reference": {
+    "table": "4",
+    "start_page": 831,
+    "end_page": 833,
+    "status": "VERIFIED_FROM_PDF"
+  },
   "source_refs": [
     {
+      "source_id": "22OP-STRUCT-R.006",
       "document": "ОП_22.pdf",
-      "location": "Описание технической схемы, таблицы 2–4",
-      "pages": [
-        829,
-        830,
-        831,
-        832,
-        833
+      "location": "Описание форматов и структур электронных документов и сведений, таблицы 2–4",
+      "status": "CONFIRMED",
+      "page": 829,
+      "table": "2-4",
+      "item": "R.006",
+      "version_context": "Y.Y.Y"
+    }
+  ],
+  "status": "NEEDS_XSD",
+  "expected_normative_rows": 10,
+  "imported_normative_rows": 10,
+  "fields": [
+    {
+      "field_id": "1",
+      "order": 1,
+      "depth": 0,
+      "parent": null,
+      "path": "ccdo:EDocHeader",
+      "official_name": "Заголовок электронного документа (сведений)",
+      "xml_name": "EDocHeader",
+      "namespace_prefix": "ccdo",
+      "kind": "ELEMENT",
+      "datatype": "ccdo:EDocHeaderType",
+      "datatype_text": "ccdo:EDocHeaderType (M.CDT.90001)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "совокупность технологических реквизитов электронного документа (сведений)",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.CDE.90001",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.006-1",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 831,
+          "table": "4",
+          "item": "1",
+          "version_context": "P.SP.02 / R.006 Y.Y.Y"
+        }
       ],
-      "version_context": "P.SP.02 1.0.0"
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "1.1",
+      "order": 2,
+      "depth": 1,
+      "parent": "1",
+      "path": "ccdo:EDocHeader/csdo:InfEnvelopeCode",
+      "official_name": "Код сообщения общего процесса",
+      "xml_name": "InfEnvelopeCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:InfEnvelopeCodeType",
+      "datatype_text": "csdo:InfEnvelopeCodeType (M.SDT.90004)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "кодовое обозначение сообщения общего процесса",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.90010",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.006-1.1",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 831,
+          "table": "4",
+          "item": "1.1",
+          "version_context": "P.SP.02 / R.006 Y.Y.Y"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "1.2",
+      "order": 3,
+      "depth": 1,
+      "parent": "1",
+      "path": "ccdo:EDocHeader/csdo:EDocCode",
+      "official_name": "Код электронного документа (сведений)",
+      "xml_name": "EDocCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:EDocCodeType",
+      "datatype_text": "csdo:EDocCodeType (M.SDT.90001)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "кодовое обозначение электронного документа (сведений) в соответствии с реестром структур электронных документов и сведений",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.90001",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.006-1.2",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 831,
+          "table": "4",
+          "item": "1.2",
+          "version_context": "P.SP.02 / R.006 Y.Y.Y"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "1.3",
+      "order": 4,
+      "depth": 1,
+      "parent": "1",
+      "path": "ccdo:EDocHeader/csdo:EDocId",
+      "official_name": "Идентификатор электронного документа (сведений)",
+      "xml_name": "EDocId",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "datatype_text": "csdo:UniversallyUniqueIdType (M.SDT.90003)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "строка символов, однозначно идентифицирующая электронный документ (сведения)",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.90007",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.006-1.3",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 832,
+          "table": "4",
+          "item": "1.3",
+          "version_context": "P.SP.02 / R.006 Y.Y.Y"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "1.4",
+      "order": 5,
+      "depth": 1,
+      "parent": "1",
+      "path": "ccdo:EDocHeader/csdo:EDocRefId",
+      "official_name": "Идентификатор исходного электронного документа (сведений)",
+      "xml_name": "EDocRefId",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "datatype_text": "csdo:UniversallyUniqueIdType (M.SDT.90003)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "идентификатор электронного документа (сведений), в ответ на который был сформирован данный электронный документ (сведения)",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.90008",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.006-1.4",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 832,
+          "table": "4",
+          "item": "1.4",
+          "version_context": "P.SP.02 / R.006 Y.Y.Y"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "1.5",
+      "order": 6,
+      "depth": 1,
+      "parent": "1",
+      "path": "ccdo:EDocHeader/csdo:EDocDateTime",
+      "official_name": "Дата и время электронного документа (сведений)",
+      "xml_name": "EDocDateTime",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateTimeType",
+      "datatype_text": "bdt:DateTimeType (M.BDT.00006)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "дата и время создания электронного документа (сведений)",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.90002",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.006-1.5",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 832,
+          "table": "4",
+          "item": "1.5",
+          "version_context": "P.SP.02 / R.006 Y.Y.Y"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "1.6",
+      "order": 7,
+      "depth": 1,
+      "parent": "1",
+      "path": "ccdo:EDocHeader/csdo:LanguageCode",
+      "official_name": "Код языка",
+      "xml_name": "LanguageCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:LanguageCodeType",
+      "datatype_text": "csdo:LanguageCodeType (M.SDT.00051)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение языка",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.00051",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.006-1.6",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 832,
+          "table": "4",
+          "item": "1.6",
+          "version_context": "P.SP.02 / R.006 Y.Y.Y"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "2",
+      "order": 8,
+      "depth": 0,
+      "parent": null,
+      "path": "csdo:EventDateTime",
+      "official_name": "Дата и время",
+      "xml_name": "EventDateTime",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateTimeType",
+      "datatype_text": "bdt:DateTimeType (M.BDT.00006)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "дата и время окончания обработки сведений",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.00132",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.006-2",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 832,
+          "table": "4",
+          "item": "2",
+          "version_context": "P.SP.02 / R.006 Y.Y.Y"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "3",
+      "order": 9,
+      "depth": 0,
+      "parent": null,
+      "path": "csdo:ProcessingResultV2Code",
+      "official_name": "Код результата обработки",
+      "xml_name": "ProcessingResultV2Code",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:ProcessingResultCodeV2Type",
+      "datatype_text": "csdo:ProcessingResultCodeV2Type (M.SDT.90006)",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "кодовое обозначение результата обработки полученного электронного документа (сведений) информационной системой участника общего процесса",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.90014",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.006-3",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 833,
+          "table": "4",
+          "item": "3",
+          "version_context": "P.SP.02 / R.006 Y.Y.Y"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
+    },
+    {
+      "field_id": "4",
+      "order": 10,
+      "depth": 0,
+      "parent": null,
+      "path": "csdo:DescriptionText",
+      "official_name": "Описание",
+      "xml_name": "DescriptionText",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Text4000Type",
+      "datatype_text": "csdo:Text4000Type (M.SDT.00088)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "описание результата обработки сведений в произвольной форме",
+      "constraints": null,
+      "classifier_ref": null,
+      "identifier": "M.SDE.00002",
+      "source_refs": [
+        {
+          "source_id": "22OP-R.006-4",
+          "document": "ОП_22.pdf",
+          "location": "Реквизитный состав структуры",
+          "status": "CONFIRMED",
+          "page": 833,
+          "table": "4",
+          "item": "4",
+          "version_context": "P.SP.02 / R.006 Y.Y.Y"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED_FROM_PDF_TEXT"
     }
   ]
 }
