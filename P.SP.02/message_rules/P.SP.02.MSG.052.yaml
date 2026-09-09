@@ -5,14 +5,15 @@
   "field_usage": {},
   "business_rules": [
     {
-      "rule_id": "P.SP.02.MSG.052.REQ.1",
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.1",
       "requirement_code": "1",
-      "source_text": "Должны быть заполнены 1 или 2 экземпляра UnifiedRegisterRecordsDetails.",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "в электронном документе (сведениях) должны быть заполнены 1 или 2 экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.052-1",
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-1",
           "document": "ОП_22.pdf",
           "location": "Таблица 70",
           "status": "CONFIRMED",
@@ -24,14 +25,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.052.REQ.2",
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.2",
       "requirement_code": "2",
-      "source_text": "Один экземпляр должен содержать сведения об аннулировании: EventDate заполнен, StatusCode=«04».",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "в электронном документе (сведениях) должен быть 1 экземпляр реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), в составе которого в реквизите «Сведения о статусном состоянии» (ipcdo:IPEntityStatusDetails): реквизит «Дата» (csdo:EventDate) заполнен; реквизит «Код статуса» (csdo:StatusCode) заполнен и его значение соответствует значению «04» – «регистрация ТЗ Союза аннулирована», атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в составе реквизита «Код статуса» (csdo:StatusCode) не заполнен. Указанный экземпляр реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails) содержит сведения об аннулировании регистрации ТЗ Союза",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.052-2",
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-2",
           "document": "ОП_22.pdf",
           "location": "Таблица 70",
           "status": "CONFIRMED",
@@ -43,14 +45,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.052.REQ.3",
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.3",
       "requirement_code": "3",
-      "source_text": "При CancellationStatusIndicator=«1» хотя бы для одного товара должен присутствовать второй экземпляр о регистрации нового ТЗ.",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "в случае, если в составе экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения об аннулировании регистрации ТЗ Союза, значение реквизита «Признак аннулирования товарного знака Союза» (ipsdo:CancellationStatusIndicator) хотя бы для одного экземпляра реквизита «Товар в соответствии с МКТУ» (ipcdo:GoodsBaseDetails) соответствует значению «1» – «ТЗ Союза аннулирован, решение о досрочном прекращении действия (о признание недействительным) правовой охраны в отношении товара не принято», то в электронном документе (сведениях) должен быть заполнен второй экземпляр реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащий сведения о регистрации нового ТЗ Союза",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.052-3",
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-3",
           "document": "ОП_22.pdf",
           "location": "Таблица 70",
           "status": "CONFIRMED",
@@ -62,14 +65,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.052.REQ.4",
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.4",
       "requirement_code": "4",
-      "source_text": "Для нового ТЗ EventDate заполнен, StatusCode=«01», codeListId не заполняется.",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "в составе экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения о регистрации нового ТЗ Союза, в составе реквизита «Сведения о статусном состоянии» (ipcdo:IPEntityStatusDetails) реквизит «Дата» (csdo:EventDate) должен быть заполнен, значение реквизита «Код статуса» (csdo:StatusCode) должно соответствовать значению «01» – «ТЗ Союза зарегистрирован», а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в составе реквизита «Код статуса» (csdo:StatusCode) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.052-4",
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-4",
           "document": "ОП_22.pdf",
           "location": "Таблица 70",
           "status": "CONFIRMED",
@@ -81,14 +85,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.052.REQ.5",
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.5",
       "requirement_code": "5",
-      "source_text": "TrademarkId аннулируемой записи должен соответствовать активной записи НПВ.",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "реквизит «Регистрационный номер товарного знака Союза» (ipsdo:TrademarkId) в составе экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения об аннулировании регистрации ТЗ Союза, должен быть заполнен. В информационных ресурсах национального патентного ведомства, содержащих сведения о ТЗ Союза, должна содержаться запись, у которой реквизит «Код статуса» (csdo:StatusCode) равен значению «01» – «ТЗ Союза зарегистрирован» или «03» – «сведения о ТЗ Союза изменены», реквизит «Конечная дата и время» (csdo:EndDateTime) не заполнен, а значение реквизита «Регистрационный номер товарного знака Союза» (ipsdo:TrademarkId) совпадает со значением реквизита «Регистрационный номер товарного знака Союза» (ipsdo:TrademarkId) в составе экземпляра, содержащего сведения об аннулировании регистрации ТЗ Союза",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.052-5",
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-5",
           "document": "ОП_22.pdf",
           "location": "Таблица 70",
           "status": "CONFIRMED",
@@ -100,14 +105,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.052.REQ.6_19",
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.6_19",
       "requirement_code": "6-19",
-      "source_text": "Соответствуют требованиям 6–19 таблицы 49.",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "соответствуют требованиям 6-19 таблицы 49 настоящего Регламента, которые применяются при заполнении экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails) (значения кодов требований в таблице 49 и таблице 70 совпадают)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.052-6_19",
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-6-19",
           "document": "ОП_22.pdf",
           "location": "Таблица 70",
           "status": "CONFIRMED",
@@ -119,14 +125,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.052.REQ.20",
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.20",
       "requirement_code": "20",
-      "source_text": "TrademarkId нового ТЗ не должен существовать в ресурсах НПВ.",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "реквизит «Регистрационный номер товарного знака Союза» (ipsdo:TrademarkId) в составе экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения о регистрации нового ТЗ Союза, должен быть заполнен. В информационных ресурсах национального патентного ведомства, содержащих сведения о ТЗ Союза, не должна содержаться запись, у которой значение реквизита «Регистрационный номер товарного знака Союза» (ipsdo:TrademarkId) совпадает со значением реквизита «Регистрационный номер товарного знака Союза» (ipsdo:TrademarkId) в составе экземпляра, содержащего сведения о регистрации нового ТЗ Союза",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.052-20",
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-20",
           "document": "ОП_22.pdf",
           "location": "Таблица 70",
           "status": "CONFIRMED",
@@ -138,14 +145,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.052.REQ.21",
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.21",
       "requirement_code": "21",
-      "source_text": "StartDateTime аннулируемой записи меньше StartDateTime новой.",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "в составе экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения об аннулировании регистрации ТЗ Союза, должен быть заполнен реквизит «Начальная дата и время» (csdo:StartDateTime), и значение реквизита «Начальная дата и время» (csdo:StartDateTime) в составе этого экземпляра сведений записи из состава информационных ресурсах национального патентного ведомства, содержащих сведения о ТЗ Союза, должно быть меньше, чем значение реквизита «Начальная дата и время» (csdo:StartDateTime) в составе экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения о регистрации нового ТЗ Союза",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.052-21",
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-21",
           "document": "ОП_22.pdf",
           "location": "Таблица 70",
           "status": "CONFIRMED",
@@ -157,14 +165,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.052.REQ.22",
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.22",
       "requirement_code": "22",
-      "source_text": "EndDateTime аннулируемой записи заполнен и находится между соответствующими StartDateTime.",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "в составе экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения об аннулировании регистрации ТЗ Союза, реквизит «Конечная дата и время» (csdo:EndDateTime) должен быть заполнен, и значение этого реквизита должно быть больше значения реквизита «Начальная дата и время» (csdo:StartDateTime) в составе этого же экземпляра «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails) и меньше значения реквизита «Начальная дата и время» (csdo:StartDateTime) в составе экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения о регистрации нового ТЗ Союза",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.052-22",
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-22",
           "document": "ОП_22.pdf",
           "location": "Таблица 70",
           "status": "CONFIRMED",
@@ -176,14 +185,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.052.REQ.23",
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.23",
       "requirement_code": "23",
-      "source_text": "В RegistrationCancellationDetails обязательны CancellationRegistrationTrademarkCode и SolutionCancellationRegistrationTrademarkCode.",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "в составе экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения об аннулировании регистрации ТЗ Союза, в составе реквизита «Основание для аннулирования регистрации товарного знака Союза» (ipcdo:RegistrationCancellationDetails) должны быть заполнены реквизиты: «Код вида оснований для аннулирования регистрации товарного знака Союза» (ipsdo:CancellationRegistrationTrademarkCode); «Код вида решения по аннулированию регистрации товарного знака Союза» (ipsdo:SolutionCancellationRegistrationTrademarkCode)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.052-23",
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-23",
           "document": "ОП_22.pdf",
           "location": "Таблица 70",
           "status": "CONFIRMED",
@@ -195,14 +205,15 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.052.REQ.24",
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.24",
       "requirement_code": "24",
-      "source_text": "TrademarkId нового ТЗ совпадает с TrademarkNewId аннулируемой записи.",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "значение реквизита «Регистрационный номер товарного знака Союза» (ipsdo:TrademarkId) в составе экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения о регистрации нового ТЗ Союза, должно быть заполнено и его значение должно совпадать со значением реквизита «Новый регистрационный номер товарного знака Союза» (ipsdo:TrademarkNewId) в составе экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения об аннулировании регистрации ТЗ Союза",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.052-24",
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-24",
           "document": "ОП_22.pdf",
           "location": "Таблица 70",
           "status": "CONFIRMED",
@@ -214,40 +225,142 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.052.REQ.25_28",
-      "requirement_code": "25-28",
-      "source_text": "Правила IPDocKindCode/IPDocKindName для решений об аннулировании и новой регистрации.",
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.25",
+      "requirement_code": "25",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "для экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения об аннулировании регистрации ТЗ Союза, при включении в классификатор видов документов, сведений и материалов значения, соответствующего виду документа «Решение об аннулировании регистрации товарного знака, знака обслуживания Евразийского экономического союза», реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) должен быть заполнен и содержать кодовое обозначение указанного вида документа, а реквизит «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.052-25_28",
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-25",
           "document": "ОП_22.pdf",
           "location": "Таблица 70",
           "status": "CONFIRMED",
           "page": 796,
           "table": "70",
           "version_context": "P.SP.02 1.0.0",
-          "item": "25-28"
+          "item": "25"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.052.REQ.29_31",
-      "requirement_code": "29-31",
-      "source_text": "Применяются нормативные правила SignatureDetails таблицы 70.",
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.26",
+      "requirement_code": "26",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "для экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения об аннулировании регистрации ТЗ Союза, при отсутствии в классификаторе видов документов, сведений и материалов значения, соответствующего виду документа «Решение об аннулировании регистрации товарного знака, знака обслуживания Евразийского экономического союза», реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) не заполняется, а реквизит «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) должен быть заполнен, и его значение должно соответствовать значению «Решение об аннулировании регистрации товарного знака, знака обслуживания Евразийского экономического союза»",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.052-29_31",
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-26",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 796,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "26"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.27",
+      "requirement_code": "27",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "для экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения о регистрации нового ТЗ Союза, при включении в классификатор видов документов, сведений и материалов значения, соответствующего виду документа «Решение о регистрации товарного знака, знака обслуживания Евразийского экономического союза в отношении всех заявленных товаров и (или) услуг», реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) должен быть заполнен и должен содержать кодовое обозначение указанного вида документа, а реквизит «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-27",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 796,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "27"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.28",
+      "requirement_code": "28",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "для экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения о регистрации нового ТЗ Союза, при отсутствии в классификаторе видов документов, сведений и материалов значения, соответствующего виду документа «Решение о регистрации товарного знака, знака обслуживания Евразийского экономического союза в отношении всех заявленных товаров и (или) услуг», реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) не заполняется, а реквизит «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) должен быть заполнен, и его значение должно соответствовать значению «решение о регистрации товарного знака, знака обслуживания Евразийского экономического союза в отношении всех заявленных товаров и (или) услуг»",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-28",
           "document": "ОП_22.pdf",
           "location": "Таблица 70",
           "status": "CONFIRMED",
           "page": 797,
           "table": "70",
           "version_context": "P.SP.02 1.0.0",
-          "item": "29-31"
+          "item": "28"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.29",
+      "requirement_code": "29",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "реквизит «Сведения о подписании документа» (ipcdo:SignatureDetails) должен быть заполнен, и в его составе если реквизит «Сотрудник организации» (ipcdo:OfficerDetails) заполнен, то реквизит «ФИО» (ccdo:FullNameDetails), непосредственно подчиненный реквизиту «Сведения о подписании документа» (ipcdo:SignatureDetails), не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 797,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "29"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.30",
+      "requirement_code": "30",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "если в составе реквизита «Сведения о подписании документа» (ipcdo:SignatureDetails) реквизит «ФИО» (ccdo:FullNameDetails), непосредственно подчиненный реквизиту «Сведения о подписании документа» (ipcdo:SignatureDetails), заполнен, то реквизит «Сотрудник организации» (ipcdo:OfficerDetails) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-30",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 797,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "30"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.31",
+      "requirement_code": "31",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "если в составе реквизита «Сведения о подписании документа» (ipcdo:SignatureDetails) заполнен реквизит «Сотрудник организации» (ipcdo:OfficerDetails), в его составе должны быть заполнены реквизиты «Фамилия» (csdo:LastName), «Имя» (csdo:FirstName) и «Наименование должности» (csdo:PositionName), а реквизит «Контактный реквизит» (ccdo:CommunicationDetails) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-31",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 797,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "31"
         }
       ]
     }
