@@ -5,62 +5,164 @@
   "field_usage": {},
   "business_rules": [
     {
-      "rule_id": "P.SP.02.MSG.018.T51.REQ.1_19",
-      "requirement_code": "1-19",
-      "source_text": "Требования таблицы 51 начинаются на странице 565 PDF; страница не имеет читаемого текстового слоя в Files. Требования не подставлены во избежание выдумывания нормативных данных.",
+      "rule_id": "P.SP.02.MSG.018.T51.REQ.1",
+      "requirement_code": "1",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "реквизит «Регистрационный номер товарного знака Союза» (ipsdo:TrademarkId) должен быть заполнен. В Едином реестре ТЗ Союза должна содержаться запись, у которой реквизит «Код статуса» (csdo:StatusCode) равен значению «01» – «ТЗ Союза зарегистрирован» или «03» – «сведения о ТЗ Союза изменены», реквизит «Конечная дата и время» (csdo:EndDateTime) не заполнен, а значение реквизита «Регистрационный номер товарного знака Союза» (ipsdo:TrademarkId) совпадает со значением реквизита «Регистрационный номер товарного знака Союза» (ipsdo:TrademarkId) в составе сообщения",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
-      "interpretation_status": "BLOCKED_SOURCE_PAGE_UNREADABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.018-T51-1-19",
+          "source_id": "22OP-RULE-P.SP.02.MSG.018-T51-1",
           "document": "ОП_22.pdf",
-          "location": "Таблица 51",
-          "status": "BLOCKED",
+          "location": "Таблица 51. Требования к заполнению реквизитов P.SP.02.MSG.018",
+          "status": "CONFIRMED",
           "page": 565,
           "table": "51",
-          "item": "1-19",
-          "version_context": "P.SP.02 1.0.0"
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.018.T51.REQ.2",
+      "requirement_code": "2",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "в электронном документе (сведениях) должен быть заполнен 1 экземпляр реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.018-T51-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 51. Требования к заполнению реквизитов P.SP.02.MSG.018",
+          "status": "CONFIRMED",
+          "page": 565,
+          "table": "51",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.018.T51.REQ.3",
+      "requirement_code": "3",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "в составе реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails) должен быть заполнен реквизит «Начальная дата и время» (csdo:StartDateTime)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.018-T51-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 51. Требования к заполнению реквизитов P.SP.02.MSG.018",
+          "status": "CONFIRMED",
+          "page": 565,
+          "table": "51",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "3"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.018.T51.REQ.4",
+      "requirement_code": "4",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "в составе реквизита «Сведения записи Единого реестра ТЗ Союза» реквизит «Конечная дата и время» (csdo:EndDateTime) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.018-T51-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 51. Требования к заполнению реквизитов P.SP.02.MSG.018",
+          "status": "CONFIRMED",
+          "page": 565,
+          "table": "51",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.018.T51.REQ.5",
+      "requirement_code": "5",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "в составе реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails) в составе реквизита «Сведения о статусном состоянии» (ipcdo:IPEntityStatusDetails) реквизит «Дата» (csdo:EventDate) должен быть заполнен, значение реквизита «Код статуса» (csdo:StatusCode) должно соответствовать значению «03» – «сведения о ТЗ Союза изменены», а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в составе реквизита «Код статуса» (csdo:StatusCode) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.018-T51-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 51. Требования к заполнению реквизитов P.SP.02.MSG.018",
+          "status": "CONFIRMED",
+          "page": 565,
+          "table": "51",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.018.T51.REQ.6_19",
+      "requirement_code": "6-19",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "соответствуют требованиям 6-19 таблицы 37 настоящего Регламента, которые применяются при заполнении экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails) (значения кодов требований в таблице 37 и таблице 51 совпадают)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.018-T51-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 51. Требования к заполнению реквизитов P.SP.02.MSG.018",
+          "status": "CONFIRMED",
+          "page": 565,
+          "table": "51",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
         }
       ]
     },
     {
       "rule_id": "P.SP.02.MSG.018.T51.REQ.20",
       "requirement_code": "20",
-      "source_text": "При наличии в классификаторе вида документа «Заявление о внесении изменений в сведения Единого реестра товарных знаков, знаков обслуживания Евразийского экономического союза» ipsdo:IPDocKindCode заполняется кодом, ipsdo:IPDocKindName не заполняется.",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "при включении в классификатор видов документов, сведений и материалов значения, соответствующего виду документа «Заявление о внесении изменений в сведения Единого реестра товарных знаков, знаков обслуживания Евразийского экономического союза», реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) должен быть заполнен и должен содержать кодовое обозначение указанного вида документа, а реквизит «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
           "source_id": "22OP-RULE-P.SP.02.MSG.018-T51-20",
           "document": "ОП_22.pdf",
-          "location": "Таблица 51",
+          "location": "Таблица 51. Требования к заполнению реквизитов P.SP.02.MSG.018",
           "status": "CONFIRMED",
           "page": 566,
           "table": "51",
-          "item": "20",
-          "version_context": "P.SP.02 1.0.0"
+          "version_context": "P.SP.02 1.0.0",
+          "item": "20"
         }
       ]
     },
     {
       "rule_id": "P.SP.02.MSG.018.T51.REQ.21",
       "requirement_code": "21",
-      "source_text": "При отсутствии указанного вида документа ipsdo:IPDocKindCode не заполняется, ipsdo:IPDocKindName заполняется указанным нормативным наименованием.",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_text": "при отсутствии в классификаторе видов документов, сведений и материалов значения, соответствующего виду документа «Заявление о внесении изменений в сведения Единого реестра товарных знаков, знаков обслуживания Евразийского экономического союза», реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) не заполняется, а реквизит «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) должен быть заполнен, и его значение должно соответствовать значению «Заявление о внесении изменений в сведения Единого реестра товарных знаков, знаков обслуживания Евразийского экономического союза»",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
           "source_id": "22OP-RULE-P.SP.02.MSG.018-T51-21",
           "document": "ОП_22.pdf",
-          "location": "Таблица 51",
+          "location": "Таблица 51. Требования к заполнению реквизитов P.SP.02.MSG.018",
           "status": "CONFIRMED",
           "page": 566,
           "table": "51",
-          "item": "21",
-          "version_context": "P.SP.02 1.0.0"
+          "version_context": "P.SP.02 1.0.0",
+          "item": "21"
         }
       ]
     }
-  ],
-  "status": "PARTIAL"
+  ]
 }
