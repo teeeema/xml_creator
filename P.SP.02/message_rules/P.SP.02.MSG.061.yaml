@@ -5,16 +5,17 @@
   "field_usage": {},
   "business_rules": [
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.1",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.1",
       "requirement_code": "1",
-      "source_text": "В электронном документе (сведениях) должен быть заполнен 1 экземпляр реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails).",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в электронном документе (сведениях) должен быть заполнен 1 экземпляр реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-1",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-1",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 813,
           "table": "80",
@@ -24,16 +25,17 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.2",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.2",
       "requirement_code": "2",
-      "source_text": "При наличии соответствующего вида документа в классификаторе ipsdo:IPDocKindCode должен быть заполнен его кодом, а ipsdo:IPDocKindName не заполняется.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "при включении в классификатор видов документов, сведений и материалов значения, соответствующего виду документа «Обращение заинтересованного лица о наличии оснований для отказа в регистрации товарного знака Союза, предусмотренных статьей 8 Договора о товарных знаках, знаках обслуживания и наименованиях мест происхождения товаров Евразийского экономического союза», в составе реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails) реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) должен быть заполнен и содержать кодовое обозначение указанного вида документа, а реквизит «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-2",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-2",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 813,
           "table": "80",
@@ -43,16 +45,17 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.3",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.3",
       "requirement_code": "3",
-      "source_text": "При отсутствии соответствующего вида документа в классификаторе ipsdo:IPDocKindCode не заполняется, а ipsdo:IPDocKindName должен содержать нормативное наименование обращения заинтересованного лица.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "при отсутствии в классификаторе видов документов, сведений и материалов значения, соответствующего виду документа «Обращение заинтересованного лица о наличии оснований для отказа в регистрации товарного знака Союза, предусмотренных статьей 8 Договора о товарных знаках, знаках обслуживания и наименованиях мест происхождения товаров Евразийского экономического союза», в составе реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails) реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) не заполняется, а реквизит «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) должен быть заполнен, и его значение должно соответствовать значению: «Обращение заинтересованного лица о наличии оснований для отказа в регистрации товарного знака Союза, предусмотренных статьей 8 Договора о товарных знаках, знаках обслуживания и наименованиях мест происхождения товаров Евразийского экономического союза»",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-3",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-3",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 813,
           "table": "80",
@@ -62,16 +65,17 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.4",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.4",
       "requirement_code": "4",
-      "source_text": "ipsdo:TrademarkApplicationId должен быть заполнен и соответствовать записи НПВ со статусом «01» или «02».",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "реквизит «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) должен быть заполнен. В информационных ресурсах национального патентного ведомства, содержащих сведения о заявках на ТЗ Союза, должна содержаться запись, у которой значение реквизита «Код статуса» (csdo:StatusCode) соответствует значениям «01» – «новая заявка на ТЗ Союза» или «02» – «заявка на ТЗ Союза изменена», в составе которой значение реквизита «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) совпадает со значением реквизита «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) в составе сообщения",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-4",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-4",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 814,
           "table": "80",
@@ -81,16 +85,17 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.5",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.5",
       "requirement_code": "5",
-      "source_text": "При наличии ipcdo:AccompanyingDocumentsDetails должны быть заполнены IPDocKindName, DocId, DocCreationDate, DescriptionText и PageQuantity.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в состав электронного документа (сведений) включен экземпляр реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails), то в составе такого экземпляра реквизита должны быть заполнены реквизиты: «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName); «Номер документа» (csdo:DocId); «Дата документа» (csdo:DocCreationDate); «Описание» (csdo:DescriptionText); «Количество листов» (csdo:PageQuantity)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-5",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-5",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 814,
           "table": "80",
@@ -100,16 +105,17 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.6_29",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.6_29",
       "requirement_code": "6-29",
-      "source_text": "Соответствуют требованиям 6–29 таблицы 44 Регламента; коды требований таблиц 44 и 80 совпадают.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "соответствуют требованиям 6-29 таблицы 44 настоящего Регламента, которые применяются при заполнении экземпляра реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails) (значения кодов требований в таблице 44 и таблице 80 совпадают)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-6_29",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-6-29",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 814,
           "table": "80",
@@ -119,16 +125,17 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.30",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.30",
       "requirement_code": "30",
-      "source_text": "При наличии ipcdo:AccompanyingDocumentsDetails должны быть заполнены IPDocKindName, DocId, DocCreationDate, DescriptionText и PageQuantity.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в состав электронного документа (сведений) включен экземпляр реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails), то в составе такого экземпляра реквизита должны быть заполнены реквизиты: «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName); «Номер документа» (csdo:DocId); «Дата документа» (csdo:DocCreationDate); «Описание» (csdo:DescriptionText); «Количество листов» (csdo:PageQuantity)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-30",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-30",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 814,
           "table": "80",
@@ -138,16 +145,17 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.31",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.31",
       "requirement_code": "31",
-      "source_text": "В ipcdo:TrademarkClaimDetails должны быть заполнены StakeholderDetails, RequestId, RequestDate и InconsistencyText.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Сведения об обращении заинтересованного лица о несоответствии обозначения, заявленного на регистрацию в качестве товарного знака Союза, требованиям Договора о товарных знаках» (ipcdo:TrademarkClaimDetails) должны быть заполнены следующие реквизиты: «Заинтересованное лицо» (ipcdo:StakeholderDetails); «Регистрационный номер обращения заинтересованного лица» (ipsdo:RequestId); «Дата обращения заинтересованного лица» (ipsdo:RequestDate); «Описание несоответствия» (ipsdo:InconsistencyText)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-31",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-31",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 815,
           "table": "80",
@@ -157,16 +165,17 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.32",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.32",
       "requirement_code": "32",
-      "source_text": "В ipcdo:StakeholderDetails должны быть заполнены UnifiedCountryCode, SubjectName, SubjectBriefName и SubjectAddressDetails.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Заинтересованное лицо» (ipcdo:StakeholderDetails) должны быть заполнены следующие реквизиты: «Код страны» (csdo:UnifiedCountryCode); «Наименование субъекта» (csdo:SubjectName); «Краткое наименование субъекта» (csdo:SubjectBriefName); «Адрес» (ccdo:SubjectAddressDetails)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-32",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-32",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 815,
           "table": "80",
@@ -176,16 +185,17 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.33",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.33",
       "requirement_code": "33",
-      "source_text": "TrademarkNationalApplicationDetails, ApplicantChangeDetails, ComplaintDetails, ApplicantComplainResponseDetails и ArgumentDetails не заполняются.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails) реквизиты «Национальная заявка на регистрацию товарного знака» (ipcdo:TrademarkNationalApplicationDetails), «Сведения об изменении заявителя» (ipcdo:ApplicantChangeDetails), «Жалоба» (ipcdo:ComplaintDetails), «Ответ на жалобу заявителя на решение национального патентного ведомства» (ipcdo:ApplicantComplainResponseDetails), «Сведения о доводах (замечаниях) заявителя» (ipcdo:ArgumentDetails) не заполняются",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-33",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-33",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 815,
           "table": "80",
@@ -195,16 +205,17 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.34",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.34",
       "requirement_code": "34",
-      "source_text": "ipcdo:RefusalDetails не заполняется.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "реквизит «Отказ в регистрации объекта интеллектуальной собственности» (ipcdo:RefusalDetails) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-34",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-34",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 815,
           "table": "80",
@@ -214,16 +225,17 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.35",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.35",
       "requirement_code": "35",
-      "source_text": "В ipcdo:IPEntityStatusDetails EventDate должен быть заполнен; StatusCode=«02»; codeListId не заполняется.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Сведения о статусном состоянии» (ipcdo:IPEntityStatusDetails) реквизит «Дата» (csdo:EventDate) должен быть заполнен, значение реквизита «Код статуса» (csdo:StatusCode) должно соответствовать значению «02» – «заявка на ТЗ Союза изменена», а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в составе реквизита «Код статуса» (csdo:StatusCode) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-35",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-35",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 815,
           "table": "80",
@@ -233,16 +245,17 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.36",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.36",
       "requirement_code": "36",
-      "source_text": "В ccdo:ResourceItemStatusDetails StartDateTime заполняется обязательно.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Технологические характеристики записи общего ресурса» (ccdo:ResourceItemStatusDetails) реквизит «Начальная дата и время» (csdo:StartDateTime) заполняется обязательно",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-36",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-36",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 815,
           "table": "80",
@@ -252,16 +265,17 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.37",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.37",
       "requirement_code": "37",
-      "source_text": "В ccdo:ResourceItemStatusDetails EndDateTime не заполняется.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Технологические характеристики записи общего ресурса» (ccdo:ResourceItemStatusDetails) реквизит «Конечная дата и время» (csdo:EndDateTime) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-37",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-37",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 816,
           "table": "80",
@@ -271,16 +285,17 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.38",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.38",
       "requirement_code": "38",
-      "source_text": "ipcdo:SignatureDetails должен быть заполнен; при заполненном OfficerDetails непосредственно подчиненный FullNameDetails не заполняется.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "реквизит «Сведения о подписании документа» (ipcdo:SignatureDetails) должен быть заполнен, и в его составе если реквизит «Сотрудник организации» (ipcdo:OfficerDetails) заполнен, то реквизит «ФИО» (ccdo:FullNameDetails), непосредственно подчиненный реквизиту «Сведения о подписании документа» (ipcdo:SignatureDetails), не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-38",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-38",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 816,
           "table": "80",
@@ -290,16 +305,17 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.39",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.39",
       "requirement_code": "39",
-      "source_text": "При заполненном непосредственно подчиненном FullNameDetails реквизит OfficerDetails не заполняется.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в составе реквизита «Сведения о подписании документа» (ipcdo:SignatureDetails) реквизит «ФИО» (ccdo:FullNameDetails), непосредственно подчиненный реквизиту «Сведения о подписании документа» (ipcdo:SignatureDetails), заполнен, то реквизит «Сотрудник организации» (ipcdo:OfficerDetails) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-39",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-39",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 816,
           "table": "80",
@@ -309,16 +325,17 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.061.REQ.40",
+      "rule_id": "P.SP.02.MSG.061.T80.REQ.40",
       "requirement_code": "40",
-      "source_text": "При заполненном OfficerDetails обязательны LastName, FirstName и PositionName; CommunicationDetails не заполняется.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в составе реквизита «Сведения о подписании документа» (ipcdo:SignatureDetails) заполнен реквизит «Сотрудник организации» (ipcdo:OfficerDetails), в его составе должны быть заполнены реквизиты «Фамилия» (csdo:LastName), «Имя» (csdo:FirstName) и «Наименование должности» (csdo:PositionName), а реквизит «Контактный реквизит» (ccdo:CommunicationDetails) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.061-40",
+          "source_id": "22OP-RULE-P.SP.02.MSG.061-T80-40",
           "document": "ОП_22.pdf",
-          "location": "Таблица 80. Требования к заполнению реквизитов сообщения P.SP.02.MSG.061",
+          "location": "Таблица 80",
           "status": "CONFIRMED",
           "page": 816,
           "table": "80",
