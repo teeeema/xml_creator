@@ -1,156 +1,168 @@
 {
   "message_code": "P.SP.02.MSG.036",
   "structure_id": "R.IP.SP.02.002",
-  "rule_tables": [
-    54
-  ],
   "fixed_values": {},
   "field_usage": {},
   "business_rules": [
     {
-      "rule_id": "P.SP.02.MSG.036.REQ.1",
+      "rule_id": "P.SP.02.MSG.036.T54.REQ.1",
       "requirement_code": "1",
-      "source_text": "Должен быть заполнен 1 экземпляр TrademarkApplicationDetails.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в электронном документе (сведениях) должен быть заполнен 1 экземпляр реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.036-1",
+          "source_id": "22OP-RULE-P.SP.02.MSG.036-T54-1",
           "document": "ОП_22.pdf",
           "location": "Таблица 54",
           "status": "CONFIRMED",
           "page": 750,
+          "table": "54",
           "version_context": "P.SP.02 1.0.0",
           "item": "1"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.036.REQ.2",
+      "rule_id": "P.SP.02.MSG.036.T54.REQ.2",
       "requirement_code": "2",
-      "source_text": "IPDocKindCode соответствует документальному подтверждению согласия правообладателей (письмо-согласие).",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails) значение реквизита «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) должно соответствовать виду документа «Документальное подтверждение согласия правообладателей на регистрацию заявленного обозначения в качестве товарного знака (знака обслуживания) Евразийского экономического союза (письмо-согласие)»",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.036-2",
+          "source_id": "22OP-RULE-P.SP.02.MSG.036-T54-2",
           "document": "ОП_22.pdf",
           "location": "Таблица 54",
           "status": "CONFIRMED",
           "page": 750,
+          "table": "54",
           "version_context": "P.SP.02 1.0.0",
           "item": "2"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.036.REQ.3",
+      "rule_id": "P.SP.02.MSG.036.T54.REQ.3",
       "requirement_code": "3",
-      "source_text": "TrademarkApplicationId должен соответствовать активной заявке НПВ со статусом «01» или «02».",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "реквизит «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) должен быть заполнен. В информационных ресурсах национального патентного ведомства, содержащих сведения о заявках на ТЗ Союза, должна содержаться запись, у которой реквизит «Код статуса» (csdo:StatusCode) равен значению «01» – «новая заявка на ТЗ Союза» или «02» – «заявка на ТЗ Союза изменена», реквизит «Конечная дата и время» (csdo:EndDateTime) не заполнен и в составе которой значение реквизита «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) совпадает со значением реквизита «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) в составе сообщения",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.036-3",
+          "source_id": "22OP-RULE-P.SP.02.MSG.036-T54-3",
           "document": "ОП_22.pdf",
           "location": "Таблица 54",
           "status": "CONFIRMED",
           "page": 751,
+          "table": "54",
           "version_context": "P.SP.02 1.0.0",
           "item": "3"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.036.REQ.4",
+      "rule_id": "P.SP.02.MSG.036.T54.REQ.4",
       "requirement_code": "4",
-      "source_text": "Должен быть ≥1 AccompanyingDocumentsDetails с обязательными IPDocKindCode, DocId, DocCreationDate, DescriptionText, PageQuantity, DocBinaryText.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в состав электронного документа (сведений) должен быть включен хотя бы 1 экземпляр реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails), в составе которого должны быть заполнены реквизиты: «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode); «Номер документа» (csdo:DocId); «Дата документа» (csdo:DocCreationDate); «Описание» (csdo:DescriptionText); «Количество листов» (csdo:PageQuantity); «Документ в бинарном формате» (csdo:DocBinaryText)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.036-4",
+          "source_id": "22OP-RULE-P.SP.02.MSG.036-T54-4",
           "document": "ОП_22.pdf",
           "location": "Таблица 54",
           "status": "CONFIRMED",
           "page": 751,
+          "table": "54",
           "version_context": "P.SP.02 1.0.0",
           "item": "4"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.036.REQ.5",
+      "rule_id": "P.SP.02.MSG.036.T54.REQ.5",
       "requirement_code": "5",
-      "source_text": "RefusalDetails не заполняется.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "реквизит «Отказ в регистрации объекта интеллектуальной собственности» (ipcdo:RefusalDetails) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.036-5",
+          "source_id": "22OP-RULE-P.SP.02.MSG.036-T54-5",
           "document": "ОП_22.pdf",
           "location": "Таблица 54",
           "status": "CONFIRMED",
           "page": 751,
+          "table": "54",
           "version_context": "P.SP.02 1.0.0",
           "item": "5"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.036.REQ.6_29",
+      "rule_id": "P.SP.02.MSG.036.T54.REQ.6_29",
       "requirement_code": "6-29",
-      "source_text": "Соответствуют требованиям 6–29 таблицы 44.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "соответствуют требованиям 6-29 таблицы 44 настоящего Регламента, которые применяются при заполнении экземпляра реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails) (значения кодов требований в таблице 44 и таблице 54 совпадают)",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.036-6-29",
+          "source_id": "22OP-RULE-P.SP.02.MSG.036-T54-6-29",
           "document": "ОП_22.pdf",
           "location": "Таблица 54",
           "status": "CONFIRMED",
           "page": 751,
+          "table": "54",
           "version_context": "P.SP.02 1.0.0",
           "item": "6-29"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.036.REQ.30",
+      "rule_id": "P.SP.02.MSG.036.T54.REQ.30",
       "requirement_code": "30",
-      "source_text": "StartDateTime обязателен.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Технологические характеристики записи общего ресурса» (ccdo:ResourceItemStatusDetails) реквизит «Начальная дата и время» (csdo:StartDateTime) заполняется обязательно",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.036-30",
+          "source_id": "22OP-RULE-P.SP.02.MSG.036-T54-30",
           "document": "ОП_22.pdf",
           "location": "Таблица 54",
           "status": "CONFIRMED",
           "page": 751,
+          "table": "54",
           "version_context": "P.SP.02 1.0.0",
           "item": "30"
         }
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.036.REQ.31",
+      "rule_id": "P.SP.02.MSG.036.T54.REQ.31",
       "requirement_code": "31",
-      "source_text": "EndDateTime не заполняется.",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Технологические характеристики записи общего ресурса» (ccdo:ResourceItemStatusDetails) реквизит «Конечная дата и время» (csdo:EndDateTime) не заполняется",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.036-31",
+          "source_id": "22OP-RULE-P.SP.02.MSG.036-T54-31",
           "document": "ОП_22.pdf",
           "location": "Таблица 54",
           "status": "CONFIRMED",
           "page": 751,
+          "table": "54",
           "version_context": "P.SP.02 1.0.0",
           "item": "31"
         }
       ]
     }
-  ],
-  "status": "CONFIRMED"
+  ]
 }
