@@ -121,7 +121,17 @@ def test_message_structures_exist_in_profile():
         ids = []
         if msg.get("structure_id"):
             ids.append(msg["structure_id"])
-        ids.extend(msg.get("structure_ids") or [])
+
+        extra = msg.get("structure_ids") or []
+        # В каталоге встречаются как плоские, так и вложенные списки.
+        def flatten(values):
+            for value in values:
+                if isinstance(value, list):
+                    yield from flatten(value)
+                else:
+                    yield value
+
+        ids.extend(flatten(extra))
         assert ids, f"{msg.get('message_code')} не содержит structure_id/structure_ids"
         assert set(ids) <= valid, f"{msg.get('message_code')}: неизвестные структуры {set(ids)-valid}"
 
