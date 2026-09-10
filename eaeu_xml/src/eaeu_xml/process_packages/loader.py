@@ -4,7 +4,7 @@ from typing import Any
 
 from eaeu_xml.core.errors import ProcessPackageFormatError, ProcessPackagePathError, ProcessPackageValidationError
 from eaeu_xml.process_packages.models import (
-    FieldInputPolicyDefinition, UiInputPolicyDefinition, MessageDefinition, MessageRules, OperationDefinition, ParticipantDefinition, ProcedureDefinition, ProcessDefinition,
+    EmbeddedStructuresDefinition, FieldInputPolicyDefinition, UiInputPolicyDefinition, MessageDefinition, MessageRules, OperationDefinition, ParticipantDefinition, ProcedureDefinition, ProcessDefinition,
     ProcessPackage, SourceReference, StructureDefinition, TransactionDefinition,
     VersionProfile, StructureFieldDefinition, DatatypeFacets,
     StructureVersionSelection,
@@ -14,6 +14,32 @@ from eaeu_xml.process_packages.validator import ProcessPackageValidator
 
 def _refs(values: list[dict[str, Any]] | None) -> tuple[SourceReference, ...]:
     return tuple(SourceReference(**item) for item in (values or []))
+
+
+def _embedded_structures(value: Any) -> EmbeddedStructuresDefinition | None:
+    if value is None:
+        return None
+    if not isinstance(value, dict):
+        raise ProcessPackageFormatError(
+            code="INVALID_EMBEDDED_STRUCTURES_FORMAT",
+            message="embedded_structures должен быть объектом.",
+        )
+    structures = value.get("structures", ())
+    if not isinstance(structures, list):
+        raise ProcessPackageFormatError(
+            code="INVALID_EMBEDDED_STRUCTURES_FORMAT",
+            message="embedded_structures.structures должен быть массивом строк.",
+        )
+    return EmbeddedStructuresDefinition(selection=value.get("selection", ""), structures=tuple(structures))
+
+
+def _occurs(value: Any) -> int | None | Any:
+    """Preserve absent/unbounded cardinality and normalize JSON-compatible numerals."""
+    if value == "*":
+        return None
+    if isinstance(value, str) and value.isdecimal():
+        return int(value)
+    return value
 
 
 class ProcessPackageLoader:
@@ -70,6 +96,7 @@ class ProcessPackageLoader:
                        if rules_audit_path.is_file() else {})
         messages = {item["message_code"]: MessageDefinition(
             message_code=item["message_code"], name=item.get("name", ""), structure_id=item.get("structure_id"),
+            embedded_structures=_embedded_structures(item.get("embedded_structures")),
             structure_version=item.get("structure_version"),
             structure_version_source=item.get("structure_version_source"), direction=item.get("direction"), role=item.get("role"),
             purpose=item.get("purpose"), context=tuple(item.get("context", [])),
@@ -122,6 +149,7 @@ class ProcessPackageLoader:
             item = cls._read(file); code = item.get("message_code", file.stem)
             rules[code] = MessageRules(
                 message_code=code, structure_id=item.get("structure_id"), fixed_values=item.get("fixed_values", {}),
+                applies_to_structure=item.get("applies_to_structure"),
                 field_usage=item.get("field_usage", {}), business_rules=tuple(item.get("business_rules", [])), structured_rules=tuple(item.get("structured_rules", [])),
                 correlation_rules=tuple(item.get("correlation_rules", [])), classifier_refs=tuple(item.get("classifier_refs", [])),
                 source_text=item.get("source_text"), normalized_field_reference=item.get("normalized_field_reference"),
@@ -137,7 +165,7 @@ class ProcessPackageLoader:
                 for message_code in message_codes:
                     message = messages.get(message_code)
                     if not message or not any(field.path == item["field_path"] for (structure_id, _), definition in structures.items()
-                                              if structure_id == message.structure_id for field in definition.fields):
+                                              if structure_id in message.structure_ids for field in definition.fields):
                         continue
                     definition = FieldInputPolicyDefinition(
                         message_code=message_code, field_path=item["field_path"],
@@ -160,7 +188,7 @@ class ProcessPackageLoader:
                 for message_code in message_codes:
                     message = messages.get(message_code)
                     if not message or not any(field.path == item["field_path"] for (structure_id, _), definition in structures.items()
-                                              if structure_id == message.structure_id for field in definition.fields):
+                                              if structure_id in message.structure_ids for field in definition.fields):
                         continue
                     definition = UiInputPolicyDefinition(
                         message_code=message_code, field_path=item["field_path"],
@@ -191,7 +219,7 @@ class ProcessPackageLoader:
                 parent=field.get("parent"), path=field.get("path", ""), official_name=field.get("official_name", ""),
                 xml_name=field.get("xml_name"), namespace_prefix=field.get("namespace_prefix"), kind=field.get("kind", "ELEMENT"),
                 datatype=field.get("datatype"), datatype_text=field.get("datatype_text"),
-                min_occurs=field.get("min_occurs"), max_occurs=field.get("max_occurs"),
+                min_occurs=_occurs(field.get("min_occurs")), max_occurs=_occurs(field.get("max_occurs")),
                 description=field.get("description"), constraints=field.get("constraints"), classifier_ref=field.get("classifier_ref"),
                 identifier=field.get("identifier"), facets=DatatypeFacets(**field["facets"]) if field.get("facets") else None,
                 source_refs=_refs(field.get("source_refs")), status=field.get("status", "CONFIRMED"),

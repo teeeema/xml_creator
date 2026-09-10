@@ -140,6 +140,18 @@ class EaeuXmlApplication:
         messages_by_structure={}
         for message in engine.messages.values(): messages_by_structure.setdefault(message.structure_id,[]).append(message.message_code)
 
+        procedures_with_transactions={transaction.procedure_code for transaction in engine.transactions.values()}
+        for procedure in sorted(engine.procedures.values(), key=lambda item: item.procedure_code):
+            if procedure.procedure_code in procedures_with_transactions: continue
+            issues.append(ProcessIssueView(
+                code=f"PROCEDURE_WITHOUT_TRANSACTION:{procedure.procedure_code}", severity="WARNING", category="PROCEDURE_WITHOUT_TRANSACTION",
+                title="Процедура не использует межсистемную транзакцию",
+                description=f"{procedure.procedure_code} существует в нормативном пакете, но не связана с TRN.",
+                source_display=self._source_display(procedure.source_refs),
+                suggested_action="Проверьте выполнение процедуры через пользовательский интерфейс или сервисы портала; отсутствие TRN не делает процедуру невалидной.",
+                blocks_generation=False,
+            ))
+
         for structure_id,selection in sorted(engine.package.profile.structures.items()):
             if selection.active_version is not None:continue
             definitions=[value for (candidate,_),value in engine.structures.items() if candidate==structure_id]

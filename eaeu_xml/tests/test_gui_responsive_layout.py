@@ -9,8 +9,10 @@ from eaeu_xml.gui.main_frame import MainFrame
 
 
 FIXTURES = Path(__file__).parent / "fixtures"
+DISPLAY_AVAILABLE = wx.App.IsDisplayAvailable()
 
 
+@unittest.skipUnless(DISPLAY_AVAILABLE, "requires an active wx display")
 class GuiResponsiveLayoutTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

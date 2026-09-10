@@ -10,8 +10,10 @@ from eaeu_xml.gui.main_frame import MainFrame
 
 
 ROOT=Path(__file__).parents[2]
+DISPLAY_AVAILABLE = wx.App.IsDisplayAvailable()
 
 
+@unittest.skipUnless(DISPLAY_AVAILABLE, "requires an active wx display")
 class GuiSessionControlsTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):cls.wx_app=wx.GetApp() or wx.App(False)

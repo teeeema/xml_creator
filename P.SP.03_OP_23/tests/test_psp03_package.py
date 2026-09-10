@@ -9,7 +9,7 @@ from eaeu_xml.process_packages.loader import ProcessPackageLoader
 
 
 ROOT = Path(__file__).parents[2]
-PACKAGE_PATH = ROOT / "P.SP.03"
+PACKAGE_PATH = ROOT / "P.SP.03_OP_23"
 
 
 class Psp03PackageTests(TestCase):

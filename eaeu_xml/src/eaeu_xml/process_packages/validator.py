@@ -7,6 +7,8 @@ from eaeu_xml.process_packages.models import FIELD_INPUT_POLICIES, MESSAGE_RULES
 
 
 class ProcessPackageValidator:
+    EMBEDDED_STRUCTURE_SELECTIONS = {"ONE_OF"}
+
     def validate(self, package: ProcessPackage) -> None:
         if not package.process.process_code or not package.process.active_profile:
             self._fail("PROCESS_REQUIRED", "process_code и active_profile обязательны.")
@@ -65,17 +67,7 @@ class ProcessPackageValidator:
                 self._fail("MESSAGE_RULES_STATUS_UNVERIFIED", f"Статус отдельных правил {message.message_code} требует проверки.")
             if message.message_rules_status == "NORMATIVE_CONFLICT":
                 self._fail("MESSAGE_RULES_NORMATIVE_CONFLICT", f"Статус правил {message.message_code} содержит нормативный конфликт.")
-            if message.structure_id and message.structure_id not in package.profile.structures:
-                self._fail("STRUCTURE_NOT_IN_PROFILE", f"Для {message.structure_id} отсутствует активная версия в профиле.")
-            if message.structure_id:
-                selection = package.profile.structures[message.structure_id]
-                version = selection.active_version
-                if version is not None and (message.structure_id, version) not in package.structures:
-                    self._fail("UNKNOWN_STRUCTURE_VERSION", f"Структура {message.structure_id} версии {version} отсутствует.")
-                if version is not None and message.structure_version and message.structure_version != version:
-                    self._fail("MESSAGE_STRUCTURE_VERSION_MISMATCH", f"{message.message_code} ссылается не на active version {message.structure_id}.")
-                if version is None and not any(key[0] == message.structure_id for key in package.structures):
-                    self._fail("STRUCTURE_DEFINITION_MISSING", f"Для неразрешённой структуры {message.structure_id} отсутствуют определения.")
+            self._validate_message_structures(package, message)
         for key, structure in package.structures.items():
             if structure.namespace and not urlparse(structure.namespace).scheme:
                 self._fail("INVALID_NAMESPACE", f"Namespace структуры {key} не является URI.")
@@ -84,15 +76,24 @@ class ProcessPackageValidator:
             if message_code not in package.messages:
                 self._fail("ORPHAN_MESSAGE_RULES", f"MessageRules ссылаются на неизвестное сообщение {message_code}.")
             message = package.messages.get(message_code)
-            if rules.structure_id and message and rules.structure_id != message.structure_id:
+            allowed_structures = set(message.structure_ids) if message else set()
+            rules_structure = rules.applies_to_structure or rules.structure_id
+            if rules_structure is not None and not isinstance(rules_structure, str):
+                self._fail("INVALID_RULES_STRUCTURE_ID", f"MessageRules {message_code}: structure_id должен быть строкой или null.")
+            if rules_structure and rules_structure not in allowed_structures:
                 self._fail("RULES_STRUCTURE_MISMATCH", f"MessageRules {message_code} ссылаются на другую структуру.")
-            if message and message.structure_id:
-                definitions = [item for (structure_id, _), item in package.structures.items() if structure_id == message.structure_id]
+            if message and rules_structure:
+                definitions = [item for (structure_id, _), item in package.structures.items() if structure_id == rules_structure]
                 known_paths = {field.path for definition in definitions for field in definition.fields}
                 for path in (*rules.field_usage, *rules.fixed_values):
                     if path not in known_paths:
                         self._fail("UNKNOWN_RULE_FIELD", f"MessageRules {message_code} ссылаются на неизвестное поле {path}.")
             for rule in (*rules.business_rules, *rules.correlation_rules):
+                applies_to_structure = rule.get("applies_to_structure")
+                if applies_to_structure is not None and not isinstance(applies_to_structure, str):
+                    self._fail("INVALID_RULES_APPLIES_TO_STRUCTURE", f"Правило {rule.get('rule_id')}: applies_to_structure должен быть строкой.")
+                if applies_to_structure and applies_to_structure not in allowed_structures:
+                    self._fail("RULES_STRUCTURE_MISMATCH", f"Правило {rule.get('rule_id')} ссылается на другую структуру.")
                 if not rule.get("source_refs"):
                     self._fail("RULE_SOURCE_REQUIRED", f"Детальное правило {message_code} не имеет source_refs.")
                 if rule.get("interpretation_status") == "INTERNAL_NORMATIVE_CONFLICT":
@@ -103,7 +104,7 @@ class ProcessPackageValidator:
                 self._fail("UNKNOWN_INPUT_POLICY_MESSAGE", f"Input policy ссылается на неизвестное сообщение {message_code}.")
             message = package.messages.get(message_code)
             known_paths = {field.path for (structure_id, _), definition in package.structures.items()
-                           if message and structure_id == message.structure_id for field in definition.fields}
+                           if message and structure_id in message.structure_ids for field in definition.fields}
             if field_path not in known_paths:
                 self._fail("UNKNOWN_INPUT_POLICY_FIELD", f"Input policy {message_code} ссылается на неизвестное поле {field_path}.")
             if policy.input_policy not in FIELD_INPUT_POLICIES:
@@ -119,7 +120,7 @@ class ProcessPackageValidator:
                 self._fail("UNKNOWN_UI_POLICY_MESSAGE", f"UI policy ссылается на неизвестное сообщение {message_code}.")
             message = package.messages.get(message_code)
             known_paths = {field.path for (structure_id, _), definition in package.structures.items()
-                           if message and structure_id == message.structure_id for field in definition.fields}
+                           if message and structure_id in message.structure_ids for field in definition.fields}
             if field_path not in known_paths:
                 self._fail("UNKNOWN_UI_POLICY_FIELD", f"UI policy {message_code} ссылается на неизвестное поле {field_path}.")
             if policy.ui_input_policy not in UI_INPUT_POLICIES:
@@ -135,12 +136,9 @@ class ProcessPackageValidator:
         self._validate_orphans(package)
 
     def _validate_orphans(self, package: ProcessPackage) -> None:
-        used_procedures = {item.procedure_code for item in package.transactions.values()}
         used_messages = {item.initiating_message for item in package.transactions.values() if item.initiating_message}
         used_messages.update(code for item in package.transactions.values() for code in item.response_messages)
-        used_structures = {item.structure_id for item in package.messages.values() if item.structure_id}
-        if set(package.procedures) - used_procedures:
-            self._fail("ORPHAN_PROCEDURE", "Обнаружена процедура без транзакций.")
+        used_structures = {structure_id for message in package.messages.values() for structure_id in message.structure_ids}
         if set(package.messages) - used_messages:
             self._fail("ORPHAN_MESSAGE", "Обнаружено сообщение вне транзакций.")
         if {key[0] for key in package.structures} - used_structures:
@@ -152,6 +150,30 @@ class ProcessPackageValidator:
             for ref in (*entity.source_refs, *getattr(entity, "message_rules_source_refs", ())):
                 if not ref.source_id or not ref.document or not ref.location or not ref.status:
                     self._fail("INVALID_SOURCE_REF", "SourceReference требует source_id, document, location и status.")
+
+    def _validate_message_structures(self, package: ProcessPackage, message) -> None:
+        if not message.structure_id:
+            return
+        embedded = message.embedded_structures
+        if embedded:
+            if embedded.selection not in self.EMBEDDED_STRUCTURE_SELECTIONS:
+                self._fail("UNKNOWN_EMBEDDED_STRUCTURES_SELECTION", f"Неизвестный selection вложенных структур {message.message_code}: {embedded.selection}.")
+            if embedded.selection == "ONE_OF" and len(embedded.structures) < 2:
+                self._fail("ONE_OF_EMBEDDED_STRUCTURES_MINIMUM", f"ONE_OF {message.message_code} должен содержать минимум 2 структуры.")
+            for structure_id in embedded.structures:
+                if not isinstance(structure_id, str):
+                    self._fail("INVALID_EMBEDDED_STRUCTURE_ID", f"{message.message_code}: идентификатор вложенной структуры должен быть строкой.")
+        for structure_id in message.structure_ids:
+            if structure_id not in package.profile.structures:
+                self._fail("STRUCTURE_NOT_IN_PROFILE", f"Для {structure_id} отсутствует активная версия в профиле.")
+            selection = package.profile.structures[structure_id]
+            version = selection.active_version
+            if version is not None and (structure_id, version) not in package.structures:
+                self._fail("UNKNOWN_STRUCTURE_VERSION", f"Структура {structure_id} версии {version} отсутствует.")
+            if structure_id == message.structure_id and version is not None and message.structure_version and message.structure_version != version:
+                self._fail("MESSAGE_STRUCTURE_VERSION_MISMATCH", f"{message.message_code} ссылается не на active version {message.structure_id}.")
+            if version is None and not any(key[0] == structure_id for key in package.structures):
+                self._fail("STRUCTURE_DEFINITION_MISSING", f"Для неразрешённой структуры {structure_id} отсутствуют определения.")
 
     def _validate_structure_fields(self, structure) -> None:
         if structure.expected_normative_rows != structure.imported_normative_rows:
@@ -166,9 +188,9 @@ class ProcessPackageValidator:
             self._fail("INVALID_FIELD_ORDER", f"Нарушен порядок fields в {structure.structure_id}.")
         known = set(ids)
         for field in structure.fields:
-            if field.interpretation_status not in {"VERIFIED", "NEEDS_EXTERNAL_SOURCE", "NEEDS_NORMATIVE_INTERPRETATION"}:
+            if field.interpretation_status not in {"VERIFIED", "VERIFIED_FROM_PDF_TEXT", "NEEDS_EXTERNAL_SOURCE", "NEEDS_NORMATIVE_INTERPRETATION"}:
                 self._fail("UNKNOWN_INTERPRETATION_STATUS", f"Неизвестен статус интерпретации {field.field_id}.")
-            if field.interpretation_status != "VERIFIED" and not field.reason_code:
+            if field.interpretation_status not in {"VERIFIED", "VERIFIED_FROM_PDF_TEXT"} and not field.reason_code:
                 self._fail("INTERPRETATION_REASON_REQUIRED", f"Для {field.field_id} не указан reason_code.")
             if field.parent and field.parent not in known:
                 self._fail("UNKNOWN_FIELD_PARENT", f"{field.field_id} ссылается на неизвестного parent.")
@@ -176,6 +198,10 @@ class ProcessPackageValidator:
                 self._fail("ATTRIBUTE_PARENT_REQUIRED", f"Атрибут {field.field_id} не имеет parent.")
             if field.kind == "ARBITRARY_XML" and (field.datatype != "ANY_XML" or field.xml_name is not None):
                 self._fail("INVALID_ARBITRARY_XML_FIELD", f"Некорректное arbitrary XML поле {field.field_id}.")
+            if field.min_occurs is not None and not isinstance(field.min_occurs, int):
+                self._fail("INVALID_FIELD_MIN_OCCURS", f"min_occurs {field.field_id} должен быть целым числом или null.")
+            if field.max_occurs is not None and not isinstance(field.max_occurs, int):
+                self._fail("INVALID_FIELD_MAX_OCCURS", f"max_occurs {field.field_id} должен быть целым числом или null.")
             if field.min_occurs is not None and field.max_occurs is not None and field.min_occurs > field.max_occurs:
                 self._fail("INVALID_FIELD_CARDINALITY", f"Некорректная cardinality {field.field_id}.")
             if not field.source_refs:

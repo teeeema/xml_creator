@@ -124,12 +124,12 @@
     {
       "message_code": "P.SP.02.MSG.003",
       "name": "сведения о регистрации (отказе в регистрации) ТЗ Союза для опубликования",
-      "structure_id": [
-        "R.010",
-        "R.IP.SP.02.002",
-        "R.IP.SP.02.007"
-      ],
-      "structure_version": "1.0.0",
+      "structure_id": "R.010",
+      "embedded_structures": {
+        "selection": "ONE_OF",
+        "structures": ["R.IP.SP.02.002", "R.IP.SP.02.007"]
+      },
+      "structure_version": "Y.Y.Y",
       "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
       "direction": "REQUEST",
       "role": "request",
@@ -1144,12 +1144,12 @@
     {
       "message_code": "P.SP.02.MSG.031",
       "name": "сведения о регистрации (отказе в регистрации) ТЗ Союза",
-      "structure_id": [
-        "R.010",
-        "R.IP.SP.02.002",
-        "R.IP.SP.02.007"
-      ],
-      "structure_version": "1.0.0",
+      "structure_id": "R.010",
+      "embedded_structures": {
+        "selection": "ONE_OF",
+        "structures": ["R.IP.SP.02.002", "R.IP.SP.02.007"]
+      },
+      "structure_version": "Y.Y.Y",
       "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
       "direction": "REQUEST",
       "role": "request",
@@ -2202,12 +2202,12 @@
     {
       "message_code": "P.SP.02.MSG.059",
       "name": "материалы и документы, используемые в ходе регистрации или иных процедур, связанных с ТЗ Союза",
-      "structure_id": [
-        "R.010",
-        "R.IP.SP.02.002",
-        "R.IP.SP.02.007"
-      ],
-      "structure_version": "1.0.0",
+      "structure_id": "R.010",
+      "embedded_structures": {
+        "selection": "ONE_OF",
+        "structures": ["R.IP.SP.02.002", "R.IP.SP.02.007"]
+      },
+      "structure_version": "Y.Y.Y",
       "structure_version_source": "ОП_22.pdf, перечень сообщений; версия специализированных R.IP.SP.02.* — профиль P.SP.02 1.0.0",
       "direction": "RESPONSE",
       "role": "response",

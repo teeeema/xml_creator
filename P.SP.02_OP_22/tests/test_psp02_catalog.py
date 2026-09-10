@@ -181,6 +181,10 @@ def test_every_message_rule_file():
         assert not (set(file_structures) - valid_structures), (
             f"{path.name}: неизвестные структуры {set(file_structures)-valid_structures}"
         )
+        allowed_structures = _structure_ids(messages[msg].get("structure_id"))
+        allowed_structures += _structure_ids(messages[msg].get("structure_ids"))
+        embedded = messages[msg].get("embedded_structures") or {}
+        allowed_structures += _structure_ids(embedded.get("structures"))
 
         rule_ids = []
         for rule in rules:
@@ -195,9 +199,9 @@ def test_every_message_rule_file():
                     f"{path.name}: неизвестная applies_to_structure "
                     f"{set(applies)-valid_structures}"
                 )
-                assert set(applies) <= set(file_structures), (
+                assert set(applies) <= set(allowed_structures), (
                     f"{path.name}: applies_to_structure {applies} "
-                    f"не входит в структуры сообщения {file_structures}"
+                    f"не входит в допустимые структуры сообщения {allowed_structures}"
                 )
 
             refs = rule.get("source_refs")

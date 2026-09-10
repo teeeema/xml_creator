@@ -14,6 +14,7 @@ from eaeu_xml.process_packages.loader import ProcessPackageLoader
 
 FIXTURE = Path(__file__).parent / "fixtures/P.TEST.01"
 VERSION_FIXTURE = Path(__file__).parent / "fixtures/P.VERSION.01"
+SP02_FIXTURE = Path(__file__).parents[2] / "P.SP.02_OP_22"
 
 
 class ProcessPackageTests(unittest.TestCase):
@@ -34,6 +35,43 @@ class ProcessPackageTests(unittest.TestCase):
         self.assertEqual(len(package.messages), 2); self.assertEqual(len(package.structures), 2)
         self.assertEqual(package.process.source_refs[0].source_id, "TEST-001")
         self.assertFalse(package.classifiers_available); self.assertFalse(package.xsd_available)
+        self.assertIsNone(package.messages["P.TS.01.MSG.001"].embedded_structures)
+
+    def test_sp02_one_of_embedded_structures_and_rules_load(self):
+        package = ProcessPackageLoader.load(SP02_FIXTURE)
+        for code in ("P.SP.02.MSG.003", "P.SP.02.MSG.031", "P.SP.02.MSG.059"):
+            message = package.messages[code]
+            self.assertEqual(message.structure_id, "R.010")
+            self.assertEqual(message.embedded_structures.selection, "ONE_OF")
+            self.assertEqual(message.embedded_structures.structures, ("R.IP.SP.02.002", "R.IP.SP.02.007"))
+        self.assertEqual(package.rules["P.SP.02.MSG.003"].business_rules[0]["applies_to_structure"], "R.010")
+
+    def test_unknown_embedded_structure_is_rejected(self):
+        temporary, target = self.copy_fixture()
+        try:
+            self.rewrite(target / "messages.yaml", lambda data: data["messages"][0].update(
+                embedded_structures={"selection": "ONE_OF", "structures": ["R.TEST.001", "R.UNKNOWN"]}))
+            with self.assertRaisesRegex(ProcessPackageValidationError, "R.UNKNOWN"):
+                ProcessPackageLoader.load(target)
+        finally: temporary.cleanup()
+
+    def test_one_of_requires_at_least_two_embedded_structures(self):
+        temporary, target = self.copy_fixture()
+        try:
+            self.rewrite(target / "messages.yaml", lambda data: data["messages"][0].update(
+                embedded_structures={"selection": "ONE_OF", "structures": ["R.TEST.001"]}))
+            with self.assertRaisesRegex(ProcessPackageValidationError, "минимум 2"):
+                ProcessPackageLoader.load(target)
+        finally: temporary.cleanup()
+
+    def test_unknown_embedded_structure_selection_is_rejected(self):
+        temporary, target = self.copy_fixture()
+        try:
+            self.rewrite(target / "messages.yaml", lambda data: data["messages"][0].update(
+                embedded_structures={"selection": "ALL_OF", "structures": ["R.TEST.001", "R.TEST.001"]}))
+            with self.assertRaisesRegex(ProcessPackageValidationError, "Неизвестный selection"):
+                ProcessPackageLoader.load(target)
+        finally: temporary.cleanup()
 
     def test_message_rules_status_requires_matching_file_and_source(self):
         package = ProcessPackageLoader.load(FIXTURE)
@@ -91,6 +129,21 @@ class ProcessPackageTests(unittest.TestCase):
             with self.assertRaises(ProcessPackageValidationError): ProcessPackageLoader.load(target)
         finally: temporary.cleanup()
 
+    def test_normative_procedure_without_transaction_is_allowed(self):
+        temporary, target = self.copy_fixture()
+        try:
+            self.rewrite(target / "procedures.yaml", lambda data: data["procedures"].append({
+                "procedure_code": "P.TS.01.PRC.002", "name": "Portal procedure", "status": "CONFIRMED",
+                "source_refs": [{"source_id": "TEST-002", "document": "TEST_FIXTURE_ONLY", "location": "portal", "status": "TEST_ONLY"}],
+            }))
+            package = ProcessPackageLoader.load(target)
+            self.assertIn("P.TS.01.PRC.002", package.procedures)
+        finally: temporary.cleanup()
+
+    def test_procedure_with_transaction_is_allowed(self):
+        package = ProcessPackageLoader.load(FIXTURE)
+        self.assertEqual(package.transactions["P.TS.01.TRN.001"].procedure_code, "P.TS.01.PRC.001")
+
     def test_unknown_initiating_and_response_messages_are_rejected(self):
         for field, value in (("initiating_message", "P.TS.01.MSG.999"), ("response_messages", ["P.TS.01.MSG.999"])):
             temporary, target = self.copy_fixture()
@@ -122,10 +175,14 @@ class ProcessPackageTests(unittest.TestCase):
             with self.assertRaises(ProcessPackageValidationError): ProcessPackageLoader.load(target)
         finally: temporary.cleanup()
 
-    def test_orphan_definitions_are_rejected(self):
+    def test_orphan_structure_is_rejected(self):
         temporary, target = self.copy_fixture()
         try:
-            self.rewrite(target / "procedures.yaml", lambda data: data["procedures"].append({"procedure_code":"P.TS.01.PRC.002","name":"Orphan","source_refs":[]}))
+            source = target / "structures/R.TEST.001/2.0.0.yaml"
+            orphan = target / "structures/R.TEST.002/2.0.0.yaml"
+            orphan.parent.mkdir()
+            shutil.copy(source, orphan)
+            self.rewrite(orphan, lambda data: data.update(structure_id="R.TEST.002"))
             with self.assertRaises(ProcessPackageValidationError): ProcessPackageLoader.load(target)
         finally: temporary.cleanup()
 

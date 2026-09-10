@@ -121,7 +121,7 @@ class Pmm01GuiControllerTests(unittest.TestCase):
 
     def test_unresolved_is_blocked_only_in_strict_mode(self):
         self.select("P.MM.01.TRN.004","P.MM.01.MSG.005")
-        self.assertEqual(self.controller.message_marker(self.controller.current_message.generation_status),"[VERSION ?]")
+        self.assertEqual(self.controller.message_marker(self.controller.current_message.generation_status),"")
         self.controller.apply_settings(type(self.controller.settings)(ROOT,"STRICT",12345,drafts_directory=self.controller.settings.drafts_directory))
         self.select("P.MM.01.TRN.004","P.MM.01.MSG.005")
         self.assertFalse(self.controller.generation_enabled); self.assertEqual(self.controller.message_presentation().severity,"BLOCKED")

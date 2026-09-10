@@ -104,10 +104,19 @@ class TransactionDefinition:
 
 
 @dataclass(frozen=True)
+class EmbeddedStructuresDefinition:
+    """Normative embedded structures declared below a message root structure."""
+
+    selection: str
+    structures: tuple[str, ...] = ()
+
+
+@dataclass(frozen=True)
 class MessageDefinition:
     message_code: str
     name: str
     structure_id: str | None
+    embedded_structures: EmbeddedStructuresDefinition | None = None
     structure_version: str | None = None
     structure_version_source: str | None = None
     direction: str | None = None
@@ -118,6 +127,14 @@ class MessageDefinition:
     status: str = "NEEDS_VERIFICATION"
     message_rules_status: str = "NEEDS_VERIFICATION"
     message_rules_source_refs: tuple[SourceReference, ...] = ()
+
+    @property
+    def structure_ids(self) -> tuple[str, ...]:
+        """Root followed by declared embedded structures, without changing root semantics."""
+        return tuple(item for item in (
+            self.structure_id,
+            *((self.embedded_structures.structures if self.embedded_structures else ())),
+        ) if item)
 
 
 @dataclass(frozen=True)
@@ -181,6 +198,7 @@ class StructureDefinition:
 class MessageRules:
     message_code: str
     structure_id: str | None
+    applies_to_structure: str | None = None
     fixed_values: Mapping[str, Any] = field(default_factory=dict)
     field_usage: Mapping[str, str] = field(default_factory=dict)
     business_rules: tuple[Mapping[str, Any], ...] = ()
