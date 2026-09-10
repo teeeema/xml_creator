@@ -1,11 +1,13 @@
 import wx
 
 from eaeu_xml.gui.field_controls import GroupEditor, RepeatingGroupEditor, ScalarEditor
+from eaeu_xml.gui.theme import GuiTheme
 
 
 class FormPanel(wx.ScrolledWindow):
     def __init__(self, parent, on_field_guide=None, on_value_changed=None, on_assisted_input=None):
         super().__init__(parent, style=wx.HSCROLL | wx.VSCROLL); self.SetScrollRate(12, 12)
+        GuiTheme.apply_surface(self)
         self.root_sizer=wx.BoxSizer(wx.VERTICAL); self.SetSizer(self.root_sizer); self.editors=[]; self.on_field_guide=on_field_guide;self.on_value_changed=on_value_changed;self.on_assisted_input=on_assisted_input;self.force_expand=False
         self._resize_pending=False; self.Bind(wx.EVT_SIZE,self._on_size)
 

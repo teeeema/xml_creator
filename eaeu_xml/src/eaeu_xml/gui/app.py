@@ -7,7 +7,7 @@ from eaeu_xml.application import EaeuXmlApplication
 
 
 def main(argv=None):
-    parser=argparse.ArgumentParser(description="EAEU XML desktop GUI")
+    parser=argparse.ArgumentParser(description="ГИС_xml — настольное GUI-приложение")
     parser.add_argument("processes_root",nargs="?",type=Path,help="Directory containing external process packages")
     args=parser.parse_args(argv); logging.basicConfig(level=logging.INFO)
     try: import wx

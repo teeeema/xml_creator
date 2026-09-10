@@ -8,6 +8,7 @@ from eaeu_xml.application.services import TestDataGenerator
 
 
 FIXTURES = Path(__file__).parent / "fixtures"
+PROJECT_ROOT = Path(__file__).parents[2]
 
 
 class ApplicationFacadeTests(unittest.TestCase):
@@ -56,6 +57,19 @@ class ApplicationFacadeTests(unittest.TestCase):
         self.assertEqual(first["Items/@code"], "FIXED")
         self.assertNotIn("Note", first)
         self.assertTrue(self.app.validate("P.TS.01", "P.TS.01.TRN.001", "P.TS.01.MSG.001", first).is_valid)
+
+    def test_ds01_test_data_satisfies_executable_structured_rules(self):
+        application = EaeuXmlApplication(PROJECT_ROOT)
+        values = application.generate_test_data(
+            "P.DS.01", "P.DS.01.TRN.001", "P.DS.01.MSG.001", seed=12345,
+        )
+
+        validation = application.validate(
+            "P.DS.01", "P.DS.01.TRN.001", "P.DS.01.MSG.001", values,
+        )
+
+        self.assertEqual(validation.errors, ())
+        self.assertIn("VERSION_PLACEHOLDER", {issue.code for issue in validation.warnings})
 
     def test_test_data_generator_uses_decimal_value_for_payment_amount(self):
         field = FieldView("Amount", "Amount", "Amount", None, "ELEMENT", "ds01sdo:PaymentAmountType", True, 1, 1, False, False)

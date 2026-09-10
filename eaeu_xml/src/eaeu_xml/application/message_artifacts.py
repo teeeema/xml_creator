@@ -7,7 +7,11 @@ from pathlib import Path
 import tempfile
 from xml.etree import ElementTree as ET
 
-from eaeu_xml.application.session_snapshot import SessionSnapshotError, TransactionSessionSnapshot
+from eaeu_xml.application.session_snapshot import (
+    SessionSnapshotError,
+    TransactionSessionSnapshot,
+    normalize_session_path,
+)
 
 MESSAGE_ARTIFACT_VERSION=1
 SESSION_BUNDLE_VERSION=1
@@ -65,7 +69,8 @@ class SessionBundlePersistenceService:
         bundle=TransactionSessionBundle(SESSION_BUNDLE_VERSION,snapshot,tuple(artifacts))
         self.validate(bundle)
         text=json.dumps({"session_bundle_version":bundle.session_bundle_version,"snapshot":asdict(snapshot),"artifacts":[asdict(item) for item in bundle.artifacts]},ensure_ascii=False,sort_keys=True,indent=2)+"\n"
-        path=Path(path);path.parent.mkdir(parents=True,exist_ok=True);temporary=None
+        path = normalize_session_path(path)
+        path.parent.mkdir(parents=True,exist_ok=True);temporary=None
         try:
             with tempfile.NamedTemporaryFile("w",encoding="utf-8",dir=path.parent,prefix=f".{path.name}.",suffix=".tmp",delete=False) as handle:
                 temporary=Path(handle.name);handle.write(text);handle.flush();os.fsync(handle.fileno())

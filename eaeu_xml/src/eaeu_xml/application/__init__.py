@@ -11,7 +11,7 @@ from eaeu_xml.application.drafts import DraftDocument, DraftError, DraftLoadResu
 from eaeu_xml.application.form_filter import FieldVisibilityFilter
 from eaeu_xml.application.conditions import ConditionalRuleCompiler, ConditionEvaluator
 from eaeu_xml.application.session_snapshot import (
-    SESSION_SNAPSHOT_VERSION, SESSION_SUFFIX, SessionMessageSnapshot,
+    SESSION_SNAPSHOT_VERSION, SESSION_SUFFIX, normalize_session_path, SessionMessageSnapshot,
     SessionPersistenceService, SessionSnapshotError, SessionSnapshotValidationResult,
     SessionSnapshotValidator, TransactionSessionSnapshot,
 )
@@ -28,7 +28,7 @@ __all__ = [
     "ProcessGuide", "TransactionGuide", "MessageGuide", "MessageUsageGuide", "FieldGuide",
     "GuideSourceView", "GuideSearchHit", "ConflictGuide",
     "ConditionalFieldRule", "ConditionResult", "ConditionEvaluation", "ConditionProjection", "ConditionalRuleCompiler", "ConditionEvaluator",
-    "SESSION_SNAPSHOT_VERSION", "SESSION_SUFFIX", "SessionMessageSnapshot",
+    "SESSION_SNAPSHOT_VERSION", "SESSION_SUFFIX", "normalize_session_path", "SessionMessageSnapshot",
     "TransactionSessionSnapshot", "SessionSnapshotValidationResult",
     "SessionSnapshotValidator", "SessionPersistenceService", "SessionSnapshotError",
     "SessionRestoreStatus", "SessionRestoreResult", "SessionOpenResult", "TransactionSessionRestoreService",

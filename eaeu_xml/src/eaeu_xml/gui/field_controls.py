@@ -240,11 +240,21 @@ class RepeatingGroupEditor(wx.Panel):
         if not self.instances:return {}
         combined={self.field.path:[None]*len(self.instances)}
         collected={}
+        scalar_paths=set()
         for _,editors in self.instances:
             instance={}
-            for editor in editors: instance.update(editor.get_values())
+            for editor in editors:
+                editor_values=editor.get_values()
+                instance.update(editor_values)
+                if isinstance(editor,ScalarEditor) and not editor_values:
+                    scalar_paths.add(editor.field.path)
+                    instance[editor.field.path]=None
             for path,value in instance.items(): collected.setdefault(path,[]).append(value)
-        combined.update(collected); return combined
+        for path,values in collected.items():
+            if path in scalar_paths and not any(value is not None for value in values):
+                continue
+            combined[path]=values
+        return combined
 
     def set_value_map(self,values):
         count=_group_instance_count(self.field,values)

@@ -20,6 +20,16 @@ SESSION_SUFFIX = ".eaeusession.json"
 _DIRECTIONS = {"SENT", "RECEIVED"}
 
 
+def normalize_session_path(path: Path | str) -> Path:
+    """Return a path with the canonical transaction-session suffix."""
+    path = Path(path)
+    if path.name.endswith(SESSION_SUFFIX):
+        return path
+    if path.name.endswith(".eaeusession"):
+        return path.with_name(f"{path.name}.json")
+    return path.with_name(f"{path.name}{SESSION_SUFFIX}")
+
+
 class SessionSnapshotError(ValueError):
     def __init__(self, code: str, message: str):
         self.code = code
@@ -282,7 +292,7 @@ class SessionPersistenceService:
         result = self.validator.validate(snapshot)
         if result.errors:
             raise SessionSnapshotError("SESSION_SNAPSHOT_INVALID", ", ".join(result.errors))
-        path = Path(path)
+        path = normalize_session_path(path)
         path.parent.mkdir(parents=True, exist_ok=True)
         text = json.dumps(asdict(snapshot), ensure_ascii=False, indent=2, sort_keys=True) + "\n"
         temporary = None

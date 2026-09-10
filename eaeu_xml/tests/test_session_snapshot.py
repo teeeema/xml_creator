@@ -10,6 +10,7 @@ from eaeu_xml.application import (
     EaeuXmlApplication, SESSION_SNAPSHOT_VERSION, SessionMessageSnapshot,
     SessionPersistenceService, SessionSnapshotError, SessionSnapshotValidator,
     TransactionSessionSnapshot,
+    normalize_session_path,
 )
 from eaeu_xml.core.enums import MessageKind, SignalKind, TransactionPattern, TransactionState
 from eaeu_xml.decision5.models import (
@@ -36,6 +37,13 @@ class SessionSnapshotTests(unittest.TestCase):
 
     def tearDown(self):
         self.temp.cleanup()
+
+    def test_session_filename_normalization_uses_canonical_suffix_once(self):
+        expected = self.root / "test.eaeusession.json"
+        self.assertEqual(normalize_session_path(self.root / "test"), expected)
+        self.assertEqual(normalize_session_path(self.root / "test.eaeusession"), expected)
+        self.assertEqual(normalize_session_path(self.root / "test.eaeusession.json"), expected)
+        self.assertNotIn(".eaeusession.json.json", str(expected))
 
     def _request_response_snapshot(self):
         session = self.app.start_transaction("P.MM.01", "P.MM.01.TRN.004", seed=9)

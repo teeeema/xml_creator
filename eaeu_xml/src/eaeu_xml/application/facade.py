@@ -401,7 +401,13 @@ class EaeuXmlApplication:
         return "\n".join(lines)
 
     def generate_test_data(self, process_code: str, transaction_code: str, message_code: str, *, seed: int = 0):
-        values=self.test_data_generator.generate(self.get_form(process_code, transaction_code, message_code), seed=seed)
+        engine = self._engine(process_code)
+        rules = engine.rules.get(message_code)
+        values=self.test_data_generator.generate(
+            self.get_form(process_code, transaction_code, message_code),
+            seed=seed,
+            structured_rules=rules.structured_rules if rules else (),
+        )
         for item in self.condition_evaluator.evaluate_all(self.get_conditional_rules(process_code,message_code),values):
             if ((item.rule.effect=="SHOW" and item.result.value=="FALSE") or
                 (item.rule.effect=="HIDE" and item.result.value=="TRUE")):
