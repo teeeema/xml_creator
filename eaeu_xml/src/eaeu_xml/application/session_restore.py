@@ -60,10 +60,12 @@ class SessionOpenResult:
     path: object | None = None
 
     @property
-    def status(self):return self.restore.status
+    def status(self):
+        return self.restore.status
 
     @property
-    def continue_ready(self):return self.restore.continue_ready
+    def continue_ready(self):
+        return self.restore.continue_ready
 
 
 class TransactionSessionRestoreService:
@@ -76,7 +78,11 @@ class TransactionSessionRestoreService:
         try:
             snapshot = self.persistence.load(path)
         except SessionSnapshotError as error:
-            return SessionRestoreResult(SessionRestoreStatus.SNAPSHOT_INVALID, issues=(f"{error.code}: {error.message}",))
+            issue = f"{error.code}: {error.message}"
+            return SessionRestoreResult(
+                SessionRestoreStatus.SNAPSHOT_INVALID,
+                issues=(issue,),
+            )
         return self.restore(snapshot, seed=seed)
 
     def restore(self, snapshot: TransactionSessionSnapshot, *, seed=0) -> SessionRestoreResult:
@@ -84,23 +90,32 @@ class TransactionSessionRestoreService:
         if structural.errors:
             return self._structural_failure(structural.errors)
         if structural.warnings:
-            return SessionRestoreResult(SessionRestoreStatus.TIMING_REVALIDATION_REQUIRED,
-                                        issues=structural.warnings, timing_status="REVALIDATION_REQUIRED")
+            return SessionRestoreResult(
+                SessionRestoreStatus.TIMING_REVALIDATION_REQUIRED,
+                issues=structural.warnings,
+                timing_status="REVALIDATION_REQUIRED",
+            )
         try:
             engine = self.application._engine(snapshot.process_code)
         except KeyError as error:
             return SessionRestoreResult(SessionRestoreStatus.PROCESS_NOT_FOUND, issues=(str(error),))
         current_version = engine.package.profile.process_version
         if snapshot.process_version != current_version:
-            return SessionRestoreResult(SessionRestoreStatus.PROCESS_VERSION_MISMATCH,
-                issues=(f"snapshot={snapshot.process_version}; current={current_version}",))
+            issue = f"snapshot={snapshot.process_version}; current={current_version}"
+            return SessionRestoreResult(
+                SessionRestoreStatus.PROCESS_VERSION_MISMATCH,
+                issues=(issue,),
+            )
         try:
             definition = engine.get_transaction(snapshot.transaction_code)
         except Exception as error:
             return SessionRestoreResult(SessionRestoreStatus.TRANSACTION_NOT_FOUND, issues=(str(error),))
         mismatch = self._definition_mismatch(snapshot, definition)
         if mismatch:
-            return SessionRestoreResult(SessionRestoreStatus.TRANSACTION_DEFINITION_MISMATCH, issues=tuple(mismatch))
+            return SessionRestoreResult(
+                SessionRestoreStatus.TRANSACTION_DEFINITION_MISMATCH,
+                issues=tuple(mismatch),
+            )
         semantic = self._message_semantics(snapshot, engine, definition)
         if semantic:
             return semantic
@@ -113,14 +128,16 @@ class TransactionSessionRestoreService:
         except Exception as error:
             return SessionRestoreResult(SessionRestoreStatus.CORRELATION_INVALID, issues=(str(error),))
         if transaction.state.value != snapshot.current_state:
-            return SessionRestoreResult(SessionRestoreStatus.STATE_INVALID,
-                issues=(f"snapshot={snapshot.current_state}; replay={transaction.state.value}",))
+            issue = f"snapshot={snapshot.current_state}; replay={transaction.state.value}"
+            return SessionRestoreResult(SessionRestoreStatus.STATE_INVALID, issues=(issue,))
         from eaeu_xml.application.facade import TransactionSession
         session = TransactionSession._from_validated_restore(
             self.application, snapshot, transaction, metadata, seed=seed)
         if session.create_snapshot() != snapshot:
-            return SessionRestoreResult(SessionRestoreStatus.SNAPSHOT_INVALID,
-                                        issues=("RUNTIME_ROUNDTRIP_MISMATCH",))
+            return SessionRestoreResult(
+                SessionRestoreStatus.SNAPSHOT_INVALID,
+                issues=("RUNTIME_ROUNDTRIP_MISMATCH",),
+            )
         return SessionRestoreResult(SessionRestoreStatus.RESTORABLE, session=session)
 
     @staticmethod
@@ -133,7 +150,10 @@ class TransactionSessionRestoreService:
             "BROKEN_RETRY_OF": SessionRestoreStatus.RETRY_INVALID,
             "RETRY_CHAIN_INVALID": SessionRestoreStatus.RETRY_INVALID,
         }
-        status = next((mapping[item] for item in errors if item in mapping), SessionRestoreStatus.SNAPSHOT_INVALID)
+        status = next(
+            (mapping[item] for item in errors if item in mapping),
+            SessionRestoreStatus.SNAPSHOT_INVALID,
+        )
         return SessionRestoreResult(status, issues=tuple(errors))
 
     @staticmethod
@@ -152,7 +172,11 @@ class TransactionSessionRestoreService:
 
     @staticmethod
     def _message_semantics(snapshot, engine, definition):
-        application_records = [item for item in snapshot.history if item.message_kind == MessageKind.APPLICATION.value]
+        application_records = [
+            item
+            for item in snapshot.history
+            if item.message_kind == MessageKind.APPLICATION.value
+        ]
         if snapshot.history and (not application_records or application_records[0] is not snapshot.history[0]):
             return SessionRestoreResult(SessionRestoreStatus.MESSAGE_DEFINITION_MISMATCH,
                                         issues=("INITIAL_APPLICATION_MESSAGE_REQUIRED",))
@@ -168,16 +192,27 @@ class TransactionSessionRestoreService:
                 if index == 0 and item.message_code != definition.initiating_message:
                     return SessionRestoreResult(SessionRestoreStatus.MESSAGE_DEFINITION_MISMATCH,
                                                 issues=("INITIAL_MESSAGE_MISMATCH",))
-                expected = engine.build_application_action(definition.transaction_code, item.message_code).serialize()
+                expected_action = engine.build_application_action(
+                    definition.transaction_code,
+                    item.message_code,
+                )
+                expected = expected_action.serialize()
                 if item.action != expected:
                     return SessionRestoreResult(SessionRestoreStatus.ACTION_INVALID,
                                                 issues=(f"Action mismatch: {item.message_code}",))
         return None
 
     def _rebuild(self, snapshot, definition):
-        procedure = ProcedureInstance(snapshot.procedure_code, ProcedureId.parse(snapshot.procedure_id))
-        transaction = TransactionInstance(snapshot.transaction_code, ConversationId.parse(snapshot.conversation_id),
-            procedure, definition=self._runtime_definition(definition))
+        procedure_id = ProcedureId.parse(snapshot.procedure_id)
+        procedure = ProcedureInstance(snapshot.procedure_code, procedure_id)
+        conversation_id = ConversationId.parse(snapshot.conversation_id)
+        runtime_definition = self._runtime_definition(definition)
+        transaction = TransactionInstance(
+            snapshot.transaction_code,
+            conversation_id,
+            procedure,
+            definition=runtime_definition,
+        )
         runtime = TransactionEngine()
         metadata = {}
         known = {}
@@ -201,14 +236,35 @@ class TransactionSessionRestoreService:
                 else:
                     action = FaultAction(item.action)
                     source = known.get(relates_to)
-                    source_item = next((record for record in snapshot.history if record.message_id == item.relates_to), None)
+                    source_item = next(
+                        (
+                            record
+                            for record in snapshot.history
+                            if record.message_id == item.relates_to
+                        ),
+                        None,
+                    )
                     if source is None or source_item is None or item.relates_action != source_item.action:
                         return SessionRestoreResult(SessionRestoreStatus.FAULT_INVALID, issues=("FAULT_CORRELATION_INVALID",))
             except Exception as error:
-                status = SessionRestoreStatus.SIGNAL_INVALID if kind is MessageKind.SIGNAL else SessionRestoreStatus.FAULT_INVALID if kind is MessageKind.TECHNICAL_FAULT else SessionRestoreStatus.ACTION_INVALID
+                if kind is MessageKind.SIGNAL:
+                    status = SessionRestoreStatus.SIGNAL_INVALID
+                elif kind is MessageKind.TECHNICAL_FAULT:
+                    status = SessionRestoreStatus.FAULT_INVALID
+                else:
+                    status = SessionRestoreStatus.ACTION_INVALID
                 return SessionRestoreResult(status, issues=(str(error),))
-            record = MessageRecord(message_id, action, datetime.fromisoformat(item.created_at),
-                item.sequence_number, kind, relates_to, retry_of, item.attempt_number, item.transition_id)
+            record = MessageRecord(
+                message_id,
+                action,
+                datetime.fromisoformat(item.created_at),
+                item.sequence_number,
+                kind,
+                relates_to,
+                retry_of,
+                item.attempt_number,
+                item.transition_id,
+            )
             try:
                 if index == 0:
                     transaction.message_history.append(record)
@@ -219,7 +275,10 @@ class TransactionSessionRestoreService:
                     if original is None:
                         raise ValueError("retry predecessor missing")
                     RetryValidator().validate(original, record)
-                    if original is not transaction.message_history[-1] or retry_attempts >= transaction.definition.parameters.retry_count:
+                    retry_limit_reached = (
+                        retry_attempts >= transaction.definition.parameters.retry_count
+                    )
+                    if original is not transaction.message_history[-1] or retry_limit_reached:
                         raise ValueError("retry predecessor/state is not permitted")
                     transaction.message_history.append(record)
                     retry_attempts += 1
@@ -242,27 +301,41 @@ class TransactionSessionRestoreService:
                 return SessionRestoreResult(status, issues=(str(error),))
             known[message_id] = record
             metadata[item.message_id] = {
-                "message_code": item.message_code, "direction": item.direction,
-                "signal_kind": item.signal_kind, "fault_kind": item.fault_kind,
+                "message_code": item.message_code,
+                "direction": item.direction,
+                "signal_kind": item.signal_kind,
+                "fault_kind": item.fault_kind,
                 "relates_action": item.relates_action,
             }
         transaction.retry_attempts = retry_attempts
         if retry_attempts != snapshot.retry_attempts:
-            return SessionRestoreResult(SessionRestoreStatus.RETRY_INVALID,
-                                        issues=("RETRY_ATTEMPT_TOTAL_MISMATCH",))
+            return SessionRestoreResult(
+                SessionRestoreStatus.RETRY_INVALID,
+                issues=("RETRY_ATTEMPT_TOTAL_MISMATCH",),
+            )
         return transaction, metadata
 
     @staticmethod
     def _runtime_definition(definition):
         def duration(name):
             value = definition.timeouts.get(name)
-            seconds = SessionSnapshotValidator._duration_seconds(value) if value else None
+            seconds = (
+                SessionSnapshotValidator._duration_seconds(value)
+                if value
+                else None
+            )
             return timedelta(seconds=seconds) if seconds else None
-        return RuntimeTransactionDefinition(TransactionPattern[definition.pattern], TransactionParameters(
+        parameters = TransactionParameters(
             receive_confirmation_timeout=duration("receive_confirmation"),
             processing_confirmation_timeout=duration("processing_confirmation"),
-            response_timeout=duration("response"), retry_count=definition.retry_count or 0,
-        ), bool(definition.guaranteed_delivery))
+            response_timeout=duration("response"),
+            retry_count=definition.retry_count or 0,
+        )
+        return RuntimeTransactionDefinition(
+            TransactionPattern[definition.pattern],
+            parameters,
+            bool(definition.guaranteed_delivery),
+        )
 
 
 class TransactionSessionLifecycleService:

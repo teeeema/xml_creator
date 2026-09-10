@@ -98,11 +98,11 @@ class StructuredProcessBodyProvider:
             if field.status != "CONFIRMED":
                 issues.append(self._issue("NEEDS_NORMATIVE_INTERPRETATION", field.path, "Строка нормативной таблицы требует ручной интерпретации.", field))
                 continue
-            present = field.path in values or any(path.startswith(field.path + "/") for path in values)
+            present = self._field_is_present(values, field.path)
             raw = values.get(field.path)
-            count = len(raw) if isinstance(raw, list) else (1 if present else 0)
+            count = self._value_count(raw, present)
             parent_path = self._parent_path(field.path)
-            parent_present = not parent_path or parent_path in values or any(path.startswith(parent_path + "/") for path in values)
+            parent_present = not parent_path or self._field_is_present(values, parent_path)
             parent_raw = values.get(parent_path)
             parent_count = len(parent_raw) if isinstance(parent_raw, list) else 1
             if parent_count > 1 and isinstance(raw, list) and len(raw) == parent_count:
@@ -195,6 +195,21 @@ class StructuredProcessBodyProvider:
     @staticmethod
     def _parent_path(path: str) -> str:
         return path.rsplit("/", 1)[0] if "/" in path else ""
+
+    @staticmethod
+    def _field_is_present(values: Mapping[str, object], field_path: str) -> bool:
+        """Match direct or descendant field values using the existing path semantics."""
+        return field_path in values or any(
+            path.startswith(field_path + "/")
+            for path in values
+        )
+
+    @staticmethod
+    def _value_count(value: object, present: bool) -> int:
+        """Preserve the existing list-versus-scalar cardinality counting rule."""
+        if isinstance(value, list):
+            return len(value)
+        return 1 if present else 0
 
     @classmethod
     def _flatten(cls, values: Mapping[str, object], prefix: str = "") -> dict[str, object]:

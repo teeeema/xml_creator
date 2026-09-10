@@ -230,38 +230,79 @@ class GuiController:
             return
         merged = dict(self.values)
         visible_values = dict(visible_values)
+
         def instance_count(path, source):
-            value=source.get(path)
-            if isinstance(value,list):return len(value)
-            if path in source or any(item.startswith(path+"/") for item in source):return 1
+            value = source.get(path)
+            if isinstance(value, list):
+                return len(value)
+            if path in source or any(item.startswith(path + "/") for item in source):
+                return 1
             return 0
+
         def unwrap_singletons(value):
-            while isinstance(value,list) and len(value)==1:value=value[0]
+            while isinstance(value, list) and len(value) == 1:
+                value = value[0]
             return value
+
         def has_descendant_value(path):
-            return any(key.startswith(path+"/") and unwrap_singletons(value) not in (None,"",(),[],{})
-                       for key,value in visible_values.items())
+            return any(
+                key.startswith(path + "/")
+                and unwrap_singletons(value) not in (None, "", (), [], {})
+                for key, value in visible_values.items()
+            )
+
         for path in presentation.visible_paths:
             field = self.find_field(path)
             if field and not field.children:
                 merged.pop(path, None)
             elif field and field.repeatable:
-                old_count=instance_count(path,merged);new_count=instance_count(path,visible_values)
-                if new_count!=old_count:
-                    if new_count and (old_count or has_descendant_value(path)):merged[path]=visible_values.get(path,[None]*new_count)
-                    else:merged.pop(path,None)
-        for path,value in visible_values.items():
-            field=self.find_field(path)
+                old_count = instance_count(path, merged)
+                new_count = instance_count(path, visible_values)
+                if new_count != old_count:
+                    should_keep_group = new_count and (
+                        old_count or has_descendant_value(path)
+                    )
+                    if should_keep_group:
+                        merged[path] = visible_values.get(path, [None] * new_count)
+                    else:
+                        merged.pop(path, None)
+
+        for path, new_value in visible_values.items():
+            field = self.find_field(path)
             if field and not field.children:
-                old=merged.get(path)
-                normalized=unwrap_singletons(value) if not isinstance(old,list) else value
-                merged[path]=old if path in merged and unwrap_singletons(old)==unwrap_singletons(value) else normalized
-        changed=merged!=self.values;self.values=merged;self._clear_result()
-        if changed:self._mark_dirty()
+                old_value = merged.get(path)
+                if isinstance(old_value, list):
+                    normalized_value = new_value
+                else:
+                    normalized_value = unwrap_singletons(new_value)
+
+                same_value = (
+                    path in merged
+                    and unwrap_singletons(old_value) == unwrap_singletons(new_value)
+                )
+                if same_value:
+                    merged[path] = old_value
+                else:
+                    merged[path] = normalized_value
+
+        changed = merged != self.values
+        self.values = merged
+        self._clear_result()
+        if changed:
+            self._mark_dirty()
 
     def _control(self, field: FieldView) -> ControlModel:
         datatype = (field.datatype or "").lower()
-        kind = "FILE" if field.supports_file_picker else ("GROUP" if field.ui_input_policy == "GROUP" else ("SELECT" if field.ui_input_policy == "USER_SELECT" else ("BOOLEAN" if "indicator" in datatype or "boolean" in datatype else "TEXT")))
+        if field.supports_file_picker:
+            kind = "FILE"
+        elif field.ui_input_policy == "GROUP":
+            kind = "GROUP"
+        elif field.ui_input_policy == "USER_SELECT":
+            kind = "SELECT"
+        elif "indicator" in datatype or "boolean" in datatype:
+            kind = "BOOLEAN"
+        else:
+            kind = "TEXT"
         label = ("@" if field.is_attribute else "") + field.display_name + (" *" if field.required else "")
         return ControlModel(field.path, label, kind, field.required, not field.editable,
                             field.repeatable, field.is_attribute, field.visibility, self.field_help(field), field.example_value,

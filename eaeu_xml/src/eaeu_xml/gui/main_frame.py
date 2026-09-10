@@ -257,7 +257,10 @@ class MainFrame(wx.Frame):
     def on_message(self,event):
         if not self._confirm_dirty():self._refresh_messages(); return
         self.controller.select_message(self.controller.messages[self.message_choice.GetSelection()].message_code); self._refresh_form()
-    def on_test_data(self,event):self.form_panel.set_values(self.controller.apply_test_data()); self.SetStatusText("Тестовые данные заполнены.")
+    def on_test_data(self, event):
+        values = self.controller.apply_test_data()
+        self.form_panel.set_values(values)
+        self.SetStatusText("Тестовые данные заполнены.")
     def on_validate(self,event):
         self.controller.update_visible_values(self.form_panel.get_values());result=self.controller.validate();self._show_validation(result)
         if self.controller.display_mode is FormDisplayMode.ERRORS:self._refresh_visible_form()
@@ -323,7 +326,8 @@ class MainFrame(wx.Frame):
             path=self._save_session_path(Path(dialog.GetPath()))
         self.SetStatusText(f"Сессия сохранена: {path.name}")
 
-    def _save_session_path(self,path):return self.controller.save_session(Path(path))
+    def _save_session_path(self, path):
+        return self.controller.save_session(Path(path))
 
     def on_session_info(self,event):
         presentation=self.controller.session_presentation()
@@ -341,7 +345,12 @@ class MainFrame(wx.Frame):
         self.buttons["Продолжить сессию"].Enable(self.controller.session_continue_enabled)
         self.buttons["Сохранить сессию"].Enable(self.controller.session_save_enabled);self._save_session_menu.Enable(self.controller.session_save_enabled)
         self.buttons["ⓘ Сведения о сессии"].Enable(bool(presentation or self.controller.session));self._apply_responsive_layout()
-    def on_clear(self,event):self.controller.clear();self._refresh_visible_form();self.xml_panel.clear();self._clear_issues();self._sync_buttons()
+    def on_clear(self, event):
+        self.controller.clear()
+        self._refresh_visible_form()
+        self.xml_panel.clear()
+        self._clear_issues()
+        self._sync_buttons()
     def on_copy(self,event):
         xml_text=self.xml_panel.get_xml_text()
         if not xml_text:self.SetStatusText("Сначала сформируйте XML."); return
@@ -356,7 +365,9 @@ class MainFrame(wx.Frame):
             if dialog.ShowModal()==wx.ID_CANCEL:return
             self._save_current_xml(Path(dialog.GetPath()))
         self.SetStatusText("XML сохранён.")
-    def _save_current_xml(self,path):Path(path).write_text(self.xml_panel.get_xml_text(),encoding="utf-8")
+    def _save_current_xml(self, path):
+        xml_text = self.xml_panel.get_xml_text()
+        Path(path).write_text(xml_text, encoding="utf-8")
     def on_settings(self,event):
         if not self._confirm_dirty():return
         dialog=SettingsDialog(self,self.controller.settings)
@@ -385,8 +396,11 @@ class MainFrame(wx.Frame):
     def _choose_draft_path(self):
         with wx.FileDialog(self,"Сохранить черновик",defaultDir=str(self.controller.settings.drafts_directory or Path.home()),defaultFile=self._draft_filename(),wildcard="EAEU XML draft (*.eaeudraft.json)|*.eaeudraft.json|JSON (*.json)|*.json",style=wx.FD_SAVE|wx.FD_OVERWRITE_PROMPT) as dialog:
             return None if dialog.ShowModal()==wx.ID_CANCEL else Path(dialog.GetPath())
-    def on_save_draft(self,event):return self._save_draft(False)
-    def on_save_draft_as(self,event):return self._save_draft(True)
+    def on_save_draft(self, event):
+        return self._save_draft(False)
+
+    def on_save_draft_as(self, event):
+        return self._save_draft(True)
     def _save_draft(self,as_new=False):
         self._capture_values(); path=None if not as_new else self._choose_draft_path()
         if as_new and path is None:return False
@@ -409,7 +423,9 @@ class MainFrame(wx.Frame):
         self._capture_values(); path=self.controller.autosave_if_due()
         if path:self.SetStatusText("Черновик автоматически сохранён.")
         self._update_title()
-    def _update_title(self):self.SetTitle("EAEU XML Creator"+(" — *черновик изменён" if self.controller.dirty else ""))
+    def _update_title(self):
+        dirty_marker = " — *черновик изменён" if self.controller.dirty else ""
+        self.SetTitle("EAEU XML Creator" + dirty_marker)
     def _confirm_dirty(self):
         self._capture_values()
         if not self.controller.requires_dirty_confirmation:return True
@@ -427,7 +443,14 @@ class MainFrame(wx.Frame):
     def on_close(self,event):
         if not self._confirm_dirty():event.Veto(); return
         self.autosave_timer.Stop(); self.controller.mark_clean_close(); event.Skip()
-    def _clear_issues(self):self.validation_summary.SetLabel("");self._validation_issues=();self.issue_list.DeleteAllItems();self.issue_list.Hide();self.issue_info.Hide();self.issue_info.Disable();self.data_tab.Layout()
+    def _clear_issues(self):
+        self.validation_summary.SetLabel("")
+        self._validation_issues = ()
+        self.issue_list.DeleteAllItems()
+        self.issue_list.Hide()
+        self.issue_info.Hide()
+        self.issue_info.Disable()
+        self.data_tab.Layout()
     def _sync_buttons(self):
         self.buttons["Сформировать XML"].Enable(self.controller.generation_enabled); enabled=self.controller.save_enabled; self.buttons["Сохранить XML"].Enable(enabled); self.buttons["Копировать XML"].Enable(enabled)
         self._refresh_session_ui()

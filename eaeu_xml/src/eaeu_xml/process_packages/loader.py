@@ -42,6 +42,21 @@ def _occurs(value: Any) -> int | None | Any:
     return value
 
 
+def _message_has_field(message: MessageDefinition | None, field_path: str,
+                       structures: dict[tuple[str, str], StructureDefinition]) -> bool:
+    """Return whether a root or embedded message structure defines field_path."""
+    if message is None:
+        return False
+
+    for (structure_id, _version), structure in structures.items():
+        if structure_id not in message.structure_ids:
+            continue
+        for field in structure.fields:
+            if field.path == field_path:
+                return True
+    return False
+
+
 class ProcessPackageLoader:
     REQUIRED_FILES = ("process.yaml", "procedures.yaml", "transactions.yaml", "messages.yaml")
 
@@ -94,18 +109,29 @@ class ProcessPackageLoader:
         rules_audit_path = path / "message_rules_audit.yaml"
         rules_audit = (cls._read(rules_audit_path).get("messages", {})
                        if rules_audit_path.is_file() else {})
-        messages = {item["message_code"]: MessageDefinition(
-            message_code=item["message_code"], name=item.get("name", ""), structure_id=item.get("structure_id"),
-            embedded_structures=_embedded_structures(item.get("embedded_structures")),
-            structure_version=item.get("structure_version"),
-            structure_version_source=item.get("structure_version_source"), direction=item.get("direction"), role=item.get("role"),
-            purpose=item.get("purpose"), context=tuple(item.get("context", [])),
-            source_refs=_refs(item.get("source_refs")), status=item.get("status", "NEEDS_VERIFICATION"),
-            message_rules_status=(rules_audit.get(item["message_code"], {}).get("status")
-                                  or item.get("message_rules_status", "NEEDS_VERIFICATION")),
-            message_rules_source_refs=_refs(rules_audit.get(item["message_code"], {}).get("source_refs")
-                                            or item.get("message_rules_source_refs")),
-        ) for item in cls._read(path / "messages.yaml").get("messages", [])}
+        messages = {}
+        messages_data = cls._read(path / "messages.yaml").get("messages", [])
+        for item in messages_data:
+            message_code = item["message_code"]
+            audit_entry = rules_audit.get(message_code, {})
+            rules_status = (
+                audit_entry.get("status")
+                or item.get("message_rules_status", "NEEDS_VERIFICATION")
+            )
+            rules_source_refs = (
+                audit_entry.get("source_refs")
+                or item.get("message_rules_source_refs")
+            )
+            messages[message_code] = MessageDefinition(
+                message_code=message_code, name=item.get("name", ""), structure_id=item.get("structure_id"),
+                embedded_structures=_embedded_structures(item.get("embedded_structures")),
+                structure_version=item.get("structure_version"),
+                structure_version_source=item.get("structure_version_source"), direction=item.get("direction"), role=item.get("role"),
+                purpose=item.get("purpose"), context=tuple(item.get("context", [])),
+                source_refs=_refs(item.get("source_refs")), status=item.get("status", "NEEDS_VERIFICATION"),
+                message_rules_status=rules_status,
+                message_rules_source_refs=_refs(rules_source_refs),
+            )
         profile_path = path / "version_profiles" / f"{process.active_profile}.yaml"
         if not profile_path.is_file():
             raise ProcessPackagePathError(code="ACTIVE_PROFILE_MISSING", message=f"Active profile отсутствует: {profile_path.name}")
@@ -164,8 +190,7 @@ class ProcessPackageLoader:
                     message_codes = sorted(messages)
                 for message_code in message_codes:
                     message = messages.get(message_code)
-                    if not message or not any(field.path == item["field_path"] for (structure_id, _), definition in structures.items()
-                                              if structure_id in message.structure_ids for field in definition.fields):
+                    if not _message_has_field(message, item["field_path"], structures):
                         continue
                     definition = FieldInputPolicyDefinition(
                         message_code=message_code, field_path=item["field_path"],
@@ -187,8 +212,7 @@ class ProcessPackageLoader:
                     message_codes = sorted(messages)
                 for message_code in message_codes:
                     message = messages.get(message_code)
-                    if not message or not any(field.path == item["field_path"] for (structure_id, _), definition in structures.items()
-                                              if structure_id in message.structure_ids for field in definition.fields):
+                    if not _message_has_field(message, item["field_path"], structures):
                         continue
                     definition = UiInputPolicyDefinition(
                         message_code=message_code, field_path=item["field_path"],
