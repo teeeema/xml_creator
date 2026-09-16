@@ -127,6 +127,10 @@ class Decision5CoreTests(unittest.TestCase):
         self.assertEqual(action.serialize(), expected)
         self.assertEqual(ApplicationAction.parse(expected), action)
 
+    def test_action_allows_message_from_shared_component(self) -> None:
+        value = "int://CP/P.SP.03/0.1/P.SP.03.PRC.001/P.SP.03.TRN.002/P.CC.04.MSG.003"
+        self.assertEqual(ApplicationAction.parse(value).serialize(), value)
+
     def test_malformed_or_inconsistent_action_is_rejected(self) -> None:
         with self.assertRaises(ActionValidationError):
             ApplicationAction.parse("int://CP/bad")
