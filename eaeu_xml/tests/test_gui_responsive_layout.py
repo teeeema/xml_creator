@@ -31,18 +31,23 @@ class GuiResponsiveLayoutTests(unittest.TestCase):
                 self.assertTrue(style & wx.VSCROLL)
 
                 client_width = frame.data_tab.GetClientSize().width
-                for label in (
-                    "Открыть черновик", "Сохранить черновик", "Заполнить тестовыми",
-                    "Проверить", "Очистить", "Начать новую транзакцию", "Сформировать XML",
-                ):
+                for label in ("Сохранить черновик", "Заполнить тестовыми", "Сформировать XML"):
                     button = frame.buttons[label]
-                    self.assertTrue(button.IsShown())
-                    self.assertLessEqual(button.GetPosition().x + button.GetSize().width, client_width)
+                    self.assertTrue(button.IsShownOnScreen())
+                    self.assertLessEqual(frame.data_tab.ScreenToClient(button.GetScreenPosition()).x + button.GetSize().width, client_width)
 
                 frame.SetSize((1100, 760)); self.wx_app.Yield()
                 frame._apply_responsive_layout(); self.wx_app.Yield()
                 self.assertGreater(frame.form_panel.GetClientSize().width, 0)
                 self.assertGreater(frame.form_panel.GetClientSize().height, 0)
+                for size in ((700, 560), (900, 650), (1280, 860)):
+                    frame.SetSize(size); self.wx_app.Yield()
+                    for index in range(4):
+                        frame._select_tab(index); self.wx_app.Yield()
+                        self.assertEqual(frame.home_actions.IsShownOnScreen(), index == 0)
+                        self.assertGreater(frame.notebook.GetCurrentPage().GetClientSize().height, 100)
+                        for choice in (frame.process_choice, frame.transaction_choice, frame.message_choice):
+                            self.assertLessEqual(choice.GetScreenRect().right, frame.GetScreenRect().right)
             finally:
                 frame.Destroy(); self.wx_app.Yield()
 

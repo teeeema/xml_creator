@@ -3,6 +3,7 @@ from xml.dom import minidom
 import wx
 
 from eaeu_xml.gui.theme import GuiTheme
+from eaeu_xml.gui.components import ActionButton, Card, heading
 
 try:
     import wx.stc as stc
@@ -10,7 +11,7 @@ except ImportError:
     stc = None
 
 
-class XmlPanel(wx.Panel):
+class XmlPanel(Card):
     """Read-only, editor-style presentation of the generated XML document."""
 
     def __init__(self, parent):
@@ -20,28 +21,35 @@ class XmlPanel(wx.Panel):
         self.SetSizer(sizer)
 
         header = wx.BoxSizer(wx.HORIZONTAL)
-        self.filename = wx.StaticText(self, label="Сообщение.xml")
-        GuiTheme.apply_heading(self.filename, level=2)
+        self.filename = heading(self, "Сформированный XML")
         self.search = wx.SearchCtrl(self, style=wx.TE_PROCESS_ENTER)
         self.search.SetDescriptiveText("Поиск в XML")
-        self.search.SetMinSize((220, -1))
-        self.format_button = wx.Button(self, label="Форматировать")
-        self.expand_button = wx.Button(self, label="Развернуть всё")
+        self.search.SetMinSize((160, -1))
+        self.format_button = ActionButton(self, "Форматировать")
+        self.copy_button = ActionButton(self, "Копировать")
+        self.save_button = ActionButton(self, "Скачать XML")
+        self.expand_button = ActionButton(self, "Развернуть всё")
         self.format_button.Bind(wx.EVT_BUTTON, self._on_format)
         self.expand_button.Bind(wx.EVT_BUTTON, self._on_expand)
         self.search.Bind(wx.EVT_TEXT_ENTER, self._on_search)
         self.search.Bind(wx.EVT_TEXT, self._on_search)
         GuiTheme.apply_secondary_button(self.format_button)
         GuiTheme.apply_secondary_button(self.expand_button)
-        header.Add(self.filename, 1, wx.ALIGN_CENTER_VERTICAL)
-        header.Add(self.search, 0, wx.RIGHT, 6)
+        header.Add(self.filename, 1, wx.ALIGN_CENTER_VERTICAL | wx.RIGHT, 24)
         header.Add(self.format_button, 0, wx.RIGHT, 6)
-        header.Add(self.expand_button, 0)
-        sizer.Add(header, 0, wx.EXPAND | wx.ALL, 10)
+        header.Add(self.copy_button, 0, wx.RIGHT, 6)
+        header.Add(self.save_button, 0)
+        sizer.Add(header, 0, wx.EXPAND | wx.ALL, 12)
+        search_row = wx.BoxSizer(wx.HORIZONTAL)
+        search_row.Add(self.search, 1, wx.EXPAND | wx.RIGHT, 8)
+        search_row.Add(self.expand_button, 0)
+        sizer.Add(search_row, 0, wx.EXPAND | wx.LEFT | wx.RIGHT | wx.BOTTOM, 12)
 
         self.warning = wx.StaticText(self, label="")
         self.warning.Hide()
         self.metadata = wx.StaticText(self, label="XML ещё не сформирован.")
+        GuiTheme.apply_secondary_text(self.metadata)
+        self.warning.SetForegroundColour(GuiTheme.colour("warning"))
         sizer.Add(self.warning, 0, wx.EXPAND | wx.LEFT | wx.RIGHT | wx.BOTTOM, 10)
         sizer.Add(self.metadata, 0, wx.EXPAND | wx.LEFT | wx.RIGHT | wx.BOTTOM, 8)
 
@@ -61,22 +69,16 @@ class XmlPanel(wx.Panel):
         sizer.Add(self.output, 1, wx.EXPAND | wx.ALL, 10)
 
     def _apply_editor_theme(self):
-        appearance = wx.SystemSettings.GetAppearance()
-        if appearance.IsDark():
-            background = GuiTheme.colour("background")
-            foreground = GuiTheme.colour("text")
-        else:
-            background = GuiTheme.colour("background")
-            foreground = GuiTheme.colour("text")
-
-        self.output.StyleSetForeground(stc.STC_STYLE_DEFAULT, foreground)
-        self.output.StyleSetBackground(stc.STC_STYLE_DEFAULT, background)
+        self.output.StyleSetFont(stc.STC_STYLE_DEFAULT, wx.Font(11, wx.FONTFAMILY_TELETYPE, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL))
+        self.output.StyleSetForeground(stc.STC_STYLE_DEFAULT, GuiTheme.colour("text"))
+        self.output.StyleSetBackground(stc.STC_STYLE_DEFAULT, GuiTheme.colour("surface"))
+        self.output.StyleClearAll()
         self.output.StyleSetForeground(stc.STC_STYLE_LINENUMBER, GuiTheme.colour("secondary_text"))
-        self.output.StyleSetBackground(stc.STC_STYLE_LINENUMBER, background)
+        self.output.StyleSetBackground(stc.STC_STYLE_LINENUMBER, GuiTheme.colour("background"))
         self.output.StyleSetForeground(stc.STC_H_TAG, wx.Colour("#0066CC"))
         self.output.StyleSetForeground(stc.STC_H_ATTRIBUTE, wx.Colour("#7B3FB2"))
         self.output.StyleSetForeground(stc.STC_H_DOUBLESTRING, wx.Colour("#A15C00"))
-        self.output.StyleClearAll()
+        self.output.StyleSetForeground(stc.STC_H_COMMENT, wx.Colour("#648B60"))
 
     def show_generation(self, result):
         self._set_text(result.xml or "")
@@ -90,11 +92,13 @@ class XmlPanel(wx.Panel):
             for key, value in result.metadata.items()
             if value is not None
         )
-        self.metadata.SetLabel(metadata or f"Status: {result.status}")
+        self.metadata.SetLabel(f"Статус: {result.status}")
+        self.metadata.SetToolTip(metadata)
+        self.warning.Wrap(max(240, self.GetClientSize().width - 32))
         self.Layout()
 
     def set_filename(self, message_code: str | None):
-        self.filename.SetLabel(f"{message_code or 'Сообщение'}.xml")
+        self.filename.SetToolTip(f"{message_code or 'Сообщение'}.xml")
 
     @staticmethod
     def warning_text(result):
@@ -118,7 +122,7 @@ class XmlPanel(wx.Panel):
         self.warning.Hide()
         self._set_text(
             "XML ещё не сформирован.\n\n"
-            "Заполните данные во вкладке «Заполнение полей» и нажмите «Сформировать XML»."
+            "Заполните данные на Главной и нажмите «Создать XML»."
         )
         self.metadata.SetLabel("XML ещё не сформирован.")
 

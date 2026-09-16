@@ -6,6 +6,7 @@ from xml.etree import ElementTree as ET
 from eaeu_xml.application.file_input import FileInputService, FileInputValue
 from eaeu_xml.gui.controller import GuiController
 from eaeu_xml.gui.dialogs import FieldInfoDialog
+from eaeu_xml.gui.theme import GuiTheme
 
 
 def _convert(text, datatype):
@@ -45,6 +46,7 @@ def _file_description(value):
 class ScalarEditor(wx.Panel):
     def __init__(self, parent, field, on_field_guide=None, on_value_changed=None, on_assisted_input=None):
         super().__init__(parent); self.field = field; self.rows = []
+        GuiTheme.apply_surface(self)
         self.on_field_guide=on_field_guide;self.on_value_changed=on_value_changed;self.on_assisted_input=on_assisted_input
         self.sizer = wx.BoxSizer(wx.VERTICAL); self.SetSizer(self.sizer)
         self._add_row(field.fixed_value)
@@ -55,9 +57,15 @@ class ScalarEditor(wx.Panel):
 
     def _add_row(self, value=None, layout=False):
         row = wx.Panel(self); sizer = wx.BoxSizer(wx.VERTICAL); row.SetSizer(sizer)
+        GuiTheme.apply_surface(row)
         label = ("@" if self.field.is_attribute else "") + self.field.display_name + (" *" if self.field.required else "")
         if self.field.normative_input_policy=="CONDITIONAL":label += "  [Условно]"
-        title=wx.StaticText(row,label=label); sizer.Add(title,0,wx.EXPAND|wx.BOTTOM,3)
+        title=wx.StaticText(row,label=label)
+        title.Wrap(190)
+        title.SetMinSize((190, -1))
+        GuiTheme.apply_secondary_text(title)
+        field_row=wx.BoxSizer(wx.HORIZONTAL)
+        field_row.Add(title,0,wx.ALIGN_CENTER_VERTICAL|wx.RIGHT,12)
         if self.field.normative_input_policy == "CLASSIFIER":
             marker=wx.StaticText(row,label="Классификатор")
             marker.SetToolTip("Набор допустимых значений не загружен в текущую конфигурацию.")
@@ -77,6 +85,13 @@ class ScalarEditor(wx.Panel):
         else:
             control = wx.TextCtrl(row, value="" if value is None else str(value), style=wx.TE_READONLY if not self.field.editable else 0)
         help_text=GuiController.field_help(self.field); tooltip=GuiController.field_tooltip(self.field); control.SetToolTip(tooltip); title.SetToolTip(tooltip)
+        control.SetMinSize((120, 28))
+        if not self.field.editable:control.SetBackgroundColour(GuiTheme.colour("sidebar"))
+        if self.on_field_guide:
+            def on_focus(event):
+                self.on_field_guide(self.field.path)
+                event.Skip()
+            control.Bind(wx.EVT_SET_FOCUS, on_focus)
         if self.on_value_changed:
             event_type=wx.EVT_CHOICE if isinstance(control,wx.Choice) else wx.EVT_TEXT
             control.Bind(event_type,lambda event:(self.on_value_changed(self.field.path,isinstance(control,wx.Choice)),event.Skip()))
@@ -122,7 +137,8 @@ class ScalarEditor(wx.Panel):
             remove = wx.Button(row, label="Удалить")
             remove.Bind(wx.EVT_BUTTON, lambda event, target=row: self._remove(target))
             input_row.Add(remove,0,wx.LEFT,5)
-        sizer.Add(input_row,0,wx.EXPAND)
+        field_row.Add(input_row,1,wx.EXPAND)
+        sizer.Add(field_row,0,wx.EXPAND)
         if self.field.ui_input_policy in {"EXTERNAL_SYSTEM", "UNRESOLVED_UI_POLICY", "CONDITIONAL"}:
             notice = {"EXTERNAL_SYSTEM": "Значение должно быть получено из внешней информационной системы.",
                       "UNRESOLVED_UI_POLICY": "⚠ Способ заполнения не определён.",
@@ -170,9 +186,11 @@ class ScalarEditor(wx.Panel):
 class GroupEditor(wx.Panel):
     def __init__(self, parent, field, editor_factory, force_expand=False):
         super().__init__(parent);outer=wx.BoxSizer(wx.VERTICAL);self.SetSizer(outer)
+        GuiTheme.apply_surface(self)
         group_label=field.display_name + (" *" if field.required else "") + ("  [Условно]" if field.normative_input_policy=="CONDITIONAL" else "")
         self.pane=wx.CollapsiblePane(self,label=group_label);self.pane.SetToolTip(GuiController.field_help(field));outer.Add(self.pane,0,wx.EXPAND)
         box=self.pane.GetPane();content=wx.BoxSizer(wx.VERTICAL);box.SetSizer(content)
+        GuiTheme.apply_surface(box)
         callback=getattr(getattr(editor_factory,"__self__",None),"on_field_guide",None)
         value_callback=getattr(getattr(editor_factory,"__self__",None),"on_value_changed",None)
         assist_callback=getattr(getattr(editor_factory,"__self__",None),"on_assisted_input",None)

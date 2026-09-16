@@ -58,13 +58,14 @@ class GuiSessionControlsTests(unittest.TestCase):
                 self.assertIs(bad.status,SessionRestoreStatus.SNAPSHOT_INVALID)
                 self.assertFalse(restored_frame.buttons["Продолжить сессию"].IsEnabled())
 
+                restored_frame._show_transactions(None)
                 for size in ((1200,800),(900,650),(700,560),(1100,760)):
                     restored_frame.SetSize(size);self.wx_app.Yield();restored_frame._apply_responsive_layout();self.wx_app.Yield()
-                    width=restored_frame.data_tab.GetClientSize().width
+                    width=restored_frame.transactions_page.GetClientSize().width
                     for label in ("Открыть сессию","Продолжить сессию","Открыть как новую","Сохранить сессию","ⓘ Сведения о сессии"):
                         button=restored_frame.buttons[label]
-                        self.assertTrue(button.IsShown())
-                        self.assertLessEqual(button.GetPosition().x+button.GetSize().width,width)
+                        self.assertTrue(button.IsShownOnScreen())
+                        self.assertLessEqual(restored_frame.transactions_page.ScreenToClient(button.GetScreenPosition()).x+button.GetSize().width,width)
             finally:
                 restored_frame.Destroy();self.wx_app.Yield()
 

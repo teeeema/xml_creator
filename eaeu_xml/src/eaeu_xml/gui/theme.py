@@ -7,6 +7,13 @@ class GuiTheme:
     """Keep the application palette and control hierarchy consistent."""
 
     @staticmethod
+    def configure_application() -> None:
+        app = wx.GetApp()
+        if app and hasattr(app, "SetAppearance") and not getattr(app, "_gis_light_theme", False):
+            app.SetAppearance(wx.App.Appearance.Light)
+            app._gis_light_theme = True
+
+    @staticmethod
     def is_dark() -> bool:
         return wx.SystemSettings.GetAppearance().IsDark()
 
@@ -38,7 +45,8 @@ class GuiTheme:
             "warning": "#F2B45B",
             "error": "#FF8C89",
         }
-        return wx.Colour((dark if cls.is_dark() else light)[name])
+        # The approved workspace uses a consistent light palette on every OS.
+        return wx.Colour(light[name])
 
     @classmethod
     def apply_surface(cls, window) -> None:
