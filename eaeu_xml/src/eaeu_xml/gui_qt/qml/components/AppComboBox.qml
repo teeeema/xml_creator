@@ -3,6 +3,7 @@ import QtQuick.Controls
 
 ComboBox {
     id: control
+    readonly property string fullText: currentIndex >= 0 && currentText ? currentText : ""
     implicitHeight: 40; leftPadding: 11; rightPadding: 34
     contentItem: Text { leftPadding: control.leftPadding; rightPadding: control.rightPadding; text: control.displayText; color: Theme.text; font: control.font; verticalAlignment: Text.AlignVCenter; elide: Text.ElideRight }
     indicator: Canvas { x: control.width - width - 12; y: (control.height - height) / 2; width: 10; height: 6; contextType: "2d"; onPaint: { const ctx = getContext("2d"); ctx.reset(); ctx.fillStyle = Theme.secondary; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(width, 0); ctx.lineTo(width / 2, height); ctx.closePath(); ctx.fill() } }
@@ -10,8 +11,9 @@ ComboBox {
     delegate: ItemDelegate {
         width: control.width; height: 36
         contentItem: Text { text: modelData.label !== undefined ? modelData.label : modelData; color: Theme.text; verticalAlignment: Text.AlignVCenter; elide: Text.ElideRight }
-        ToolTip.visible: hovered
-        ToolTip.text: modelData.label !== undefined ? modelData.label : modelData
+        readonly property string fullText: modelData.label !== undefined ? modelData.label : modelData
+        ToolTip.visible: hovered && fullText.length > 0
+        ToolTip.text: fullText
         background: Rectangle { color: highlighted ? Theme.accentSoft : Theme.surface }
     }
     popup: Popup {

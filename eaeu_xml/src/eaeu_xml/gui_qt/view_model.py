@@ -9,6 +9,7 @@ from PySide6.QtCore import Property, QObject, Signal, Slot
 from PySide6.QtGui import QGuiApplication
 
 from eaeu_xml.application import EaeuXmlApplication
+from eaeu_xml.application.xml_validation_service import XmlValidationService
 from eaeu_xml.presentation.controller import GuiController
 
 
@@ -24,6 +25,7 @@ class GuiViewModel(QObject):
         self._xml = ""
         self._xml_font_size = 14
         self._xml_validation_error = ""
+        self._xml_validation = None
         self._notice = ""
         self._selected_field = None
 
@@ -97,9 +99,13 @@ class GuiViewModel(QObject):
         if self._xml_validation_error:
             return [{"severity": "ERROR", "code": "XML_PARSE_ERROR", "message": self._xml_validation_error,
                      "path": "XML", "location": "XML"}]
+        xml_items = [] if self._xml_validation is None else [
+            {"severity": item.severity, "code": item.code, "message": item.message,
+             "path": item.location, "location": item.location + (f" ({item.line}:{item.column})" if item.line else "")}
+            for item in self._xml_validation.diagnostics]
         validation = self.controller.validation
-        if not validation: return []
-        return [{"severity": item.severity, "code": item.code, "message": item.message,
+        if not validation: return xml_items
+        return xml_items + [{"severity": item.severity, "code": item.code, "message": item.message,
                  "path": item.field_path or "—", "location": item.field_path or "—"}
                 for item in (*validation.errors, *validation.warnings)]
 
@@ -107,6 +113,8 @@ class GuiViewModel(QObject):
     def validationSummary(self):
         if self._xml_validation_error:
             return "XML содержит синтаксическую ошибку."
+        if self._xml_validation is not None and not self._xml_validation.is_valid:
+            return "Доступные проверки выявили ошибки XML."
         validation = self.controller.validation
         if not validation: return "Проверка ещё не выполнялась."
         return "Проверка пройдена" if validation.is_valid else f"Ошибки: {len(validation.errors)} · Предупреждения: {len(validation.warnings)}"
@@ -205,11 +213,15 @@ class GuiViewModel(QObject):
     @Slot()
     def validate(self):
         self._xml_validation_error = ""
+        self._xml_validation = None
         if self._xml:
-            try:
-                minidom.parseString(self._xml)
-            except Exception as error:
-                self._xml_validation_error = str(error)
+            engine = self.controller.application._engine(self.controller.process_code)
+            self._xml_validation = XmlValidationService().validate(
+                self._xml, engine=engine, transaction_code=self.controller.transaction_code,
+                message_code=self.controller.message_code, mode=self.controller.settings.mode)
+            parse_error = next((item for item in self._xml_validation.diagnostics if item.code == "XML_PARSE_ERROR"), None)
+            if parse_error:
+                self._xml_validation_error = parse_error.message
                 self._refresh("XML содержит синтаксическую ошибку.")
                 return
         self.controller.validate()

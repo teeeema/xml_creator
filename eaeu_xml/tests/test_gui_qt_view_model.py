@@ -71,6 +71,10 @@ class GuiQtViewModelTests(unittest.TestCase):
         editor = (qml / "pages" / "XmlPage.qml").read_text(encoding="utf-8")
         self.assertIn("viewModel.setXml(text)", editor)
         self.assertIn("changeXmlFontSize", editor)
+        self.assertIn("ScrollView", editor)
+        self.assertIn("ScrollBar.AsNeeded", editor)
+        selector = (qml / "components" / "Selector.qml").read_text(encoding="utf-8")
+        self.assertIn("hovered && fullText.length > 0", selector)
 
     def test_information_and_field_updates_are_real_controller_data(self):
         self.model.selectProcess("P.TS.01")
