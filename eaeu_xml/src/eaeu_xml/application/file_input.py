@@ -1,4 +1,4 @@
-"""Generic file-to-form-value conversion; no wx or process-specific knowledge."""
+"""Generic file-to-form-value conversion; no toolkit or process-specific knowledge."""
 
 from base64 import b64decode, b64encode
 from dataclasses import dataclass

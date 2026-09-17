@@ -6,9 +6,7 @@ import unittest
 
 from eaeu_xml.application import EaeuXmlApplication,SessionPersistenceService,SessionRestoreStatus
 from eaeu_xml.application import FormDisplayMode
-from eaeu_xml.gui.controller import GuiController,SessionMode
-from eaeu_xml.gui.xml_panel import XmlPanel
-from eaeu_xml.gui.field_controls import _group_instance_count
+from eaeu_xml.presentation.controller import GuiController,SessionMode
 
 
 ROOT = Path(__file__).parents[2]
@@ -58,7 +56,7 @@ class Pmm01GuiControllerTests(unittest.TestCase):
     def test_msg001_test_data_keeps_required_repeatable_group_instance(self):
         self.select("P.MM.01.TRN.001","P.MM.01.MSG.001"); values=self.controller.apply_test_data()
         group=self.controller.find_field("DrugRegistrationDetails")
-        self.assertTrue(group.repeatable); self.assertEqual(_group_instance_count(group,values),1)
+        self.assertTrue(group.repeatable); self.assertIn("DrugRegistrationDetails", values)
         self.assertIn("DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails/StartDateTime",values)
         self.assertTrue(self.controller.validate().is_valid)
 
@@ -126,11 +124,6 @@ class Pmm01GuiControllerTests(unittest.TestCase):
         self.select("P.MM.01.TRN.004","P.MM.01.MSG.005")
         self.assertFalse(self.controller.generation_enabled); self.assertEqual(self.controller.message_presentation().severity,"BLOCKED")
         self.assertEqual(self.controller.generate_xml().status,"UNRESOLVED_STRUCTURE_VERSION")
-
-    def test_placeholder_xml_warning_is_explicit(self):
-        self.select("P.MM.01.TRN.004","P.MM.01.MSG.005"); self.controller.apply_test_data(); result=self.controller.generate_xml()
-        warning=XmlPanel.warning_text(result)
-        self.assertIn("ТЕСТОВЫЙ XML",warning); self.assertIn("Y.Y.Y / X.X.X",warning); self.assertIn("production",warning)
 
     def test_process_issue_filters_separate_blocks_and_warnings(self):
         self.controller.select_process("P.MM.01")

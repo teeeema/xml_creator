@@ -1,4 +1,4 @@
-"""Headless-testable presentation state for the wx frontend."""
+"""Headless-testable presentation state for GUI frontends."""
 
 from dataclasses import dataclass
 from enum import Enum

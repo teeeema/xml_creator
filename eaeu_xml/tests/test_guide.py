@@ -2,7 +2,7 @@ from pathlib import Path
 import unittest
 
 from eaeu_xml.application import EaeuXmlApplication
-from eaeu_xml.gui.controller import GuiController
+from eaeu_xml.presentation.controller import GuiController
 
 
 FIXTURES = Path(__file__).parent / "fixtures"

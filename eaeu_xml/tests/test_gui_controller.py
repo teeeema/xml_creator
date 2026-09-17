@@ -1,12 +1,8 @@
 from pathlib import Path
 import tempfile
 import unittest
-from types import SimpleNamespace
-
-from eaeu_xml.application import EaeuXmlApplication, FieldView
-from eaeu_xml.gui.controller import GuiController, GuiSettings
-from eaeu_xml.gui.main_frame import copy_text_to_clipboard
-from eaeu_xml.gui.field_controls import _choice_value, _convert, _group_instance_count
+from eaeu_xml.application import EaeuXmlApplication
+from eaeu_xml.presentation.controller import GuiController, GuiSettings
 
 
 FIXTURES = Path(__file__).parent / "fixtures"
@@ -77,43 +73,6 @@ class GuiControllerTests(unittest.TestCase):
         self.assertEqual(presentation.severity,"SUCCESS"); self.assertTrue(presentation.can_generate)
         self.assertTrue(self.controller.generation_enabled); self.assertEqual(self.controller.message_marker(presentation.status),"[OK]")
         self.assertFalse(self.controller.save_enabled)
-
-    def test_clipboard_lifecycle_success_open_failure_and_set_failure(self):
-        class Clipboard:
-            def __init__(self,open_result=True,raise_set=False,flush_result=True):self.open_result=open_result;self.raise_set=raise_set;self.flush_result=flush_result;self.closed=False;self.flushed=False;self.text=None
-            def Open(self):return self.open_result
-            def SetData(self,data):
-                if self.raise_set:raise RuntimeError("clipboard busy")
-                self.text=data.GetText();return True
-            def Flush(self):self.flushed=True;return self.flush_result
-            def Close(self):self.closed=True
-        success=Clipboard();self.assertTrue(copy_text_to_clipboard(success,"<xml/>"));self.assertEqual(success.text,"<xml/>");self.assertTrue(success.flushed);self.assertTrue(success.closed)
-        busy=Clipboard(False);self.assertFalse(copy_text_to_clipboard(busy,"<xml/>"));self.assertFalse(busy.closed)
-        failed=Clipboard(raise_set=True)
-        with self.assertRaises(RuntimeError):copy_text_to_clipboard(failed,"<xml/>")
-        self.assertTrue(failed.closed);not_flushed=Clipboard(flush_result=False);self.assertTrue(copy_text_to_clipboard(not_flushed,"<xml/>"));self.assertTrue(not_flushed.closed)
-        self.assertFalse(copy_text_to_clipboard(Clipboard(),""))
-
-    def test_repeatable_group_presence_distinguishes_none_from_missing(self):
-        from types import SimpleNamespace
-        field=SimpleNamespace(path="Items",min_occurs=1)
-        self.assertEqual(_group_instance_count(field,{"Items":None}),1)
-        self.assertEqual(_group_instance_count(field,{"Items":[None,None]}),2)
-        self.assertEqual(_group_instance_count(field,{"Items/Name":"value"}),1)
-        self.assertEqual(_group_instance_count(field,{}),1)
-
-    def test_enum_choice_roundtrips_selected_value_instead_of_boolean_none(self):
-        field=FieldView("Status","Status","Статус",None,"ELEMENT","csdo:CodeType",False,0,1,False,False,
-            allowed_values=("A","B"),ui_input_policy="USER_SELECT",normative_input_policy="USER_SELECT")
-        boolean=FieldView("Flag","Flag","Флаг",None,"ELEMENT","bdt:IndicatorType",False,0,1,False,False)
-        self.assertEqual(_choice_value(field,"B"),"B")
-        self.assertIs(_choice_value(boolean,"Да"),True);self.assertIs(_choice_value(boolean,"Нет"),False)
-        self.assertIn("Да / Нет", self.controller.field_help(boolean))
-
-    def test_any_xml_text_is_parsed_but_invalid_text_reaches_validation(self):
-        element=_convert('<Example xmlns="urn:test"><Value>ok</Value></Example>',"ANY_XML")
-        self.assertEqual(element.tag,"{urn:test}Example")
-        self.assertEqual(_convert("not xml","ANY_XML"),"not xml")
 
     def test_dirty_manual_save_load_and_autosave_recovery(self):
         self.assertFalse(self.controller.dirty)
