@@ -64,7 +64,7 @@ Item {
             height: Math.max(viewport.height, implicitHeight)
             wrapMode: TextArea.NoWrap
             textFormat: TextEdit.PlainText
-            font.family: "monospace"
+            font.family: fixedFontFamily
             font.pixelSize: root.fontSize
             color: Theme.text
             selectionColor: Theme.accent

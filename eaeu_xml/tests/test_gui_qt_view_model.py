@@ -121,18 +121,16 @@ class GuiQtViewModelTests(unittest.TestCase):
 
     def test_qml_places_selectors_only_on_home_and_editor_is_editable(self):
         qml = Path(__file__).parents[1] / "src" / "eaeu_xml" / "gui_qt" / "qml"
-        self.assertIn("pages.currentIndex === 0", (qml / "Main.qml").read_text(encoding="utf-8"))
+        main = (qml / "Main.qml").read_text(encoding="utf-8")
+        self.assertIn("root.currentIndex === 0", main)
         self.assertIn("ColumnLayout", (qml / "components" / "SelectorBar.qml").read_text(encoding="utf-8"))
-        editor = (qml / "pages" / "XmlPage.qml").read_text(encoding="utf-8")
         shared_editor = (qml / "components" / "XmlTextEditor.qml").read_text(encoding="utf-8")
-        self.assertIn("onTextCommitted: text => viewModel.setXml(text)", editor)
-        self.assertIn("changeXmlFontSize", editor)
-        self.assertIn("XmlTextEditor", editor)
+        native_editor = (Path(__file__).parents[1] / "src" / "eaeu_xml" / "gui_qt" / "native_xml_editor.py").read_text(encoding="utf-8")
+        self.assertNotIn("XmlTextEditor", main)
+        self.assertIn("QPlainTextEdit", native_editor)
         self.assertIn("Flickable", shared_editor)
         self.assertIn("ScrollBar.AsNeeded", shared_editor)
         self.assertIn("TextEdit.PlainText", shared_editor)
-        self.assertIn("xml.canUndo", editor)
-        self.assertIn("xml.canRedo", editor)
         selector = (qml / "components" / "Selector.qml").read_text(encoding="utf-8")
         self.assertIn("hovered && fullText.length > 0", selector)
 
