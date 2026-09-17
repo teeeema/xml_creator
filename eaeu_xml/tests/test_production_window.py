@@ -51,7 +51,7 @@ class ProductionWindowTests(unittest.TestCase):
 
         xml_editor_id = id(self.window.xml_editor)
         formatter_editor_id = id(self.window.formatter_editor)
-        expected_stack = {0: 0, 1: 1, 2: 0, 3: 2, 4: 0, 5: 0}
+        expected_stack = {0: 0, 1: 1, 2: 0, 3: 2, 4: 0, 5: 0, 6: 0}
         for index, stack_index in expected_stack.items():
             self.window.select_page(index)
             self.app.processEvents()
@@ -59,6 +59,21 @@ class ProductionWindowTests(unittest.TestCase):
             self.assertEqual(self.window.pages.currentIndex(), stack_index)
         self.assertEqual(id(self.window.xml_editor), xml_editor_id)
         self.assertEqual(id(self.window.formatter_editor), formatter_editor_id)
+
+    def test_base64_page_is_in_navigation_without_affecting_native_editor_state(self):
+        navigation = self.window.navigation.rootObject()
+        main = (Path(__file__).parents[1] / "src" / "eaeu_xml" / "gui_qt" / "qml" / "components" / "TopNavigation.qml").read_text(encoding="utf-8")
+        self.assertIn('"Base64"', main)
+        self.model.setXml("<main/>")
+        self.model.setFormatterXml("<formatter/>")
+        self.app.processEvents()
+        self.window.select_page(4)
+        self.app.processEvents()
+        self.assertEqual(self.window.current_index, 4)
+        self.assertEqual(self.window.pages.currentIndex(), self.window.QML_PAGE_INDEX)
+        self.assertEqual(self.window.xml_editor.xml(), "<main/>")
+        self.assertEqual(self.window.formatter_editor.xml(), "<formatter/>")
+        self.assertIsNotNone(self.window.base64_model)
 
     def test_hybrid_shell_backgrounds_are_explicitly_light(self):
         app_background = QColor("#f5f7fa")

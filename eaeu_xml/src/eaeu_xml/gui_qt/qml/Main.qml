@@ -19,6 +19,7 @@ Rectangle {
             Item { }
             ValidationPage { }
             Item { }
+            Base64Page { utilityModel: typeof base64Model === "undefined" ? null : base64Model }
             InformationPage { }
             SettingsPage { }
         }

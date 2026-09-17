@@ -9,6 +9,7 @@ from PySide6.QtGui import QColor, QPalette
 from PySide6.QtQuickWidgets import QQuickWidget
 from PySide6.QtWidgets import QStackedWidget, QVBoxLayout, QWidget
 
+from .base64_model import Base64UtilityModel
 from .fonts import fixed_font_family
 from .native_xml_editor import (
     NativeFormatterEditorBinding,
@@ -98,7 +99,12 @@ class ProductionMainWindow(QWidget):
         _set_widget_background(self, APP_BACKGROUND)
 
         font_family = fixed_font_family()
-        qml_context = {"viewModel": view_model, "fixedFontFamily": font_family}
+        self.base64_model = Base64UtilityModel(self)
+        qml_context = {
+            "viewModel": view_model,
+            "base64Model": self.base64_model,
+            "fixedFontFamily": font_family,
+        }
 
         self.navigation = _qml_widget(QML_ROOT / "components" / "TopNavigation.qml", parent=self)
         self.navigation.setFixedHeight(42)
@@ -163,7 +169,7 @@ class ProductionMainWindow(QWidget):
 
     def select_page(self, index: int) -> None:
         index = int(index)
-        if index < 0 or index > 5:
+        if index < 0 or index > 6:
             return
 
         if index == 2:
