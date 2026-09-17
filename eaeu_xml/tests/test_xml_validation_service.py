@@ -31,6 +31,14 @@ class XmlValidationServiceTests(unittest.TestCase):
         changed_namespace = self.result.xml.replace("urn:test:structure:v2.0.0", "urn:test:wrong", 1)
         self.assertIn("BODY_ROOT_UNEXPECTED", {item.code for item in self.validate(changed_namespace).diagnostics})
 
+    def test_structural_diagnostics_keep_real_element_positions(self):
+        wrong_envelope = '<?xml version="1.0"?>\n<soap:Envelope xmlns:soap="WRONG_NAMESPACE">\n  <soap:Header/>\n  <soap:Body/>\n</soap:Envelope>'
+        issue = self.validate(wrong_envelope).diagnostics[0]
+        self.assertEqual((issue.code, issue.location, issue.line), ("D5_SOAP_ENVELOPE_NAMESPACE", "Envelope", 2))
+        wrong_action = self.result.xml.replace("P.TS.01.MSG.001", "P.TS.01.MSG.002", 1)
+        action_issue = next(item for item in self.validate(wrong_action).diagnostics if item.code == "D5_ACTION_UNEXPECTED")
+        self.assertIsNotNone(action_issue.line)
+
 
 if __name__ == "__main__":
     unittest.main()

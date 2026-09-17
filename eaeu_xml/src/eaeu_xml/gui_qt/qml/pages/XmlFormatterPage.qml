@@ -14,7 +14,16 @@ Item {
             RowLayout {
                 Layout.fillWidth: true
                 Label { text: "Форматирование XML"; color: Theme.text; font.bold: true; font.pixelSize: 17; Layout.fillWidth: true }
-                AppButton { text: "Форматировать"; compact: true; onClicked: { const value = viewModel.formattedFormatterXml(editor.text); if (value !== "" && value !== editor.text) { editor.selectAll(); editor.insert(value) } } }
+                AppButton {
+                    id: formatButton
+                    objectName: "formatterFormatButton"
+                    text: "Форматировать"; compact: true
+                    onClicked: {
+                        viewModel.setFormatterXml(editor.text)
+                        viewModel.formatFormatterXml()
+                        editor.text = viewModel.formatterXml
+                    }
+                }
                 AppButton { text: "Очистить"; compact: true; onClicked: editor.clear() }
                 AppButton { text: "Копировать"; compact: true; onClicked: viewModel.copyFormatterXml() }
                 AppButton { text: "Открыть файл"; compact: true; onClicked: root.openRequested() }
@@ -27,6 +36,7 @@ Item {
                 ScrollBar.horizontal.policy: ScrollBar.AsNeeded
                 TextArea {
                     id: editor
+                    objectName: "formatterEditor"
                     text: viewModel ? viewModel.formatterXml : ""
                     width: scroll.availableWidth
                     height: Math.max(scroll.availableHeight, contentHeight + topPadding + bottomPadding)

@@ -88,6 +88,37 @@ class GuiQtViewModelTests(unittest.TestCase):
         self.model.saveFormatterXml(str(path))
         self.assertEqual(path.read_text(encoding="utf-8"), formatted)
 
+    def test_formatter_slot_updates_current_text_idempotently(self):
+        source = '<root><item id="1"><name>Test</name></item></root>'
+        self.model.setFormatterXml(source)
+        self.model.formatFormatterXml()
+        once = self.model.formatterXml
+        self.assertIn("\n", once)
+        self.assertIn("<item id=\"1\">", once)
+        self.model.formatFormatterXml()
+        self.assertEqual(self.model.formatterXml, once)
+
+    def test_xml_position_mapping_script_clamps_safely(self):
+        from PySide6.QtCore import QCoreApplication
+        from PySide6.QtQml import QJSEngine
+        self._qt_app = QCoreApplication.instance() or QCoreApplication([])
+        script = (Path(__file__).parents[1] / "src" / "eaeu_xml" / "gui_qt" / "qml" / "components" / "XmlPosition.js").read_text(encoding="utf-8")
+        engine = QJSEngine()
+        engine.evaluate(script)
+        offset = engine.globalObject().property("offsetFor")
+        text = "one\ntwo\nlast"
+        self.assertEqual(offset.call([text, 1, 1]).toInt(), 0)
+        self.assertEqual(offset.call([text, 2, 2]).toInt(), 5)
+        self.assertEqual(offset.call([text, 3, 999]).toInt(), len(text))
+        self.assertEqual(offset.call([text, 4, 1]).toInt(), -1)
+
+    def test_xml_diagnostic_navigation_emits_only_real_position(self):
+        calls = []
+        self.model.navigateToXmlPosition.connect(lambda line, column: calls.append((line, column)))
+        self.model.goToXmlDiagnostic(7, 3)
+        self.model.goToXmlDiagnostic(0, 1)
+        self.assertEqual(calls, [(7, 3)])
+
     def test_qml_places_selectors_only_on_home_and_editor_is_editable(self):
         qml = Path(__file__).parents[1] / "src" / "eaeu_xml" / "gui_qt" / "qml"
         self.assertIn("pages.currentIndex === 0", (qml / "Main.qml").read_text(encoding="utf-8"))

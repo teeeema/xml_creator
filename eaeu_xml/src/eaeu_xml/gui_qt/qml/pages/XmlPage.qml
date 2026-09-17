@@ -2,7 +2,19 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import "../components"
+import "../components/XmlPosition.js" as XmlPosition
 Item { id: root; signal saveXmlRequested()
+    function goToPosition(line, column) {
+        const start = XmlPosition.offsetFor(xml.text, line, column)
+        if (start < 0) return
+        const end = xml.text.indexOf("\n", start)
+        xml.cursorPosition = start
+        xml.select(start, end < 0 ? xml.text.length : end)
+        const lineHeight = xml.font.pixelSize * 1.35
+        editorScroll.contentItem.contentY = Math.max(0, (line - 1) * lineHeight - editorScroll.availableHeight / 2)
+        highlightTimer.restart()
+    }
+    Timer { id: highlightTimer; interval: 1800; onTriggered: xml.deselect() }
     Card { anchors.fill: parent
         ColumnLayout { anchors.fill: parent; anchors.margins: 16; spacing: 12
             RowLayout { Layout.fillWidth: true

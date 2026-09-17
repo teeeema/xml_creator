@@ -25,11 +25,18 @@ ApplicationWindow {
         StackLayout {
             id: pages; Layout.fillWidth: true; Layout.fillHeight: true
             HomePage { onSaveDraftRequested: draftDialog.open() }
-            XmlPage { onSaveXmlRequested: xmlDialog.open() }
+            XmlPage { id: xmlPage; onSaveXmlRequested: xmlDialog.open() }
             ValidationPage { }
             XmlFormatterPage { onOpenRequested: formatterOpenDialog.open(); onSaveRequested: formatterSaveDialog.open() }
             InformationPage { }
             SettingsPage { }
+        }
+        Connections {
+            target: viewModel
+            function onNavigateToXmlPosition(line, column) {
+                pages.currentIndex = 1
+                xmlPage.goToPosition(line, column)
+            }
         }
         Label { visible: (viewModel ? viewModel.notice : "") !== ""; text: (viewModel ? viewModel.notice : ""); color: Theme.secondary; Layout.fillWidth: true }
     }

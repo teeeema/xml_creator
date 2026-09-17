@@ -19,6 +19,7 @@ class GuiViewModel(QObject):
 
     changed = Signal()
     noticeChanged = Signal()
+    navigateToXmlPosition = Signal(int, int)
 
     def __init__(self, processes_root: Path, *, application=None) -> None:
         super().__init__()
@@ -110,7 +111,8 @@ class GuiViewModel(QObject):
                      "path": "XML", "location": "XML"}]
         xml_items = [] if self._xml_validation is None else [
             {"severity": item.severity, "code": item.code, "message": item.message,
-             "path": item.location, "location": item.location + (f" ({item.line}:{item.column})" if item.line else "")}
+             "path": item.location, "location": item.location + (f" (Строка {item.line}, столбец {item.column})" if item.line and item.column else f" (Строка {item.line})" if item.line else ""),
+             "line": item.line or 0, "column": item.column or 0}
             for item in self._xml_validation.diagnostics]
         validation = self.controller.validation
         if not validation: return xml_items
@@ -229,6 +231,14 @@ class GuiViewModel(QObject):
             return ""
 
     @Slot()
+    def formatFormatterXml(self):
+        """Format the current formatter document and notify QML of the result."""
+        formatted = self.formattedFormatterXml(self._formatter_xml)
+        if formatted:
+            self._formatter_xml = formatted
+            self._refresh("XML отформатирован.")
+
+    @Slot()
     def copyFormatterXml(self):
         if self._formatter_xml:
             QGuiApplication.clipboard().setText(self._formatter_xml)
@@ -285,6 +295,11 @@ class GuiViewModel(QObject):
                 return
         self.controller.validate()
         self._refresh("Проверка завершена.")
+
+    @Slot(int, int)
+    def goToXmlDiagnostic(self, line, column=0):
+        if line > 0:
+            self.navigateToXmlPosition.emit(line, max(0, column))
 
     @Slot(str)
     def setValidationMode(self, mode):
