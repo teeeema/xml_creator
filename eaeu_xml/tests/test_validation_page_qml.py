@@ -1,5 +1,6 @@
 from pathlib import Path
 import unittest
+from unittest.mock import patch
 
 try:
     from PySide6.QtCore import QObject
@@ -57,6 +58,34 @@ class ValidationPageQmlTests(unittest.TestCase):
         self.assertEqual(updates, [])
         QTest.qWait(360)
         self.assertEqual(len(updates), 1)
+
+    def test_large_document_scrolling_does_not_call_backend(self):
+        """Scrolling is a Qt-only operation, even after a large local edit."""
+        editor = self.root.findChild(QObject, "mainXmlEditor")
+        viewport = self.root.findChild(QObject, "mainXmlEditorViewport")
+        self.assertIsNotNone(viewport)
+
+        for line_count in (100, 1_000, 5_000, 10_000, 25_000):
+            with self.subTest(lines=line_count):
+                editor.setProperty("text", "\n".join("<item>value</item>" for _ in range(line_count)))
+                QTest.qWait(360)
+                self.assertGreater(viewport.property("contentHeight"), viewport.property("height"))
+
+        model_updates = []
+        self.model.changed.connect(lambda: model_updates.append(1))
+        with patch("eaeu_xml.application.xml_formatter.XmlFormatter.format") as format_xml, \
+             patch("eaeu_xml.application.xml_validation_service.XmlValidationService.validate") as validate_xml, \
+             patch("eaeu_xml.gui_qt.view_model.minidom.parseString") as parse_xml:
+            maximum_y = viewport.property("contentHeight") - viewport.property("height")
+            for fraction in (0.05, 0.25, 0.5, 0.75, 1.0):
+                viewport.setProperty("contentY", maximum_y * fraction)
+                viewport.setProperty("contentX", 20)
+                self.app.processEvents()
+
+        self.assertEqual(model_updates, [])
+        format_xml.assert_not_called()
+        validate_xml.assert_not_called()
+        parse_xml.assert_not_called()
 
 
 if __name__ == "__main__":
