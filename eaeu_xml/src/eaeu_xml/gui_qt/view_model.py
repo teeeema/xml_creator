@@ -236,10 +236,37 @@ class GuiViewModel(QObject):
 
     @Slot()
     def formatXml(self):
-        if not self._xml: return
-        try: self._xml = minidom.parseString(self._xml).toprettyxml(indent="  ")
-        except Exception: self._notice = "XML не удалось отформатировать."
-        self._refresh(self._notice or "XML отформатирован.")
+        formatted = self.formattedXml(self._xml)
+        if formatted:
+            self._xml = formatted
+            self._refresh("XML отформатирован.")
+
+    @staticmethod
+    def _normalize_formatting_whitespace(node):
+        """Remove indentation-only text nodes without touching mixed content."""
+        children = list(node.childNodes)
+        element_children = [child for child in children if child.nodeType == child.ELEMENT_NODE]
+        meaningful_text = [child for child in children if child.nodeType == child.TEXT_NODE and child.data.strip()]
+        if element_children and not meaningful_text:
+            for child in children:
+                if child.nodeType == child.TEXT_NODE and not child.data.strip():
+                    node.removeChild(child)
+        for child in list(node.childNodes):
+            if child.nodeType == child.ELEMENT_NODE:
+                GuiViewModel._normalize_formatting_whitespace(child)
+
+    @Slot(str, result=str)
+    def formattedXml(self, value):
+        """Return canonical, idempotent pretty XML; leave invalid source untouched."""
+        if not value:
+            return ""
+        try:
+            document = minidom.parseString(value)
+            self._normalize_formatting_whitespace(document)
+            return document.toprettyxml(indent="  ")
+        except Exception:
+            self._refresh("XML не удалось отформатировать.")
+            return ""
 
     @Slot(int)
     def changeXmlFontSize(self, delta):

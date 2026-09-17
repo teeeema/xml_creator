@@ -64,6 +64,20 @@ class GuiQtViewModelTests(unittest.TestCase):
         self.model.validate()
         self.assertEqual(self.model.validationItems[0]["code"], "XML_PARSE_ERROR")
 
+    def test_xml_formatting_is_idempotent_and_preserves_comments_namespaces(self):
+        source = '<?xml version="1.0"?><root xmlns="urn:test"><!-- note --><child><value>text</value></child></root>'
+        once = self.model.formattedXml(source)
+        twice = self.model.formattedXml(once)
+        five_times = self.model.formattedXml(self.model.formattedXml(self.model.formattedXml(self.model.formattedXml(once))))
+        self.assertEqual(once, twice)
+        self.assertEqual(once, five_times)
+        self.assertIn("<!-- note -->", once)
+        self.assertIn('xmlns="urn:test"', once)
+        self.assertTrue(once.startswith("<?xml"))
+        self.model.setXml("<broken>")
+        self.model.formatXml()
+        self.assertEqual(self.model.xml, "<broken>")
+
     def test_qml_places_selectors_only_on_home_and_editor_is_editable(self):
         qml = Path(__file__).parents[1] / "src" / "eaeu_xml" / "gui_qt" / "qml"
         self.assertIn("pages.currentIndex === 0", (qml / "Main.qml").read_text(encoding="utf-8"))
@@ -73,6 +87,8 @@ class GuiQtViewModelTests(unittest.TestCase):
         self.assertIn("changeXmlFontSize", editor)
         self.assertIn("ScrollView", editor)
         self.assertIn("ScrollBar.AsNeeded", editor)
+        self.assertIn("xml.canUndo", editor)
+        self.assertIn("xml.canRedo", editor)
         selector = (qml / "components" / "Selector.qml").read_text(encoding="utf-8")
         self.assertIn("hovered && fullText.length > 0", selector)
 
