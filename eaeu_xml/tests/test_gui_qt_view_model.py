@@ -78,6 +78,16 @@ class GuiQtViewModelTests(unittest.TestCase):
         self.model.formatXml()
         self.assertEqual(self.model.xml, "<broken>")
 
+    def test_formatter_has_independent_text_and_file_save(self):
+        self.model.setXml("<main/>")
+        self.model.setFormatterXml("<formatter><value>one</value></formatter>")
+        formatted = self.model.formattedFormatterXml(self.model.formatterXml)
+        self.model.setFormatterXml(formatted)
+        self.assertEqual(self.model.xml, "<main/>")
+        path = Path(self.temp.name) / "formatter.xml"
+        self.model.saveFormatterXml(str(path))
+        self.assertEqual(path.read_text(encoding="utf-8"), formatted)
+
     def test_qml_places_selectors_only_on_home_and_editor_is_editable(self):
         qml = Path(__file__).parents[1] / "src" / "eaeu_xml" / "gui_qt" / "qml"
         self.assertIn("pages.currentIndex === 0", (qml / "Main.qml").read_text(encoding="utf-8"))

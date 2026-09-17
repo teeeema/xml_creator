@@ -15,6 +15,8 @@ ApplicationWindow {
     palette.text: Theme.text
     palette.windowText: Theme.text
     FileDialog { id: xmlDialog; title: "Сохранить XML"; fileMode: FileDialog.SaveFile; nameFilters: ["XML (*.xml)"]; onAccepted: viewModel.saveXml(selectedFile.toLocalFile()) }
+    FileDialog { id: formatterOpenDialog; title: "Открыть XML"; fileMode: FileDialog.OpenFile; nameFilters: ["XML (*.xml)"]; onAccepted: viewModel.loadFormatterXml(selectedFile.toLocalFile()) }
+    FileDialog { id: formatterSaveDialog; title: "Сохранить XML"; fileMode: FileDialog.SaveFile; nameFilters: ["XML (*.xml)"]; onAccepted: viewModel.saveFormatterXml(selectedFile.toLocalFile()) }
     FileDialog { id: draftDialog; title: "Сохранить черновик"; fileMode: FileDialog.SaveFile; nameFilters: ["Черновик (*.eaeudraft.json)"]; onAccepted: viewModel.saveDraft(selectedFile.toLocalFile()) }
     ColumnLayout {
         anchors.fill: parent; anchors.margins: 24; spacing: 12
@@ -25,6 +27,7 @@ ApplicationWindow {
             HomePage { onSaveDraftRequested: draftDialog.open() }
             XmlPage { onSaveXmlRequested: xmlDialog.open() }
             ValidationPage { }
+            XmlFormatterPage { onOpenRequested: formatterOpenDialog.open(); onSaveRequested: formatterSaveDialog.open() }
             InformationPage { }
             SettingsPage { }
         }

@@ -10,6 +10,7 @@ from PySide6.QtGui import QGuiApplication
 
 from eaeu_xml.application import EaeuXmlApplication
 from eaeu_xml.application.xml_validation_service import XmlValidationService
+from eaeu_xml.application.xml_formatter import XmlFormatter
 from eaeu_xml.presentation.controller import GuiController
 
 
@@ -24,6 +25,8 @@ class GuiViewModel(QObject):
         self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
         self._xml = ""
         self._xml_font_size = 14
+        self._formatter_xml = ""
+        self._formatter_font_size = 14
         self._xml_validation_error = ""
         self._xml_validation = None
         self._notice = ""
@@ -93,6 +96,12 @@ class GuiViewModel(QObject):
 
     @Property(int, notify=changed)
     def xmlFontSize(self): return self._xml_font_size
+
+    @Property(str, notify=changed)
+    def formatterXml(self): return self._formatter_xml
+
+    @Property(int, notify=changed)
+    def formatterFontSize(self): return self._formatter_font_size
 
     @Property("QVariantList", notify=changed)
     def validationItems(self):
@@ -203,6 +212,56 @@ class GuiViewModel(QObject):
         if value != self._xml:
             self._xml = value
             self.changed.emit()
+
+    @Slot(str)
+    def setFormatterXml(self, value):
+        value = str(value)
+        if value != self._formatter_xml:
+            self._formatter_xml = value
+            self.changed.emit()
+
+    @Slot(str, result=str)
+    def formattedFormatterXml(self, value):
+        try:
+            return XmlFormatter().format(str(value)) if value else ""
+        except Exception as error:
+            self._refresh(f"Ошибка XML: {error}")
+            return ""
+
+    @Slot()
+    def copyFormatterXml(self):
+        if self._formatter_xml:
+            QGuiApplication.clipboard().setText(self._formatter_xml)
+            self._refresh("XML скопирован.")
+
+    @Slot()
+    def clearFormatterXml(self):
+        self._formatter_xml = ""
+        self._refresh()
+
+    @Slot(str)
+    def loadFormatterXml(self, path):
+        try:
+            self._formatter_xml = Path(path).read_text(encoding="utf-8")
+            self._refresh()
+        except OSError as error:
+            self._refresh(f"Не удалось открыть XML: {error}")
+
+    @Slot(str)
+    def saveFormatterXml(self, path):
+        if path:
+            Path(path).write_text(self._formatter_xml, encoding="utf-8")
+            self._refresh(f"XML сохранён: {Path(path).name}")
+
+    @Slot(int)
+    def changeFormatterFontSize(self, delta):
+        self._formatter_font_size = max(9, min(32, self._formatter_font_size + delta))
+        self.changed.emit()
+
+    @Slot()
+    def resetFormatterFontSize(self):
+        self._formatter_font_size = 14
+        self.changed.emit()
 
     @Slot()
     def copyXml(self):
