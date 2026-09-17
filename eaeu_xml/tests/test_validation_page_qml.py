@@ -3,6 +3,7 @@ import unittest
 
 try:
     from PySide6.QtCore import QObject
+    from PySide6.QtTest import QTest
     from PySide6.QtGui import QGuiApplication
     from PySide6.QtQml import QQmlApplicationEngine
 except ModuleNotFoundError:
@@ -36,6 +37,26 @@ class ValidationPageQmlTests(unittest.TestCase):
             self.app.processEvents()
             self.assertEqual(listing.property("count"), count)
         self.assertEqual(self.model.validationItems, original)
+
+    def test_main_editor_debounces_model_sync(self):
+        editor = self.root.findChild(QObject, "mainXmlEditor")
+        updates = []
+        self.model.changed.connect(lambda: updates.append(1))
+        editor.setProperty("text", "<root>" + "x" * 100)
+        self.app.processEvents()
+        self.assertEqual(updates, [])
+        QTest.qWait(360)
+        self.assertEqual(len(updates), 1)
+
+    def test_formatter_editor_debounces_large_paste_sync(self):
+        editor = self.root.findChild(QObject, "formatterEditor")
+        updates = []
+        self.model.changed.connect(lambda: updates.append(1))
+        editor.setProperty("text", "\n".join("<item>value</item>" for _ in range(10000)))
+        self.app.processEvents()
+        self.assertEqual(updates, [])
+        QTest.qWait(360)
+        self.assertEqual(len(updates), 1)
 
 
 if __name__ == "__main__":

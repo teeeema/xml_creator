@@ -20,7 +20,7 @@ ApplicationWindow {
     FileDialog { id: draftDialog; title: "Сохранить черновик"; fileMode: FileDialog.SaveFile; nameFilters: ["Черновик (*.eaeudraft.json)"]; onAccepted: viewModel.saveDraft(selectedFile.toLocalFile()) }
     ColumnLayout {
         anchors.fill: parent; anchors.margins: 24; spacing: 12
-        TopNavigation { Layout.fillWidth: true; currentIndex: pages.currentIndex; onSelected: index => pages.currentIndex = index }
+        TopNavigation { Layout.fillWidth: true; currentIndex: pages.currentIndex; onSelected: index => { if (index === 2) xmlPage.syncNow(); pages.currentIndex = index } }
         SelectorBar { Layout.fillWidth: true; visible: pages.currentIndex === 0 }
         StackLayout {
             id: pages; Layout.fillWidth: true; Layout.fillHeight: true

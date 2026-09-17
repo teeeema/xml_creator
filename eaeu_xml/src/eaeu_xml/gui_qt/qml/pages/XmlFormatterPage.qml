@@ -5,8 +5,11 @@ import "../components"
 
 Item {
     id: root
+    property bool localEdit: false
+    property bool updatingFromModel: false
     signal openRequested()
     signal saveRequested()
+    function syncNow() { if (localEdit) { viewModel.setFormatterXml(editor.text); localEdit = false } }
     Card {
         anchors.fill: parent
         ColumnLayout {
@@ -19,15 +22,17 @@ Item {
                     objectName: "formatterFormatButton"
                     text: "Форматировать"; compact: true
                     onClicked: {
-                        viewModel.setFormatterXml(editor.text)
+                        root.syncNow()
                         viewModel.formatFormatterXml()
+                        root.updatingFromModel = true
                         editor.text = viewModel.formatterXml
+                        root.updatingFromModel = false
                     }
                 }
-                AppButton { text: "Очистить"; compact: true; onClicked: editor.clear() }
-                AppButton { text: "Копировать"; compact: true; onClicked: viewModel.copyFormatterXml() }
-                AppButton { text: "Открыть файл"; compact: true; onClicked: root.openRequested() }
-                AppButton { text: "Сохранить XML"; compact: true; onClicked: root.saveRequested() }
+                AppButton { text: "Очистить"; compact: true; onClicked: { editor.clear(); root.syncNow() } }
+                AppButton { text: "Копировать"; compact: true; onClicked: { root.syncNow(); viewModel.copyFormatterXml() } }
+                AppButton { text: "Открыть файл"; compact: true; onClicked: { root.syncNow(); root.openRequested() } }
+                AppButton { text: "Сохранить XML"; compact: true; onClicked: { root.syncNow(); root.saveRequested() } }
                 Label { text: (viewModel ? viewModel.formatterFontSize : 14) + " px"; color: Theme.secondary }
             }
             ScrollView {
@@ -37,14 +42,15 @@ Item {
                 TextArea {
                     id: editor
                     objectName: "formatterEditor"
-                    text: viewModel ? viewModel.formatterXml : ""
+                    text: ""
                     width: scroll.availableWidth
                     height: Math.max(scroll.availableHeight, contentHeight + topPadding + bottomPadding)
                     wrapMode: TextArea.NoWrap
                     font.family: "monospace"; font.pixelSize: viewModel ? viewModel.formatterFontSize : 14
                     color: Theme.text; selectionColor: Theme.accent; selectedTextColor: "white"
                     background: Rectangle { color: "#fbfcff"; border.color: Theme.border; radius: 5 }
-                    onTextChanged: if (viewModel && text !== viewModel.formatterXml) viewModel.setFormatterXml(text)
+                    Component.onCompleted: { root.updatingFromModel = true; text = viewModel ? viewModel.formatterXml : ""; root.updatingFromModel = false }
+                    onTextChanged: if (!root.updatingFromModel) { root.localEdit = true; formatterSync.restart() }
                     Keys.onPressed: event => {
                         const modifier = (event.modifiers & Qt.ControlModifier) || (event.modifiers & Qt.MetaModifier)
                         if (!modifier) return
@@ -56,4 +62,6 @@ Item {
             }
         }
     }
+    Timer { id: formatterSync; interval: 300; repeat: false; onTriggered: root.syncNow() }
+    Connections { target: viewModel; function onChanged() { if (!root.localEdit && editor.text !== viewModel.formatterXml) { root.updatingFromModel = true; editor.text = viewModel.formatterXml; root.updatingFromModel = false } } }
 }

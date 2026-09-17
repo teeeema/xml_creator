@@ -4,6 +4,11 @@ import QtQuick.Layouts
 import "../components"
 import "../components/XmlPosition.js" as XmlPosition
 Item { id: root; signal saveXmlRequested()
+    property bool localEdit: false
+    property bool updatingFromModel: false
+    function syncNow() {
+        if (localEdit) { viewModel.setXml(xml.text); localEdit = false }
+    }
     function goToPosition(line, column) {
         const start = XmlPosition.offsetFor(xml.text, line, column)
         if (start < 0) return
@@ -23,13 +28,13 @@ Item { id: root; signal saveXmlRequested()
                     text: "Форматировать"; compact: true
                     onClicked: {
                         const formatted = viewModel.formattedXml(xml.text)
-                        if (formatted !== "" && formatted !== xml.text) { xml.selectAll(); xml.insert(formatted) }
+                        if (formatted !== "" && formatted !== xml.text) { updatingFromModel = true; xml.text = formatted; updatingFromModel = false; localEdit = true; syncNow() }
                     }
                 }
                 AppButton { text: "Отменить"; compact: true; enabled: xml.canUndo; onClicked: xml.undo() }
                 AppButton { text: "Повторить"; compact: true; enabled: xml.canRedo; onClicked: xml.redo() }
-                AppButton { text: "Копировать"; compact: true; onClicked: viewModel.copyXml() }
-                AppButton { text: "Сохранить XML"; compact: true; onClicked: root.saveXmlRequested() }
+                AppButton { text: "Копировать"; compact: true; onClicked: { root.syncNow(); viewModel.copyXml() } }
+                AppButton { text: "Сохранить XML"; compact: true; onClicked: { root.syncNow(); root.saveXmlRequested() } }
                 Label { text: (viewModel ? viewModel.xmlFontSize : 14) + " px"; color: Theme.secondary; Layout.leftMargin: 4 }
             }
             ScrollView {
@@ -40,13 +45,15 @@ Item { id: root; signal saveXmlRequested()
                 ScrollBar.vertical.interactive: true
                 TextArea {
                     id: xml
-                    text: (viewModel ? viewModel.xml : "")
+                    objectName: "mainXmlEditor"
+                    text: ""
                     width: editorScroll.availableWidth
                     height: Math.max(editorScroll.availableHeight, contentHeight + topPadding + bottomPadding)
                     wrapMode: TextArea.NoWrap
                     font.family: "monospace"; font.pixelSize: (viewModel ? viewModel.xmlFontSize : 14); color: Theme.text; selectionColor: Theme.accent; selectedTextColor: "white"
                     background: Rectangle { color: "#fbfcff"; border.color: Theme.border; radius: 5 }
-                    onTextChanged: if (text !== (viewModel ? viewModel.xml : "")) viewModel.setXml(text)
+                    Component.onCompleted: { updatingFromModel = true; text = viewModel ? viewModel.xml : ""; updatingFromModel = false }
+                    onTextChanged: if (!updatingFromModel) { localEdit = true; syncTimer.restart() }
                     Keys.onPressed: event => {
                         const modifier = (event.modifiers & Qt.ControlModifier) || (event.modifiers & Qt.MetaModifier)
                         if (!modifier) return
@@ -58,4 +65,6 @@ Item { id: root; signal saveXmlRequested()
             }
         }
     }
+    Timer { id: syncTimer; interval: 300; repeat: false; onTriggered: root.syncNow() }
+    Connections { target: viewModel; function onChanged() { if (!root.localEdit && xml.text !== viewModel.xml) { root.updatingFromModel = true; xml.text = viewModel.xml; root.updatingFromModel = false } } }
 }
