@@ -12,12 +12,14 @@ ApplicationWindow {
     minimumWidth: 980; minimumHeight: 640
     title: "ГИС_xml"
     color: Theme.background
+    palette.text: Theme.text
+    palette.windowText: Theme.text
     FileDialog { id: xmlDialog; title: "Сохранить XML"; fileMode: FileDialog.SaveFile; nameFilters: ["XML (*.xml)"]; onAccepted: viewModel.saveXml(selectedFile.toLocalFile()) }
     FileDialog { id: draftDialog; title: "Сохранить черновик"; fileMode: FileDialog.SaveFile; nameFilters: ["Черновик (*.eaeudraft.json)"]; onAccepted: viewModel.saveDraft(selectedFile.toLocalFile()) }
     ColumnLayout {
         anchors.fill: parent; anchors.margins: 24; spacing: 12
         TopNavigation { Layout.fillWidth: true; currentIndex: pages.currentIndex; onSelected: index => pages.currentIndex = index }
-        SelectorBar { Layout.fillWidth: true }
+        SelectorBar { Layout.fillWidth: true; visible: pages.currentIndex === 0 }
         StackLayout {
             id: pages; Layout.fillWidth: true; Layout.fillHeight: true
             HomePage { onSaveDraftRequested: draftDialog.open() }
@@ -26,6 +28,6 @@ ApplicationWindow {
             InformationPage { }
             SettingsPage { }
         }
-        Label { visible: viewModel.notice !== ""; text: viewModel.notice; color: Theme.secondary; Layout.fillWidth: true }
+        Label { visible: (viewModel ? viewModel.notice : "") !== ""; text: (viewModel ? viewModel.notice : ""); color: Theme.secondary; Layout.fillWidth: true }
     }
 }

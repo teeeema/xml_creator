@@ -6,16 +6,25 @@ Item { id: root; signal saveXmlRequested()
     Card { anchors.fill: parent
         ColumnLayout { anchors.fill: parent; anchors.margins: 16; spacing: 12
             RowLayout { Layout.fillWidth: true
-                Label { text: "Сформированный XML"; font.bold: true; font.pixelSize: 17; Layout.fillWidth: true }
-                Button { text: "Форматировать"; onClicked: viewModel.formatXml() }
-                Button { text: "Копировать"; onClicked: { xml.selectAll(); xml.copy() } }
-                Button { text: "Скачать XML"; onClicked: root.saveXmlRequested() }
+                Label { text: "Сформированный XML"; color: Theme.text; font.bold: true; font.pixelSize: 17; Layout.fillWidth: true }
+                AppButton { text: "Форматировать"; compact: true; onClicked: viewModel.formatXml() }
+                AppButton { text: "Копировать"; compact: true; onClicked: viewModel.copyXml() }
+                AppButton { text: "Сохранить XML"; compact: true; onClicked: root.saveXmlRequested() }
+                Label { text: (viewModel ? viewModel.xmlFontSize : 14) + " px"; color: Theme.secondary; Layout.leftMargin: 4 }
             }
             TextArea {
-                id: xml; text: viewModel.xml; readOnly: true; wrapMode: TextArea.NoWrap
-                font.family: "monospace"; font.pixelSize: 13
+                id: xml; text: (viewModel ? viewModel.xml : ""); wrapMode: TextArea.NoWrap
+                font.family: "monospace"; font.pixelSize: (viewModel ? viewModel.xmlFontSize : 14); color: Theme.text; selectionColor: Theme.accent; selectedTextColor: "white"
                 Layout.fillWidth: true; Layout.fillHeight: true
                 background: Rectangle { color: "#fbfcff"; border.color: Theme.border; radius: 5 }
+                onTextChanged: if (text !== (viewModel ? viewModel.xml : "")) viewModel.setXml(text)
+                Keys.onPressed: event => {
+                    const modifier = (event.modifiers & Qt.ControlModifier) || (event.modifiers & Qt.MetaModifier)
+                    if (!modifier) return
+                    if (event.key === Qt.Key_Plus || event.key === Qt.Key_Equal) { viewModel.changeXmlFontSize(1); event.accepted = true }
+                    else if (event.key === Qt.Key_Minus) { viewModel.changeXmlFontSize(-1); event.accepted = true }
+                    else if (event.key === Qt.Key_0) { viewModel.resetXmlFontSize(); event.accepted = true }
+                }
             }
         }
     }

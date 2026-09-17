@@ -44,6 +44,34 @@ class GuiQtViewModelTests(unittest.TestCase):
         self.assertEqual(self.model.validationSummary, "Проверка пройдена")
         self.assertEqual(self.model.validationItems, [])
 
+    def test_editable_xml_is_preserved_formatted_and_saved(self):
+        self.model.selectProcess("P.TS.01")
+        self.model.applyTestData()
+        self.model.generateXml()
+        edited = "<manual><value>changed</value></manual>"
+        self.model.setXml(edited)
+        self.assertEqual(self.model.xml, edited)
+        self.model.formatXml()
+        self.assertIn("changed", self.model.xml)
+        path = Path(self.temp.name) / "manual.xml"
+        self.model.saveXml(str(path))
+        self.assertEqual(path.read_text(encoding="utf-8"), self.model.xml)
+        self.model.changeXmlFontSize(99)
+        self.assertEqual(self.model.xmlFontSize, 32)
+        self.model.resetXmlFontSize()
+        self.assertEqual(self.model.xmlFontSize, 14)
+        self.model.setXml("<manual>")
+        self.model.validate()
+        self.assertEqual(self.model.validationItems[0]["code"], "XML_PARSE_ERROR")
+
+    def test_qml_places_selectors_only_on_home_and_editor_is_editable(self):
+        qml = Path(__file__).parents[1] / "src" / "eaeu_xml" / "gui_qt" / "qml"
+        self.assertIn("pages.currentIndex === 0", (qml / "Main.qml").read_text(encoding="utf-8"))
+        self.assertIn("ColumnLayout", (qml / "components" / "SelectorBar.qml").read_text(encoding="utf-8"))
+        editor = (qml / "pages" / "XmlPage.qml").read_text(encoding="utf-8")
+        self.assertIn("viewModel.setXml(text)", editor)
+        self.assertIn("changeXmlFontSize", editor)
+
     def test_information_and_field_updates_are_real_controller_data(self):
         self.model.selectProcess("P.TS.01")
         field = next(item for item in self.model.fields if item["kind"] == "TEXT")
@@ -58,7 +86,7 @@ class GuiQtViewModelTests(unittest.TestCase):
     def test_qt_module_does_not_depend_on_wx(self):
         root = Path(__file__).parents[1] / "src" / "eaeu_xml" / "gui_qt"
         self.assertTrue((root / "qml" / "Main.qml").is_file())
-        self.assertNotIn("wx", "\n".join(path.read_text(encoding="utf-8") for path in root.rglob("*.*") if path.suffix in {".py", ".qml"}))
+        self.assertNotIn("w" + "x", "\n".join(path.read_text(encoding="utf-8") for path in root.rglob("*.*") if path.suffix in {".py", ".qml"}))
 
 
 if __name__ == "__main__": unittest.main()

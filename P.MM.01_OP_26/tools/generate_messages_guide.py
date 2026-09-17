@@ -1,4 +1,4 @@
-"""Generate the standalone user guide from the same structured guide API as wx GUI."""
+"""Generate the standalone user guide from the same structured guide API as the GUI."""
 
 from pathlib import Path
 

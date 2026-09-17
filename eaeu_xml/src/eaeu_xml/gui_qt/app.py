@@ -21,6 +21,8 @@ def main(argv=None) -> int:
     app.setApplicationName("ГИС_xml")
     engine = QQmlApplicationEngine()
     view_model = GuiViewModel(args.processes_root)
+    # Keep the bridge alive for the complete lifetime of the QML engine.
+    engine._view_model = view_model
     engine.rootContext().setContextProperty("viewModel", view_model)
     engine.load(QUrl.fromLocalFile(str(Path(__file__).with_name("qml") / "Main.qml")))
     if not engine.rootObjects(): return 1

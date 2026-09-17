@@ -4,7 +4,7 @@ import tempfile
 import unittest
 
 from eaeu_xml.application import EaeuXmlApplication
-from eaeu_xml.gui.controller import GuiController
+from eaeu_xml.presentation.controller import GuiController
 
 
 ROOT = Path(__file__).parents[2]

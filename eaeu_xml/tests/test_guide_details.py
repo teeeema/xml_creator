@@ -1,7 +1,7 @@
 import unittest
 
 from eaeu_xml.application import FieldGuide, GuideSourceView
-from eaeu_xml.gui.guide_details import GuideNodeKey, build_guide_node_details, resolve_guide_node
+from eaeu_xml.presentation.guide_details import GuideNodeKey, build_guide_node_details, resolve_guide_node
 
 
 def guide_field(path="Header/Code", *, name="Code", display="Код сообщения", kind="XML-элемент",

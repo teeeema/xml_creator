@@ -6,9 +6,10 @@ from pathlib import Path
 from xml.dom import minidom
 
 from PySide6.QtCore import Property, QObject, Signal, Slot
+from PySide6.QtGui import QGuiApplication
 
 from eaeu_xml.application import EaeuXmlApplication
-from eaeu_xml.gui.controller import GuiController
+from eaeu_xml.presentation.controller import GuiController
 
 
 class GuiViewModel(QObject):
@@ -21,6 +22,8 @@ class GuiViewModel(QObject):
         super().__init__()
         self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
         self._xml = ""
+        self._xml_font_size = 14
+        self._xml_validation_error = ""
         self._notice = ""
         self._selected_field = None
 
@@ -86,8 +89,14 @@ class GuiViewModel(QObject):
     @Property(str, notify=changed)
     def xml(self): return self._xml
 
+    @Property(int, notify=changed)
+    def xmlFontSize(self): return self._xml_font_size
+
     @Property("QVariantList", notify=changed)
     def validationItems(self):
+        if self._xml_validation_error:
+            return [{"severity": "ERROR", "code": "XML_PARSE_ERROR", "message": self._xml_validation_error,
+                     "path": "XML", "location": "XML"}]
         validation = self.controller.validation
         if not validation: return []
         return [{"severity": item.severity, "code": item.code, "message": item.message,
@@ -96,6 +105,8 @@ class GuiViewModel(QObject):
 
     @Property(str, notify=changed)
     def validationSummary(self):
+        if self._xml_validation_error:
+            return "XML содержит синтаксическую ошибку."
         validation = self.controller.validation
         if not validation: return "Проверка ещё не выполнялась."
         return "Проверка пройдена" if validation.is_valid else f"Ошибки: {len(validation.errors)} · Предупреждения: {len(validation.warnings)}"
@@ -177,8 +188,30 @@ class GuiViewModel(QObject):
         self._xml = result.xml or ""
         self._refresh("XML сформирован." if result.success else f"XML не сформирован: {result.status}")
 
+    @Slot(str)
+    def setXml(self, value):
+        """Keep the editor text as the canonical XML until a new generation."""
+        value = str(value)
+        if value != self._xml:
+            self._xml = value
+            self.changed.emit()
+
+    @Slot()
+    def copyXml(self):
+        if self._xml:
+            QGuiApplication.clipboard().setText(self._xml)
+            self._refresh("XML скопирован.")
+
     @Slot()
     def validate(self):
+        self._xml_validation_error = ""
+        if self._xml:
+            try:
+                minidom.parseString(self._xml)
+            except Exception as error:
+                self._xml_validation_error = str(error)
+                self._refresh("XML содержит синтаксическую ошибку.")
+                return
         self.controller.validate()
         self._refresh("Проверка завершена.")
 
@@ -195,6 +228,16 @@ class GuiViewModel(QObject):
         try: self._xml = minidom.parseString(self._xml).toprettyxml(indent="  ")
         except Exception: self._notice = "XML не удалось отформатировать."
         self._refresh(self._notice or "XML отформатирован.")
+
+    @Slot(int)
+    def changeXmlFontSize(self, delta):
+        self._xml_font_size = max(9, min(32, self._xml_font_size + delta))
+        self.changed.emit()
+
+    @Slot()
+    def resetXmlFontSize(self):
+        self._xml_font_size = 14
+        self.changed.emit()
 
     @Slot(str)
     def saveXml(self, path):

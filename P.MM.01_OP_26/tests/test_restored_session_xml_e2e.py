@@ -10,7 +10,7 @@ from eaeu_xml.application import EaeuXmlApplication,SessionPersistenceService,Se
 from eaeu_xml.core.enums import SignalKind
 from eaeu_xml.decision5.models import FaultReasonText,FaultSubcode,SoapFault
 from eaeu_xml.decision5.models.action import ApplicationAction
-from eaeu_xml.gui.controller import GuiController
+from eaeu_xml.presentation.controller import GuiController
 
 
 ROOT=Path(__file__).parents[2]

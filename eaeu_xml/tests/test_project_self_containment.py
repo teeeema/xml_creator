@@ -32,7 +32,8 @@ class ProjectSelfContainmentTests(unittest.TestCase):
         for path in (*list((PROJECT_ROOT / "src").rglob("*.py")), *list((PROJECT_ROOT / "tests").rglob("*.py")), *list((PROJECT_ROOT / "tools").rglob("*.py"))):
             tree = ast.parse(path.read_text(encoding="utf-8"))
             for node in ast.walk(tree):
-                names = [item.name for item in node.names] if isinstance(node, ast.Import) else ([node.module] if isinstance(node, ast.ImportFrom) and node.module else [])
+                names = ([item.name for item in node.names] if isinstance(node, ast.Import)
+                         else ([node.module] if isinstance(node, ast.ImportFrom) and node.module and node.level == 0 else []))
                 for name in names:
                     with self.subTest(path=path, name=name): self.assertNotIn(name.split(".")[0], forbidden_roots)
 

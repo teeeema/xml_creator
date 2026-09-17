@@ -4,7 +4,7 @@ from xml.etree import ElementTree as ET
 
 from eaeu_xml.application import EaeuXmlApplication
 from eaeu_xml.core.enums import SignalKind, TransactionState
-from eaeu_xml.gui.controller import GuiController
+from eaeu_xml.presentation.controller import GuiController
 from eaeu_xml.process_packages.loader import ProcessPackageLoader
 
 

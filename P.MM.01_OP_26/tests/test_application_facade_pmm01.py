@@ -5,7 +5,7 @@ from xml.etree import ElementTree as ET
 
 from eaeu_xml.application import EaeuXmlApplication, FieldVisibilityFilter, FormDisplayMode
 from eaeu_xml.process_packages.body import GenerationMode
-from eaeu_xml.gui.guide_details import build_guide_node_details
+from eaeu_xml.presentation.guide_details import build_guide_node_details
 
 
 PACKAGE = Path(__file__).parents[1]
