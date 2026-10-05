@@ -175,5 +175,1528 @@
         }
       ]
     }
+  ],
+  "structured_rules": [
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "rule_id": "P.SP.02.MSG.013.REQ.1",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 553,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkApplicationId"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.REQ.4",
+      "mapping_status": "PARTIAL",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPEntityStatusDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "rule_id": "P.SP.02.MSG.013.REQ.5",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPEntityStatusDetails"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "csdo:StatusCode"
+          },
+          "value": "30"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:StatusCode/@codeListId"
+          },
+          "state": "FORBIDDEN"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.REQ.5",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:ApplicationReceiptDate"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "qname": "csdo:UnifiedCountryCode"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "@codeListId"
+          },
+          "value": "ВОИС ST.3"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-7",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "7"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "qname": "ccdo:SubjectAddressDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:AddressKindCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:CityName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:StreetName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:BuildingNumberId"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-8",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "8"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "qname": "ccdo:CommunicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:CommunicationChannelCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:CommunicationChannelId"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:CommunicationChannelName"
+          },
+          "state": "FORBIDDEN"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-9",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "9"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "qname": "ccdo:CommunicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "csdo:CommunicationChannelCode"
+          },
+          "operator": "IN",
+          "right_value": [
+            "TE",
+            "EM",
+            "FX"
+          ]
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-10",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "10"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-11",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "11"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:AuthorityName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails/csdo:AddressKindCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails/csdo:AddressKindCode"
+          },
+          "value": "2"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-12",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 515,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "12"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "EQ",
+          "value": "AP"
+        }
+      },
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-14",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 515,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "14"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "EQ",
+          "value": "AP"
+        }
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:IPSubjectName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:CommunicationDetails"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-15",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 515,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "15"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "EQ",
+          "value": "PA"
+        }
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:IPSubjectName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:CommunicationDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:PatentAttorneyId"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-21",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 518,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "21"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "EQ",
+          "value": "RE"
+        }
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:IPSubjectName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:CommunicationDetails"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-22",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 518,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "22"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "csdo:AddressKindCode"
+          },
+          "value": "3"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-23",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 518,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "23"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails"
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "operator": "IN",
+          "right_value": [
+            "AM",
+            "BY",
+            "KZ",
+            "KG",
+            "RU"
+          ]
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-24",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "24"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-25",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "25"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails/ipcdo:TMDescriptionDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-25",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "25"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkKindCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkKindName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:CollectiveMarkIndicator"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-25",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "25"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "ipsdo:CollectiveMarkIndicator"
+          },
+          "operator": "IN",
+          "right_value": [
+            "1",
+            "0"
+          ]
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-28",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 520,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "28"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:GoodsBaseDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": null,
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 520,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "29"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:GoodsBaseDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:GoodsClassCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:GoodsClassName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:GoodsName"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 520,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "29"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "ipsdo:TrademarkKindCode"
+          },
+          "operator": "IN",
+          "right_value": [
+            "110",
+            "120",
+            "130",
+            "140",
+            "150",
+            "160",
+            "170",
+            "180"
+          ]
+        },
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "ipsdo:TrademarkKindName"
+          },
+          "operator": "IN",
+          "right_value": [
+            "Словесный знак",
+            "Буквенный знак",
+            "Цифровой знак",
+            "Изобразительный знак",
+            "Объемный знак",
+            "Знак, представляющий собой цвет",
+            "Знак, представляющий собой сочетание цветов",
+            "Комбинированный знак"
+          ]
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-26",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "26"
+        }
+      ]
+    },
+    {
+      "kind": "conditional_fixed_value",
+      "scope": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "condition": {
+        "field": "ipsdo:TrademarkKindCode",
+        "operator": "EQ",
+        "value": "110"
+      },
+      "target": {
+        "field": "ipsdo:TrademarkKindName"
+      },
+      "value": "Словесный знак",
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-26",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "26"
+        }
+      ]
+    },
+    {
+      "kind": "conditional_fixed_value",
+      "scope": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "condition": {
+        "field": "ipsdo:TrademarkKindCode",
+        "operator": "EQ",
+        "value": "120"
+      },
+      "target": {
+        "field": "ipsdo:TrademarkKindName"
+      },
+      "value": "Буквенный знак",
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-26",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "26"
+        }
+      ]
+    },
+    {
+      "kind": "conditional_fixed_value",
+      "scope": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "condition": {
+        "field": "ipsdo:TrademarkKindCode",
+        "operator": "EQ",
+        "value": "130"
+      },
+      "target": {
+        "field": "ipsdo:TrademarkKindName"
+      },
+      "value": "Цифровой знак",
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-26",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "26"
+        }
+      ]
+    },
+    {
+      "kind": "conditional_fixed_value",
+      "scope": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "condition": {
+        "field": "ipsdo:TrademarkKindCode",
+        "operator": "EQ",
+        "value": "140"
+      },
+      "target": {
+        "field": "ipsdo:TrademarkKindName"
+      },
+      "value": "Изобразительный знак",
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-26",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "26"
+        }
+      ]
+    },
+    {
+      "kind": "conditional_fixed_value",
+      "scope": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "condition": {
+        "field": "ipsdo:TrademarkKindCode",
+        "operator": "EQ",
+        "value": "150"
+      },
+      "target": {
+        "field": "ipsdo:TrademarkKindName"
+      },
+      "value": "Объемный знак",
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-26",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "26"
+        }
+      ]
+    },
+    {
+      "kind": "conditional_fixed_value",
+      "scope": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "condition": {
+        "field": "ipsdo:TrademarkKindCode",
+        "operator": "EQ",
+        "value": "160"
+      },
+      "target": {
+        "field": "ipsdo:TrademarkKindName"
+      },
+      "value": "Знак, представляющий собой цвет",
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-26",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "26"
+        }
+      ]
+    },
+    {
+      "kind": "conditional_fixed_value",
+      "scope": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "condition": {
+        "field": "ipsdo:TrademarkKindCode",
+        "operator": "EQ",
+        "value": "170"
+      },
+      "target": {
+        "field": "ipsdo:TrademarkKindName"
+      },
+      "value": "Знак, представляющий собой сочетание цветов",
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-26",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "26"
+        }
+      ]
+    },
+    {
+      "kind": "conditional_fixed_value",
+      "scope": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "condition": {
+        "field": "ipsdo:TrademarkKindCode",
+        "operator": "EQ",
+        "value": "180"
+      },
+      "target": {
+        "field": "ipsdo:TrademarkKindName"
+      },
+      "value": "Комбинированный знак",
+      "rule_id": "P.SP.02.MSG.013.T46.REQ.6_29",
+      "mapping_status": "INHERITED",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-26",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "26"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "qname": "ipcdo:AccompanyingDocumentsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocId"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocCreationDate"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DescriptionText"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:PageQuantity"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.013.REQ.30",
+      "mapping_status": "PARTIAL",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-30",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "30"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:SignatureDetails"
+      },
+      "min_occurs": 0,
+      "max_occurs": 0,
+      "rule_id": "P.SP.02.MSG.013.REQ.31",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-31",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "31"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:EndDateTime"
+      },
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "rule_id": "P.SP.02.MSG.013.REQ.32",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-32",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013",
+          "status": "CONFIRMED",
+          "page": 554,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "32"
+        }
+      ]
+    }
   ]
 }

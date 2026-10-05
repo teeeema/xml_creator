@@ -1,3 +1,4 @@
+from collections.abc import Mapping
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -8,6 +9,16 @@ from eaeu_xml.process_packages.models import FIELD_INPUT_POLICIES, MESSAGE_RULES
 
 class ProcessPackageValidator:
     EMBEDDED_STRUCTURE_SELECTIONS = {"ONE_OF"}
+    STRUCTURED_RULE_KINDS = {
+        "aggregate_comparison", "cardinality", "comparison", "conditional_fixed_value",
+        "conditional_presence", "cross_instance_comparison", "external", "fixed_value",
+        "for_each", "presence", "selection_cardinality",
+    }
+    STRUCTURED_RULE_OPERATORS = {"EQ", "NE", "GT", "GE", "LT", "LE", "IN", "NOT_IN"}
+    FOR_EACH_ASSERTION_KINDS = {
+        "cardinality", "comparison", "condition", "conditional_fixed_value",
+        "conditional_presence", "fixed_value", "presence",
+    }
 
     def validate(self, package: ProcessPackage) -> None:
         if not package.process.process_code or not package.process.active_profile:
@@ -88,6 +99,13 @@ class ProcessPackageValidator:
                 for path in (*rules.field_usage, *rules.fixed_values):
                     if path not in known_paths:
                         self._fail("UNKNOWN_RULE_FIELD", f"MessageRules {message_code} ссылаются на неизвестное поле {path}.")
+            for rule in rules.structured_rules:
+                applies_to_structure = rule.get("applies_to_structure") if isinstance(rule, Mapping) else None
+                if applies_to_structure is not None and not isinstance(applies_to_structure, str):
+                    self._fail("INVALID_RULES_APPLIES_TO_STRUCTURE", f"Правило {rule.get('rule_id')}: applies_to_structure должен быть строкой.")
+                if applies_to_structure and applies_to_structure not in allowed_structures:
+                    self._fail("RULES_STRUCTURE_MISMATCH", f"Правило {rule.get('rule_id')} ссылается на другую структуру.")
+                self._validate_structured_rule(rule, message_code)
             for rule in (*rules.business_rules, *rules.correlation_rules):
                 applies_to_structure = rule.get("applies_to_structure")
                 if applies_to_structure is not None and not isinstance(applies_to_structure, str):
@@ -134,6 +152,182 @@ class ProcessPackageValidator:
             if not policy.source_refs:
                 self._fail("UI_POLICY_SOURCE_REQUIRED", f"UI policy {message_code}/{field_path} не имеет source_refs.")
         self._validate_orphans(package)
+
+    def _validate_structured_rule(self, rule, message_code: str, *, assertion: bool = False) -> None:
+        if not isinstance(rule, Mapping):
+            self._fail("INVALID_STRUCTURED_RULE", f"Structured rule {message_code} должен быть объектом.")
+        kind = rule.get("kind")
+        allowed_kinds = self.FOR_EACH_ASSERTION_KINDS if assertion else self.STRUCTURED_RULE_KINDS
+        if kind not in allowed_kinds:
+            self._fail("UNKNOWN_STRUCTURED_RULE_KIND", f"Неизвестный kind structured rule {message_code}: {kind}.")
+
+        if kind == "external":
+            if rule.get("evaluation_status") not in {"EXTERNAL_CONTEXT_REQUIRED", "EXTERNAL_REFERENCE_REQUIRED"}:
+                self._fail("INVALID_EXTERNAL_RULE_STATUS", f"External structured rule {message_code} имеет некорректный evaluation_status.")
+            return
+
+        if kind in {"cardinality", "presence", "fixed_value"}:
+            self._validate_target(rule.get("target"), message_code, relative=assertion)
+            if kind == "cardinality":
+                self._validate_cardinality(rule, message_code)
+            elif kind == "presence":
+                if rule.get("state") not in {"REQUIRED", "FORBIDDEN"}:
+                    self._fail("INVALID_STRUCTURED_RULE_STATE", f"Presence rule {message_code} требует REQUIRED или FORBIDDEN.")
+            elif "value" not in rule:
+                self._fail("STRUCTURED_RULE_VALUE_REQUIRED", f"Fixed value rule {message_code} не содержит value.")
+            return
+
+        if kind == "selection_cardinality":
+            self._validate_selector(rule.get("selector"), message_code)
+            self._validate_cardinality(rule, message_code)
+            return
+
+        if kind in {"conditional_presence", "conditional_fixed_value"}:
+            if not assertion:
+                self._validate_selector(rule.get("scope"), message_code)
+            elif "scope" in rule:
+                self._fail("INVALID_FOR_EACH_ASSERTION_SCOPE", f"Assertion {message_code}/{kind} не должен задавать scope.")
+            self._validate_condition(rule.get("condition"), message_code)
+            self._validate_target(rule.get("target"), message_code, relative=True)
+            if kind == "conditional_presence":
+                if rule.get("state") not in {"REQUIRED", "FORBIDDEN"}:
+                    self._fail("INVALID_STRUCTURED_RULE_STATE", f"Conditional presence {message_code} требует REQUIRED или FORBIDDEN.")
+            elif "value" not in rule:
+                self._fail("STRUCTURED_RULE_VALUE_REQUIRED", f"Conditional fixed value {message_code} не содержит value.")
+            return
+
+        if kind == "comparison":
+            self._validate_comparison(rule, message_code, relative=assertion)
+            return
+
+        if kind == "aggregate_comparison":
+            self._validate_operator(rule.get("operator"), message_code)
+            for side in ("left", "right"):
+                aggregate = rule.get(side)
+                if not isinstance(aggregate, Mapping):
+                    self._fail("INVALID_AGGREGATE_RULE", f"Aggregate comparison {message_code}/{side} должен быть объектом.")
+                self._validate_selector(aggregate.get("selector"), message_code)
+                if not isinstance(aggregate.get("value_field"), str) or not aggregate.get("value_field"):
+                    self._fail("INVALID_AGGREGATE_VALUE_FIELD", f"Aggregate comparison {message_code}/{side} требует value_field.")
+                if aggregate.get("aggregation") not in {"SUM", "VALUE"}:
+                    self._fail("INVALID_AGGREGATION", f"Aggregate comparison {message_code}/{side} имеет неизвестную aggregation.")
+            return
+
+        if kind == "for_each":
+            self._validate_selector(rule.get("selector"), message_code)
+            assertions = rule.get("assertions")
+            if not isinstance(assertions, list) or not assertions:
+                self._fail("FOR_EACH_ASSERTIONS_REQUIRED", f"For-each {message_code} требует непустой assertions.")
+            for item in assertions:
+                self._validate_structured_rule(item, message_code, assertion=True)
+            return
+
+        if kind == "cross_instance_comparison":
+            self._validate_operator(rule.get("operator"), message_code)
+            for side in ("left", "right"):
+                operand = rule.get(side)
+                if not isinstance(operand, Mapping):
+                    self._fail("INVALID_CROSS_INSTANCE_OPERAND", f"Cross-instance comparison {message_code}/{side} должен быть объектом.")
+                self._validate_selector(operand.get("selector"), message_code)
+                if not isinstance(operand.get("field"), str) or not operand.get("field"):
+                    self._fail("INVALID_CROSS_INSTANCE_FIELD", f"Cross-instance comparison {message_code}/{side} требует строковый field.")
+            return
+
+        if kind == "condition":
+            if "condition" not in rule:
+                self._fail("INVALID_STRUCTURED_RULE_CONDITION", f"Condition assertion {message_code} требует condition.")
+            self._validate_condition(rule.get("condition"), message_code)
+            return
+
+    def _validate_selector(self, selector, message_code: str) -> None:
+        if not isinstance(selector, Mapping):
+            self._fail("INVALID_STRUCTURED_RULE_SELECTOR", f"Selector {message_code} должен быть объектом.")
+        has_collection = "collection" in selector
+        has_qname = "qname" in selector
+        if has_collection == has_qname:
+            self._fail("INVALID_STRUCTURED_RULE_SELECTOR", f"Selector {message_code} требует ровно один из collection/qname.")
+        if has_collection:
+            if not isinstance(selector.get("collection"), str) or not selector.get("collection"):
+                self._fail("INVALID_STRUCTURED_RULE_SELECTOR", f"Selector {message_code} имеет некорректный collection.")
+            if "under" in selector:
+                self._fail("INVALID_STRUCTURED_RULE_SELECTOR", f"under допустим только для qname selector {message_code}.")
+        else:
+            qname = selector.get("qname")
+            if not isinstance(qname, str) or not qname or "/" in qname:
+                self._fail("INVALID_STRUCTURED_RULE_SELECTOR", f"Selector {message_code} имеет некорректный qname.")
+            if "under" in selector and (not isinstance(selector.get("under"), str) or not selector.get("under")):
+                self._fail("INVALID_STRUCTURED_RULE_SELECTOR", f"Selector {message_code} имеет некорректный under.")
+        if "where" in selector:
+            self._validate_condition(selector["where"], message_code)
+
+    def _validate_condition(self, condition, message_code: str) -> None:
+        if not isinstance(condition, Mapping):
+            self._fail("INVALID_STRUCTURED_RULE_CONDITION", f"Condition {message_code} должен быть объектом.")
+        logical = [key for key in ("all", "any", "not") if key in condition]
+        if logical:
+            if len(logical) != 1 or any(key in condition for key in ("field", "operator", "value")):
+                self._fail("INVALID_STRUCTURED_RULE_CONDITION", f"Condition {message_code} смешивает логическую и leaf-форму.")
+            key = logical[0]
+            if key in {"all", "any"}:
+                children = condition[key]
+                if not isinstance(children, list) or not children:
+                    self._fail("INVALID_STRUCTURED_RULE_CONDITION", f"Condition {message_code}/{key} требует непустой список.")
+                for child in children:
+                    self._validate_condition(child, message_code)
+            else:
+                self._validate_condition(condition[key], message_code)
+            return
+        if not isinstance(condition.get("field"), str) or not condition.get("field") or "value" not in condition:
+            self._fail("INVALID_STRUCTURED_RULE_CONDITION", f"Leaf condition {message_code} требует field/operator/value.")
+        operator = condition.get("operator")
+        self._validate_operator(operator, message_code)
+        if operator in {"IN", "NOT_IN"} and not isinstance(condition.get("value"), (list, tuple)):
+            self._fail("INVALID_MEMBERSHIP_RHS", f"{operator} condition {message_code} требует список value.")
+
+    def _validate_comparison(self, rule, message_code: str, *, relative: bool) -> None:
+        left = rule.get("left")
+        if relative:
+            if not self._valid_operand(left, relative=True):
+                self._fail("INVALID_COMPARISON_OPERAND", f"Comparison assertion {message_code} имеет некорректный left.")
+        elif not isinstance(left, str) or not left:
+            self._fail("INVALID_COMPARISON_OPERAND", f"Comparison {message_code} требует строковый left path.")
+        self._validate_operator(rule.get("operator"), message_code)
+        has_right = "right" in rule
+        has_right_value = "right_value" in rule
+        if has_right == has_right_value:
+            self._fail("INVALID_COMPARISON_RHS", f"Comparison {message_code} требует ровно один из right/right_value.")
+        if has_right and not self._valid_operand(rule.get("right"), relative=relative):
+            self._fail("INVALID_COMPARISON_OPERAND", f"Comparison {message_code} имеет некорректный right.")
+        if rule.get("operator") in {"IN", "NOT_IN"} and has_right_value and not isinstance(rule.get("right_value"), (list, tuple)):
+            self._fail("INVALID_MEMBERSHIP_RHS", f"{rule.get('operator')} comparison {message_code} требует список right_value.")
+
+    @staticmethod
+    def _valid_operand(operand, *, relative: bool) -> bool:
+        if isinstance(operand, str):
+            return bool(operand)
+        return relative and isinstance(operand, Mapping) and isinstance(operand.get("field"), str) and bool(operand.get("field"))
+
+    def _validate_operator(self, operator, message_code: str) -> None:
+        if operator not in self.STRUCTURED_RULE_OPERATORS:
+            self._fail("UNKNOWN_STRUCTURED_RULE_OPERATOR", f"Неизвестный operator structured rule {message_code}: {operator}.")
+
+    def _validate_target(self, target, message_code: str, *, relative: bool) -> None:
+        if relative and isinstance(target, Mapping):
+            if isinstance(target.get("field"), str) and target.get("field"):
+                return
+        elif isinstance(target, str) and target:
+            return
+        self._fail("INVALID_STRUCTURED_RULE_TARGET", f"Structured rule {message_code} имеет некорректный target.")
+
+    def _validate_cardinality(self, rule, message_code: str) -> None:
+        minimum = rule.get("min_occurs", 0)
+        maximum = rule.get("max_occurs")
+        if not isinstance(minimum, int) or minimum < 0:
+            self._fail("INVALID_STRUCTURED_RULE_CARDINALITY", f"Structured rule {message_code} имеет некорректный min_occurs.")
+        if maximum is not None and (not isinstance(maximum, int) or maximum < 0):
+            self._fail("INVALID_STRUCTURED_RULE_CARDINALITY", f"Structured rule {message_code} имеет некорректный max_occurs.")
+        if maximum is not None and minimum > maximum:
+            self._fail("INVALID_STRUCTURED_RULE_CARDINALITY", f"Structured rule {message_code}: min_occurs > max_occurs.")
 
     def _validate_orphans(self, package: ProcessPackage) -> None:
         used_messages = {item.initiating_message for item in package.transactions.values() if item.initiating_message}

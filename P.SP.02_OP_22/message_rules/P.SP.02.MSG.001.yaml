@@ -745,5 +745,950 @@
         }
       ]
     }
+  ],
+  "structured_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.001",
+      "kind": "selection_cardinality",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 513,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": 1
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.002",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 513,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPEntityStatusDetails"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "csdo:StatusCode"
+          },
+          "value": "01"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:StatusCode/@codeListId"
+          },
+          "state": "FORBIDDEN"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.003",
+      "kind": "for_each",
+      "mapping_status": "PARTIAL",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 513,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "3"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkApplicationId"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.006",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:ApplicationReceiptDate"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.007",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-7",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "7"
+        }
+      ],
+      "selector": {
+        "qname": "csdo:UnifiedCountryCode"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "@codeListId"
+          },
+          "value": "ВОИС ST.3"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.008",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-8",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "8"
+        }
+      ],
+      "selector": {
+        "qname": "ccdo:SubjectAddressDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:AddressKindCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:CityName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:StreetName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:BuildingNumberId"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.009",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-9",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "9"
+        }
+      ],
+      "selector": {
+        "qname": "ccdo:CommunicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:CommunicationChannelCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:CommunicationChannelId"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:CommunicationChannelName"
+          },
+          "state": "FORBIDDEN"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.010",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-10",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "10"
+        }
+      ],
+      "selector": {
+        "qname": "ccdo:CommunicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "csdo:CommunicationChannelCode"
+          },
+          "operator": "IN",
+          "right_value": [
+            "TE",
+            "EM",
+            "FX"
+          ]
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.011",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-11",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "11"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.012",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-12",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 515,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "12"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:AuthorityName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails/csdo:AddressKindCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails/csdo:AddressKindCode"
+          },
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.023",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-23",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 518,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "23"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "csdo:AddressKindCode"
+          },
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.024",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-24",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "24"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails"
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "operator": "IN",
+          "right_value": [
+            "AM",
+            "BY",
+            "KZ",
+            "KG",
+            "RU"
+          ]
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.025",
+      "kind": "selection_cardinality",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-25",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "25"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": 1
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.025",
+      "kind": "selection_cardinality",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-25",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "25"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails/ipcdo:TMDescriptionDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": 1
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.025",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-25",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "25"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkKindCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkKindName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:CollectiveMarkIndicator"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.028",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-28",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 520,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "28"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "ipsdo:CollectiveMarkIndicator"
+          },
+          "operator": "IN",
+          "right_value": [
+            "1",
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.029",
+      "kind": "selection_cardinality",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 520,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "29"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:GoodsBaseDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": null
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.029",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 520,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "29"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:GoodsBaseDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:GoodsClassCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:GoodsClassName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:GoodsName"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.030",
+      "kind": "for_each",
+      "mapping_status": "PARTIAL",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-30",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 520,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "30"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:GoodsBaseDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkDecisionIndicator"
+          },
+          "state": "FORBIDDEN"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkApplicationId"
+          },
+          "state": "FORBIDDEN"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:ApellationOfOriginEAEUId"
+          },
+          "state": "FORBIDDEN"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkRegRefusalReasonText"
+          },
+          "state": "FORBIDDEN"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.031",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-31",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 521,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "31"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkPriorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:PriorityKindCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:PriorityKindName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:PriorityDate"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:ExhibitionSiteText"
+          },
+          "state": "FORBIDDEN"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:FirstTrademarkApplicationId"
+          },
+          "state": "FORBIDDEN"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.034",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-34",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 521,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "34"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "ipsdo:ConsentToDataProcessingIndicator"
+          },
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.035",
+      "kind": "selection_cardinality",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-35",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 521,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "35"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:SignatureDetails"
+      },
+      "min_occurs": 0,
+      "max_occurs": 0
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.036",
+      "kind": "selection_cardinality",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-36",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 522,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "36"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkNationalApplicationDetails"
+      },
+      "min_occurs": 0,
+      "max_occurs": 0
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.036",
+      "kind": "selection_cardinality",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-36",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 522,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "36"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:ApplicantChangeDetails"
+      },
+      "min_occurs": 0,
+      "max_occurs": 0
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.036",
+      "kind": "selection_cardinality",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-36",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 522,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "36"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkClaimDetails"
+      },
+      "min_occurs": 0,
+      "max_occurs": 0
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.036",
+      "kind": "selection_cardinality",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-36",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 522,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "36"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:ComplaintDetails"
+      },
+      "min_occurs": 0,
+      "max_occurs": 0
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.036",
+      "kind": "selection_cardinality",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-36",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 522,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "36"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:ApplicantComplainResponseDetails"
+      },
+      "min_occurs": 0,
+      "max_occurs": 0
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.037",
+      "kind": "selection_cardinality",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-37",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 522,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "37"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:RefusalDetails"
+      },
+      "min_occurs": 0,
+      "max_occurs": 0
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.038",
+      "kind": "for_each",
+      "mapping_status": "PARTIAL",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-38",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 522,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "38"
+        }
+      ],
+      "selector": {
+        "collection": "ccdo:ResourceItemStatusDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:ValidityPeriodDetails/csdo:StartDateTime"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.039",
+      "kind": "selection_cardinality",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-39",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 522,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "39"
+        }
+      ],
+      "selector": {
+        "collection": "ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:EndDateTime"
+      },
+      "min_occurs": 0,
+      "max_occurs": 0
+    },
+    {
+      "rule_id": "P.SP.02.MSG.001.REQ.039",
+      "kind": "selection_cardinality",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.001-39",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к электронному документу (сведениям) P.SP.02.MSG.001",
+          "status": "CONFIRMED",
+          "page": 522,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "39"
+        }
+      ],
+      "selector": {
+        "collection": "ccdo:ResourceItemStatusDetails/csdo:UpdateDateTime"
+      },
+      "min_occurs": 0,
+      "max_occurs": 0
+    }
   ]
 }

@@ -184,5 +184,570 @@
         }
       ]
     }
-  ]
+  ],
+  "structured_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.046.T64.REQ.1",
+      "kind": "conditional_presence",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "mapping_status": "PARTIAL",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-T64-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64",
+          "status": "CONFIRMED",
+          "page": 778,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ],
+      "scope": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "condition": {
+        "field": "ipsdo:IPDocKindCode",
+        "operator": "NE",
+        "value": null
+      },
+      "target": {
+        "field": "ipsdo:IPDocKindName"
+      },
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "P.SP.02.MSG.046.T64.REQ.2",
+      "kind": "conditional_fixed_value",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "mapping_status": "PARTIAL",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-T64-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64",
+          "status": "CONFIRMED",
+          "page": 778,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2"
+        }
+      ],
+      "scope": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "condition": {
+        "field": "ipsdo:IPDocKindCode",
+        "operator": "EQ",
+        "value": null
+      },
+      "target": {
+        "field": "ipsdo:IPDocKindName"
+      },
+      "value": "Ходатайство о преобразовании аннулированной регистрации товарного знака, знака обслуживания Евразийского экономического союза в национальную заявку на регистрацию товарного знака, знака обслуживания"
+    },
+    {
+      "rule_id": "P.SP.02.MSG.046.T64.REQ.3",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "mapping_status": "PARTIAL",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-T64-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64",
+          "status": "CONFIRMED",
+          "page": 778,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "3"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkId"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.046.T64.REQ.4.PRESENCE",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-T64-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64",
+          "status": "CONFIRMED",
+          "page": 779,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipcdo:TrademarkNationalApplicationDetails"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.046.T64.REQ.4.FIELDS",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-T64-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64",
+          "status": "CONFIRMED",
+          "page": 779,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:NationalApplicationId"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:NationalApplicationReceiptDate"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.046.T64.REQ.5.PRESENCE",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-T64-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64",
+          "status": "CONFIRMED",
+          "page": 779,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipcdo:IPEntityStatusDetails"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.046.T64.REQ.5.FIELDS",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-T64-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64",
+          "status": "CONFIRMED",
+          "page": 779,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "csdo:StatusCode"
+          },
+          "value": "06"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:EventDate"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:StatusCode/@codeListId"
+          },
+          "state": "FORBIDDEN"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.046.T64.REQ.6",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-T64-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64",
+          "status": "CONFIRMED",
+          "page": 779,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:EndDateTime"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.046.T64.REQ.7.PRESENCE",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-T64-7",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64",
+          "status": "CONFIRMED",
+          "page": 779,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "7"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipcdo:SignatureDetails"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.046.T64.REQ.7.BRANCH",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-T64-7",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64",
+          "status": "CONFIRMED",
+          "page": 779,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "7"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails"
+      },
+      "assertions": [
+        {
+          "kind": "conditional_presence",
+          "condition": {
+            "field": "ipcdo:OfficerDetails",
+            "operator": "NE",
+            "value": null
+          },
+          "target": {
+            "field": "ccdo:FullNameDetails"
+          },
+          "state": "FORBIDDEN"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.046.T64.REQ.8",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-T64-8",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64",
+          "status": "CONFIRMED",
+          "page": 779,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "8"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails"
+      },
+      "assertions": [
+        {
+          "kind": "conditional_presence",
+          "condition": {
+            "field": "ccdo:FullNameDetails",
+            "operator": "NE",
+            "value": null
+          },
+          "target": {
+            "field": "ipcdo:OfficerDetails"
+          },
+          "state": "FORBIDDEN"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.046.T64.REQ.9",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.046-T64-9",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 64",
+          "status": "CONFIRMED",
+          "page": 779,
+          "table": "64",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "9"
+        }
+      ],
+      "selector": {
+        "qname": "ipcdo:OfficerDetails",
+        "under": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:FullNameDetails/csdo:LastName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:FullNameDetails/csdo:FirstName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:PositionName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:CommunicationDetails"
+          },
+          "state": "FORBIDDEN"
+        }
+      ]
+    }
+  ],
+  "mapping_audit": {
+    "captured_row_count": 9,
+    "expanded_requirement_count": 9,
+    "normative_context": {
+      "message_code": "P.SP.02.MSG.046",
+      "message_name": "сведения о преобразовании аннулированной регистрации ТЗ Союза в национальную заявку на регистрацию ТЗ",
+      "structure_id": "R.IP.SP.02.007",
+      "structure_version": "1.0.0",
+      "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegisterDetails:v1.0.0}TrademarkRegisterDetails",
+      "transaction": "P.SP.02.TRN.041",
+      "procedure": "P.SP.02.PRC.023",
+      "initiating_operation": "P.SP.02.OPR.112",
+      "responding_operation": "P.SP.02.OPR.113",
+      "initiating_participant": "P.SP.02.ACT.001",
+      "responding_participant": "P.SP.02.ACT.002",
+      "response_message": "P.SP.02.MSG.002",
+      "source": "ОП_22.pdf",
+      "table": "64",
+      "pages": [778, 779],
+      "message_page": 636,
+      "transaction_page": 680
+    },
+    "summary": {
+      "FULLY_MAPPABLE": [4, 5, 6, 7, 8, 9],
+      "SAFE_PARTIAL": [1, 2, 3],
+      "EXTERNAL": [],
+      "AMBIGUOUS": [],
+      "ENGINE_UNSUPPORTED": [],
+      "SOURCE_CONFLICT": []
+    },
+    "classification_counts": {
+      "FULLY_MAPPABLE": 6,
+      "SAFE_PARTIAL": 3,
+      "EXTERNAL": 0,
+      "AMBIGUOUS": 0,
+      "ENGINE_UNSUPPORTED": 0,
+      "SOURCE_CONFLICT": 0
+    },
+    "inventory": [
+      {
+        "requirement_code": "1",
+        "table": "64",
+        "classification": "SAFE_PARTIAL",
+        "mapping_status": "PARTIAL",
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "per ipcdo:UnifiedRegisterRecordsDetails; same-owner evaluation",
+        "target_paths": ["ipcdo:UnifiedRegisterRecordsDetails/ipsdo:IPDocKindCode", "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:IPDocKindName"],
+        "provenance_kind": "DIRECT",
+        "source_refs": [{"source_id": "22OP-RULE-P.SP.02.MSG.046-T64-1", "document": "ОП_22.pdf", "location": "Таблица 64", "status": "CONFIRMED", "page": 778, "table": "64", "version_context": "P.SP.02 1.0.0", "item": "1"}],
+        "unmapped_remainder": ["authoritative classifier membership predicate for the specified document kind"],
+        "external_dependency": "classifier of document/material kinds"
+      },
+      {
+        "requirement_code": "2",
+        "table": "64",
+        "classification": "SAFE_PARTIAL",
+        "mapping_status": "PARTIAL",
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "per ipcdo:UnifiedRegisterRecordsDetails; same-owner evaluation",
+        "target_paths": ["ipcdo:UnifiedRegisterRecordsDetails/ipsdo:IPDocKindCode", "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:IPDocKindName"],
+        "provenance_kind": "DIRECT",
+        "source_refs": [{"source_id": "22OP-RULE-P.SP.02.MSG.046-T64-2", "document": "ОП_22.pdf", "location": "Таблица 64", "status": "CONFIRMED", "page": 778, "table": "64", "version_context": "P.SP.02 1.0.0", "item": "2"}],
+        "unmapped_remainder": ["authoritative classifier-absence predicate for the specified document kind"],
+        "external_dependency": "classifier of document/material kinds"
+      },
+      {
+        "requirement_code": "3",
+        "table": "64",
+        "classification": "SAFE_PARTIAL",
+        "mapping_status": "PARTIAL",
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "per ipcdo:UnifiedRegisterRecordsDetails; same-owner evaluation",
+        "target_paths": ["ipcdo:UnifiedRegisterRecordsDetails/ipsdo:TrademarkId"],
+        "provenance_kind": "DIRECT",
+        "source_refs": [{"source_id": "22OP-RULE-P.SP.02.MSG.046-T64-3", "document": "ОП_22.pdf", "location": "Таблица 64", "status": "CONFIRMED", "page": 778, "table": "64", "version_context": "P.SP.02 1.0.0", "item": "3"}],
+        "unmapped_remainder": ["national patent-office resource lookup, status=04, EndDateTime presence, and TrademarkId equality against the message"],
+        "external_dependency": "national patent-office information resource"
+      },
+      {
+        "requirement_code": "4",
+        "table": "64",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "per ipcdo:UnifiedRegisterRecordsDetails; same-owner evaluation",
+        "target_paths": ["ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalApplicationDetails", "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalApplicationDetails/csdo:UnifiedCountryCode", "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalApplicationDetails/ipsdo:NationalApplicationId", "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalApplicationDetails/ipsdo:NationalApplicationReceiptDate"],
+        "provenance_kind": "DIRECT",
+        "source_refs": [{"source_id": "22OP-RULE-P.SP.02.MSG.046-T64-4", "document": "ОП_22.pdf", "location": "Таблица 64", "status": "CONFIRMED", "page": 779, "table": "64", "version_context": "P.SP.02 1.0.0", "item": "4"}],
+        "unmapped_remainder": []
+      },
+      {
+        "requirement_code": "5",
+        "table": "64",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "per ipcdo:UnifiedRegisterRecordsDetails; same-owner evaluation",
+        "target_paths": ["ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails", "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/csdo:StatusCode", "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/csdo:EventDate", "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/csdo:StatusCode/@codeListId"],
+        "provenance_kind": "DIRECT",
+        "source_refs": [{"source_id": "22OP-RULE-P.SP.02.MSG.046-T64-5", "document": "ОП_22.pdf", "location": "Таблица 64", "status": "CONFIRMED", "page": 779, "table": "64", "version_context": "P.SP.02 1.0.0", "item": "5"}],
+        "unmapped_remainder": []
+      },
+      {
+        "requirement_code": "6",
+        "table": "64",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "per ipcdo:UnifiedRegisterRecordsDetails; same-owner evaluation",
+        "target_paths": ["ipcdo:UnifiedRegisterRecordsDetails/ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:EndDateTime"],
+        "provenance_kind": "DIRECT",
+        "source_refs": [{"source_id": "22OP-RULE-P.SP.02.MSG.046-T64-6", "document": "ОП_22.pdf", "location": "Таблица 64", "status": "CONFIRMED", "page": 779, "table": "64", "version_context": "P.SP.02 1.0.0", "item": "6"}],
+        "unmapped_remainder": []
+      },
+      {
+        "requirement_code": "7",
+        "table": "64",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails",
+        "repeatability": "per ipcdo:UnifiedRegisterRecordsDetails; same-signature evaluation",
+        "target_paths": ["ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails", "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails", "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ccdo:FullNameDetails"],
+        "provenance_kind": "DIRECT",
+        "source_refs": [{"source_id": "22OP-RULE-P.SP.02.MSG.046-T64-7", "document": "ОП_22.pdf", "location": "Таблица 64", "status": "CONFIRMED", "page": 779, "table": "64", "version_context": "P.SP.02 1.0.0", "item": "7"}],
+        "unmapped_remainder": []
+      },
+      {
+        "requirement_code": "8",
+        "table": "64",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails",
+        "repeatability": "per ipcdo:UnifiedRegisterRecordsDetails; same-signature evaluation",
+        "target_paths": ["ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ccdo:FullNameDetails", "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails"],
+        "provenance_kind": "DIRECT",
+        "source_refs": [{"source_id": "22OP-RULE-P.SP.02.MSG.046-T64-8", "document": "ОП_22.pdf", "location": "Таблица 64", "status": "CONFIRMED", "page": 779, "table": "64", "version_context": "P.SP.02 1.0.0", "item": "8"}],
+        "unmapped_remainder": []
+      },
+      {
+        "requirement_code": "9",
+        "table": "64",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails",
+        "repeatability": "per OfficerDetails under the same SignatureDetails",
+        "target_paths": ["ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/ccdo:FullNameDetails/csdo:LastName", "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/ccdo:FullNameDetails/csdo:FirstName", "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/csdo:PositionName", "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/ccdo:CommunicationDetails"],
+        "provenance_kind": "DIRECT",
+        "source_refs": [{"source_id": "22OP-RULE-P.SP.02.MSG.046-T64-9", "document": "ОП_22.pdf", "location": "Таблица 64", "status": "CONFIRMED", "page": 779, "table": "64", "version_context": "P.SP.02 1.0.0", "item": "9"}],
+        "unmapped_remainder": []
+      }
+    ]
+  }
 }

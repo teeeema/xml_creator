@@ -105,22 +105,962 @@
       ]
     },
     {
-      "rule_id": "P.SP.02.MSG.062.T81.REQ.6_29",
-      "requirement_code": "6-29",
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.6",
+      "requirement_code": "6",
       "applies_to_structure": "R.IP.SP.02.002",
-      "source_text": "соответствуют требованиям 6-29 таблицы 44 настоящего Регламента, которые применяются при заполнении экземпляра реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails) (значения кодов требований в таблице 44 и таблице 81 совпадают)",
+      "source_text": "реквизит «Дата подачи заявки (ходатайства)» (ipsdo:ApplicationReceiptDate) должен быть заполнен в соответствии с ISO 8601",
       "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
       "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
       "source_refs": [
         {
           "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
           "document": "ОП_22.pdf",
-          "location": "Таблица 81",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
           "status": "CONFIRMED",
           "page": 818,
           "table": "81",
           "version_context": "P.SP.02 1.0.0",
           "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 715,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.7",
+      "requirement_code": "7",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если реквизит «Код страны» (csdo:UnifiedCountryCode) заполнен в составе любых реквизитов, то значение атрибута «идентификатор справочника (классификатора)» (атрибут codeListId) в его составе должно соответствовать значению «ВОИС ST.3»",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-7",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 715,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "7"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-7",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "7"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.8",
+      "requirement_code": "8",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если реквизит «Адрес» (ccdo:SubjectAddressDetails) заполнен в составе любых реквизитов, то должны быть заполнены реквизиты «Код вида адреса» (csdo:AddressKindCode)», «Код страны» (csdo:UnifiedCountryCode), «Город» (csdo:CityName), «Улица» (csdo:StreetName) и «Номер дома» (csdo:BuildingNumberId) в его составе",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-8",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 715,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "8"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-8",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "8"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.9",
+      "requirement_code": "9",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если реквизит «Контактный реквизит» (ccdo:CommunicationDetails) заполнен в составе любых реквизитов, то в его составе заполняются реквизиты «Код вида связи» (csdo:CommunicationChannelCode) и «Идентификатор канала связи» (csdo:CommunicationChannelId), а реквизит «Наименование вида связи» (csdo:CommunicationChannelName) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-9",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 716,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "9"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-9",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "9"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.10",
+      "requirement_code": "10",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если реквизит «Контактный реквизит» (ccdo:CommunicationDetails) заполнен в составе любых реквизитов, то в его составе значение реквизита «Код вида связи» (csdo:CommunicationChannelCode) должно соответствовать одному из следующих значений: «TE», «EM» или «FX», в соответствии с перечнем видов средств (каналов) связи, утвержденным Решением Коллегии Комиссии от 6 декабря 2022 г. № 192",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-10",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 716,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "10"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-10",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "10"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.11",
+      "requirement_code": "11",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Национальное патентное ведомство» (ipcdo:PatentAuthorityDetails) должен быть заполнен реквизит «Код страны» (csdo:UnifiedCountryCode)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-11",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 716,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "11"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-11",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.12",
+      "requirement_code": "12",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Национальное патентное ведомство» (ipcdo:PatentAuthorityDetails) должен быть заполнен реквизит «Наименование уполномоченного органа» (csdo:AuthorityName) и должен быть заполнен реквизит «Адрес» (ccdo:SubjectAddressDetails), в составе которого значение реквизита «Код вида адреса» (csdo:AddressKindCode) должно соответствовать значению «2» – «фактический адрес (адрес места нахождения или места жительства)»",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-12",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 716,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "12"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-12",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 515,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "12"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.13",
+      "requirement_code": "13",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) должно соответствовать значению «AP» – «заявитель»",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-13",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 716,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "13"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-13",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 515,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "13"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.14",
+      "requirement_code": "14",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в электронном документе (сведениях) «Сведения о заявке, ходатайстве для прохождения процедур регистрации ТЗ Союза» (R.IP.SP.02.002) должен быть заполнен 1 экземпляр реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails), в составе которого значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) соответствует значению «AP» – «заявитель»",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-14",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 716,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "14"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-14",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 515,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "14"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.15",
+      "requirement_code": "15",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) соответствует значению «AP» – «заявитель», то в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) должны быть заполнены реквизиты: «Код страны» (csdo:UnifiedCountryCode); «Полное наименование субъекта c указанием вида представления сведений и кода языка» (ipsdo:IPSubjectName); «Адрес» (ccdo:SubjectAddressDetails); «Контактный реквизит» (ccdo:CommunicationDetails)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-15",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 717,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "15"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-15",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 515,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "15"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.16",
+      "requirement_code": "16",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) соответствует значению «AP» – «заявитель», то значение атрибута «код вида представления наименования» (атрибут nameRepresentationKindCode) в составе реквизита «Полное наименование субъекта c указанием вида представления сведений и кода языка» (ipsdo:IPSubjectName) должно соответствовать одному из следующих значений: «OR» – «сведения, представленные на исходном (оригинальном) языке»; «LA» – «транслитерация сведений на исходном (оригинальном) языке буквами латинского алфавита»",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-16",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 717,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "16"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-16",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 516,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "16"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.17",
+      "requirement_code": "17",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) соответствует значению «AP» – «заявитель», то в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) должен быть заполнен 1 экземпляр реквизита «Полное наименование субъекта c указанием вида представления сведений и кода языка» (ipsdo:IPSubjectName), в составе которого значение атрибута «код вида представления наименования» (атрибут nameRepresentationKindCode) должно соответствовать значению «OR» – «сведения, представленные на исходном (оригинальном) языке» и атрибут «код языка» (атрибут languageCode) должен быть заполнен",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-17",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 717,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "17"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-17",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 516,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "17"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.18",
+      "requirement_code": "18",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) соответствует значению «AP» – «заявитель» и, если в составе реквизита «Полное наименование субъекта c указанием вида представления сведений и кода языка» (ipsdo:IPSubjectName) значение атрибута «код языка» (атрибут languageCode) соответствует значению «RU», второй экземпляр реквизита «Полное наименование субъекта c указанием вида представления сведений и кода языка» (ipsdo:IPSubjectName) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-18",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 718,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "18"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-18",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 516,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "18"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.19",
+      "requirement_code": "19",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) соответствует значению «AP» – «заявитель» и если в составе реквизита «Полное наименование субъекта c указанием вида представления сведений и кода языка» (ipsdo:IPSubjectName) значение атрибута «код языка» (атрибут languageCode) не соответствует значению «RU», то в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) должен быть заполнен второй экземпляр реквизита «Полное наименование субъекта c указанием вида представления сведений и кода языка» (ipsdo:IPSubjectName), в составе которого значение атрибута «код вида представления наименования» (атрибут nameRepresentationKindCode) должно соответствововать значению «LA» – «транслитерация сведений на исходном (оригинальном) языке буквами латинского алфавита» и атрибут «код языка» (атрибут languageCode) не заполняется",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 718,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 517,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "19"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.20",
+      "requirement_code": "20",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) соответствует значению «AP» – «заявитель», то в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) в составе реквизита «Адрес» (ccdo:SubjectAddressDetails) значение реквизита «Код вида адреса» (csdo:AddressKindCode) должно соответствовать значению «2» – «фактический адрес (адрес места нахождения или места жительства)»",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 718,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "20"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 517,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "20"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.21",
+      "requirement_code": "21",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в состав электронного документа (сведений) включен экземпляр реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails), в составе которого значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) соответствует значению «PA» – «представитель заявителя, являющийся патентным поверенным», то в составе такого экземпляра реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) должны быть заполнены реквизиты: «Код страны» (csdo:UnifiedCountryCode); «Полное наименование субъекта c указанием вида представления сведений и кода языка» (ipsdo:IPSubjectName); «Адрес» (ccdo:SubjectAddressDetails); «Контактный реквизит» (ccdo:CommunicationDetails); «Регистрационный номер патентного поверенного» (ipsdo:PatentAttorneyId)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-21",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 719,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "21"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-21",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 518,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "21"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.22",
+      "requirement_code": "22",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в состав электронного документа (сведений) включен экземпляр реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails), в составе которого значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) соответствует значению «RE» – «представитель заявителя, не являющийся патентным поверенным», то в составе такого экземпляра реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) должны быть заполнены реквизиты: «Код страны» (csdo:UnifiedCountryCode); «Полное наименование субъекта c указанием вида представления сведений и кода языка» (ipsdo:IPSubjectName); «Адрес» (ccdo:SubjectAddressDetails); «Контактный реквизит» (ccdo:CommunicationDetails)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-22",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 719,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "22"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-22",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 518,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "22"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.23",
+      "requirement_code": "23",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Адрес для переписки» (ipcdo:CorrespondenceAddressDetails) в составе реквизита «Адрес» (ccdo:SubjectAddressDetails) значение реквизита «Код вида адреса» (csdo:AddressKindCode) должно соответствовать значению «3» – «почтовый адрес (адрес для ведения переписки)»",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-23",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 719,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "23"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-23",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 518,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "23"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.24",
+      "requirement_code": "24",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Адрес для переписки» (ipcdo:CorrespondenceAddressDetails) в составе реквизита «Адрес» (ccdo:SubjectAddressDetails) значение реквизита «Код страны» (csdo:UnifiedCountryCode) должно соответствовать одному из следующих значений: «AM», «BY», «KZ», «KG» или «RU»",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-24",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 720,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "24"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-24",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "24"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.25",
+      "requirement_code": "25",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails) реквизит «Товарный знак Союза» (ipcdo:TrademarkDetails) должен быть заполнен, и в его составе должны быть заполнены реквизиты: «Описание товарного знака Союза» (ipcdo:TMDescriptionDetails); «Код вида товарного знака» (ipsdo:TrademarkKindCode); «Наименование вида товарного знака» (ipsdo:TrademarkKindName); «Признак коллективного знака» (ipsdo:CollectiveMarkIndicator)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-25",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 720,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "25"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-25",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "25"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.26",
+      "requirement_code": "26",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails), в составе реквизита «Товарный знак Союза» (ipcdo:TrademarkDetails) значение реквизита «Код вида товарного знака» (ipsdo:TrademarkKindCode) или реквизита «Наименование вида товарного знака» (ipsdo:TrademarkKindName) должны соответствовать одному из следующих значений: «110» – «Словесный знак»; «120» – «Буквенный знак»; «130» – «Цифровой знак»; «140» – «Изобразительный знак»; «150» – «Объемный знак»; «160» – «Знак, представляющий собой цвет»; «170» – «Знак, представляющий собой сочетание цветов»; «180» – «Комбинированный знак» в соответствии со справочником основных характеристик товарного знака и знака обслуживания Евразийского экономического союза (по виду и приоритету), утвержденным Решением Коллегии Комиссии от 29 ноября 2022 г. № 184",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-26",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 720,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "26"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-26",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "26"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.27",
+      "requirement_code": "27",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "если в составе реквизита «Товарный знак Союза» (ipcdo:TrademarkDetails) значение реквизита «Код вида товарного знака» (ipsdo:TrademarkKindCode) или реквизита «Наименование вида товарного знака» (ipsdo:TrademarkKindName) соответствует одному из приведённых значений: «140» – «Изобразительный знак»; «150» – «Объемный знак»; «160» – «Знак, представляющий собой цвет»; «170» – «Знак, представляющий собой сочетание цветов»; «180» – «Комбинированный знак», то реквизит «Изображение товарного знака» (ipsdo:TrademarkPicture) и реквизит «Описание цвета товарного знака» (ipsdo:TrademarkColourName) должны быть заполнены",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-27",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 721,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "27"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-27",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 520,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "27"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.28",
+      "requirement_code": "28",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "значение реквизита «Признак коллективного знака» (ipsdo:CollectiveMarkIndicator) должно соответствовать одному из следующих значений: «1» – «товарный знак является коллективным»; «0» – «товарный знак не является коллективным»",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-28",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 721,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "28"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-28",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 520,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "28"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.29",
+      "requirement_code": "29",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_text": "в составе реквизита «Заявка на товарный знак Союза (ходатайство, жалоба)» (ipcdo:TrademarkApplicationDetails) реквизит «Товар в соответствии с МКТУ» (ipcdo:GoodsBaseDetails) должен быть заполнен, и в его составе должны быть заполнены реквизиты: «Номер класса МКТУ» (ipsdo:GoodsClassCode); «Наименование класса МКТУ» (ipsdo:GoodsClassName); «Наименование товара (услуги)» (ipsdo:GoodsName)",
+      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
+      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 721,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 520,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "29"
         }
       ]
     },
@@ -324,5 +1264,3698 @@
         }
       ]
     }
-  ]
+  ],
+  "structured_rules": [
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.1",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 817,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkApplicationId"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.4",
+      "mapping_status": "PARTIAL",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipcdo:ArgumentDetails"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.5",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:ApplicationReceiptDate"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.6",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 715,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "qname": "csdo:UnifiedCountryCode",
+        "under": "ipcdo:TrademarkApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "@codeListId"
+          },
+          "value": "ВОИС ST.3"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.7",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-7",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 715,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "7"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-7",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "7"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "qname": "ccdo:SubjectAddressDetails",
+        "under": "ipcdo:TrademarkApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:AddressKindCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:CityName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:StreetName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:BuildingNumberId"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.8",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-8",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 715,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "8"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-8",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "8"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "qname": "ccdo:CommunicationDetails",
+        "under": "ipcdo:TrademarkApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:CommunicationChannelCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:CommunicationChannelId"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:CommunicationChannelName"
+          },
+          "state": "FORBIDDEN"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.9",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-9",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 716,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "9"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-9",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "9"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "qname": "ccdo:CommunicationDetails",
+        "under": "ipcdo:TrademarkApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "csdo:CommunicationChannelCode"
+          },
+          "operator": "IN",
+          "right_value": [
+            "TE",
+            "EM",
+            "FX"
+          ]
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.10",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-10",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 716,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "10"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-10",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "10"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.11",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-11",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 716,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "11"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-11",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 514,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "11"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:AuthorityName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails/csdo:AddressKindCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails/csdo:AddressKindCode"
+          },
+          "value": "2"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.12",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-12",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 716,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "12"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-12",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 515,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "12"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "EQ",
+          "value": "AP"
+        }
+      },
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.14",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-14",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 716,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "14"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-14",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 515,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "14"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "EQ",
+          "value": "AP"
+        }
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:IPSubjectName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:CommunicationDetails"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.15",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-15",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 717,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "15"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-15",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 515,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "15"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails/ipsdo:IPSubjectName",
+        "parent": {
+          "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+          "where": {
+            "field": "ipsdo:IPPartyKindCode",
+            "operator": "EQ",
+            "value": "AP"
+          }
+        }
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "@nameRepresentationKindCode"
+          },
+          "operator": "IN",
+          "right_value": [
+            "OR",
+            "LA"
+          ]
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.16",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-16",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 717,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "16"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-16",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 516,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "16"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails/ipsdo:IPSubjectName",
+        "parent": {
+          "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+          "where": {
+            "field": "ipsdo:IPPartyKindCode",
+            "operator": "EQ",
+            "value": "AP"
+          }
+        },
+        "where": {
+          "all": [
+            {
+              "field": "@nameRepresentationKindCode",
+              "operator": "EQ",
+              "value": "OR"
+            },
+            {
+              "field": "@languageCode",
+              "operator": "NE",
+              "value": null
+            }
+          ]
+        }
+      },
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.17",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-17",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 717,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "17"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-17",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 516,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "17"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails",
+        "parent": {
+          "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+          "where": {
+            "field": "ipsdo:IPPartyKindCode",
+            "operator": "EQ",
+            "value": "AP"
+          }
+        }
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "csdo:AddressKindCode"
+          },
+          "value": "2"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.20",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 718,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "20"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 517,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "20"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "EQ",
+          "value": "PA"
+        }
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:IPSubjectName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:CommunicationDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:PatentAttorneyId"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.21",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-21",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 719,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "21"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-21",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 518,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "21"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "EQ",
+          "value": "RE"
+        }
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:IPSubjectName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:CommunicationDetails"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.22",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-22",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 719,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "22"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-22",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 518,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "22"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "csdo:AddressKindCode"
+          },
+          "value": "3"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.23",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-23",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 719,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "23"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-23",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 518,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "23"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails"
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "operator": "IN",
+          "right_value": [
+            "AM",
+            "BY",
+            "KZ",
+            "KG",
+            "RU"
+          ]
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.24",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-24",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 720,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "24"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-24",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "24"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.25",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-25",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 720,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "25"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-25",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "25"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipcdo:TMDescriptionDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkKindCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkKindName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:CollectiveMarkIndicator"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.25",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-25",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 720,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "25"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-25",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "25"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "assertions": [
+        {
+          "kind": "condition",
+          "condition": {
+            "any": [
+              {
+                "field": "ipsdo:TrademarkKindCode",
+                "operator": "IN",
+                "value": [
+                  "110",
+                  "120",
+                  "130",
+                  "140",
+                  "150",
+                  "160",
+                  "170",
+                  "180"
+                ]
+              },
+              {
+                "field": "ipsdo:TrademarkKindName",
+                "operator": "IN",
+                "value": [
+                  "Словесный знак",
+                  "Буквенный знак",
+                  "Цифровой знак",
+                  "Изобразительный знак",
+                  "Объемный знак",
+                  "Знак, представляющий собой цвет",
+                  "Знак, представляющий собой сочетание цветов",
+                  "Комбинированный знак"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.26",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-26",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 720,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "26"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-26",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 519,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "26"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "assertions": [
+        {
+          "kind": "conditional_presence",
+          "condition": {
+            "any": [
+              {
+                "field": "ipsdo:TrademarkKindCode",
+                "operator": "IN",
+                "value": [
+                  "140",
+                  "150",
+                  "160",
+                  "170",
+                  "180"
+                ]
+              },
+              {
+                "field": "ipsdo:TrademarkKindName",
+                "operator": "IN",
+                "value": [
+                  "Изобразительный знак",
+                  "Объемный знак",
+                  "Знак, представляющий собой цвет",
+                  "Знак, представляющий собой сочетание цветов",
+                  "Комбинированный знак"
+                ]
+              }
+            ]
+          },
+          "target": {
+            "field": "ipsdo:TrademarkPicture"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "conditional_presence",
+          "condition": {
+            "any": [
+              {
+                "field": "ipsdo:TrademarkKindCode",
+                "operator": "IN",
+                "value": [
+                  "140",
+                  "150",
+                  "160",
+                  "170",
+                  "180"
+                ]
+              },
+              {
+                "field": "ipsdo:TrademarkKindName",
+                "operator": "IN",
+                "value": [
+                  "Изобразительный знак",
+                  "Объемный знак",
+                  "Знак, представляющий собой цвет",
+                  "Знак, представляющий собой сочетание цветов",
+                  "Комбинированный знак"
+                ]
+              }
+            ]
+          },
+          "target": {
+            "field": "ipsdo:TrademarkColourName"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.27",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-27",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 721,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "27"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-27",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 520,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "27"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "ipsdo:CollectiveMarkIndicator"
+          },
+          "operator": "IN",
+          "right_value": [
+            "1",
+            "0"
+          ]
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.28",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-28",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 721,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "28"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-28",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 520,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "28"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:GoodsBaseDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": null,
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.29",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 721,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 520,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "29"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:GoodsBaseDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:GoodsClassCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:GoodsClassName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:GoodsName"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.29",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+          "status": "CONFIRMED",
+          "page": 818,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+          "status": "CONFIRMED",
+          "page": 721,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+          "status": "CONFIRMED",
+          "page": 520,
+          "table": "34",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "29"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkClaimDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipcdo:StakeholderDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:RequestId"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:RequestDate"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.30",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-30",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 819,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "30"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkClaimDetails/ipcdo:StakeholderDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:SubjectName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:SubjectBriefName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.31",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-31",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 819,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "31"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:ArgumentDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DescriptionText"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:EventDate"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.32",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-32",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 819,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "32"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkNationalApplicationDetails"
+      },
+      "min_occurs": 0,
+      "max_occurs": 0,
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.33",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-33",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 819,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "33"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:ApplicantChangeDetails"
+      },
+      "min_occurs": 0,
+      "max_occurs": 0,
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.33",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-33",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 819,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "33"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:ComplaintDetails"
+      },
+      "min_occurs": 0,
+      "max_occurs": 0,
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.33",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-33",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 819,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "33"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:ApplicantComplainResponseDetails"
+      },
+      "min_occurs": 0,
+      "max_occurs": 0,
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.33",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-33",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 819,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "33"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:RefusalDetails"
+      },
+      "min_occurs": 0,
+      "max_occurs": 0,
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.34",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-34",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 819,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "34"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ccdo:ResourceItemStatusDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:ValidityPeriodDetails/csdo:StartDateTime"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.35",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-35",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 819,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "35"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ccdo:ResourceItemStatusDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:ValidityPeriodDetails/csdo:EndDateTime"
+          },
+          "state": "FORBIDDEN"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.36",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-36",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 819,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "36"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:SignatureDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": null,
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.37.PRESENCE",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-37",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 820,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "37"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:SignatureDetails"
+      },
+      "assertions": [
+        {
+          "kind": "conditional_presence",
+          "condition": {
+            "field": "ipcdo:OfficerDetails",
+            "operator": "NE",
+            "value": null
+          },
+          "target": {
+            "field": "ccdo:FullNameDetails"
+          },
+          "state": "FORBIDDEN"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.37.BRANCH",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-37",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 820,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "37"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:SignatureDetails"
+      },
+      "assertions": [
+        {
+          "kind": "conditional_presence",
+          "condition": {
+            "field": "ccdo:FullNameDetails",
+            "operator": "NE",
+            "value": null
+          },
+          "target": {
+            "field": "ipcdo:OfficerDetails"
+          },
+          "state": "FORBIDDEN"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.38",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-38",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 820,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "38"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "qname": "ipcdo:OfficerDetails",
+        "under": "ipcdo:TrademarkApplicationDetails/ipcdo:SignatureDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:FullNameDetails/csdo:LastName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:FullNameDetails/csdo:FirstName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:PositionName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:CommunicationDetails"
+          },
+          "state": "FORBIDDEN"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.062.T81.REQ.39",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-39",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 81",
+          "status": "CONFIRMED",
+          "page": 820,
+          "table": "81",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "39"
+        }
+      ]
+    }
+  ],
+  "mapping_audit": {
+    "audit_version": "1.0.0",
+    "captured_row_count": 16,
+    "expanded_requirement_count": 39,
+    "classification_counts": {
+      "FULLY_MAPPABLE": 33,
+      "SAFE_PARTIAL": 1,
+      "EXTERNAL": 2,
+      "AMBIGUOUS": 1,
+      "ENGINE_UNSUPPORTED": 2,
+      "SOURCE_CONFLICT": 0
+    },
+    "summary": {
+      "FULLY_MAPPABLE": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "SAFE_PARTIAL": [
+        4
+      ],
+      "EXTERNAL": [
+        2,
+        3
+      ],
+      "AMBIGUOUS": [
+        13
+      ],
+      "ENGINE_UNSUPPORTED": [
+        18,
+        19
+      ],
+      "SOURCE_CONFLICT": []
+    },
+    "partial_remainders": {
+      "4": [
+        "external record existence in national patent office information resource",
+        "external StatusCode == '02'",
+        "external EndDateTime is empty",
+        "external TrademarkApplicationId matches message value"
+      ]
+    },
+    "inventory": [
+      {
+        "table": "81",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "1",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-1",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81",
+            "status": "CONFIRMED",
+            "page": 817,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "1"
+          }
+        ],
+        "reason": "Confirmed local Table 81 rule. Exactly one TrademarkApplicationDetails instance is required.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "81",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "2",
+        "classification": "EXTERNAL",
+        "mapping_status": "UNMAPPED",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-2",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81",
+            "status": "CONFIRMED",
+            "page": 817,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "2"
+          }
+        ],
+        "reason": "Classifier inclusion condition is external.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": "classifier of document kinds (Decision No. 92)",
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode",
+          "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "81",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "3",
+        "classification": "EXTERNAL",
+        "mapping_status": "UNMAPPED",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-3",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "3"
+          }
+        ],
+        "reason": "Classifier absence condition is external.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": "classifier of document kinds (Decision No. 92)",
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode",
+          "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "81",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "4",
+        "classification": "SAFE_PARTIAL",
+        "mapping_status": "PARTIAL_EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-4",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "4"
+          }
+        ],
+        "reason": "Local identifier presence is executable; external national patent office resource state/equality is not.",
+        "safe_fragment": "TrademarkApplicationDetails/ipsdo:TrademarkApplicationId is required.",
+        "unmapped_remainder": [
+          "external record existence in national patent office information resource",
+          "external StatusCode == '02'",
+          "external EndDateTime is empty",
+          "external TrademarkApplicationId matches message value"
+        ],
+        "external_dependency": "national patent-office application information resource",
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipsdo:TrademarkApplicationId"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "81",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "5",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-5",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "5"
+          }
+        ],
+        "reason": "Confirmed local Table 81 rule. ipcdo:ArgumentDetails is required inside TrademarkApplicationDetails.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipcdo:ArgumentDetails"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "6",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-6",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 715,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-6",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 514,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 6.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "7",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-7",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 715,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "7"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-7",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 514,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "7"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 7.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "8",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-8",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 715,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "8"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-8",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 514,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "8"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 8.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "9",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-9",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 716,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "9"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-9",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 514,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "9"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 9.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "10",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-10",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 716,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "10"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-10",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 514,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "10"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 10.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "11",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-11",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 716,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "11"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-11",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 514,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "11"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 11.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "12",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-12",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 716,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "12"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-12",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 515,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "12"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 12.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "13",
+        "classification": "AMBIGUOUS",
+        "mapping_status": "UNMAPPED",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-13",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 716,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "13"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-13",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 515,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "13"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 13.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "14",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-14",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 716,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "14"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-14",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 515,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "14"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 14.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "15",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-15",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 717,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "15"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-15",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 515,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "15"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 15.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "16",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-16",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 717,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "16"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-16",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 516,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "16"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 16.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "17",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-17",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 717,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "17"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-17",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 516,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "17"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 17.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "18",
+        "classification": "ENGINE_UNSUPPORTED",
+        "mapping_status": "UNMAPPED",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-18",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 718,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "18"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-18",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 516,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "18"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 18.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "19",
+        "classification": "ENGINE_UNSUPPORTED",
+        "mapping_status": "UNMAPPED",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 718,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "19"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 517,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "19"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 19.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "20",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-20",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 718,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "20"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-20",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 517,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "20"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 20.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "21",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-21",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 719,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "21"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-21",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 518,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "21"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 21.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "22",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-22",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 719,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "22"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-22",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 518,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "22"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 22.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "23",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-23",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 719,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "23"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-23",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 518,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "23"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 23.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "24",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-24",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 720,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "24"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-24",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 519,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "24"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 24.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "25",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-25",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 720,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "25"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-25",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 519,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "25"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 25.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "26",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-26",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 720,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "26"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-26",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 519,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "26"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 26.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "27",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-27",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 721,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "27"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-27",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 520,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "27"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 27.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "28",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-28",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 721,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "28"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-28",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 520,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "28"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 28.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81/44/34",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "29",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-6-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об обращении о несоответствии заявки на товарный знак Союза требованиям Договора (P.SP.02.MSG.062)",
+            "status": "CONFIRMED",
+            "page": 818,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T44-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 44. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при передаче сведений об изменении заявки на товарный знак Союза (P.SP.02.MSG.028)",
+            "status": "CONFIRMED",
+            "page": 721,
+            "table": "44",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "29"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T34-29",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 34. Требования к заполнению реквизитов структуры данных R.IP.SP.02.002 при подаче заявки на товарный знак Союза (P.SP.02.MSG.001)",
+            "status": "CONFIRMED",
+            "page": 520,
+            "table": "34",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "29"
+          }
+        ],
+        "reason": "Inherited Table 81 -> Table 44 -> Table 34 rule 29.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "81",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "30",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-30",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81",
+            "status": "CONFIRMED",
+            "page": 819,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "30"
+          }
+        ],
+        "reason": "Confirmed local Table 81 rule. Within TrademarkClaimDetails: StakeholderDetails, RequestId, RequestDate are required.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkClaimDetails/ipcdo:StakeholderDetails",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkClaimDetails/ipsdo:RequestId",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkClaimDetails/ipsdo:RequestDate"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "81",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "31",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-31",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81",
+            "status": "CONFIRMED",
+            "page": 819,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "31"
+          }
+        ],
+        "reason": "Confirmed local Table 81 rule. Within StakeholderDetails: UnifiedCountryCode, SubjectName, SubjectBriefName, SubjectAddressDetails are required.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkClaimDetails/ipcdo:StakeholderDetails/csdo:UnifiedCountryCode",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkClaimDetails/ipcdo:StakeholderDetails/csdo:SubjectName",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkClaimDetails/ipcdo:StakeholderDetails/csdo:SubjectBriefName",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkClaimDetails/ipcdo:StakeholderDetails/ccdo:SubjectAddressDetails"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "81",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "32",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-32",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81",
+            "status": "CONFIRMED",
+            "page": 819,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "32"
+          }
+        ],
+        "reason": "Confirmed local Table 81 rule. Within ArgumentDetails: DescriptionText, EventDate are required.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipcdo:ArgumentDetails/csdo:DescriptionText",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:ArgumentDetails/csdo:EventDate"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "81",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "33",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-33",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81",
+            "status": "CONFIRMED",
+            "page": 819,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "33"
+          }
+        ],
+        "reason": "Confirmed local Table 81 rule. TrademarkNationalApplicationDetails, ApplicantChangeDetails, ComplaintDetails, ApplicantComplainResponseDetails are forbidden in TrademarkApplicationDetails.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkNationalApplicationDetails",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:ApplicantChangeDetails",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:ComplaintDetails",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:ApplicantComplainResponseDetails"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "81",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "34",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-34",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81",
+            "status": "CONFIRMED",
+            "page": 819,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "34"
+          }
+        ],
+        "reason": "Confirmed local Table 81 rule. RefusalDetails is forbidden.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:RefusalDetails"
+        ],
+        "owner": "R.IP.SP.02.002",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "81",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "35",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-35",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81",
+            "status": "CONFIRMED",
+            "page": 819,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "35"
+          }
+        ],
+        "reason": "Confirmed local Table 81 rule. StartDateTime is required in ResourceItemStatusDetails.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:StartDateTime"
+        ],
+        "owner": "ccdo:ResourceItemStatusDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "81",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "36",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-36",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81",
+            "status": "CONFIRMED",
+            "page": 819,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "36"
+          }
+        ],
+        "reason": "Confirmed local Table 81 rule. EndDateTime is forbidden in ResourceItemStatusDetails.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:EndDateTime"
+        ],
+        "owner": "ccdo:ResourceItemStatusDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "81",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "37",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-37",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81",
+            "status": "CONFIRMED",
+            "page": 820,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "37"
+          }
+        ],
+        "reason": "Confirmed local Table 81 rule. SignatureDetails is required; if OfficerDetails present, FullNameDetails forbidden.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipcdo:SignatureDetails",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:SignatureDetails/ccdo:FullNameDetails"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "81",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "38",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-38",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81",
+            "status": "CONFIRMED",
+            "page": 820,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "38"
+          }
+        ],
+        "reason": "Confirmed local Table 81 rule. Within SignatureDetails: if FullNameDetails present, OfficerDetails forbidden.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "81",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "39",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.062-T81-39",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 81",
+            "status": "CONFIRMED",
+            "page": 820,
+            "table": "81",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "39"
+          }
+        ],
+        "reason": "Confirmed local Table 81 rule. Within OfficerDetails: LastName, FirstName, PositionName are required; CommunicationDetails is forbidden.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/ccdo:FullNameDetails/csdo:LastName",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/ccdo:FullNameDetails/csdo:FirstName",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/csdo:PositionName",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/ccdo:CommunicationDetails"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      }
+    ]
+  }
 }

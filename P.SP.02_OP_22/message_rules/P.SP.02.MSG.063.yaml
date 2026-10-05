@@ -84,5 +84,232 @@
         }
       ]
     }
-  ]
+  ],
+  "structured_rules": [
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "rule_id": "P.SP.02.MSG.063.T82.REQ.1",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.063-T82-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 82",
+          "status": "CONFIRMED",
+          "page": 820,
+          "table": "82",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkApplicationId"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.063.T82.REQ.4",
+      "mapping_status": "PARTIAL",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.063-T82-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 82",
+          "status": "CONFIRMED",
+          "page": 821,
+          "table": "82",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ]
+    }
+  ],
+  "mapping_audit": {
+    "audit_version": "1.0.0",
+    "message_code": "P.SP.02.MSG.063",
+    "structure_id": "R.IP.SP.02.002",
+    "document": "ОП_22.pdf",
+    "captured_row_count": 4,
+    "expanded_requirement_count": 4,
+    "counts": {
+      "FULLY_MAPPABLE": 1,
+      "SAFE_PARTIAL": 1,
+      "EXTERNAL": 2,
+      "AMBIGUOUS": 0,
+      "ENGINE_UNSUPPORTED": 0,
+      "SOURCE_CONFLICT": 0
+    },
+    "classification_counts": {
+      "FULLY_MAPPABLE": 1,
+      "SAFE_PARTIAL": 1,
+      "EXTERNAL": 2,
+      "AMBIGUOUS": 0,
+      "ENGINE_UNSUPPORTED": 0,
+      "SOURCE_CONFLICT": 0
+    },
+    "summary": {
+      "FULLY_MAPPABLE": [
+        1
+      ],
+      "SAFE_PARTIAL": [
+        4
+      ],
+      "EXTERNAL": [
+        2,
+        3
+      ],
+      "AMBIGUOUS": [],
+      "ENGINE_UNSUPPORTED": [],
+      "SOURCE_CONFLICT": []
+    },
+    "inventory": [
+      {
+        "table": "82",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "1",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.063-T82-1",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 82",
+            "status": "CONFIRMED",
+            "page": 820,
+            "table": "82",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "1"
+          }
+        ],
+        "reason": "Confirmed local Table 82 rule: exactly one TrademarkApplicationDetails instance is required.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "ROOT",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "82",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "2",
+        "classification": "EXTERNAL",
+        "mapping_status": "UNMAPPED",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.063-T82-2",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 82",
+            "status": "CONFIRMED",
+            "page": 821,
+            "table": "82",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "2"
+          }
+        ],
+        "reason": "Normative condition depends on whether the classifier includes a code value for document kind 'Уведомление о признании заявки на регистрацию товарного знака, знака обслуживания Евразийского экономического союза отозванной'. External classifier dependency.",
+        "safe_fragment": null,
+        "unmapped_remainder": [
+          "Classifier inclusion condition and IPDocKindCode presence"
+        ],
+        "external_dependency": "CLASSIFIER_DOCUMENT_KIND",
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode",
+          "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "82",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "3",
+        "classification": "EXTERNAL",
+        "mapping_status": "UNMAPPED",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.063-T82-3",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 82",
+            "status": "CONFIRMED",
+            "page": 821,
+            "table": "82",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "3"
+          }
+        ],
+        "reason": "Normative condition depends on whether the classifier lacks a code value for document kind 'Уведомление о признании заявки на регистрацию товарного знака, знака обслуживания Евразийского экономического союза отозванной'. External classifier dependency.",
+        "safe_fragment": null,
+        "unmapped_remainder": [
+          "Classifier absence condition and IPDocKindName fixed value"
+        ],
+        "external_dependency": "CLASSIFIER_DOCUMENT_KIND",
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode",
+          "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "82",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "4",
+        "classification": "SAFE_PARTIAL",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.063-T82-4",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 82",
+            "status": "CONFIRMED",
+            "page": 821,
+            "table": "82",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "4"
+          }
+        ],
+        "reason": "Presence of TrademarkApplicationId inside TrademarkApplicationDetails is required and safe to map locally. The remainder requires an external national patent office database query for StatusCode in ('01', '02'), empty EndDateTime, and matching ID.",
+        "safe_fragment": "TrademarkApplicationId presence is REQUIRED inside TrademarkApplicationDetails",
+        "unmapped_remainder": [
+          "External query against national patent office database for record with StatusCode in ('01', '02'), empty EndDateTime, and matching TrademarkApplicationId"
+        ],
+        "external_dependency": "EXTERNAL_NATIONAL_PATENT_OFFICE_DATABASE",
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipsdo:TrademarkApplicationId"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      }
+    ]
+  }
 }

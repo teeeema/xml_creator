@@ -304,5 +304,681 @@
         }
       ]
     }
-  ]
+  ],
+  "structured_rules": [
+    {
+      "kind": "for_each",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.1",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-1-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 804,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1-6"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.2",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-1-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 804,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1-6"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:AuthorityName"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.3",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-1-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 804,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1-6"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails/csdo:AddressKindCode"
+          },
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.6",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-1-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 804,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1-6"
+        }
+      ],
+      "target": "ipsdo:TrademarkApplicationId",
+      "state": "REQUIRED"
+    },
+    {
+      "kind": "for_each",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.7",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-7",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 804,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "7"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:IPPaymentDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:BankAccountDetails"
+          },
+          "state": "FORBIDDEN"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:PaymentSystemAccountDetails"
+          },
+          "state": "FORBIDDEN"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.8",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-8",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 804,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "8"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:IPPaymentDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+          "field": "ipcdo:IPPaymentDetails/csdo:EventDateTime"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+          "field": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+          "field": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.9",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-9",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 805,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "9"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "IN",
+          "value": [
+            "AP",
+            "PA",
+            "RE"
+          ]
+        }
+      },
+      "min_occurs": 1,
+      "max_occurs": 1
+    },
+    {
+      "kind": "for_each",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.10",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-10",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 805,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "10"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:IPSubjectName"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.11",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-11",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 805,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "11"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "EQ",
+          "value": "AP"
+        }
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "ipsdo:IPSubjectName/@nameRepresentationKindCode"
+          },
+          "value": "OR"
+        },
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "ipsdo:IPSubjectName/@languageCode"
+          },
+          "value": "RU"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.12",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-12",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 805,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "12"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "EQ",
+          "value": "PA"
+        }
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:PatentAttorneyId"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.13",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-13",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 806,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "13"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "IN",
+          "value": [
+            "PA",
+            "RE"
+          ]
+        }
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "operator": "IN",
+          "right_value": [
+            "AM",
+            "BY",
+            "KZ",
+            "KG",
+            "RU"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.14",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-14",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 806,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "14"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "IN",
+          "value": [
+            "PA",
+            "RE"
+          ]
+        }
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:IPSubjectName/@nameRepresentationKindCode"
+          },
+          "state": "FORBIDDEN"
+        },
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "ipsdo:IPSubjectName/@languageCode"
+          },
+          "value": "RU"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.15",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-15",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 806,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "15"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": 1
+    },
+    {
+      "kind": "for_each",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.16",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-16",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 806,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "16"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:IPDocKindName"
+          },
+          "state": "FORBIDDEN"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.17",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-17",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 806,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "17"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "ipsdo:IPDocKindCode"
+          },
+          "value": "07015"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.18",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-18",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 807,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "18"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocId"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocCreationDate"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.19",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 807,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "19"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocBinaryText"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "csdo:DocBinaryText/@mediaTypeCode"
+          },
+          "operator": "IN",
+          "right_value": [
+            "tif",
+            "tiff",
+            "bmp",
+            "jpg",
+            "jpeg",
+            "png",
+            "gif",
+            "doc",
+            "docx",
+            "rtf",
+            "pdf"
+          ]
+        }
+      ],
+      "mapping_status": "PARTIAL"
+    },
+    {
+      "kind": "for_each",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.20",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 807,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "20"
+        }
+      ],
+      "selector": {
+        "collection": "ccdo:EDocHeader"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:ApellationOfOriginApplicationId"
+          },
+          "state": "FORBIDDEN"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocId"
+          },
+          "state": "FORBIDDEN"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:DutyPaymentIndicator"
+          },
+          "state": "FORBIDDEN"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:PaymentAmount"
+          },
+          "state": "FORBIDDEN"
+        }
+      ]
+    }
+  ],
+  "mapping_audit": {
+    "captured_row_count": 15,
+    "expanded_requirement_count": 20,
+    "classification_counts": {
+      "FULLY_MAPPABLE": 17,
+      "SAFE_PARTIAL": 1,
+      "EXTERNAL": 2,
+      "AMBIGUOUS": 0,
+      "ENGINE_UNSUPPORTED": 0,
+      "SOURCE_CONFLICT": 0
+    },
+    "summary": {
+      "FULLY_MAPPABLE": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20
+      ],
+      "SAFE_PARTIAL": [
+        19
+      ],
+      "EXTERNAL": [
+        4,
+        5
+      ],
+      "AMBIGUOUS": [],
+      "ENGINE_UNSUPPORTED": [],
+      "SOURCE_CONFLICT": []
+    }
+  }
 }

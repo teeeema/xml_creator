@@ -68,15 +68,36 @@ class EaeuXmlEngine:
             message_code=message_code,
         )
 
+    def _embedded_structure_definitions(self, message: MessageDefinition, *, mode: GenerationMode):
+        embedded = message.embedded_structures
+        if not embedded:
+            return {}
+        return {
+            structure_id: self.resolve_structure(structure_id, mode=mode).definition
+            for structure_id in embedded.structures
+        }
+
     def validate_body(self, message_code: str, values: dict, *, mode: GenerationMode = GenerationMode.STRICT):
         message = self.get_message(message_code)
         structure = self.get_structure(message_code,mode=mode)
         validator = getattr(self.body_provider, "validate_body", None)
         if validator is None:
             raise ProcessDefinitionNotFoundError(code="BODY_VALIDATION_NOT_SUPPORTED", message="Body provider не поддерживает validation.")
-        return validator(message, structure, values, mode=mode)
+        if not message.embedded_structures:
+            return validator(message, structure, values, mode=mode)
+        definitions = self._embedded_structure_definitions(message, mode=mode)
+        return validator(message, structure, values, mode=mode, embedded_structure_definitions=definitions)
 
-    def build_body(self, message_code: str, values: dict, *, mode: GenerationMode = GenerationMode.STRICT):
+    def build_body(self, message_code: str, values: dict, *, mode: GenerationMode = GenerationMode.STRICT,
+                   embedded_structure_id: str | None = None, embedded_values: dict | None = None):
         message = self.get_message(message_code)
         structure = self.get_structure(message_code,mode=mode)
-        return self.body_provider.build_body(message, structure, values, mode=mode)
+        if not message.embedded_structures:
+            return self.body_provider.build_body(message, structure, values, mode=mode)
+        definitions = self._embedded_structure_definitions(message, mode=mode)
+        return self.body_provider.build_body(
+            message, structure, values, mode=mode,
+            embedded_structure_definitions=definitions,
+            embedded_structure_id=embedded_structure_id,
+            embedded_values=embedded_values,
+        )

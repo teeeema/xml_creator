@@ -24,5 +24,122 @@
       ]
     }
   ],
+  "structured_rules": [
+    {
+      "kind": "cardinality",
+      "target": "ccdo:EDocHeader",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "rule_id": "P.SP.02.MSG.022.T55.REQ.1",
+      "applies_to_structure": "R.IP.SP.02.008",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.022-T55-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 55",
+          "status": "CONFIRMED",
+          "page": 577,
+          "table": "55",
+          "item": "1",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "csdo:UpdateDateTime",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.02.MSG.022.T55.REQ.1",
+      "applies_to_structure": "R.IP.SP.02.008",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.022-T55-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 55",
+          "status": "CONFIRMED",
+          "page": 577,
+          "table": "55",
+          "item": "1",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "csdo:UnifiedCountryCode",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.02.MSG.022.T55.REQ.1",
+      "applies_to_structure": "R.IP.SP.02.008",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.022-T55-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 55",
+          "status": "CONFIRMED",
+          "page": 577,
+          "table": "55",
+          "item": "1",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "ipsdo:TrademarkId",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.02.MSG.022.T55.REQ.1",
+      "applies_to_structure": "R.IP.SP.02.008",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.022-T55-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 55",
+          "status": "CONFIRMED",
+          "page": 577,
+          "table": "55",
+          "item": "1",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "ipsdo:TrademarkApplicationId",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.02.MSG.022.T55.REQ.1",
+      "applies_to_structure": "R.IP.SP.02.008",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.022-T55-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 55",
+          "status": "CONFIRMED",
+          "page": 577,
+          "table": "55",
+          "item": "1",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "ipcdo:AccompanyingDocumentsDetails",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.02.MSG.022.T55.REQ.1",
+      "applies_to_structure": "R.IP.SP.02.008",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.022-T55-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 55",
+          "status": "CONFIRMED",
+          "page": 577,
+          "table": "55",
+          "item": "1",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    }
+  ],
   "status": "CONFIRMED"
 }

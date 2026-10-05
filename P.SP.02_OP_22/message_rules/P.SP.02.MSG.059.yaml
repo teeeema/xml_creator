@@ -224,5 +224,756 @@
         }
       ]
     }
-  ]
+  ],
+  "structured_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.059.T78.REQ.1",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T78-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 78",
+          "status": "CONFIRMED",
+          "page": 810,
+          "table": "78",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkApplicationId"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.059.T78.REQ.2",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T78-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 78",
+          "status": "CONFIRMED",
+          "page": 810,
+          "table": "78",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipcdo:AccompanyingDocumentsDetails"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.059.T78.REQ.3",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T78-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 78",
+          "status": "CONFIRMED",
+          "page": 811,
+          "table": "78",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "3"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:AccompanyingDocumentsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "condition",
+          "condition": {
+            "any": [
+              {
+                "field": "ipsdo:IPDocKindCode",
+                "operator": "NE",
+                "value": null
+              },
+              {
+                "field": "ipsdo:IPDocKindName",
+                "operator": "NE",
+                "value": null
+              }
+            ]
+          }
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocId"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocCreationDate"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocBinaryText"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.059.T78.REQ.4",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T78-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 78",
+          "status": "CONFIRMED",
+          "page": 811,
+          "table": "78",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ],
+      "mapping_status": "PARTIAL",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:AccompanyingDocumentsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocBinaryText"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "csdo:DocBinaryText/@mediaTypeCode"
+          },
+          "operator": "IN",
+          "right_value": [
+            "tif",
+            "tiff",
+            "bmp",
+            "jpg",
+            "jpeg",
+            "png",
+            "gif",
+            "doc",
+            "docx",
+            "rtf",
+            "pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.059.T79.REQ.1",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T79-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 79",
+          "status": "CONFIRMED",
+          "page": 812,
+          "table": "79",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkId"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.059.T79.REQ.2",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T79-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 79",
+          "status": "CONFIRMED",
+          "page": 812,
+          "table": "79",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipcdo:AccompanyingDocumentsDetails"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.059.T79.REQ.3",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T79-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 79",
+          "status": "CONFIRMED",
+          "page": 812,
+          "table": "79",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "3"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "condition",
+          "condition": {
+            "any": [
+              {
+                "field": "ipsdo:IPDocKindCode",
+                "operator": "NE",
+                "value": null
+              },
+              {
+                "field": "ipsdo:IPDocKindName",
+                "operator": "NE",
+                "value": null
+              }
+            ]
+          }
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocId"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocCreationDate"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocBinaryText"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.059.T79.REQ.4",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.059-T79-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 79",
+          "status": "CONFIRMED",
+          "page": 812,
+          "table": "79",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ],
+      "mapping_status": "PARTIAL",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocBinaryText"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "csdo:DocBinaryText/@mediaTypeCode"
+          },
+          "operator": "IN",
+          "right_value": [
+            "tif",
+            "tiff",
+            "bmp",
+            "jpg",
+            "jpeg",
+            "png",
+            "gif",
+            "doc",
+            "docx",
+            "rtf",
+            "pdf"
+          ]
+        }
+      ]
+    }
+  ],
+  "mapping_audit": {
+    "audit_version": "1.0.0",
+    "message_code": "P.SP.02.MSG.059",
+    "structure_id": "R.010",
+    "document": "ОП_22.pdf",
+    "captured_row_count": 11,
+    "expanded_requirement_count": 11,
+    "counts": {
+      "FULLY_MAPPABLE": 7,
+      "SAFE_PARTIAL": 2,
+      "EXTERNAL": 0,
+      "AMBIGUOUS": 2,
+      "ENGINE_UNSUPPORTED": 0,
+      "SOURCE_CONFLICT": 0
+    },
+    "classification_counts": {
+      "FULLY_MAPPABLE": 7,
+      "SAFE_PARTIAL": 2,
+      "EXTERNAL": 0,
+      "AMBIGUOUS": 2,
+      "ENGINE_UNSUPPORTED": 0,
+      "SOURCE_CONFLICT": 0
+    },
+    "summary": {
+      "table77": {
+        "FULLY_MAPPABLE": [1]
+      },
+      "table78": {
+        "FULLY_MAPPABLE": [1, 2, 3],
+        "SAFE_PARTIAL": [4],
+        "AMBIGUOUS": [5]
+      },
+      "table79": {
+        "FULLY_MAPPABLE": [1, 2, 3],
+        "SAFE_PARTIAL": [4],
+        "AMBIGUOUS": [5]
+      }
+    },
+    "inventory": [
+      {
+        "table": "77",
+        "branch": "R.010",
+        "requirement_code": "1",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "INFRASTRUCTURE_EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.059-T77-1",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 77",
+            "status": "CONFIRMED",
+            "page": 810,
+            "table": "77",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "1"
+          }
+        ],
+        "reason": "Exact one-of is enforced by the existing embedded ONE_OF production mechanism on R.010.",
+        "safe_fragment": "Exactly one embedded R.IP.SP.02.002 or R.IP.SP.02.007 payload.",
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "R.IP.SP.02.002",
+          "R.IP.SP.02.007"
+        ],
+        "owner": "R.010",
+        "repeatability": "MESSAGE_OR_DECLARED_OWNER_SCOPE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "78",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "1",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.059-T78-1",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 78",
+            "status": "CONFIRMED",
+            "page": 810,
+            "table": "78",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "1"
+          }
+        ],
+        "reason": "TrademarkApplicationId is required within each TrademarkApplicationDetails instance.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipsdo:TrademarkApplicationId"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "78",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "2",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.059-T78-2",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 78",
+            "status": "CONFIRMED",
+            "page": 810,
+            "table": "78",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "2"
+          }
+        ],
+        "reason": "AccompanyingDocumentsDetails is required within each TrademarkApplicationDetails instance.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipcdo:AccompanyingDocumentsDetails"
+        ],
+        "owner": "ipcdo:TrademarkApplicationDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "78",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "3",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.059-T78-3",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 78",
+            "status": "CONFIRMED",
+            "page": 811,
+            "table": "78",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "3"
+          }
+        ],
+        "reason": "Within each AccompanyingDocumentsDetails instance, at least one of IPDocKindCode or IPDocKindName is required, and DocName, DocId, DocCreationDate, DocBinaryText are all required.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipcdo:AccompanyingDocumentsDetails/ipsdo:IPDocKindCode",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:AccompanyingDocumentsDetails/ipsdo:IPDocKindName",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocName",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocId",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocCreationDate",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocBinaryText"
+        ],
+        "owner": "ipcdo:AccompanyingDocumentsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "78",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "4",
+        "classification": "SAFE_PARTIAL",
+        "mapping_status": "PARTIAL",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.059-T78-4",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 78",
+            "status": "CONFIRMED",
+            "page": 811,
+            "table": "78",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "4"
+          }
+        ],
+        "reason": "Within each AccompanyingDocumentsDetails instance, DocBinaryText is required and mediaTypeCode attribute must be one of allowed extensions. Payload size <= 5MB is unmapped.",
+        "safe_fragment": "DocBinaryText presence REQUIRED and mediaTypeCode IN allowed extensions list",
+        "unmapped_remainder": [
+          "DocBinaryText binary payload size <= 5MB"
+        ],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:TrademarkApplicationDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocBinaryText",
+          "ipcdo:TrademarkApplicationDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocBinaryText/@mediaTypeCode"
+        ],
+        "owner": "ipcdo:AccompanyingDocumentsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "78",
+        "branch": "R.IP.SP.02.002",
+        "requirement_code": "5",
+        "classification": "AMBIGUOUS",
+        "mapping_status": "UNMAPPED",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.059-T78-5",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 78",
+            "status": "CONFIRMED",
+            "page": 811,
+            "table": "78",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "5"
+          }
+        ],
+        "reason": "The requirement 'другие реквизиты не заполняются' does not specify which elements or scope are considered 'other' (e.g., within AccompanyingDocumentsDetails, within TrademarkApplicationDetails, or across R.IP.SP.02.002); guessing the list of forbidden fields is prohibited, and the engine lacks closed-world negative constraints.",
+        "safe_fragment": null,
+        "unmapped_remainder": [
+          "All other unmentioned elements across R.IP.SP.02.002"
+        ],
+        "external_dependency": null,
+        "engine_gap": "CLOSED_WORLD_NEGATIVE_CONSTRAINTS_NOT_SUPPORTED",
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "R.IP.SP.02.002",
+        "repeatability": "MESSAGE_OR_DECLARED_OWNER_SCOPE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "79",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "1",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.059-T79-1",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 79",
+            "status": "CONFIRMED",
+            "page": 812,
+            "table": "79",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "1"
+          }
+        ],
+        "reason": "TrademarkId is required within each UnifiedRegisterRecordsDetails instance.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:TrademarkId"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "79",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "2",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.059-T79-2",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 79",
+            "status": "CONFIRMED",
+            "page": 812,
+            "table": "79",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "2"
+          }
+        ],
+        "reason": "AccompanyingDocumentsDetails is required within each UnifiedRegisterRecordsDetails instance.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "79",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "3",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.059-T79-3",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 79",
+            "status": "CONFIRMED",
+            "page": 812,
+            "table": "79",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "3"
+          }
+        ],
+        "reason": "Within each AccompanyingDocumentsDetails instance, at least one of IPDocKindCode or IPDocKindName is required, and DocName, DocId, DocCreationDate, DocBinaryText are all required.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/ipsdo:IPDocKindCode",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/ipsdo:IPDocKindName",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocName",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocId",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocCreationDate",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocBinaryText"
+        ],
+        "owner": "ipcdo:AccompanyingDocumentsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "79",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "4",
+        "classification": "SAFE_PARTIAL",
+        "mapping_status": "PARTIAL",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.059-T79-4",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 79",
+            "status": "CONFIRMED",
+            "page": 812,
+            "table": "79",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "4"
+          }
+        ],
+        "reason": "Within each AccompanyingDocumentsDetails instance, DocBinaryText is required and mediaTypeCode attribute must be one of allowed extensions. Payload size <= 5MB is unmapped.",
+        "safe_fragment": "DocBinaryText presence REQUIRED and mediaTypeCode IN allowed extensions list",
+        "unmapped_remainder": [
+          "DocBinaryText binary payload size <= 5MB"
+        ],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocBinaryText",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocBinaryText/@mediaTypeCode"
+        ],
+        "owner": "ipcdo:AccompanyingDocumentsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "79",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "5",
+        "classification": "AMBIGUOUS",
+        "mapping_status": "UNMAPPED",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.059-T79-5",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 79",
+            "status": "CONFIRMED",
+            "page": 812,
+            "table": "79",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "5"
+          }
+        ],
+        "reason": "The requirement 'другие реквизиты не заполняются' does not specify which elements or scope are considered 'other' (e.g., within AccompanyingDocumentsDetails, within UnifiedRegisterRecordsDetails, or across R.IP.SP.02.007); guessing the list of forbidden fields is prohibited, and the engine lacks closed-world negative constraints.",
+        "safe_fragment": null,
+        "unmapped_remainder": [
+          "All other unmentioned elements across R.IP.SP.02.007"
+        ],
+        "external_dependency": null,
+        "engine_gap": "CLOSED_WORLD_NEGATIVE_CONSTRAINTS_NOT_SUPPORTED",
+        "source_conflict": null,
+        "target_paths": [],
+        "owner": "R.IP.SP.02.007",
+        "repeatability": "MESSAGE_OR_DECLARED_OWNER_SCOPE",
+        "provenance_kind": "DIRECT"
+      }
+    ]
+  }
 }

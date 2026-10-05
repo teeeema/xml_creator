@@ -204,5 +204,1964 @@
         }
       ]
     }
-  ]
+  ],
+  "structured_rules": [
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkId"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.1",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 788,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ],
+      "mapping_status": "PARTIAL"
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.2",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 788,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:EndDateTime"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.3",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 788,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "3"
+        }
+      ]
+    },
+    {
+      "kind": "conditional_presence",
+      "scope": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "condition": {
+        "field": "ipsdo:IPDocKindCode",
+        "operator": "NE",
+        "value": null
+      },
+      "target": {
+        "field": "ipsdo:IPDocKindName"
+      },
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.4",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 788,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ],
+      "mapping_status": "PARTIAL"
+    },
+    {
+      "kind": "conditional_fixed_value",
+      "scope": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "condition": {
+        "field": "ipsdo:IPDocKindCode",
+        "operator": "EQ",
+        "value": null
+      },
+      "target": {
+        "field": "ipsdo:IPDocKindName"
+      },
+      "value": "Ходатайство об отказе от исключительного права на товарный знак, знак обслуживания Евразийского экономического союза",
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.5",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ],
+      "mapping_status": "PARTIAL"
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "qname": "csdo:UnifiedCountryCode",
+        "under": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "@codeListId"
+          },
+          "value": "ВОИС ST.3"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.6",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 49",
+          "status": "CONFIRMED",
+          "page": 737,
+          "table": "49",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "qname": "ccdo:SubjectAddressDetails",
+        "under": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:AddressKindCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:CityName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:StreetName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:BuildingNumberId"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.7",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-7",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 49",
+          "status": "CONFIRMED",
+          "page": 737,
+          "table": "49",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "7"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "qname": "ccdo:CommunicationDetails",
+        "under": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:CommunicationChannelCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:CommunicationChannelId"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:CommunicationChannelName"
+          },
+          "state": "FORBIDDEN"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.8",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-8",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 49",
+          "status": "CONFIRMED",
+          "page": 737,
+          "table": "49",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "8"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "qname": "ccdo:CommunicationDetails",
+        "under": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "csdo:CommunicationChannelCode"
+          },
+          "operator": "IN",
+          "right_value": [
+            "TE",
+            "EM",
+            "FX"
+          ]
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.9",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-9",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 49",
+          "status": "CONFIRMED",
+          "page": 737,
+          "table": "49",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "9"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:AuthorityName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:AuthorityBriefName"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.10",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-10",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 49",
+          "status": "CONFIRMED",
+          "page": 737,
+          "table": "49",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "10"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "EQ",
+          "value": "RH"
+        }
+      },
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.11",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-11",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 49",
+          "status": "CONFIRMED",
+          "page": 737,
+          "table": "49",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "11"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:IPSubjectName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:CommunicationDetails"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.12",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-12",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 49",
+          "status": "CONFIRMED",
+          "page": 738,
+          "table": "49",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "12"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "csdo:AddressKindCode"
+          },
+          "value": "2"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.13",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-13",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 49",
+          "status": "CONFIRMED",
+          "page": 738,
+          "table": "49",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "13"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkPicture"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipcdo:TMDescriptionDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkKindName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:CollectiveMarkIndicator"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.14",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-14",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 49",
+          "status": "CONFIRMED",
+          "page": 738,
+          "table": "49",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "14"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipcdo:TMDescriptionDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DescriptionText"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipcdo:TMElementDetails"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.15",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-15",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 49",
+          "status": "CONFIRMED",
+          "page": 738,
+          "table": "49",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "15"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipcdo:TMDescriptionDetails/ipcdo:TMElementDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkCFECode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DesignationName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TMLocalizedName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TMTransliterationName"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.15",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-15",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 49",
+          "status": "CONFIRMED",
+          "page": 738,
+          "table": "49",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "15"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": null,
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.16",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-16",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 49",
+          "status": "CONFIRMED",
+          "page": 739,
+          "table": "49",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "16"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:GoodsClassCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:GoodsClassName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:GoodsName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkDecisionIndicator"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkApplicationId"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.16",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-16",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 49",
+          "status": "CONFIRMED",
+          "page": 739,
+          "table": "49",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "16"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkId"
+          },
+          "state": "FORBIDDEN"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:ApellationOfOriginEAEUId"
+          },
+          "state": "FORBIDDEN"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkRegRefusalReasonText"
+          },
+          "state": "FORBIDDEN"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.17",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-17",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 49",
+          "status": "CONFIRMED",
+          "page": 739,
+          "table": "49",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "17"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:EventDate"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "csdo:StatusCode"
+          },
+          "value": "05"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:StatusCode/@codeListId"
+          },
+          "state": "FORBIDDEN"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.20",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "20"
+        }
+      ]
+    },
+    {
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": null,
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.21.PRESENCE",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-21",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "21"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails"
+      },
+      "assertions": [
+        {
+          "kind": "conditional_presence",
+          "condition": {
+            "field": "ipcdo:OfficerDetails",
+            "operator": "NE",
+            "value": null
+          },
+          "target": {
+            "field": "ccdo:FullNameDetails"
+          },
+          "state": "FORBIDDEN"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.21.BRANCH",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-21",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "21"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails"
+      },
+      "assertions": [
+        {
+          "kind": "conditional_presence",
+          "condition": {
+            "field": "ccdo:FullNameDetails",
+            "operator": "NE",
+            "value": null
+          },
+          "target": {
+            "field": "ipcdo:OfficerDetails"
+          },
+          "state": "FORBIDDEN"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.22",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-22",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "22"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "qname": "ipcdo:OfficerDetails",
+        "under": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:FullNameDetails/csdo:LastName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:FullNameDetails/csdo:FirstName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:PositionName"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:CommunicationDetails"
+          },
+          "state": "FORBIDDEN"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.050.T68.REQ.23",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-23",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 68",
+          "status": "CONFIRMED",
+          "page": 789,
+          "table": "68",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "23"
+        }
+      ]
+    }
+  ],
+  "mapping_audit": {
+    "captured_row_count": 10,
+    "expanded_requirement_count": 23,
+    "classification_counts": {
+      "FULLY_MAPPABLE": 18,
+      "SAFE_PARTIAL": 3,
+      "EXTERNAL": 0,
+      "AMBIGUOUS": 0,
+      "ENGINE_UNSUPPORTED": 2,
+      "SOURCE_CONFLICT": 0
+    },
+    "summary": {
+      "FULLY_MAPPABLE": [
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        20,
+        21,
+        22,
+        23
+      ],
+      "SAFE_PARTIAL": [
+        1,
+        4,
+        5
+      ],
+      "EXTERNAL": [],
+      "AMBIGUOUS": [],
+      "ENGINE_UNSUPPORTED": [
+        18,
+        19
+      ],
+      "SOURCE_CONFLICT": []
+    },
+    "inventory": [
+      {
+        "table": "68",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "1",
+        "classification": "SAFE_PARTIAL",
+        "mapping_status": "PARTIAL",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-1",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 788,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "1"
+          }
+        ],
+        "reason": "Governed register record TrademarkId is required locally; verification of active registration status and equality in external registry remains external.",
+        "safe_fragment": "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:TrademarkId is required",
+        "unmapped_remainder": [
+          "verification of active record status in external patent office registry (StatusCode in 01, 03; EndDateTime empty; matching TrademarkId)"
+        ],
+        "external_dependency": "National patent authority external register containing trademark records",
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:TrademarkId"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "68",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "2",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-2",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 788,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "2"
+          }
+        ],
+        "reason": "Exactly 1 UnifiedRegisterRecordsDetails instance required.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "ROOT_SELECTION_CARDINALITY",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "68",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "3",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-3",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 788,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "3"
+          }
+        ],
+        "reason": "EndDateTime is required in ResourceItemStatusDetails validity period; no StartDateTime requirement.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:EndDateTime"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "68",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "4",
+        "classification": "SAFE_PARTIAL",
+        "mapping_status": "PARTIAL",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-4",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 788,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "4"
+          }
+        ],
+        "reason": "If IPDocKindCode is present, IPDocKindName is forbidden; classifier membership is safe partial remainder.",
+        "safe_fragment": "If IPDocKindCode is present, IPDocKindName is forbidden",
+        "unmapped_remainder": [
+          "presence of code in external document kind classifier"
+        ],
+        "external_dependency": "Classifier of IP document, information, and material kinds",
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:IPDocKindCode",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:IPDocKindName"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "68",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "5",
+        "classification": "SAFE_PARTIAL",
+        "mapping_status": "PARTIAL",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-5",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "5"
+          }
+        ],
+        "reason": "If IPDocKindCode is absent, IPDocKindName must equal exact normative string; classifier absence is safe partial remainder.",
+        "safe_fragment": "If IPDocKindCode is absent, IPDocKindName equals exact literal",
+        "unmapped_remainder": [
+          "absence of code in external document kind classifier"
+        ],
+        "external_dependency": "Classifier of IP document, information, and material kinds",
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:IPDocKindCode",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:IPDocKindName"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "68/49",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "6",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-19"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-6",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 49",
+            "status": "CONFIRMED",
+            "page": 737,
+            "table": "49",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6"
+          }
+        ],
+        "reason": "Confirmed Table 49 inherited rule: UnifiedCountryCode requires codeListId == 'ВОИС ST.3'.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails//csdo:UnifiedCountryCode/@codeListId"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "68/49",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "7",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-19"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-7",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 49",
+            "status": "CONFIRMED",
+            "page": 737,
+            "table": "49",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "7"
+          }
+        ],
+        "reason": "Confirmed Table 49 inherited rule: SubjectAddressDetails requires AddressKindCode, UnifiedCountryCode, CityName, StreetName, BuildingNumberId.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails//ccdo:SubjectAddressDetails"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "68/49",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "8",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-19"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-8",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 49",
+            "status": "CONFIRMED",
+            "page": 737,
+            "table": "49",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "8"
+          }
+        ],
+        "reason": "Confirmed Table 49 inherited rule: CommunicationDetails requires CommunicationChannelCode and CommunicationChannelId, forbids CommunicationChannelName.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails//ccdo:CommunicationDetails"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "68/49",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "9",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-19"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-9",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 49",
+            "status": "CONFIRMED",
+            "page": 737,
+            "table": "49",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "9"
+          }
+        ],
+        "reason": "Confirmed Table 49 inherited rule: CommunicationChannelCode must be in TE, EM, FX.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails//ccdo:CommunicationDetails/csdo:CommunicationChannelCode"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "68/49",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "10",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-19"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-10",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 49",
+            "status": "CONFIRMED",
+            "page": 737,
+            "table": "49",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "10"
+          }
+        ],
+        "reason": "Confirmed Table 49 inherited rule: PatentAuthorityDetails requires UnifiedCountryCode, AuthorityName, AuthorityBriefName.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "68/49",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "11",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-19"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-11",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 49",
+            "status": "CONFIRMED",
+            "page": 737,
+            "table": "49",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "11"
+          }
+        ],
+        "reason": "Confirmed Table 49 inherited rule: Exactly 1 IPPartyDetails with kind RH required.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "68/49",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "12",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-19"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-12",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 49",
+            "status": "CONFIRMED",
+            "page": 738,
+            "table": "49",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "12"
+          }
+        ],
+        "reason": "Confirmed Table 49 inherited rule: IPPartyDetails requires UnifiedCountryCode, IPSubjectName, SubjectAddressDetails, CommunicationDetails.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "68/49",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "13",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-19"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-13",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 49",
+            "status": "CONFIRMED",
+            "page": 738,
+            "table": "49",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "13"
+          }
+        ],
+        "reason": "Confirmed Table 49 inherited rule: In IPPartyDetails/SubjectAddressDetails, AddressKindCode == '2'.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:AddressKindCode"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "68/49",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "14",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-19"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-14",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 49",
+            "status": "CONFIRMED",
+            "page": 738,
+            "table": "49",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "14"
+          }
+        ],
+        "reason": "Confirmed Table 49 inherited rule: TrademarkDetails requires TrademarkPicture, TMDescriptionDetails, TrademarkKindName, CollectiveMarkIndicator.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "68/49",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "15",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-19"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-15",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 49",
+            "status": "CONFIRMED",
+            "page": 738,
+            "table": "49",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "15"
+          }
+        ],
+        "reason": "Confirmed Table 49 inherited rule: TMDescriptionDetails requires DescriptionText and TMElementDetails; TMElementDetails requires TrademarkCFECode, DesignationName, TMLocalizedName, TMTransliterationName.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipcdo:TMDescriptionDetails",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipcdo:TMDescriptionDetails/ipcdo:TMElementDetails"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "68/49",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "16",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-19"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-16",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 49",
+            "status": "CONFIRMED",
+            "page": 739,
+            "table": "49",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "16"
+          }
+        ],
+        "reason": "Confirmed Table 49 inherited rule: GoodsBaseDetails required (min 1); GoodsClassCode, GoodsClassName, GoodsName, TrademarkDecisionIndicator, TrademarkApplicationId required.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "68/49",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "17",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-19"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-17",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 49",
+            "status": "CONFIRMED",
+            "page": 739,
+            "table": "49",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "17"
+          }
+        ],
+        "reason": "Confirmed Table 49 inherited rule: GoodsBaseDetails forbids TrademarkId, ApellationOfOriginEAEUId, TrademarkRegRefusalReasonText.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "68/49",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "18",
+        "classification": "ENGINE_UNSUPPORTED",
+        "mapping_status": "UNMAPPED",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-19"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-18",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 49",
+            "status": "CONFIRMED",
+            "page": 739,
+            "table": "49",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "18"
+          }
+        ],
+        "reason": "Conditional cross-collection dependency: CollectiveMarkIndicator == 1 requires IPPartyDetails with kind UE.",
+        "safe_fragment": null,
+        "unmapped_remainder": [
+          "cross-collection conditional party presence on collective mark indicator"
+        ],
+        "external_dependency": null,
+        "engine_gap": "Cross-collection conditional dependency unsupported by engine.",
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipsdo:CollectiveMarkIndicator",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipsdo:IPPartyKindCode"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "68/49",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "19",
+        "classification": "ENGINE_UNSUPPORTED",
+        "mapping_status": "UNMAPPED",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-6-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6-19"
+          },
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T49-19",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 49",
+            "status": "CONFIRMED",
+            "page": 740,
+            "table": "49",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "19"
+          }
+        ],
+        "reason": "Conditional cross-collection dependency: CollectiveMarkIndicator == 1 requires AccompanyingDocumentsDetails with charter doc kind.",
+        "safe_fragment": null,
+        "unmapped_remainder": [
+          "cross-collection conditional accompanying document on collective mark indicator"
+        ],
+        "external_dependency": null,
+        "engine_gap": "Cross-collection conditional dependency unsupported by engine.",
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipsdo:CollectiveMarkIndicator",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "INHERITED"
+      },
+      {
+        "table": "68",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "20",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-20",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "20"
+          }
+        ],
+        "reason": "In IPEntityStatusDetails: EventDate required, StatusCode == '05', StatusCode/@codeListId forbidden.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/csdo:EventDate",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/csdo:StatusCode",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/csdo:StatusCode/@codeListId"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "68",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "21",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-21",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "21"
+          }
+        ],
+        "reason": "SignatureDetails required (min 1); if OfficerDetails present, sibling FullNameDetails forbidden.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "68",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "22",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-22",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "22"
+          }
+        ],
+        "reason": "If FullNameDetails present in SignatureDetails, OfficerDetails forbidden.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "68",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "23",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.050-T68-23",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 68",
+            "status": "CONFIRMED",
+            "page": 789,
+            "table": "68",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "23"
+          }
+        ],
+        "reason": "OfficerDetails requires LastName, FirstName, PositionName; forbids CommunicationDetails.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      }
+    ]
+  }
 }

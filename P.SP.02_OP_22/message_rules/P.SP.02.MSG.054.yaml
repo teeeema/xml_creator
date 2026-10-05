@@ -144,5 +144,555 @@
         }
       ]
     }
-  ]
+  ],
+  "structured_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.054.T72.REQ.1",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 72",
+          "status": "CONFIRMED",
+          "page": 801,
+          "table": "72",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "1"
+        }
+      ],
+      "mapping_status": "EXECUTABLE",
+      "selector": {
+        "collection": "ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.054.T72.REQ.2",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 72",
+          "status": "CONFIRMED",
+          "page": 801,
+          "table": "72",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2"
+        }
+      ],
+      "mapping_status": "EXECUTABLE",
+      "selector": {
+        "collection": "ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:AuthorityName"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.054.T72.REQ.3",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 72",
+          "status": "CONFIRMED",
+          "page": 801,
+          "table": "72",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "3"
+        }
+      ],
+      "mapping_status": "EXECUTABLE",
+      "selector": {
+        "collection": "ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails/csdo:AddressKindCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails/csdo:AddressKindCode"
+          },
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.054.T72.REQ.4",
+      "kind": "conditional_presence",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 72",
+          "status": "CONFIRMED",
+          "page": 802,
+          "table": "72",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "4"
+        }
+      ],
+      "mapping_status": "PARTIAL",
+      "scope": {
+        "collection": "ccdo:EDocHeader"
+      },
+      "condition": {
+        "field": "ipsdo:IPLegalActionKindCode",
+        "operator": "NE",
+        "value": null
+      },
+      "target": {
+        "field": "ipsdo:IPLegalActionKindName"
+      },
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "P.SP.02.MSG.054.T72.REQ.5.PRESENCE",
+      "kind": "conditional_presence",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 72",
+          "status": "CONFIRMED",
+          "page": 802,
+          "table": "72",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ],
+      "mapping_status": "PARTIAL",
+      "scope": {
+        "collection": "ccdo:EDocHeader"
+      },
+      "condition": {
+        "field": "ipsdo:IPLegalActionKindCode",
+        "operator": "EQ",
+        "value": null
+      },
+      "target": {
+        "field": "ipsdo:IPLegalActionKindName"
+      },
+      "state": "REQUIRED"
+    },
+    {
+      "rule_id": "P.SP.02.MSG.054.T72.REQ.5.VALUE",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 72",
+          "status": "CONFIRMED",
+          "page": 802,
+          "table": "72",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "5"
+        }
+      ],
+      "mapping_status": "PARTIAL",
+      "selector": {
+        "collection": "ccdo:EDocHeader",
+        "where": {
+          "field": "ipsdo:IPLegalActionKindCode",
+          "operator": "EQ",
+          "value": null
+        }
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "ipsdo:IPLegalActionKindName"
+          },
+          "operator": "IN",
+          "right_value": [
+            "Экспертиза обозначения, заявленного на регистрацию в качестве товарного (коллективного) знака Союза (если регистрация испрашивается для одного - трех классов МКТУ) (уплата пошлины в каждое национальное патентное ведомство)",
+            "Экспертиза обозначения, заявленного на регистрацию в качестве товарного (коллективного) знака Союза (если регистрация испрашивается более чем для трех классов МКТУ) (уплата пошлины в каждое национальное патентное ведомство)",
+            "Регистрация товарного (коллективного) знака Союза и выдача свидетельства на товарный (коллективный) знак Союза",
+            "Продление срока действия исключительного права на товарный (коллективный) знак Союза (оплата в каждое национальное патентное ведомство)"
+          ]
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.054.T72.REQ.6",
+      "kind": "presence",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 72",
+          "status": "CONFIRMED",
+          "page": 802,
+          "table": "72",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6"
+        }
+      ],
+      "mapping_status": "EXECUTABLE",
+      "target": "ipsdo:TrademarkApplicationId",
+      "state": "REQUIRED"
+    },
+    {
+      "rule_id": "P.SP.02.MSG.054.T72.REQ.7",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-7",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 72",
+          "status": "CONFIRMED",
+          "page": 803,
+          "table": "72",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "7"
+        }
+      ],
+      "mapping_status": "EXECUTABLE",
+      "selector": {
+        "collection": "ccdo:EDocHeader"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:ApellationOfOriginApplicationId"
+          },
+          "state": "FORBIDDEN"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocId"
+          },
+          "state": "FORBIDDEN"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipcdo:IPPaymentDetails"
+          },
+          "state": "FORBIDDEN"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:DutyPaymentIndicator"
+          },
+          "state": "FORBIDDEN"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:PaymentAmount"
+          },
+          "state": "FORBIDDEN"
+        }
+      ]
+    }
+  ],
+  "mapping_audit": {
+    "audit_version": "1.0.0",
+    "message_code": "P.SP.02.MSG.054",
+    "structure_id": "R.IP.SP.03.003",
+    "document": "ОП_22.pdf",
+    "table": "72",
+    "captured_row_count": 7,
+    "expanded_requirement_count": 7,
+    "classification_counts": {
+      "FULLY_MAPPABLE": 5,
+      "SAFE_PARTIAL": 2,
+      "ENGINE_UNSUPPORTED": 0,
+      "EXTERNAL": 0,
+      "AMBIGUOUS": 0,
+      "SOURCE_CONFLICT": 0
+    },
+    "summary": {
+      "FULLY_MAPPABLE": [
+        1,
+        2,
+        3,
+        6,
+        7
+      ],
+      "SAFE_PARTIAL": [
+        4,
+        5
+      ],
+      "ENGINE_UNSUPPORTED": [],
+      "EXTERNAL": [],
+      "AMBIGUOUS": [],
+      "SOURCE_CONFLICT": []
+    },
+    "inventory": [
+      {
+        "table": "72",
+        "branch": "R.IP.SP.03.003",
+        "requirement_code": "1",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-1",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 72",
+            "status": "CONFIRMED",
+            "page": 801,
+            "table": "72",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "1"
+          }
+        ],
+        "reason": "Within direct-root PatentAuthorityDetails, UnifiedCountryCode is required.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:PatentAuthorityDetails/csdo:UnifiedCountryCode"
+        ],
+        "owner": "ipcdo:PatentAuthorityDetails",
+        "repeatability": "PER_EXISTING_OWNER",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "72",
+        "branch": "R.IP.SP.03.003",
+        "requirement_code": "2",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-2",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 72",
+            "status": "CONFIRMED",
+            "page": 801,
+            "table": "72",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "2"
+          }
+        ],
+        "reason": "Within direct-root PatentAuthorityDetails, AuthorityName is required.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:PatentAuthorityDetails/csdo:AuthorityName"
+        ],
+        "owner": "ipcdo:PatentAuthorityDetails",
+        "repeatability": "PER_EXISTING_OWNER",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "72",
+        "branch": "R.IP.SP.03.003",
+        "requirement_code": "3",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-3",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 72",
+            "status": "CONFIRMED",
+            "page": 801,
+            "table": "72",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "3"
+          }
+        ],
+        "reason": "Within direct-root PatentAuthorityDetails, SubjectAddressDetails is required and its AddressKindCode must equal 2.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails",
+          "ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:AddressKindCode"
+        ],
+        "owner": "ipcdo:PatentAuthorityDetails",
+        "repeatability": "PER_EXISTING_OWNER",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "72",
+        "branch": "R.IP.SP.03.003",
+        "requirement_code": "4",
+        "classification": "SAFE_PARTIAL",
+        "mapping_status": "PARTIAL_EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-4",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 72",
+            "status": "CONFIRMED",
+            "page": 802,
+            "table": "72",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "4"
+          }
+        ],
+        "reason": "The locally observable code-present branch is executable; classifier availability and code membership require the external Union classifier.",
+        "safe_fragment": "IF IPLegalActionKindCode is present THEN IPLegalActionKindName is FORBIDDEN",
+        "unmapped_remainder": [
+          "classifier availability state",
+          "IPLegalActionKindCode membership in the external classifier"
+        ],
+        "external_dependency": "Union unified classifier for IP legal action kinds",
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipsdo:IPLegalActionKindCode",
+          "ipsdo:IPLegalActionKindName"
+        ],
+        "owner": "IPDutyDetails",
+        "repeatability": "MESSAGE_ROOT",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "72",
+        "branch": "R.IP.SP.03.003",
+        "requirement_code": "5",
+        "classification": "SAFE_PARTIAL",
+        "mapping_status": "PARTIAL_EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-5",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 72",
+            "status": "CONFIRMED",
+            "page": 802,
+            "table": "72",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "5"
+          }
+        ],
+        "reason": "The locally observable code-absent branch is executable, including required name and membership in the four Table 72 literals; classifier absence itself is external.",
+        "safe_fragment": "IF IPLegalActionKindCode is absent THEN IPLegalActionKindName is REQUIRED and IN the four Table 72 literals",
+        "unmapped_remainder": [
+          "classifier absence state"
+        ],
+        "external_dependency": "Union unified classifier for IP legal action kinds",
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipsdo:IPLegalActionKindCode",
+          "ipsdo:IPLegalActionKindName"
+        ],
+        "owner": "IPDutyDetails",
+        "repeatability": "MESSAGE_ROOT",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "72",
+        "branch": "R.IP.SP.03.003",
+        "requirement_code": "6",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-6",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 72",
+            "status": "CONFIRMED",
+            "page": 802,
+            "table": "72",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "6"
+          }
+        ],
+        "reason": "TrademarkApplicationId is required directly under IPDutyDetails.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipsdo:TrademarkApplicationId"
+        ],
+        "owner": "IPDutyDetails",
+        "repeatability": "MESSAGE_ROOT",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "72",
+        "branch": "R.IP.SP.03.003",
+        "requirement_code": "7",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.054-T72-7",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 72",
+            "status": "CONFIRMED",
+            "page": 803,
+            "table": "72",
+            "version_context": "P.SP.02 1.0.0",
+            "item": "7"
+          }
+        ],
+        "reason": "The five listed Table 72 fields are forbidden directly under IPDutyDetails, including IPPaymentDetails.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipsdo:ApellationOfOriginApplicationId",
+          "csdo:DocId",
+          "ipcdo:IPPaymentDetails",
+          "ipsdo:DutyPaymentIndicator",
+          "csdo:PaymentAmount"
+        ],
+        "owner": "IPDutyDetails",
+        "repeatability": "MESSAGE_ROOT",
+        "provenance_kind": "DIRECT"
+      }
+    ]
+  }
 }
