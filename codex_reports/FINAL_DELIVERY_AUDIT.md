@@ -1,3 +1,150 @@
+# FINAL DELIVERY — CURRENT OP22 REFRESH
+
+STATUS: PARTIAL_WITH_EXPLICIT_REASONS
+
+Только OP22 пересчитан. Исторический общий verdict ниже не является verdict этой проверки.
+
+1609 = 1263 implemented + 346 remaining GAP.
+FIX_NOW_CODE: 178 = 141 CLOSED_CONFIRMED + 37 OPEN.
+
+Remaining reasons: {"OPEN_CLASSIFIER": 165, "OPEN_EXTERNAL_REGISTRY": 21, "OPEN_NORMATIVE_AMBIGUITY": 25, "OPEN_SOURCE_CONFLICT": 14, "OTHER_OPEN": 121}
+
+Primary coverage (непересекающаяся): fully_mappable 1263; safe_partial 141; external 86; ambiguous 25; source_conflict 14; other_open 80; engine_unsupported 0. Сумма 1609. Причины и coverage — разные оси; safe_partial входит в remaining. Ноль engine_unsupported не означает полноту mapping: OTHER_OPEN включает неподключённые/неполные требования без доказанного отсутствия capability.
+
+## Различия от старой статистики
+
+1557 → 1609 (+52): диапазоны раскрыты и текущие таблицы канонизированы. Старые 343 GAP-records содержали 342 уникальных требования: MSG029 Table45 REQ32 был продублирован; причины объединены. Закрыты 141; добавлены 145 пропущенных inherited/partial остатков: 342 − 141 + 145 = 346. Реальные внешние/source/semantic GAP сохранены.
+
+MSG003: Table35 (1) + Table36 (33) + Table37 (22) = 56 вместо 33. MSG044 historical Table58/44 канонизирован как текущая Table62, original source сохранён; конфликт не исправлен. MSG031 Table48 REQ19 и Table49 REQ19 не объединены.
+
+Текущий messages.yaml содержит 61 сообщение. Две исторические нулевые строки MSG008/060 сохранены с NOT_IN_CURRENT_CATALOG; нормативные итоги не увеличивают.
+
+| MSG | Old | Current |
+|---|---:|---:|
+| P.SP.02.MSG.003 | 33 | 56 |
+| P.SP.02.MSG.004 | 31 | 37 |
+| P.SP.02.MSG.005 | 31 | 37 |
+| P.SP.02.MSG.006 | 29 | 35 |
+| P.SP.02.MSG.007 | 28 | 34 |
+| P.SP.02.MSG.009 | 26 | 32 |
+| P.SP.02.MSG.010 | 26 | 32 |
+| P.SP.02.MSG.011 | 26 | 32 |
+| P.SP.02.MSG.013 | 26 | 32 |
+| P.SP.02.MSG.014 | 26 | 32 |
+| P.SP.02.MSG.016 | 21 | 22 |
+| P.SP.02.MSG.017 | 23 | 22 |
+| P.SP.02.MSG.018 | 22 | 21 |
+| P.SP.02.MSG.019 | 21 | 20 |
+| P.SP.02.MSG.020 | 29 | 28 |
+| P.SP.02.MSG.021 | 21 | 23 |
+| P.SP.02.MSG.027 | 42 | 30 |
+| P.SP.02.MSG.028 | 49 | 41 |
+| P.SP.02.MSG.029 | 43 | 39 |
+
+## PRC arithmetic
+
+| PRC | Total | Implemented | Remaining |
+|---|---:|---:|---:|
+| P.SP.02.PRC.001 | 39 | 31 | 8 |
+| P.SP.02.PRC.002 | 41 | 35 | 6 |
+| P.SP.02.PRC.003 | 39 | 33 | 6 |
+| P.SP.02.PRC.004 | 40 | 36 | 4 |
+| P.SP.02.PRC.005 | 117 | 84 | 33 |
+| P.SP.02.PRC.006 | 32 | 28 | 4 |
+| P.SP.02.PRC.007 | 37 | 33 | 4 |
+| P.SP.02.PRC.008 | 77 | 62 | 15 |
+| P.SP.02.PRC.009 | 76 | 60 | 16 |
+| P.SP.02.PRC.010 | 72 | 57 | 15 |
+| P.SP.02.PRC.011 | 29 | 26 | 3 |
+| P.SP.02.PRC.012 | 31 | 28 | 3 |
+| P.SP.02.PRC.013 | 31 | 27 | 4 |
+| P.SP.02.PRC.014 | 71 | 53 | 18 |
+| P.SP.02.PRC.015 | 31 | 27 | 4 |
+| P.SP.02.PRC.016 | 34 | 30 | 4 |
+| P.SP.02.PRC.017 | 32 | 21 | 11 |
+| P.SP.02.PRC.018 | 67 | 52 | 15 |
+| P.SP.02.PRC.019 | 67 | 53 | 14 |
+| P.SP.02.PRC.020 | 71 | 59 | 12 |
+| P.SP.02.PRC.021 | 66 | 45 | 21 |
+| P.SP.02.PRC.022 | 67 | 51 | 16 |
+| P.SP.02.PRC.023 | 15 | 9 | 6 |
+| P.SP.02.PRC.024 | 47 | 37 | 10 |
+| P.SP.02.PRC.025 | 47 | 38 | 9 |
+| P.SP.02.PRC.026 | 45 | 35 | 10 |
+| P.SP.02.PRC.027 | 43 | 33 | 10 |
+| P.SP.02.PRC.028 | 23 | 19 | 4 |
+| P.SP.02.PRC.029 | 59 | 38 | 21 |
+| P.SP.02.PRC.030 | 49 | 33 | 16 |
+| P.SP.02.PRC.031 | 1 | 1 | 0 |
+| P.SP.02.PRC.032 | 3 | 2 | 1 |
+| P.SP.02.PRC.033 | 16 | 12 | 4 |
+| P.SP.02.PRC.034 | 34 | 26 | 8 |
+| P.SP.02.PRC.035 | 42 | 35 | 7 |
+| P.SP.02.PRC.036 | 18 | 14 | 4 |
+
+OP / PRC / TRN / MSG arithmetic checked by canonical sets. MSG and TRN matrix sums each equal 1609/1263/346. Other OP CSV records preserved byte-for-byte, including quoting and line endings; new trailing columns apply only to OP22. Other OP conclusions not reverified.
+
+Дата: 2026-10-05. HEAD: 0d78d9d8523d675ae0dd207f92c2d62ed7c9a8ec. Область: только OP22 / P.SP.02.
+
+## Свежие regression tests
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3.13 -m pytest -q P.SP.02_OP_22/tests -p no:cacheprovider --junitxml=/tmp/op22_report_refresh_tests.xml
+PYTHONDONTWRITEBYTECODE=1 python3.13 -m pytest -q -p no:cacheprovider --junitxml=/tmp/op22_report_refresh_full.xml
+```
+
+OP22: 3103 passed, 102.97s, exit 0. Full: 3586 passed, 62348 subtests passed, 124.79s, exit 0. Это новые прогоны.
+
+## Метод и границы доказательства
+
+Исходный набор: OP22_GAPS_REVIEWED.csv, op=OP22, review_status=FIX_NOW_CODE. GAP ID — порядковый логический CSV-record, включая заголовок, не физическая строка. Канонический ключ: message/current table/requirement. Диапазоны раскрыты; inherited original source не считается отдельным требованием.
+
+Для каждого CLOSED_CONFIRMED проверены текущие compiled production rule IDs, реализованный DSL, положительные и отрицательные XML regression tests, выполненные в новом прогоне. FIX_NOW_CODE_RESULTS.csv содержит точные test nodes для воспроизведения. Использован существующий production serialize/parse/extract/evaluate pipeline. PASS относится к конкретному требованию; минимальный positive XML не объявлен валидным по всем правилам сообщения. Полные XML покрываются существующими end-to-end regression tests.
+
+Проверены фильтрация повторов, owner-scoped проверки, OR, cardinality после predicate, сравнение экземпляров и типизированные сравнения. Старое название capability не подменяет смысл нормы: AddressKindCode=2 — литерал, не второй адрес. MSG055 сохраняет BankAccountDetails OR PaymentSystemAccountDetails. Исходные XML owner/path сохранены отдельно; production selectors и QName получены из текущих rules/StructureDefinition.
+
+Общий inventory 1609 восстановлен из существующих business_rules/source_refs. Это НЕ новый независимый построчный PDF-аудит всех требований. Для не-FIX строк implemented означает текущую исполнимую coverage без известных partial/open остатков, а не индивидуальную positive/negative сертификацию каждой строки. SAFE_PARTIAL остаётся OPEN. Ссылки на test files открытых GAP не доказывают их закрытие. UNRESOLVED owner не заменён выдуманным XPath.
+
+PDF spot-check физических страниц 519, 520, 537, 577, 760, 776, 795 использован для отдельных source/semantic blockers. Полное независимое перечитывание PDF не заявляется. Исходные причины/source refs сохранены.
+
+Код, tests, YAML, GUI, classifiers не изменялись. Commit/push не выполнялись. Другие OP не пересчитаны. Предсуществующее изменение eaeu_xml/.DS_Store не относится к этой задаче.
+
+## Повторная арифметическая сверка
+
+Из корня репозитория:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3.13 - <<'PY'
+import csv
+from pathlib import Path
+p=Path('codex_reports')
+fix=list(csv.DictReader((p/'FIX_NOW_CODE_RESULTS.csv').open()))
+gaps=[r for r in csv.DictReader((p/'FINAL_DELIVERY_GAPS.csv').open()) if r['op']=='OP22']
+assert len(fix)==len({r['gap_id'] for r in fix})==178
+closed={r['canonical_requirement_id'] for r in fix if r['current_status']=='CLOSED_CONFIRMED'}
+remaining={r['canonical_requirement_id'] for r in gaps}
+assert len(closed)==141 and len(remaining)==len(gaps)==346
+assert closed.isdisjoint(remaining)
+assert all(r['canonical_requirement_id'] in remaining for r in fix if r['current_status']!='CLOSED_CONFIRMED')
+for name in ('FINAL_DELIVERY_MESSAGE_MATRIX.csv','FINAL_DELIVERY_TRANSACTION_MATRIX.csv'):
+    rows=[r for r in csv.DictReader((p/name).open()) if r['op']=='OP22']
+    total='expanded_requirements' if 'expanded_requirements' in rows[0] else 'normative_requirements'
+    assert all(int(r[total])==int(r['implemented_requirements'])+int(r['remaining_gaps']) for r in rows)
+    assert sum(int(r[total]) for r in rows)==1609
+    assert sum(int(r['implemented_requirements']) for r in rows)==1263
+    assert sum(int(r['remaining_gaps']) for r in rows)==346
+print('PASS')
+PY
+```
+
+Production rule IDs и positive/negative pytest nodes каждой закрытой строки дополнительно сверяются с текущими rule/test files; команды выше повторяют исполнение.
+
+---
+
+# HISTORICAL MULTI-PROCESS SNAPSHOT — NOT CURRENT
+
+Existing content below is retained as history. OP22 statistics/tests and global readiness are superseded above.
+
 # FINAL DELIVERY AUDIT — EAEU XML Creator
 
 **Дата проведения аудита**: 2026-10-02
