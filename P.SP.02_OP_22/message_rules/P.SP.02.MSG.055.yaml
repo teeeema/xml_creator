@@ -417,6 +417,70 @@
         }
       ],
       "mapping_status": "EXECUTABLE"
+    },
+    {
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.055-T73-7",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 73",
+          "status": "CONFIRMED",
+          "page": 803,
+          "table": "73",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "7"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.055.T73.REQ.7.PRESENCE",
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "ipcdo:IPPaymentDetails"
+      },
+      "min_occurs": 1
+    },
+    {
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.055-T73-7",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 73",
+          "status": "CONFIRMED",
+          "page": 803,
+          "table": "73",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "7"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.055.T73.REQ.7.ACCOUNTS",
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:IPPaymentDetails"
+      },
+      "assertions": [
+        {
+          "kind": "condition",
+          "condition": {
+            "any": [
+              {
+                "count": {
+                  "collection": "ipcdo:IPPaymentDetails/ccdo:BankAccountDetails"
+                },
+                "operator": "GE",
+                "value": 1
+              },
+              {
+                "count": {
+                  "collection": "ipcdo:IPPaymentDetails/ccdo:PaymentSystemAccountDetails"
+                },
+                "operator": "GE",
+                "value": 1
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "mapping_audit": {
@@ -428,9 +492,9 @@
     "captured_row_count": 4,
     "expanded_requirement_count": 9,
     "counts": {
-      "FULLY_MAPPABLE": 6,
+      "FULLY_MAPPABLE": 7,
       "SAFE_PARTIAL": 2,
-      "ENGINE_UNSUPPORTED": 1,
+      "ENGINE_UNSUPPORTED": 0,
       "EXTERNAL": 0,
       "AMBIGUOUS": 0,
       "SOURCE_CONFLICT": 0
@@ -695,8 +759,8 @@
         "table": "73",
         "branch": "R.IP.SP.03.003",
         "requirement_code": "7",
-        "classification": "ENGINE_UNSUPPORTED",
-        "mapping_status": "UNMAPPED",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.055-T73-7",
@@ -709,13 +773,11 @@
             "item": "7"
           }
         ],
-        "reason": "Normative requirement mandates IPPaymentDetails presence AND inclusive OR between BankAccountDetails and PaymentSystemAccountDetails (at least one must be present, both permitted). Engine lacks inclusive-OR sibling cardinality support and cannot safely approximate it without corrupting normative semantics.",
+        "reason": "Payment presence and inclusive OR of bank/payment-system account counts within each payment parent. Both allowed.",
         "safe_fragment": null,
-        "unmapped_remainder": [
-          "IPPaymentDetails presence and BankAccountDetails OR PaymentSystemAccountDetails inclusive OR"
-        ],
+        "unmapped_remainder": [],
         "external_dependency": null,
-        "engine_gap": "INCLUSIVE_OR_SIBLING_CARDINALITY_NOT_SUPPORTED",
+        "engine_gap": null,
         "source_conflict": null,
         "target_paths": [
           "ipcdo:IPPaymentDetails",

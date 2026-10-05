@@ -6,9 +6,9 @@ PACKAGE = Path(__file__).resolve().parents[1]
 MESSAGE = "P.SP.02.MSG.035"
 APP = "ipcdo:TrademarkApplicationDetails"
 RESOURCE = "ccdo:ResourceItemStatusDetails"
-FULL = {1, 4, 5, *range(6, 13), 14, 15, *range(21, 26), 27, 28, 29}
+FULL = ({1, 4, 5, *range(6, 13), 14, 15, *range(21, 26), 27, 28, 29}) | {16, 17, 18, 19, 20, 26}
 PARTIAL = {2, 3}
-UNMAPPED = {13, 16, 17, 18, 19, 20, 26}
+UNMAPPED = ({13, 16, 17, 18, 19, 20, 26}) - {16, 17, 18, 19, 20, 26}
 
 
 def _raw():
@@ -34,22 +34,22 @@ def test_inventory_classification_and_mapped_sets_are_exact():
         "FULLY_MAPPABLE": sorted(FULL),
         "SAFE_PARTIAL": sorted(PARTIAL),
         "AMBIGUOUS": [13],
-        "ENGINE_UNSUPPORTED": [16, 17, 18, 19, 20, 26],
+        "ENGINE_UNSUPPORTED": [],
         "EXTERNAL": [],
         "SOURCE_CONFLICT": [],
     }
     assert audit["classification_counts"] == {
-        "FULLY_MAPPABLE": 20,
+        "FULLY_MAPPABLE": 26,
         "SAFE_PARTIAL": 2,
         "AMBIGUOUS": 1,
-        "ENGINE_UNSUPPORTED": 6,
+        "ENGINE_UNSUPPORTED": 0,
         "EXTERNAL": 0,
         "SOURCE_CONFLICT": 0,
     }
     mapped = {int(r["rule_id"].split(".REQ.", 1)[1].split(".", 1)[0]) for r in data["structured_rules"]}
     assert mapped == FULL | PARTIAL
     assert mapped.isdisjoint(UNMAPPED)
-    assert len(data["structured_rules"]) == len({r["rule_id"] for r in data["structured_rules"]}) == 24
+    assert len(data["structured_rules"]) == len({r["rule_id"] for r in data["structured_rules"]}) == 31
     assert all(r["rule_id"].startswith(MESSAGE + ".") for r in data["structured_rules"])
 
 
@@ -92,15 +92,25 @@ def test_inherited_requirements_keep_table53_plus_original_table44_provenance():
             assert [ref["table"] for ref in rule["source_refs"]] == ["53", "44"]
 
 
-def test_unmapped_requirements_are_explicit_and_req26_or_is_not_strengthened():
-    assert not _rules(13)
-    assert _inventory(13)["classification"] == "AMBIGUOUS"
-    for code in [16, 17, 18, 19, 20, 26]:
-        assert not _rules(code)
-        assert _inventory(code)["classification"] == "ENGINE_UNSUPPORTED"
-    req26 = _inventory(26)
-    assert " OR " in req26["reason"]
-    assert "disjunctive" in req26["engine_gap"]
+def test_new_mappings_preserve_sources_and_remaining_unmapped_requirements():
+    data = _raw()
+    inventory = data['mapping_audit']['inventory']
+    by_code = {item['requirement_code']: item for item in inventory}
+    assert by_code['13']['classification'] == 'AMBIGUOUS'
+    for item in inventory:
+        code = item['requirement_code']
+        prefix = MESSAGE + '.T' + item['source_refs'][0]['table'] + '.REQ.' + code
+        executable = [r for r in data['structured_rules'] if r['rule_id'] == prefix or r['rule_id'].startswith(prefix + '.')]
+        if item['classification'] in ('EXTERNAL', 'AMBIGUOUS', 'ENGINE_UNSUPPORTED', 'SOURCE_CONFLICT'):
+            assert not executable
+        if code in ('16', '17', '18', '19', '20', '26'):
+            assert item['classification'] == 'FULLY_MAPPABLE'
+            assert item['mapping_status'] == 'EXECUTABLE'
+            assert item['engine_gap'] is None
+            assert executable
+            assert all(r['source_refs'] == item['source_refs'] for r in executable)
+            if code == '26':
+                assert 'any' in executable[0]['assertions'][0]['condition']
 
 
 def test_req27_preserves_same_trademark_code_or_name_trigger():

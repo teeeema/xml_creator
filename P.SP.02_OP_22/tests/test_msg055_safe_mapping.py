@@ -4,9 +4,9 @@ from pathlib import Path
 
 PACKAGE = Path(__file__).resolve().parents[1]
 MESSAGE = "P.SP.02.MSG.055"
-FULL = {1, 2, 3, 6, 8, 9}
+FULL = {7,1, 2, 3, 6, 8, 9}
 SAFE_PARTIAL = {4, 5}
-ENGINE_UNSUPPORTED = {7}
+ENGINE_UNSUPPORTED = set()
 UNMAPPED = ENGINE_UNSUPPORTED
 INHERITED = set(range(1, 7))
 
@@ -40,11 +40,11 @@ def test_inventory_and_classification_are_exact():
 
     assert sum(audit["counts"].values()) == 9
     assert audit["counts"] == {
-        "FULLY_MAPPABLE": 6,
+        "FULLY_MAPPABLE": 7,
         "SAFE_PARTIAL": 2,
         "EXTERNAL": 0,
         "AMBIGUOUS": 0,
-        "ENGINE_UNSUPPORTED": 1,
+        "ENGINE_UNSUPPORTED": 0,
         "SOURCE_CONFLICT": 0,
     }
 
@@ -55,8 +55,8 @@ def test_inventory_and_classification_are_exact():
         executable_codes.add(req_num)
 
     assert executable_codes == (FULL | SAFE_PARTIAL)
-    assert len(executable_codes) == 8
-    assert len(raw()["structured_rules"]) == 8
+    assert len(executable_codes) == 9
+    assert len(raw()["structured_rules"]) == 10
     assert executable_codes.isdisjoint(UNMAPPED)
 
     for code in UNMAPPED:
@@ -128,10 +128,11 @@ def test_req6_trademark_application_id_required():
 
 def test_req7_unmapped_engine_unsupported():
     inv7 = next(i for i in raw()["mapping_audit"]["requirements"] if i["requirement_code"] == "7")
-    assert inv7["classification"] == "ENGINE_UNSUPPORTED"
-    assert inv7["mapping_status"] == "UNMAPPED"
-    assert inv7["engine_gap"] is not None
-    assert not rules(7)
+    assert inv7["classification"] == "FULLY_MAPPABLE"
+    assert inv7["mapping_status"] == "EXECUTABLE"
+    assert inv7["engine_gap"] is None
+    assert rules(7)
+    assert "any" in next(r for r in rules(7) if r["kind"]=="for_each")["assertions"][0]["condition"]
 
 
 def test_req8_and_req9_payment_forbidden_fields():

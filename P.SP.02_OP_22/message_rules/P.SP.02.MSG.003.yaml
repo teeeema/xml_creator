@@ -1932,6 +1932,49 @@
       "source_refs": [{"source_id": "22OP-RULE-P.SP.02.MSG.003-T37-22", "document": "ОП_22.pdf", "location": "Таблица 37. Требования к заполнению реквизитов P.SP.02.MSG.003", "status": "CONFIRMED", "page": 531, "table": "37", "version_context": "P.SP.02 1.0.0", "item": "22"}],
       "selector": {"collection": "ipcdo:UnifiedRegisterRecordsDetails/ccdo:ResourceItemStatusDetails"},
       "assertions": [{"kind": "presence", "target": {"field": "ccdo:ValidityPeriodDetails/csdo:StartDateTime"}, "state": "REQUIRED"}]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.003.T37.REQ.18",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.003-T37-18",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 37. Требования к заполнению реквизитов P.SP.02.MSG.003",
+          "status": "CONFIRMED",
+          "page": 530,
+          "table": "37",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "18"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails",
+        "where": {
+          "field": "ipcdo:TrademarkDetails/ipsdo:CollectiveMarkIndicator",
+          "operator": "IN",
+          "value": [
+            "1",
+            "true",
+            true
+          ]
+        }
+      },
+      "assertions": [
+        {
+          "kind": "selection_cardinality",
+          "selector": {
+            "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails",
+            "where": {
+              "field": "ipsdo:IPPartyKindCode",
+              "operator": "EQ",
+              "value": "UE"
+            }
+          },
+          "min_occurs": 1
+        }
+      ]
     }
   ]
 }

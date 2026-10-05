@@ -11,6 +11,7 @@ from eaeu_xml.application import (
     DraftLoadResult, EaeuXmlApplication, FieldView, FieldVisibilityFilter,
     FormDisplayMode, GenerationResult, SessionRestoreStatus, ValidationView,
 )
+from eaeu_xml.presentation.field_help import render_field_help
 
 
 BLOCKED_STATUSES = {"UNRESOLVED_STRUCTURE_VERSION", "NORMATIVE_CONFLICT"}
@@ -303,8 +304,9 @@ class GuiController:
             kind = "BOOLEAN"
         else:
             kind = "TEXT"
-        label = ("@" if field.is_attribute else "") + field.display_name + (" *" if field.required else "")
-        return ControlModel(field.path, label, kind, field.required, not field.editable,
+        label = ("@" if field.is_attribute else "") + field.display_name
+        unconditional = self._unconditionally_required(field)
+        return ControlModel(field.path, label, kind, unconditional, not field.editable,
                             field.repeatable, field.is_attribute, field.visibility, self.field_help(field), field.example_value,
                             tuple(self._control(child) for child in field.children),field.supports_file_picker)
 
@@ -315,21 +317,22 @@ class GuiController:
         text = f"{prefix} — {name}" if name else prefix
         return text if len(text) <= limit else text[:limit - 1].rstrip() + "…"
 
-    @staticmethod
-    def field_help(field: FieldView) -> str:
-        lines=[field.help_text] if field.help_text else []
+    def _unconditionally_required(self, field: FieldView) -> bool:
+        if not field.required or field.normative_input_policy == "CONDITIONAL" or field.condition_description:
+            return False
+        parts = field.path.split("/")
+        for index in range(1, len(parts)):
+            parent = self.find_field("/".join(parts[:index]))
+            if parent and (not parent.required or parent.normative_input_policy == "CONDITIONAL" or parent.condition_description):
+                return False
+        return True
+
+    def field_help(self, field: FieldView) -> str:
+        lines=[render_field_help(field, unconditionally_required=self._unconditionally_required(field))]
         def add(label,value):
             if value not in (None,"",(),[]): lines.append(f"{label}: {value}")
-        add("Название",field.official_name or field.display_name)
-        add("Что вводить",field.description)
-        add("XML",field.xml_qname)
-        add("XML path",field.path)
         add("Вид","XML-атрибут" if field.is_attribute else "XML-элемент")
-        add("Тип",field.datatype)
-        add("Обязательность","обязательно" if field.required else "необязательно")
         add("Кардинальность",field.cardinality_display)
-        add("Пример",field.example_value)
-        add("Допустимые значения",", ".join(map(str,field.allowed_values)) if field.allowed_values else None)
         if "indicator" in (field.datatype or "").lower() or "boolean" in (field.datatype or "").lower():
             add("Варианты в интерфейсе", "Да / Нет (в XML: true / false)")
         add("Fixed value",field.fixed_value)
@@ -381,6 +384,30 @@ class GuiController:
         self._reevaluate_all_conditions()
         self._mark_dirty()
         return dict(self.values)
+
+    def apply_required_data(self) -> int:
+        filled = self.application.generate_required_data(
+            self.process_code, self.transaction_code, self.message_code,
+            existing_values=self.values, seed=self.test_seed,
+        )
+        count = sum(path not in self.values or
+                    (self.values[path] in (None, "", [], ()) and value not in (None, "", [], ()))
+                    for path, value in filled.items())
+        if filled != self.values:
+            self.set_values(filled)
+        return count
+
+    def missing_required_field_count(self) -> int:
+        if not self.form:
+            return 0
+        def walk(fields):
+            for field in fields:
+                yield field
+                yield from walk(field.children)
+        return sum(self._unconditionally_required(field) and field.visibility != "HIDDEN"
+                   and self.values.get(field.path) in (None, "", [], ())
+                   for field in walk(self.form.fields)
+                   if not field.children)
 
     def set_values(self, values) -> None:
         changed=dict(values)!=self.values

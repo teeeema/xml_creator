@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from datetime import datetime
 from decimal import Decimal, InvalidOperation
 from enum import Enum
 from typing import Any, Mapping
@@ -61,6 +62,8 @@ class StructuredRuleEvaluator:
 
         if kind == "selection_cardinality":
             try:
+                if "when" in rule and not self.evaluate_condition(rule["when"], None, values):
+                    return self.out(rule, RuleStatus.PASS, "Selection cardinality condition does not apply.")
                 selected_items = self.select(rule["selector"], values)
                 count = len(selected_items)
                 minimum = rule.get("min_occurs", 0)
@@ -137,7 +140,7 @@ class StructuredRuleEvaluator:
                 left_value = values.get(rule["left"])
                 right_key = rule.get("right")
                 right_value = values.get(right_key, rule.get("right_value"))
-                passed = self.c(left_value, rule["operator"], right_value)
+                passed = self._compare(left_value, rule["operator"], right_value, rule.get("value_type"))
             except (KeyError, TypeError, ValueError):
                 passed = False
 
@@ -161,7 +164,7 @@ class StructuredRuleEvaluator:
                     if left_val is None or right_val is None:
                         passed = False
                     else:
-                        passed = self.c(left_val, operator, right_val)
+                        passed = self._compare(left_val, operator, right_val, rule.get("value_type"))
             except (KeyError, TypeError, ValueError):
                 passed = False
 
@@ -224,9 +227,23 @@ class StructuredRuleEvaluator:
                 )
             parent_contexts = self._select_contexts(parent_selector, values)
             allowed_parent_indexes = {ctx.indexes for ctx in parent_contexts}
+            scalar_parent = bool(parent_contexts) and len(self._contexts_for_path(parent_collection, values)) == 1
             contexts = [
                 ctx for ctx in contexts
-                if any(ctx.indexes[:len(pidx)] == pidx for pidx in allowed_parent_indexes)
+                if scalar_parent or any(ctx.indexes[:len(pidx)] == pidx for pidx in allowed_parent_indexes)
+            ]
+
+        if "position" in selector:
+            position = selector["position"]
+            if position != "last" and (type(position) is not int or position < 1):
+                raise ValueError("position must be a positive one-based index or 'last'")
+            siblings = {}
+            for context in contexts:
+                siblings.setdefault((context.path, context.indexes[:-1]), []).append(context)
+            contexts = [
+                item
+                for group in siblings.values()
+                for item in ([group[-1]] if position == "last" else group[position - 1:position])
             ]
 
         where = selector.get("where")
@@ -306,8 +323,23 @@ class StructuredRuleEvaluator:
             return any(self.evaluate_condition(item, context, values) for item in condition["any"])
         if "not" in condition:
             return not self.evaluate_condition(condition["not"], context, values)
+        if "count" in condition:
+            count = self._selected_child_count(condition["count"], context, values)
+            return self.c(count, condition["operator"], condition["value"])
         left = self._field_value(condition["field"], context, values)
+        if "position" in condition:
+            left = self._at_position(left, condition["position"])
         return self.c(left, condition["operator"], condition.get("value"))
+
+    @staticmethod
+    def _at_position(value, position):
+        if position != "last" and (type(position) is not int or position < 1):
+            raise ValueError("position must be a positive one-based index or 'last'")
+        if not isinstance(value, list):
+            return value if position == 1 or position == "last" else None
+        if not value:
+            return None
+        return value[-1] if position == "last" else (value[position - 1] if position <= len(value) else None)
 
     @classmethod
     def _context_field_value(cls, field, context):
@@ -328,13 +360,22 @@ class StructuredRuleEvaluator:
 
     def _target_value(self, target, context, values):
         if isinstance(target, Mapping):
-            return self._field_value(target["field"], context, values)
+            value = self._field_value(target["field"], context, values)
+            return self._at_position(value, target["position"]) if "position" in target else value
         return self._field_value(target, context, values)
 
     def _operand_value(self, operand, context, values):
         if isinstance(operand, Mapping):
             if "field" not in operand:
                 raise ValueError("operand requires field")
+            if "selector" in operand:
+                selected = self._select_contexts(operand["selector"], values)
+                if len(selected) != 1:
+                    raise ValueError("comparison operand requires exactly one selected owner")
+                value = self._context_field_value(operand["field"], selected[0])
+                if value is None:
+                    raise ValueError("selected comparison field is missing")
+                return value
             return self._field_value(operand["field"], context, values)
         if context is not None and operand in context.fields:
             return context.fields.get(operand)
@@ -342,6 +383,11 @@ class StructuredRuleEvaluator:
 
     def _assertion_passes(self, assertion, context, values):
         kind = assertion.get("kind")
+        if kind == "selection_cardinality":
+            count = self._selected_child_count(assertion["selector"], context, values)
+            minimum = assertion.get("min_occurs", 0)
+            maximum = assertion.get("max_occurs")
+            return minimum <= count and (maximum is None or count <= maximum)
         if kind in {"cardinality", "presence", "fixed_value"}:
             value = self._target_value(assertion["target"], context, values)
             count = len(value) if isinstance(value, list) else int(value is not None)
@@ -360,7 +406,7 @@ class StructuredRuleEvaluator:
                 right = self._operand_value(assertion["right"], context, values)
             else:
                 right = assertion.get("right_value")
-            return self.c(left, assertion["operator"], right)
+            return self._compare(left, assertion["operator"], right, assertion.get("value_type"))
 
         if kind == "conditional_presence":
             if not self.evaluate_condition(assertion["condition"], context, values):
@@ -380,6 +426,17 @@ class StructuredRuleEvaluator:
 
         raise ValueError(f"Unsupported for_each assertion: {kind}")
 
+    def _selected_child_count(self, selector, context, values):
+        children = [
+            child for child in self._select_contexts(selector, values)
+            if any(self._has_present_leaf(value) for value in child.fields.values())
+        ]
+        if context is None:
+            return len(children)
+        prefix = context.path + "/"
+        scalar_parent = len(self._contexts_for_path(context.path, values)) == 1
+        return sum(child.path.startswith(prefix) and (scalar_parent or child.indexes[:len(context.indexes)] == context.indexes) for child in children)
+
     def agg(self, aggregate, values):
         selected_items = self.select(aggregate["selector"], values)
         decimals = [
@@ -391,6 +448,17 @@ class StructuredRuleEvaluator:
         if len(decimals) == 1:
             return decimals[0]
         raise ValueError()
+
+    @staticmethod
+    def _compare(left, operator, right, value_type=None):
+        if value_type == "DATETIME":
+            left = datetime.fromisoformat(left)
+            right = datetime.fromisoformat(right)
+            if (left.tzinfo is None) != (right.tzinfo is None):
+                raise ValueError("Cannot compare zoned and unzoned date-times")
+        elif value_type is not None:
+            raise ValueError("Unknown comparison value_type")
+        return StructuredRuleEvaluator.c(left, operator, right)
 
     @staticmethod
     def c(left, operator, right):

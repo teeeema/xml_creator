@@ -25,7 +25,7 @@ OFFICER = f"{SIGNATURE}/ipcdo:OfficerDetails"
 OFFICER_NAME = f"{OFFICER}/ccdo:FullNameDetails"
 RESOURCE = "ccdo:ResourceItemStatusDetails"
 VALIDITY = f"{RESOURCE}/ccdo:ValidityPeriodDetails"
-MAPPED = {1,4,5,6,7,8,9,10,11,12,14,15,21,22,23,24,25,27,28,29,30,31,32,33,34,35}
+MAPPED = ({1,4,5,6,7,8,9,10,11,12,14,15,21,22,23,24,25,27,28,29,30,31,32,33,34,35}) | {16, 17, 18, 19, 20, 26}
 
 def engine():
     return EaeuXmlEngine.load_process(PACKAGE)
@@ -46,7 +46,7 @@ def values():
         f"{PARTY}/ipsdo:IPPartyKindCode":"AP",
         f"{PARTY}/csdo:UnifiedCountryCode":"RU",
         f"{PARTY}/csdo:UnifiedCountryCode/@codeListId":"ВОИС ST.3",
-        f"{PARTY}/ipsdo:IPSubjectName":"Заявитель",
+        f"{PARTY}/ipsdo:IPSubjectName":"Заявитель", f"{PARTY}/ipsdo:IPSubjectName/@nameRepresentationKindCode": "OR", f"{PARTY}/ipsdo:IPSubjectName/@languageCode": "RU",
         ADDRESS:[""],
         f"{ADDRESS}/csdo:AddressKindCode":"2",
         f"{ADDRESS}/csdo:UnifiedCountryCode":"RU",
@@ -111,7 +111,10 @@ def add_party(app,structure,role,omit=None):
     party=child(app,structure,"ipcdo","IPPartyDetails")
     child(party,structure,"ipsdo","IPPartyKindCode",role)
     child(party,structure,"csdo","UnifiedCountryCode","RU",{"codeListId":"ВОИС ST.3"})
-    child(party,structure,"ipsdo","IPSubjectName",f"Party {role}")
+    name = child(party, structure, "ipsdo", "IPSubjectName", f"Party {role}")
+    if role == "AP":
+        name.set("nameRepresentationKindCode", "OR")
+        name.set("languageCode", "RU")
     if omit!="address":
         add_address(party,structure)
     if omit!="communication":

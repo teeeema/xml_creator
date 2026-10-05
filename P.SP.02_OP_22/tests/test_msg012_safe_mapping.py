@@ -6,14 +6,14 @@ PACKAGE = Path(__file__).resolve().parents[1]
 MESSAGE = "P.SP.02.MSG.012"
 APP = "ipcdo:TrademarkApplicationDetails"
 
-FULL = {
+FULL = {16, 17, 18, 19, 20,
     1, 6, 7, 8, 9, 10, 11, 12, 14, 15,
     21, 22, 23, 24, 25, 26, 27, 28, 29,
     30, 31, 33, 34,
 }
 EXTERNAL = {2, 3, 4, 5, 32}
 AMBIGUOUS = {13}
-ENGINE_UNSUPPORTED = {16, 17, 18, 19, 20}
+ENGINE_UNSUPPORTED = set()
 UNMAPPED = EXTERNAL | AMBIGUOUS | ENGINE_UNSUPPORTED
 
 
@@ -40,17 +40,17 @@ def test_inventory_and_classification_are_exact():
     assert audit["summary"]["SOURCE_CONFLICT"] == []
     assert sum(audit["classification_counts"].values()) == 34
     assert audit["classification_counts"] == {
-        "FULLY_MAPPABLE": 23,
+        "FULLY_MAPPABLE": 28,
         "SAFE_PARTIAL": 0,
         "EXTERNAL": 5,
         "AMBIGUOUS": 1,
-        "ENGINE_UNSUPPORTED": 5,
+        "ENGINE_UNSUPPORTED": 0,
         "SOURCE_CONFLICT": 0,
     }
 
 
 def test_only_approved_requirements_are_executable():
-    assert len(raw()["structured_rules"]) == 28
+    assert len(raw()["structured_rules"]) == 34
     executable_codes = {
         int(rule["rule_id"].split(".REQ.")[1].split(".")[0])
         for rule in raw()["structured_rules"]

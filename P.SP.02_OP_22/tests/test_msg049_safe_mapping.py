@@ -5,9 +5,9 @@ PACKAGE = Path(__file__).resolve().parents[1]
 MESSAGE = "P.SP.02.MSG.049"
 R007 = "ipcdo:UnifiedRegisterRecordsDetails"
 REQ_LIST = set(range(1, 20)) | {21, 22, 23, 24, 25}
-FULL = {2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,23,24,25}
+FULL = {18,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,23,24,25}
 SAFE_PARTIAL = {1,21,22}
-ENGINE_UNSUPPORTED = {18,19}
+ENGINE_UNSUPPORTED = {19}
 EXECUTABLE = FULL | SAFE_PARTIAL
 EXACT_DOC_NAME = "Заявление о внесении изменений в сведения Единого реестра товарных знаков, знаков обслуживания Евразийского экономического союза"
 
@@ -27,14 +27,14 @@ def test_inventory_and_classification_are_exact():
     assert audit["summary"]["FULLY_MAPPABLE"] == sorted(FULL)
     assert audit["summary"]["SAFE_PARTIAL"] == sorted(SAFE_PARTIAL)
     assert audit["summary"]["ENGINE_UNSUPPORTED"] == sorted(ENGINE_UNSUPPORTED)
-    assert audit["classification_counts"] == {"FULLY_MAPPABLE":19,"SAFE_PARTIAL":3,"EXTERNAL":0,"AMBIGUOUS":0,"ENGINE_UNSUPPORTED":2,"SOURCE_CONFLICT":0}
+    assert audit["classification_counts"] == {"FULLY_MAPPABLE":20,"SAFE_PARTIAL":3,"EXTERNAL":0,"AMBIGUOUS":0,"ENGINE_UNSUPPORTED":1,"SOURCE_CONFLICT":0}
     assert sum(audit["classification_counts"].values()) == 24
 
 def test_executable_set_exact_and_req20_absent():
     executable={int(r["rule_id"].split(".REQ.")[1].split(".")[0]) for r in raw()["structured_rules"]}
     assert executable == EXECUTABLE
-    assert len(executable) == 22
-    assert not rules(18) and not rules(19) and not rules(20)
+    assert len(executable) == 23
+    assert rules(18) and not rules(19) and not rules(20)
     assert not any(".REQ.20" in r["rule_id"] for r in raw()["structured_rules"])
 
 def test_req1_partial_local_trademark_id_only():
@@ -74,7 +74,7 @@ def test_req6_17_dual_table49_provenance_and_req18_19_unmapped():
         refs=inv[code]["source_refs"]
         assert refs[0]["table"]=="67" and refs[0]["item"]=="6-19"
         assert refs[1]["table"]=="49" and refs[1]["item"]==str(code)
-    for code in (18,19):
+    for code in (19,):
         assert inv[code]["classification"]=="ENGINE_UNSUPPORTED"
         assert inv[code]["mapping_status"]=="UNMAPPED"
 

@@ -4,9 +4,9 @@ from pathlib import Path
 PACKAGE = Path(__file__).resolve().parents[1]
 MESSAGE = "P.SP.02.MSG.041"
 APP = "ipcdo:TrademarkApplicationDetails"
-FULL = {1,5,6,7,8,9,10,11,12,14,15,21,22,23,24,25,27,28,29,30,31,32,33,34,35}
+FULL = {1, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35}
 EXECUTABLE = FULL | {4}
-UNMAPPED = {2,3,13,16,17,18,19,20,26}
+UNMAPPED = ({2,3,13,16,17,18,19,20,26}) - {16, 17, 18, 19, 20, 26}
 
 def raw():
     return json.loads((PACKAGE / "message_rules" / f"{MESSAGE}.yaml").read_text())
@@ -23,15 +23,15 @@ def test_inventory_classification_and_executable_set_are_exact():
     assert audit["summary"]["SAFE_PARTIAL"] == [4]
     assert audit["summary"]["EXTERNAL"] == [2,3]
     assert audit["summary"]["AMBIGUOUS"] == [13]
-    assert audit["summary"]["ENGINE_UNSUPPORTED"] == [16,17,18,19,20,26]
+    assert audit["summary"]["ENGINE_UNSUPPORTED"] == []
     assert audit["summary"]["SOURCE_CONFLICT"] == []
     assert audit["classification_counts"] == {
-        "FULLY_MAPPABLE": 25, "SAFE_PARTIAL": 1, "EXTERNAL": 2,
-        "AMBIGUOUS": 1, "ENGINE_UNSUPPORTED": 6, "SOURCE_CONFLICT": 0,
+        "FULLY_MAPPABLE": 31, "SAFE_PARTIAL": 1, "EXTERNAL": 2,
+        "AMBIGUOUS": 1, "ENGINE_UNSUPPORTED": 0, "SOURCE_CONFLICT": 0,
     }
     actual = {int(r["rule_id"].split(".REQ.",1)[1].split(".",1)[0]) for r in data["structured_rules"]}
     assert actual == EXECUTABLE
-    assert len(data["structured_rules"]) == 29
+    assert len(data["structured_rules"]) == 36
     for code in UNMAPPED:
         assert not rules(code)
 

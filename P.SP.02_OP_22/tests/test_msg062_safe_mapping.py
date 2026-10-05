@@ -8,14 +8,14 @@ from eaeu_xml.process_packages.rules_engine import RuleStatus, StructuredRuleEva
 PACKAGE = Path(__file__).resolve().parents[1]
 MESSAGE = "P.SP.02.MSG.062"
 
-FULLY_MAPPABLE_SET = {
+FULLY_MAPPABLE_SET = {18,19,
     1, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
     30, 31, 32, 33, 34, 35, 36, 37, 38, 39
 }
 SAFE_PARTIAL_SET = {4}
 EXTERNAL_SET = {2, 3}
 AMBIGUOUS_SET = {13}
-ENGINE_UNSUPPORTED_SET = {18, 19}
+ENGINE_UNSUPPORTED_SET = set()
 SOURCE_CONFLICT_SET = set()
 UNMAPPED_SET = EXTERNAL_SET | AMBIGUOUS_SET | ENGINE_UNSUPPORTED_SET
 
@@ -47,11 +47,11 @@ def test_classification_counts_and_arithmetic_sum_to_39():
     audit = _raw()["mapping_audit"]
     counts = audit["classification_counts"]
     assert counts == {
-        "FULLY_MAPPABLE": 33,
+        "FULLY_MAPPABLE": 35,
         "SAFE_PARTIAL": 1,
         "EXTERNAL": 2,
         "AMBIGUOUS": 1,
-        "ENGINE_UNSUPPORTED": 2,
+        "ENGINE_UNSUPPORTED": 0,
         "SOURCE_CONFLICT": 0,
     }
     assert sum(counts.values()) == 39

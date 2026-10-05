@@ -34,7 +34,7 @@ REVERSED_DOC_NAME = (
 
 
 def valid_values():
-    return {
+    values = {
         "ccdo:EDocHeader": [None],
         "ccdo:EDocHeader/csdo:InfEnvelopeCode": MESSAGE,
         "ccdo:EDocHeader/csdo:EDocCode": "R.IP.SP.02.007",
@@ -96,6 +96,13 @@ def valid_values():
         f"{OFFICER_NAME}/csdo:FirstName": "Иван",
         f"{OFFICER}/csdo:PositionName": "Эксперт",
     }
+    # A collective mark needs a UE party in this same register record (Table49 REQ18).
+    for path, value in list(values.items()):
+        if path == PARTY or path.startswith(PARTY + '/'):
+            original = value[0] if isinstance(value, list) and len(value) == 1 else value
+            values[path] = [original, original]
+    values[f"{PARTY}/ipsdo:IPPartyKindCode"] = ["RH", "UE"]
+    return values
 
 
 def test_build_serialize_parse_extract_validate_roundtrip():

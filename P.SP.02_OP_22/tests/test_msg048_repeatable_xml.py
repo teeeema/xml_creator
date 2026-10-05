@@ -483,6 +483,14 @@ def test_xml_extraction_and_repeatable_structure():
         _child(comm, s, "csdo", "CommunicationChannelCode", "TE")
         _child(comm, s, "csdo", "CommunicationChannelId", "+74951234567")
 
+        user = _child(r007, s, "ipcdo", "IPPartyDetails")
+        _child(user, s, "ipsdo", "IPPartyKindCode", "UE")
+        _child(user, s, "csdo", "UnifiedCountryCode", "RU", {"codeListId": "ВОИС ST.3"})
+        _child(user, s, "ipsdo", "IPSubjectName", "Пользователь коллективного знака")
+        import copy
+        user.append(copy.deepcopy(addr))
+        user.append(copy.deepcopy(comm))
+
         tm = _child(r007, s, "ipcdo", "TrademarkDetails")
         _child(tm, s, "ipsdo", "TrademarkPicture", "base64data")
         _child(tm, s, "ipsdo", "TrademarkKindName", "Словесный")

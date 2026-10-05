@@ -23,7 +23,7 @@ DESC = f"{TM}/ipcdo:TMDescriptionDetails"
 GOODS = f"{APP}/ipcdo:GoodsBaseDetails"
 RESOURCE = "ccdo:ResourceItemStatusDetails"
 VALIDITY = f"{RESOURCE}/ccdo:ValidityPeriodDetails"
-MAPPED = {1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31}
+MAPPED = ({1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31}) | {16, 17, 18, 19, 20, 26}
 
 
 def _engine():
@@ -46,7 +46,7 @@ def _valid_values():
         f"{PARTY}/ipsdo:IPPartyKindCode": "AP",
         f"{PARTY}/csdo:UnifiedCountryCode": "RU",
         f"{PARTY}/csdo:UnifiedCountryCode/@codeListId": "ВОИС ST.3",
-        f"{PARTY}/ipsdo:IPSubjectName": "Заявитель",
+        f"{PARTY}/ipsdo:IPSubjectName": "Заявитель", f"{PARTY}/ipsdo:IPSubjectName/@nameRepresentationKindCode": "OR", f"{PARTY}/ipsdo:IPSubjectName/@languageCode": "RU",
         ADDRESS: [""],
         f"{ADDRESS}/csdo:AddressKindCode": "2",
         f"{ADDRESS}/csdo:UnifiedCountryCode": "RU",
@@ -118,7 +118,10 @@ def _add_party(app, structure, role, *, omit=None):
     party = _child(app, structure, "ipcdo", "IPPartyDetails")
     _child(party, structure, "ipsdo", "IPPartyKindCode", role)
     _child(party, structure, "csdo", "UnifiedCountryCode", "RU", attrs={"codeListId": "ВОИС ST.3"})
-    _child(party, structure, "ipsdo", "IPSubjectName", f"Party {role}")
+    name = _child(party, structure, "ipsdo", "IPSubjectName", f"Party {role}")
+    if role == "AP":
+        name.set("nameRepresentationKindCode", "OR")
+        name.set("languageCode", "RU")
     if omit != "address":
         _add_address(party, structure)
     if omit != "communication":
@@ -364,4 +367,4 @@ def test_unmapped_requirements_never_produce_synthetic_evaluations():
     engine, structure, parsed = _build_valid_parsed()
     _, _, validation = _extract_validate(engine, structure, parsed)
     codes = {int(x.rule_id.split(".REQ.", 1)[1].split(".", 1)[0]) for x in validation.rule_evaluations}
-    assert codes.isdisjoint({2, 3, 13, 16, 17, 18, 19, 20, 26})
+    assert codes.isdisjoint({2, 3, 13})

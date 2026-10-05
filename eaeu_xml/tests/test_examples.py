@@ -15,13 +15,25 @@ class ExampleValueResolverTests(unittest.TestCase):
     def test_uuid_only_when_datatype_confirms_it(self):
         uuid=self.resolver.resolve(datatype="UUIDType",description=None)
         business=self.resolver.resolve(datatype="csdo:Id50Type",description="номер заявления")
-        self.assertEqual(uuid.value,"550e8400-e29b-41d4-a716-446655440000")
-        self.assertEqual((business.value,business.origin),("[идентификатор]","PROJECT_DOCUMENTATION"))
+        self.assertEqual(uuid.value,"d1f6f86c-029a-4245-bb91-433a6aa79987")
+        self.assertEqual((business.value,business.origin),("123456","DATATYPE_EXAMPLE"))
         self.assertNotEqual(business.value,uuid.value)
 
-    def test_classifier_uses_instructional_placeholder(self):
+    def test_classifier_without_local_values_has_no_invented_example(self):
         result=self.resolver.resolve(datatype="CodeType",description=None,classifier=True)
-        self.assertEqual((result.value,result.origin),("[значение выбирается из классификатора]","CLASSIFIER_EXAMPLE"))
+        self.assertEqual((result.value,result.unavailable_reason),(None,"CLASSIFIER_NOT_AVAILABLE"))
+
+    def test_pattern_accepts_only_matching_example(self):
+        result=self.resolver.resolve(datatype="CountryCodeType",description=None,pattern="[A-Z]{2}")
+        self.assertEqual(result.value,"RU")
+        self.assertIsNone(self.resolver.resolve(datatype="CountryCodeType",description=None,
+                                                pattern="[0-9]{8}").value)
+        self.assertEqual(self.resolver.resolve(datatype="CodeType", description=None,
+                                               pattern=r"\d{4}/(AM|BY|KG|KZ|RU)-\d{6}").value,
+                         "2026/RU-123456")
+        self.assertEqual(self.resolver.resolve(datatype="CodeType", description=None,
+                                               allowed_values=("BAD", "RU"), pattern="[A-Z]{2}").value,
+                         "RU")
 
     def test_project_documentation_organization_example(self):
         result=self.resolver.resolve(datatype="NameType",description="наименование организации")

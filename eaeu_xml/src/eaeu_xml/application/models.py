@@ -105,6 +105,7 @@ class FieldView:
     show_identifier_generator: bool = False
     supports_file_picker: bool = False
     assisted_input_kind: str | None = None
+    pattern: str | None = None
 
 
 @dataclass(frozen=True)

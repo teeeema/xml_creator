@@ -84,6 +84,8 @@ def valid_values():
         f"{GOODS}/ipsdo:TrademarkDecisionIndicator": "1",
         f"{GOODS}/ipsdo:TrademarkApplicationId": "APP-052",
         RESOURCE: [""],
+        f"{RESOURCE}/ccdo:ValidityPeriodDetails/csdo:StartDateTime": "2026-09-01T14:00:00+03:00",
+        f"{RESOURCE}/ccdo:ValidityPeriodDetails/csdo:EndDateTime": "2026-09-30T14:00:00+03:00",
         SIG: [""],
         f"{SIG}/csdo:DocCreationDate": "2026-09-30",
         OFFICER: [None],

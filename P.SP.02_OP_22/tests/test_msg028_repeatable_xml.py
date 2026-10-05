@@ -49,7 +49,7 @@ def _parsed_values(builder):
 
 def _rules(engine, code):
     rid = f'{MESSAGE}.T44.REQ.{code}'
-    return [rule for rule in engine.rules[MESSAGE].structured_rules if rule['rule_id'] == rid]
+    return [rule for rule in engine.rules[MESSAGE].structured_rules if rule['rule_id'] == rid or rule['rule_id'].startswith(rid + '.')]
 
 
 def _assert_status(rules, values, expected):
@@ -347,9 +347,9 @@ def test_req16_17_20_are_scoped_to_the_same_ap_parent():
         engine, _, values, _ = _parsed_values(lambda root, structure: build(
             root, structure, representation=representation, language=language, address_kind=address_kind
         ))
-        statuses = [StructuredRuleEvaluator().evaluate(_rules(engine, code)[0], values).status for code in (16, 17, 20)]
+        statuses = [StructuredRuleEvaluator().evaluate(rule, values).status for code in (16, 17, 20) for rule in _rules(engine, code)]
         if expected is RuleStatus.PASS:
-            assert statuses == [RuleStatus.PASS] * 3
+            assert all(status is RuleStatus.PASS for status in statuses)
         else:
             assert RuleStatus.FAIL in statuses
 

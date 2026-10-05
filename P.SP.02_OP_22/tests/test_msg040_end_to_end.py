@@ -37,7 +37,7 @@ def values():
         f"{party}/ipsdo:IPPartyKindCode": "AP",
         f"{party}/csdo:UnifiedCountryCode": "RU",
         f"{party}/csdo:UnifiedCountryCode/@codeListId": "ВОИС ST.3",
-        f"{party}/ipsdo:IPSubjectName": "Заявитель",
+        f"{party}/ipsdo:IPSubjectName": "Заявитель", f"{party}/ipsdo:IPSubjectName/@nameRepresentationKindCode": "OR", f"{party}/ipsdo:IPSubjectName/@languageCode": "RU",
         address: [""],
         f"{address}/csdo:AddressKindCode": "2",
         f"{address}/csdo:UnifiedCountryCode": "RU",

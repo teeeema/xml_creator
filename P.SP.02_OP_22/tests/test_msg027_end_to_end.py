@@ -47,7 +47,7 @@ def _valid_values():
         f'{PARTY}/ipsdo:IPPartyKindCode': 'AP',
         f'{PARTY}/csdo:UnifiedCountryCode': 'RU',
         f'{PARTY}/csdo:UnifiedCountryCode/@codeListId': 'ВОИС ST.3',
-        f'{PARTY}/ipsdo:IPSubjectName': 'Заявитель',
+        f'{PARTY}/ipsdo:IPSubjectName': 'Заявитель', f'{PARTY}/ipsdo:IPSubjectName/@nameRepresentationKindCode': 'OR', f'{PARTY}/ipsdo:IPSubjectName/@languageCode': 'RU',
         ADDRESS: [''],
         f'{ADDRESS}/csdo:AddressKindCode': '2',
         f'{ADDRESS}/csdo:UnifiedCountryCode': 'RU',
@@ -119,7 +119,10 @@ def _add_party(app, structure, role, *, omit=None):
     party = _child(app, structure, 'ipcdo', 'IPPartyDetails')
     _child(party, structure, 'ipsdo', 'IPPartyKindCode', role)
     _child(party, structure, 'csdo', 'UnifiedCountryCode', 'RU', attrs={'codeListId': 'ВОИС ST.3'})
-    _child(party, structure, 'ipsdo', 'IPSubjectName', f'Party {role}')
+    name = _child(party, structure, 'ipsdo', 'IPSubjectName', f'Party {role}')
+    if role == 'AP':
+        name.set('nameRepresentationKindCode', 'OR')
+        name.set('languageCode', 'RU')
     if omit != 'address':
         _add_address(party, structure)
     if omit != 'communication':
@@ -161,8 +164,8 @@ def _target_rules(engine, code):
         return [r for r in engine.rules[MESSAGE].structured_rules if r['rule_id'] == rid]
     return [
         r for r in engine.rules[MESSAGE].structured_rules
-        if r['rule_id'] == f'{MESSAGE}.T57.REQ.6_29'
-        and len(r.get('source_refs', [])) == 2
+        if len(r.get('source_refs', [])) == 2
+        and r['source_refs'][1].get('table') == '34'
         and r['source_refs'][1].get('item') == str(code)
     ]
 
@@ -304,7 +307,8 @@ def _mutate_req25(root, structure):
 def _mutate_req26(root, structure):
     app = _required(root, structure, 'ipcdo', 'TrademarkApplicationDetails')
     tm = _required(app, structure, 'ipcdo', 'TrademarkDetails')
-    _required(tm, structure, 'ipsdo', 'TrademarkKindName').text = 'Цифровой знак'
+    _required(tm, structure, 'ipsdo', 'TrademarkKindCode').text = '999'
+    _required(tm, structure, 'ipsdo', 'TrademarkKindName').text = 'Недопустимый вид'
 
 
 def _mutate_req28(root, structure):
@@ -382,7 +386,7 @@ def test_unmapped_requirements_never_produce_synthetic_evaluations():
     engine, structure, parsed = _build_valid_parsed()
     _, _, validation = _extract_validate(engine, structure, parsed)
     rules = engine.rules[MESSAGE].structured_rules
-    for item in (13, 16, 17, 18, 19, 20, 27):
+    for item in (13, 27):
         assert not any(
             len(rule.get('source_refs', [])) == 2 and rule['source_refs'][1].get('item') == str(item)
             for rule in rules

@@ -44,6 +44,32 @@ class GuiQtViewModelTests(unittest.TestCase):
         self.assertEqual(self.model.validationSummary, "Проверка пройдена")
         self.assertEqual(self.model.validationItems, [])
 
+    def test_required_data_action_preserves_user_value_and_reports_idempotence(self):
+        self.model.selectProcess("P.TS.01")
+        field = next(item for item in self.model.fields if item["kind"] == "TEXT" and item["required"])
+        self.model.setFieldValue(field["path"], "CUSTOM")
+        self.model.applyRequiredData()
+        self.assertEqual(self.model.controller.values[field["path"]], "CUSTOM")
+        self.assertIn("обязательные поля", self.model.notice.casefold())
+        self.model.applyRequiredData()
+        self.assertEqual(self.model.notice, "Все обязательные поля уже заполнены.")
+
+    def test_home_page_has_required_and_test_actions_next_to_each_other(self):
+        home = (Path(__file__).parents[1] / "src" / "eaeu_xml" / "gui_qt" / "qml" / "pages" / "HomePage.qml").read_text(encoding="utf-8")
+        actions = [home.index(f'text: "{label}"') for label in (
+            "Обязательные данные", "Тестовые данные", "Сохранить черновик", "Создать XML")]
+        self.assertEqual(actions, sorted(actions))
+        self.assertIn('text: "* — обязательное поле"', home)
+        self.assertEqual(home.count('modelData.required ? " *"'), 1)
+        self.assertIn('function onFormSelectionChanged()', home)
+
+    def test_form_selection_emits_scroll_reset_signal(self):
+        emitted = []
+        self.model.formSelectionChanged.connect(lambda: emitted.append(self.model.messageCode))
+        self.model.selectProcess("P.TS.01")
+        self.model.selectMessage("P.TS.01.MSG.002")
+        self.assertEqual(emitted[-1], "P.TS.01.MSG.002")
+
     def test_editable_xml_is_preserved_formatted_and_saved(self):
         self.model.selectProcess("P.TS.01")
         self.model.applyTestData()

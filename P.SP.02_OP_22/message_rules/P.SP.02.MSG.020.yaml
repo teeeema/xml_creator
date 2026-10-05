@@ -1604,6 +1604,56 @@
         }
       ],
       "mapping_status": "PARTIAL"
+    },
+    {
+      "rule_id": "P.SP.02.MSG.020.T53.REQ.3",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "kind": "selection_cardinality",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.020-T53-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 53",
+          "status": "CONFIRMED",
+          "page": 569,
+          "table": "53",
+          "item": "3",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ],
+      "when": {
+        "count": {
+          "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails",
+          "parent": {
+            "collection": "ipcdo:UnifiedRegisterRecordsDetails",
+            "where": {
+              "field": "ipcdo:IPEntityStatusDetails/csdo:StatusCode",
+              "operator": "EQ",
+              "value": "04"
+            }
+          },
+          "where": {
+            "field": "ipsdo:CancellationStatusIndicator",
+            "operator": "IN",
+            "value": [
+              "1",
+              "true",
+              true
+            ]
+          }
+        },
+        "operator": "GE",
+        "value": 1
+      },
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails",
+        "where": {
+          "field": "ipcdo:IPEntityStatusDetails/csdo:StatusCode",
+          "operator": "EQ",
+          "value": "01"
+        }
+      },
+      "min_occurs": 1
     }
   ],
   "status": "CONFIRMED"

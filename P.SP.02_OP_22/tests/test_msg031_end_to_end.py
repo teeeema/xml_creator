@@ -103,6 +103,8 @@ def _r002_values(structure):
             f"{party}/csdo:UnifiedCountryCode": "RU",
             f"{party}/csdo:UnifiedCountryCode/@codeListId": "ВОИС ST.3",
             f"{party}/ipsdo:IPSubjectName": "Заявитель",
+            f"{party}/ipsdo:IPSubjectName/@nameRepresentationKindCode": "OR",
+            f"{party}/ipsdo:IPSubjectName/@languageCode": "RU",
             address: [None],
             f"{address}/csdo:AddressKindCode": "2",
             f"{address}/csdo:UnifiedCountryCode": "RU",
@@ -256,8 +258,8 @@ def _build_payload(engine, structure_id):
 @pytest.mark.parametrize(
     ("structure_id", "table", "expected_qname", "expected_rule_count"),
     [
-        (R002, 48, "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails", 29),
-        (R007, 49, "{urn:EEC:R:IP:SP:02:TrademarkRegisterDetails:v1.0.0}TrademarkRegisterDetails", 25),
+        (R002, 48, "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails", 36),
+        (R007, 49, "{urn:EEC:R:IP:SP:02:TrademarkRegisterDetails:v1.0.0}TrademarkRegisterDetails", 26),
     ],
 )
 def test_msg031_build_serialize_parse_extract_validate_for_each_embedded_branch(

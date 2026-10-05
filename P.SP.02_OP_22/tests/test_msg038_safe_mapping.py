@@ -4,8 +4,8 @@ from pathlib import Path
 PACKAGE = Path(__file__).resolve().parents[1]
 MESSAGE = "P.SP.02.MSG.038"
 APP = "ipcdo:TrademarkApplicationDetails"
-FULL = {1, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29, 30, 32, 33, 34, 35, 36, 37}
-UNMAPPED = {2, 3, 13, 16, 17, 18, 19, 20, 26, 31}
+FULL = {1, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 32, 33, 34, 35, 36, 37}
+UNMAPPED = ({2, 3, 13, 16, 17, 18, 19, 20, 26, 31}) - {16, 17, 18, 19, 20, 26}
 
 def raw():
     return json.loads((PACKAGE / "message_rules" / f"{MESSAGE}.yaml").read_text())
@@ -21,7 +21,7 @@ def test_inventory_and_classification_are_exact():
     assert a["summary"]["SAFE_PARTIAL"] == [4]
     assert a["summary"]["EXTERNAL"] == [2, 3, 31]
     assert a["summary"]["AMBIGUOUS"] == [13]
-    assert a["summary"]["ENGINE_UNSUPPORTED"] == [16, 17, 18, 19, 20, 26]
+    assert a["summary"]["ENGINE_UNSUPPORTED"] == []
     assert sum(a["classification_counts"].values()) == 37
 
 def test_only_safe_req4_and_confirmed_requirements_are_executable():

@@ -5,13 +5,13 @@ from pathlib import Path
 PACKAGE = Path(__file__).resolve().parents[1]
 MESSAGE = "P.SP.02.MSG.050"
 R007 = "ipcdo:UnifiedRegisterRecordsDetails"
-FULL = {
+FULL = {18,
     2, 3,
     6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
     20, 21, 22, 23,
 }
 SAFE_PARTIAL = {1, 4, 5}
-ENGINE_UNSUPPORTED = {18, 19}
+ENGINE_UNSUPPORTED = {19}
 UNMAPPED = ENGINE_UNSUPPORTED
 INHERITED = set(range(6, 20))
 EXACT_DOC_NAME = "Ходатайство об отказе от исключительного права на товарный знак, знак обслуживания Евразийского экономического союза"
@@ -40,11 +40,11 @@ def test_inventory_and_classification_are_exact():
     assert audit["summary"]["SOURCE_CONFLICT"] == []
     assert sum(audit["classification_counts"].values()) == 23
     assert audit["classification_counts"] == {
-        "FULLY_MAPPABLE": 18,
+        "FULLY_MAPPABLE": 19,
         "SAFE_PARTIAL": 3,
         "EXTERNAL": 0,
         "AMBIGUOUS": 0,
-        "ENGINE_UNSUPPORTED": 2,
+        "ENGINE_UNSUPPORTED": 1,
         "SOURCE_CONFLICT": 0,
     }
 
@@ -55,7 +55,7 @@ def test_only_approved_requirements_are_executable():
         for rule in raw()["structured_rules"]
     }
     assert executable_codes == FULL | SAFE_PARTIAL
-    assert len(executable_codes) == 21
+    assert len(executable_codes) == 22
 
     for code in UNMAPPED:
         assert not rules(code), f"Requirement {code} must not have executable rules"
@@ -171,10 +171,10 @@ def test_req21_23_signature_and_officer_rules():
 
 
 def test_req18_and_req19_unmapped_proof():
-    assert not rules(18)
+    assert rules(18)
     assert not rules(19)
     inv = {item["requirement_code"]: item for item in raw()["mapping_audit"]["inventory"]}
-    assert inv["18"]["classification"] == "ENGINE_UNSUPPORTED"
-    assert inv["18"]["mapping_status"] == "UNMAPPED"
+    assert inv["18"]["classification"] == "FULLY_MAPPABLE"
+    assert inv["18"]["mapping_status"] == "EXECUTABLE"
     assert inv["19"]["classification"] == "ENGINE_UNSUPPORTED"
     assert inv["19"]["mapping_status"] == "UNMAPPED"

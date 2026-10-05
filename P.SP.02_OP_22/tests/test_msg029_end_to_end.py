@@ -29,7 +29,7 @@ DOC_KIND_NAME = (
     'о возможности (невозможности) регистрации товарного знака, знака обслуживания Евразийского '
     'экономического союза'
 )
-MAPPED = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29, 33, 34, 35, 36, 37, 38, 39}
+MAPPED = {30,31} | ({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29, 33, 34, 35, 36, 37, 38, 39}) | {16, 17, 18, 19, 20, 26}
 
 
 def _engine():
@@ -52,7 +52,7 @@ def _valid_values():
         f'{PARTY}/ipsdo:IPPartyKindCode': 'AP',
         f'{PARTY}/csdo:UnifiedCountryCode': 'RU',
         f'{PARTY}/csdo:UnifiedCountryCode/@codeListId': 'ВОИС ST.3',
-        f'{PARTY}/ipsdo:IPSubjectName': 'Заявитель',
+        f'{PARTY}/ipsdo:IPSubjectName': 'Заявитель', f'{PARTY}/ipsdo:IPSubjectName/@nameRepresentationKindCode': 'OR', f'{PARTY}/ipsdo:IPSubjectName/@languageCode': 'RU',
         ADDRESS: [''],
         f'{ADDRESS}/csdo:AddressKindCode': '2',
         f'{ADDRESS}/csdo:UnifiedCountryCode': 'RU',
@@ -129,7 +129,10 @@ def _add_party(app, structure, role, *, omit=None):
     party = _child(app, structure, 'ipcdo', 'IPPartyDetails')
     _child(party, structure, 'ipsdo', 'IPPartyKindCode', role)
     _child(party, structure, 'csdo', 'UnifiedCountryCode', 'RU', attrs={'codeListId': 'ВОИС ST.3'})
-    _child(party, structure, 'ipsdo', 'IPSubjectName', f'Party {role}')
+    name = _child(party, structure, 'ipsdo', 'IPSubjectName', f'Party {role}')
+    if role == 'AP':
+        name.set('nameRepresentationKindCode', 'OR')
+        name.set('languageCode', 'RU')
     if omit != 'address':
         _add_address(party, structure)
     if omit != 'communication':
@@ -201,9 +204,9 @@ def test_valid_msg029_build_serialize_parse_extract_validate_pipeline():
     assert values[f'{APP}/ipsdo:IPDocKindName'] == DOC_KIND_NAME
     assert validation.is_valid, [(item.code, item.rule_id, item.field_path, item.message) for item in validation.issues]
     assert validation.is_complete
-    assert len(validation.rule_evaluations) == 32
+    assert len(validation.rule_evaluations) == 41
     assert all(item.status is RuleStatus.PASS for item in validation.rule_evaluations)
-    assert {int(item.rule_id.rsplit('.', 1)[1]) for item in validation.rule_evaluations} == MAPPED
+    assert {int(item.rule_id.split('.REQ.')[1].split('.')[0]) for item in validation.rule_evaluations} == MAPPED
 
     transaction = engine.get_transaction(TRANSACTION)
     assert transaction.initiating_message == MESSAGE

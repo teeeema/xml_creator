@@ -14,13 +14,13 @@ DOCS = f'{APP}/ipcdo:AccompanyingDocumentsDetails'
 SIG = f'{APP}/ipcdo:SignatureDetails'
 RESOURCE = 'ccdo:ResourceItemStatusDetails'
 
-FULL = {
+FULL = {16,17,18,19,20,26,
     1, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25,
     27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
 }
 PARTIAL = {2, 3, 4}
-UNMAPPED = {13, 16, 17, 18, 19, 20, 26}
-INHERITED = {6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29}
+UNMAPPED = ({13, 16, 17, 18, 19, 20, 26}) - {16, 17, 18, 19, 20, 26}
+INHERITED = ({6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29}) | {16, 17, 18, 19, 20, 26}
 FALLBACK_NAME = (
     'Доводы и замечания заявителя в связи с уведомлением о результатах экспертизы заявки на товарный '
     'знак, знак обслуживания Евразийского экономического союза в отношении всех или части заявленных товаров'
@@ -38,7 +38,7 @@ def _rules(code):
 
 def test_msg030_mapping_classification_is_complete_and_non_approximating():
     data = _raw()
-    mapped = {int(rule['rule_id'].rsplit('.', 1)[1]) for rule in data['structured_rules']}
+    mapped = {int(rule['rule_id'].split('.REQ.')[1].split('.')[0]) for rule in data['structured_rules']}
     assert mapped == FULL | PARTIAL
     assert not mapped.intersection(UNMAPPED)
 
@@ -54,7 +54,7 @@ def test_msg030_mapping_classification_is_complete_and_non_approximating():
 def test_inherited_req6_29_executable_rules_have_dual_table46_and_table44_provenance():
     data = _raw()
     for rule in data['structured_rules']:
-        code = int(rule['rule_id'].rsplit('.', 1)[1])
+        code = int(rule['rule_id'].split('.REQ.')[1].split('.')[0])
         refs = rule['source_refs']
         if code in INHERITED:
             assert len(refs) == 2
@@ -167,13 +167,10 @@ def test_req25_trademark_presence_and_required_children_match_original_table44()
     }
 
 
-def test_req26_is_explicitly_unmapped_because_normative_operator_is_or():
-    assert not _rules(26)
-    item = next(item for item in _raw()['mapping_audit']['unmapped_requirements'] if item['requirement_code'] == '26')
-    assert item['classification'] == 'UNMAPPED'
-    assert ' OR ' in item['reason']
-    assert 'AND' in item['reason']
-    assert [ref['table'] for ref in item['source_refs']] == ['46', '44']
+def test_req26_executes_inclusive_or_with_original_provenance():
+    rule, = _rules(26)
+    assert 'any' in rule['assertions'][0]['condition']
+    assert [ref['table'] for ref in rule['source_refs']] == ['46', '44']
 
 
 def test_req27_exact_same_trademark_owner_uses_code_or_name_condition_and_requires_both_outputs():

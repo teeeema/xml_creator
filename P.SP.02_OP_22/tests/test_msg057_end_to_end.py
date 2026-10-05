@@ -304,4 +304,4 @@ def test_msg057_isolation():
     # Ensure other messages in OP22 preserve their own rules
     assert "P.SP.02.MSG.054" in engine.rules
     assert "P.SP.02.MSG.055" in engine.rules
-    assert len(engine.rules["P.SP.02.MSG.055"].structured_rules) == 8
+    assert len(engine.rules["P.SP.02.MSG.055"].structured_rules) == 10

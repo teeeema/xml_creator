@@ -7,14 +7,14 @@ from eaeu_xml.process_packages.engine import EaeuXmlEngine
 PACKAGE = Path(__file__).resolve().parents[1]
 MESSAGE = "P.SP.02.MSG.031"
 
-T48_FULL = {5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29, 31, 33, 34, 35, 36}
+T48_FULL = {16,17,18,19,20,26,5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29, 31, 33, 34, 35, 36}
 T48_PARTIAL = {1, 3, 4}
 T48_AMBIGUOUS = {13}
-T48_ENGINE = {16, 17, 18, 19, 20, 26}
+T48_ENGINE = set()
 T48_CONFLICT = {2, 30, 32}
-T49_FULL = {1, 2, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23, 24}
+T49_FULL = {18,1, 2, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23, 24}
 T49_PARTIAL = {3, 4, 5}
-T49_ENGINE = {18, 19}
+T49_ENGINE = {19}
 INHERITED = set(range(6, 30))
 APP = "ipcdo:TrademarkApplicationDetails"
 R007 = "ipcdo:UnifiedRegisterRecordsDetails"
@@ -65,8 +65,8 @@ def test_mapping_classification_is_complete_and_non_approximating():
             "ENGINE_UNSUPPORTED": sorted(T49_ENGINE),
         },
     }
-    mapped48 = {int(rule["rule_id"].rsplit(".", 1)[1]) for rule in _raw()["structured_rules"] if ".T48." in rule["rule_id"]}
-    mapped49 = {int(rule["rule_id"].rsplit(".", 1)[1]) for rule in _raw()["structured_rules"] if ".T49." in rule["rule_id"]}
+    mapped48 = {int(rule["rule_id"].split(".REQ.")[1].split(".")[0]) for rule in _raw()["structured_rules"] if ".T48." in rule["rule_id"]}
+    mapped49 = {int(rule["rule_id"].split(".REQ.")[1].split(".")[0]) for rule in _raw()["structured_rules"] if ".T49." in rule["rule_id"]}
     assert mapped48 == T48_FULL | T48_PARTIAL
     assert mapped49 == T49_FULL | T49_PARTIAL
     assert not mapped48.intersection(T48_AMBIGUOUS | T48_ENGINE | T48_CONFLICT)
@@ -89,7 +89,7 @@ def test_table47_uses_existing_one_of_infrastructure_instead_of_fake_flattened_r
 
 def test_every_structured_rule_is_message_and_branch_scoped():
     rules = _raw()["structured_rules"]
-    assert len(rules) == 54
+    assert len(rules) == 62
     assert all(rule["rule_id"].startswith(MESSAGE + ".") for rule in rules)
     assert {
         rule["applies_to_structure"] for rule in rules
@@ -133,11 +133,11 @@ def test_table48_req2_req30_req32_are_exact_source_conflicts_and_unmapped():
 
 
 def test_table48_req26_remains_unmapped_with_normative_or_not_strengthened_to_and():
-    assert not _rules(48, 26)
+    assert _rules(48, 26)
     item = _inventory(48, 26)
-    assert item["classification"] == "ENGINE_UNSUPPORTED"
-    assert " OR " in item["reason"]
-    assert "AND" in item["reason"]
+    assert item["classification"] == "FULLY_MAPPABLE"
+    assert "any" in _rules(48, 26)[0]["assertions"][0]["condition"]
+    assert item["engine_gap"] is None
     assert [ref["table"] for ref in item["source_refs"]] == ["48", "44"]
 
 
@@ -205,7 +205,7 @@ def test_table49_req16_is_full_and_uses_exact_ipsdo_goods_class_code():
 
 
 def test_table49_req18_req19_are_engine_unsupported_without_cross_collection_approximation():
-    for code in (18, 19):
+    for code in (19,):
         assert not _rules(49, code)
         item = _inventory(49, code)
         assert item["classification"] == "ENGINE_UNSUPPORTED"

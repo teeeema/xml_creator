@@ -1312,17 +1312,70 @@
           "item": "26"
         }
       ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.053.T71.REQ.18",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.053-T71-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 71",
+          "status": "CONFIRMED",
+          "page": 799,
+          "table": "71",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.053-T49-18",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 49",
+          "status": "CONFIRMED",
+          "page": 739,
+          "table": "49",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "18"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails",
+        "where": {
+          "field": "ipcdo:TrademarkDetails/ipsdo:CollectiveMarkIndicator",
+          "operator": "IN",
+          "value": [
+            "1",
+            "true",
+            true
+          ]
+        }
+      },
+      "assertions": [
+        {
+          "kind": "selection_cardinality",
+          "selector": {
+            "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails",
+            "where": {
+              "field": "ipsdo:IPPartyKindCode",
+              "operator": "EQ",
+              "value": "UE"
+            }
+          },
+          "min_occurs": 1
+        }
+      ]
     }
   ],
   "mapping_audit": {
     "captured_row_count": 14,
     "expanded_requirement_count": 26,
     "classification_counts": {
-      "FULLY_MAPPABLE": 18,
+      "FULLY_MAPPABLE": 19,
       "SAFE_PARTIAL": 3,
       "EXTERNAL": 0,
       "AMBIGUOUS": 0,
-      "ENGINE_UNSUPPORTED": 5,
+      "ENGINE_UNSUPPORTED": 4,
       "SOURCE_CONFLICT": 0
     },
     "summary": {
@@ -1341,6 +1394,7 @@
         15,
         16,
         17,
+        18,
         20,
         24,
         25,
@@ -1354,7 +1408,6 @@
       "EXTERNAL": [],
       "AMBIGUOUS": [],
       "ENGINE_UNSUPPORTED": [
-        18,
         19,
         21,
         22,
@@ -2022,8 +2075,8 @@
         "table": "71/49",
         "branch": "R.IP.SP.02.007",
         "requirement_code": "18",
-        "classification": "ENGINE_UNSUPPORTED",
-        "mapping_status": "UNMAPPED",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.053-T71-6-19",
@@ -2046,13 +2099,11 @@
             "item": "18"
           }
         ],
-        "reason": "Conditional cross-collection dependency: if CollectiveMarkIndicator == 1, IPPartyDetails with kind UE required.",
+        "reason": "CollectiveMarkIndicator1 requires at least one UE party within the same register record.",
         "safe_fragment": null,
-        "unmapped_remainder": [
-          "Conditional cross-collection dependency"
-        ],
+        "unmapped_remainder": [],
         "external_dependency": null,
-        "engine_gap": "CROSS_COLLECTION_CONDITIONAL_PRESENCE",
+        "engine_gap": null,
         "source_conflict": null,
         "target_paths": [
           "ipcdo:UnifiedRegisterRecordsDetails"

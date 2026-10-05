@@ -11,9 +11,9 @@ PARTY = f'{APP}/ipcdo:IPPartyDetails'
 TM = f'{APP}/ipcdo:TrademarkDetails'
 RESOURCE = 'ccdo:ResourceItemStatusDetails'
 FALLBACK = 'Заявка на регистрацию товарного знака, знака обслуживания Евразийского экономического союза'
-FULL = {1, 2, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 33, 34, 35, 36, 38, 39, 40, 41}
+FULL = ({1, 2, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 33, 34, 35, 36, 38, 39, 40, 41}) | {18, 19}
 PARTIAL = {3, 4, 5, 37}
-UNMAPPED = {13, 18, 19, 32}
+UNMAPPED = ({13, 18, 19, 32}) - {18, 19}
 
 
 def _raw():
@@ -27,7 +27,7 @@ def _rules(code):
 
 def test_msg028_audit_classification_and_direct_table44_provenance():
     data = _raw()
-    mapped = {int(rule['rule_id'].rsplit('.', 1)[1]) for rule in data['structured_rules']}
+    mapped = {int(rule['rule_id'].split('.REQ.')[1].split('.')[0]) for rule in data['structured_rules']}
     assert mapped == FULL | PARTIAL
     assert not (mapped & UNMAPPED)
     assert len(data['business_rules']) == 41
@@ -44,7 +44,7 @@ def test_msg028_audit_classification_and_direct_table44_provenance():
     assert {int(item['requirement_code']) for item in audit['unmapped_requirements']} == UNMAPPED
     classes = {int(item['requirement_code']): item['classification'] for item in audit['unmapped_requirements']}
     assert classes[13] == 'AMBIGUOUS'
-    assert all(classes[code] == 'ENGINE_UNSUPPORTED' for code in (18, 19))
+    assert {int(i['requirement_code']) for i in audit['inventory']} >= {18, 19}
     assert classes[32] == 'EXTERNAL'
 
 

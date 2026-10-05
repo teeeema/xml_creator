@@ -139,6 +139,47 @@ class StructuredRuleTests(unittest.TestCase):
         empty_nested = dict(values, **{"Groups/Items": [[], [None]], "Groups/Items/Code": [[], ["C"]]})
         self.assertEqual(len(self.e.select(selector, empty_nested)), 1)
 
+    def test_position_selects_one_based_sibling_without_changing_plain_selector(self):
+        values = {"Items": [None, None, None], "Items/Code": ["A", "B", "C"]}
+        self.assertEqual([item["Code"] for item in self.e.select({"collection": "Items"}, values)], ["A", "B", "C"])
+        for position, expected in ((1, "A"), (2, "B"), (3, "C"), ("last", "C")):
+            self.assertEqual([item["Code"] for item in self.e.select({"collection": "Items", "position": position}, values)], [expected])
+        self.assertEqual(self.e.select({"collection": "Items", "position": 4}, values), [])
+        self.assertEqual(self.e.select({"collection": "Items", "position": 1}, {}), [])
+        self.assertEqual(len(self.e.select({"collection": "Items", "position": 1}, {"Items": [None], "Items/Code": ["A"]})), 1)
+        self.assertEqual(self.e.select({"collection": "Items", "position": 2}, {"Items": [None], "Items/Code": ["A"]}), [])
+
+    def test_position_is_scoped_to_each_nested_parent(self):
+        values = {"Groups": [None, None], "Groups/Role": ["AP", "PA"], "Groups/Items": [[None, None], [None]], "Groups/Items/Code": [["A", "B"], ["C"]]}
+        first = self.e.select({"collection": "Groups/Items", "position": 1}, values)
+        second = self.e.select({"collection": "Groups/Items", "position": 2}, values)
+        self.assertEqual([item["Code"] for item in first], ["A", "C"])
+        self.assertEqual([item["Code"] for item in second], ["B"])
+        scoped = {"collection": "Groups/Items", "parent": {"collection": "Groups", "where": {"field": "Role", "operator": "EQ", "value": "AP"}}, "position": "last"}
+        self.assertEqual([item["Code"] for item in self.e.select(scoped, values)], ["B"])
+
+    def test_position_qname_and_invalid_position(self):
+        values = {"Root/Items": [None, None], "Root/Items/Code": ["A", "B"]}
+        self.assertEqual([item["Code"] for item in self.e.select({"qname": "Items", "under": "Root", "position": 2}, values)], ["B"])
+        for position in (0, -1, True, "first"):
+            with self.assertRaises(ValueError):
+                self.e.select({"collection": "Root/Items", "position": position}, values)
+
+    def test_conditional_presence_uses_positions_within_each_owner(self):
+        names = "Parties/Names"
+        values = {"Parties": [None, None], "Parties/Role": ["AP", "PA"], names: [["Original"], ["Other", "Second"]], f"{names}/@languageCode": [["RU"], ["EN", None]]}
+        rule = {
+            "kind": "conditional_presence",
+            "scope": {"collection": "Parties", "where": {"field": "Role", "operator": "EQ", "value": "AP"}},
+            "condition": {"field": "Names/@languageCode", "position": 1, "operator": "EQ", "value": "RU"},
+            "target": {"field": "Names", "position": 2}, "state": "FORBIDDEN",
+        }
+        self.assertEqual(self.e.evaluate(rule, values).status, RuleStatus.PASS)
+        bad = dict(values, **{names: [["Original", "Extra"], ["Other", "Second"]]})
+        self.assertEqual(self.e.evaluate(rule, bad).status, RuleStatus.FAIL)
+        reordered = dict(values, **{"Parties/Role": ["PA", "AP"], names: [["Other", "Second"], ["Original"]], f"{names}/@languageCode": [["EN", None], ["RU"]]})
+        self.assertEqual(self.e.evaluate(rule, reordered).status, RuleStatus.PASS)
+
     def test_synthetic_req_007_to_010_024_028_equivalents(self):
         values = {
             "Body/A/csdo:UnifiedCountryCode": "RU",
@@ -622,3 +663,65 @@ class StructuredRuleTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_typed_datetime_compares_instants_and_rejects_invalid_values():
+    evaluator = StructuredRuleEvaluator()
+    rule = {'kind': 'comparison', 'left': 'a', 'right': 'b', 'operator': 'LT', 'value_type': 'DATETIME'}
+    assert evaluator.evaluate(rule, {'a': '2026-01-01T10:00:00+03:00', 'b': '2026-01-01T08:00:00Z'}).status is RuleStatus.PASS
+    for a, b in [('2026-01-01T11:00:00+03:00', '2026-01-01T08:00:00Z'), ('bad', '2026-01-01T08:00:00Z'), (None, '2026-01-01T08:00:00Z'), ('2026-01-01T10:00:00', '2026-01-01T08:00:00Z')]:
+        assert evaluator.evaluate(rule, {'a': a, 'b': b}).status is RuleStatus.FAIL
+
+
+def test_selected_operand_is_unique_and_does_not_use_other_owner():
+    e = StructuredRuleEvaluator()
+    rule = {'kind': 'for_each', 'selector': {'collection': 'Records', 'where': {'field': 'Role', 'operator': 'EQ', 'value': 'NEW'}}, 'assertions': [{'kind': 'comparison', 'left': {'field': 'Id'}, 'operator': 'EQ', 'right': {'selector': {'collection': 'Records', 'where': {'field': 'Role', 'operator': 'EQ', 'value': 'CANCEL'}}, 'field': 'NewId'}}]}
+    values = {'Records': ['', ''], 'Records/Role': ['NEW', 'CANCEL'], 'Records/Id': ['A', 'OLD'], 'Records/NewId': [None, 'A']}
+    assert e.evaluate(rule, values).status is RuleStatus.PASS
+    values['Records/NewId'] = ['A', None]
+    assert e.evaluate(rule, values).status is RuleStatus.FAIL
+    values['Records/Role'] = ['NEW', 'NEW']
+    assert e.evaluate(rule, values).status is RuleStatus.FAIL
+
+
+def test_filtered_child_cardinality_is_per_selected_parent():
+    e = StructuredRuleEvaluator()
+    rule = {'kind': 'for_each', 'selector': {'collection': 'Parents'}, 'assertions': [{'kind': 'selection_cardinality', 'selector': {'collection': 'Parents/Children', 'where': {'field': 'Kind', 'operator': 'EQ', 'value': 'OR'}}, 'min_occurs': 1, 'max_occurs': 1}]}
+    values = {'Parents': ['', ''], 'Parents/Children': [['', ''], ['']], 'Parents/Children/Kind': [['OR', 'LA'], ['OR']]}
+    assert e.evaluate(rule, values).status is RuleStatus.PASS
+    values['Parents/Children/Kind'] = [['OR', 'OR'], ['LA']]
+    assert e.evaluate(rule, values).status is RuleStatus.FAIL
+
+
+def test_count_condition_and_guard_count_only_matching_children():
+    e = StructuredRuleEvaluator()
+    rule = {'kind': 'selection_cardinality', 'when': {'count': {'collection': 'Records/Goods', 'parent': {'collection': 'Records', 'where': {'field': 'Role', 'operator': 'EQ', 'value': 'CANCEL'}}, 'where': {'field': 'Flag', 'operator': 'EQ', 'value': '1'}}, 'operator': 'GE', 'value': 1}, 'selector': {'collection': 'Records', 'where': {'field': 'Role', 'operator': 'EQ', 'value': 'NEW'}}, 'min_occurs': 1}
+    values = {'Records': [''], 'Records/Role': ['CANCEL'], 'Records/Goods': [['']], 'Records/Goods/Flag': [['0']]}
+    assert e.evaluate(rule, values).status is RuleStatus.PASS
+    values['Records/Goods/Flag'] = [['1']]
+    assert e.evaluate(rule, values).status is RuleStatus.FAIL
+    values = {'Records':['',''], 'Records/Role':['CANCEL','NEW'], 'Records/Goods':[[''],['']], 'Records/Goods/Flag':[['0'],['1']]}
+    assert e.evaluate(rule, values).status is RuleStatus.PASS
+    for limit, op, expected in [(1,'EQ',True),(2,'GE',False),(1,'LE',True)]:
+        assert e.evaluate_condition({'count':{'collection':'Records','where':{'field':'Role','operator':'EQ','value':'NEW'}},'operator':op,'value':limit},None,values) is expected
+
+
+def test_child_counts_skip_sparse_slots_and_preserve_owner():
+    evaluator = StructuredRuleEvaluator()
+    rule = {'kind': 'for_each', 'selector': {'collection': 'Parents'}, 'assertions': [{'kind': 'selection_cardinality', 'selector': {'collection': 'Parents/Children'}, 'min_occurs': 1}]}
+    assert evaluator.evaluate(rule, {'Parents': ['', ''], 'Parents/Children': [None, '']}).status is RuleStatus.FAIL
+    assert evaluator.evaluate(rule, {'Parents': '', 'Parents/Children': ['', '']}).status is RuleStatus.PASS
+
+
+def test_new_rule_syntax_rejects_ignored_guards_and_invalid_counts():
+    from eaeu_xml.process_packages.validator import ProcessPackageValidator
+    validator = ProcessPackageValidator()
+    invalid_rules = [
+        {'kind': 'presence', 'target': 'A', 'state': 'REQUIRED', 'when': {'field': 'B', 'operator': 'EQ', 'value': '1'}},
+        {'kind': 'selection_cardinality', 'selector': {'collection': 'A'}, 'min_occurs': 1, 'when': {'count': {'collection': 'B'}, 'operator': 'GE', 'value': True}},
+        {'kind': 'selection_cardinality', 'selector': {'collection': 'A'}, 'min_occurs': 1, 'when': {'count': {'collection': 'B'}, 'operator': 'GT', 'value': 1}},
+        {'kind': 'comparison', 'left': 'A', 'right': 'B', 'operator': 'LT', 'value_type': 'UNKNOWN'},
+    ]
+    for rule in invalid_rules:
+        with unittest.TestCase().assertRaises(ProcessPackageValidationError):
+            validator._validate_structured_rule(rule, 'P.TEST.MSG.001')

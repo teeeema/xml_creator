@@ -22,9 +22,9 @@ DESC = f"{TM}/ipcdo:TMDescriptionDetails"
 GOODS = f"{APP}/ipcdo:GoodsBaseDetails"
 RESOURCE = "ccdo:ResourceItemStatusDetails"
 VALIDITY = f"{RESOURCE}/ccdo:ValidityPeriodDetails"
-FULL = {1, 4, 5, *range(6, 13), 14, 15, *range(21, 26), 27, 28, 29}
+FULL = ({1, 4, 5, *range(6, 13), 14, 15, *range(21, 26), 27, 28, 29}) | {16, 17, 18, 19, 20, 26}
 PARTIAL = {2, 3}
-MAPPED = FULL | PARTIAL
+MAPPED = (FULL | PARTIAL) | {16, 17, 18, 19, 20, 26}
 
 
 def _engine():
@@ -46,7 +46,7 @@ def _valid_values():
         f"{PARTY}/ipsdo:IPPartyKindCode": "AP",
         f"{PARTY}/csdo:UnifiedCountryCode": "RU",
         f"{PARTY}/csdo:UnifiedCountryCode/@codeListId": "ВОИС ST.3",
-        f"{PARTY}/ipsdo:IPSubjectName": "Заявитель",
+        f"{PARTY}/ipsdo:IPSubjectName": "Заявитель", f"{PARTY}/ipsdo:IPSubjectName/@nameRepresentationKindCode": "OR", f"{PARTY}/ipsdo:IPSubjectName/@languageCode": "RU",
         ADDRESS: [""],
         f"{ADDRESS}/csdo:AddressKindCode": "2",
         f"{ADDRESS}/csdo:UnifiedCountryCode": "RU",
@@ -118,7 +118,10 @@ def _add_party(app, structure, role, *, omit=None):
     party = _child(app, structure, "ipcdo", "IPPartyDetails")
     _child(party, structure, "ipsdo", "IPPartyKindCode", role)
     _child(party, structure, "csdo", "UnifiedCountryCode", "RU", attrs={"codeListId": "ВОИС ST.3"})
-    _child(party, structure, "ipsdo", "IPSubjectName", f"Party {role}")
+    name = _child(party, structure, "ipsdo", "IPSubjectName", f"Party {role}")
+    if role == "AP":
+        name.set("nameRepresentationKindCode", "OR")
+        name.set("languageCode", "RU")
     if omit != "address":
         _add_address(party, structure)
     if omit != "communication":
@@ -183,7 +186,7 @@ def test_valid_msg035_build_serialize_parse_extract_validate_roundtrip_and_trans
     assert f"{VALIDITY}/csdo:EndDateTime" not in values
     assert validation.is_valid, [(x.rule_id, x.message) for x in validation.issues]
     assert validation.is_complete
-    assert len(validation.rule_evaluations) == 24
+    assert len(validation.rule_evaluations) == 31
     assert all(x.status is RuleStatus.PASS for x in validation.rule_evaluations)
     assert {_rule_code(x.rule_id) for x in validation.rule_evaluations} == MAPPED
 

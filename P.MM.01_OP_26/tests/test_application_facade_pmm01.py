@@ -148,7 +148,7 @@ class Pmm01ApplicationFacadeTests(unittest.TestCase):
         self.assertEqual((language.example_value,language.example_origin),("ru","DATATYPE_EXAMPLE"))
         for name in ("ApplicationId","RegistrationNumberId"):
             field=named("P.MM.01.MSG.001","P.MM.01.TRN.001",name)
-            self.assertEqual((field.example_value,field.example_origin),("[идентификатор]","PROJECT_DOCUMENTATION"))
+            self.assertEqual((field.example_value,field.example_origin),("123456","DATATYPE_EXAMPLE"))
             self.assertNotIn("550e8400",field.example_value)
         doc_name=named("P.MM.01.MSG.001","P.MM.01.TRN.001","DocName")
         doc_date=named("P.MM.01.MSG.001","P.MM.01.TRN.001","DocCreationDate")
@@ -159,8 +159,8 @@ class Pmm01ApplicationFacadeTests(unittest.TestCase):
         self.assertEqual(doc_name.example_value,"Пример текстового значения")
         self.assertEqual(doc_date.example_value,"2026-08-24")
         self.assertEqual((entity.example_value,entity.example_origin),("ООО «Пример»","PROJECT_DOCUMENTATION"))
-        self.assertEqual((country.example_value,country.example_origin),("[значение выбирается из классификатора]","CLASSIFIER_EXAMPLE"))
-        self.assertEqual(code_list.example_value,"[идентификатор]")
+        self.assertEqual((country.example_value,country.example_origin),("RU","DATATYPE_EXAMPLE"))
+        self.assertEqual(code_list.example_value,"123456")
         self.assertEqual((update.example_value,update.ui_input_policy),("2026-08-24T15:24:00+03:00","EXTERNAL_SYSTEM"))
 
     def test_unresolved_ui_audit_preserves_conditional_policy(self):

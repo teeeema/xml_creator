@@ -89,7 +89,7 @@ def _generation_values() -> dict[str, object]:
         f"{PARTY}/ipsdo:IPSubjectName/@languageCode": "RU",
 
         PARTY_ADDR: [""],
-        f"{PARTY_ADDR}/csdo:AddressKindCode": "1",
+        f"{PARTY_ADDR}/csdo:AddressKindCode": "2",
         f"{PARTY_ADDR}/csdo:UnifiedCountryCode": "RU",
         f"{PARTY_ADDR}/csdo:UnifiedCountryCode/@codeListId": "ВОИС ST.3",
         f"{PARTY_ADDR}/csdo:CityName": "Москва",

@@ -5,14 +5,14 @@ from pathlib import Path
 PACKAGE = Path(__file__).resolve().parents[1]
 MESSAGE = "P.SP.02.MSG.053"
 R007 = "ipcdo:UnifiedRegisterRecordsDetails"
-FULL = {
+FULL = {18,
     2, 3,
     6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
     20,
     24, 25, 26,
 }
 SAFE_PARTIAL = {1, 4, 5}
-ENGINE_UNSUPPORTED = {18, 19, 21, 22, 23}
+ENGINE_UNSUPPORTED = {19, 21, 22, 23}
 UNMAPPED = ENGINE_UNSUPPORTED
 INHERITED = set(range(6, 20))
 EXACT_DOC_NAME = (
@@ -44,11 +44,11 @@ def test_inventory_and_classification_are_exact():
     assert audit["summary"]["SOURCE_CONFLICT"] == []
     assert sum(audit["classification_counts"].values()) == 26
     assert audit["classification_counts"] == {
-        "FULLY_MAPPABLE": 18,
+        "FULLY_MAPPABLE": 19,
         "SAFE_PARTIAL": 3,
         "EXTERNAL": 0,
         "AMBIGUOUS": 0,
-        "ENGINE_UNSUPPORTED": 5,
+        "ENGINE_UNSUPPORTED": 4,
         "SOURCE_CONFLICT": 0,
     }
 
@@ -59,7 +59,7 @@ def test_inventory_and_classification_are_exact():
         executable_codes.add(req_num)
 
     assert executable_codes == (FULL | SAFE_PARTIAL)
-    assert len(executable_codes) == 21
+    assert len(executable_codes) == 22
     assert executable_codes.isdisjoint(UNMAPPED)
 
     for code in UNMAPPED:

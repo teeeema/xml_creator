@@ -1,6 +1,8 @@
 from datetime import date, timedelta
 from pathlib import Path
 from random import Random
+import re
+from typing import Mapping
 from uuid import UUID
 from xml.etree import ElementTree as ET
 
@@ -35,18 +37,34 @@ class TestDataGenerator:
     """Creates reproducible minimal values from a public FormDefinition."""
 
     def generate(self, form: FormDefinition, *, seed: int = 0,
-                 structured_rules=()) -> dict[str, object]:
+                 structured_rules=(), mode: str = "test",
+                 existing_values: Mapping[str, object] | None = None) -> dict[str, object]:
+        if mode not in {"test", "required"}:
+            raise ValueError(f"Unknown form data mode: {mode}")
         if form.generation_status == "NORMATIVE_CONFLICT":
-            return {}
+            return dict(existing_values or {}) if mode == "required" else {}
         random = Random(seed)
-        result: dict[str, object] = {}
+        result: dict[str, object] = dict(existing_values or {}) if mode == "required" else {}
         fields_by_path = {field.path: field for field in self._walk(form.fields)}
-        rule_paths = self._structured_rule_paths(structured_rules)
+        required_cardinalities = {}
+        for rule in structured_rules:
+            if (rule.get("kind") == "cardinality" and rule.get("min_occurs", 0) > 0
+                    and rule.get("target") in fields_by_path
+                    and rule.get("applies_to_structure", form.structure_id) == form.structure_id):
+                target = rule["target"]
+                required_cardinalities[target] = max(required_cardinalities.get(target, 0),
+                                                     rule["min_occurs"])
+        rule_paths = (set(required_cardinalities) if mode == "required" else
+                      self._structured_rule_paths(structured_rules))
 
         def explicitly_required(field: FieldView) -> bool:
             return any(hint == "message_rule=REQUIRED" for hint in field.validation_hints)
 
         def should_include(field: FieldView) -> bool:
+            if mode == "required":
+                return ((field.required and field.normative_input_policy != "CONDITIONAL") or
+                        any(path == field.path or path.startswith(field.path + "/")
+                            for path in rule_paths))
             required_by_structured_rule = any(
                 path == field.path or path.startswith(field.path + "/")
                 for path in rule_paths
@@ -63,16 +81,40 @@ class TestDataGenerator:
         def visit(field: FieldView) -> None:
             if field.visibility == "HIDDEN" or not should_include(field):
                 return
+            if mode == "required" and field.classifier and field.fixed_value is None and not field.allowed_values:
+                return
             if field.children:
-                if field.ui_input_policy == "GROUP":
-                    result[field.path] = [None] * field.min_occurs if field.repeatable and (field.min_occurs or 0) > 1 else None
-                else:
-                    value = field.fixed_value if field.fixed_value is not None else self._value(field, random)
-                    result[field.path] = [value] * field.min_occurs if field.repeatable and (field.min_occurs or 0) > 1 else value
+                if result.get(field.path) in (None, "", [], ()):
+                    if field.ui_input_policy == "GROUP":
+                        result[field.path] = ([None] * max(1, field.min_occurs or 0)
+                                              if mode == "required" and field.repeatable else
+                                              [None] * field.min_occurs if field.repeatable and (field.min_occurs or 0) > 1 else None)
+                    else:
+                        value = field.fixed_value if field.fixed_value is not None else self._value(field, random)
+                        result[field.path] = [value] * field.min_occurs if field.repeatable and (field.min_occurs or 0) > 1 else value
                 for child in field.children:
                     visit(child)
                 return
+            if mode == "required" and result.get(field.path) not in (None, "", [], ()):
+                return
             value = field.fixed_value if field.fixed_value is not None else self._value(field, random)
+            if mode == "required" and field.allowed_values and field.fixed_value is None:
+                value = field.allowed_values[0]
+            if mode == "required" and field.pattern:
+                try:
+                    matches = re.fullmatch(field.pattern, str(value)) is not None
+                except re.error:
+                    matches = False
+                if not matches:
+                    candidate = field.example_value
+                    if candidate is None:
+                        return
+                    try:
+                        if re.fullmatch(field.pattern, str(candidate)) is None:
+                            return
+                    except re.error:
+                        return
+                    value = candidate
             result[field.path] = [value] * field.min_occurs if field.repeatable and (field.min_occurs or 0) > 1 else value
 
         for field in form.fields:
@@ -80,9 +122,21 @@ class TestDataGenerator:
         for field in self._walk(form.fields):
             if field.path not in result:
                 continue
+            if mode == "required" and existing_values and existing_values.get(field.path) not in (None, "", [], ()):
+                continue
             if field.xml_name == "InfEnvelopeCode": result[field.path] = form.message_code
             elif field.xml_name == "EDocCode": result[field.path] = form.structure_id
-        self._apply_structured_rules(result, fields_by_path, structured_rules, random)
+        if mode == "required":
+            for path, minimum in required_cardinalities.items():
+                if not fields_by_path[path].children:
+                    continue
+                value = result.get(path)
+                if value is None:
+                    result[path] = [None] * minimum
+                elif isinstance(value, list) and len(value) < minimum:
+                    result[path] = [*value, *([None] * (minimum - len(value)))]
+        if mode == "test":
+            self._apply_structured_rules(result, fields_by_path, structured_rules, random)
         return result
 
     @staticmethod
@@ -278,7 +332,8 @@ class TestDataGenerator:
             return str(UUID(int=random.getrandbits(128), version=4))
         datatype = (field.datatype or "").lower()
         if datatype == "any_xml": return ET.Element("{urn:test:external}Payload")
-        if "uuid" in datatype:return str(UUID(int=random.getrandbits(128),version=4))
+        if "uuid" in datatype or "universallyuniqueid" in datatype:
+            return str(UUID(int=random.getrandbits(128),version=4))
         if "indicator" in datatype or "boolean" in datatype:return True
         if "countrycode" in datatype:return "AA"
         if "datetime" in datatype:return "2026-08-24T00:00:00"

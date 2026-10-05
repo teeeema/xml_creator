@@ -5,8 +5,8 @@ from pathlib import Path
 PACKAGE = Path(__file__).resolve().parents[1]
 MESSAGE = "P.SP.02.MSG.042"
 APP = "ipcdo:TrademarkApplicationDetails"
-FULL = {1, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35}
-UNMAPPED = {2, 3, 13, 16, 17, 18, 19, 20, 26}
+FULL = {1, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35}
+UNMAPPED = ({2, 3, 13, 16, 17, 18, 19, 20, 26}) - {16, 17, 18, 19, 20, 26}
 
 
 def raw():
@@ -25,7 +25,7 @@ def test_inventory_and_classification_are_exact():
     assert audit["summary"]["SAFE_PARTIAL"] == [4]
     assert audit["summary"]["EXTERNAL"] == [2, 3]
     assert audit["summary"]["AMBIGUOUS"] == [13]
-    assert audit["summary"]["ENGINE_UNSUPPORTED"] == [16, 17, 18, 19, 20, 26]
+    assert audit["summary"]["ENGINE_UNSUPPORTED"] == []
     assert sum(audit["classification_counts"].values()) == 35
 
 
@@ -61,8 +61,19 @@ def test_signature_validity_and_indicator_rules_have_exact_owners():
 
 
 def test_req26_has_no_executable_mapping():
-    assert not rules(26)
-    audit = raw()["mapping_audit"]
-    inv_26 = next(item for item in audit["inventory"] if item["requirement_code"] == "26")
-    assert inv_26["classification"] == "ENGINE_UNSUPPORTED"
-    assert inv_26["mapping_status"] == "UNMAPPED"
+    data = raw()
+    inventory = data['mapping_audit']['inventory']
+    for item in inventory:
+        code = item['requirement_code']
+        prefix = MESSAGE + '.T' + item['source_refs'][0]['table'] + '.REQ.' + code
+        executable = [r for r in data['structured_rules'] if r['rule_id'] == prefix or r['rule_id'].startswith(prefix + '.')]
+        if item['classification'] in ('EXTERNAL', 'AMBIGUOUS', 'ENGINE_UNSUPPORTED', 'SOURCE_CONFLICT'):
+            assert not executable
+        if code in ('16', '17', '18', '19', '20', '26'):
+            assert item['classification'] == 'FULLY_MAPPABLE'
+            assert item['mapping_status'] == 'EXECUTABLE'
+            assert item['engine_gap'] is None
+            assert executable
+            assert all(r['source_refs'] == item['source_refs'] for r in executable)
+            if code == '26':
+                assert 'any' in executable[0]['assertions'][0]['condition']

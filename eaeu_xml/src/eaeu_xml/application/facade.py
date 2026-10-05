@@ -292,9 +292,11 @@ class EaeuXmlApplication:
             example_result = self.example_value_resolver.resolve(
                 datatype=field.datatype, description=field.description,
                 fixed_value=fixed.get(field.path, automatic_value),
-                allowed_values=explicit_policy.allowed_values if explicit_policy else (),
+                allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
+                                else field.facets.enum if field.facets else ()),
                 existing_value=resolved.example_value,
                 classifier=resolved.input_policy == "CLASSIFIER",
+                pattern=field.facets.pattern if field.facets else None,
             ) if not children.get(field.field_id) or resolved.input_policy == "CLASSIFIER" else self.example_value_resolver.resolve(
                 datatype=None, description=field.description)
             example = example_result.value
@@ -311,7 +313,8 @@ class EaeuXmlApplication:
             return FieldView(field.path, field.xml_name, caption,
                              field.description, field.kind, field.datatype, required, field.min_occurs, field.max_occurs,
                              field.kind == "ATTRIBUTE", field.max_occurs is None or (field.max_occurs or 0) > 1,
-                             allowed_values=explicit_policy.allowed_values if explicit_policy else (),
+                             allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
+                                             else field.facets.enum if field.facets else ()),
                              fixed_value=fixed.get(field.path, automatic_value), classifier=field.classifier_ref,
                              editable=ui_resolved.editable,
                              visibility="VISIBLE" if ui_resolved.visible else "HIDDEN", validation_hints=hints,
@@ -333,7 +336,8 @@ class EaeuXmlApplication:
                              show_timezone_picker=date_helpers_allowed and category == "DATETIME",
                              show_identifier_generator=show_identifier,
                              supports_file_picker=binary_file,
-                             assisted_input_kind=("FILE" if binary_file else "IDENTIFIER" if show_identifier else category if date_helpers_allowed else None))
+                             assisted_input_kind=("FILE" if binary_file else "IDENTIFIER" if show_identifier else category if date_helpers_allowed else None),
+                             pattern=field.facets.pattern if field.facets else None)
         status, reason = self._preflight(engine, transaction_code, message_code)
         roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
         active = engine.package.profile.structures[message.structure_id].active_version
@@ -413,6 +417,16 @@ class EaeuXmlApplication:
                 (item.rule.effect=="HIDE" and item.result.value=="TRUE")):
                 values.pop(item.rule.target_field_path,None)
         return values
+
+    def generate_required_data(self, process_code: str, transaction_code: str, message_code: str,
+                               *, existing_values=None, seed: int = 0):
+        """Fill only unconditional form requirements, preserving user values."""
+        rules = self._engine(process_code).rules.get(message_code)
+        return self.test_data_generator.generate(
+            self.get_form(process_code, transaction_code, message_code),
+            seed=seed, mode="required", existing_values=existing_values,
+            structured_rules=rules.structured_rules if rules else (),
+        )
 
     def validate(self, process_code: str, transaction_code: str, message_code: str,
                  values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.TEST) -> ValidationView:

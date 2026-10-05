@@ -23,6 +23,19 @@ RESOURCE_STATUS = "ccdo:ResourceItemStatusDetails"
 RESOURCE_VALIDITY = f"{RESOURCE_STATUS}/ccdo:ValidityPeriodDetails"
 
 MAPPED_REQUIREMENTS = {
+    "P.SP.02.MSG.001.REQ.014",
+    "P.SP.02.MSG.001.REQ.015",
+    "P.SP.02.MSG.001.REQ.016",
+    "P.SP.02.MSG.001.REQ.017",
+    "P.SP.02.MSG.001.REQ.018",
+    "P.SP.02.MSG.001.REQ.019",
+    "P.SP.02.MSG.001.REQ.020",
+    "P.SP.02.MSG.001.REQ.021",
+    "P.SP.02.MSG.001.REQ.022",
+    "P.SP.02.MSG.001.REQ.026",
+    "P.SP.02.MSG.001.REQ.033",
+    "P.SP.02.MSG.001.REQ.017.LANGUAGE",
+
     "P.SP.02.MSG.001.REQ.001",
     "P.SP.02.MSG.001.REQ.002",
     "P.SP.02.MSG.001.REQ.003",
@@ -60,6 +73,24 @@ def _rules():
 def _rule_values() -> dict[str, object]:
     return {
         APP: [None],
+        f"{APP}/ipcdo:IPPartyDetails": [None],
+        f"{APP}/ipcdo:IPPartyDetails/ipsdo:IPPartyKindCode": "AP",
+        f"{APP}/ipcdo:IPPartyDetails/csdo:UnifiedCountryCode": "RU",
+        f"{APP}/ipcdo:IPPartyDetails/csdo:UnifiedCountryCode/@codeListId": "ВОИС ST.3",
+        f"{APP}/ipcdo:IPPartyDetails/ipsdo:IPSubjectName": "Заявитель",
+        f"{APP}/ipcdo:IPPartyDetails/ipsdo:IPSubjectName/@nameRepresentationKindCode": "OR",
+        f"{APP}/ipcdo:IPPartyDetails/ipsdo:IPSubjectName/@languageCode": "RU",
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails": [""],
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:AddressKindCode": "2",
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode": "RU",
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode/@codeListId": "ВОИС ST.3",
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:CityName": "Москва",
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:StreetName": "Тестовая",
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:BuildingNumberId": "1",
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:CommunicationDetails": [""],
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelCode": "EM",
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelId": "test@example.com",
+
         f"{APP}/ipsdo:TrademarkApplicationId": "2026/RU-000001",
         f"{APP}/ipsdo:ApplicationReceiptDate": "2026-09-18",
         STATUS: [None],
@@ -141,8 +172,9 @@ def test_msg001_structured_rules_are_linked_to_captured_requirements() -> None:
 
     assert {rule["rule_id"] for rule in rules.structured_rules} == MAPPED_REQUIREMENTS
     for rule in rules.structured_rules:
-        assert rule["rule_id"] in captured
-        assert rule["source_refs"] == captured[rule["rule_id"]]["source_refs"]
+        base_id = rule["rule_id"].removesuffix(".LANGUAGE")
+        assert base_id in captured
+        assert rule["source_refs"] == captured[base_id]["source_refs"]
 
 
 def test_partial_mappings_are_explicitly_marked() -> None:
@@ -348,6 +380,24 @@ def _generation_values() -> dict[str, object]:
         "ccdo:EDocHeader/csdo:EDocId": "00000000-0000-0000-0000-000000000001",
         "ccdo:EDocHeader/csdo:EDocDateTime": "2026-09-18T12:00:00+03:00",
         APP: [None],
+        f"{APP}/ipcdo:IPPartyDetails": [None],
+        f"{APP}/ipcdo:IPPartyDetails/ipsdo:IPPartyKindCode": "AP",
+        f"{APP}/ipcdo:IPPartyDetails/csdo:UnifiedCountryCode": "RU",
+        f"{APP}/ipcdo:IPPartyDetails/csdo:UnifiedCountryCode/@codeListId": "ВОИС ST.3",
+        f"{APP}/ipcdo:IPPartyDetails/ipsdo:IPSubjectName": "Заявитель",
+        f"{APP}/ipcdo:IPPartyDetails/ipsdo:IPSubjectName/@nameRepresentationKindCode": "OR",
+        f"{APP}/ipcdo:IPPartyDetails/ipsdo:IPSubjectName/@languageCode": "RU",
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails": [""],
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:AddressKindCode": "2",
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode": "RU",
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode/@codeListId": "ВОИС ST.3",
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:CityName": "Москва",
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:StreetName": "Тестовая",
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:BuildingNumberId": "1",
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:CommunicationDetails": [""],
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelCode": "EM",
+        f"{APP}/ipcdo:IPPartyDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelId": "test@example.com",
+
         f"{APP}/ipsdo:ApplicationReceiptDate": "2026-09-18",
         f"{APP}/ipsdo:TrademarkApplicationId": "TEST-001",
         TRADEMARK: [None],

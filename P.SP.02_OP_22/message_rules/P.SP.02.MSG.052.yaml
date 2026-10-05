@@ -1657,23 +1657,263 @@
           "item": "31"
         }
       ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.22.CANCEL",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails",
+        "where": {
+          "field": "ipcdo:IPEntityStatusDetails/csdo:StatusCode",
+          "operator": "EQ",
+          "value": "04"
+        }
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:EndDateTime"
+          },
+          "operator": "GT",
+          "right": {
+            "field": "ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:StartDateTime"
+          },
+          "value_type": "DATETIME"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-22",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 795,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "22"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.22.NEW",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails",
+        "where": {
+          "field": "ipcdo:IPEntityStatusDetails/csdo:StatusCode",
+          "operator": "EQ",
+          "value": "01"
+        }
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "selector": {
+              "collection": "ipcdo:UnifiedRegisterRecordsDetails",
+              "where": {
+                "field": "ipcdo:IPEntityStatusDetails/csdo:StatusCode",
+                "operator": "EQ",
+                "value": "04"
+              }
+            },
+            "field": "ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:EndDateTime"
+          },
+          "operator": "LT",
+          "right": {
+            "field": "ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:StartDateTime"
+          },
+          "value_type": "DATETIME"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-22",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 795,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "22"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.24",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails",
+        "where": {
+          "field": "ipcdo:IPEntityStatusDetails/csdo:StatusCode",
+          "operator": "EQ",
+          "value": "01"
+        }
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkId"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "ipsdo:TrademarkId"
+          },
+          "operator": "EQ",
+          "right": {
+            "selector": {
+              "collection": "ipcdo:UnifiedRegisterRecordsDetails",
+              "where": {
+                "field": "ipcdo:IPEntityStatusDetails/csdo:StatusCode",
+                "operator": "EQ",
+                "value": "04"
+              }
+            },
+            "field": "ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipsdo:TrademarkNewId"
+          }
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-24",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 795,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "24"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.18",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-6-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 794,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-19"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T49-18",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 49",
+          "status": "CONFIRMED",
+          "page": 739,
+          "table": "49",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "18"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails",
+        "where": {
+          "field": "ipcdo:TrademarkDetails/ipsdo:CollectiveMarkIndicator",
+          "operator": "IN",
+          "value": [
+            "1",
+            "true",
+            true
+          ]
+        }
+      },
+      "assertions": [
+        {
+          "kind": "selection_cardinality",
+          "selector": {
+            "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails",
+            "where": {
+              "field": "ipsdo:IPPartyKindCode",
+              "operator": "EQ",
+              "value": "UE"
+            }
+          },
+          "min_occurs": 1
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.052.T70.REQ.3",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "kind": "selection_cardinality",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 70",
+          "status": "CONFIRMED",
+          "page": 793,
+          "table": "70",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "3"
+        }
+      ],
+      "when": {
+        "count": {
+          "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails",
+          "parent": {
+            "collection": "ipcdo:UnifiedRegisterRecordsDetails",
+            "where": {
+              "field": "ipcdo:IPEntityStatusDetails/csdo:StatusCode",
+              "operator": "EQ",
+              "value": "04"
+            }
+          },
+          "where": {
+            "field": "ipsdo:CancellationStatusIndicator",
+            "operator": "IN",
+            "value": [
+              "1",
+              "true",
+              true
+            ]
+          }
+        },
+        "operator": "GE",
+        "value": 1
+      },
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails",
+        "where": {
+          "field": "ipcdo:IPEntityStatusDetails/csdo:StatusCode",
+          "operator": "EQ",
+          "value": "01"
+        }
+      },
+      "min_occurs": 1
     }
   ],
   "mapping_audit": {
     "captured_row_count": 18,
     "expanded_requirement_count": 31,
     "classification_counts": {
-      "FULLY_MAPPABLE": 19,
+      "FULLY_MAPPABLE": 23,
       "SAFE_PARTIAL": 6,
       "EXTERNAL": 0,
       "AMBIGUOUS": 0,
-      "ENGINE_UNSUPPORTED": 6,
+      "ENGINE_UNSUPPORTED": 2,
       "SOURCE_CONFLICT": 0
     },
     "summary": {
       "FULLY_MAPPABLE": [
         1,
         2,
+        3,
         4,
         6,
         7,
@@ -1687,7 +1927,10 @@
         15,
         16,
         17,
+        18,
+        22,
         23,
+        24,
         29,
         30,
         31
@@ -1703,12 +1946,8 @@
       "EXTERNAL": [],
       "AMBIGUOUS": [],
       "ENGINE_UNSUPPORTED": [
-        3,
-        18,
         19,
-        21,
-        22,
-        24
+        21
       ],
       "SOURCE_CONFLICT": []
     },
@@ -1779,8 +2018,8 @@
         "table": "70",
         "branch": "R.IP.SP.02.007",
         "requirement_code": "3",
-        "classification": "ENGINE_UNSUPPORTED",
-        "mapping_status": "UNMAPPED",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-3",
@@ -1793,13 +2032,11 @@
             "item": "3"
           }
         ],
-        "reason": "Requires data-dependent creation of a second record from nested goods state; current rules engine cannot express this cross-record obligation.",
+        "reason": "Any CANCEL-owned goods flag1 conditionally requires the semantic NEW record; order-independent filtered counts.",
         "safe_fragment": null,
-        "unmapped_remainder": [
-          "conditional requirement for a second new-registration record"
-        ],
+        "unmapped_remainder": [],
         "external_dependency": null,
-        "engine_gap": "Cross-record conditional cardinality based on nested repeated GoodsBaseDetails.",
+        "engine_gap": null,
         "source_conflict": null,
         "target_paths": [],
         "owner": "ipcdo:UnifiedRegisterRecordsDetails",
@@ -2367,8 +2604,8 @@
         "table": "70/49",
         "branch": "R.IP.SP.02.007",
         "requirement_code": "18",
-        "classification": "ENGINE_UNSUPPORTED",
-        "mapping_status": "UNMAPPED",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-6-19",
@@ -2391,13 +2628,11 @@
             "item": "18"
           }
         ],
-        "reason": "Inherited Table 49 requirement remains engine-unsupported under the authoritative classification.",
+        "reason": "CollectiveMarkIndicator1 requires at least one UE party within the same register record.",
         "safe_fragment": null,
-        "unmapped_remainder": [
-          "entire requirement"
-        ],
+        "unmapped_remainder": [],
         "external_dependency": null,
-        "engine_gap": "Typed/semantic constraint not representable by current structured rules.",
+        "engine_gap": null,
         "source_conflict": null,
         "target_paths": [],
         "owner": "ipcdo:UnifiedRegisterRecordsDetails",
@@ -2513,8 +2748,8 @@
         "table": "70",
         "branch": "R.IP.SP.02.007",
         "requirement_code": "22",
-        "classification": "ENGINE_UNSUPPORTED",
-        "mapping_status": "UNMAPPED",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-22",
@@ -2527,13 +2762,13 @@
             "item": "22"
           }
         ],
-        "reason": "Cross-record typed/date relationship is not representable by current rules engine.",
+        "reason": "Semantic owner-scoped production comparisons; REQ22 typed DATETIME, REQ24 exact ID equality. No positional role assumptions.",
         "safe_fragment": null,
         "unmapped_remainder": [
           "entire requirement"
         ],
         "external_dependency": null,
-        "engine_gap": "Typed cross-record date comparison.",
+        "engine_gap": null,
         "source_conflict": null,
         "target_paths": [],
         "owner": "ipcdo:UnifiedRegisterRecordsDetails",
@@ -2575,8 +2810,8 @@
         "table": "70",
         "branch": "R.IP.SP.02.007",
         "requirement_code": "24",
-        "classification": "ENGINE_UNSUPPORTED",
-        "mapping_status": "UNMAPPED",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.052-T70-24",
@@ -2589,13 +2824,13 @@
             "item": "24"
           }
         ],
-        "reason": "Cross-record equality is not representable by current rules engine.",
+        "reason": "Semantic owner-scoped production comparisons; REQ22 typed DATETIME, REQ24 exact ID equality. No positional role assumptions.",
         "safe_fragment": null,
         "unmapped_remainder": [
           "entire requirement"
         ],
         "external_dependency": null,
-        "engine_gap": "Cross-record value equality.",
+        "engine_gap": null,
         "source_conflict": null,
         "target_paths": [],
         "owner": "ipcdo:UnifiedRegisterRecordsDetails",

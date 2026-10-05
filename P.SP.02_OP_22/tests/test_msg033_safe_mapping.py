@@ -18,10 +18,10 @@ FALLBACK = (
     "знака обслуживания Евразийского экономического союза"
 )
 
-FULL = {1, 2, 6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37}
+FULL = {1, 2, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37}
 PARTIAL = {3, 4, 5}
 AMBIGUOUS = {13}
-ENGINE = {16, 17, 18, 19, 20, 26}
+ENGINE = set()
 INHERITED = set(range(6, 30))
 
 
@@ -58,7 +58,7 @@ def test_mapping_classification_is_complete_and_non_approximating():
         "EXTERNAL": [],
         "SOURCE_CONFLICT": [],
     }
-    mapped = {int(rule["rule_id"].rsplit(".", 1)[1]) for rule in _raw()["structured_rules"]}
+    mapped = {int(rule["rule_id"].split(".REQ.")[1].split(".")[0]) for rule in _raw()["structured_rules"]}
     assert mapped == FULL | PARTIAL
     assert not mapped.intersection(AMBIGUOUS | ENGINE)
 
@@ -91,7 +91,7 @@ def test_inherited_req6_29_have_dual_table51_and_original_table44_provenance():
         assert original["source_id"].endswith(f"-T44-{code}")
 
     for rule in _raw()["structured_rules"]:
-        code = int(rule["rule_id"].rsplit(".", 1)[1])
+        code = int(rule["rule_id"].split(".REQ.")[1].split(".")[0])
         if code in INHERITED:
             current, original = rule["source_refs"]
             assert current["source_id"] == "22OP-RULE-P.SP.02.MSG.033-T51-6-29"
@@ -163,22 +163,42 @@ def test_req13_is_ambiguous_and_unmapped():
     assert "PA/RE" in item["reason"]
 
 
-def test_req16_20_are_engine_unsupported_and_unmapped():
-    for code in range(16, 21):
-        assert not _rules(code)
-        item = _inventory(code)
-        assert item["classification"] == "ENGINE_UNSUPPORTED"
-        assert item["mapping_status"] == "UNMAPPED"
-        assert item["engine_gap"] == "missing exact nested repeated correlation/filter semantics"
+def test_req16_20_are_engine_supported_and_mapped_inventory():
+    data = _raw()
+    inventory = data['mapping_audit']['inventory']
+    for item in inventory:
+        code = item['requirement_code']
+        prefix = MESSAGE + '.T' + item['source_refs'][0]['table'] + '.REQ.' + code
+        executable = [r for r in data['structured_rules'] if r['rule_id'] == prefix or r['rule_id'].startswith(prefix + '.')]
+        if item['classification'] in ('EXTERNAL', 'AMBIGUOUS', 'ENGINE_UNSUPPORTED', 'SOURCE_CONFLICT'):
+            assert not executable
+        if code in ('16', '17', '18', '19', '20', '26'):
+            assert item['classification'] == 'FULLY_MAPPABLE'
+            assert item['mapping_status'] == 'EXECUTABLE'
+            assert item['engine_gap'] is None
+            assert executable
+            assert all(r['source_refs'] == item['source_refs'] for r in executable)
+            if code == '26':
+                assert 'any' in executable[0]['assertions'][0]['condition']
 
 
-def test_req26_normative_or_is_unmapped_without_strengthening_to_and():
-    assert not _rules(26)
-    item = _inventory(26)
-    assert item["classification"] == "ENGINE_UNSUPPORTED"
-    assert " OR " in item["reason"]
-    assert "AND" in item["reason"]
-    assert [ref["table"] for ref in item["source_refs"]] == ["51", "44"]
+def test_req26_normative_or_is_mapped_inventory_without_strengthening_to_and():
+    data = _raw()
+    inventory = data['mapping_audit']['inventory']
+    for item in inventory:
+        code = item['requirement_code']
+        prefix = MESSAGE + '.T' + item['source_refs'][0]['table'] + '.REQ.' + code
+        executable = [r for r in data['structured_rules'] if r['rule_id'] == prefix or r['rule_id'].startswith(prefix + '.')]
+        if item['classification'] in ('EXTERNAL', 'AMBIGUOUS', 'ENGINE_UNSUPPORTED', 'SOURCE_CONFLICT'):
+            assert not executable
+        if code in ('16', '17', '18', '19', '20', '26'):
+            assert item['classification'] == 'FULLY_MAPPABLE'
+            assert item['mapping_status'] == 'EXECUTABLE'
+            assert item['engine_gap'] is None
+            assert executable
+            assert all(r['source_refs'] == item['source_refs'] for r in executable)
+            if code == '26':
+                assert 'any' in executable[0]['assertions'][0]['condition']
 
 
 def test_req27_uses_same_trademark_code_or_name_condition():

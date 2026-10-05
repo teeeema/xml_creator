@@ -129,7 +129,10 @@ def _add_party(app, structure, role, *, omit=None):
     party = _child(app, structure, 'ipcdo', 'IPPartyDetails')
     _child(party, structure, 'ipsdo', 'IPPartyKindCode', role)
     _child(party, structure, 'csdo', 'UnifiedCountryCode', 'RU', attrs={'codeListId': 'ВОИС ST.3'})
-    _child(party, structure, 'ipsdo', 'IPSubjectName', f'Party {role}')
+    name = _child(party, structure, 'ipsdo', 'IPSubjectName', f'Party {role}')
+    if role == 'AP':
+        name.set('nameRepresentationKindCode', 'OR')
+        name.set('languageCode', 'RU')
     if omit != 'address':
         _add_address(party, structure)
     if omit != 'communication':
@@ -175,7 +178,7 @@ def test_valid_msg028_build_serialize_parse_extract_validate_pipeline():
     assert values[f'{APP}/ipsdo:IPDocKindName'] == FALLBACK
     assert validation.is_valid, [(i.code, i.rule_id, i.field_path, i.message) for i in validation.issues]
     assert validation.is_complete
-    assert len(validation.rule_evaluations) == 45
+    assert len(validation.rule_evaluations) == 48
     assert all(item.status is RuleStatus.PASS for item in validation.rule_evaluations)
     transaction = engine.get_transaction(TRANSACTION)
     assert transaction.initiating_message == MESSAGE

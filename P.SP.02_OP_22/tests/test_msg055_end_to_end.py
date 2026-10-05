@@ -39,6 +39,14 @@ def valid_values():
         "ccdo:EDocHeader/csdo:EDocCode": "R.IP.SP.03.003",
         "ccdo:EDocHeader/csdo:EDocId": "00000000-0000-0000-0000-000000000055",
         "ccdo:EDocHeader/csdo:EDocDateTime": "2026-09-30T14:00:00+03:00",
+        PAYMENT: [None],
+        f"{PAYMENT}/csdo:PaymentKindName": "Пошлина",
+        f"{PAYMENT}/ccdo:BankAccountDetails": [""],
+        f"{PAYMENT}/ccdo:BankAccountDetails/csdo:BankAccountId": "00000000000000000000",
+        f"{PAYMENT}/ccdo:BankAccountDetails/ccdo:BankDetails": [""],
+        f"{PAYMENT}/ccdo:BankAccountDetails/ccdo:BankDetails/csdo:BusinessEntityName": "Тестовый банк",
+        f"{PAYMENT}/ccdo:BankAccountDetails/ccdo:BankDetails/csdo:UnifiedBankId": "044525225",
+        f"{PAYMENT}/ccdo:BankAccountDetails/ccdo:BankDetails/csdo:UnifiedBankId/@schemeId": "BIC",
         AUTHORITY: [None],
         f"{AUTHORITY}/csdo:UnifiedCountryCode": "RU",
         f"{AUTHORITY}/csdo:UnifiedCountryCode/@codeListId": "ВОИС ST.3",
@@ -52,7 +60,7 @@ def valid_values():
     }
 
 
-def test_build_serialize_parse_extract_validate_roundtrip_zero_payment():
+def test_build_serialize_parse_extract_validate_roundtrip_with_required_account():
     engine = _engine()
     structure = engine.get_structure(MESSAGE, mode=GenerationMode.TEST)
     original = valid_values()

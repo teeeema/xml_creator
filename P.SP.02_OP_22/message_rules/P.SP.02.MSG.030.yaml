@@ -1899,6 +1899,436 @@
         }
       ],
       "applies_to_structure": "R.IP.SP.02.002"
+    },
+    {
+      "rule_id": "P.SP.02.MSG.030.T46.REQ.16",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 729,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.028-T44-16",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов P.SP.02.MSG.028",
+          "status": "CONFIRMED",
+          "page": 717,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "16"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails/ipsdo:IPSubjectName",
+        "parent": {
+          "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+          "where": {
+            "field": "ipsdo:IPPartyKindCode",
+            "operator": "EQ",
+            "value": "AP"
+          }
+        }
+      },
+      "assertions": [
+        {
+          "kind": "comparison",
+          "left": {
+            "field": "@nameRepresentationKindCode"
+          },
+          "operator": "IN",
+          "right_value": [
+            "OR",
+            "LA"
+          ]
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.030.T46.REQ.17",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 729,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.028-T44-17",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов P.SP.02.MSG.028",
+          "status": "CONFIRMED",
+          "page": 717,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "17"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "EQ",
+          "value": "AP"
+        }
+      },
+      "assertions": [
+        {
+          "kind": "selection_cardinality",
+          "selector": {
+            "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails/ipsdo:IPSubjectName",
+            "parent": {
+              "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+              "where": {
+                "field": "ipsdo:IPPartyKindCode",
+                "operator": "EQ",
+                "value": "AP"
+              }
+            },
+            "where": {
+              "field": "@nameRepresentationKindCode",
+              "operator": "EQ",
+              "value": "OR"
+            }
+          },
+          "min_occurs": 1,
+          "max_occurs": 1
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.030.T46.REQ.17.LANGUAGE",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 729,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.028-T44-17",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов P.SP.02.MSG.028",
+          "status": "CONFIRMED",
+          "page": 717,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "17"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails/ipsdo:IPSubjectName",
+        "parent": {
+          "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+          "where": {
+            "field": "ipsdo:IPPartyKindCode",
+            "operator": "EQ",
+            "value": "AP"
+          }
+        },
+        "where": {
+          "field": "@nameRepresentationKindCode",
+          "operator": "EQ",
+          "value": "OR"
+        }
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "@languageCode"
+          },
+          "state": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.030.T46.REQ.18",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "kind": "conditional_presence",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 729,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.028-T44-18",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов P.SP.02.MSG.028",
+          "status": "CONFIRMED",
+          "page": 718,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "18"
+        }
+      ],
+      "scope": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "EQ",
+          "value": "AP"
+        }
+      },
+      "condition": {
+        "field": "ipsdo:IPSubjectName/@languageCode",
+        "position": 1,
+        "operator": "EQ",
+        "value": "RU"
+      },
+      "target": {
+        "field": "ipsdo:IPSubjectName",
+        "position": 2
+      },
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "P.SP.02.MSG.030.T46.REQ.19",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 729,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.028-T44-19",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов P.SP.02.MSG.028",
+          "status": "CONFIRMED",
+          "page": 718,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "19"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+        "where": {
+          "field": "ipsdo:IPPartyKindCode",
+          "operator": "EQ",
+          "value": "AP"
+        }
+      },
+      "assertions": [
+        {
+          "kind": "conditional_presence",
+          "condition": {
+            "all": [
+              {
+                "field": "ipsdo:IPSubjectName/@languageCode",
+                "position": 1,
+                "operator": "NE",
+                "value": null
+              },
+              {
+                "field": "ipsdo:IPSubjectName/@languageCode",
+                "position": 1,
+                "operator": "NE",
+                "value": "RU"
+              }
+            ]
+          },
+          "target": {
+            "field": "ipsdo:IPSubjectName",
+            "position": 2
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "conditional_fixed_value",
+          "condition": {
+            "all": [
+              {
+                "field": "ipsdo:IPSubjectName/@languageCode",
+                "position": 1,
+                "operator": "NE",
+                "value": null
+              },
+              {
+                "field": "ipsdo:IPSubjectName/@languageCode",
+                "position": 1,
+                "operator": "NE",
+                "value": "RU"
+              }
+            ]
+          },
+          "target": {
+            "field": "ipsdo:IPSubjectName/@nameRepresentationKindCode",
+            "position": 2
+          },
+          "value": "LA"
+        },
+        {
+          "kind": "conditional_presence",
+          "condition": {
+            "all": [
+              {
+                "field": "ipsdo:IPSubjectName/@languageCode",
+                "position": 1,
+                "operator": "NE",
+                "value": null
+              },
+              {
+                "field": "ipsdo:IPSubjectName/@languageCode",
+                "position": 1,
+                "operator": "NE",
+                "value": "RU"
+              }
+            ]
+          },
+          "target": {
+            "field": "ipsdo:IPSubjectName/@languageCode",
+            "position": 2
+          },
+          "state": "FORBIDDEN"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.030.T46.REQ.20",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "kind": "for_each",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 729,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.028-T44-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов P.SP.02.MSG.028",
+          "status": "CONFIRMED",
+          "page": 718,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "20"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails",
+        "parent": {
+          "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails",
+          "where": {
+            "field": "ipsdo:IPPartyKindCode",
+            "operator": "EQ",
+            "value": "AP"
+          }
+        }
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "csdo:AddressKindCode"
+          },
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkDetails"
+      },
+      "assertions": [
+        {
+          "kind": "condition",
+          "condition": {
+            "any": [
+              {
+                "field": "ipsdo:TrademarkKindCode",
+                "operator": "IN",
+                "value": [
+                  "110",
+                  "120",
+                  "130",
+                  "140",
+                  "150",
+                  "160",
+                  "170",
+                  "180"
+                ]
+              },
+              {
+                "field": "ipsdo:TrademarkKindName",
+                "operator": "IN",
+                "value": [
+                  "Словесный знак",
+                  "Буквенный знак",
+                  "Цифровой знак",
+                  "Изобразительный знак",
+                  "Объемный знак",
+                  "Знак, представляющий собой цвет",
+                  "Знак, представляющий собой сочетание цветов",
+                  "Комбинированный знак"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.030.T46.REQ.26",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 46",
+          "status": "CONFIRMED",
+          "page": 729,
+          "table": "46",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "6-29"
+        },
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.028-T44-26",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 44. Требования к заполнению реквизитов P.SP.02.MSG.028",
+          "status": "CONFIRMED",
+          "page": 720,
+          "table": "44",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "26"
+        }
+      ]
     }
   ],
   "status": "CONFIRMED",
@@ -2683,8 +3113,8 @@
         "engine_gap": null
       },
       "16": {
-        "classification": "UNMAPPED",
-        "reason": "Requires AP-scoped correlation to repeated IPSubjectName representation attributes.",
+        "classification": "FULL",
+        "reason": "AP-scoped filtered/positional/inclusive-OR production rule.",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
@@ -2707,14 +3137,12 @@
             "item": "16"
           }
         ],
-        "unmapped_remainder": [
-          "Requires AP-scoped correlation to repeated IPSubjectName representation attributes."
-        ],
-        "engine_gap": "Requires AP-scoped correlation to repeated IPSubjectName representation attributes."
+        "unmapped_remainder": [],
+        "engine_gap": null
       },
       "17": {
-        "classification": "UNMAPPED",
-        "reason": "Requires per-AP filtered cardinality over repeated IPSubjectName plus representation/language attributes.",
+        "classification": "FULL",
+        "reason": "AP-scoped filtered/positional/inclusive-OR production rule.",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
@@ -2737,14 +3165,12 @@
             "item": "17"
           }
         ],
-        "unmapped_remainder": [
-          "Requires per-AP filtered cardinality over repeated IPSubjectName plus representation/language attributes."
-        ],
-        "engine_gap": "Requires per-AP filtered cardinality over repeated IPSubjectName plus representation/language attributes."
+        "unmapped_remainder": [],
+        "engine_gap": null
       },
       "18": {
-        "classification": "UNMAPPED",
-        "reason": "Requires AP-scoped languageCode=RU second-instance semantics.",
+        "classification": "FULL",
+        "reason": "AP-scoped filtered/positional/inclusive-OR production rule.",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
@@ -2767,14 +3193,12 @@
             "item": "18"
           }
         ],
-        "unmapped_remainder": [
-          "Requires AP-scoped languageCode=RU second-instance semantics."
-        ],
-        "engine_gap": "Requires AP-scoped languageCode=RU second-instance semantics."
+        "unmapped_remainder": [],
+        "engine_gap": null
       },
       "19": {
-        "classification": "UNMAPPED",
-        "reason": "Requires AP-scoped languageCode!=RU second-instance LA semantics.",
+        "classification": "FULL",
+        "reason": "AP-scoped filtered/positional/inclusive-OR production rule.",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
@@ -2797,14 +3221,12 @@
             "item": "19"
           }
         ],
-        "unmapped_remainder": [
-          "Requires AP-scoped languageCode!=RU second-instance LA semantics."
-        ],
-        "engine_gap": "Requires AP-scoped languageCode!=RU second-instance LA semantics."
+        "unmapped_remainder": [],
+        "engine_gap": null
       },
       "20": {
-        "classification": "UNMAPPED",
-        "reason": "Requires AP-role correlation with nested repeated SubjectAddressDetails semantics beyond the current safe selector model.",
+        "classification": "FULL",
+        "reason": "AP-scoped filtered/positional/inclusive-OR production rule.",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
@@ -2827,14 +3249,12 @@
             "item": "20"
           }
         ],
-        "unmapped_remainder": [
-          "Requires AP-role correlation with nested repeated SubjectAddressDetails semantics beyond the current safe selector model."
-        ],
-        "engine_gap": "Requires AP-role correlation with nested repeated SubjectAddressDetails semantics beyond the current safe selector model."
+        "unmapped_remainder": [],
+        "engine_gap": null
       },
       "26": {
-        "classification": "UNMAPPED",
-        "reason": "Table44 REQ26 is explicitly TrademarkKindCode OR TrademarkKindName matching one of the listed kinds. The current evaluator cannot assert that disjunctive comparison per TrademarkDetails without strengthening it to AND or adding non-normative pair consistency.",
+        "classification": "FULL",
+        "reason": "AP-scoped filtered/positional/inclusive-OR production rule.",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
@@ -2857,10 +3277,8 @@
             "item": "26"
           }
         ],
-        "unmapped_remainder": [
-          "exact per-TrademarkDetails disjunctive value comparison"
-        ],
-        "engine_gap": "no direct OR-of-comparisons assertion result in for_each"
+        "unmapped_remainder": [],
+        "engine_gap": null
       }
     },
     "partial_remainders": {
@@ -2964,11 +3382,14 @@
           "owner/instance semantics for the standalone AP value statement"
         ],
         "engine_gap": null
-      },
+      }
+    ],
+    "source_conflicts": [],
+    "inventory": [
       {
         "requirement_code": "16",
-        "classification": "UNMAPPED",
-        "reason": "Requires AP-scoped correlation to repeated IPSubjectName representation attributes.",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
@@ -2991,15 +3412,12 @@
             "item": "16"
           }
         ],
-        "unmapped_remainder": [
-          "Requires AP-scoped correlation to repeated IPSubjectName representation attributes."
-        ],
-        "engine_gap": "Requires AP-scoped correlation to repeated IPSubjectName representation attributes."
+        "reason": "Confirmed inherited AP owner semantics executed by generic scoped DSL."
       },
       {
         "requirement_code": "17",
-        "classification": "UNMAPPED",
-        "reason": "Requires per-AP filtered cardinality over repeated IPSubjectName plus representation/language attributes.",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
@@ -3022,15 +3440,12 @@
             "item": "17"
           }
         ],
-        "unmapped_remainder": [
-          "Requires per-AP filtered cardinality over repeated IPSubjectName plus representation/language attributes."
-        ],
-        "engine_gap": "Requires per-AP filtered cardinality over repeated IPSubjectName plus representation/language attributes."
+        "reason": "Confirmed inherited AP owner semantics executed by generic scoped DSL."
       },
       {
         "requirement_code": "18",
-        "classification": "UNMAPPED",
-        "reason": "Requires AP-scoped languageCode=RU second-instance semantics.",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
@@ -3053,15 +3468,12 @@
             "item": "18"
           }
         ],
-        "unmapped_remainder": [
-          "Requires AP-scoped languageCode=RU second-instance semantics."
-        ],
-        "engine_gap": "Requires AP-scoped languageCode=RU second-instance semantics."
+        "reason": "Confirmed inherited AP owner semantics executed by generic scoped DSL."
       },
       {
         "requirement_code": "19",
-        "classification": "UNMAPPED",
-        "reason": "Requires AP-scoped languageCode!=RU second-instance LA semantics.",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
@@ -3084,15 +3496,12 @@
             "item": "19"
           }
         ],
-        "unmapped_remainder": [
-          "Requires AP-scoped languageCode!=RU second-instance LA semantics."
-        ],
-        "engine_gap": "Requires AP-scoped languageCode!=RU second-instance LA semantics."
+        "reason": "Confirmed inherited AP owner semantics executed by generic scoped DSL."
       },
       {
         "requirement_code": "20",
-        "classification": "UNMAPPED",
-        "reason": "Requires AP-role correlation with nested repeated SubjectAddressDetails semantics beyond the current safe selector model.",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
@@ -3115,15 +3524,12 @@
             "item": "20"
           }
         ],
-        "unmapped_remainder": [
-          "Requires AP-role correlation with nested repeated SubjectAddressDetails semantics beyond the current safe selector model."
-        ],
-        "engine_gap": "Requires AP-role correlation with nested repeated SubjectAddressDetails semantics beyond the current safe selector model."
+        "reason": "Confirmed inherited AP owner semantics executed by generic scoped DSL."
       },
       {
         "requirement_code": "26",
-        "classification": "UNMAPPED",
-        "reason": "Table44 REQ26 is explicitly TrademarkKindCode OR TrademarkKindName matching one of the listed kinds. The current evaluator cannot assert that disjunctive comparison per TrademarkDetails without strengthening it to AND or adding non-normative pair consistency.",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
         "source_refs": [
           {
             "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-6-29",
@@ -3146,12 +3552,8 @@
             "item": "26"
           }
         ],
-        "unmapped_remainder": [
-          "exact per-TrademarkDetails disjunctive value comparison"
-        ],
-        "engine_gap": "no direct OR-of-comparisons assertion result in for_each"
+        "reason": "Confirmed inherited AP owner semantics executed by generic scoped DSL."
       }
-    ],
-    "source_conflicts": []
+    ]
   }
 }

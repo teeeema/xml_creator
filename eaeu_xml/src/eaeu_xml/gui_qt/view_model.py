@@ -18,6 +18,7 @@ class GuiViewModel(QObject):
     """Expose presentation state only; all domain work stays in GuiController."""
 
     changed = Signal()
+    formSelectionChanged = Signal()
     noticeChanged = Signal()
     navigateToXmlPosition = Signal(int, int)
 
@@ -164,6 +165,7 @@ class GuiViewModel(QObject):
             self.controller.select_process(code)
         self._selected_field = None
         self._refresh()
+        self.formSelectionChanged.emit()
 
     @Slot(str)
     def selectTransaction(self, code):
@@ -171,6 +173,7 @@ class GuiViewModel(QObject):
             self.controller.select_transaction(code)
         self._selected_field = None
         self._refresh()
+        self.formSelectionChanged.emit()
 
     @Slot(str)
     def selectMessage(self, code):
@@ -178,6 +181,7 @@ class GuiViewModel(QObject):
             self.controller.select_message(code)
         self._selected_field = None
         self._refresh()
+        self.formSelectionChanged.emit()
 
     @Slot(str, str)
     def setFieldValue(self, path, value):
@@ -200,6 +204,17 @@ class GuiViewModel(QObject):
     def applyTestData(self):
         self.controller.apply_test_data()
         self._refresh("Тестовые данные заполнены.")
+
+    @Slot()
+    def applyRequiredData(self):
+        count = self.controller.apply_required_data()
+        missing = self.controller.missing_required_field_count()
+        if missing:
+            notice = f"Заполнено полей: {count}. Для {missing} обязательных полей нужны подтверждённые значения."
+        else:
+            notice = (f"Обязательные поля заполнены. Заполнено полей: {count}" if count
+                      else "Все обязательные поля уже заполнены.")
+        self._refresh(notice)
 
     @Slot()
     def generateXml(self):

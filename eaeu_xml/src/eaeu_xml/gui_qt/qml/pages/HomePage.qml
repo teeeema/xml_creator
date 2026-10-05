@@ -8,7 +8,7 @@ Item { id: root; signal saveDraftRequested()
         Card { Layout.fillWidth: true; Layout.fillHeight: true
             ColumnLayout { anchors.fill: parent; anchors.margins: 16; spacing: 12
                 Label { text: "Данные сообщения"; color: Theme.text; font.bold: true; font.pixelSize: 17 }
-                ScrollView { Layout.fillWidth: true; Layout.fillHeight: true; clip: true
+                ScrollView { id: formScroll; Layout.fillWidth: true; Layout.fillHeight: true; clip: true
                     Column { width: parent.width; spacing: 6
                         Repeater { model: (viewModel ? viewModel.fields : [])
                             delegate: Column { required property var modelData; width: parent.width; spacing: 4
@@ -26,7 +26,15 @@ Item { id: root; signal saveDraftRequested()
                         }
                     }
                 }
+                Connections {
+                    target: viewModel
+                    function onFormSelectionChanged() {
+                        if (formScroll.contentItem) formScroll.contentItem.contentY = 0
+                    }
+                }
+                Label { text: "* — обязательное поле"; color: Theme.text }
                 RowLayout { Layout.fillWidth: true
+                    AppButton { text: "Обязательные данные"; onClicked: viewModel.applyRequiredData() }
                     AppButton { text: "Тестовые данные"; onClicked: viewModel.applyTestData() }
                     Item { Layout.fillWidth: true }
                     AppButton { text: "Сохранить черновик"; onClicked: root.saveDraftRequested() }

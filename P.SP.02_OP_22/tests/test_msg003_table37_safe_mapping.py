@@ -27,6 +27,7 @@ RESOURCE_STATUS = f"{ROOT}/ccdo:ResourceItemStatusDetails"
 RESOURCE_VALIDITY = f"{RESOURCE_STATUS}/ccdo:ValidityPeriodDetails"
 
 FULL_IDS = {
+    "P.SP.02.MSG.003.T37.REQ.18",
     "P.SP.02.MSG.003.T37.REQ.1",
     "P.SP.02.MSG.003.T37.REQ.2",
     "P.SP.02.MSG.003.T37.REQ.6",
@@ -51,7 +52,6 @@ PARTIAL_IDS = {
 SKIPPED_IDS = {
     "P.SP.02.MSG.003.T37.REQ.4",
     "P.SP.02.MSG.003.T37.REQ.5",
-    "P.SP.02.MSG.003.T37.REQ.18",
     "P.SP.02.MSG.003.T37.REQ.19",
 }
 TABLE36_IDS = {

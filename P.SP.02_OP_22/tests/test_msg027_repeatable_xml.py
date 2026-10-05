@@ -57,8 +57,8 @@ def _direct(engine, code):
 def _inherited(engine, item):
     return [
         r for r in engine.rules[MESSAGE].structured_rules
-        if r['rule_id'] == f'{MESSAGE}.T57.REQ.6_29'
-        and len(r.get('source_refs', [])) == 2
+        if len(r.get('source_refs', [])) == 2
+        and r['source_refs'][1].get('table') == '34'
         and r['source_refs'][1].get('item') == str(item)
     ]
 
@@ -332,11 +332,12 @@ def test_req23_24_correspondence_scope(kind, country, req23, req24):
 
 @pytest.mark.parametrize(('code', 'name', 'indicator', 'item', 'expected'), [
     ('110', 'Словесный знак', '0', 26, RuleStatus.PASS),
-    ('110', 'Цифровой знак', '0', 26, RuleStatus.FAIL),
+    ('110', 'Цифровой знак', '0', 26, RuleStatus.PASS),
+    ('999', 'Недопустимый вид', '0', 26, RuleStatus.FAIL),
     ('130', 'Цифровой знак', '0', 26, RuleStatus.PASS),
     ('110', 'Словесный знак', '2', 28, RuleStatus.FAIL),
 ])
-def test_req26_pair_consistency_and_req28_indicator(code, name, indicator, item, expected):
+def test_req26_inclusive_or_and_req28_indicator(code, name, indicator, item, expected):
     def build(root, structure):
         app = _child(root, structure, 'ipcdo', 'TrademarkApplicationDetails')
         _trademark(app, structure, code=code, name=name, indicator=indicator)

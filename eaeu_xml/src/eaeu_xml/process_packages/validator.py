@@ -17,7 +17,7 @@ class ProcessPackageValidator:
     STRUCTURED_RULE_OPERATORS = {"EQ", "NE", "GT", "GE", "LT", "LE", "IN", "NOT_IN"}
     FOR_EACH_ASSERTION_KINDS = {
         "cardinality", "comparison", "condition", "conditional_fixed_value",
-        "conditional_presence", "fixed_value", "presence",
+        "conditional_presence", "fixed_value", "presence", "selection_cardinality",
     }
 
     def validate(self, package: ProcessPackage) -> None:
@@ -157,6 +157,10 @@ class ProcessPackageValidator:
         if not isinstance(rule, Mapping):
             self._fail("INVALID_STRUCTURED_RULE", f"Structured rule {message_code} должен быть объектом.")
         kind = rule.get("kind")
+        if "when" in rule and (kind != "selection_cardinality" or assertion):
+            self._fail("INVALID_FOR_EACH_ASSERTION_SCOPE", "when is only supported on document selection cardinality.")
+        if "value_type" in rule and (kind not in {"comparison", "cross_instance_comparison"} or rule["value_type"] != "DATETIME"):
+            self._fail("INVALID_COMPARISON_TYPE", f"Comparison {message_code} supports only DATETIME value_type.")
         allowed_kinds = self.FOR_EACH_ASSERTION_KINDS if assertion else self.STRUCTURED_RULE_KINDS
         if kind not in allowed_kinds:
             self._fail("UNKNOWN_STRUCTURED_RULE_KIND", f"Неизвестный kind structured rule {message_code}: {kind}.")
@@ -178,6 +182,10 @@ class ProcessPackageValidator:
             return
 
         if kind == "selection_cardinality":
+            if "when" in rule:
+                if assertion:
+                    self._fail("INVALID_FOR_EACH_ASSERTION_SCOPE", "when is only supported on document selection cardinality.")
+                self._validate_condition(rule["when"], message_code)
             self._validate_selector(rule.get("selector"), message_code)
             self._validate_cardinality(rule, message_code)
             return
@@ -259,13 +267,17 @@ class ProcessPackageValidator:
                 self._fail("INVALID_STRUCTURED_RULE_SELECTOR", f"Selector {message_code} имеет некорректный under.")
         if "where" in selector:
             self._validate_condition(selector["where"], message_code)
+        if "position" in selector:
+            position = selector["position"]
+            if position != "last" and (type(position) is not int or position < 1):
+                self._fail("INVALID_STRUCTURED_RULE_SELECTOR", f"Selector {message_code} требует положительный 1-based position или 'last'.")
 
     def _validate_condition(self, condition, message_code: str) -> None:
         if not isinstance(condition, Mapping):
             self._fail("INVALID_STRUCTURED_RULE_CONDITION", f"Condition {message_code} должен быть объектом.")
         logical = [key for key in ("all", "any", "not") if key in condition]
         if logical:
-            if len(logical) != 1 or any(key in condition for key in ("field", "operator", "value")):
+            if len(logical) != 1 or any(key in condition for key in ("field", "operator", "value", "position", "count")):
                 self._fail("INVALID_STRUCTURED_RULE_CONDITION", f"Condition {message_code} смешивает логическую и leaf-форму.")
             key = logical[0]
             if key in {"all", "any"}:
@@ -277,8 +289,17 @@ class ProcessPackageValidator:
             else:
                 self._validate_condition(condition[key], message_code)
             return
+        if "count" in condition:
+            if any(key in condition for key in ("field", "position")) or type(condition.get("value")) is not int or condition["value"] < 0 or condition.get("operator") not in {"EQ", "GE", "LE"}:
+                self._fail("INVALID_COUNT_CONDITION", "count requires EQ/GE/LE and a nonnegative integer value.")
+            self._validate_selector(condition["count"], message_code)
+            return
         if not isinstance(condition.get("field"), str) or not condition.get("field") or "value" not in condition:
             self._fail("INVALID_STRUCTURED_RULE_CONDITION", f"Leaf condition {message_code} требует field/operator/value.")
+        if "position" in condition:
+            position = condition["position"]
+            if position != "last" and (type(position) is not int or position < 1):
+                self._fail("INVALID_STRUCTURED_RULE_CONDITION", f"Condition {message_code} требует положительный 1-based position или 'last'.")
         operator = condition.get("operator")
         self._validate_operator(operator, message_code)
         if operator in {"IN", "NOT_IN"} and not isinstance(condition.get("value"), (list, tuple)):
@@ -298,6 +319,10 @@ class ProcessPackageValidator:
             self._fail("INVALID_COMPARISON_RHS", f"Comparison {message_code} требует ровно один из right/right_value.")
         if has_right and not self._valid_operand(rule.get("right"), relative=relative):
             self._fail("INVALID_COMPARISON_OPERAND", f"Comparison {message_code} имеет некорректный right.")
+        for side in ("left", "right"):
+            operand = rule.get(side)
+            if isinstance(operand, Mapping) and "selector" in operand:
+                self._validate_selector(operand["selector"], message_code)
         if rule.get("operator") in {"IN", "NOT_IN"} and has_right_value and not isinstance(rule.get("right_value"), (list, tuple)):
             self._fail("INVALID_MEMBERSHIP_RHS", f"{rule.get('operator')} comparison {message_code} требует список right_value.")
 
@@ -305,7 +330,7 @@ class ProcessPackageValidator:
     def _valid_operand(operand, *, relative: bool) -> bool:
         if isinstance(operand, str):
             return bool(operand)
-        return relative and isinstance(operand, Mapping) and isinstance(operand.get("field"), str) and bool(operand.get("field"))
+        return relative and isinstance(operand, Mapping) and set(operand) in ({"field"}, {"field", "selector"}) and isinstance(operand.get("field"), str) and bool(operand.get("field"))
 
     def _validate_operator(self, operator, message_code: str) -> None:
         if operator not in self.STRUCTURED_RULE_OPERATORS:
@@ -314,7 +339,9 @@ class ProcessPackageValidator:
     def _validate_target(self, target, message_code: str, *, relative: bool) -> None:
         if relative and isinstance(target, Mapping):
             if isinstance(target.get("field"), str) and target.get("field"):
-                return
+                position = target.get("position")
+                if "position" not in target or position == "last" or (type(position) is int and position >= 1):
+                    return
         elif isinstance(target, str) and target:
             return
         self._fail("INVALID_STRUCTURED_RULE_TARGET", f"Structured rule {message_code} имеет некорректный target.")

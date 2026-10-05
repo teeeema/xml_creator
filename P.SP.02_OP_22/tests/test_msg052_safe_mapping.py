@@ -4,9 +4,9 @@ from pathlib import Path
 PACKAGE = Path(__file__).resolve().parents[1]
 MESSAGE = "P.SP.02.MSG.052"
 R007 = "ipcdo:UnifiedRegisterRecordsDetails"
-FULL = {1, 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 23, 29, 30, 31}
+FULL = {3,18,22, 24, 1, 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 23, 29, 30, 31}
 SAFE_PARTIAL = {5, 20, 25, 26, 27, 28}
-ENGINE_UNSUPPORTED = {3, 18, 19, 21, 22, 24}
+ENGINE_UNSUPPORTED = {19, 21}
 INHERITED = set(range(6, 20))
 CANCEL_LITERAL = "Решение об аннулировании регистрации товарного знака, знака обслуживания Евразийского экономического союза"
 NEW_LITERAL = "решение о регистрации товарного знака, знака обслуживания Евразийского экономического союза в отношении всех заявленных товаров и (или) услуг"
@@ -22,8 +22,8 @@ def test_inventory_and_classification_are_exact():
     audit = raw()["mapping_audit"]
     assert (audit["captured_row_count"], audit["expanded_requirement_count"]) == (18, 31)
     assert audit["classification_counts"] == {
-        "FULLY_MAPPABLE": 19, "SAFE_PARTIAL": 6, "EXTERNAL": 0,
-        "AMBIGUOUS": 0, "ENGINE_UNSUPPORTED": 6, "SOURCE_CONFLICT": 0,
+        "FULLY_MAPPABLE": 23, "SAFE_PARTIAL": 6, "EXTERNAL": 0,
+        "AMBIGUOUS": 0, "ENGINE_UNSUPPORTED": 2, "SOURCE_CONFLICT": 0,
     }
     assert audit["summary"]["FULLY_MAPPABLE"] == sorted(FULL)
     assert audit["summary"]["SAFE_PARTIAL"] == sorted(SAFE_PARTIAL)

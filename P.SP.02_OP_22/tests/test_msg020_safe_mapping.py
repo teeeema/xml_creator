@@ -38,19 +38,19 @@ def test_structure_root_and_msg020_rule_inventory():
     assert structure.root_element == "TrademarkRegisterDetails"
 
     rules = _rules()
-    assert len(rules) == 29
+    assert len(rules) == 30
     ids = {rule["rule_id"] for rule in rules}
-    assert "P.SP.02.MSG.020.T53.REQ.3" not in ids
+    assert "P.SP.02.MSG.020.T53.REQ.3" in ids
     assert "P.SP.02.MSG.020.T53.REQ.24" not in ids
     for requirement in ("1", "2", "4", "5", "20", "21", "22", "23", "25", "26", "27", "28"):
         assert f"P.SP.02.MSG.020.T53.REQ.{requirement}" in ids
 
 
-def test_req3_is_captured_but_has_no_executable_approximation():
+def test_req3_is_executable_with_captured_source():
     engine = _engine()
     captured = {rule["rule_id"]: rule for rule in engine.rules[MESSAGE].business_rules}
     assert captured["P.SP.02.MSG.020.T53.REQ.3"]["source_refs"][0]["source_id"] == "22OP-RULE-P.SP.02.MSG.020-T53-3"
-    assert all(rule["rule_id"] != "P.SP.02.MSG.020.T53.REQ.3" for rule in _rules())
+    assert next(rule for rule in _rules() if rule["rule_id"] == "P.SP.02.MSG.020.T53.REQ.3")["source_refs"] == captured["P.SP.02.MSG.020.T53.REQ.3"]["source_refs"]
 
 
 def test_role_selectors_use_exact_status_04_and_01_only():

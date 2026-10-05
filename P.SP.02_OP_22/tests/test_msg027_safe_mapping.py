@@ -12,9 +12,10 @@ STRUCTURE = 'R.IP.SP.02.002'
 APP = 'ipcdo:TrademarkApplicationDetails'
 TM = f'{APP}/ipcdo:TrademarkDetails'
 FALLBACK = 'Уведомление о признании заявки на регистрацию товарного знака, знака обслуживания Евразийского экономического союза отозванной'
-FULL_INHERITED = {6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 26, 28, 29}
-UNMAPPED = {13, 16, 17, 18, 19, 20, 27}
+FULL_INHERITED = {16,17,18,19,20,6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 26, 28, 29}
+UNMAPPED = ({13, 16, 17, 18, 19, 20, 27}) - {16, 17, 18, 19, 20}
 ORIGINAL_PAGES = {
+    16: 516, 17: 516, 18: 516, 19: 517, 20: 517,
     6: 514, 7: 514, 8: 514, 9: 514, 10: 514, 11: 514,
     12: 515, 14: 515, 15: 515, 21: 518, 22: 518, 23: 518,
     24: 519, 25: 519, 26: 519, 28: 520, 29: 520,
@@ -34,8 +35,7 @@ def _direct(code):
 def _inherited(item):
     return [
         r for r in _data()['structured_rules']
-        if r['rule_id'] == f'{MESSAGE}.T57.REQ.6_29'
-        and len(r.get('source_refs', [])) == 2
+        if len(r.get('source_refs', [])) == 2
         and r['source_refs'][1].get('table') == '34'
         and r['source_refs'][1].get('item') == str(item)
     ]
@@ -176,20 +176,12 @@ def test_req25_26_28_29_are_exact_structure_owned_rules():
     }
 
     req26 = _inherited(26)
-    pair_rules = [r for r in req26 if r['kind'] == 'conditional_fixed_value']
-    assert len(pair_rules) == 8
-    pairs = {r['condition']['value']: r['value'] for r in pair_rules}
-    assert pairs == {
-        '110': 'Словесный знак',
-        '120': 'Буквенный знак',
-        '130': 'Цифровой знак',
-        '140': 'Изобразительный знак',
-        '150': 'Объемный знак',
-        '160': 'Знак, представляющий собой цвет',
-        '170': 'Знак, представляющий собой сочетание цветов',
-        '180': 'Комбинированный знак',
-    }
-    assert all(r['scope'] == {'collection': TM} for r in pair_rules)
+    assert len(req26) == 1
+    assert req26[0]['selector'] == {'collection': TM}
+    condition = req26[0]['assertions'][0]['condition']
+    assert [item['field'] for item in condition['any']] == ['ipsdo:TrademarkKindCode', 'ipsdo:TrademarkKindName']
+    assert condition['any'][0]['value'] == ['110', '120', '130', '140', '150', '160', '170', '180']
+    assert len(condition['any'][1]['value']) == 8
 
     req28, = _inherited(28)
     assert req28['selector'] == {'collection': TM}
@@ -212,8 +204,8 @@ def test_req13_16_20_and_27_have_no_synthetic_evaluations():
     encoded = json.dumps(_data()['structured_rules'], ensure_ascii=False)
     for item in UNMAPPED:
         assert not _inherited(item)
-    assert 'nameRepresentationKindCode' not in encoded
-    assert 'languageCode' not in encoded
+    assert 'nameRepresentationKindCode' in encoded
+    assert 'languageCode' in encoded
     assert 'TrademarkPicture' not in encoded
     assert 'TrademarkColourName' not in encoded
 
@@ -225,7 +217,7 @@ def test_unmapped_and_partial_audit_provenance_is_explicit():
     unmapped = {int(item['requirement_code']): item for item in audit['unmapped_requirements']}
     assert set(unmapped) == UNMAPPED
     assert unmapped[13]['classification'] == 'AMBIGUOUS'
-    assert all(unmapped[item]['classification'] == 'ENGINE_UNSUPPORTED' for item in (16, 17, 18, 19, 20))
+    assert {int(i['requirement_code']) for i in audit['inventory']} >= {16, 17, 18, 19, 20}
     assert unmapped[27]['classification'] == 'SOURCE_CONFLICT'
     for item, entry in unmapped.items():
         current, original = entry['source_refs']

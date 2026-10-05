@@ -5,14 +5,11 @@ from pathlib import Path
 PACKAGE = Path(__file__).resolve().parents[1]
 MESSAGE = "P.SP.02.MSG.043"
 APP = "ipcdo:TrademarkApplicationDetails"
-FULL = {
-    1, 6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
-    32, 33, 34, 35, 36, 37
-}
+FULL = {1, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 32, 33, 34, 35, 36, 37}
 EXTERNAL = {2, 3, 4, 5, 31}
 AMBIGUOUS = {13}
-ENGINE_UNSUPPORTED = {16, 17, 18, 19, 20}
-UNMAPPED = EXTERNAL | AMBIGUOUS | ENGINE_UNSUPPORTED
+ENGINE_UNSUPPORTED = set()
+UNMAPPED = (EXTERNAL | AMBIGUOUS | ENGINE_UNSUPPORTED) - {16, 17, 18, 19, 20}
 
 
 def raw():
@@ -38,17 +35,17 @@ def test_inventory_and_classification_are_exact():
     assert audit["summary"]["SOURCE_CONFLICT"] == []
     assert sum(audit["classification_counts"].values()) == 37
     assert audit["classification_counts"] == {
-        "FULLY_MAPPABLE": 26,
+        "FULLY_MAPPABLE": 31,
         "SAFE_PARTIAL": 0,
         "EXTERNAL": 5,
         "AMBIGUOUS": 1,
-        "ENGINE_UNSUPPORTED": 5,
+        "ENGINE_UNSUPPORTED": 0,
         "SOURCE_CONFLICT": 0,
     }
 
 
 def test_only_approved_requirements_are_executable():
-    assert len(raw()["structured_rules"]) == 32
+    assert len(raw()["structured_rules"]) == 38
     executable_codes = {
         int(rule["rule_id"].split(".REQ.")[1].split(".")[0])
         for rule in raw()["structured_rules"]
@@ -229,22 +226,27 @@ def test_signature_rules_have_exact_owners_and_structure():
     }
 
 
-def test_unmapped_requirements_have_no_executable_rules_and_exact_audit_reasons():
-    audit = raw()["mapping_audit"]
-    inv_by_code = {item["requirement_code"]: item for item in audit["inventory"]}
-
-    for code in UNMAPPED:
-        assert not rules(code), f"Requirement {code} must not have executable rules"
-
-    assert inv_by_code["13"]["classification"] == "AMBIGUOUS"
-    assert inv_by_code["13"]["mapping_status"] == "UNMAPPED"
-    assert inv_by_code["13"]["engine_gap"] is None
-
-    for code_str in ["16", "17", "18", "19", "20"]:
-        inv = inv_by_code[code_str]
-        assert inv["classification"] == "ENGINE_UNSUPPORTED"
-        assert inv["mapping_status"] == "UNMAPPED"
-        assert inv["engine_gap"] is not None
+def test_new_mappings_preserve_sources_and_remaining_unmapped_requirements():
+    data = raw()
+    inventory = data['mapping_audit']['inventory']
+    by_code = {item['requirement_code']: item for item in inventory}
+    assert by_code['13']['classification'] == 'AMBIGUOUS'
+    assert by_code['13']['mapping_status'] == 'UNMAPPED'
+    assert by_code['13']['engine_gap'] is None
+    for item in inventory:
+        code = item['requirement_code']
+        prefix = MESSAGE + '.T' + item['source_refs'][0]['table'] + '.REQ.' + code
+        executable = [r for r in data['structured_rules'] if r['rule_id'] == prefix or r['rule_id'].startswith(prefix + '.')]
+        if item['classification'] in ('EXTERNAL', 'AMBIGUOUS', 'ENGINE_UNSUPPORTED', 'SOURCE_CONFLICT'):
+            assert not executable
+        if code in ('16', '17', '18', '19', '20', '26'):
+            assert item['classification'] == 'FULLY_MAPPABLE'
+            assert item['mapping_status'] == 'EXECUTABLE'
+            assert item['engine_gap'] is None
+            assert executable
+            assert all(r['source_refs'] == item['source_refs'] for r in executable)
+            if code == '26':
+                assert 'any' in executable[0]['assertions'][0]['condition']
 
 
 def test_no_positional_or_index_based_roles_in_rules_or_audit():

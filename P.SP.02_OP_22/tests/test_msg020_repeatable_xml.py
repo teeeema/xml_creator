@@ -213,7 +213,7 @@ def test_one_cancel_only_does_not_force_new_record_rules_and_req3_stays_unmapped
     engine, values, _ = _parsed_values(build)
     for requirement in ("1", "2", "4", "5", "20", "21", "22", "23", "25", "26", "27", "28"):
         _assert_all_pass(_direct_statuses(engine, requirement, values))
-    assert not _direct_rules(engine, "3")
+    assert _direct_rules(engine, "3")
 
 
 @pytest.mark.parametrize("order", [("CANCEL", "NEW"), ("NEW", "CANCEL")])

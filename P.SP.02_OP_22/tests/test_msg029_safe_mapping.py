@@ -13,10 +13,10 @@ DOCS = f'{APP}/ipcdo:AccompanyingDocumentsDetails'
 SIG = f'{APP}/ipcdo:SignatureDetails'
 RESOURCE = 'ccdo:ResourceItemStatusDetails'
 
-FULL = {1, 3, 6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29, 33, 34, 36, 37, 38, 39}
+FULL = {30,31} | ({1, 3, 6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29, 33, 34, 36, 37, 38, 39}) | {16, 17, 18, 19, 20, 26}
 PARTIAL = {2, 4, 5, 35}
-UNMAPPED = {13, 16, 17, 18, 19, 20, 26, 30, 31, 32}
-INHERITED = {6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29}
+UNMAPPED = ({13, 16, 17, 18, 19, 20, 26, 30, 31, 32}) - {16, 17, 18, 19, 20, 26,30,31}
+INHERITED = ({6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29}) | {16, 17, 18, 19, 20, 26}
 
 
 def _raw():
@@ -30,7 +30,7 @@ def _rules(code):
 
 def test_msg029_mapping_classification_is_complete_and_non_approximating():
     data = _raw()
-    mapped = {int(rule['rule_id'].rsplit('.', 1)[1]) for rule in data['structured_rules']}
+    mapped = {int(rule['rule_id'].split('.REQ.')[1].split('.')[0]) for rule in data['structured_rules']}
     assert mapped == FULL | PARTIAL
     assert not mapped.intersection(UNMAPPED)
 
@@ -39,14 +39,14 @@ def test_msg029_mapping_classification_is_complete_and_non_approximating():
     unmapped = {int(item['requirement_code']): item['classification'] for item in audit['unmapped_requirements']}
     assert set(unmapped) == UNMAPPED
     assert unmapped[13] == 'AMBIGUOUS'
-    assert all(unmapped[code] == 'ENGINE_UNSUPPORTED' for code in (16, 17, 18, 19, 20, 26, 30, 31))
+    assert set(unmapped)=={13,32}
     assert unmapped[32] == 'SOURCE_CONFLICT'
 
 
 def test_inherited_req6_29_executable_rules_have_dual_table45_and_table44_provenance():
     data = _raw()
     for rule in data['structured_rules']:
-        code = int(rule['rule_id'].rsplit('.', 1)[1])
+        code = int(rule['rule_id'].split('.REQ.')[1].split('.')[0])
         refs = rule['source_refs']
         if code in INHERITED:
             assert len(refs) == 2
@@ -142,12 +142,10 @@ def test_req25_trademark_presence_and_required_children_match_original_table44()
     }
 
 
-def test_req26_is_explicitly_unmapped_because_normative_operator_is_or():
-    assert not _rules(26)
-    item = next(item for item in _raw()['mapping_audit']['unmapped_requirements'] if item['requirement_code'] == '26')
-    assert item['classification'] == 'ENGINE_UNSUPPORTED'
-    assert 'OR' in item['reason']
-    assert [ref['table'] for ref in item['source_refs']] == ['45', '44']
+def test_req26_executes_inclusive_or_with_original_provenance():
+    rule, = _rules(26)
+    assert 'any' in rule['assertions'][0]['condition']
+    assert [ref['table'] for ref in rule['source_refs']] == ['45', '44']
 
 
 def test_req27_exact_same_trademark_owner_uses_code_or_name_condition_and_requires_both_outputs():
@@ -176,14 +174,15 @@ def test_req28_29_collective_and_goods_rules_have_exact_owner_paths():
     }
 
 
-def test_req30_31_filtered_cardinality_are_unmapped_without_approximation():
-    assert not _rules(30)
-    assert not _rules(31)
-    classes = {
-        item['requirement_code']: item['classification']
-        for item in _raw()['mapping_audit']['unmapped_requirements']
-    }
-    assert classes['30'] == classes['31'] == 'ENGINE_UNSUPPORTED'
+def test_req30_31_filter_then_count_in_same_application():
+    for code, minimum, maximum in ((30,0,0),(31,1,None)):
+        rule, = _rules(code)
+        assertion = rule['assertions'][0]
+        assert assertion['kind']=='selection_cardinality'
+        assert assertion['selector']['collection']==APP+'/ipcdo:GoodsBaseDetails'
+        assert assertion['selector']['where']=={'field':'ipsdo:TrademarkDecisionIndicator','operator':'EQ','value':'0'}
+        assert assertion['min_occurs']==minimum
+        assert assertion.get('max_occurs')==maximum
 
 
 def test_req32_source_conflict_records_exact_structure_owner_and_stays_unmapped():

@@ -11,10 +11,10 @@ SIG = f"{APP}/ipcdo:SignatureDetails"
 RESOURCE = "ccdo:ResourceItemStatusDetails"
 FALLBACK = "Документ, содержащий доказательства в подтверждение приобретения заявленным обозначением различительной способности"
 
-FULL = {1, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37}
+FULL = {1, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37}
 PARTIAL = {2, 3, 4}
 AMBIGUOUS = {13}
-ENGINE = {16, 17, 18, 19, 20, 26}
+ENGINE = set()
 INHERITED = set(range(6, 30))
 
 
@@ -49,10 +49,10 @@ def test_expanded_inventory_and_classification_arithmetic():
         "SOURCE_CONFLICT": [],
     }
     assert audit["classification_counts"] == {
-        "FULLY_MAPPABLE": 27,
+        "FULLY_MAPPABLE": 33,
         "SAFE_PARTIAL": 3,
         "AMBIGUOUS": 1,
-        "ENGINE_UNSUPPORTED": 6,
+        "ENGINE_UNSUPPORTED": 0,
         "EXTERNAL": 0,
         "SOURCE_CONFLICT": 0,
     }
@@ -70,7 +70,7 @@ def test_inventory_primary_classification_sets_are_exact():
     assert groups["FULLY_MAPPABLE"] == FULL
     assert groups["SAFE_PARTIAL"] == PARTIAL
     assert groups["AMBIGUOUS"] == AMBIGUOUS
-    assert groups["ENGINE_UNSUPPORTED"] == ENGINE
+    assert groups.get("ENGINE_UNSUPPORTED", set()) == ENGINE
 
 
 def test_normative_context_is_exact_msg034_trn029_prc010_r002_v100():
@@ -156,18 +156,25 @@ def test_req5_is_per_existing_accompanying_document_and_vacuous_when_absent():
     }
 
 
-def test_req13_and_req16_20_and_req26_are_intentionally_unmapped():
-    assert not _rules(13)
-    assert _inventory(13)["classification"] == "AMBIGUOUS"
-    for code in range(16, 21):
-        assert not _rules(code)
-        assert _inventory(code)["classification"] == "ENGINE_UNSUPPORTED"
-        assert "correlation" in _inventory(code)["engine_gap"]
-    assert not _rules(26)
-    req26 = _inventory(26)
-    assert req26["classification"] == "ENGINE_UNSUPPORTED"
-    assert " OR " in req26["reason"]
-    assert "disjunctive" in req26["engine_gap"]
+def test_new_mappings_preserve_sources_and_remaining_unmapped_requirements():
+    data = _raw()
+    inventory = data['mapping_audit']['inventory']
+    by_code = {item['requirement_code']: item for item in inventory}
+    assert by_code['13']['classification'] == 'AMBIGUOUS'
+    for item in inventory:
+        code = item['requirement_code']
+        prefix = MESSAGE + '.T' + item['source_refs'][0]['table'] + '.REQ.' + code
+        executable = [r for r in data['structured_rules'] if r['rule_id'] == prefix or r['rule_id'].startswith(prefix + '.')]
+        if item['classification'] in ('EXTERNAL', 'AMBIGUOUS', 'ENGINE_UNSUPPORTED', 'SOURCE_CONFLICT'):
+            assert not executable
+        if code in ('16', '17', '18', '19', '20', '26'):
+            assert item['classification'] == 'FULLY_MAPPABLE'
+            assert item['mapping_status'] == 'EXECUTABLE'
+            assert item['engine_gap'] is None
+            assert executable
+            assert all(r['source_refs'] == item['source_refs'] for r in executable)
+            if code == '26':
+                assert 'any' in executable[0]['assertions'][0]['condition']
 
 
 def test_req27_preserves_same_parent_code_or_name_condition():

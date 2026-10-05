@@ -276,13 +276,14 @@ def test_invalid_cancel_status_fails_exact_cancel_cardinality():
     assert "P.SP.02.MSG.020.T53.REQ.2" in _validation_fail_ids(validation)
 
 
-def test_one_cancel_with_cancellation_indicator_keeps_req3_explicitly_unmapped():
+def test_one_cancel_with_cancellation_indicator_requires_new_record():
     values = _valid_one_cancel_values()
     values[f"{GOODS}/ipsdo:CancellationStatusIndicator"] = True
-    engine, _, _, _, validation = _build_parse_validate(values)
-    assert validation.is_valid
-    assert all(item.rule_id != "P.SP.02.MSG.020.T53.REQ.3" for item in validation.rule_evaluations)
-    assert all(rule["rule_id"] != "P.SP.02.MSG.020.T53.REQ.3" for rule in engine.rules[MESSAGE].structured_rules)
+    engine = _engine()
+    validation = engine.validate_body(MESSAGE, values, mode=GenerationMode.TEST)
+    assert not validation.is_valid
+    assert "P.SP.02.MSG.020.T53.REQ.3" in _validation_fail_ids(validation)
+    assert any(rule["rule_id"] == "P.SP.02.MSG.020.T53.REQ.3" for rule in engine.rules[MESSAGE].structured_rules)
 
 
 @pytest.mark.parametrize("order", [("CANCEL", "NEW"), ("NEW", "CANCEL")])

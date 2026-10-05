@@ -6,12 +6,12 @@ from eaeu_xml.process_packages.engine import EaeuXmlEngine
 PACKAGE = Path(__file__).resolve().parents[1]
 MESSAGE = "P.SP.02.MSG.037"
 APP = "ipcdo:TrademarkApplicationDetails"
-FULL = {1, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31}
+FULL = {1, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31}
 PARTIAL = {4}
 EXTERNAL = {2, 3}
 AMBIGUOUS = {13}
-ENGINE = {16, 17, 18, 19, 20, 26}
-UNMAPPED = EXTERNAL | AMBIGUOUS | ENGINE
+ENGINE = set()
+UNMAPPED = (EXTERNAL | AMBIGUOUS | ENGINE) - {16, 17, 18, 19, 20, 26}
 INHERITED = set(range(6, 30))
 
 
@@ -47,7 +47,7 @@ def test_inventory_and_classification_are_exact():
 
 def test_only_msg037_rule_ids_and_exact_executable_requirement_set():
     rules = _raw()["structured_rules"]
-    assert len(rules) == 25
+    assert len(rules) == 32
     assert all(r["rule_id"].startswith(MESSAGE + ".") for r in rules)
     codes = {int(r["rule_id"].split(".REQ.", 1)[1].split(".", 1)[0]) for r in rules}
     assert codes == FULL | PARTIAL
@@ -83,15 +83,27 @@ def test_req1_req4_req5_direct_shapes():
     ]
 
 
-def test_external_and_unsupported_requirements_have_no_executable_rules():
-    for code in UNMAPPED:
-        assert not _rules(code)
-    assert _inventory(2)["classification"] == "EXTERNAL"
-    assert _inventory(3)["classification"] == "EXTERNAL"
-    assert _inventory(13)["classification"] == "AMBIGUOUS"
-    for code in (16, 17, 18, 19, 20, 26):
-        assert _inventory(code)["classification"] == "ENGINE_UNSUPPORTED"
-    assert " OR " in _inventory(26)["reason"]
+def test_new_mappings_preserve_sources_and_remaining_unmapped_requirements():
+    data = _raw()
+    inventory = data['mapping_audit']['inventory']
+    by_code = {item['requirement_code']: item for item in inventory}
+    assert by_code['13']['classification'] == 'AMBIGUOUS'
+    assert by_code['2']['classification'] == 'EXTERNAL'
+    assert by_code['3']['classification'] == 'EXTERNAL'
+    for item in inventory:
+        code = item['requirement_code']
+        prefix = MESSAGE + '.T' + item['source_refs'][0]['table'] + '.REQ.' + code
+        executable = [r for r in data['structured_rules'] if r['rule_id'] == prefix or r['rule_id'].startswith(prefix + '.')]
+        if item['classification'] in ('EXTERNAL', 'AMBIGUOUS', 'ENGINE_UNSUPPORTED', 'SOURCE_CONFLICT'):
+            assert not executable
+        if code in ('16', '17', '18', '19', '20', '26'):
+            assert item['classification'] == 'FULLY_MAPPABLE'
+            assert item['mapping_status'] == 'EXECUTABLE'
+            assert item['engine_gap'] is None
+            assert executable
+            assert all(r['source_refs'] == item['source_refs'] for r in executable)
+            if code == '26':
+                assert 'any' in executable[0]['assertions'][0]['condition']
 
 
 def test_inherited_req6_29_keep_dual_table55_table44_provenance():

@@ -26,10 +26,10 @@ def test_complete_table54_inventory_and_classification_arithmetic():
     assert audit["expanded_requirement_count"] == 31
     assert {int(item["requirement_code"]) for item in audit["inventory"]} == set(range(1, 32))
     assert audit["classification_counts"] == {
-        "FULLY_MAPPABLE": 22,
+        "FULLY_MAPPABLE": 28,
         "SAFE_PARTIAL": 2,
         "AMBIGUOUS": 1,
-        "ENGINE_UNSUPPORTED": 6,
+        "ENGINE_UNSUPPORTED": 0,
         "EXTERNAL": 0,
         "SOURCE_CONFLICT": 0,
     }
@@ -74,4 +74,5 @@ def test_table54_direct_requirements_have_exact_owners_and_no_or_to_and_conversi
     assert req31["assertions"][0]["state"] == "FORBIDDEN"
     assert not _rules(13)
     for code in [16, 17, 18, 19, 20, 26]:
-        assert not _rules(code)
+        assert _rules(code)
+    assert "any" in _rules(26)[0]["assertions"][0]["condition"]

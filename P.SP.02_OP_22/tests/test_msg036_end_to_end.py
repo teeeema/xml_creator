@@ -26,7 +26,7 @@ def _values():
         "ccdo:EDocHeader/csdo:EDocCode": "R.IP.SP.02.002", "ccdo:EDocHeader/csdo:EDocId": "00000000-0000-0000-0000-000000000036",
         "ccdo:EDocHeader/csdo:EDocDateTime": "2026-09-30T14:00:00+03:00", APP: [None],
         f"{APP}/ipsdo:IPDocKindCode": "00036", f"{APP}/ipsdo:ApplicationReceiptDate": "2026-09-30", f"{APP}/ipsdo:TrademarkApplicationId": "2026/RU-000036",
-        party: [None], f"{party}/ipsdo:IPPartyKindCode": "AP", f"{party}/csdo:UnifiedCountryCode": "RU", f"{party}/csdo:UnifiedCountryCode/@codeListId": "ВОИС ST.3", f"{party}/ipsdo:IPSubjectName": "Заявитель",
+        party: [None], f"{party}/ipsdo:IPPartyKindCode": "AP", f"{party}/csdo:UnifiedCountryCode": "RU", f"{party}/csdo:UnifiedCountryCode/@codeListId": "ВОИС ST.3", f"{party}/ipsdo:IPSubjectName": "Заявитель", f"{party}/ipsdo:IPSubjectName/@nameRepresentationKindCode": "OR", f"{party}/ipsdo:IPSubjectName/@languageCode": "RU",
         address: [""], f"{address}/csdo:AddressKindCode": "2", f"{address}/csdo:UnifiedCountryCode": "RU", f"{address}/csdo:UnifiedCountryCode/@codeListId": "ВОИС ST.3", f"{address}/csdo:CityName": "Москва", f"{address}/csdo:StreetName": "Тестовая", f"{address}/csdo:BuildingNumberId": "1",
         comm: [""], f"{comm}/csdo:CommunicationChannelCode": "EM", f"{comm}/csdo:CommunicationChannelId": "applicant@example.test",
         trademark: [None], description: [""], f"{description}/csdo:DescriptionText": "Описание", f"{trademark}/ipsdo:TrademarkKindCode": "110", f"{trademark}/ipsdo:TrademarkKindName": "Словесный знак", f"{trademark}/ipsdo:CollectiveMarkIndicator": "0",

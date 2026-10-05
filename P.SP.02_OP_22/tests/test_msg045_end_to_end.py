@@ -35,7 +35,7 @@ def valid_values():
         f"{PARTY}/ipsdo:IPPartyKindCode": "AP",
         f"{PARTY}/csdo:UnifiedCountryCode": "RU",
         f"{PARTY}/csdo:UnifiedCountryCode/@codeListId": "ВОИС ST.3",
-        f"{PARTY}/ipsdo:IPSubjectName": "Заявитель",
+        f"{PARTY}/ipsdo:IPSubjectName": "Заявитель", f"{PARTY}/ipsdo:IPSubjectName/@nameRepresentationKindCode": "OR", f"{PARTY}/ipsdo:IPSubjectName/@languageCode": "RU",
         ADDRESS: [""],
         f"{ADDRESS}/csdo:AddressKindCode": "2",
         f"{ADDRESS}/csdo:UnifiedCountryCode": "RU",
