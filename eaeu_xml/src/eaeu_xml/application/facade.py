@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta, timezone
+from copy import deepcopy
 from pathlib import Path
 import re
 from types import SimpleNamespace
@@ -236,19 +237,24 @@ class EaeuXmlApplication:
         return MessageView(message_code, message.name, direction, message.structure_id, active, status, reason,
                            message.message_rules_status, labels[message.message_rules_status])
 
-    def _structure_for_form(self, engine, message_code):
-        message = engine.get_message(message_code); selection = engine.package.profile.structures[message.structure_id]
+    def _structure_for_form(self, engine, message_code, structure_id: str | None = None):
+        message = engine.get_message(message_code)
+        structure_id = structure_id or message.structure_id
+        selection = engine.package.profile.structures[structure_id]
         if selection.active_version is not None:
-            return engine.structures[(message.structure_id, selection.active_version)]
-        candidates = [value for (structure_id, _), value in engine.structures.items() if structure_id == message.structure_id]
-        if not candidates: raise KeyError(message.structure_id)
+            return engine.structures[(structure_id, selection.active_version)]
+        candidates = [value for (candidate_id, _), value in engine.structures.items() if candidate_id == structure_id]
+        if not candidates: raise KeyError(structure_id)
         return sorted(candidates, key=lambda value: value.version)[-1]
 
-    def get_form(self, process_code: str, transaction_code: str, message_code: str) -> FormDefinition:
+    def get_form(self, process_code: str, transaction_code: str, message_code: str,
+                 *, structure_id: str | None = None) -> FormDefinition:
         engine = self._engine(process_code); transaction = engine.get_transaction(transaction_code)
         if message_code not in (transaction.initiating_message, *transaction.response_messages):
             raise KeyError(f"Message {message_code} is not a branch of {transaction_code}")
-        message = engine.get_message(message_code); structure = self._structure_for_form(engine, message_code)
+        message = engine.get_message(message_code)
+        structure_id = structure_id or message.structure_id
+        structure = self._structure_for_form(engine, message_code, structure_id)
         rules = engine.rules.get(message_code); usage = rules.field_usage if rules else {}; fixed = rules.fixed_values if rules else {}
         children = {}
         for field in structure.fields: children.setdefault(field.parent, []).append(field)
@@ -288,7 +294,7 @@ class EaeuXmlApplication:
             explicit_policy = engine.package.input_policies.get((message_code, field.path))
             automatic_value = None
             if explicit_policy and explicit_policy.generated_value == "MESSAGE_CODE": automatic_value = message_code
-            elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = message.structure_id
+            elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = structure_id
             example_result = self.example_value_resolver.resolve(
                 datatype=field.datatype, description=field.description,
                 fixed_value=fixed.get(field.path, automatic_value),
@@ -340,8 +346,8 @@ class EaeuXmlApplication:
                              pattern=field.facets.pattern if field.facets else None)
         status, reason = self._preflight(engine, transaction_code, message_code)
         roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
-        active = engine.package.profile.structures[message.structure_id].active_version
-        return FormDefinition(process_code, transaction_code, message_code, message.structure_id, active, status, reason, roots)
+        active = engine.package.profile.structures[structure_id].active_version
+        return FormDefinition(process_code, transaction_code, message_code, structure_id, active, status, reason, roots)
 
     def get_conditional_rules(self, process_code: str, message_code: str):
         engine=self._engine(process_code);rules=engine.rules.get(message_code)
@@ -404,6 +410,76 @@ class EaeuXmlApplication:
         if example is not None: lines.append(f"Пример: {example}")
         return "\n".join(lines)
 
+    def _materialize_embedded_one_of(self, process_code: str, transaction_code: str, message_code: str,
+                                     values: Mapping[str, object], *, seed: int, mode: str,
+                                     existing_values: Mapping[str, object] | None = None):
+        engine = self._engine(process_code)
+        message = engine.get_message(message_code)
+        embedded = message.embedded_structures
+        if not embedded or embedded.selection != "ONE_OF":
+            return dict(values)
+
+        container = self._structure_for_form(engine, message_code)
+        wildcard_fields = [field for field in container.fields if field.kind == "ANY"]
+        if len(wildcard_fields) != 1:
+            return dict(values)
+        wildcard_path = wildcard_fields[0].path
+        if existing_values is not None and wildcard_path in existing_values:
+            return dict(values)
+
+        raw = values.get(wildcard_path)
+        supplied = raw if isinstance(raw, list) else [raw]
+        supplied_elements = [item for item in supplied if isinstance(item, ET.Element)]
+        if len(supplied_elements) == 1 and len(supplied) == 1:
+            return dict(values)
+
+        base_values = dict(values)
+        base_values.pop(wildcard_path, None)
+        rules = engine.rules.get(message_code)
+        all_structured_rules = rules.structured_rules if rules else ()
+
+        for branch_index, embedded_structure_id in enumerate(embedded.structures):
+            embedded_rules = tuple(
+                rule for rule in all_structured_rules
+                if rule.get("applies_to_structure") == embedded_structure_id
+            )
+            embedded_form = self.get_form(
+                process_code, transaction_code, message_code,
+                structure_id=embedded_structure_id,
+            )
+            embedded_values = self.test_data_generator.generate(
+                embedded_form,
+                seed=seed + branch_index,
+                mode=mode,
+                structured_rules=embedded_rules,
+            )
+            try:
+                body = engine.build_body(
+                    message_code,
+                    base_values,
+                    mode=GenerationMode.TEST,
+                    embedded_structure_id=embedded_structure_id,
+                    embedded_values=embedded_values,
+                )
+            except BodyValidationError:
+                continue
+
+            definition = engine.resolve_structure(
+                embedded_structure_id, mode=GenerationMode.TEST,
+            ).definition
+            expected_tag = f"{{{definition.namespace}}}{definition.root_element}"
+            payload = next(
+                (element for element in body.serialize_xml_element().iter() if element.tag == expected_tag),
+                None,
+            )
+            if payload is None:
+                continue
+            result = dict(base_values)
+            result[wildcard_path] = deepcopy(payload)
+            return result
+
+        return base_values
+
     def generate_test_data(self, process_code: str, transaction_code: str, message_code: str, *, seed: int = 0):
         engine = self._engine(process_code)
         rules = engine.rules.get(message_code)
@@ -416,16 +492,23 @@ class EaeuXmlApplication:
             if ((item.rule.effect=="SHOW" and item.result.value=="FALSE") or
                 (item.rule.effect=="HIDE" and item.result.value=="TRUE")):
                 values.pop(item.rule.target_field_path,None)
-        return values
+        return self._materialize_embedded_one_of(
+            process_code, transaction_code, message_code, values,
+            seed=seed, mode="test",
+        )
 
     def generate_required_data(self, process_code: str, transaction_code: str, message_code: str,
                                *, existing_values=None, seed: int = 0):
         """Fill only unconditional form requirements, preserving user values."""
         rules = self._engine(process_code).rules.get(message_code)
-        return self.test_data_generator.generate(
+        values = self.test_data_generator.generate(
             self.get_form(process_code, transaction_code, message_code),
             seed=seed, mode="required", existing_values=existing_values,
             structured_rules=rules.structured_rules if rules else (),
+        )
+        return self._materialize_embedded_one_of(
+            process_code, transaction_code, message_code, values,
+            seed=seed, mode="required", existing_values=existing_values,
         )
 
     def validate(self, process_code: str, transaction_code: str, message_code: str,

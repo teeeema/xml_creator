@@ -1,0 +1,33 @@
+{
+  "$id": "transaction.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "decision5": {},
+    "identity": {},
+    "messages": {},
+    "participants": {},
+    "plain_language": {},
+    "project_state": {},
+    "protocol": {},
+    "runtime": {},
+    "schema_version": {
+      "const": "1.0"
+    },
+    "sources": {},
+    "type": {}
+  },
+  "required": [
+    "schema_version",
+    "identity",
+    "plain_language",
+    "participants",
+    "type",
+    "messages",
+    "protocol",
+    "decision5",
+    "sources",
+    "runtime",
+    "project_state"
+  ],
+  "type": "object"
+}

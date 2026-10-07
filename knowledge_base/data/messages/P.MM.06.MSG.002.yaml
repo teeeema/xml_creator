@@ -1,0 +1,109 @@
+{
+  "dependencies": {
+    "classifiers": [
+      "P.CLS.009",
+      "P.CLS.019",
+      "P.CLS.054",
+      "P.MM.06.CLS.002",
+      "P.MM.06.CLS.003",
+      "P.MM.06.CLS.004"
+    ],
+    "external_registries": [
+      "Внешние сведения Комиссии / история регистрационных записей",
+      "Единый реестр зарегистрированных лекарственных средств ЕАЭС",
+      "Единый реестр свидетельств о государственной регистрации продукции",
+      "Сведения/единый реестр медицинских изделий, хранящиеся в Комиссии"
+    ]
+  },
+  "flow": {
+    "direction": "REQUEST",
+    "receiver": null,
+    "sender": null
+  },
+  "identity": {
+    "message": "P.MM.06.MSG.002",
+    "op": "OP32",
+    "process": "P.MM.06"
+  },
+  "project_state": {
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "purpose": {
+    "description": null,
+    "name": "сведения о регистрации медицинского изделия"
+  },
+  "requirements": [
+    "OP32.P_MM_06.MSG_002.REQ.001",
+    "OP32.P_MM_06.MSG_002.REQ.002",
+    "OP32.P_MM_06.MSG_002.REQ.003",
+    "OP32.P_MM_06.MSG_002.REQ.004",
+    "OP32.P_MM_06.MSG_002.REQ.005",
+    "OP32.P_MM_06.MSG_002.REQ.006",
+    "OP32.P_MM_06.MSG_002.REQ.007",
+    "OP32.P_MM_06.MSG_002.REQ.008",
+    "OP32.P_MM_06.MSG_002.REQ.009",
+    "OP32.P_MM_06.MSG_002.REQ.010",
+    "OP32.P_MM_06.MSG_002.REQ.011",
+    "OP32.P_MM_06.MSG_002.REQ.012",
+    "OP32.P_MM_06.MSG_002.REQ.013",
+    "OP32.P_MM_06.MSG_002.REQ.014",
+    "OP32.P_MM_06.MSG_002.REQ.015",
+    "OP32.P_MM_06.MSG_002.REQ.016",
+    "OP32.P_MM_06.MSG_002.REQ.017",
+    "OP32.P_MM_06.MSG_002.REQ.018",
+    "OP32.P_MM_06.MSG_002.REQ.019",
+    "OP32.P_MM_06.MSG_002.REQ.020",
+    "OP32.P_MM_06.MSG_002.REQ.021",
+    "OP32.P_MM_06.MSG_002.REQ.022",
+    "OP32.P_MM_06.MSG_002.REQ.023",
+    "OP32.P_MM_06.MSG_002.REQ.024",
+    "OP32.P_MM_06.MSG_002.REQ.025",
+    "OP32.P_MM_06.MSG_002.REQ.026",
+    "OP32.P_MM_06.MSG_002.REQ.027",
+    "OP32.P_MM_06.MSG_002.REQ.028",
+    "OP32.P_MM_06.MSG_002.REQ.029",
+    "OP32.P_MM_06.MSG_002.REQ.030",
+    "OP32.P_MM_06.MSG_002.REQ.031",
+    "OP32.P_MM_06.MSG_002.REQ.032",
+    "OP32.P_MM_06.MSG_002.REQ.033",
+    "OP32.P_MM_06.MSG_002.REQ.034",
+    "OP32.P_MM_06.MSG_002.REQ.035",
+    "OP32.P_MM_06.MSG_002.REQ.036",
+    "OP32.P_MM_06.MSG_002.REQ.037",
+    "OP32.P_MM_06.MSG_002.REQ.038",
+    "OP32.P_MM_06.MSG_002.REQ.039",
+    "OP32.P_MM_06.MSG_002.REQ.040",
+    "OP32.P_MM_06.MSG_002.REQ.041",
+    "OP32.P_MM_06.MSG_002.REQ.042",
+    "OP32.P_MM_06.MSG_002.REQ.043",
+    "OP32.P_MM_06.MSG_002.REQ.044",
+    "OP32.P_MM_06.MSG_002.REQ.045",
+    "OP32.P_MM_06.MSG_002.REQ.046",
+    "OP32.P_MM_06.MSG_002.REQ.047",
+    "OP32.P_MM_06.MSG_002.REQ.048",
+    "OP32.P_MM_06.MSG_002.REQ.049",
+    "OP32.P_MM_06.MSG_002.REQ.050",
+    "OP32.P_MM_06.MSG_002.REQ.051",
+    "OP32.P_MM_06.MSG_002.REQ.052"
+  ],
+  "runtime": {
+    "status": "CONFIRMED"
+  },
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "document": "32_ОП.pdf",
+      "item": "P.MM.06.MSG.002",
+      "location": "Перечень сообщений общего процесса",
+      "page": 95,
+      "source_id": "32OP-MSG-002",
+      "status": "CONFIRMED"
+    }
+  ],
+  "structure": {
+    "id": "R.HC.MM.06.001",
+    "version": "1.1.0"
+  }
+}

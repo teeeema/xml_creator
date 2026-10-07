@@ -1,0 +1,146 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.IP.SP.02.007"
+    ]
+  },
+  "fields": [
+    {
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.6",
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipsdo:CollectiveMarkIndicator"
+    }
+  ],
+  "gap": {
+    "category": "CLASSIFIER",
+    "closure_criteria": [
+      "Official classifier/reference-data payload and required version are available locally; the rule is wired and regression-validated against that payload."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Collective charter document-kind code needs a confirmed classifier; no code/name shortcut."
+    ],
+    "reason": "OPEN_CLASSIFIER",
+    "required_action": [
+      "Preserve open remainder; no code correction is authorized in this report-only task."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "P.SP.02.MSG.050:68:19",
+    "message": "P.SP.02.MSG.050",
+    "op": "OP22",
+    "procedure": "P.SP.02.PRC.027",
+    "process": "P.SP.02",
+    "requirement": "19",
+    "source_occurrence": 1,
+    "source_requirement_number": "19",
+    "transaction": "P.SP.02.TRN.045"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "conditional filtering of repeated instances"
+    ],
+    "production_files": [
+      "P.SP.02_OP_22/message_rules/P.SP.02.MSG.050.yaml"
+    ],
+    "production_rules": [],
+    "status": "OPEN_CLASSIFIER"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "если в составе реквизита «Товарный знак Союза» (ipcdo:TrademarkDetails) значение реквизита «Признак коллективного знака» (ipsdo:CollectiveMarkIndicator) соответствует значению «1» – «товарный знак является коллективным», то должен быть заполнен экземпляр реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails) в составе которого должен быть заполнен один из реквизитов «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) или «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) и их значения должны соответствовать коду или наименованию вида документа «Устав (положение) коллективного знака Евразийского экономического союза, содержащий наименование лица, уполномоченного на регистрацию коллективного знака Союза на свое имя, цель регистрации коллективного знака Союза, перечень субъектов, имеющих право на использование коллективного знака Союза, перечень и единые качественные или иные общие характеристики товаров, которые будут обозначаться коллективным знаком Союза, условия его использования, положения о порядке контроля за его использованием, положения об ответственности за нарушение его требований»"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "OPEN_CLASSIFIER",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "19",
+        "level": "CONFIRMED_PDF_SOURCE_REF",
+        "occurrence": 1,
+        "pdf_page": 740,
+        "section": null,
+        "source": "ОП_22.pdf",
+        "table": "68"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.SP.02_OP_22/tests/test_msg050_end_to_end.py; P.SP.02_OP_22/tests/test_msg050_repeatable_xml.py; P.SP.02_OP_22/tests/test_msg050_safe_mapping.py"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "ОП_22.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF_SOURCE_REF",
+      "source_page_ref": "sources/OP22_P_SP_02/pages/page_740.md"
+    },
+    "item": "19",
+    "occurrence": 1,
+    "pdf_page": 740,
+    "printed_page": 161,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/ОП_22.pdf",
+    "table": "68"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": "CollectiveMarkIndicator",
+      "namespace": null,
+      "raw": "ipsdo:CollectiveMarkIndicator",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.IP.SP.02.007",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:IP:SP:02:TrademarkRegisterDetails:v1.0.0}TrademarkRegisterDetails",
+      "local_name": "TrademarkRegisterDetails",
+      "namespace": "urn:EEC:R:IP:SP:02:TrademarkRegisterDetails:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipsdo:CollectiveMarkIndicator"
+  },
+  "verification": {
+    "negative_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.SP.02_OP_22/tests/test_msg050_end_to_end.py; P.SP.02_OP_22/tests/test_msg050_repeatable_xml.py; P.SP.02_OP_22/tests/test_msg050_safe_mapping.py"
+    }
+  }
+}

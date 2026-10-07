@@ -64,7 +64,7 @@ class GuiViewModel(QObject):
         result = []
         def add(model, level=0):
             if model.visibility == "HIDDEN": return
-            if model.children:
+            if model.control_kind == "GROUP":
                 result.append({"path": model.path, "label": model.label, "kind": "GROUP", "level": level,
                                "required": model.required, "readOnly": model.read_only, "value": "", "choices": [],
                                "help": model.tooltip})
@@ -79,6 +79,7 @@ class GuiViewModel(QObject):
                            "required": model.required, "readOnly": model.read_only, "value": str(value),
                            "choices": [str(item) for item in (field.allowed_values if field else ())],
                            "help": model.tooltip, "placeholder": str(model.example_value or "")})
+            for child in model.children: add(child, level + 1)
         for model in self.controller.visible_control_models(): add(model)
         return result
 
@@ -154,6 +155,11 @@ class GuiViewModel(QObject):
     @Property(str, notify=noticeChanged)
     def notice(self): return self._notice
 
+    def _invalidate_xml_validation(self):
+        self._xml_validation_error = ""
+        self._xml_validation = None
+        self.controller.validation = None
+
     def _refresh(self, notice=""):
         self._notice = notice
         self.noticeChanged.emit()
@@ -220,6 +226,7 @@ class GuiViewModel(QObject):
     def generateXml(self):
         result = self.controller.generate_xml()
         self._xml = result.xml or ""
+        self._invalidate_xml_validation()
         self._refresh("XML сформирован." if result.success else f"XML не сформирован: {result.status}")
 
     @Slot(str)
@@ -228,6 +235,7 @@ class GuiViewModel(QObject):
         value = str(value)
         if value != self._xml:
             self._xml = value
+            self._invalidate_xml_validation()
             self.changed.emit()
 
     @Slot(str)
@@ -299,6 +307,7 @@ class GuiViewModel(QObject):
         self._xml_validation_error = ""
         self._xml_validation = None
         if self._xml:
+            self.controller.validation = None
             engine = self.controller.application._engine(self.controller.process_code)
             self._xml_validation = XmlValidationService().validate(
                 self._xml, engine=engine, transaction_code=self.controller.transaction_code,
@@ -308,6 +317,13 @@ class GuiViewModel(QObject):
                 self._xml_validation_error = parse_error.message
                 self._refresh("XML содержит синтаксическую ошибку.")
                 return
+            if not self._xml_validation.is_valid:
+                self._refresh("XML не прошёл проверку структуры.")
+                return
+            if self._xml_validation.body_values is None:
+                self._refresh("XML не удалось сопоставить с выбранной структурой.")
+                return
+            self.controller.set_values(self._xml_validation.body_values)
         self.controller.validate()
         self._refresh("Проверка завершена.")
 
@@ -319,15 +335,18 @@ class GuiViewModel(QObject):
     @Slot(str)
     def setValidationMode(self, mode):
         if mode in {"TEST", "STRICT"}:
+            changed = mode != self.controller.settings.mode
             self.controller.settings = self.controller.settings.__class__(
                 **{**self.controller.settings.__dict__, "mode": mode})
+            if changed:
+                self._invalidate_xml_validation()
         self._refresh()
 
     @Slot()
     def formatXml(self):
         formatted = self.formattedXml(self._xml)
         if formatted:
-            self._xml = formatted
+            self.setXml(formatted)
             self._refresh("XML отформатирован.")
 
     @staticmethod

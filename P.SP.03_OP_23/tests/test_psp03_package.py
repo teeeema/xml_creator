@@ -7,6 +7,8 @@ from eaeu_xml.core.enums import SignalKind, TransactionState
 from eaeu_xml.presentation.controller import GuiController
 from eaeu_xml.process_packages.loader import ProcessPackageLoader
 
+from test_b1_production import _positive_xml, _two_register_document, _validate_document, _validate_xml
+
 
 ROOT = Path(__file__).parents[2]
 PACKAGE_PATH = ROOT / "P.SP.03_OP_23"
@@ -74,6 +76,8 @@ class Psp03PackageTests(TestCase):
                 if message_code != initiating_code:
                     controller.select_message(initiating_code)
                     controller.apply_test_data()
+                    if initiating_code == "P.SP.03.MSG.018":
+                        controller.set_values({**controller.values, "csdo:UpdateDateTime": "2026-10-06T10:00:00+03:00"})
                     self.assertTrue(controller.generate_xml().success)
                     while controller.session.transaction.state in {
                         TransactionState.WAITING_RECEIVED,
@@ -87,6 +91,30 @@ class Psp03PackageTests(TestCase):
                         controller.session.runtime.receive_signal(controller.session.transaction, kind)
                 controller.select_message(message_code)
                 controller.apply_test_data()
+                if message_code in {
+                    "P.SP.03.MSG.003",
+                    "P.SP.03.MSG.005",
+                    "P.SP.03.MSG.010",
+                    "P.SP.03.MSG.012",
+                }:
+                    # These messages need two ordered application instances and explicit validity dates.
+                    xml = _positive_xml(message_code)
+                    self.assertTrue(_validate_xml(message_code, xml).is_valid)
+                    ET.fromstring(xml)
+                    continue
+                if message_code in {
+                    "P.SP.03.MSG.006",
+                    "P.SP.03.MSG.007",
+                    "P.SP.03.MSG.008",
+                    "P.SP.03.MSG.013",
+                }:
+                    # These messages require two ordered register-item instances.
+                    document = _two_register_document(message_code)
+                    self.assertTrue(_validate_document(message_code, document).is_valid)
+                    ET.fromstring(ET.tostring(document))
+                    continue
+                if message_code == "P.SP.03.MSG.018":
+                    controller.set_values({**controller.values, "csdo:UpdateDateTime": "2026-10-06T10:00:00+03:00"})
                 self.assertTrue(controller.validate().is_valid)
                 result = controller.generate_xml()
                 self.assertTrue(result.success)

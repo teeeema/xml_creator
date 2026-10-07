@@ -1,0 +1,31 @@
+{
+  "$id": "message.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "dependencies": {},
+    "flow": {},
+    "identity": {},
+    "project_state": {},
+    "purpose": {},
+    "requirements": {},
+    "runtime": {},
+    "schema_version": {
+      "const": "1.0"
+    },
+    "sources": {},
+    "structure": {}
+  },
+  "required": [
+    "schema_version",
+    "identity",
+    "purpose",
+    "flow",
+    "structure",
+    "requirements",
+    "sources",
+    "dependencies",
+    "runtime",
+    "project_state"
+  ],
+  "type": "object"
+}

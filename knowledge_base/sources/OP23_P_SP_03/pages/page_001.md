@@ -1,0 +1,11 @@
+---
+source_document: "ОП_23.pdf"
+source_path: "/Users/tema/Documents/Work/Документы_xml/ОП_23.pdf"
+source_sha256: "438611a5c16d2d699df244768d167a59ea0c020039853a44845346d96366fa1d"
+pdf_page: 1
+extraction_method: "pypdf 6.19.0"
+extraction_status: "EMPTY"
+generated_by: "knowledge_base/tools/build_kb.py"
+---
+
+

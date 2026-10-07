@@ -1,0 +1,50 @@
+{
+  "decision5": {
+    "reference": "data/decisions/Decision_5.yaml"
+  },
+  "identity": {
+    "op": "OP23",
+    "procedure": "P.SP.03.PRC.012",
+    "process": "P.SP.03",
+    "transaction": "P.SP.03.TRN.019"
+  },
+  "messages": {
+    "initiating": "P.SP.03.MSG.025",
+    "responses": [
+      "P.SP.03.MSG.020",
+      "P.SP.03.MSG.026",
+      "P.SP.03.MSG.027"
+    ]
+  },
+  "participants": {},
+  "plain_language": {
+    "description": null,
+    "name": "Получение документов, прилагаемых к заявке на НМПТ Союза, или иных видов прилагаемых документов"
+  },
+  "project_state": {
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "protocol": {
+    "retry": null,
+    "signature": null,
+    "timeout": null
+  },
+  "runtime": {
+    "status": "CONFIRMED"
+  },
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "document": "ОП_23.pdf",
+      "item": "P.SP.03.TRN.019",
+      "location": "Перечень и описание транзакций общего процесса",
+      "page": 190,
+      "source_id": "23OP-TRN-P-SP-03-TRN-019",
+      "status": "CONFIRMED",
+      "version_context": "P.SP.03 1.0.0"
+    }
+  ],
+  "type": null
+}

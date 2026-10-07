@@ -1,0 +1,142 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [
+      {
+        "evidence": "AUDIT_DERIVED",
+        "id": "FILLING_TABLE_vs_STRUCTURE_TABLE_XML_NAME",
+        "secondary": "XSD_PAYLOAD_MISSING; IMPORTED_MODEL_EXACT_NAMESPACE_VERSION_UNRESOLVED",
+        "type": "SOURCE_CONFLICT"
+      }
+    ],
+    "requirements": [],
+    "structures": [
+      "R.FP.DS.01.001"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": "SOURCE_CONFLICT",
+    "closure_criteria": [
+      "Получено авторитетное разрешение каждого расхождения (FILLING_TABLE csdo:CountryCode vs STRUCTURE_TABLE csdo:UnifiedCountryCode), KB отражает выбранный QName без догадки; Exact QName/path подтверждены официальным источником; production rule загружается; positive и negative regression проходят."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "XSD_PAYLOAD_MISSING; IMPORTED_MODEL_EXACT_NAMESPACE_VERSION_UNRESOLVED"
+    ],
+    "reason": "SOURCE_CONFLICT",
+    "required_action": [
+      "Сверить оригинальную публикацию/исправления и официальный XSD; разрешить конфликт FILLING_TABLE csdo:CountryCode vs STRUCTURE_TABLE csdo:UnifiedCountryCode. До этого не нормализовать QName как нормативный факт. Получить официальный XSD/точные версии импортируемых data-model namespaces и подтвердить exact Clark QName/path."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "OP49.P_DS_01.MSG_005.REQ.035",
+    "message": "P.DS.01.MSG.005",
+    "op": "OP49",
+    "procedure": "P.DS.01.PRC.005; P.DS.01.PRC.006",
+    "process": "P.DS.01",
+    "requirement": "035",
+    "source_occurrence": 1,
+    "source_requirement_number": "35",
+    "transaction": "P.DS.01.TRN.005; P.DS.01.TRN.006"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "B2"
+    ],
+    "production_files": [
+      "P.DS.01_OP_49/message_rules/P.DS.01.MSG.005.yaml"
+    ],
+    "production_rules": [],
+    "status": "OPEN_SOURCE_CONFLICT"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": "Нельзя однозначно привязать правило к XML: FILLING_TABLE csdo:CountryCode vs STRUCTURE_TABLE csdo:UnifiedCountryCode. Нужно сначала разрешить расхождение между таблицей заполнения и таблицей структуры.",
+      "purpose": null
+    },
+    "source_text": "для реквизита «Сведения о суммах распределенных ввозных таможенных пошлин, приостановленных к перечислению» (ds01cdo:StopTransferDistributedDutyDetails), имеющего индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «0», должно быть заполнено значение реквизита «Код страны» (csdo:CountryCode)"
+  },
+  "project_state": {
+    "audit_notes": "Package business_rule=NO; structured_rule=NO; conflicts=FILLING_TABLE csdo:CountryCode vs STRUCTURE_TABLE csdo:UnifiedCountryCode",
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Нельзя однозначно привязать правило к XML: FILLING_TABLE csdo:CountryCode vs STRUCTURE_TABLE csdo:UnifiedCountryCode. Нужно сначала разрешить расхождение между таблицей заполнения и таблицей структуры.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "35",
+        "level": "CONFIRMED_PDF",
+        "occurrence": 1,
+        "pdf_page": 98,
+        "section": "24",
+        "source": "49_ОП.pdf",
+        "table": "13"
+      }
+    ],
+    "runtime": []
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "49_ОП.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP49_P_DS_01/pages/page_098.md"
+    },
+    "item": "35",
+    "occurrence": 1,
+    "pdf_page": 98,
+    "printed_page": 45,
+    "section": "24",
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/49_ОП.pdf",
+    "table": "13"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "ds01cdo:StopTransferDistributedDutyDetails; ds01sdo:TotalAmountIndicator; csdo:CountryCode",
+      "status": "CONFLICT"
+    },
+    "id": "R.FP.DS.01.001",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0}ChargedDistributedReport",
+      "local_name": "ChargedDistributedReport",
+      "namespace": "urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:StopTransferDistributedDutyDetails | ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails/ds01sdo:TotalAmountIndicator | ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails/ds01sdo:TotalAmountIndicator | ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:StopTransferDistributedDutyDetails/ds01sdo:TotalAmountIndicator | ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails/csdo:UnifiedCountryCode | ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:StopTransferDistributedDutyDetails/csdo:UnifiedCountryCode"
+  },
+  "verification": {
+    "negative_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "MISSING",
+      "test": null
+    }
+  }
+}

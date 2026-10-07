@@ -148,5 +148,150 @@
       "page": null,
       "version_context": "P.MM.01 1.1.0"
     }
+  ],
+  "structured_rules": [
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.012.REQ.001",
+      "production_rule_id": "P.MM.01.MSG.012.R1",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "16",
+          "item": "1",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "kind": "presence",
+      "target": "ApplicationId",
+      "state": "REQUIRED"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.012.REQ.002",
+      "production_rule_id": "P.MM.01.MSG.012.R2",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "16",
+          "item": "2",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "kind": "presence",
+      "target": "RegistrationNumberId",
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.012.REQ.003",
+      "production_rule_id": "P.MM.01.MSG.012.R3",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "16",
+          "item": "3",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "kind": "presence",
+      "target": "RegistrationKindCode",
+      "state": "REQUIRED"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.012.REQ.004",
+      "production_rule_id": "P.MM.01.MSG.012.R4",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "16",
+          "item": "4",
+          "page": 288,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "for_each",
+      "selector": {
+        "collection": "RegistrationDossierDocDetails"
+      },
+      "assertions": [
+        {
+          "kind": "condition",
+          "condition": {
+            "any": [
+              {
+                "field": "DrugRegistrationDocCode",
+                "operator": "EQ",
+                "value": "01001"
+              },
+              {
+                "field": "DrugRegistrationDocName",
+                "operator": "NE",
+                "value": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.012.REQ.005",
+      "production_rule_id": "P.MM.01.MSG.012.R5",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "16",
+          "item": "5",
+          "page": 288,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "for_each",
+      "selector": {
+        "collection": "RegistrationDossierDocDetails"
+      },
+      "assertions": [
+        {
+          "kind": "condition",
+          "condition": {
+            "any": [
+              {
+                "field": "DocCopyBinaryText",
+                "operator": "NE",
+                "value": null
+              },
+              {
+                "field": "AnyDetails",
+                "operator": "NE",
+                "value": null
+              }
+            ]
+          }
+        }
+      ]
+    }
   ]
 }

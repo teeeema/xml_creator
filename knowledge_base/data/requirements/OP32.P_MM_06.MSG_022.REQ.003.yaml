@@ -1,0 +1,138 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.HC.MM.06.003"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": "MISSING_NORMATIVE_DATA",
+    "closure_criteria": [
+      "Подтверждены версии импортируемых namespaces и точный QName/path; production rule + loader + validator + positive/negative regression подтверждены."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Official structure tables confirm field vocabulary/import prefixes, but concrete X.X.X/Z.Z.Z model versions and XSD remain absent; exact Clark QName/path is still unproven."
+    ],
+    "reason": "OPEN_MISSING_NORMATIVE_DATA",
+    "required_action": [
+      "Получить официальные XSD либо точные версии base/healthcare data models (X.X.X/Z.Z.Z), подтвердить Clark QName/path и только затем создавать mapping."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "OP32.P_MM_06.MSG_022.REQ.003",
+    "message": "P.MM.06.MSG.022",
+    "op": "OP32",
+    "procedure": "P.MM.06.PRC.014",
+    "process": "P.MM.06",
+    "requirement": "003",
+    "source_occurrence": null,
+    "source_requirement_number": null,
+    "transaction": "P.MM.06.TRN.014"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "condition.any + presence/comparison"
+    ],
+    "production_files": [
+      "P.MM.06_OP_32/message_rules/P.MM.06.MSG.022.yaml"
+    ],
+    "production_rules": [],
+    "status": "OPEN_MISSING_NORMATIVE_DATA"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "в электронном сообщении должен быть заполнен реквизит \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId) или реквизит \"Номер регистрационного удостоверения\" (hcsdo:RegistrationCertificateId)"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Нужно проверить нормативное условие: в электронном сообщении должен быть заполнен реквизит \"Номер заявления на регистрацию медицинского изделия\" (hcsdo:MedicalProductApplicationId) или реквизит \"Номер регистрационного удостоверения\" (hcsdo:RegistrationCertificateId). PDF подтверждает prefixed QName/local name, но версии импортируемых моделей X.X.X/Z.Z.Z и XSD отсутствуют, поэтому точный namespace/Clark QName и production path не доказаны.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": null,
+        "level": "CONFIRMED_PDF",
+        "occurrence": null,
+        "pdf_page": 155,
+        "section": null,
+        "source": "32_ОП.pdf",
+        "table": "23"
+      }
+    ],
+    "runtime": []
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "32_ОП.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP32_P_MM_06/pages/page_155.md"
+    },
+    "item": null,
+    "occurrence": null,
+    "pdf_page": 155,
+    "printed_page": null,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/32_ОП.pdf",
+    "table": "23"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "hcsdo:MedicalProductApplicationId; hcsdo:RegistrationCertificateId",
+      "status": "UNRESOLVED"
+    },
+    "id": "R.HC.MM.06.003",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:HC:MM:06:MedicalProductRegistrationDocContentDetails:v1.1.0}MedicalProductRegistrationDocContentDetails",
+      "local_name": "MedicalProductRegistrationDocContentDetails",
+      "namespace": "urn:EEC:R:HC:MM:06:MedicalProductRegistrationDocContentDetails:v1.1.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.1.0",
+    "xml_path": "UNRESOLVED_EXACT_PATH; normative tokens: hcsdo:MedicalProductApplicationId; hcsdo:RegistrationCertificateId"
+  },
+  "verification": {
+    "negative_test": {
+      "note": "NONE",
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "note": "NONE",
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "note": "NONE for this normative requirement",
+      "status": "MISSING",
+      "test": null
+    }
+  }
+}

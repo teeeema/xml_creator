@@ -1,0 +1,138 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.IP.SP.03.002"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": "EXTERNAL_REGISTRY",
+    "closure_criteria": [
+      "Внешний источник подтвержден и доступен валидатору; lookup/correlation реализованы; positive/negative registry cases покрыты тестами."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Доступные и нормативно подтвержденные данные внешнего информационного ресурса и правила их актуальности."
+    ],
+    "reason": "Требование требует сверки с внешним информационным ресурсом; локального источника реестровых данных и исполняемого OP23 rule нет.",
+    "required_action": [
+      "Определить нормативный источник внешних данных и способ офлайн-проверки/fixture, затем подключить production rule и tests."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "P.SP.03.MSG.006.REQ.039",
+    "message": "P.SP.03.MSG.006",
+    "op": "OP23",
+    "procedure": "P.SP.03.PRC.005",
+    "process": "P.SP.03",
+    "requirement": "039",
+    "source_occurrence": 1,
+    "source_requirement_number": "39",
+    "transaction": "P.SP.03.TRN.005"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "Нужен источник внешних registry data; локальные comparison/filter primitives сами по себе недостаточны."
+    ],
+    "production_files": [
+      "P.SP.03_OP_23/message_rules/P.SP.03.MSG.006.yaml"
+    ],
+    "production_rules": [],
+    "status": "OPEN_EXTERNAL_REGISTRY"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "если в экземплярах реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails) значение реквизита «Код вида записи общего информационного ресурса» (ipsdo:ResourceItemKindCode) соответствует значению «AO» – «сведения о НМПТ Союза», в информационных ресурсах Комиссии, содержащих сведения Единого реестра НМПТ Союза, должна содержаться запись, в составе которой значение реквизита «Код вида записи общего информационного ресурса» (ipsdo:ResourceItemKindCode) соответствует значению «AO» – «сведения о НМПТ Союза», а значение совокупности реквизитов «Регистрационный номер НМПТ Союза» (ipsdo:ApellationOfOriginEAEUId), «Наименование обозначения НМПТ» (ipsdo:ApellationOfOriginName), «Код статуса» (csdo:StatusCode) и «Начальная дата и время» (csdo:StartDateTime) совпадает со значением совокупности соответствующих реквизитов в представляемых изменяемых сведениях Единого реестра НМПТ Союза, а реквизит «Конечная дата и время» (csdo:EndDateTime) в составе реквизита «Технологические характеристики записи общего ресурса» (ccdo:ResourceItemStatusDetails) не заполнен"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Правило нельзя проверить только по текущему XML: оно требует найти или сопоставить запись во внешнем информационном ресурсе Комиссии/национального ведомства. В проекте нет подтвержденного локального реестра или интерфейса, который дает эти данные.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "39",
+        "level": "CONFIRMED_PDF",
+        "occurrence": 1,
+        "pdf_page": 391,
+        "section": null,
+        "source": "ОП_23.pdf",
+        "table": "20"
+      }
+    ],
+    "runtime": []
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "ОП_23.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP23_P_SP_03/pages/page_391.md"
+    },
+    "item": "39",
+    "occurrence": 1,
+    "pdf_page": 391,
+    "printed_page": 102,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/ОП_23.pdf",
+    "table": "20"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "ipsdo:ResourceItemKindCode; ipsdo:ApellationOfOriginEAEUId; ipsdo:ApellationOfOriginName; csdo:StatusCode; csdo:StartDateTime; csdo:EndDateTime; ccdo:ResourceItemStatusDetails",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.IP.SP.03.002",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegisterDetails:v1.0.0}ApellationOfOriginRegisterDetails",
+      "local_name": "ApellationOfOriginRegisterDetails",
+      "namespace": "urn:EEC:R:IP:SP:03:ApellationOfOriginRegisterDetails:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "ipcdo:ApellationOfOriginRegisterItemDetails/ipsdo:ResourceItemKindCode/ipsdo:ApellationOfOriginEAEUId/ipsdo:ApellationOfOriginName/csdo:StatusCode/csdo:StartDateTime/csdo:EndDateTime/ccdo:ResourceItemStatusDetails"
+  },
+  "verification": {
+    "negative_test": {
+      "note": "MISSING — add XML/value case violating this exact requirement and assert rejection.",
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "note": "MISSING — add XML/value case satisfying this exact requirement after production mapping.",
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "note": "NONE requirement-specific. Existing P.SP.03_OP_23/tests/test_psp03_package.py validates catalog/counts/generation only.",
+      "status": "MISSING",
+      "test": null
+    }
+  }
+}

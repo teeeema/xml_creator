@@ -1,0 +1,146 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.IP.SP.03.001"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": null,
+    "closure_criteria": [],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [],
+    "reason": "Production structured rule wired; positive and negative real XML accepted/rejected by production validator.",
+    "required_action": [],
+    "status": "CLOSED"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "P.SP.03.MSG.009.REQ.031",
+    "message": "P.SP.03.MSG.009",
+    "op": "OP23",
+    "procedure": "P.SP.03.PRC.001",
+    "process": "P.SP.03",
+    "requirement": "031",
+    "source_occurrence": 1,
+    "source_requirement_number": "31",
+    "transaction": "P.SP.03.TRN.010"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "Existing structured-rule primitives appear sufficient for the captured local condition; exact mapping must be proved during implementation."
+    ],
+    "production_files": [
+      "P.SP.03_OP_23/message_rules/P.SP.03.MSG.009.yaml"
+    ],
+    "production_rules": [
+      "P.SP.03.MSG.009.REQ.031"
+    ],
+    "status": "IMPLEMENTED_CONFIRMED"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "в составе реквизита «Адрес для переписки» (ipcdo:CorrespondenceAddressDetails) в составе реквизита «Адрес» (ccdo:SubjectAddressDetails) значение реквизита «Код вида адреса» (csdo:AddressKindCode) должно соответствовать значению «3» – «почтовый адрес (адрес для ведения переписки)»"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Требование проверяется исполняемым OP23 structured rule; положительный XML проходит, отрицательный даёт ожидаемый rule ID.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [
+      {
+        "files": [
+          "P.SP.03_OP_23/message_rules/P.SP.03.MSG.009.yaml"
+        ],
+        "level": "CONFIRMED_PRODUCTION",
+        "rules": [
+          "P.SP.03.MSG.009.REQ.031"
+        ]
+      }
+    ],
+    "normative": [
+      {
+        "item": "31",
+        "level": "CONFIRMED_PDF",
+        "occurrence": 1,
+        "pdf_page": 228,
+        "section": null,
+        "source": "ОП_23.pdf",
+        "table": "18"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.SP.03_OP_23/tests/test_b1_production.py (message-specific/parametrized real-XML regression)"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "ОП_23.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP23_P_SP_03/pages/page_228.md"
+    },
+    "item": "31",
+    "occurrence": 1,
+    "pdf_page": 228,
+    "printed_page": 62,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/ОП_23.pdf",
+    "table": "18"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "ipcdo:CorrespondenceAddressDetails; ccdo:SubjectAddressDetails; csdo:AddressKindCode",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.IP.SP.03.001",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegistrationDetails:v1.0.0}ApellationOfOriginRegistrationDetails",
+      "local_name": "ApellationOfOriginRegistrationDetails",
+      "namespace": "urn:EEC:R:IP:SP:03:ApellationOfOriginRegistrationDetails:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "UNCONFIRMED_NOT_MAPPED"
+  },
+  "verification": {
+    "negative_test": {
+      "status": "PRESENT",
+      "test": "PASS — real XML violation produces matching STRUCTURED_RULE_FAILED"
+    },
+    "positive_test": {
+      "status": "PRESENT",
+      "test": "PASS — real XML extracted and accepted by production validator"
+    },
+    "real_xml": {
+      "status": "PRESENT"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.SP.03_OP_23/tests/test_b1_production.py (message-specific/parametrized real-XML regression)"
+    }
+  }
+}

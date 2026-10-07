@@ -1,0 +1,24 @@
+---
+layer: "KNOWLEDGE"
+generated_by: "knowledge_base/tools/build_kb.py"
+---
+
+# OP32 Transactions
+
+| Code | Name | procedure_code | initiating_message | response_messages | status | Evidence |
+|---|---|---|---|---|---|---|
+| P.MM.06.TRN.001 |  | P.MM.06.PRC.001 | P.MM.06.MSG.001 | P.MM.06.MSG.004 | CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT | 32_ОП.pdf p.? — 32_ОП.pdf pp. 96–97/t5 |
+| P.MM.06.TRN.002 |  | P.MM.06.PRC.002 | P.MM.06.MSG.002 | P.MM.06.MSG.004 | CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT | 32_ОП.pdf p.? — 32_ОП.pdf pp. 98/t6 |
+| P.MM.06.TRN.003 |  | P.MM.06.PRC.003 | P.MM.06.MSG.003 | P.MM.06.MSG.004 | CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT | 32_ОП.pdf p.? — 32_ОП.pdf pp. 99–100/t7 |
+| P.MM.06.TRN.004 |  | P.MM.06.PRC.004 | P.MM.06.MSG.005 | P.MM.06.MSG.006 | CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT | 32_ОП.pdf p.? — 32_ОП.pdf pp. 101/t8 |
+| P.MM.06.TRN.005 |  | P.MM.06.PRC.005 | P.MM.06.MSG.007 | P.MM.06.MSG.008, P.MM.06.MSG.009 | CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT | 32_ОП.pdf p.? — 32_ОП.pdf pp. 102–103/t9 |
+| P.MM.06.TRN.006 |  | P.MM.06.PRC.006 | P.MM.06.MSG.010 | P.MM.06.MSG.011, P.MM.06.MSG.009 | CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT | 32_ОП.pdf p.? — 32_ОП.pdf pp. 104/t10 |
+| P.MM.06.TRN.007 |  | P.MM.06.PRC.007 | P.MM.06.MSG.012 | P.MM.06.MSG.013 | CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT | 32_ОП.pdf p.? — 32_ОП.pdf pp. 105–106/t11 |
+| P.MM.06.TRN.008 |  | P.MM.06.PRC.008 | P.MM.06.MSG.017 |  | CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT | 32_ОП.pdf p.? — 32_ОП.pdf pp. 132/t7 |
+| P.MM.06.TRN.009 |  | P.MM.06.PRC.009 | P.MM.06.MSG.015 | P.MM.06.MSG.004 | CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT | 32_ОП.pdf p.? — 32_ОП.pdf pp. 133–134/t8 |
+| P.MM.06.TRN.010 |  | P.MM.06.PRC.010 | P.MM.06.MSG.014 | P.MM.06.MSG.004 | CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT | 32_ОП.pdf p.? — 32_ОП.pdf pp. 135/t9 |
+| P.MM.06.TRN.011 |  | P.MM.06.PRC.011 | P.MM.06.MSG.016 | P.MM.06.MSG.004 | CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT | 32_ОП.pdf p.? — 32_ОП.pdf pp. 136–137/t10 |
+| P.MM.06.TRN.012 |  | P.MM.06.PRC.012 | P.MM.06.MSG.018 | P.MM.06.MSG.004 | CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT | 32_ОП.pdf p.? — 32_ОП.pdf pp. 138–139/t11 |
+| P.MM.06.TRN.013 |  | P.MM.06.PRC.013 | P.MM.06.MSG.019 | P.MM.06.MSG.020, P.MM.06.MSG.009 | CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT | 32_ОП.pdf p.? — 32_ОП.pdf pp. 139–140/t12 |
+| P.MM.06.TRN.014 |  | P.MM.06.PRC.014 | P.MM.06.MSG.021 | P.MM.06.MSG.022, P.MM.06.MSG.009 | CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT | 32_ОП.pdf p.? — 32_ОП.pdf pp. 141–142/t13 |
+| P.MM.06.TRN.015 |  | P.MM.06.PRC.015 | P.MM.06.MSG.023 | P.MM.06.MSG.024, P.MM.06.MSG.009 | CONFIRMED_NAME_NOT_CAPTURED_IN_AUDIT | 32_ОП.pdf p.? — 32_ОП.pdf pp. 143–144/t14 |

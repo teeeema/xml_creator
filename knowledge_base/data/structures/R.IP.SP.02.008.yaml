@@ -1,0 +1,106 @@
+{
+  "dependencies": {
+    "imports": []
+  },
+  "evidence": {
+    "root_qname": "CONFIRMED_STRUCTURE_SOURCE_REF",
+    "xsd_status": "DECLARED_FILENAME_PAYLOAD_MISSING"
+  },
+  "field_index": {
+    "count": 23,
+    "path": "data/fields/R.IP.SP.02.008.json"
+  },
+  "identity": {
+    "structure": "R.IP.SP.02.008",
+    "versions": [
+      "1.0.0"
+    ]
+  },
+  "known_gaps": [
+    "MISSING_XSD_PAYLOAD"
+  ],
+  "root": {
+    "clark_name": "{urn:EEC:R:IP:SP:02:TrademarkRegisterRequestDetails:v1.0.0}TrademarkRegisterRequestDetails",
+    "local_name": "TrademarkRegisterRequestDetails",
+    "namespace": "urn:EEC:R:IP:SP:02:TrademarkRegisterRequestDetails:v1.0.0",
+    "status": "CONFIRMED"
+  },
+  "schema_version": "1.0",
+  "source": {
+    "primary": {
+      "document": "ОП_22.pdf",
+      "item": "P.SP.02.MSG.022",
+      "location": "Перечень сообщений общего процесса",
+      "page": 455,
+      "source_id": "22OP-MSG-P-SP-02-MSG-022",
+      "status": "CONFIRMED",
+      "version_context": "P.SP.02 1.0.0"
+    },
+    "source_refs": [
+      {
+        "document": "ОП_22.pdf",
+        "item": "P.SP.02.MSG.022",
+        "location": "Перечень сообщений общего процесса",
+        "page": 455,
+        "source_id": "22OP-MSG-P-SP-02-MSG-022",
+        "status": "CONFIRMED",
+        "version_context": "P.SP.02 1.0.0"
+      },
+      {
+        "document": "ОП_22.pdf",
+        "item": "P.SP.02.MSG.024",
+        "location": "Перечень сообщений общего процесса",
+        "page": 455,
+        "source_id": "22OP-MSG-P-SP-02-MSG-024",
+        "status": "CONFIRMED",
+        "version_context": "P.SP.02 1.0.0"
+      },
+      {
+        "document": "ОП_22.pdf",
+        "item": "P.SP.02.MSG.058",
+        "location": "Перечень сообщений общего процесса",
+        "page": 638,
+        "source_id": "22OP-MSG-P-SP-02-MSG-058",
+        "status": "CONFIRMED",
+        "version_context": "P.SP.02 1.0.0"
+      },
+      {
+        "document": "ОП_22.pdf",
+        "item": "R.IP.SP.02.008",
+        "location": "Описание форматов и структур электронных документов и сведений, таблицы 14–16",
+        "page": 985,
+        "source_id": "22OP-STRUCT-R.IP.SP.02.008",
+        "status": "CONFIRMED",
+        "table": "14-16",
+        "version_context": "1.0.0"
+      }
+    ]
+  },
+  "usage": {
+    "messages": [
+      "P.SP.02.MSG.022",
+      "P.SP.02.MSG.024",
+      "P.SP.02.MSG.058"
+    ],
+    "requirements": [
+      "P.SP.02.MSG.022:55:1",
+      "P.SP.02.MSG.024:56:1",
+      "P.SP.02.MSG.024:56:2",
+      "P.SP.02.MSG.024:56:3",
+      "P.SP.02.MSG.058:76:1",
+      "P.SP.02.MSG.058:76:2",
+      "P.SP.02.MSG.058:76:3",
+      "P.SP.02.MSG.058:76:4",
+      "P.SP.02.MSG.058:76:5",
+      "P.SP.02.MSG.058:76:6",
+      "P.SP.02.MSG.058:76:7"
+    ]
+  },
+  "xsd": {
+    "declared_filename": "EEC_R_IP_SP_02_TrademarkRegisterRequestDetails_v1.0.0.xsd",
+    "declared_filenames": [
+      "EEC_R_IP_SP_02_TrademarkRegisterRequestDetails_v1.0.0.xsd"
+    ],
+    "local_payload": false
+  }
+}

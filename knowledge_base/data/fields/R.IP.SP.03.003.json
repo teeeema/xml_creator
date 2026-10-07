@@ -1,0 +1,2438 @@
+{
+  "fields": [
+    {
+      "datatype": "ccdo:EDocHeaderType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ccdo:EDocHeader",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "1",
+        "pdf_page": 535,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:InfEnvelopeCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ccdo:EDocHeader/csdo:InfEnvelopeCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "1.1",
+        "pdf_page": 535,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:EDocCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ccdo:EDocHeader/csdo:EDocCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "1.2",
+        "pdf_page": 535,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.3",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ccdo:EDocHeader/csdo:EDocId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "1.3",
+        "pdf_page": 536,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ccdo:EDocHeader/csdo:EDocRefId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "1.4",
+        "pdf_page": 536,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateTimeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.5",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ccdo:EDocHeader/csdo:EDocDateTime",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "1.5",
+        "pdf_page": 536,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:LanguageCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ccdo:EDocHeader/csdo:LanguageCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "1.6",
+        "pdf_page": 536,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Text4000Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "10",
+      "max_occurs": null,
+      "min_occurs": 0,
+      "path": "csdo:NoteText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "10",
+        "pdf_page": 566,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:AccountingAmountType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "11",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "csdo:PaymentAmount",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "11",
+        "pdf_page": 566,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:CurrencyCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "11@currencyCode",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "csdo:PaymentAmount/@currencyCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "11@currencyCode",
+        "pdf_page": 567,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Number2Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "11@scaleNumber",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "csdo:PaymentAmount/@scaleNumber",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "11@scaleNumber",
+        "pdf_page": 567,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:PatentAuthorityDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2",
+        "pdf_page": 537,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.1",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.1",
+        "pdf_page": 537,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.1@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:PatentAuthorityDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.1@codeListId",
+        "pdf_page": 537,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/csdo:AuthorityId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.2",
+        "pdf_page": 538,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name300Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/csdo:AuthorityName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.3",
+        "pdf_page": 538,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/csdo:AuthorityBriefName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.4",
+        "pdf_page": 538,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:SubjectAddressDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.5",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.5",
+        "pdf_page": 538,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:AddressKindCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.5.1",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:AddressKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.5.1",
+        "pdf_page": 538,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.5.10",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:RoomNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.5.10",
+        "pdf_page": 540,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:PostCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.5.11",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:PostCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.5.11",
+        "pdf_page": 541,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.5.12",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:PostOfficeBoxId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.5.12",
+        "pdf_page": 541,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.5.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.5.2",
+        "pdf_page": 539,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.5.2@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.5.2@codeListId",
+        "pdf_page": 539,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:TerritoryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.5.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:TerritoryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.5.3",
+        "pdf_page": 539,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.5.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:RegionName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.5.4",
+        "pdf_page": 539,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.5.5",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:DistrictName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.5.5",
+        "pdf_page": 540,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.5.6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:CityName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.5.6",
+        "pdf_page": 540,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.5.7",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:SettlementName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.5.7",
+        "pdf_page": 540,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.5.8",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:StreetName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.5.8",
+        "pdf_page": 540,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.5.9",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:BuildingNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.5.9",
+        "pdf_page": 540,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:IndicatorType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.6",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:PatentAuthorityDetails/ipsdo:OriginOfficeIndicator",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "2.6",
+        "pdf_page": 541,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:IPLegalActionKindCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipsdo:IPLegalActionKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "3",
+        "pdf_page": 541,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipsdo:IPLegalActionKindCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "3@codeListId",
+        "pdf_page": 542,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipsdo:IPLegalActionKindName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "4",
+        "pdf_page": 542,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:ApplicationIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "5",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipsdo:TrademarkApplicationId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "5",
+        "pdf_page": 542,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:ApplicationIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipsdo:ApellationOfOriginApplicationId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "6",
+        "pdf_page": 542,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "csdo:DocId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "7",
+        "pdf_page": 542,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:IPPaymentDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8",
+        "pdf_page": 543,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.1",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/csdo:PaymentKindName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.1",
+        "pdf_page": 543,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:IPDocDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.10",
+      "max_occurs": null,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.10",
+        "pdf_page": 564,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:IPDocKindCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.10.1",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails/ipsdo:IPDocKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.10.1",
+        "pdf_page": 564,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.10.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails/ipsdo:IPDocKindName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.10.2",
+        "pdf_page": 564,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.10.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.10.3",
+        "pdf_page": 564,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.10.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.10.4",
+        "pdf_page": 565,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.10.5",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocCreationDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.10.5",
+        "pdf_page": 565,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.10.6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocValidityDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.10.6",
+        "pdf_page": 565,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Text4000Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.10.7",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DescriptionText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.10.7",
+        "pdf_page": 565,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Quantity4Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.10.8",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails/csdo:PageQuantity",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.10.8",
+        "pdf_page": 565,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:BinaryTextType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.10.9",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocBinaryText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.10.9",
+        "pdf_page": 565,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:MediaTypeCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.10.9@mediaTypeCode",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocBinaryText/@mediaTypeCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.10.9@mediaTypeCode",
+        "pdf_page": 566,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:PaymentBudgetCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/csdo:PaymentBudgetCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.2",
+        "pdf_page": 543,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Text250Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/csdo:PaymentPurposeText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.3",
+        "pdf_page": 543,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:AccountingAmountType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/csdo:PaymentAmount",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.4",
+        "pdf_page": 543,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:CurrencyCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.4@currencyCode",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/csdo:PaymentAmount/@currencyCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.4@currencyCode",
+        "pdf_page": 544,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Number2Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.4@scaleNumber",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/csdo:PaymentAmount/@scaleNumber",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.4@scaleNumber",
+        "pdf_page": 544,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:PatentAuthorityDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5",
+        "pdf_page": 544,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.1",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.1",
+        "pdf_page": 545,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.1@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.1@codeListId",
+        "pdf_page": 545,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/csdo:AuthorityId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.2",
+        "pdf_page": 545,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name300Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/csdo:AuthorityName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.3",
+        "pdf_page": 545,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/csdo:AuthorityBriefName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.4",
+        "pdf_page": 545,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:SubjectAddressDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.5",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.5",
+        "pdf_page": 546,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:AddressKindCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.5.1",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:AddressKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.5.1",
+        "pdf_page": 546,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.5.10",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:RoomNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.5.10",
+        "pdf_page": 548,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:PostCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.5.11",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:PostCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.5.11",
+        "pdf_page": 548,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.5.12",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:PostOfficeBoxId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.5.12",
+        "pdf_page": 548,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.5.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.5.2",
+        "pdf_page": 546,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.5.2@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.5.2@codeListId",
+        "pdf_page": 546,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:TerritoryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.5.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:TerritoryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.5.3",
+        "pdf_page": 547,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.5.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:RegionName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.5.4",
+        "pdf_page": 547,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.5.5",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:DistrictName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.5.5",
+        "pdf_page": 547,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.5.6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:CityName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.5.6",
+        "pdf_page": 547,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.5.7",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:SettlementName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.5.7",
+        "pdf_page": 547,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.5.8",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:StreetName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.5.8",
+        "pdf_page": 547,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.5.9",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:BuildingNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.5.9",
+        "pdf_page": 548,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:IndicatorType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.5.6",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/ipsdo:OriginOfficeIndicator",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.5.6",
+        "pdf_page": 548,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:BankAccountDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ccdo:BankAccountDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.6",
+        "pdf_page": 548,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:BankAccountIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.6.1",
+      "max_occurs": null,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ccdo:BankAccountDetails/csdo:BankAccountId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.6.1",
+        "pdf_page": 549,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:BankDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.6.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ccdo:BankAccountDetails/ccdo:BankDetails",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.6.2",
+        "pdf_page": 549,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name300Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.6.2.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ccdo:BankAccountDetails/ccdo:BankDetails/csdo:BusinessEntityName",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.6.2.1",
+        "pdf_page": 549,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedBankIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.6.2.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ccdo:BankAccountDetails/ccdo:BankDetails/csdo:UnifiedBankId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.6.2.2",
+        "pdf_page": 549,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.6.2.2@schemeId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ccdo:BankAccountDetails/ccdo:BankDetails/csdo:UnifiedBankId/@schemeId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.6.2.2@schemeId",
+        "pdf_page": 549,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:BankAccountIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.6.2.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ccdo:BankAccountDetails/ccdo:BankDetails/csdo:BankCorrAccountId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.6.2.3",
+        "pdf_page": 550,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:PaymentSystemAccountDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.7",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ccdo:PaymentSystemAccountDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.7",
+        "pdf_page": 550,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.7.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ccdo:PaymentSystemAccountDetails/csdo:PaymentSystemAccountId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.7.1",
+        "pdf_page": 550,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name300Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.7.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ccdo:PaymentSystemAccountDetails/csdo:PaymentSystemName",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.7.2",
+        "pdf_page": 550,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateTimeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.8",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/csdo:EventDateTime",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.8",
+        "pdf_page": 550,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:IPPartyDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9",
+        "pdf_page": 550,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Code2Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipsdo:IPPartyKindCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.1",
+        "pdf_page": 551,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:TaxRegistrationReasonCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.10",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/csdo:TaxRegistrationReasonCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.10",
+        "pdf_page": 554,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:IdentityDocDetailsV3Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.11",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.11",
+        "pdf_page": 554,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.11.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.11.1",
+        "pdf_page": 555,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.11.1@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.11.1@codeListId",
+        "pdf_page": 555,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:IdentityDocKindCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.11.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:IdentityDocKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.11.2",
+        "pdf_page": 555,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.11.2@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:IdentityDocKindCode/@codeListId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.11.2@codeListId",
+        "pdf_page": 555,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.11.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:DocKindName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.11.3",
+        "pdf_page": 556,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.11.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:DocSeriesId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.11.4",
+        "pdf_page": 556,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.11.5",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:DocId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.11.5",
+        "pdf_page": 556,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.11.6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:DocCreationDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.11.6",
+        "pdf_page": 556,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.11.7",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:DocValidityDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.11.7",
+        "pdf_page": 556,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.11.8",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:AuthorityId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.11.8",
+        "pdf_page": 556,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name300Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.11.9",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:AuthorityName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.11.9",
+        "pdf_page": 557,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:SubjectAddressDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.12",
+      "max_occurs": null,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.12",
+        "pdf_page": 557,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:AddressKindCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.12.1",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:AddressKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.12.1",
+        "pdf_page": 557,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.12.10",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:RoomNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.12.10",
+        "pdf_page": 559,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:PostCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.12.11",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:PostCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.12.11",
+        "pdf_page": 559,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.12.12",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:PostOfficeBoxId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.12.12",
+        "pdf_page": 559,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.12.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.12.2",
+        "pdf_page": 557,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.12.2@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.12.2@codeListId",
+        "pdf_page": 558,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:TerritoryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.12.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:TerritoryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.12.3",
+        "pdf_page": 558,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.12.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:RegionName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.12.4",
+        "pdf_page": 558,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.12.5",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:DistrictName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.12.5",
+        "pdf_page": 558,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.12.6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:CityName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.12.6",
+        "pdf_page": 558,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.12.7",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:SettlementName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.12.7",
+        "pdf_page": 559,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.12.8",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:StreetName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.12.8",
+        "pdf_page": 559,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.12.9",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:BuildingNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.12.9",
+        "pdf_page": 559,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:CommunicationDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.13",
+      "max_occurs": null,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:CommunicationDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.13",
+        "pdf_page": 560,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:CommunicationChannelCodeV2Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.13.1",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.13.1",
+        "pdf_page": 560,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.13.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.13.2",
+        "pdf_page": 560,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:CommunicationChannelIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.13.3",
+      "max_occurs": null,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.13.3",
+        "pdf_page": 560,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.14",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipsdo:PatentAttorneyId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.14",
+        "pdf_page": 560,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:DocDetailsV3Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.15",
+      "max_occurs": null,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.15",
+        "pdf_page": 561,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.15.1",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.15.1",
+        "pdf_page": 561,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.15.10",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:AuthorityId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.15.10",
+        "pdf_page": 563,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name300Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.15.11",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:AuthorityName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.15.11",
+        "pdf_page": 563,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Text4000Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.15.12",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DescriptionText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.15.12",
+        "pdf_page": 563,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Quantity4Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.15.13",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:PageQuantity",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.15.13",
+        "pdf_page": 563,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.15.1@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.15.1@codeListId",
+        "pdf_page": 561,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCode20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.15.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.15.2",
+        "pdf_page": 561,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.15.2@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocKindCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.15.2@codeListId",
+        "pdf_page": 562,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.15.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocKindName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.15.3",
+        "pdf_page": 562,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.15.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.15.4",
+        "pdf_page": 562,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.15.5",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocSeriesId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.15.5",
+        "pdf_page": 562,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.15.6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.15.6",
+        "pdf_page": 562,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.15.7",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocCreationDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.15.7",
+        "pdf_page": 562,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.15.8",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocValidityDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.15.8",
+        "pdf_page": 563,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DurationType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.15.9",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocValidityDuration",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.15.9",
+        "pdf_page": 563,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.2",
+        "pdf_page": 551,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.2@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.2@codeListId",
+        "pdf_page": 551,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:Qualified500NameType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.3",
+      "max_occurs": 2,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipsdo:IPSubjectName",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.3",
+        "pdf_page": 551,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:LanguageCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.3@languageCode",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipsdo:IPSubjectName/@languageCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.3@languageCode",
+        "pdf_page": 552,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Code2Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.3@nameRepresentationKindCode",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipsdo:IPSubjectName/@nameRepresentationKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.3@nameRepresentationKindCode",
+        "pdf_page": 552,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/csdo:SubjectBriefName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.4",
+        "pdf_page": 552,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCode20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.5",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/csdo:BusinessEntityTypeCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.5",
+        "pdf_page": 552,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.5@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/csdo:BusinessEntityTypeCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.5@codeListId",
+        "pdf_page": 553,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name300Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/csdo:BusinessEntityTypeName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.6",
+        "pdf_page": 553,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:BusinessEntityIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.7",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/csdo:BusinessEntityId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.7",
+        "pdf_page": 553,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:BusinessEntityIdKindIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.7@kindId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/csdo:BusinessEntityId/@kindId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.7@kindId",
+        "pdf_page": 553,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UniqueCustomsNumberIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.8",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/csdo:UniqueCustomsNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.8",
+        "pdf_page": 554,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:TaxpayerIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "8.9.9",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/csdo:TaxpayerId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "8.9.9",
+        "pdf_page": 554,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:IndicatorType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "9",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipsdo:DutyPaymentIndicator",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_23.pdf",
+        "item": "9",
+        "pdf_page": 566,
+        "table": "13"
+      }
+    }
+  ],
+  "schema_version": "1.0",
+  "structure": "R.IP.SP.03.003"
+}

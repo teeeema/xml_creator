@@ -1,0 +1,127 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.IP.SP.02.002"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": null,
+    "closure_criteria": [],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [],
+    "reason": "Current verified delivery snapshot counts this requirement within executable coverage.",
+    "required_action": [],
+    "status": "CLOSED"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "P.SP.02.MSG.012:45:27",
+    "message": "P.SP.02.MSG.012",
+    "op": "OP22",
+    "procedure": "P.SP.02.PRC.020",
+    "process": "P.SP.02",
+    "requirement": "27",
+    "source_occurrence": 1,
+    "source_requirement_number": "27",
+    "transaction": "P.SP.02.TRN.010"
+  },
+  "implementation": {
+    "engine_capabilities": [],
+    "production_files": [
+      "P.SP.02_OP_22/message_rules/P.SP.02.MSG.012.yaml"
+    ],
+    "production_rules": [],
+    "status": "IMPLEMENTED_CONFIRMED"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "если в составе реквизита «Товарный знак Союза» (ipcdo:TrademarkDetails) значение реквизита «Код вида товарного знака» (ipsdo:TrademarkKindCode) или реквизита «Наименование вида товарного знака» (ipsdo:TrademarkKindName) соответствует одному из приведённых значений: «140» – «Изобразительный знак»; «150» – «Объемный знак»; «160» – «Знак, представляющий собой цвет»; «170» – «Знак, представляющий собой сочетание цветов»; «180» – «Комбинированный знак», то реквизит «Изображение товарного знака» (ipsdo:TrademarkColourName) и реквизит «Описание цвета товарного знака» должны быть заполнены"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Current executable coverage in FINAL_DELIVERY_AUDIT; this is not individual positive/negative certification.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "27",
+        "level": "CONFIRMED_PDF_SOURCE_REF",
+        "occurrence": 1,
+        "pdf_page": 520,
+        "section": null,
+        "source": "ОП_22.pdf",
+        "table": "45"
+      }
+    ],
+    "runtime": []
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "ОП_22.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF_SOURCE_REF",
+      "source_page_ref": "sources/OP22_P_SP_02/pages/page_520.md"
+    },
+    "item": "27",
+    "occurrence": 1,
+    "pdf_page": 520,
+    "printed_page": 108,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/ОП_22.pdf",
+    "table": "45"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": null,
+      "status": "UNRESOLVED"
+    },
+    "id": "R.IP.SP.02.002",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "local_name": "TrademarkRegistrationDetails",
+      "namespace": "urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": null
+  },
+  "verification": {
+    "negative_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "MISSING",
+      "test": null
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "decision5": {
+    "reference": "data/decisions/Decision_5.yaml"
+  },
+  "identity": {
+    "op": "OP49",
+    "procedure": "P.DS.01.PRC.005",
+    "process": "P.DS.01",
+    "transaction": "P.DS.01.TRN.005"
+  },
+  "messages": {
+    "initiating": "P.DS.01.MSG.005",
+    "responses": [
+      "P.DS.01.MSG.003"
+    ]
+  },
+  "participants": {},
+  "plain_language": {
+    "description": null,
+    "name": "изменение представленной в Комиссию ежемесячной информации"
+  },
+  "project_state": {
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "protocol": {
+    "retry": null,
+    "signature": null,
+    "timeout": null
+  },
+  "runtime": {
+    "status": "CONFIRMED"
+  },
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "document": "49 ОП.pdf",
+      "location": "Описание транзакции",
+      "page": 121,
+      "source_id": "49OP-TRN-005",
+      "status": "CONFIRMED",
+      "table": "5"
+    }
+  ],
+  "type": null
+}

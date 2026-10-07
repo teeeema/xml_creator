@@ -176,5 +176,102 @@ class GuiQtViewModelTests(unittest.TestCase):
         self.assertTrue((root / "qml" / "Main.qml").is_file())
         self.assertNotIn("w" + "x", "\n".join(path.read_text(encoding="utf-8") for path in root.rglob("*.*") if path.suffix in {".py", ".qml"}))
 
+    def test_field_info_is_in_scrollable_container(self):
+        """TEST 1: Field info with long content is inside a scrollable container in QML."""
+        qml = Path(__file__).parents[1] / "src" / "eaeu_xml" / "gui_qt" / "qml"
+        home = (qml / "pages" / "HomePage.qml").read_text(encoding="utf-8")
+        self.assertIn("ScrollView", home)
+        self.assertIn("fieldInfoScroll", home)
+        self.assertIn("selectedFieldInfo", home)
+        self.assertIn("width: fieldInfoScroll.availableWidth", home)
+        self.assertIn("clip: true", home)
+
+    def test_user_input_field_is_editable(self):
+        """TEST 2: USER_INPUT field creates editable row."""
+        self.model.selectProcess("P.TS.01")
+        user_inputs = [f for f in self.model.fields if not f["readOnly"] and f["kind"] == "TEXT"]
+        self.assertTrue(len(user_inputs) > 0)
+        first = user_inputs[0]
+        self.assertFalse(first["readOnly"])
+        field = self.model.controller.find_field(first["path"])
+        self.assertEqual(field.ui_input_policy, "USER_INPUT")
+        self.assertTrue(field.editable)
+
+    def test_read_only_system_fixed_field_remains_non_editable(self):
+        """TEST 3: read-only/system/fixed field remains non-editable."""
+        self.model.selectProcess("P.TS.01")
+        # In P.TS.01, Items/@code is AUTO_FIXED / READ_ONLY
+        field_model = next((f for f in self.model.fields if f["path"] == "Items/@code"), None)
+        self.assertIsNotNone(field_model)
+        self.assertTrue(field_model["readOnly"])
+        field = self.model.controller.find_field("Items/@code")
+        self.assertFalse(field.editable)
+
+    def test_unresolved_normative_with_user_input_ui_is_editable(self):
+        """TEST 4: UNRESOLVED normative policy + UI policy USER_INPUT is not read-only."""
+        # Find a field across processes that has UNRESOLVED_INPUT_POLICY and USER_INPUT
+        for proc in self.model.controller.processes:
+            self.model.selectProcess(proc.process_code)
+            for f in self.model.fields:
+                field = self.model.controller.find_field(f["path"])
+                if field and field.normative_input_policy == "UNRESOLVED_INPUT_POLICY" and field.ui_input_policy == "USER_INPUT":
+                    self.assertFalse(f["readOnly"], f"Field {field.path} should be editable")
+                    self.assertTrue(field.editable)
+                    return
+        self.fail("No UNRESOLVED_INPUT_POLICY + USER_INPUT field found")
+
+    def test_user_input_change_alters_xml_and_reloading_shows_value(self):
+        """TEST 5 & 6: Editing a USER_INPUT field updates XML and repeated reading shows value."""
+        self.model.selectProcess("P.TS.01")
+        target_path = "Items/Name"
+        self.model.setFieldValue(target_path, "ТестовоеНаименование123")
+        self.assertEqual(self.model.controller.values[target_path], "ТестовоеНаименование123")
+        # View model shows updated value
+        f_model = next(f for f in self.model.fields if f["path"] == target_path)
+        self.assertEqual(f_model["value"], "ТестовоеНаименование123")
+        # Generate XML
+        self.model.generateXml()
+        self.assertTrue(self.model.xml)
+        self.assertIn("ТестовоеНаименование123", self.model.xml)
+        # Selecting field retains value and shows in help info
+        self.model.selectField(target_path)
+        self.assertIn(target_path, self.model.selectedFieldInfo)
+
+    def test_cross_op_shared_behavior_for_elements_with_attributes(self):
+        """TEST 7: Simple-content elements with attributes are editable across multiple OPs without hardcode."""
+        root = Path(__file__).parents[2]
+        model = GuiViewModel(root)
+        self.model.selectProcess("P.TS.01")
+        # Check fixture process first to verify shared logic
+        items = next((f for f in self.model.fields if f["path"] == "Items/@code"), None)
+        self.assertIsNotNone(items)
+
+        # Check real processes across OPs
+        for proc in ("P.MM.01", "P.SP.02", "P.SP.03", "P.DS.01"):
+            model.selectProcess(proc)
+            editable_inputs = [f for f in model.fields if not f["readOnly"] and f["kind"] in ("TEXT", "SELECT")]
+            self.assertTrue(len(editable_inputs) > 0, f"Expected editable inputs in {proc}")
+
+        # Specifically check element with attribute in P.MM.01.MSG.014
+        model.selectProcess("P.MM.01")
+        for trn in model.controller.transactions:
+            model.selectTransaction(trn.transaction_code)
+            for msg in model.controller.messages:
+                if msg.message_code == "P.MM.01.MSG.014":
+                    model.selectMessage(msg.message_code)
+                    ucc = next((f for f in model.fields if f["path"] == "UnifiedCountryCode"), None)
+                    self.assertIsNotNone(ucc)
+                    self.assertEqual(ucc["kind"], "TEXT")
+                    self.assertFalse(ucc["readOnly"])
+                    model.applyRequiredData()
+                    model.setFieldValue("UnifiedCountryCode", "RU")
+                    model.setFieldValue("UnifiedCountryCode/@codeListId", "TEST_CL")
+                    model.generateXml()
+                    self.assertIn("csdo:UnifiedCountryCode", model.xml)
+                    self.assertIn("RU", model.xml)
+                    self.assertIn("TEST_CL", model.xml)
+                    return
+        self.fail("P.MM.01.MSG.014 not found")
+
 
 if __name__ == "__main__": unittest.main()

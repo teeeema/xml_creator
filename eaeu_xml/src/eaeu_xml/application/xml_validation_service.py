@@ -1,9 +1,8 @@
 """Validation of an already serialized application XML document.
 
-This service intentionally reuses the Decision No. 5 vocabulary and process
-definition metadata.  It does not attempt to reverse arbitrary XML into form
-values, so body cardinality/business rules remain owned by the existing body
-validator.
+This service intentionally reuses the Decision No. 5 vocabulary, process
+definition metadata, and the existing body extractor. Body business rules
+remain owned by the existing body validator.
 """
 
 from dataclasses import dataclass
@@ -29,6 +28,7 @@ class XmlDiagnostic:
 @dataclass(frozen=True)
 class XmlValidationResult:
     diagnostics: tuple[XmlDiagnostic, ...]
+    body_values: dict[str, object] | None = None
 
     @property
     def is_valid(self):
@@ -142,13 +142,25 @@ class XmlValidationService:
 
         children = list(body)
         structure = engine.get_structure(message_code, mode=mode)
+        body_values = None
         if structure.root_element and children:
             expected_tag = f"{{{structure.namespace}}}{structure.root_element}" if structure.namespace else structure.root_element
             if children[0].tag != expected_tag:
                 issues.append(self._issue("BODY_ROOT_UNEXPECTED", "Корневой элемент Body не соответствует выбранному сообщению.", "Body", children[0], positions))
+            else:
+                body_values, extraction_issues = engine.body_provider._values_from_element(structure, children[0])
+                issues.extend(
+                    XmlDiagnostic(
+                        item.severity.value,
+                        item.code,
+                        item.message,
+                        item.field_path or "Body",
+                    )
+                    for item in extraction_issues
+                )
         elif structure.root_element:
             issues.append(XmlDiagnostic("ERROR", "BODY_ROOT_MISSING", "SOAP Body не содержит прикладное сообщение.", "Body"))
-        return XmlValidationResult(tuple(issues))
+        return XmlValidationResult(tuple(issues), body_values)
 
     @staticmethod
     def _local(tag):

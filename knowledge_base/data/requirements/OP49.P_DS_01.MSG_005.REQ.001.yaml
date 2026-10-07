@@ -1,0 +1,148 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [
+      {
+        "evidence": "AUDIT_DERIVED",
+        "id": "STRUCTURED_RULE_AND_REGRESSION_COVERAGE",
+        "secondary": "XSD_PAYLOAD_MISSING; IMPORTED_MODEL_EXACT_NAMESPACE_VERSION_UNRESOLVED",
+        "type": "PRODUCTION_MAPPING"
+      }
+    ],
+    "requirements": [],
+    "structures": [
+      "R.FP.DS.01.001"
+    ]
+  },
+  "fields": [
+    {
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3",
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails"
+    }
+  ],
+  "gap": {
+    "category": "PRODUCTION_MAPPING",
+    "closure_criteria": [
+      "Exact QName/path подтверждены официальным источником; production rule загружается; positive и negative regression проходят."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "XSD_PAYLOAD_MISSING; IMPORTED_MODEL_EXACT_NAMESPACE_VERSION_UNRESOLVED"
+    ],
+    "reason": "PRODUCTION_MAPPING",
+    "required_action": [
+      "Получить официальный XSD/точные версии импортируемых data-model namespaces и подтвердить exact Clark QName/path. Затем добавить traced structured rule на responsible layer и requirement-specific positive/negative regression."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "OP49.P_DS_01.MSG_005.REQ.001",
+    "message": "P.DS.01.MSG.005",
+    "op": "OP49",
+    "procedure": "P.DS.01.PRC.005; P.DS.01.PRC.006",
+    "process": "P.DS.01",
+    "requirement": "001",
+    "source_occurrence": 1,
+    "source_requirement_number": "1",
+    "transaction": "P.DS.01.TRN.005; P.DS.01.TRN.006"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "B1"
+    ],
+    "production_files": [
+      "P.DS.01_OP_49/message_rules/P.DS.01.MSG.005.yaml"
+    ],
+    "production_rules": [],
+    "status": "OPEN_PRODUCTION_MAPPING"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": "Нужно проверить нормативное условие: при формировании электронного сообщения применяется следующее правило: в электронное сообщение должно быть включено по одному экземпляру сложного реквизита «Сведения из отчета о зачислении и распределении сумм ввозных таможенных пошлин» (ds01cdo:ChargedDistributedDutyReportDetails) на каждый месяц, сведения которого были ранее направлены, начиная с месяца, в сведения которого вносятся изменения",
+      "purpose": null
+    },
+    "source_text": "при формировании электронного сообщения применяется следующее правило: в электронное сообщение должно быть включено по одному экземпляру сложного реквизита «Сведения из отчета о зачислении и распределении сумм ввозных таможенных пошлин» (ds01cdo:ChargedDistributedDutyReportDetails) на каждый месяц, сведения которого были ранее направлены, начиная с месяца, в сведения которого вносятся изменения"
+  },
+  "project_state": {
+    "audit_notes": "Package business_rule=YES; structured_rule=NO; package_source_page=93; package_source_page_match=YES; package_source_text_exact_match=YES",
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Нужно проверить нормативное условие: при формировании электронного сообщения применяется следующее правило: в электронное сообщение должно быть включено по одному экземпляру сложного реквизита «Сведения из отчета о зачислении и распределении сумм ввозных таможенных пошлин» (ds01cdo:ChargedDistributedDutyReportDetails) на каждый месяц, сведения которого были ранее направлены, начиная с месяца, в сведения которого вносятся изменения",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "1",
+        "level": "CONFIRMED_PDF",
+        "occurrence": 1,
+        "pdf_page": 93,
+        "section": "24",
+        "source": "49_ОП.pdf",
+        "table": "13"
+      }
+    ],
+    "runtime": []
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "49_ОП.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP49_P_DS_01/pages/page_093.md"
+    },
+    "item": "1",
+    "occurrence": 1,
+    "pdf_page": 93,
+    "printed_page": 40,
+    "section": "24",
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/49_ОП.pdf",
+    "table": "13"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": "ChargedDistributedDutyReportDetails",
+      "namespace": null,
+      "raw": "ds01cdo:ChargedDistributedDutyReportDetails",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.FP.DS.01.001",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0}ChargedDistributedReport",
+      "local_name": "ChargedDistributedReport",
+      "namespace": "urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails"
+  },
+  "verification": {
+    "negative_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "MISSING",
+      "test": null
+    }
+  }
+}

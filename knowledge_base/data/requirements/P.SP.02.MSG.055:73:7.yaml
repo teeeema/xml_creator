@@ -1,0 +1,144 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.IP.SP.03.003"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": null,
+    "closure_criteria": [],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [],
+    "reason": "Current verified delivery snapshot counts this requirement within executable coverage.",
+    "required_action": [],
+    "status": "CLOSED"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "P.SP.02.MSG.055:73:7",
+    "message": "P.SP.02.MSG.055",
+    "op": "OP22",
+    "procedure": "P.SP.02.PRC.033",
+    "process": "P.SP.02",
+    "requirement": "7",
+    "source_occurrence": 1,
+    "source_requirement_number": "7",
+    "transaction": "P.SP.02.TRN.049"
+  },
+  "implementation": {
+    "engine_capabilities": [],
+    "production_files": [
+      "P.SP.02_OP_22/message_rules/P.SP.02.MSG.055.yaml"
+    ],
+    "production_rules": [
+      "P.SP.02.MSG.055.T73.REQ.7.PRESENCE; P.SP.02.MSG.055.T73.REQ.7.ACCOUNTS"
+    ],
+    "status": "IMPLEMENTED_CONFIRMED"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "реквизит «Сведения о пошлине за осуществление юридически значимых действий» (ipcdo:IPPaymentDetails) должен быть заполнен, в его составе реквизит «Банковский счет» (ccdo:BankAccountDetails) и (или) «Счет в платежной системе» (ccdo:PaymentSystemAccountDetails) должен быть заполнен"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Current executable coverage in FINAL_DELIVERY_AUDIT; this is not individual positive/negative certification.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [
+      {
+        "files": [
+          "P.SP.02_OP_22/message_rules/P.SP.02.MSG.055.yaml"
+        ],
+        "level": "CONFIRMED_PRODUCTION",
+        "rules": [
+          "P.SP.02.MSG.055.T73.REQ.7.PRESENCE; P.SP.02.MSG.055.T73.REQ.7.ACCOUNTS"
+        ]
+      }
+    ],
+    "normative": [
+      {
+        "item": "7",
+        "level": "CONFIRMED_PDF_SOURCE_REF",
+        "occurrence": 1,
+        "pdf_page": 803,
+        "section": null,
+        "source": "ОП_22.pdf",
+        "table": "73"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[False-False-False]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[False-False-True]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[False-True-False]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[False-True-True]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[True-False-False]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[True-False-True]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[True-True-False]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[True-True-True]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_payment_presence_is_not_created_by_rule"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "ОП_22.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF_SOURCE_REF",
+      "source_page_ref": "sources/OP22_P_SP_02/pages/page_803.md"
+    },
+    "item": "7",
+    "occurrence": 1,
+    "pdf_page": 803,
+    "printed_page": 224,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/ОП_22.pdf",
+    "table": "73"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "ccdo:BankAccountDetails; ccdo:PaymentSystemAccountDetails; ipcdo:IPPaymentDetails",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.IP.SP.03.003",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+      "local_name": "IPDutyDetails",
+      "namespace": "urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "ipcdo:IPPaymentDetails; ipcdo:IPPaymentDetails/ccdo:BankAccountDetails; ipcdo:IPPaymentDetails/ccdo:PaymentSystemAccountDetails"
+  },
+  "verification": {
+    "negative_test": {
+      "status": "PRESENT",
+      "test": "P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[False-False-False]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[True-False-False]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[True-False-True]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[True-True-False]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[True-True-True]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_payment_presence_is_not_created_by_rule"
+    },
+    "positive_test": {
+      "status": "PRESENT",
+      "test": "P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[False-False-True]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[False-True-False]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[False-True-True]"
+    },
+    "real_xml": {
+      "status": "PRESENT"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[False-False-False]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[False-False-True]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[False-True-False]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[False-True-True]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[True-False-False]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[True-False-True]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[True-True-False]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_inclusive_account_or_per_payment_owner[True-True-True]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg055_payment_presence_is_not_created_by_rule"
+    }
+  }
+}

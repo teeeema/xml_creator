@@ -1259,5 +1259,1206 @@
       "page": null,
       "version_context": "P.MM.01 1.1.0"
     }
+  ],
+  "structured_rules": [
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.001",
+      "production_rule_id": "P.MM.01.MSG.001.R1",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "1",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "DrugRegistrationDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": 1
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.002",
+      "production_rule_id": "P.MM.01.MSG.001.R2",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "2",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "kind": "selection_cardinality",
+      "selector": {
+        "collection": "DrugRegistrationDetails/DrugCountryRegistrationDetails"
+      },
+      "min_occurs": 1,
+      "max_occurs": 1
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.003",
+      "production_rule_id": "P.MM.01.MSG.001.R3",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "3",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "kind": "presence",
+      "target": "DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails/StartDateTime",
+      "state": "REQUIRED"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.004",
+      "production_rule_id": "P.MM.01.MSG.001.R4",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "4",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "kind": "presence",
+      "target": "DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails/EndDateTime",
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.005",
+      "production_rule_id": "P.MM.01.MSG.001.R5",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "5",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "kind": "for_each",
+      "selector": {
+        "collection": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugApplicationDetails/DrugApplicationKindCode"
+      },
+      "assertions": [
+        {
+          "kind": "condition",
+          "condition": {
+            "any": [
+              {
+                "field": "#text",
+                "operator": "IN",
+                "value": [
+                  "01",
+                  "02",
+                  "03",
+                  "04",
+                  "99"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.008",
+      "production_rule_id": "P.MM.01.MSG.001.R8",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "8",
+          "page": 209,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "for_each",
+      "selector": {
+        "collection": "DrugRegistrationDetails/DrugCountryRegistrationDetails/CountryKindCode"
+      },
+      "assertions": [
+        {
+          "kind": "condition",
+          "condition": {
+            "any": [
+              {
+                "field": "#text",
+                "operator": "IN",
+                "value": [
+                  "01",
+                  "02"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.017",
+      "production_rule_id": "P.MM.01.MSG.001.R17",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "17",
+          "page": 211,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "for_each",
+      "selector": {
+        "collection": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugApplicationDetails/ApplicationStatusDetails/ApplicationStatusCode"
+      },
+      "assertions": [
+        {
+          "kind": "condition",
+          "condition": {
+            "any": [
+              {
+                "field": "#text",
+                "operator": "EQ",
+                "value": "TEST"
+              },
+              {
+                "field": "#text",
+                "operator": "IN",
+                "value": [
+                  "01",
+                  "02",
+                  "03",
+                  "04",
+                  "05",
+                  "06",
+                  "07",
+                  "08",
+                  "99"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.018",
+      "production_rule_id": "P.MM.01.MSG.001.R18",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "18",
+          "page": 211,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "for_each",
+      "selector": {
+        "collection": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugApplicationDetails/ApplicationStatusDetails/ApplicationStatusCode"
+      },
+      "assertions": [
+        {
+          "kind": "condition",
+          "condition": {
+            "any": [
+              {
+                "field": "#text",
+                "operator": "EQ",
+                "value": "TEST"
+              },
+              {
+                "field": "#text",
+                "operator": "EQ",
+                "value": "01"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.021",
+      "production_rule_id": "P.MM.01.MSG.001.R21",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "21",
+          "page": 211,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "presence",
+      "target": "DrugRegistrationDetails/DrugDetails",
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.022",
+      "production_rule_id": "P.MM.01.MSG.001.R22",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "22",
+          "page": 211,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "presence",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugDocumentsDetails/DrugGeneralCharacteristicDetails",
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.023",
+      "production_rule_id": "P.MM.01.MSG.001.R23",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "23",
+          "page": 211,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "presence",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugDocumentsDetails/DrugUsageInstructionDetails",
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.024",
+      "production_rule_id": "P.MM.01.MSG.001.R24",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "24",
+          "page": 211,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "presence",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugDocumentsDetails/ExpertReportDetails",
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.025",
+      "production_rule_id": "P.MM.01.MSG.001.R25",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "25",
+          "page": 211,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "presence",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugDocumentsDetails/RiskManagementPlanDetails",
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.026",
+      "production_rule_id": "P.MM.01.MSG.001.R26",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "26",
+          "page": 211,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "presence",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugDocumentsDetails/QualityRegulatoryDocDetails",
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.027",
+      "production_rule_id": "P.MM.01.MSG.001.R27",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "27",
+          "page": 212,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "presence",
+      "target": "DrugRegistrationDetails/RegistrationCertificateHolderDetails",
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.029",
+      "production_rule_id": "P.MM.01.MSG.001.R29",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "29",
+          "page": 212,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "presence",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugDocumentsDetails/DrugUsageInstructionDetails/PdfBinaryText",
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.030",
+      "production_rule_id": "P.MM.01.MSG.001.R30",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "30",
+          "page": 212,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "presence",
+      "target": "DrugRegistrationDetails/RegistrationDossierDocDetails/AnyDetails",
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.037",
+      "production_rule_id": "P.MM.01.MSG.001.R37",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "37",
+          "page": 213,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "for_each",
+      "selector": {
+        "collection": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/RegistrationStatusCode"
+      },
+      "assertions": [
+        {
+          "kind": "condition",
+          "condition": {
+            "any": [
+              {
+                "field": "#text",
+                "operator": "EQ",
+                "value": "TEST"
+              },
+              {
+                "field": "#text",
+                "operator": "IN",
+                "value": [
+                  "01",
+                  "02",
+                  "03",
+                  "04",
+                  "99"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.006",
+      "production_rule_id": "P.MM.01.MSG.001.R6",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "6",
+          "page": null,
+          "version_context": "P.MM.01 1.1.0",
+          "reason_code": "PDF_PAGE_MAPPING_AMBIGUITY"
+        }
+      ],
+      "kind": "conditional_presence",
+      "scope": {
+        "collection": "DrugRegistrationDetails"
+      },
+      "condition": {
+        "field": "DrugCountryRegistrationDetails/DrugApplicationDetails/DrugApplicationKindCode",
+        "operator": "IN",
+        "value": [
+          "01",
+          "04"
+        ]
+      },
+      "target": {
+        "field": "RegistrationNumberId"
+      },
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.007",
+      "production_rule_id": "P.MM.01.MSG.001.R7",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "7",
+          "page": 209,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "conditional_presence",
+      "scope": {
+        "collection": "DrugRegistrationDetails"
+      },
+      "condition": {
+        "field": "DrugCountryRegistrationDetails/DrugApplicationDetails/DrugApplicationKindCode",
+        "operator": "EQ",
+        "value": "02"
+      },
+      "target": {
+        "field": "RegistrationNumberId"
+      },
+      "state": "REQUIRED"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.009",
+      "production_rule_id": "P.MM.01.MSG.001.R9",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "9",
+          "page": 209,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "conditional_presence",
+      "scope": {
+        "collection": "DrugRegistrationDetails"
+      },
+      "condition": {
+        "field": "DrugCountryRegistrationDetails/CountryKindCode",
+        "operator": "EQ",
+        "value": "01"
+      },
+      "target": {
+        "field": "DrugCountryRegistrationDetails/DrugApplicationDetails/ApplicationId"
+      },
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.010",
+      "production_rule_id": "P.MM.01.MSG.001.R10",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "10",
+          "page": 209,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "conditional_presence",
+      "scope": {
+        "collection": "DrugRegistrationDetails"
+      },
+      "condition": {
+        "field": "DrugCountryRegistrationDetails/CountryKindCode",
+        "operator": "EQ",
+        "value": "02"
+      },
+      "target": {
+        "field": "DrugCountryRegistrationDetails/DrugApplicationDetails/ApplicationId"
+      },
+      "state": "REQUIRED"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.012",
+      "production_rule_id": "P.MM.01.MSG.001.R12",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "12",
+          "page": 209,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "conditional_presence",
+      "scope": {
+        "collection": "DrugRegistrationDetails"
+      },
+      "condition": {
+        "field": "DrugCountryRegistrationDetails/CountryKindCode",
+        "operator": "EQ",
+        "value": "02"
+      },
+      "target": {
+        "field": "RegistrationDossierDocDetails"
+      },
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.013",
+      "production_rule_id": "P.MM.01.MSG.001.R13",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "13",
+          "page": 210,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "conditional_presence",
+      "scope": {
+        "collection": "DrugRegistrationDetails"
+      },
+      "condition": {
+        "field": "DrugCountryRegistrationDetails/DrugApplicationDetails/DrugApplicationKindCode",
+        "operator": "IN",
+        "value": [
+          "01",
+          "04"
+        ]
+      },
+      "target": {
+        "field": "DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails"
+      },
+      "state": "FORBIDDEN"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.016",
+      "production_rule_id": "P.MM.01.MSG.001.R16",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "16",
+          "page": 210,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "conditional_presence",
+      "scope": {
+        "collection": "DrugRegistrationDetails"
+      },
+      "condition": {
+        "field": "DrugCountryRegistrationDetails/DrugApplicationDetails/DrugApplicationKindCode",
+        "operator": "EQ",
+        "value": "03"
+      },
+      "target": {
+        "field": "DrugCountryRegistrationDetails/DrugApplicationChangeDetails"
+      },
+      "state": "REQUIRED"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.019",
+      "production_rule_id": "P.MM.01.MSG.001.R19",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "19",
+          "page": 211,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "conditional_presence",
+      "scope": {
+        "collection": "DrugRegistrationDetails"
+      },
+      "condition": {
+        "field": "DrugCountryRegistrationDetails/DrugApplicationDetails/DrugApplicationKindCode",
+        "operator": "EQ",
+        "value": "01"
+      },
+      "target": {
+        "field": "RegistrationKindCode"
+      },
+      "state": "REQUIRED"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.020",
+      "production_rule_id": "P.MM.01.MSG.001.R20",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "20",
+          "page": 211,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "for_each",
+      "selector": {
+        "collection": "DrugRegistrationDetails/RegistrationKindCode"
+      },
+      "assertions": [
+        {
+          "kind": "condition",
+          "condition": {
+            "any": [
+              {
+                "field": "#text",
+                "operator": "EQ",
+                "value": "TEST"
+              },
+              {
+                "field": "#text",
+                "operator": "IN",
+                "value": [
+                  "01",
+                  "02"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.031",
+      "production_rule_id": "P.MM.01.MSG.001.R31",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "31",
+          "page": 212,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "conditional_fixed_value",
+      "scope": {
+        "collection": "DrugRegistrationDetails/RegistrationDossierDocDetails"
+      },
+      "condition": {
+        "all": [
+          {
+            "field": "DrugRegistrationFileCode",
+            "operator": "EQ",
+            "value": "0101"
+          },
+          {
+            "field": "DrugAttributeEnumText",
+            "operator": "NE",
+            "value": null
+          }
+        ]
+      },
+      "target": {
+        "field": "DrugAttributeEnumText/@DrugAttributeKindEnumCode"
+      },
+      "value": "01"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.032",
+      "production_rule_id": "P.MM.01.MSG.001.R32",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "32",
+          "page": 212,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "conditional_fixed_value",
+      "scope": {
+        "collection": "DrugRegistrationDetails/RegistrationDossierDocDetails"
+      },
+      "condition": {
+        "all": [
+          {
+            "field": "DrugRegistrationFileCode",
+            "operator": "EQ",
+            "value": "0104"
+          },
+          {
+            "field": "DrugAttributeEnumText",
+            "operator": "NE",
+            "value": null
+          }
+        ]
+      },
+      "target": {
+        "field": "DrugAttributeEnumText/@DrugAttributeKindEnumCode"
+      },
+      "value": "02"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.033",
+      "production_rule_id": "P.MM.01.MSG.001.R33",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "33",
+          "page": 212,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "conditional_fixed_value",
+      "scope": {
+        "collection": "DrugRegistrationDetails/RegistrationDossierDocDetails"
+      },
+      "condition": {
+        "all": [
+          {
+            "field": "DrugRegistrationFileCode",
+            "operator": "EQ",
+            "value": "0105"
+          },
+          {
+            "field": "DrugAttributeEnumText",
+            "operator": "NE",
+            "value": null
+          }
+        ]
+      },
+      "target": {
+        "field": "DrugAttributeEnumText/@DrugAttributeKindEnumCode"
+      },
+      "value": "01"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.036",
+      "production_rule_id": "P.MM.01.MSG.001.R36",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "36",
+          "page": 213,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "conditional_presence",
+      "scope": {
+        "collection": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugApplicationDetails"
+      },
+      "condition": {
+        "field": "DrugApplicationKindCode",
+        "operator": "EQ",
+        "value": "99"
+      },
+      "target": {
+        "field": "DrugApplicationKindName"
+      },
+      "state": "REQUIRED"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.038",
+      "production_rule_id": "P.MM.01.MSG.001.R38",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "38",
+          "page": 213,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "conditional_presence",
+      "scope": {
+        "collection": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails"
+      },
+      "condition": {
+        "field": "RegistrationStatusCode",
+        "operator": "EQ",
+        "value": "99"
+      },
+      "target": {
+        "field": "RegistrationStatusName"
+      },
+      "state": "REQUIRED"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.039",
+      "production_rule_id": "P.MM.01.MSG.001.R39",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "39",
+          "page": 213,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "for_each",
+      "selector": {
+        "collection": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugRegistrationSpecialConditionDetails/DrugUsageRestrictionKindCode"
+      },
+      "assertions": [
+        {
+          "kind": "condition",
+          "condition": {
+            "any": [
+              {
+                "field": "#text",
+                "operator": "EQ",
+                "value": "TEST"
+              },
+              {
+                "field": "#text",
+                "operator": "IN",
+                "value": [
+                  "01",
+                  "02",
+                  "03",
+                  "04",
+                  "05"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.040",
+      "production_rule_id": "P.MM.01.MSG.001.R40",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "40",
+          "page": 214,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "conditional_presence",
+      "scope": {
+        "collection": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugRegistrationSpecialConditionDetails"
+      },
+      "condition": {
+        "field": "DrugUsageRestrictionKindCode",
+        "operator": "EQ",
+        "value": "05"
+      },
+      "target": {
+        "field": "DrugUsageRestrictionKindName"
+      },
+      "state": "REQUIRED"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.041",
+      "production_rule_id": "P.MM.01.MSG.001.R41",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "41",
+          "page": 214,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "for_each",
+      "selector": {
+        "collection": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugApplicationChangeDetails"
+      },
+      "assertions": [
+        {
+          "kind": "condition",
+          "condition": {
+            "any": [
+              {
+                "field": "ChangeTypeCode",
+                "operator": "NE",
+                "value": null
+              },
+              {
+                "field": "ChangeTypeName",
+                "operator": "NE",
+                "value": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.042",
+      "production_rule_id": "P.MM.01.MSG.001.R42",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "42",
+          "page": 214,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "conditional_presence",
+      "scope": {
+        "collection": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails"
+      },
+      "condition": {
+        "field": "ChangeTypeCode",
+        "operator": "EQ",
+        "value": "99"
+      },
+      "target": {
+        "field": "ChangeName"
+      },
+      "state": "REQUIRED"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.043",
+      "production_rule_id": "P.MM.01.MSG.001.R43",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "43",
+          "page": 214,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "for_each",
+      "selector": {
+        "collection": "DrugRegistrationDetails/RegistrationDossierDocDetails/DrugAttributeEnumText"
+      },
+      "assertions": [
+        {
+          "kind": "condition",
+          "condition": {
+            "any": [
+              {
+                "field": "@AttributeKindCode",
+                "operator": "NE",
+                "value": null
+              },
+              {
+                "field": "@DrugAttributeKindEnumCode",
+                "operator": "NE",
+                "value": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.044",
+      "production_rule_id": "P.MM.01.MSG.001.R44",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "44",
+          "page": 214,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "conditional_presence",
+      "scope": {
+        "collection": "DrugRegistrationDetails/RegistrationDossierDocDetails/DrugAttributeEnumText"
+      },
+      "condition": {
+        "field": "@AttributeKindCode",
+        "operator": "EQ",
+        "value": "99"
+      },
+      "target": {
+        "field": "@DrugAttributeKindEnumCode"
+      },
+      "state": "REQUIRED"
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.045",
+      "production_rule_id": "P.MM.01.MSG.001.R45",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "18",
+          "item": "45",
+          "page": 214,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "conditional_presence",
+      "scope": {
+        "collection": "DrugRegistrationDetails/RegistrationDossierDocDetails"
+      },
+      "condition": {
+        "field": "DrugRegistrationFileCode",
+        "operator": "EQ",
+        "value": "0199"
+      },
+      "target": {
+        "field": "DrugRegistrationFileName"
+      },
+      "state": "REQUIRED"
+    }
   ]
 }

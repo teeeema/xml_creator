@@ -1,0 +1,115 @@
+{
+  "dependencies": {
+    "imports": []
+  },
+  "evidence": {
+    "root_qname": "CONFIRMED_STRUCTURE_SOURCE_REF",
+    "xsd_status": "DECLARED_FILENAME_PAYLOAD_MISSING"
+  },
+  "field_index": {
+    "count": 20,
+    "path": "data/fields/R.IP.SP.03.007.json"
+  },
+  "identity": {
+    "structure": "R.IP.SP.03.007",
+    "versions": [
+      "1.0.0"
+    ]
+  },
+  "known_gaps": [
+    "MISSING_XSD_PAYLOAD"
+  ],
+  "root": {
+    "clark_name": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegisterRequestDetails:v1.0.0}ApellationOfOriginRegisterRequestDetails",
+    "local_name": "ApellationOfOriginRegisterRequestDetails",
+    "namespace": "urn:EEC:R:IP:SP:03:ApellationOfOriginRegisterRequestDetails:v1.0.0",
+    "status": "CONFIRMED"
+  },
+  "schema_version": "1.0",
+  "source": {
+    "primary": {
+      "document": "ОП_23.pdf",
+      "item": "P.SP.03.MSG.016",
+      "location": "Перечень сообщений общего процесса",
+      "page": 312,
+      "source_id": "23OP-MSG-P-SP-03-MSG-016",
+      "status": "CONFIRMED",
+      "version_context": "P.SP.03 1.0.0"
+    },
+    "source_refs": [
+      {
+        "document": "ОП_23.pdf",
+        "item": "P.SP.03.MSG.016",
+        "location": "Перечень сообщений общего процесса",
+        "page": 312,
+        "source_id": "23OP-MSG-P-SP-03-MSG-016",
+        "status": "CONFIRMED",
+        "version_context": "P.SP.03 1.0.0"
+      },
+      {
+        "document": "ОП_23.pdf",
+        "item": "P.SP.03.MSG.017",
+        "location": "Перечень сообщений общего процесса",
+        "page": 312,
+        "source_id": "23OP-MSG-P-SP-03-MSG-017",
+        "status": "CONFIRMED",
+        "version_context": "P.SP.03 1.0.0"
+      },
+      {
+        "document": "ОП_23.pdf",
+        "item": "P.SP.03.MSG.018",
+        "location": "Перечень сообщений общего процесса",
+        "page": 313,
+        "source_id": "23OP-MSG-P-SP-03-MSG-018",
+        "status": "CONFIRMED",
+        "version_context": "P.SP.03 1.0.0"
+      },
+      {
+        "document": "ОП_23.pdf",
+        "item": "P.SP.03.MSG.025",
+        "location": "Перечень сообщений общего процесса",
+        "page": 194,
+        "source_id": "23OP-MSG-P-SP-03-MSG-025",
+        "status": "CONFIRMED",
+        "version_context": "P.SP.03 1.0.0"
+      },
+      {
+        "document": "ОП_23.pdf",
+        "item": "R.IP.SP.03.007",
+        "location": "Описание форматов и структур электронных документов и сведений",
+        "page": 570,
+        "source_id": "23OP-STRUCT-R.IP.SP.03.007",
+        "status": "CONFIRMED",
+        "table": "16",
+        "version_context": "1.0.0"
+      }
+    ]
+  },
+  "usage": {
+    "messages": [
+      "P.SP.03.MSG.016",
+      "P.SP.03.MSG.017",
+      "P.SP.03.MSG.018",
+      "P.SP.03.MSG.025"
+    ],
+    "requirements": [
+      "P.SP.03.MSG.016.REQ.001",
+      "P.SP.03.MSG.018.REQ.001",
+      "P.SP.03.MSG.018.REQ.002",
+      "P.SP.03.MSG.025.REQ.001",
+      "P.SP.03.MSG.025.REQ.002",
+      "P.SP.03.MSG.025.REQ.003",
+      "P.SP.03.MSG.025.REQ.004",
+      "P.SP.03.MSG.025.REQ.005",
+      "P.SP.03.MSG.025.REQ.006",
+      "P.SP.03.MSG.025.REQ.007"
+    ]
+  },
+  "xsd": {
+    "declared_filename": "EEC_R_IP_SP_03_ApellationOfOriginRegisterRequestDetails_v1.0.0.xsd",
+    "declared_filenames": [
+      "EEC_R_IP_SP_03_ApellationOfOriginRegisterRequestDetails_v1.0.0.xsd"
+    ],
+    "local_payload": false
+  }
+}

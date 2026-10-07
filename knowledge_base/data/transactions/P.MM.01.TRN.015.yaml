@@ -1,0 +1,50 @@
+{
+  "decision5": {
+    "reference": "data/decisions/Decision_5.yaml"
+  },
+  "identity": {
+    "op": "OP26",
+    "procedure": "P.MM.01.PRC.015",
+    "process": "P.MM.01",
+    "transaction": "P.MM.01.TRN.015"
+  },
+  "messages": {
+    "initiating": "P.MM.01.MSG.024",
+    "responses": [
+      "P.MM.01.MSG.004"
+    ]
+  },
+  "participants": {},
+  "plain_language": {
+    "description": null,
+    "name": "Получение сведений о замечаниях в отношении документов регистрационного дела или регистрационного досье"
+  },
+  "project_state": {
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "protocol": {
+    "retry": null,
+    "signature": null,
+    "timeout": null
+  },
+  "runtime": {
+    "status": "CONFIRMED"
+  },
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+      "item": "TRN.015",
+      "location": "Регламент информационного взаимодействия, описание транзакции",
+      "page": 281,
+      "section": "Регламент информационного взаимодействия, описание транзакции",
+      "source_id": "SRC-PMM01-068",
+      "status": "CONFIRMED",
+      "table": "13",
+      "version_context": "редакция P.MM.01 1.1.0"
+    }
+  ],
+  "type": null
+}

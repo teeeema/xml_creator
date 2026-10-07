@@ -1,0 +1,68 @@
+---
+id: "P.SP.02.MSG.047:65:15"
+op: "OP22"
+process: "P.SP.02"
+message: "P.SP.02.MSG.047"
+requirement: "15"
+structure: "R.IP.SP.02.007"
+status: "IMPLEMENTED_CONFIRMED"
+evidence_level: "CONFIRMED_PDF_SOURCE_REF"
+source_document: "ОП_22.pdf"
+source_pages: 738
+source_table: "Table 49, item 15"
+source_item: "REQ 15 (Table 65)"
+qname_status: "UNRESOLVED"
+implementation_status: "CURRENT_EXECUTABLE_COVERAGE"
+generated_by: "knowledge_base/tools/build_kb.py"
+---
+
+# P.SP.02.MSG.047:65:15
+
+## Нормативное требование
+
+в составе реквизита «Описание товарного знака Союза» (ipcdo:TMDescriptionDetails) должны быть заполнены следующие реквизиты: «Описание» (csdo:DescriptionText); «Описание элемента товарного знака Союза» (ipcdo:TMElementDetails), в составе которого должны быть заполнены следующие реквизиты: «Код изобразительного элемента товарного знака» (ipsdo:TrademarkCFECode); «Обозначение» (csdo:DesignationName); «Перевод словесного элемента обозначения» (ipsdo:TMLocalizedName); «Транслитерация словесного элемента обозначения» (ipsdo:TMTransliterationName)
+
+## Простыми словами
+
+**AUDIT_DERIVED_EXPLANATION**
+
+Current executable coverage in FINAL_DELIVERY_AUDIT; this is not individual positive/negative certification.
+
+## Trace
+
+OP22 → P.SP.02.PRC.024 → P.SP.02.TRN.042 → P.SP.02.MSG.047 → P.SP.02.MSG.047:65:15
+
+## XML
+
+- Structure: R.IP.SP.02.007
+- QName: MISSING / UNRESOLVED
+- Namespace: MISSING / UNRESOLVED
+- Path: MISSING / UNRESOLVED
+
+## Source
+
+- Document: ОП_22.pdf
+- SHA256: see [[02_SOURCE_REGISTRY]]
+- PDF page: 738
+- Printed page: 159
+- Table/item: Table 49, item 15
+- Evidence level: CONFIRMED_PDF_SOURCE_REF
+- Applied by current table: Table 65 item 15 via range 6-19 (PDF p.781)
+- Inherited source chain: 49
+- Source page: [[sources/OP22_P_SP_02/pages/page_738]]
+
+## Project state
+
+- Status: IMPLEMENTED_CONFIRMED
+- Production rule: MISSING
+- Wiring: {"current": {"document": "ОП_22.pdf", "item": "6-19", "location": "Таблица 65", "page": 781, "source_id": "22OP-RULE-P.SP.02.MSG.047-T65-6-19", "status": "CONFIRMED", "table": "65", "version_context": "P.SP.02 1.0.0"}, "leaf": {"document": "ОП_22.pdf", "item": "15", "location": "Таблица 49", "page": 738, "source_id": "22OP-RULE-P.SP.02.MSG.031-T49-15", "status": "CONFIRMED", "table": "49", "version_context": "P.SP.02 1.0.0"}, "range_chain": ["49"]}
+- Positive test: MISSING
+- Negative test: MISSING
+- Runtime proof: MISSING
+
+## Gap
+
+- Reason: Current verified delivery snapshot counts this requirement within executable coverage.
+- Missing information: None recorded
+- Required action: MISSING
+- Closure criterion: Already counted as implemented in the current verified delivery snapshot.

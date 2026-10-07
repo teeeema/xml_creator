@@ -1,0 +1,141 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.HC.MM.01.001"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": "EXTERNAL_REGISTRY",
+    "closure_criteria": [
+      "Подключение адаптера внешнего реестра ЕАЭС."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Доступ к общему реестру лекарственных средств ЕАЭС"
+    ],
+    "reason": "OPEN_EXTERNAL_REGISTRY",
+    "required_action": [
+      "Предоставить mock или сервис интеграции с общим реестром ЕАЭС."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "OP26.P_MM_01.P.MM.01.MSG.002.REQ.013",
+    "message": "P.MM.01.MSG.002",
+    "op": "OP26",
+    "procedure": "P.MM.01.PRC.002",
+    "process": "P.MM.01",
+    "requirement": "013",
+    "source_occurrence": 1,
+    "source_requirement_number": "13",
+    "transaction": "P.MM.01.TRN.002"
+  },
+  "implementation": {
+    "engine_capabilities": [],
+    "production_files": [
+      "P.MM.01_OP_26/message_rules/P.MM.01.MSG.002.yaml"
+    ],
+    "production_rules": [
+      "P.MM.01.MSG.002.R13"
+    ],
+    "status": "OPEN_EXTERNAL_REGISTRY"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "если значение реквизита «Код роли государства-члена» (hcsdo:CountryKindCode) соответствует значению «02 – государство признания», то в составе сложного реквизита «Сведения о регистрации лекарственного препарата в государстве-члене» (hccdo:DrugCountryRegistrationDetails) допускается заполнение только следующих вложенных реквизитов: «Торговое наименование лекарственного препарата» (hcsdo:DrugTradeName); «Сведения о документах регистрационного досье лекарственного препарата, вносимых в единый реестр» (hccdo:DrugDocumentsDetails); «Сведения о регистрационном удостоверении на лекарственный Код требования Формулировка требования препарат» (hccdo:DrugRegistrationCertificateDetails); «Сведения о заявлении на регистрацию лекарственного препарата» (hccdo:DrugApplicationDetails)"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Правило требует верификации наличия сведений во внешнем общем/едином реестре зарегистрированных лекарственных средств ЕАЭС, что выходит за рамки изолированного офлайн-валидатора.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "13",
+        "level": "CONFIRMED_PDF",
+        "occurrence": 1,
+        "pdf_page": 217,
+        "section": null,
+        "source": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "table": "19"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.MM.01_OP_26/tests/test_pmm01_catalog.py"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP26_P_MM_01/pages/page_217.md"
+    },
+    "item": "13",
+    "occurrence": 1,
+    "pdf_page": 217,
+    "printed_page": 216,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/26_ОП.pdf",
+    "table": "19"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "hccdo:DrugCountryRegistrationDetails; hcsdo:DrugTradeName; hccdo:DrugDocumentsDetails; hccdo:DrugRegistrationCertificateDetails; hccdo:DrugApplicationDetails",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.HC.MM.01.001",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:HC:MM:01:DrugRegistrationDetails:v1.1.0}DrugRegistrationDetails",
+      "local_name": "DrugRegistrationDetails",
+      "namespace": "urn:EEC:R:HC:MM:01:DrugRegistrationDetails:v1.1.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.1.0",
+    "xml_path": "hcsdo:CountryKindCode/hccdo:DrugCountryRegistrationDetails/hcsdo:DrugTradeName/hccdo:DrugDocumentsDetails/hccdo:DrugRegistrationCertificateDetails/hccdo:DrugApplicationDetails"
+  },
+  "verification": {
+    "negative_test": {
+      "note": "NOT_WIRED",
+      "status": "NOT_WIRED",
+      "test": null
+    },
+    "positive_test": {
+      "status": "PRESENT",
+      "test": "BLOCKED_OR_EXTERNAL"
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.MM.01_OP_26/tests/test_pmm01_catalog.py"
+    }
+  }
+}

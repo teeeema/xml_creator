@@ -1,0 +1,66 @@
+---
+id: "P.SP.03.MSG.014.REQ.018"
+op: "OP23"
+process: "P.SP.03"
+message: "P.SP.03.MSG.014"
+requirement: "018"
+structure: "R.IP.SP.03.002"
+status: "OPEN_PRODUCTION_MAPPING"
+evidence_level: "CONFIRMED_PDF"
+source_document: "ОП_23.pdf; semantic source ОП_23.pdf"
+source_pages: 277
+source_table: "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.014; item 18; inherited from Таблица 22. Требования к электронному документу (сведениям) P.SP.03.MSG.013 item 18"
+source_item: ""
+qname_status: "PREFIXED_NAMESPACE_UNRESOLVED"
+implementation_status: "NOT_PROCESSED"
+generated_by: "knowledge_base/tools/build_kb.py"
+---
+
+# P.SP.03.MSG.014.REQ.018
+
+## Нормативное требование
+
+если в экземплярах реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails) значение реквизита «Код вида записи общего информационного ресурса» (ipsdo:ResourceItemKindCode) соответствует значению «RH» – «сведения о праве использования НМПТ Союза», то в составе таких экземпляров реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails) в составе реквизита «Сведения о праве использования НМПТ Союза» (ipcdo:ApellationOfOriginEAEURightDetails) в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) должны быть заполнены реквизиты: «Код страны» (csdo:UnifiedCountryCode); «Полное наименование субъекта c указанием вида представления сведений и кода языка» (ipsdo:IPSubjectName); «Адрес» (ccdo:SubjectAddressDetails); «Контактный реквизит» (ccdo:CommunicationDetails) Inherited semantic requirement 18 from P.SP.03.MSG.013 as stated by range 3-34 in P.SP.03.MSG.014.
+
+## Простыми словами
+
+**AUDIT_DERIVED_EXPLANATION**
+
+Требование записано в OP23 YAML как нормативный текст, но исполняемое правило к нему не подключено. Поэтому валидатор сейчас не проверяет это условие, даже если общий rules engine уже умеет нужные операции.
+
+## Trace
+
+OP23 → P.SP.03.PRC.006 → P.SP.03.TRN.015 → P.SP.03.MSG.014 → P.SP.03.MSG.014.REQ.018
+
+## XML
+
+- Structure: R.IP.SP.03.002
+- QName: ipsdo:ResourceItemKindCode; ipcdo:ApellationOfOriginEAEURightDetails; ipcdo:IPPartyDetails; csdo:UnifiedCountryCode; ipsdo:IPSubjectName; ccdo:SubjectAddressDetails; ccdo:CommunicationDetails
+- Namespace: MISSING / UNRESOLVED
+- Path: ipcdo:ApellationOfOriginRegisterItemDetails/ipsdo:ResourceItemKindCode/ipcdo:ApellationOfOriginEAEURightDetails/ipcdo:IPPartyDetails/csdo:UnifiedCountryCode/ipsdo:IPSubjectName/ccdo:SubjectAddressDetails/ccdo:CommunicationDetails
+
+## Source
+
+- Document: ОП_23.pdf; semantic source ОП_23.pdf
+- SHA256: see [[02_SOURCE_REGISTRY]]
+- PDF page: 277
+- Printed page: 111
+- Table/item: Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.014; item 18; inherited from Таблица 22. Требования к электронному документу (сведениям) P.SP.03.MSG.013 item 18
+- Evidence level: CONFIRMED_PDF
+- Source page: [[sources/OP23_P_SP_03/pages/page_277]]
+
+## Project state
+
+- Status: OPEN_PRODUCTION_MAPPING
+- Production rule: NONE — message_rules has no structured_rules/correlation_rules/fixed_values/field_usage mapping for this requirement.
+- Wiring: 23OP-RULE-P.SP.03.MSG.014-3-34;23OP-RULE-P.SP.03.MSG.013-18;23OP-TRN-P-SP-03-TRN-015;23OP-PRC-P-SP-03-PRC-006
+- Positive test: MISSING — add XML/value case satisfying this exact requirement after production mapping.
+- Negative test: MISSING — add XML/value case violating this exact requirement and assert rejection.
+- Runtime proof: NONE requirement-specific. Existing P.SP.03_OP_23/tests/test_psp03_package.py validates catalog/counts/generation only.
+
+## Gap
+
+- Reason: Требование присутствует только как DECLARATIVE_NOT_YET_EXECUTABLE business_rule; structured_rules/correlation_rules/fixed_values/field_usage для OP23 отсутствуют.
+- Missing information: Production rule translation and requirement-specific positive/negative real XML proof are not yet completed.
+- Required action: Добавить минимальный OP23 production structured rule на подтвержденном XML path/QName и два regression cases: корректный и нарушающий требование.
+- Closure criterion: Production rule реально загружается и вызывается; корректный XML проходит; XML с нарушением отклоняется; requirement-specific regression test проходит.

@@ -1,0 +1,144 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.IP.SP.02.002"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": null,
+    "closure_criteria": [],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [],
+    "reason": "Current verified delivery snapshot counts this requirement within executable coverage.",
+    "required_action": [],
+    "status": "CLOSED"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "P.SP.02.MSG.043:61:17",
+    "message": "P.SP.02.MSG.043",
+    "op": "OP22",
+    "procedure": "P.SP.02.PRC.020",
+    "process": "P.SP.02",
+    "requirement": "17",
+    "source_occurrence": 1,
+    "source_requirement_number": "17",
+    "transaction": "P.SP.02.TRN.038"
+  },
+  "implementation": {
+    "engine_capabilities": [],
+    "production_files": [
+      "P.SP.02_OP_22/message_rules/P.SP.02.MSG.043.yaml"
+    ],
+    "production_rules": [
+      "P.SP.02.MSG.043.T61.REQ.17; P.SP.02.MSG.043.T61.REQ.17.LANGUAGE"
+    ],
+    "status": "IMPLEMENTED_CONFIRMED"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "если в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) соответствует значению «AP» – «заявитель», то в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) должен быть заполнен 1 экземпляр реквизита «Полное наименование субъекта c указанием вида представления сведений и кода языка» (ipsdo:IPSubjectName), в составе которого значение атрибута «код вида представления наименования» (атрибут nameRepresentationKindCode) должно соответствовать значению «OR» – «сведения, представленные на исходном (оригинальном) языке» и атрибут «код языка» (атрибут languageCode) должен быть заполнен"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Current executable coverage in FINAL_DELIVERY_AUDIT; this is not individual positive/negative certification.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [
+      {
+        "files": [
+          "P.SP.02_OP_22/message_rules/P.SP.02.MSG.043.yaml"
+        ],
+        "level": "CONFIRMED_PRODUCTION",
+        "rules": [
+          "P.SP.02.MSG.043.T61.REQ.17; P.SP.02.MSG.043.T61.REQ.17.LANGUAGE"
+        ]
+      }
+    ],
+    "normative": [
+      {
+        "item": "17",
+        "level": "CONFIRMED_PDF_SOURCE_REF",
+        "occurrence": 1,
+        "pdf_page": 717,
+        "section": null,
+        "source": "ОП_22.pdf",
+        "table": "61"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_original_name_count_is_exactly_one_per_ap[NEW_OLD-duplicate_original-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_original_name_count_is_exactly_one_per_ap[NEW_OLD-missing_original-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_original_name_count_is_exactly_one_per_ap[OLD_NEW-duplicate_original-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_original_name_count_is_exactly_one_per_ap[OLD_NEW-missing_original-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_production_requirement_per_owner[NEW_OLD-negative-17-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_production_requirement_per_owner[NEW_OLD-positive-17-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_production_requirement_per_owner[OLD_NEW-negative-17-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_production_requirement_per_owner[OLD_NEW-positive-17-P.SP.02.MSG.043-61]"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "ОП_22.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF_SOURCE_REF",
+      "source_page_ref": "sources/OP22_P_SP_02/pages/page_717.md"
+    },
+    "item": "17",
+    "occurrence": 1,
+    "pdf_page": 717,
+    "printed_page": 138,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/ОП_22.pdf",
+    "table": "61"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "@languageCode; @nameRepresentationKindCode; csdo:StatusCode; ipcdo:IPPartyDetails; ipcdo:TrademarkApplicationDetails; ipsdo:IPPartyKindCode; ipsdo:IPSubjectName",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.IP.SP.02.002",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "local_name": "TrademarkRegistrationDetails",
+      "namespace": "urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "ipcdo:TrademarkApplicationDetails; ipcdo:TrademarkApplicationDetails/ipcdo:IPEntityStatusDetails/csdo:StatusCode; ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails; ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails/ipsdo:IPPartyKindCode; ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails/ipsdo:IPSubjectName; ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails/ipsdo:IPSubjectName/@languageCode; ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails/ipsdo:IPSubjectName/@nameRepresentationKindCode"
+  },
+  "verification": {
+    "negative_test": {
+      "status": "PRESENT",
+      "test": "P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_original_name_count_is_exactly_one_per_ap[NEW_OLD-duplicate_original-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_original_name_count_is_exactly_one_per_ap[NEW_OLD-missing_original-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_original_name_count_is_exactly_one_per_ap[OLD_NEW-duplicate_original-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_original_name_count_is_exactly_one_per_ap[OLD_NEW-missing_original-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_production_requirement_per_owner[NEW_OLD-negative-17-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_production_requirement_per_owner[OLD_NEW-negative-17-P.SP.02.MSG.043-61]"
+    },
+    "positive_test": {
+      "status": "PRESENT",
+      "test": "P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_production_requirement_per_owner[NEW_OLD-positive-17-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_production_requirement_per_owner[OLD_NEW-positive-17-P.SP.02.MSG.043-61]"
+    },
+    "real_xml": {
+      "status": "PRESENT"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_original_name_count_is_exactly_one_per_ap[NEW_OLD-duplicate_original-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_original_name_count_is_exactly_one_per_ap[NEW_OLD-missing_original-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_original_name_count_is_exactly_one_per_ap[OLD_NEW-duplicate_original-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_original_name_count_is_exactly_one_per_ap[OLD_NEW-missing_original-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_production_requirement_per_owner[NEW_OLD-negative-17-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_production_requirement_per_owner[NEW_OLD-positive-17-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_production_requirement_per_owner[OLD_NEW-negative-17-P.SP.02.MSG.043-61]; P.SP.02_OP_22/tests/test_fix_now_code_msg012_xml.py::test_production_requirement_per_owner[OLD_NEW-positive-17-P.SP.02.MSG.043-61]"
+    }
+  }
+}

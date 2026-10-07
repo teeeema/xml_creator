@@ -1,0 +1,246 @@
+{
+  "fields": [
+    {
+      "datatype": "ccdo:EDocHeaderType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "VerificationProtocol/ccdo:EDocHeader",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "1",
+        "pdf_page": 190,
+        "table": "10"
+      }
+    },
+    {
+      "datatype": "csdo:InfEnvelopeCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "VerificationProtocol/ccdo:EDocHeader/csdo:InfEnvelopeCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "1.1",
+        "pdf_page": 190,
+        "table": "10"
+      }
+    },
+    {
+      "datatype": "csdo:EDocCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "VerificationProtocol/ccdo:EDocHeader/csdo:EDocCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "1.2",
+        "pdf_page": 190,
+        "table": "10"
+      }
+    },
+    {
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.3",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "VerificationProtocol/ccdo:EDocHeader/csdo:EDocId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "1.3",
+        "pdf_page": 190,
+        "table": "10"
+      }
+    },
+    {
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "VerificationProtocol/ccdo:EDocHeader/csdo:EDocRefId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "1.4",
+        "pdf_page": 190,
+        "table": "10"
+      }
+    },
+    {
+      "datatype": "bdt:DateTimeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.5",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "VerificationProtocol/ccdo:EDocHeader/csdo:EDocDateTime",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "1.5",
+        "pdf_page": 190,
+        "table": "10"
+      }
+    },
+    {
+      "datatype": "csdo:LanguageCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "VerificationProtocol/ccdo:EDocHeader/csdo:LanguageCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "1.6",
+        "pdf_page": 190,
+        "table": "10"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "VerificationProtocol/ds01sdo:ReportCountryCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "2",
+        "pdf_page": 190,
+        "table": "10"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "VerificationProtocol/ds01sdo:ReportCountryCode/codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "2.@codeListId",
+        "pdf_page": 190,
+        "table": "10"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "VerificationProtocol/ds01sdo:ReportDate",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3",
+        "pdf_page": 190,
+        "table": "10"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "4",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "VerificationProtocol/csdo:EventDate",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "4",
+        "pdf_page": 190,
+        "table": "10"
+      }
+    },
+    {
+      "datatype": "ds01cdo:DifferencesDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "5",
+      "max_occurs": null,
+      "min_occurs": 0,
+      "path": "VerificationProtocol/ds01cdo:DifferencesDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "5",
+        "pdf_page": 190,
+        "table": "10"
+      }
+    },
+    {
+      "datatype": "csdo:Text250Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "5.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "VerificationProtocol/ds01cdo:DifferencesDetails/ds01sdo:GraphDifferenceText",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "5.1",
+        "pdf_page": 190,
+        "table": "10"
+      }
+    },
+    {
+      "datatype": "csdo:Text250Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "5.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "VerificationProtocol/ds01cdo:DifferencesDetails/ds01sdo:DescriptionDifferenceText",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "5.2",
+        "pdf_page": 190,
+        "table": "10"
+      }
+    },
+    {
+      "datatype": "csdo:Text250Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "5.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "VerificationProtocol/ds01cdo:DifferencesDetails/ds01sdo:ExpectedValueText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "5.3",
+        "pdf_page": 190,
+        "table": "10"
+      }
+    }
+  ],
+  "schema_version": "1.0",
+  "structure": "R.FP.DS.01.003"
+}

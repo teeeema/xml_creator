@@ -195,7 +195,180 @@
       ]
     }
   ],
-  "structured_rules": [],
+  "structured_rules": [
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:ApellationOfOriginRegisterItemDetails/ipcdo:AccompanyingDocumentsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocBinaryText"
+          },
+          "state": "FORBIDDEN"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:IPDocKindName"
+          },
+          "state": "FORBIDDEN"
+        }
+      ],
+      "rule_id": "P.SP.03.MSG.015.REQ.030",
+      "applies_to_structure": "R.IP.SP.03.002",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.015-30",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.015",
+          "status": "CONFIRMED",
+          "page": 279,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "30"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:ApellationOfOriginRegisterItemDetails/ipcdo:AccompanyingDocumentsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:IPDocKindCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:PageQuantity"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.03.MSG.015.REQ.031",
+      "applies_to_structure": "R.IP.SP.03.002",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.015-31",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.015",
+          "status": "CONFIRMED",
+          "page": 280,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "31"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:ApellationOfOriginRegisterItemDetails/ipcdo:AccompanyingDocumentsDetails",
+        "where": {
+          "field": "ipsdo:IPDocKindCode",
+          "operator": "IN",
+          "value": [
+            "05999",
+            "06999",
+            "07030",
+            "07180",
+            "07185",
+            "99025",
+            "99999"
+          ]
+        }
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:DocName"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.03.MSG.015.REQ.032",
+      "applies_to_structure": "R.IP.SP.03.002",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.015-32",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.015",
+          "status": "CONFIRMED",
+          "page": 280,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "32"
+        }
+      ]
+    },
+    {
+      "kind": "group_distinctness",
+      "selector": {
+        "collection": "ipcdo:ApellationOfOriginRegisterItemDetails/ipcdo:AccompanyingDocumentsDetails"
+      },
+      "scope": {
+        "collection": "ipcdo:ApellationOfOriginRegisterItemDetails"
+      },
+      "group_by": "ipsdo:IPDocKindCode",
+      "distinguish_by": [
+        "csdo:DocName",
+        "csdo:DocId",
+        "csdo:DocCreationDate"
+      ],
+      "rule_id": "P.SP.03.MSG.015.REQ.033",
+      "applies_to_structure": "R.IP.SP.03.002",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.015-33",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.015",
+          "status": "CONFIRMED",
+          "page": 280,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "33"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:ApellationOfOriginRegisterItemDetails"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "ipsdo:ResourceItemKindCode"
+          },
+          "value": "RH"
+        }
+      ],
+      "rule_id": "P.SP.03.MSG.015.REQ.002",
+      "applies_to_structure": "R.IP.SP.03.002",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.015-2",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.015",
+          "status": "CONFIRMED",
+          "page": 279,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "2"
+        }
+      ]
+    }
+  ],
   "correlation_rules": [],
   "classifier_refs": [],
   "source_text": null,

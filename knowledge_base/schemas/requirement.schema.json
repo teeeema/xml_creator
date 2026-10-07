@@ -1,0 +1,151 @@
+{
+  "$id": "requirement.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "dependencies": {
+      "type": "object"
+    },
+    "fields": {
+      "type": "array"
+    },
+    "gap": {
+      "type": "object"
+    },
+    "identity": {
+      "properties": {
+        "canonical_disambiguator": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "canonical_id": {
+          "type": "string"
+        },
+        "message": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "op": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "procedure": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "process": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "requirement": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_occurrence": {
+          "minimum": 1,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "source_requirement_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "transaction": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "canonical_id",
+        "op",
+        "process",
+        "procedure",
+        "transaction",
+        "message",
+        "requirement"
+      ],
+      "type": "object"
+    },
+    "implementation": {
+      "type": "object"
+    },
+    "normative": {
+      "required": [
+        "source_text",
+        "plain_language"
+      ],
+      "type": "object"
+    },
+    "project_state": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "relationships": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "source": {
+      "required": [
+        "document",
+        "source_path",
+        "pdf_page",
+        "printed_page",
+        "section",
+        "table",
+        "item",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "structure": {
+      "required": [
+        "id",
+        "version",
+        "root_qname",
+        "atomic_qname",
+        "xml_path"
+      ],
+      "type": "object"
+    },
+    "verification": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "identity",
+    "normative",
+    "source",
+    "structure",
+    "fields",
+    "dependencies",
+    "relationships",
+    "implementation",
+    "verification",
+    "gap",
+    "provenance",
+    "project_state"
+  ],
+  "type": "object"
+}

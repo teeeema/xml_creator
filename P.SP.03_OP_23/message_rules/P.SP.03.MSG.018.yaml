@@ -43,7 +43,65 @@
       ]
     }
   ],
-  "structured_rules": [],
+  "structured_rules": [
+    {
+      "kind": "presence",
+      "target": "ipsdo:ApellationOfOriginApplicationId",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.03.MSG.018.REQ.002.application_id",
+      "applies_to_structure": "R.IP.SP.03.007",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.018-2",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.018",
+          "status": "CONFIRMED",
+          "page": 399,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "2"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "ipcdo:AccompanyingDocumentsDetails",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.03.MSG.018.REQ.002.accompanying_document",
+      "applies_to_structure": "R.IP.SP.03.007",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.018-2",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.018",
+          "status": "CONFIRMED",
+          "page": 399,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "2"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "csdo:UpdateDateTime",
+      "state": "REQUIRED",
+      "rule_id": "P.SP.03.MSG.018.REQ.001",
+      "applies_to_structure": "R.IP.SP.03.007",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.018-1",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 24. Требования к электронному документу (сведениям) P.SP.03.MSG.018",
+          "status": "CONFIRMED",
+          "page": 399,
+          "table": "24",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "1"
+        }
+      ]
+    }
+  ],
   "correlation_rules": [],
   "classifier_refs": [],
   "source_text": null,

@@ -1,0 +1,25 @@
+{
+  "$id": "project_state.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "branch": {},
+    "captured_at": {},
+    "dirty_entries": {},
+    "git_head": {},
+    "git_status": {},
+    "inputs": {},
+    "schema_version": {
+      "const": "1.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "captured_at",
+    "git_head",
+    "branch",
+    "dirty_entries",
+    "git_status",
+    "inputs"
+  ],
+  "type": "object"
+}

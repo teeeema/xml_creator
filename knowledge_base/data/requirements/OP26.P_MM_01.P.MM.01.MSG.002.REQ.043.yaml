@@ -1,0 +1,149 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.HC.MM.01.001"
+    ]
+  },
+  "fields": [
+    {
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.2.4.11.1",
+      "path": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugRegistrationSpecialConditionDetails/DrugUsageRestrictionKindCode"
+    }
+  ],
+  "gap": {
+    "category": "PRODUCTION_MAPPING",
+    "closure_criteria": [
+      "Добавление валидационного правила в structured_rules и подтверждение positive/negative тестами."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Отсутствует исполняемый маппинг в structured_rules"
+    ],
+    "reason": "OPEN_PRODUCTION_MAPPING",
+    "required_action": [
+      "Сформировать production structured_rules для данного требования на базе capabilities rules_engine."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "OP26.P_MM_01.P.MM.01.MSG.002.REQ.043",
+    "message": "P.MM.01.MSG.002",
+    "op": "OP26",
+    "procedure": "P.MM.01.PRC.002",
+    "process": "P.MM.01",
+    "requirement": "043",
+    "source_occurrence": 1,
+    "source_requirement_number": "43",
+    "transaction": "P.MM.01.TRN.002"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "presence / cardinality / condition / where"
+    ],
+    "production_files": [
+      "P.MM.01_OP_26/message_rules/P.MM.01.MSG.002.yaml"
+    ],
+    "production_rules": [
+      "P.MM.01.MSG.002.R43"
+    ],
+    "status": "OPEN_PRODUCTION_MAPPING"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "если реквизит «Код вида особого условия регистрации лекарственного препарата» (hcsdo:DrugUsageRestrictionKindCode) заполнен, то соответствует одному из значений: 01 - включение определенных мер для обеспечения безопасного применения лекарственного препарата в систему управления рисками; 02 - проведение пострегистрационных исследований безопасности; 03 - установление дополнительных требований к регистрации и подаче сообщений о подозреваемых нежелательных реакциях; 04 - проведение пострегистрационных исследований эффективности, при необходимости исследования различных аспектов эффективности лекарственного препарата, которые не могут быть исследованы до начала реализации лекарственного препарата; 05 - другие условия или ограничения в целях безопасного и эффективного применения лекарственного препарата"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Общий движок rules engine поддерживает необходимые механизмы валидации (наличие, кардинальность, запрет, условные связи), но декларативное правило Решения №68 еще не трансформировано в исполняемый structured_rule для P.MM.01.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "43",
+        "level": "CONFIRMED_PDF",
+        "occurrence": 1,
+        "pdf_page": 223,
+        "section": null,
+        "source": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "table": "19"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.MM.01_OP_26/tests/test_pmm01_catalog.py"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP26_P_MM_01/pages/page_223.md"
+    },
+    "item": "43",
+    "occurrence": 1,
+    "pdf_page": 223,
+    "printed_page": 222,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/26_ОП.pdf",
+    "table": "19"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "DrugUsageRestrictionKindCode",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.HC.MM.01.001",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:HC:MM:01:DrugRegistrationDetails:v1.1.0}DrugRegistrationDetails",
+      "local_name": "DrugRegistrationDetails",
+      "namespace": "urn:EEC:R:HC:MM:01:DrugRegistrationDetails:v1.1.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.1.0",
+    "xml_path": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugRegistrationSpecialConditionDetails/DrugUsageRestrictionKindCode"
+  },
+  "verification": {
+    "negative_test": {
+      "note": "NOT_WIRED",
+      "status": "NOT_WIRED",
+      "test": null
+    },
+    "positive_test": {
+      "status": "PRESENT",
+      "test": "YES (test suite payload)"
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.MM.01_OP_26/tests/test_pmm01_catalog.py"
+    }
+  }
+}

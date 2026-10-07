@@ -1,0 +1,16 @@
+---
+layer: "PROJECT_STATE"
+generated_by: "knowledge_base/tools/build_kb.py"
+snapshot_at: "2026-10-07T12:05:09+03:00"
+---
+
+# OP23 Gaps
+
+- IMPLEMENTED_CONFIRMED: 310
+- OPEN_CLASSIFIER: 44
+- OPEN_EXTERNAL_REGISTRY: 39
+- OPEN_MISSING_NORMATIVE_DATA: 1
+- OPEN_PRODUCTION_MAPPING: 298
+- OPEN_SOURCE_CONFLICT: 18
+
+See [[indexes/GAP_INDEX]].

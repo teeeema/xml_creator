@@ -147,3 +147,14 @@ def test_same_r008_xml_has_message_specific_business_evaluation():
 def test_msg024_rules_do_not_leak_to_msg026():
     engine = _engine()
     assert "P.SP.02.MSG.026" not in engine.rules
+
+
+def test_msg024_required_update_datetime_rejects_empty_element():
+    def build(root, structure):
+        _header(root, structure)
+        _child(root, structure, "csdo", "UpdateDateTime")
+
+    _, values, validation = _raw(build)
+    assert values["csdo:UpdateDateTime"] is None
+    assert not validation.is_valid
+    assert _status(validation, REQ1) is RuleStatus.FAIL

@@ -1,0 +1,27 @@
+{
+  "$id": "classifier.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "evidence": {},
+    "identity": {},
+    "machine_readable_payload": {},
+    "official_name": {},
+    "required_version": {},
+    "schema_version": {
+      "const": "1.0"
+    },
+    "sources": {},
+    "used_by": {}
+  },
+  "required": [
+    "schema_version",
+    "identity",
+    "official_name",
+    "required_version",
+    "machine_readable_payload",
+    "sources",
+    "used_by",
+    "evidence"
+  ],
+  "type": "object"
+}

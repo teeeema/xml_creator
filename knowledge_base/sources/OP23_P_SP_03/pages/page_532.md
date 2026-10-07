@@ -1,0 +1,55 @@
+---
+source_document: "ОП_23.pdf"
+source_path: "/Users/tema/Documents/Work/Документы_xml/ОП_23.pdf"
+source_sha256: "438611a5c16d2d699df244768d167a59ea0c020039853a44845346d96366fa1d"
+pdf_page: 532
+extraction_method: "pypdf 6.19.0"
+extraction_status: "OK"
+generated_by: "knowledge_base/tools/build_kb.py"
+---
+
+132 
+ 
+Имя реквизита Описание реквизита Идентификатор Тип данных Мн. 
+ 2.16. Технологические 
+характеристики записи общего 
+ресурса 
+(ccdo:ResourceItemStatusDetails) 
+совокупность технологических 
+сведений о записи Единого 
+реестра НМПТ Союза 
+M.CDE.00032 ccdo:ResourceItemStatusDetailsType 
+(M.CDT.00033) 
+Определяется областями значений 
+вложенных элементов 
+1 
+  2.16.1. Период действия 
+(ccdo:ValidityPeriodDetails) 
+период действия записи общего 
+ресурса (реестра, перечня, базы 
+данных) 
+M.CDE.00033 ccdo:PeriodDetailsType (M.CDT.00026) 
+Определяется областями значений 
+вложенных элементов 
+0..1 
+   *.1. Начальная дата и время 
+(csdo:StartDateTime) 
+начальная дата и время M.SDE.00133 bdt:DateTimeType (M.BDT.00006) 
+Обозначение даты и времени  
+в соответствии с ISO 8601 
+0..1 
+   *.2. Конечная дата и время 
+(csdo:EndDateTime) 
+конечная дата и время M.SDE.00134 bdt:DateTimeType (M.BDT.00006) 
+Обозначение даты и времени  
+в соответствии с ISO 8601 
+0..1 
+  2.16.2. Дата и время обновления 
+(csdo:UpdateDateTime) 
+дата и время обновления записи 
+общего ресурса (реестра, 
+перечня, базы данных) 
+M.SDE.00079 bdt:DateTimeType (M.BDT.00006) 
+Обозначение даты и времени  
+в соответствии с ISO 8601 
+0..1

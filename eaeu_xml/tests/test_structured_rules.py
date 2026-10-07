@@ -35,6 +35,24 @@ class StructuredRuleTests(unittest.TestCase):
         self.assertEqual(self.e.evaluate({"kind": "selection_cardinality", "selector": daily, "min_occurs": 1, "max_occurs": 1}, self.v).status, RuleStatus.PASS)
         self.assertEqual(self.e.evaluate({"kind": "selection_cardinality", "selector": daily, "min_occurs": 0, "max_occurs": 0}, self.v).status, RuleStatus.FAIL)
 
+    def test_collection_selector_skips_missing_repeated_child_context(self):
+        values = {
+            "Parents": ["", ""],
+            "Parents/Child": [None, ""],
+            "Parents/Child/Name": [None, "Present"],
+        }
+        selector = {"collection": "Parents/Child"}
+        contexts = self.e._select_contexts(selector, values)
+        self.assertEqual([context.indexes for context in contexts], [(1,)])
+        rule = {
+            "kind": "for_each",
+            "selector": selector,
+            "assertions": [
+                {"kind": "presence", "target": {"field": "Name"}, "state": "REQUIRED"},
+            ],
+        }
+        self.assertEqual(self.e.evaluate(rule, values).status, RuleStatus.PASS)
+
     def test_in_not_in_pass_fail_and_invalid_rhs(self):
         values = {"Code": "A"}
         self.assertEqual(self.e.evaluate({"kind": "comparison", "left": "Code", "operator": "IN", "right_value": ["A", "B"]}, values).status, RuleStatus.PASS)
@@ -43,6 +61,39 @@ class StructuredRuleTests(unittest.TestCase):
         self.assertEqual(self.e.evaluate({"kind": "comparison", "left": "Code", "operator": "NOT_IN", "right_value": ["A", "C"]}, values).status, RuleStatus.FAIL)
         self.assertEqual(self.e.evaluate({"kind": "comparison", "left": "Code", "operator": "IN", "right_value": "ABC"}, values).status, RuleStatus.FAIL)
         self.assertEqual(self.e.evaluate({"kind": "comparison", "left": "Code", "operator": "IN", "right_value": [1, 2]}, values).status, RuleStatus.FAIL)
+
+    def test_decimal_comparison_and_condition_use_numeric_semantics(self):
+        self.assertEqual(
+            self.e.evaluate(
+                {"kind": "comparison", "left": "Amount", "operator": "EQ", "right_value": "0", "value_type": "DECIMAL"},
+                {"Amount": "0.00"},
+            ).status,
+            RuleStatus.PASS,
+        )
+        self.assertEqual(
+            self.e.evaluate(
+                {"kind": "comparison", "left": "Amount", "operator": "GT", "right_value": "0", "value_type": "DECIMAL"},
+                {"Amount": "0.00"},
+            ).status,
+            RuleStatus.FAIL,
+        )
+        self.assertEqual(
+            self.e.evaluate(
+                {"kind": "comparison", "left": "Amount", "operator": "GT", "right_value": "0", "value_type": "DECIMAL"},
+                {"Amount": "0.01"},
+            ).status,
+            RuleStatus.PASS,
+        )
+        condition = {"field": "Amount", "operator": "GT", "value": "0", "value_type": "DECIMAL"}
+        self.assertFalse(self.e.evaluate_condition(condition, None, {"Amount": "0.00"}))
+        self.assertTrue(self.e.evaluate_condition(condition, None, {"Amount": "1.25"}))
+        self.assertEqual(
+            self.e.evaluate(
+                {"kind": "comparison", "left": "Amount", "operator": "GT", "right_value": "0", "value_type": "DECIMAL"},
+                {"Amount": None},
+            ).status,
+            RuleStatus.FAIL,
+        )
 
     def test_recursive_all_any_not_and_old_leaf_condition(self):
         context = self.e._select_contexts({"collection": self.p}, self.v)[0]
@@ -660,6 +711,116 @@ class StructuredRuleTests(unittest.TestCase):
         }
         self.assertEqual(self.e.evaluate(rule, values).status, RuleStatus.FAIL)
 
+    def test_cross_instance_comparison_allows_both_optional_fields_missing(self):
+        values = {
+            "Apps": [None, None],
+            "Apps/OptionalId": [None, None],
+        }
+        rule = {
+            "kind": "cross_instance_comparison",
+            "operator": "EQ",
+            "allow_both_missing": True,
+            "left": {"selector": {"collection": "Apps", "position": 1}, "field": "OptionalId"},
+            "right": {"selector": {"collection": "Apps", "position": 2}, "field": "OptionalId"},
+        }
+        self.assertEqual(self.e.evaluate(rule, values).status, RuleStatus.PASS)
+
+    def test_cross_instance_comparison_rejects_one_missing_optional_field(self):
+        values = {
+            "Apps": [None, None],
+            "Apps/OptionalId": ["VALUE", None],
+        }
+        rule = {
+            "kind": "cross_instance_comparison",
+            "operator": "EQ",
+            "allow_both_missing": True,
+            "left": {"selector": {"collection": "Apps", "position": 1}, "field": "OptionalId"},
+            "right": {"selector": {"collection": "Apps", "position": 2}, "field": "OptionalId"},
+        }
+        self.assertEqual(self.e.evaluate(rule, values).status, RuleStatus.FAIL)
+
+    def test_group_distinctness_ignores_unique_groups_and_accepts_distinct_duplicate_ids(self):
+        values = {
+            "Docs": [None, None, None],
+            "Docs/Kind": ["A", "A", "B"],
+            "Docs/Name": [None, None, None],
+            "Docs/Id": ["1", "2", None],
+            "Docs/Date": [None, None, None],
+        }
+        rule = {
+            "kind": "group_distinctness",
+            "selector": {"collection": "Docs"},
+            "group_by": "Kind",
+            "distinguish_by": ["Name", "Id", "Date"],
+        }
+        self.assertEqual(self.e.evaluate(rule, values).status, RuleStatus.PASS)
+
+    def test_group_distinctness_requires_discriminator_on_every_duplicate(self):
+        values = {
+            "Docs": [None, None],
+            "Docs/Kind": ["A", "A"],
+            "Docs/Name": ["First", None],
+            "Docs/Id": [None, None],
+            "Docs/Date": [None, None],
+        }
+        rule = {
+            "kind": "group_distinctness",
+            "selector": {"collection": "Docs"},
+            "group_by": "Kind",
+            "distinguish_by": ["Name", "Id", "Date"],
+        }
+        self.assertEqual(self.e.evaluate(rule, values).status, RuleStatus.FAIL)
+
+    def test_group_distinctness_rejects_duplicate_discriminator_values(self):
+        values = {
+            "Docs": [None, None],
+            "Docs/Kind": ["A", "A"],
+            "Docs/Name": ["Same", "Same"],
+            "Docs/Id": [None, None],
+            "Docs/Date": [None, None],
+        }
+        rule = {
+            "kind": "group_distinctness",
+            "selector": {"collection": "Docs"},
+            "group_by": "Kind",
+            "distinguish_by": ["Name", "Id", "Date"],
+        }
+        self.assertEqual(self.e.evaluate(rule, values).status, RuleStatus.FAIL)
+
+    def test_group_distinctness_accepts_one_fully_distinct_field(self):
+        values = {
+            "Docs": [None, None],
+            "Docs/Kind": ["A", "A"],
+            "Docs/Name": ["Same", "Same"],
+            "Docs/Id": ["1", "2"],
+            "Docs/Date": [None, None],
+        }
+        rule = {
+            "kind": "group_distinctness",
+            "selector": {"collection": "Docs"},
+            "group_by": "Kind",
+            "distinguish_by": ["Name", "Id", "Date"],
+        }
+        self.assertEqual(self.e.evaluate(rule, values).status, RuleStatus.PASS)
+
+    def test_group_distinctness_scope_keeps_duplicate_groups_inside_each_parent(self):
+        values = {
+            "Apps": [None, None],
+            "Apps/Docs": [[None], [None]],
+            "Apps/Docs/Kind": [["A"], ["A"]],
+            "Apps/Docs/Name": [["Same"], ["Same"]],
+            "Apps/Docs/Id": [[None], [None]],
+            "Apps/Docs/Date": [[None], [None]],
+        }
+        rule = {
+            "kind": "group_distinctness",
+            "scope": {"collection": "Apps"},
+            "selector": {"collection": "Apps/Docs"},
+            "group_by": "Kind",
+            "distinguish_by": ["Name", "Id", "Date"],
+        }
+        self.assertEqual(self.e.evaluate(rule, values).status, RuleStatus.PASS)
+
 
 if __name__ == "__main__":
     unittest.main()
@@ -725,3 +886,4 @@ def test_new_rule_syntax_rejects_ignored_guards_and_invalid_counts():
     for rule in invalid_rules:
         with unittest.TestCase().assertRaises(ProcessPackageValidationError):
             validator._validate_structured_rule(rule, 'P.TEST.MSG.001')
+

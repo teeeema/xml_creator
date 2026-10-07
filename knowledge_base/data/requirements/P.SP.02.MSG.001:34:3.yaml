@@ -1,0 +1,140 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.IP.SP.02.002"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": "EXTERNAL_REGISTRY",
+    "closure_criteria": [
+      "Authoritative external-registry contract/data source is available and the requirement is validated against the confirmed external behavior."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Full source condition includes external resource/registry state; only local fragments, if any, execute."
+    ],
+    "reason": "OPEN_EXTERNAL_REGISTRY",
+    "required_action": [
+      "Preserve open remainder; no code correction is authorized in this report-only task."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "P.SP.02.MSG.001:34:3",
+    "message": "P.SP.02.MSG.001",
+    "op": "OP22",
+    "procedure": "P.SP.02.PRC.001",
+    "process": "P.SP.02",
+    "requirement": "3",
+    "source_occurrence": 1,
+    "source_requirement_number": "3",
+    "transaction": "P.SP.02.TRN.001"
+  },
+  "implementation": {
+    "engine_capabilities": [],
+    "production_files": [
+      "P.SP.02_OP_22/message_rules/P.SP.02.MSG.001.yaml"
+    ],
+    "production_rules": [
+      "P.SP.02.MSG.001.REQ.003"
+    ],
+    "status": "OPEN_EXTERNAL_REGISTRY"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "реквизит «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) должен быть заполнен. В информационных ресурсах Комиссии, содержащих сведения о заявках на ТЗ Союза, не должно содержаться записи, в составе которой значение реквизита «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) совпадает со значением реквизита «Регистрационный номер заявки на товарный знак Союза» (ipsdo:TrademarkApplicationId) в составе сообщения"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "OPEN_EXTERNAL_REGISTRY",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "3",
+        "level": "CONFIRMED_PDF_SOURCE_REF",
+        "occurrence": 1,
+        "pdf_page": 513,
+        "section": null,
+        "source": "ОП_22.pdf",
+        "table": "34"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.SP.02_OP_22/tests/test_msg001_structured_rules.py"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "ОП_22.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF_SOURCE_REF",
+      "source_page_ref": "sources/OP22_P_SP_02/pages/page_513.md"
+    },
+    "item": "3",
+    "occurrence": 1,
+    "pdf_page": 513,
+    "printed_page": 101,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/ОП_22.pdf",
+    "table": "34"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": "TrademarkApplicationId",
+      "namespace": null,
+      "raw": "ipsdo:TrademarkApplicationId",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.IP.SP.02.002",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "local_name": "TrademarkRegistrationDetails",
+      "namespace": "urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "UNRESOLVED: no certified exact-owner production mapping; canonical source row and refs supplied."
+  },
+  "verification": {
+    "negative_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.SP.02_OP_22/tests/test_msg001_structured_rules.py"
+    }
+  }
+}

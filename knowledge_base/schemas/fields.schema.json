@@ -1,0 +1,17 @@
+{
+  "$id": "fields.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "fields": {},
+    "schema_version": {
+      "const": "1.0"
+    },
+    "structure": {}
+  },
+  "required": [
+    "schema_version",
+    "structure",
+    "fields"
+  ],
+  "type": "object"
+}

@@ -632,3 +632,32 @@ Small verified change > large speculative refactor.
 Existing project architecture > unnecessary new abstraction.
 
 When uncertain, investigate and report uncertainty instead of guessing.
+
+NORMATIVE KNOWLEDGE BASE POLICY
+
+Before performing normative research, audit, GAP analysis,
+QName/structure/classifier investigation or requirement implementation:
+
+1. Read:
+   knowledge_base/00_INDEX.md
+   knowledge_base/01_RULES_FOR_AGENTS.md
+
+2. Search Knowledge Base before opening original normative PDFs.
+
+3. Use knowledge_base/sources/** as the preferred extracted-text
+   representation of normative documents.
+
+4. Original normative files in:
+   /Users/tema/Documents/Work/Документы_xml
+   remain the ultimate source of truth.
+
+5. Open original PDF/XSD when KB evidence is missing,
+   conflicting, stale, ambiguous or insufficient.
+
+6. AUDIT_DERIVED and HISTORICAL are not normative proof.
+
+7. Never invent missing QName, namespace, version,
+   classifier data or normative requirements.
+
+8. If original source and KB disagree:
+   original source wins and KB must be marked stale/corrected.

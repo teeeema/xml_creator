@@ -138,7 +138,223 @@
       ]
     }
   ],
-  "structured_rules": [],
+  "structured_rules": [
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:AuthorityName"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "rule_id": "P.SP.03.MSG.021.REQ.001",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-1",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+          "status": "CONFIRMED",
+          "page": 281,
+          "table": "25",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "ipsdo:OriginOfficeIndicator"
+          },
+          "value": "1"
+        }
+      ],
+      "rule_id": "P.SP.03.MSG.021.REQ.002",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-2",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+          "status": "CONFIRMED",
+          "page": 282,
+          "table": "25",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "2"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "ccdo:SubjectAddressDetails/csdo:AddressKindCode"
+          },
+          "value": "2"
+        }
+      ],
+      "rule_id": "P.SP.03.MSG.021.REQ.003",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-3",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+          "status": "CONFIRMED",
+          "page": 282,
+          "table": "25",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "3"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "ipsdo:ApellationOfOriginApplicationId",
+      "state": "REQUIRED",
+      "rule_id": "P.SP.03.MSG.021.REQ.006",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-6",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+          "status": "CONFIRMED",
+          "page": 282,
+          "table": "25",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "6"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "ipsdo:TrademarkApplicationId",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.03.MSG.021.REQ.007.trademark_application_id",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-7",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+          "status": "CONFIRMED",
+          "page": 282,
+          "table": "25",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "7"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "csdo:DocId",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.03.MSG.021.REQ.007.doc_id",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-7",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+          "status": "CONFIRMED",
+          "page": 282,
+          "table": "25",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "7"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "ipcdo:IPPaymentDetails",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.03.MSG.021.REQ.007.payment_details",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-7",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+          "status": "CONFIRMED",
+          "page": 282,
+          "table": "25",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "7"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "ipsdo:DutyPaymentIndicator",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.03.MSG.021.REQ.007.duty_payment_indicator",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-7",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+          "status": "CONFIRMED",
+          "page": 282,
+          "table": "25",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "7"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "csdo:PaymentAmount",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.03.MSG.021.REQ.007.payment_amount",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-7",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25. Требования к электронному документу (сведениям) P.SP.03.MSG.021",
+          "status": "CONFIRMED",
+          "page": 282,
+          "table": "25",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "7"
+        }
+      ]
+    }
+  ],
   "correlation_rules": [],
   "classifier_refs": [],
   "source_text": null,

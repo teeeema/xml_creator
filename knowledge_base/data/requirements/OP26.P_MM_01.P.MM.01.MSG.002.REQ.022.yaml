@@ -1,0 +1,141 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.HC.MM.01.001"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": "SOURCE_CONFLICT",
+    "closure_criteria": [
+      "Получение согласованных изменений нормативной спецификации ЕЭК."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Таблица 19, пункт 22 ссылается на ChildJuvenileIndicator; таблица 10 структуры R.HC.MM.01.001 v1.1.0 содержит отдельные ChildIndicator и JuvenileIndicator, но не содержит указанный идентификатор."
+    ],
+    "reason": "OPEN_SOURCE_CONFLICT",
+    "required_action": [
+      "Зафиксировать официальное нормативное расхождение; не искажать структуру."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "OP26.P_MM_01.P.MM.01.MSG.002.REQ.022",
+    "message": "P.MM.01.MSG.002",
+    "op": "OP26",
+    "procedure": "P.MM.01.PRC.002",
+    "process": "P.MM.01",
+    "requirement": "022",
+    "source_occurrence": 1,
+    "source_requirement_number": "22",
+    "transaction": "P.MM.01.TRN.002"
+  },
+  "implementation": {
+    "engine_capabilities": [],
+    "production_files": [
+      "P.MM.01_OP_26/message_rules/P.MM.01.MSG.002.yaml"
+    ],
+    "production_rules": [
+      "P.MM.01.MSG.002.R22"
+    ],
+    "status": "OPEN_SOURCE_CONFLICT"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "реквизит «Признак применимости лекарственного препарата в ювенильном периоде» (hcsdo:ChildJuvenileIndicator) не заполняется"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Выявлено внутреннее нормативное противоречие между правилами заполнения Решения №68 и структурой R.HC.MM.01.001: Таблица 19, пункт 22 ссылается на ChildJuvenileIndicator; таблица 10 структуры R.HC.MM.01.001 v1.1.0 содержит отдельные ChildIndicator и JuvenileIndicator, но не содержит указанный идентификатор.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "22",
+        "level": "CONFIRMED_PDF",
+        "occurrence": 1,
+        "pdf_page": 219,
+        "section": null,
+        "source": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "table": "19"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.MM.01_OP_26/tests/test_pmm01_catalog.py"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP26_P_MM_01/pages/page_219.md"
+    },
+    "item": "22",
+    "occurrence": 1,
+    "pdf_page": 219,
+    "printed_page": 218,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/26_ОП.pdf",
+    "table": "19"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "R.HC.MM.01.001",
+      "status": "CONFLICT"
+    },
+    "id": "R.HC.MM.01.001",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:HC:MM:01:DrugRegistrationDetails:v1.1.0}DrugRegistrationDetails",
+      "local_name": "DrugRegistrationDetails",
+      "namespace": "urn:EEC:R:HC:MM:01:DrugRegistrationDetails:v1.1.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.1.0",
+    "xml_path": null
+  },
+  "verification": {
+    "negative_test": {
+      "note": "NOT_WIRED",
+      "status": "NOT_WIRED",
+      "test": null
+    },
+    "positive_test": {
+      "status": "PRESENT",
+      "test": "BLOCKED_OR_EXTERNAL"
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.MM.01_OP_26/tests/test_pmm01_catalog.py"
+    }
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "fields": [
+    {
+      "datatype": "ccdo:EDocHeaderType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "EDocHeader",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "1",
+        "pdf_page": 316,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:InfEnvelopeCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "EDocHeader/InfEnvelopeCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "1.1",
+        "pdf_page": 316,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:EDocCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "EDocHeader/EDocCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "1.2",
+        "pdf_page": 316,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.3",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "EDocHeader/EDocId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "1.3",
+        "pdf_page": 317,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "EDocHeader/EDocRefId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "1.4",
+        "pdf_page": 317,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "bdt:DateTimeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.5",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "EDocHeader/EDocDateTime",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "1.5",
+        "pdf_page": 317,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:LanguageCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "EDocHeader/LanguageCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "1.6",
+        "pdf_page": 317,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "bdt:DateTimeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "UpdateDateTime",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "2",
+        "pdf_page": 317,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3",
+      "max_occurs": null,
+      "min_occurs": 0,
+      "path": "UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "3",
+        "pdf_page": 318,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.а",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "3.а",
+        "pdf_page": 318,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:InformationResourceIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "InformationResourceId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "4",
+        "pdf_page": 318,
+        "table": "7"
+      }
+    }
+  ],
+  "schema_version": "1.0",
+  "structure": "R.007"
+}

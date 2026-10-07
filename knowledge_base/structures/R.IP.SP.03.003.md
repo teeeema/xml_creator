@@ -1,0 +1,152 @@
+---
+layer: "KNOWLEDGE"
+structure_id: "R.IP.SP.03.003"
+generated_by: "knowledge_base/tools/build_kb.py"
+---
+
+# R.IP.SP.03.003
+
+- Version(s): 1.0.0
+- Root QName: `{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails`
+- Root QName evidence: CONFIRMED_STRUCTURE_SOURCE_REF
+- Namespace: `urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0`
+- XSD filename(s): EEC_R_IP_SP_03_IPDutyDetails_v1.0.0.xsd
+- XSD status: DECLARED_FILENAME_PAYLOAD_MISSING
+- Definition status(es): NEEDS_XSD
+- Source: ОП_22.pdf p.637 — Перечень сообщений общего процесса
+- Fields indexed: 152
+- Field metadata: [[R.IP.SP.03.003_FIELDS]]
+
+## Imports
+
+- None indexed / MISSING.
+
+## Used by messages
+
+- P.SP.02.MSG.054
+- P.SP.02.MSG.055
+- P.SP.02.MSG.056
+- P.SP.02.MSG.057
+- P.SP.03.MSG.021
+- P.SP.03.MSG.022
+- P.SP.03.MSG.023
+- P.SP.03.MSG.024
+
+## Used by requirements
+
+- [[requirements/P.SP.02.MSG.054:72:1]]
+- [[requirements/P.SP.02.MSG.054:72:2]]
+- [[requirements/P.SP.02.MSG.054:72:3]]
+- [[requirements/P.SP.02.MSG.054:72:4]]
+- [[requirements/P.SP.02.MSG.054:72:5]]
+- [[requirements/P.SP.02.MSG.054:72:6]]
+- [[requirements/P.SP.02.MSG.054:72:7]]
+- [[requirements/P.SP.02.MSG.055:73:1]]
+- [[requirements/P.SP.02.MSG.055:73:2]]
+- [[requirements/P.SP.02.MSG.055:73:3]]
+- [[requirements/P.SP.02.MSG.055:73:4]]
+- [[requirements/P.SP.02.MSG.055:73:5]]
+- [[requirements/P.SP.02.MSG.055:73:6]]
+- [[requirements/P.SP.02.MSG.055:73:7]]
+- [[requirements/P.SP.02.MSG.055:73:8]]
+- [[requirements/P.SP.02.MSG.055:73:9]]
+- [[requirements/P.SP.02.MSG.056:74:1]]
+- [[requirements/P.SP.02.MSG.056:74:10]]
+- [[requirements/P.SP.02.MSG.056:74:11]]
+- [[requirements/P.SP.02.MSG.056:74:12]]
+- [[requirements/P.SP.02.MSG.056:74:13]]
+- [[requirements/P.SP.02.MSG.056:74:14]]
+- [[requirements/P.SP.02.MSG.056:74:15]]
+- [[requirements/P.SP.02.MSG.056:74:16]]
+- [[requirements/P.SP.02.MSG.056:74:17]]
+- [[requirements/P.SP.02.MSG.056:74:18]]
+- [[requirements/P.SP.02.MSG.056:74:19]]
+- [[requirements/P.SP.02.MSG.056:74:2]]
+- [[requirements/P.SP.02.MSG.056:74:20]]
+- [[requirements/P.SP.02.MSG.056:74:3]]
+- [[requirements/P.SP.02.MSG.056:74:4]]
+- [[requirements/P.SP.02.MSG.056:74:5]]
+- [[requirements/P.SP.02.MSG.056:74:6]]
+- [[requirements/P.SP.02.MSG.056:74:7]]
+- [[requirements/P.SP.02.MSG.056:74:8]]
+- [[requirements/P.SP.02.MSG.056:74:9]]
+- [[requirements/P.SP.02.MSG.057:75:1]]
+- [[requirements/P.SP.02.MSG.057:75:10]]
+- [[requirements/P.SP.02.MSG.057:75:11]]
+- [[requirements/P.SP.02.MSG.057:75:12]]
+- [[requirements/P.SP.02.MSG.057:75:13]]
+- [[requirements/P.SP.02.MSG.057:75:14]]
+- [[requirements/P.SP.02.MSG.057:75:15]]
+- [[requirements/P.SP.02.MSG.057:75:16]]
+- [[requirements/P.SP.02.MSG.057:75:17]]
+- [[requirements/P.SP.02.MSG.057:75:18]]
+- [[requirements/P.SP.02.MSG.057:75:19]]
+- [[requirements/P.SP.02.MSG.057:75:2]]
+- [[requirements/P.SP.02.MSG.057:75:20]]
+- [[requirements/P.SP.02.MSG.057:75:21]]
+- [[requirements/P.SP.02.MSG.057:75:22]]
+- [[requirements/P.SP.02.MSG.057:75:3]]
+- [[requirements/P.SP.02.MSG.057:75:4]]
+- [[requirements/P.SP.02.MSG.057:75:5]]
+- [[requirements/P.SP.02.MSG.057:75:6]]
+- [[requirements/P.SP.02.MSG.057:75:7]]
+- [[requirements/P.SP.02.MSG.057:75:8]]
+- [[requirements/P.SP.02.MSG.057:75:9]]
+- [[requirements/P.SP.03.MSG.021.REQ.001]]
+- [[requirements/P.SP.03.MSG.021.REQ.002]]
+- [[requirements/P.SP.03.MSG.021.REQ.003]]
+- [[requirements/P.SP.03.MSG.021.REQ.004]]
+- [[requirements/P.SP.03.MSG.021.REQ.005]]
+- [[requirements/P.SP.03.MSG.021.REQ.006]]
+- [[requirements/P.SP.03.MSG.021.REQ.007]]
+- [[requirements/P.SP.03.MSG.022.REQ.001]]
+- [[requirements/P.SP.03.MSG.022.REQ.002]]
+- [[requirements/P.SP.03.MSG.022.REQ.003]]
+- [[requirements/P.SP.03.MSG.022.REQ.004]]
+- [[requirements/P.SP.03.MSG.022.REQ.005]]
+- [[requirements/P.SP.03.MSG.022.REQ.006]]
+- [[requirements/P.SP.03.MSG.022.REQ.007]]
+- [[requirements/P.SP.03.MSG.022.REQ.008]]
+- [[requirements/P.SP.03.MSG.022.REQ.009]]
+- [[requirements/P.SP.03.MSG.023.REQ.001]]
+- [[requirements/P.SP.03.MSG.023.REQ.002]]
+- [[requirements/P.SP.03.MSG.023.REQ.003]]
+- [[requirements/P.SP.03.MSG.023.REQ.004]]
+- [[requirements/P.SP.03.MSG.023.REQ.005]]
+- [[requirements/P.SP.03.MSG.023.REQ.006]]
+- [[requirements/P.SP.03.MSG.023.REQ.007]]
+- [[requirements/P.SP.03.MSG.023.REQ.008]]
+- [[requirements/P.SP.03.MSG.023.REQ.009]]
+- [[requirements/P.SP.03.MSG.023.REQ.010]]
+- [[requirements/P.SP.03.MSG.023.REQ.011]]
+- [[requirements/P.SP.03.MSG.023.REQ.012]]
+- [[requirements/P.SP.03.MSG.023.REQ.013]]
+- [[requirements/P.SP.03.MSG.023.REQ.014]]
+- [[requirements/P.SP.03.MSG.023.REQ.015]]
+- [[requirements/P.SP.03.MSG.023.REQ.016]]
+- [[requirements/P.SP.03.MSG.023.REQ.017]]
+- [[requirements/P.SP.03.MSG.023.REQ.018]]
+- [[requirements/P.SP.03.MSG.023.REQ.019]]
+- [[requirements/P.SP.03.MSG.023.REQ.020]]
+- [[requirements/P.SP.03.MSG.024.REQ.001]]
+- [[requirements/P.SP.03.MSG.024.REQ.002]]
+- [[requirements/P.SP.03.MSG.024.REQ.003]]
+- [[requirements/P.SP.03.MSG.024.REQ.004]]
+- [[requirements/P.SP.03.MSG.024.REQ.005]]
+- [[requirements/P.SP.03.MSG.024.REQ.006]]
+- [[requirements/P.SP.03.MSG.024.REQ.007]]
+- [[requirements/P.SP.03.MSG.024.REQ.008]]
+- [[requirements/P.SP.03.MSG.024.REQ.009]]
+- [[requirements/P.SP.03.MSG.024.REQ.010]]
+- [[requirements/P.SP.03.MSG.024.REQ.011]]
+- [[requirements/P.SP.03.MSG.024.REQ.012]]
+- [[requirements/P.SP.03.MSG.024.REQ.013]]
+- [[requirements/P.SP.03.MSG.024.REQ.014]]
+- [[requirements/P.SP.03.MSG.024.REQ.015]]
+- [[requirements/P.SP.03.MSG.024.REQ.016]]
+- [[requirements/P.SP.03.MSG.024.REQ.017]]
+- [[requirements/P.SP.03.MSG.024.REQ.018]]
+- [[requirements/P.SP.03.MSG.024.REQ.019]]
+- [[requirements/P.SP.03.MSG.024.REQ.020]]
+- [[requirements/P.SP.03.MSG.024.REQ.021]]
+- [[requirements/P.SP.03.MSG.024.REQ.022]]

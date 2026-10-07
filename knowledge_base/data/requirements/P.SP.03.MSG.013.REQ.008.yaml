@@ -1,0 +1,150 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.IP.SP.03.002"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": "CLASSIFIER",
+    "closure_criteria": [
+      "Есть подтвержденный classifier source/version; production rule вызывается; positive XML проходит; negative XML отклоняется."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Подтвержденное актуальное содержимое и версия соответствующего официального классификатора."
+    ],
+    "reason": "Нормативный текст захвачен, но исполняемого OP23 production rule нет; проверка зависит от фактического состояния официального классификатора.",
+    "required_action": [
+      "Получить и зафиксировать официальный classifier snapshot/version, затем добавить OP23 structured rule и regression tests."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "P.SP.03.MSG.013.REQ.008",
+    "message": "P.SP.03.MSG.013",
+    "op": "OP23",
+    "procedure": "P.SP.03.PRC.005",
+    "process": "P.SP.03",
+    "requirement": "008",
+    "source_occurrence": 1,
+    "source_requirement_number": "8",
+    "transaction": "P.SP.03.TRN.014"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "Базовые условные правила доступны; требуется надежный источник classifier data и production mapping."
+    ],
+    "production_files": [
+      "P.SP.03_OP_23/message_rules/P.SP.03.MSG.013.yaml"
+    ],
+    "production_rules": [],
+    "status": "OPEN_CLASSIFIER"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "при включении в классификатор видов документов, сведений и материалов значений, соответствующих видам документов «Заявка на регистрацию и предоставление права использования наименования места происхождения товара Евразийского экономического союза», «Заявка на предоставление права использования зарегистрированного наименования места происхождения товара Евразийского экономического союза» и «Ходатайство о выдаче свидетельства о праве использования наименования места происхождения товара Евразийского экономического союза в отношении наименования места происхождения товара, зарегистрированного до вступления в силу Договора о товарных знаках, знаках обслуживания и наименованиях мест происхождения товаров Евразийского экономического союза от 3 февраля 2020 года» в составе реквизита «Сведения записи Единого реестра НМПТ Союза» (ipcdo:ApellationOfOriginRegisterItemDetails) реквизит «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) должен быть заполнен и должен содержать кодовое обозначение одного из перечисленных видов документов, а реквизит «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) не заполняется"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Правило зависит от того, присутствует ли нужное значение в официальном классификаторе. В текущем репозитории нет подтвержденного snapshot/версии этого классификатора, поэтому валидатор не может достоверно выбрать нормативную ветку и проверить правило.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "8",
+        "level": "CONFIRMED_PDF",
+        "occurrence": 1,
+        "pdf_page": 262,
+        "section": null,
+        "source": "ОП_23.pdf",
+        "table": "22"
+      }
+    ],
+    "runtime": []
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [
+      {
+        "relation": "NORMATIVE_REFERENCE",
+        "requirement": "P.SP.03.MSG.014.REQ.008",
+        "source": {
+          "document": "ОП_23.pdf; semantic source ОП_23.pdf",
+          "evidence": "CONFIRMED_PDF",
+          "item": "3-34",
+          "pdf_page": 277,
+          "table": "23"
+        }
+      }
+    ],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "ОП_23.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP23_P_SP_03/pages/page_262.md"
+    },
+    "item": "8",
+    "occurrence": 1,
+    "pdf_page": 262,
+    "printed_page": 96,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/ОП_23.pdf",
+    "table": "22"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "ipsdo:IPDocKindCode; ipsdo:IPDocKindName",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.IP.SP.03.002",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegisterDetails:v1.0.0}ApellationOfOriginRegisterDetails",
+      "local_name": "ApellationOfOriginRegisterDetails",
+      "namespace": "urn:EEC:R:IP:SP:03:ApellationOfOriginRegisterDetails:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "ipcdo:ApellationOfOriginRegisterItemDetails/ipsdo:IPDocKindCode/ipsdo:IPDocKindName"
+  },
+  "verification": {
+    "negative_test": {
+      "note": "MISSING — add XML/value case violating this exact requirement and assert rejection.",
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "note": "MISSING — add XML/value case satisfying this exact requirement after production mapping.",
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "note": "NONE requirement-specific. Existing P.SP.03_OP_23/tests/test_psp03_package.py validates catalog/counts/generation only.",
+      "status": "MISSING",
+      "test": null
+    }
+  }
+}

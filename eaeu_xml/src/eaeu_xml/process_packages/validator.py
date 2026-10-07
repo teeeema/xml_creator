@@ -12,7 +12,7 @@ class ProcessPackageValidator:
     STRUCTURED_RULE_KINDS = {
         "aggregate_comparison", "cardinality", "comparison", "conditional_fixed_value",
         "conditional_presence", "cross_instance_comparison", "external", "fixed_value",
-        "for_each", "presence", "selection_cardinality",
+        "for_each", "group_distinctness", "presence", "selection_cardinality",
     }
     STRUCTURED_RULE_OPERATORS = {"EQ", "NE", "GT", "GE", "LT", "LE", "IN", "NOT_IN"}
     FOR_EACH_ASSERTION_KINDS = {
@@ -239,6 +239,24 @@ class ProcessPackageValidator:
                 self._validate_selector(operand.get("selector"), message_code)
                 if not isinstance(operand.get("field"), str) or not operand.get("field"):
                     self._fail("INVALID_CROSS_INSTANCE_FIELD", f"Cross-instance comparison {message_code}/{side} требует строковый field.")
+            return
+
+        if kind == "group_distinctness":
+            self._validate_selector(rule.get("selector"), message_code)
+            if "scope" in rule:
+                self._validate_selector(rule.get("scope"), message_code)
+            if not isinstance(rule.get("group_by"), str) or not rule.get("group_by"):
+                self._fail("INVALID_GROUP_DISTINCTNESS_KEY", f"Group distinctness {message_code} требует строковый group_by.")
+            distinguish_by = rule.get("distinguish_by")
+            if (
+                not isinstance(distinguish_by, list)
+                or not distinguish_by
+                or any(not isinstance(field, str) or not field for field in distinguish_by)
+            ):
+                self._fail(
+                    "INVALID_GROUP_DISTINCTNESS_FIELDS",
+                    f"Group distinctness {message_code} требует непустой список distinguish_by.",
+                )
             return
 
         if kind == "condition":

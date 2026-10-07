@@ -1,0 +1,149 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [
+      {
+        "evidence": {
+          "level": "AUDIT_DERIVED",
+          "source": "32_ОП.pdf p.110 Таблица 13, требование 24, atomic 3/3"
+        },
+        "expected_key": "hcsdo:MedicalProductName",
+        "expected_result": "Если hcsdo:MedicalProductName заполнен, его значение не должно совпадать с наименованием биологически активной добавки к пище из единого реестра свидетельств о государственной регистрации продукции.",
+        "lookup_required": "Нужно проверить нормативное условие: Если hcsdo:MedicalProductName заполнен, его значение не должно совпадать с наименованием биологически активной добавки к пище из единого реестра свидетельств о государственной регистрации продукции. Проверка требует данных внешнего реестра/истории Комиссии, которых нет в одном XML.",
+        "resource": "Единый реестр свидетельств о государственной регистрации продукции"
+      }
+    ],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.HC.MM.06.001"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": "EXTERNAL_REGISTRY",
+    "closure_criteria": [
+      "Доступен подтвержденный registry source/fixture и integration test доказывает положительный и отрицательный сценарии."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "The requirement still needs an external registry/history lookup; no official local snapshot/fixture was found."
+    ],
+    "reason": "OPEN_EXTERNAL_REGISTRY",
+    "required_action": [
+      "Определить официальный интерфейс/fixture внешнего реестра и правила доступа, затем тестировать интеграционно."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "OP32.P_MM_06.MSG_001.REQ.026",
+    "message": "P.MM.06.MSG.001",
+    "op": "OP32",
+    "procedure": "P.MM.06.PRC.001",
+    "process": "P.MM.06",
+    "requirement": "026",
+    "source_occurrence": null,
+    "source_requirement_number": null,
+    "transaction": "P.MM.06.TRN.001"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "presence/comparison/condition as expressed by normative row"
+    ],
+    "production_files": [
+      "P.MM.06_OP_32/message_rules/P.MM.06.MSG.001.yaml"
+    ],
+    "production_rules": [],
+    "status": "OPEN_EXTERNAL_REGISTRY"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "Если hcsdo:MedicalProductName заполнен, его значение не должно совпадать с наименованием биологически активной добавки к пище из единого реестра свидетельств о государственной регистрации продукции."
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Нужно проверить нормативное условие: Если hcsdo:MedicalProductName заполнен, его значение не должно совпадать с наименованием биологически активной добавки к пище из единого реестра свидетельств о государственной регистрации продукции. Проверка требует данных внешнего реестра/истории Комиссии, которых нет в одном XML.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": null,
+        "level": "CONFIRMED_PDF",
+        "occurrence": null,
+        "pdf_page": 110,
+        "section": null,
+        "source": "32_ОП.pdf",
+        "table": "13"
+      }
+    ],
+    "runtime": []
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "32_ОП.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP32_P_MM_06/pages/page_110.md"
+    },
+    "item": null,
+    "occurrence": null,
+    "pdf_page": 110,
+    "printed_page": null,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/32_ОП.pdf",
+    "table": "13"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": "MedicalProductName",
+      "namespace": null,
+      "raw": "hcsdo:MedicalProductName",
+      "status": "UNRESOLVED"
+    },
+    "id": "R.HC.MM.06.001",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:HC:MM:06:MedicalProductRegistrationDetails:v1.1.0}MedicalProductRegistrationDetails",
+      "local_name": "MedicalProductRegistrationDetails",
+      "namespace": "urn:EEC:R:HC:MM:06:MedicalProductRegistrationDetails:v1.1.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.1.0",
+    "xml_path": "UNRESOLVED_EXACT_PATH; normative tokens: hcsdo:MedicalProductName"
+  },
+  "verification": {
+    "negative_test": {
+      "note": "NONE",
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "note": "NONE",
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "note": "NONE for this normative requirement",
+      "status": "MISSING",
+      "test": null
+    }
+  }
+}

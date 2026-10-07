@@ -1,0 +1,61 @@
+---
+source_document: "ОП_22.pdf"
+source_path: "/Users/tema/Documents/Work/Документы_xml/ОП_22.pdf"
+source_sha256: "99b2e82a9eb65a5e996bee2200262623aead907e77db067c556f4e3575410bd3"
+pdf_page: 971
+extraction_method: "pypdf 6.19.0"
+extraction_status: "OK"
+generated_by: "knowledge_base/tools/build_kb.py"
+---
+
+149 
+ 
+Имя реквизита Описание реквизита Идентификатор Тип данных Мн. 
+  2.17.7. Описание 
+(csdo:DescriptionText) 
+описание документа M.SDE.00002 csdo:Text4000Type (M.SDT.00088) 
+Строка символов. 
+Мин. длина: 1. 
+Макс. длина: 4000 
+0..1 
+  2.17.8. Количество листов 
+(csdo:PageQuantity) 
+общее количество листов  
+в документе 
+M.SDE.00018 csdo:Quantity4Type (M.SDT.00097) 
+Целое неотрицательное число  
+в десятичной системе счисления. 
+Макс. кол-во цифр: 4 
+0..1 
+  2.17.9. Документ в бинарном 
+формате 
+(csdo:DocBinaryText) 
+документ в бинарном текстовом 
+формате 
+M.SDE.00106 csdo:BinaryTextType (M.SDT.00143) 
+Конечная последовательность 
+двоичных октетов (байтов) 
+0..1 
+   а) код формата данных 
+(атрибут mediaTypeCode) 
+кодовое обозначение формата 
+данных 
+– csdo:MediaTypeCodeType 
+(M.SDT.00147) 
+Значение кода в соответствии  
+со справочником форматов данных. 
+Мин. длина: 1. 
+Макс. длина: 255 
+0..1 
+ 2.18. Сведения о национальной 
+регистрации товарного знака 
+(ipcdo:TrademarkNational
+RegistrationDetails) 
+сведения о регистрации 
+товарного знака в национальном 
+реестре 
+M.IP.CDE.00132 ipcdo:TrademarkNationalRegistration
+DetailsType (M.IP.CDT.00224) 
+Определяется областями значений 
+вложенных элементов 
+0..*

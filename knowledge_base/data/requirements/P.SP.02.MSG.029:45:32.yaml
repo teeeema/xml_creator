@@ -1,0 +1,144 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.IP.SP.02.002"
+    ]
+  },
+  "fields": [
+    {
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13",
+      "path": "ipcdo:TrademarkApplicationDetails/ipsdo:InconsistencyText"
+    }
+  ],
+  "gap": {
+    "category": "SOURCE_CONFLICT",
+    "closure_criteria": [
+      "A higher-priority authoritative source resolves the conflicting values; provenance is recorded and the conflicting mapping is replaced with the confirmed one."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Source/StructureDefinition owner or QName conflict retained; see source refs and original gap notes."
+    ],
+    "reason": "OPEN_SOURCE_CONFLICT",
+    "required_action": [
+      "Preserve open remainder; no code correction is authorized in this report-only task."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "P.SP.02.MSG.029:45:32",
+    "message": "P.SP.02.MSG.029",
+    "op": "OP22",
+    "procedure": "P.SP.02.PRC.003",
+    "process": "P.SP.02",
+    "requirement": "32",
+    "source_occurrence": 1,
+    "source_requirement_number": "32",
+    "transaction": "P.SP.02.TRN.024"
+  },
+  "implementation": {
+    "engine_capabilities": [],
+    "production_files": [
+      "P.SP.02_OP_22/message_rules/P.SP.02.MSG.029.yaml"
+    ],
+    "production_rules": [],
+    "status": "OPEN_SOURCE_CONFLICT"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "ipsdo:TrademarkApplicationId заполняется для обеих заявок; для ранее поданной должна существовать активная запись со статусом «01»/«02» и совпадающим номером, для выделенной записи с таким номером существовать не должно"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "OPEN_SOURCE_CONFLICT",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "32",
+        "level": "CONFIRMED_PDF_SOURCE_REF",
+        "occurrence": 1,
+        "pdf_page": 552,
+        "section": null,
+        "source": "ОП_22.pdf",
+        "table": "45"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.SP.02_OP_22/tests/test_msg029_end_to_end.py; P.SP.02_OP_22/tests/test_msg029_repeatable_xml.py; P.SP.02_OP_22/tests/test_msg029_safe_mapping.py"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "ОП_22.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF_SOURCE_REF",
+      "source_page_ref": "sources/OP22_P_SP_02/pages/page_552.md"
+    },
+    "item": "32",
+    "occurrence": 1,
+    "pdf_page": 552,
+    "printed_page": 140,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/ОП_22.pdf",
+    "table": "45"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": "InconsistencyText",
+      "namespace": null,
+      "raw": "ipsdo:InconsistencyText",
+      "status": "CONFLICT"
+    },
+    "id": "R.IP.SP.02.002",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "local_name": "TrademarkRegistrationDetails",
+      "namespace": "urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "ipcdo:TrademarkApplicationDetails/ipsdo:InconsistencyText"
+  },
+  "verification": {
+    "negative_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.SP.02_OP_22/tests/test_msg029_end_to_end.py; P.SP.02_OP_22/tests/test_msg029_repeatable_xml.py; P.SP.02_OP_22/tests/test_msg029_safe_mapping.py"
+    }
+  }
+}

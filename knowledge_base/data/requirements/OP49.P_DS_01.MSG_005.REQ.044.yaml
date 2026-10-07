@@ -1,0 +1,142 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [
+      {
+        "evidence": "AUDIT_DERIVED",
+        "id": "RELATIVE_MONTH_PREVIOUS_INSTANCE_SELECTION",
+        "secondary": "XSD_PAYLOAD_MISSING; IMPORTED_MODEL_EXACT_NAMESPACE_VERSION_UNRESOLVED; DEPENDS_ON:TABLE_13_REQ_41_PREVIOUS_MONTH_SELECTOR",
+        "type": "ENGINE"
+      }
+    ],
+    "requirements": [],
+    "structures": [
+      "R.FP.DS.01.001"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": "ENGINE",
+    "closure_criteria": [
+      "Engine умеет выбирать именно предыдущий календарный месяц/проверять month relation, capability regression проходит; Exact QName/path подтверждены официальным источником; production rule загружается; positive и negative regression проходят."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "XSD_PAYLOAD_MISSING; IMPORTED_MODEL_EXACT_NAMESPACE_VERSION_UNRESOLVED; DEPENDS_ON:TABLE_13_REQ_41_PREVIOUS_MONTH_SELECTOR"
+    ],
+    "reason": "ENGINE",
+    "required_action": [
+      "Добавить/доказать engine-оператор для относительной календарной связи месяцев и выбора предыдущего экземпляра, не подменяя его простым индексом. Получить официальный XSD/точные версии импортируемых data-model namespaces и подтвердить exact Clark QName/path."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "OP49.P_DS_01.MSG_005.REQ.044",
+    "message": "P.DS.01.MSG.005",
+    "op": "OP49",
+    "procedure": "P.DS.01.PRC.005; P.DS.01.PRC.006",
+    "process": "P.DS.01",
+    "requirement": "044",
+    "source_occurrence": 1,
+    "source_requirement_number": "44",
+    "transaction": "P.DS.01.TRN.005; P.DS.01.TRN.006"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "ENGINE_GAP"
+    ],
+    "production_files": [
+      "P.DS.01_OP_49/message_rules/P.DS.01.MSG.005.yaml"
+    ],
+    "production_rules": [],
+    "status": "OPEN_ENGINE"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": "Правило требует календарной связи между месяцами или выбора предыдущего месячного экземпляра; текущий structured rules engine не умеет выразить эту относительную выборку полностью.",
+      "purpose": null
+    },
+    "source_text": "значение реквизита «Зачтенные суммы ввозных таможенных пошлин в счет погашения задолженности (текущий день)» (ds01sdo:ScoreDutyDeptRepayCurrentDayAmount) должно быть больше или равно значению реквизита «Зачтенные суммы ввозных таможенных пошлин в счет погашения задолженности (текущий день)» (ds01sdo:ScoreDutyDeptRepayCurrentDayAmount) в предыдущем экземпляре реквизита «Сведения из отчета о зачислении и распределении сумм ввозных таможенных пошлин» (ds01cdo:ChargedDistributedDutyReportDetails)"
+  },
+  "project_state": {
+    "audit_notes": "Package business_rule=NO; structured_rule=NO",
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Правило требует календарной связи между месяцами или выбора предыдущего месячного экземпляра; текущий structured rules engine не умеет выразить эту относительную выборку полностью.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "44",
+        "level": "CONFIRMED_PDF",
+        "occurrence": 1,
+        "pdf_page": 100,
+        "section": "24",
+        "source": "49_ОП.pdf",
+        "table": "13"
+      }
+    ],
+    "runtime": []
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "49_ОП.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP49_P_DS_01/pages/page_100.md"
+    },
+    "item": "44",
+    "occurrence": 1,
+    "pdf_page": 100,
+    "printed_page": 47,
+    "section": "24",
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/49_ОП.pdf",
+    "table": "13"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "ds01sdo:ScoreDutyDeptRepayCurrentDayAmount; ds01cdo:ChargedDistributedDutyReportDetails",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.FP.DS.01.001",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0}ChargedDistributedReport",
+      "local_name": "ChargedDistributedReport",
+      "namespace": "urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:ScoreDutyDeptRepayCurrentDayAmount | ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails"
+  },
+  "verification": {
+    "negative_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "MISSING",
+      "test": null
+    }
+  }
+}

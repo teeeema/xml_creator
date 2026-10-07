@@ -1,0 +1,75 @@
+{
+  "dependencies": {
+    "imports": []
+  },
+  "evidence": {
+    "root_qname": "CONFIRMED_STRUCTURE_SOURCE_REF",
+    "xsd_status": "DECLARED_FILENAME_PAYLOAD_MISSING"
+  },
+  "field_index": {
+    "count": 15,
+    "path": "data/fields/R.FP.DS.01.003.json"
+  },
+  "identity": {
+    "structure": "R.FP.DS.01.003",
+    "versions": [
+      "1.0.0"
+    ]
+  },
+  "known_gaps": [
+    "MISSING_XSD_PAYLOAD"
+  ],
+  "root": {
+    "clark_name": "{urn:EEC:R:FP:DS:01:VerificationProtocol:v1.0.0}VerificationProtocol",
+    "local_name": "VerificationProtocol",
+    "namespace": "urn:EEC:R:FP:DS:01:VerificationProtocol:v1.0.0",
+    "status": "CONFIRMED"
+  },
+  "schema_version": "1.0",
+  "source": {
+    "primary": {
+      "document": "49 ОП.pdf",
+      "item": "P.DS.01.MSG.004",
+      "location": "Перечень сообщений общего процесса",
+      "page": 65,
+      "source_id": "49OP-MSG-004",
+      "status": "CONFIRMED",
+      "table": "3"
+    },
+    "source_refs": [
+      {
+        "document": "49 ОП.pdf",
+        "item": "P.DS.01.MSG.004",
+        "location": "Перечень сообщений общего процесса",
+        "page": 65,
+        "source_id": "49OP-MSG-004",
+        "status": "CONFIRMED",
+        "table": "3"
+      },
+      {
+        "document": "49 ОП.pdf",
+        "location": "Описание структуры протокола оперативной сверки полученных данных",
+        "page": 187,
+        "source_id": "49OP-STRUCT-003",
+        "status": "CONFIRMED",
+        "table": "8"
+      }
+    ]
+  },
+  "usage": {
+    "messages": [
+      "P.DS.01.MSG.004"
+    ],
+    "requirements": [
+      "OP49.P_DS_01.MSG_004.REQ.001",
+      "OP49.P_DS_01.MSG_004.REQ.002"
+    ]
+  },
+  "xsd": {
+    "declared_filename": "EEC_R_FP_DS_01_VerificationProtocol_v1.0.0.xsd",
+    "declared_filenames": [
+      "EEC_R_FP_DS_01_VerificationProtocol_v1.0.0.xsd"
+    ],
+    "local_payload": false
+  }
+}

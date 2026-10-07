@@ -1,0 +1,17 @@
+{
+  "$id": "dependency_graph.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "edges": {},
+    "nodes": {},
+    "schema_version": {
+      "const": "1.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "nodes",
+    "edges"
+  ],
+  "type": "object"
+}

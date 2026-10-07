@@ -1,0 +1,41 @@
+{
+  "$id": "process.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "dependencies": {},
+    "identity": {},
+    "known_blockers": {},
+    "messages": {},
+    "operations": {},
+    "participants": {},
+    "procedures": {},
+    "project_state": {},
+    "purpose": {},
+    "requirements": {},
+    "runtime": {},
+    "schema_version": {
+      "const": "1.0"
+    },
+    "sources": {},
+    "structures": {},
+    "transactions": {}
+  },
+  "required": [
+    "schema_version",
+    "identity",
+    "purpose",
+    "participants",
+    "operations",
+    "procedures",
+    "transactions",
+    "messages",
+    "structures",
+    "requirements",
+    "dependencies",
+    "known_blockers",
+    "runtime",
+    "sources",
+    "project_state"
+  ],
+  "type": "object"
+}

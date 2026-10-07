@@ -1,0 +1,66 @@
+---
+id: "P.SP.02.MSG.030:46:31"
+op: "OP22"
+process: "P.SP.02"
+message: "P.SP.02.MSG.030"
+requirement: "31"
+structure: "R.IP.SP.02.002"
+status: "IMPLEMENTED_CONFIRMED"
+evidence_level: "CONFIRMED_PDF_SOURCE_REF"
+source_document: "ОП_22.pdf"
+source_pages: 554
+source_table: "Table 46, item 31"
+source_item: "REQ 31 (Table 46)"
+qname_status: "UNRESOLVED"
+implementation_status: "CURRENT_EXECUTABLE_COVERAGE"
+generated_by: "knowledge_base/tools/build_kb.py"
+---
+
+# P.SP.02.MSG.030:46:31
+
+## Нормативное требование
+
+ipcdo:SignatureDetails не заполняется
+
+## Простыми словами
+
+**AUDIT_DERIVED_EXPLANATION**
+
+Current executable coverage in FINAL_DELIVERY_AUDIT; this is not individual positive/negative certification.
+
+## Trace
+
+OP22 → P.SP.02.PRC.004 → P.SP.02.TRN.025 → P.SP.02.MSG.030 → P.SP.02.MSG.030:46:31
+
+## XML
+
+- Structure: R.IP.SP.02.002
+- QName: MISSING / UNRESOLVED
+- Namespace: MISSING / UNRESOLVED
+- Path: MISSING / UNRESOLVED
+
+## Source
+
+- Document: ОП_22.pdf
+- SHA256: see [[02_SOURCE_REGISTRY]]
+- PDF page: 554
+- Printed page: 142
+- Table/item: Table 46, item 31
+- Evidence level: CONFIRMED_PDF_SOURCE_REF
+- Source page: [[sources/OP22_P_SP_02/pages/page_554]]
+
+## Project state
+
+- Status: IMPLEMENTED_CONFIRMED
+- Production rule: MISSING
+- Wiring: {"current": {"document": "ОП_22.pdf", "item": "31", "location": "Таблица 46", "page": 730, "source_id": "22OP-RULE-P.SP.02.MSG.030-T46-31", "status": "CONFIRMED", "table": "46", "version_context": "P.SP.02 1.0.0"}, "leaf": {"document": "ОП_22.pdf", "item": "31", "location": "Таблица 46. Требования к электронному документу (сведениям) P.SP.02.MSG.013", "page": 554, "source_id": "22OP-RULE-P.SP.02.MSG.013-T46-31", "status": "CONFIRMED", "table": "46", "version_context": "P.SP.02 1.0.0"}, "range_chain": ["46"]}
+- Positive test: MISSING
+- Negative test: MISSING
+- Runtime proof: MISSING
+
+## Gap
+
+- Reason: Current verified delivery snapshot counts this requirement within executable coverage.
+- Missing information: None recorded
+- Required action: MISSING
+- Closure criterion: Already counted as implemented in the current verified delivery snapshot.

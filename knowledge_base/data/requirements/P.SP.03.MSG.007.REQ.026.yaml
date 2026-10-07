@@ -1,0 +1,138 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.IP.SP.03.002"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": "PRODUCTION_MAPPING",
+    "closure_criteria": [
+      "Production rule реально загружается и вызывается; корректный XML проходит; XML с нарушением отклоняется; requirement-specific regression test проходит."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Production rule translation and requirement-specific positive/negative real XML proof are not yet completed."
+    ],
+    "reason": "Требование присутствует только как DECLARATIVE_NOT_YET_EXECUTABLE business_rule; structured_rules/correlation_rules/fixed_values/field_usage для OP23 отсутствуют. Старый аудит относил это требование к ENGINE_UNSUPPORTED, но текущий rules_engine уже содержит нужные общие примитивы; открытым остается именно отсутствие OP23 mapping.",
+    "required_action": [
+      "Добавить минимальный OP23 production structured rule на подтвержденном XML path/QName и два regression cases: корректный и нарушающий требование."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "P.SP.03.MSG.007.REQ.026",
+    "message": "P.SP.03.MSG.007",
+    "op": "OP23",
+    "procedure": "P.SP.03.PRC.006",
+    "process": "P.SP.03",
+    "requirement": "026",
+    "source_occurrence": 1,
+    "source_requirement_number": "26",
+    "transaction": "P.SP.03.TRN.006"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "CURRENT ENGINE CAPABLE for known old gaps: position/where/any/selection_cardinality/count/typed datetime/cross_instance_comparison; exact composition must be mapped per requirement."
+    ],
+    "production_files": [
+      "P.SP.03_OP_23/message_rules/P.SP.03.MSG.007.yaml"
+    ],
+    "production_rules": [],
+    "status": "OPEN_PRODUCTION_MAPPING"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "значение реквизита «Признак ведомства подачи» (ipsdo:OriginOfficeIndicator) в составе реквизита «Национальное патентное ведомство» (ipcdo:PatentAuthorityDetails) должно соответствовать значению «1» – ведомство подачи Inherited semantic requirement 26 from P.SP.03.MSG.006 as stated by range 3-31 in P.SP.03.MSG.007."
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Требование записано в OP23 YAML как нормативный текст, но исполняемое правило к нему не подключено. Поэтому валидатор сейчас не проверяет это условие, даже если общий rules engine уже умеет нужные операции. Старый аудит относил это требование к ENGINE_UNSUPPORTED, но текущий rules_engine уже содержит нужные общие примитивы; открытым остается именно отсутствие OP23 mapping.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "26",
+        "level": "CONFIRMED_PDF",
+        "occurrence": 1,
+        "pdf_page": 395,
+        "section": null,
+        "source": "ОП_23.pdf; semantic source ОП_23.pdf",
+        "table": "21"
+      }
+    ],
+    "runtime": []
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "ОП_23.pdf; semantic source ОП_23.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP23_P_SP_03/pages/page_395.md"
+    },
+    "item": "26",
+    "occurrence": 1,
+    "pdf_page": 395,
+    "printed_page": 106,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/ОП_23.pdf",
+    "table": "21"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": "PatentAuthorityDetails",
+      "namespace": null,
+      "raw": "ipcdo:PatentAuthorityDetails",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.IP.SP.03.002",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegisterDetails:v1.0.0}ApellationOfOriginRegisterDetails",
+      "local_name": "ApellationOfOriginRegisterDetails",
+      "namespace": "urn:EEC:R:IP:SP:03:ApellationOfOriginRegisterDetails:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "ipsdo:OriginOfficeIndicator/ipcdo:PatentAuthorityDetails"
+  },
+  "verification": {
+    "negative_test": {
+      "note": "MISSING — add XML/value case violating this exact requirement and assert rejection.",
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "note": "MISSING — add XML/value case satisfying this exact requirement after production mapping.",
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "note": "NONE requirement-specific. Existing P.SP.03_OP_23/tests/test_psp03_package.py validates catalog/counts/generation only.",
+      "status": "MISSING",
+      "test": null
+    }
+  }
+}

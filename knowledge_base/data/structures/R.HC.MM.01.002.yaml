@@ -1,0 +1,111 @@
+{
+  "dependencies": {
+    "imports": []
+  },
+  "evidence": {
+    "root_qname": "CONFIRMED_STRUCTURE_SOURCE_REF",
+    "xsd_status": "DECLARED_FILENAME_PAYLOAD_MISSING"
+  },
+  "field_index": {
+    "count": 23,
+    "path": "data/fields/R.HC.MM.01.002.json"
+  },
+  "identity": {
+    "structure": "R.HC.MM.01.002",
+    "versions": [
+      "1.1.0"
+    ]
+  },
+  "known_gaps": [
+    "MISSING_XSD_PAYLOAD"
+  ],
+  "root": {
+    "clark_name": "{urn:EEC:R:HC:MM:01:DrugRegistrationExpertReportDetails:v1.1.0}DrugRegistrationExpertReportDetails",
+    "local_name": "DrugRegistrationExpertReportDetails",
+    "namespace": "urn:EEC:R:HC:MM:01:DrugRegistrationExpertReportDetails:v1.1.0",
+    "status": "CONFIRMED"
+  },
+  "schema_version": "1.0",
+  "source": {
+    "primary": {
+      "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+      "item": "MSG.023",
+      "location": "Регламент информационного взаимодействия, перечень сообщений",
+      "page": 266,
+      "section": "Регламент информационного взаимодействия, перечень сообщений",
+      "source_id": "SRC-PMM01-068",
+      "status": "CONFIRMED",
+      "table": "6",
+      "version_context": "редакция P.MM.01 1.1.0"
+    },
+    "source_refs": [
+      {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+        "item": "MSG.023",
+        "location": "Регламент информационного взаимодействия, перечень сообщений",
+        "page": 266,
+        "section": "Регламент информационного взаимодействия, перечень сообщений",
+        "source_id": "SRC-PMM01-068",
+        "status": "CONFIRMED",
+        "table": "6",
+        "version_context": "редакция P.MM.01 1.1.0"
+      },
+      {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+        "item": "MSG.024",
+        "location": "Регламент информационного взаимодействия, перечень сообщений",
+        "page": 266,
+        "section": "Регламент информационного взаимодействия, перечень сообщений",
+        "source_id": "SRC-PMM01-068",
+        "status": "CONFIRMED",
+        "table": "6",
+        "version_context": "редакция P.MM.01 1.1.0"
+      },
+      {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+        "item": "R.HC.MM.01.002",
+        "location": "Описание форматов и структур электронных документов и сведений",
+        "page": 413,
+        "section": "Описание форматов и структур электронных документов и сведений",
+        "source_id": "SRC-PMM01-068",
+        "status": "CONFIRMED",
+        "table": "11",
+        "version_context": "редакция P.MM.01 1.1.0"
+      }
+    ]
+  },
+  "usage": {
+    "messages": [
+      "P.MM.01.MSG.023",
+      "P.MM.01.MSG.024"
+    ],
+    "requirements": [
+      "OP26.P_MM_01.P.MM.01.MSG.023.REQ.001",
+      "OP26.P_MM_01.P.MM.01.MSG.023.REQ.002",
+      "OP26.P_MM_01.P.MM.01.MSG.023.REQ.003",
+      "OP26.P_MM_01.P.MM.01.MSG.023.REQ.004",
+      "OP26.P_MM_01.P.MM.01.MSG.023.REQ.005",
+      "OP26.P_MM_01.P.MM.01.MSG.023.REQ.006",
+      "OP26.P_MM_01.P.MM.01.MSG.023.REQ.007",
+      "OP26.P_MM_01.P.MM.01.MSG.023.REQ.008",
+      "OP26.P_MM_01.P.MM.01.MSG.023.REQ.009",
+      "OP26.P_MM_01.P.MM.01.MSG.023.REQ.010",
+      "OP26.P_MM_01.P.MM.01.MSG.024.REQ.002",
+      "OP26.P_MM_01.P.MM.01.MSG.024.REQ.003",
+      "OP26.P_MM_01.P.MM.01.MSG.024.REQ.004",
+      "OP26.P_MM_01.P.MM.01.MSG.024.REQ.005",
+      "OP26.P_MM_01.P.MM.01.MSG.024.REQ.006",
+      "OP26.P_MM_01.P.MM.01.MSG.024.REQ.007",
+      "OP26.P_MM_01.P.MM.01.MSG.024.REQ.008",
+      "OP26.P_MM_01.P.MM.01.MSG.024.REQ.009",
+      "OP26.P_MM_01.P.MM.01.MSG.024.REQ.010"
+    ]
+  },
+  "xsd": {
+    "declared_filename": "EEC_R_HC_MM_01_DrugRegistrationExpertReportDetails_v1.1.0.xsd",
+    "declared_filenames": [
+      "EEC_R_HC_MM_01_DrugRegistrationExpertReportDetails_v1.1.0.xsd"
+    ],
+    "local_payload": false
+  }
+}

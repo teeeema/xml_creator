@@ -1,0 +1,66 @@
+---
+id: "P.SP.02.MSG.056:74:14"
+op: "OP22"
+process: "P.SP.02"
+message: "P.SP.02.MSG.056"
+requirement: "14"
+structure: "R.IP.SP.03.003"
+status: "IMPLEMENTED_CONFIRMED"
+evidence_level: "CONFIRMED_PDF_SOURCE_REF"
+source_document: "ОП_22.pdf"
+source_pages: 806
+source_table: "Table 74, item 14"
+source_item: "REQ 14 (Table 74)"
+qname_status: "UNRESOLVED"
+implementation_status: "CURRENT_EXECUTABLE_COVERAGE"
+generated_by: "knowledge_base/tools/build_kb.py"
+---
+
+# P.SP.02.MSG.056:74:14
+
+## Нормативное требование
+
+если в составе реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipcdo:IPPartyDetails) значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) соответствует значению «PA» – «представитель заявителя, являющийся патентным поверенным» или «RE» – «представитель заявителя, не являющийся патентным поверенным», то в составе такого экземпляра реквизита «Участник отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» в составе реквизита «Полное наименование субъекта c указанием вида представления сведений и кода языка» (ipsdo:IPSubjectName) атрибут «код вида представления наименования» (атрибут nameRepresentationKindCode) не заполняется, а атрибут «код языка» (атрибут languageCode) должен быть заполнен и его значение должно соответствовать значению «RU»
+
+## Простыми словами
+
+**AUDIT_DERIVED_EXPLANATION**
+
+Current executable coverage in FINAL_DELIVERY_AUDIT; this is not individual positive/negative certification.
+
+## Trace
+
+OP22 → P.SP.02.PRC.035 → P.SP.02.TRN.050 → P.SP.02.MSG.056 → P.SP.02.MSG.056:74:14
+
+## XML
+
+- Structure: R.IP.SP.03.003
+- QName: MISSING / UNRESOLVED
+- Namespace: MISSING / UNRESOLVED
+- Path: MISSING / UNRESOLVED
+
+## Source
+
+- Document: ОП_22.pdf
+- SHA256: see [[02_SOURCE_REGISTRY]]
+- PDF page: 806
+- Printed page: 227
+- Table/item: Table 74, item 14
+- Evidence level: CONFIRMED_PDF_SOURCE_REF
+- Source page: [[sources/OP22_P_SP_02/pages/page_806]]
+
+## Project state
+
+- Status: IMPLEMENTED_CONFIRMED
+- Production rule: MISSING
+- Wiring: {"current": {"document": "ОП_22.pdf", "item": "14", "location": "Таблица 74", "page": 806, "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-14", "status": "CONFIRMED", "table": "74", "version_context": "P.SP.02 1.0.0"}, "leaf": {"document": "ОП_22.pdf", "item": "14", "location": "Таблица 74", "page": 806, "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-14", "status": "CONFIRMED", "table": "74", "version_context": "P.SP.02 1.0.0"}, "range_chain": ["74"]}
+- Positive test: MISSING
+- Negative test: MISSING
+- Runtime proof: MISSING
+
+## Gap
+
+- Reason: Current verified delivery snapshot counts this requirement within executable coverage.
+- Missing information: None recorded
+- Required action: MISSING
+- Closure criterion: Already counted as implemented in the current verified delivery snapshot.

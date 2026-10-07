@@ -1,0 +1,1126 @@
+{
+  "fields": [
+    {
+      "datatype": "ccdo:EDocHeaderType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ccdo:EDocHeader",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "1",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:InfEnvelopeCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ccdo:EDocHeader/csdo:InfEnvelopeCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "1.1",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:EDocCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ccdo:EDocHeader/csdo:EDocCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "1.2",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.3",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ccdo:EDocHeader/csdo:EDocId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "1.3",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ccdo:EDocHeader/csdo:EDocRefId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "1.4",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "bdt:DateTimeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.5",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ccdo:EDocHeader/csdo:EDocDateTime",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "1.5",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:LanguageCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ccdo:EDocHeader/csdo:LanguageCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "1.6",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01sdo:ReportCountryCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "2",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01sdo:ReportCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "2.@codeListId",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01cdo:ChargedDistributedDutyReportDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3",
+      "max_occurs": null,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/csdo:EventDate",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.1",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01sdo:ReportDate",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.2",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.3",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01sdo:PreviousReportDate",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.3",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "bdt:DateTimeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01sdo:ModificationDateTime",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.4",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01cdo:ChargedDistributedDutyDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5",
+      "max_occurs": 2,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:DailyInfoIndicatorType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:DailyInfoIndicator",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.1",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01cdo:TransferDistributedDutyDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.10",
+      "max_occurs": null,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.10",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:TotalAmountIndicatorType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.10.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails/ds01sdo:TotalAmountIndicator",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.10.1",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:PaymentAmountType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.10.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails/ds01sdo:TransferDistributedDutyAmount",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.10.2",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.10.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.10.3",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.10.3.@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails/csdo:UnifiedCountryCode/codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.10.3.@codeListId",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:PaymentAmountType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.11",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:InternalRevenueDistributedDutyAmount",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.11",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01cdo:StopTransferDistributedDutyDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.12",
+      "max_occurs": null,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:StopTransferDistributedDutyDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.12",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:TotalAmountIndicatorType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.12.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:StopTransferDistributedDutyDetails/ds01sdo:TotalAmountIndicator",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.12.1",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:PaymentAmountType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.12.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:StopTransferDistributedDutyDetails/ds01sdo:StopTransferDistributedDutyAmount",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.12.2",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.12.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:StopTransferDistributedDutyDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.12.3",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.12.3.@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:StopTransferDistributedDutyDetails/csdo:UnifiedCountryCode/codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.12.3.@codeListId",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01cdo:ExternalRevenueDistributedDutyDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.13",
+      "max_occurs": null,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:ExternalRevenueDistributedDutyDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.13",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.13.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:ExternalRevenueDistributedDutyDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.13.1",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.13.1.@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:ExternalRevenueDistributedDutyDetails/csdo:UnifiedCountryCode/codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.13.1.@codeListId",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:PaymentAmountType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.13.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:ExternalRevenueDistributedDutyDetails/ds01sdo:TotalExternalRevenueDistributedDutyAmount",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.13.2",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:PaymentAmountType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.13.3",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:ExternalRevenueDistributedDutyDetails/ds01sdo:ExternalRevenueDistributedDutyAmount",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.13.3",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:PaymentAmountType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.13.4",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:ExternalRevenueDistributedDutyDetails/ds01sdo:DefaultInterestAmount",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.13.4",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:PaymentAmountType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:EnteredDutyAmount",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.2",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:CurrencyCodeV3Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.2.@currencyCode",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:EnteredDutyAmount/@currencyCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.2.@currencyCode",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.2.@currencyCodeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:EnteredDutyAmount/@currencyCodeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.2.@currencyCodeListId",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:Number2Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.2.@scaleNumber",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:EnteredDutyAmount/@scaleNumber",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.2.@scaleNumber",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:PaymentAmountType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.3",
+      "max_occurs": null,
+      "min_occurs": null,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:ExecutedAccountDutyAmount",
+      "qname": null,
+      "required": null,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.3",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:PaymentAmountType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.4",
+      "max_occurs": null,
+      "min_occurs": null,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:ScoreDutyDeptRepayReptDayAmount",
+      "qname": null,
+      "required": null,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.4",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:PaymentAmountType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.5",
+      "max_occurs": null,
+      "min_occurs": null,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:ScoreDutyDeptRepayCurrentDayAmount",
+      "qname": null,
+      "required": null,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.5",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:PaymentAmountType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.6",
+      "max_occurs": null,
+      "min_occurs": null,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:ReturnDutyReptDayAmount",
+      "qname": null,
+      "required": null,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.6",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:PaymentAmountType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.7",
+      "max_occurs": null,
+      "min_occurs": null,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:ReturnDutyCurrentDayAmount",
+      "qname": null,
+      "required": null,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.7",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:PaymentAmountType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.8",
+      "max_occurs": null,
+      "min_occurs": null,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:UnacceptedDutyReturnAmount",
+      "qname": null,
+      "required": null,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.8",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01cdo:DistributableDutyDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.9",
+      "max_occurs": null,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.9",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:TotalAmountIndicatorType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.9.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails/ds01sdo:TotalAmountIndicator",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.9.1",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01sdo:PaymentAmountType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.9.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails/ds01sdo:DistributableDutyAmount",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.9.2",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.9.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.9.3",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.5.9.3.@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.5.9.3.@codeListId",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ccdo:OfficerDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.6",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/fpcdo:OfficerDetails",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.6",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ccdo:FullNameDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.6.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/fpcdo:OfficerDetails/ccdo:FullNameDetails",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.6.1",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.6.1.1",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/fpcdo:OfficerDetails/ccdo:FullNameDetails/csdo:FirstName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.6.1.1",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.6.1.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/fpcdo:OfficerDetails/ccdo:FullNameDetails/csdo:MiddleName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.6.1.2",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.6.1.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/fpcdo:OfficerDetails/ccdo:FullNameDetails/csdo:LastName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.6.1.3",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.6.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/fpcdo:OfficerDetails/csdo:PositionName",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.6.2",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01cdo:ExecutorDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.7",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.7",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ccdo:FullNameDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.7.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/ccdo:FullNameDetails",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.7.1",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.7.1.1",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/ccdo:FullNameDetails/csdo:FirstName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.7.1.1",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.7.1.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/ccdo:FullNameDetails/csdo:MiddleName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.7.1.2",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.7.1.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/ccdo:FullNameDetails/csdo:LastName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.7.1.3",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.7.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/csdo:PositionName",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.7.2",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ccdo:CommunicationDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.7.3",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/ccdo:CommunicationDetails",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.7.3",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:CommunicationChannelCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.7.3.1",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.7.3.1",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.7.3.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.7.3.2",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:CommunicationChannelIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.7.3.3",
+      "max_occurs": null,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ExecutorDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.7.3.3",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:Text4000Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.8",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/csdo:NoteText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "3.8",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "ds01cdo:VerificationProDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:VerificationProDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "4",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "4.1",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:VerificationProDetails/ds01sdo:ReportCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "4.1",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "4.1.@codeListId",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ChargedDistributedReport/ds01cdo:VerificationProDetails/ds01sdo:ReportCountryCode/codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "4.1.@codeListId",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "4.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:VerificationProDetails/ds01sdo:ReportDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "4.2",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    },
+    {
+      "datatype": "csdo:Text4000Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "4.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ChargedDistributedReport/ds01cdo:VerificationProDetails/csdo:NoteText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "49 ОП.pdf",
+        "item": "4.3",
+        "pdf_page": 154,
+        "table": "7"
+      }
+    }
+  ],
+  "schema_version": "1.0",
+  "structure": "R.FP.DS.01.001"
+}

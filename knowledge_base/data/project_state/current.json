@@ -1,0 +1,155 @@
+{
+  "branch": "pyside6-gui",
+  "captured_at": "2026-10-07T12:07:37+03:00",
+  "dirty_entries": 81,
+  "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+  "git_status": [
+    "M AGENTS.md",
+    " M P.MM.01_OP_26/message_rules/P.MM.01.MSG.001.yaml",
+    " M P.MM.01_OP_26/message_rules/P.MM.01.MSG.002.yaml",
+    " M P.MM.01_OP_26/message_rules/P.MM.01.MSG.003.yaml",
+    " M P.MM.01_OP_26/message_rules/P.MM.01.MSG.007.yaml",
+    " M P.MM.01_OP_26/message_rules/P.MM.01.MSG.010.yaml",
+    " M P.MM.01_OP_26/message_rules/P.MM.01.MSG.012.yaml",
+    " M P.MM.01_OP_26/message_rules/P.MM.01.MSG.014.yaml",
+    " M P.MM.01_OP_26/message_rules/P.MM.01.MSG.016.yaml",
+    " M P.MM.01_OP_26/message_rules/P.MM.01.MSG.019.yaml",
+    " M P.MM.01_OP_26/message_rules/P.MM.01.MSG.020.yaml",
+    " M P.MM.01_OP_26/message_rules/P.MM.01.MSG.021.yaml",
+    " M P.MM.01_OP_26/message_rules/P.MM.01.MSG.023.yaml",
+    " M P.MM.01_OP_26/message_rules/P.MM.01.MSG.024.yaml",
+    " M P.MM.01_OP_26/message_rules/P.MM.01.MSG.025.yaml",
+    " M P.MM.01_OP_26/message_rules/P.MM.01.MSG.027.yaml",
+    " M P.MM.01_OP_26/message_rules/P.MM.01.MSG.028.yaml",
+    " M P.MM.01_OP_26/tests/all_transactions_matrix.py",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.001.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.003.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.004.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.005.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.006.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.007.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.008.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.009.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.010.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.011.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.012.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.013.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.014.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.015.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.016.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.018.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.021.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.022.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.023.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.024.yaml",
+    " M P.SP.03_OP_23/message_rules/P.SP.03.MSG.025.yaml",
+    " M P.SP.03_OP_23/tests/test_psp03_package.py",
+    " M codex_reports/OP23_P_SP_03/README.md",
+    " M eaeu_xml/src/eaeu_xml/application/facade.py",
+    " M eaeu_xml/src/eaeu_xml/application/services.py",
+    " M eaeu_xml/src/eaeu_xml/application/xml_validation_service.py",
+    " M eaeu_xml/src/eaeu_xml/gui_qt/view_model.py",
+    " M eaeu_xml/src/eaeu_xml/process_packages/body.py",
+    " M eaeu_xml/src/eaeu_xml/process_packages/rules_engine.py",
+    " M eaeu_xml/src/eaeu_xml/process_packages/validator.py",
+    " M eaeu_xml/tests/test_embedded_one_of.py",
+    " M eaeu_xml/tests/test_repeatable_xml_alignment.py",
+    " M eaeu_xml/tests/test_required_form_data.py",
+    " M eaeu_xml/tests/test_structured_rules.py",
+    "?? P.SP.02_OP_22/tests/test_embedded_one_of_form_generation.py",
+    "?? P.SP.03_OP_23/tests/test_b1_production.py",
+    "?? codex_reports/ADVERSARIAL_VALIDATION/",
+    "?? codex_reports/EXTERNAL_MATERIALS/",
+    "?? codex_reports/KNOWLEDGE_BASE/",
+    "?? codex_reports/OP22_P_SP_02/",
+    "?? codex_reports/OP23_P_SP_03/OP23_B1_IMPLEMENTATION_AUDIT.md",
+    "?? codex_reports/OP23_P_SP_03/OP23_B1_IMPLEMENTATION_RESULTS.csv",
+    "?? codex_reports/OP23_P_SP_03/OP23_B1_REQUIREMENT_IDS.txt",
+    "?? codex_reports/OP23_P_SP_03/OP23_B2_IMPLEMENTATION_RESULTS.csv",
+    "?? codex_reports/OP23_P_SP_03/OP23_B2_REQUIREMENT_IDS.txt",
+    "?? codex_reports/OP23_P_SP_03/OP23_B3_IMPLEMENTATION_RESULTS.csv",
+    "?? codex_reports/OP23_P_SP_03/OP23_B3_REQUIREMENT_IDS.txt",
+    "?? codex_reports/OP23_P_SP_03/OP23_B4_IMPLEMENTATION_RESULTS.csv",
+    "?? codex_reports/OP23_P_SP_03/OP23_B4_REQUIREMENT_IDS.txt",
+    "?? codex_reports/OP23_P_SP_03/OP23_FINAL_GAPS.csv",
+    "?? codex_reports/OP23_P_SP_03/OP23_FINAL_IMPLEMENTATION_AUDIT.md",
+    "?? codex_reports/OP23_P_SP_03/OP23_FINAL_MESSAGE_MATRIX.csv",
+    "?? codex_reports/OP23_P_SP_03/OP23_FINAL_REQUIREMENTS.csv",
+    "?? codex_reports/OP23_P_SP_03/OP23_FINAL_TRANSACTION_MATRIX.csv",
+    "?? codex_reports/OP23_P_SP_03/OP23_SAFE_IMPLEMENTATION_BATCH_MAP.csv",
+    "?? codex_reports/OP23_P_SP_03/OP23_SOURCE_REVERIFY.csv",
+    "?? codex_reports/OP23_P_SP_03/OP23_SOURCE_REVERIFY.md",
+    "?? codex_reports/OP26_P_MM_01/",
+    "?? codex_reports/OP32_P_MM_06/",
+    "?? codex_reports/OP49_P_DS_01/",
+    "?? codex_reports/PRODUCTION_READINESS/",
+    "?? codex_reports/TRACEABILITY_AUDIT/",
+    "?? knowledge_base/"
+  ],
+  "inputs": [
+    {
+      "path": "codex_reports/OP23_P_SP_03/OP23_FINAL_REQUIREMENTS.csv",
+      "sha256": "56f57c246a9f5999a126351a6d9fcfce667c27a7f0d50506f837771cdac6d87c"
+    },
+    {
+      "path": "codex_reports/OP26_P_MM_01/OP26_REAUDIT_REQUIREMENTS.csv",
+      "sha256": "20da44019558dc516d15df0eed709190cc0c37f47df30ee9fdac154af5eaa25b"
+    },
+    {
+      "path": "codex_reports/OP26_P_MM_01/OP26_WHAT_IS_MISSING_FOR_FULL_IMPLEMENTATION.md",
+      "sha256": "5bfae0c4ab96f33589e9b86ca443391435e75ef1bef039d0bdc0b67e0bd27468"
+    },
+    {
+      "path": "codex_reports/OP26_P_MM_01/OP26_FULL_IMPLEMENTATION_READINESS.md",
+      "sha256": "690b5b8c0540d21e273c6a667c00a6fce5d42f7dedf39630d9a562e475bdbd60"
+    },
+    {
+      "path": "codex_reports/OP32_P_MM_06/OP32_SOURCE_RECOVERY_REQUIREMENTS.csv",
+      "sha256": "895a76bfb2e9782b5d1a596ad985076c45b9f79801ff7a3d6239f86380c82868"
+    },
+    {
+      "path": "codex_reports/OP49_P_DS_01/OP49_REAUDIT_REQUIREMENTS.csv",
+      "sha256": "b2bfd79fe0d4344a8e1663b97751a0ef37a3eef285c9a9b9aa8dadce4e235159"
+    },
+    {
+      "path": "codex_reports/OP49_P_DS_01/OP49_REAUDIT_AUDIT.md",
+      "sha256": "988a5d46da9f495c47c69c586b500d0ba03fbb064916c46aed1c418818cb392b"
+    },
+    {
+      "path": "codex_reports/KNOWLEDGE_BASE/KB_ENRICHMENT_GAPS.csv",
+      "sha256": "58a093960d47421c2379396052d5a1474127ee231cfc93cc675084ed7fd3190e"
+    }
+  ],
+  "note": "Timestamped PROJECT_STATE only; canonical entity files reference this snapshot and do not embed a build timestamp.",
+  "op26_gate": {
+    "duplicate_source_item_5_occurrences": [
+      1,
+      2
+    ],
+    "duplicate_source_item_5_rows": 2,
+    "message_002": 87,
+    "message_028": 8,
+    "rows": 239,
+    "source_trace_complete": 239,
+    "status": "PASS",
+    "unique_ids": 239
+  },
+  "op49_gate": {
+    "message_counts": {
+      "P.DS.01.MSG.001": 35,
+      "P.DS.01.MSG.002": 38,
+      "P.DS.01.MSG.004": 2,
+      "P.DS.01.MSG.005": 54,
+      "P.DS.01.MSG.006": 37
+    },
+    "missing_closure_criteria": 0,
+    "missing_source_text": 0,
+    "missing_source_trace": 0,
+    "rows": 166,
+    "status": "PASS",
+    "strict_implemented_confirmed": 0,
+    "strict_open": 166,
+    "unique_ids": 166
+  },
+  "schema_version": "1.0"
+}

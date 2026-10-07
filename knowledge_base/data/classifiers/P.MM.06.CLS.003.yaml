@@ -1,0 +1,52 @@
+{
+  "evidence": {
+    "entity": "CONFIRMED_PDF",
+    "payload": "MISSING"
+  },
+  "identity": {
+    "classifier": "P.MM.06.CLS.003"
+  },
+  "machine_readable_payload": false,
+  "official_name": "классификатор статусов регистрационных удостоверений медицинских изделий",
+  "required_version": "dataset version/approval source not present in local payload",
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "document": "32_ОП.pdf §VII Table 9 + applicable structure table",
+      "evidence": "AUDIT_DERIVED",
+      "pdf_page": 109,
+      "table": "Таблица 13, требование 14, atomic 1/1"
+    },
+    {
+      "document": "32_ОП.pdf §VII Table 9 + applicable structure table",
+      "evidence": "AUDIT_DERIVED",
+      "pdf_page": 110,
+      "table": "Таблица 14, требование 5, atomic 2/2"
+    },
+    {
+      "document": "32_ОП.pdf §VII Table 9 + applicable structure table",
+      "evidence": "AUDIT_DERIVED",
+      "pdf_page": 112,
+      "table": "Таблица 14, требование 14, atomic 1/1"
+    },
+    {
+      "document": "32_ОП.pdf §VII Table 9 + applicable structure table",
+      "evidence": "AUDIT_DERIVED",
+      "pdf_page": 113,
+      "table": "Таблица 14, требование 25, atomic 1/1"
+    },
+    {
+      "document": "32_ОП.pdf §VII Table 9 + applicable structure table",
+      "evidence": "AUDIT_DERIVED",
+      "pdf_page": 113,
+      "table": "Таблица 14, требование 27, atomic 1/1"
+    }
+  ],
+  "used_by": [
+    "OP32.P_MM_06.MSG_001.REQ.014",
+    "OP32.P_MM_06.MSG_002.REQ.006",
+    "OP32.P_MM_06.MSG_002.REQ.015",
+    "OP32.P_MM_06.MSG_002.REQ.026",
+    "OP32.P_MM_06.MSG_002.REQ.028"
+  ]
+}

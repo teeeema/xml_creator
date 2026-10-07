@@ -1,0 +1,31 @@
+{
+  "$id": "structure.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "dependencies": {},
+    "evidence": {},
+    "field_index": {},
+    "identity": {},
+    "known_gaps": {},
+    "root": {},
+    "schema_version": {
+      "const": "1.0"
+    },
+    "source": {},
+    "usage": {},
+    "xsd": {}
+  },
+  "required": [
+    "schema_version",
+    "identity",
+    "root",
+    "xsd",
+    "source",
+    "usage",
+    "field_index",
+    "dependencies",
+    "evidence",
+    "known_gaps"
+  ],
+  "type": "object"
+}

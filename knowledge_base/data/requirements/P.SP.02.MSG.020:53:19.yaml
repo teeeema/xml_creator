@@ -1,0 +1,140 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.IP.SP.02.007"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": "PRODUCTION_MAPPING",
+    "closure_criteria": [
+      "The confirmed normative mapping is wired in production and covered by regression evidence."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Only SAFE_PARTIAL/partial production fragments exist; whole requirement is not certified. No extra normative interpretation performed."
+    ],
+    "reason": "OTHER_OPEN",
+    "required_action": [
+      "Preserve open remainder; no code correction is authorized in this report-only task."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "P.SP.02.MSG.020:53:19",
+    "message": "P.SP.02.MSG.020",
+    "op": "OP22",
+    "procedure": "P.SP.02.PRC.029",
+    "process": "P.SP.02",
+    "requirement": "19",
+    "source_occurrence": 1,
+    "source_requirement_number": "19",
+    "transaction": "P.SP.02.TRN.018"
+  },
+  "implementation": {
+    "engine_capabilities": [],
+    "production_files": [
+      "P.SP.02_OP_22/message_rules/P.SP.02.MSG.020.yaml"
+    ],
+    "production_rules": [
+      "P.SP.02.MSG.020.T53.REQ.6_19"
+    ],
+    "status": "OPEN_PRODUCTION_MAPPING"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "если в составе реквизита «Товарный знак Союза» (ipcdo:TrademarkDetails) значение реквизита «Признак коллективного знака» (ipsdo:CollectiveMarkIndicator) соответствует значению «1» – «товарный знак является коллективным», то должен быть заполнен экземпляр реквизита «Прилагаемый документ» (ipcdo:AccompanyingDocumentsDetails), в составе которого должен быть заполнен один из реквизитов «Код вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindCode) или «Наименование вида документа, используемого в сфере интеллектуальной собственности» (ipsdo:IPDocKindName) и их значения должны соответствовать коду или наименованию вида документа «Выписка из устава (положения) коллективного знака Евразийского экономического союза о единых качественных или иных общих характеристиках товаров, в отношении которых этот товарный знак зарегистрирован»"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "OTHER_OPEN",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "19",
+        "level": "CONFIRMED_PDF_SOURCE_REF",
+        "occurrence": 1,
+        "pdf_page": 530,
+        "section": null,
+        "source": "ОП_22.pdf",
+        "table": "53"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.SP.02_OP_22/tests/test_msg020_end_to_end.py; P.SP.02_OP_22/tests/test_msg020_repeatable_xml.py; P.SP.02_OP_22/tests/test_msg020_safe_mapping.py"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "ОП_22.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF_SOURCE_REF",
+      "source_page_ref": "sources/OP22_P_SP_02/pages/page_530.md"
+    },
+    "item": "19",
+    "occurrence": 1,
+    "pdf_page": 530,
+    "printed_page": 118,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/ОП_22.pdf",
+    "table": "53"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "ipcdo:TrademarkDetails; ipsdo:CollectiveMarkIndicator; ipcdo:AccompanyingDocumentsDetails; ipsdo:IPDocKindCode; ipsdo:IPDocKindName",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.IP.SP.02.007",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:IP:SP:02:TrademarkRegisterDetails:v1.0.0}TrademarkRegisterDetails",
+      "local_name": "TrademarkRegisterDetails",
+      "namespace": "urn:EEC:R:IP:SP:02:TrademarkRegisterDetails:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "UNRESOLVED: no certified exact-owner production mapping; canonical source row and refs supplied."
+  },
+  "verification": {
+    "negative_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.SP.02_OP_22/tests/test_msg020_end_to_end.py; P.SP.02_OP_22/tests/test_msg020_repeatable_xml.py; P.SP.02_OP_22/tests/test_msg020_safe_mapping.py"
+    }
+  }
+}

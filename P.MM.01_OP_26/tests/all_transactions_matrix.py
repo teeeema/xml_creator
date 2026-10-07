@@ -8,6 +8,7 @@ from xml.etree import ElementTree as ET
 from eaeu_xml.core.errors import UnresolvedStructureVersionError
 from eaeu_xml.decision5.models import ConversationId, MessageId, ProcedureId, ProcedureInstance, TransactionInstance
 from eaeu_xml.process_packages.body import GenerationMode
+from eaeu_xml.process_packages.rules_engine import StructuredRuleEvaluator
 from eaeu_xml.services.message_factory import MessageFactory
 from eaeu_xml.services.logical_address_builder import LogicalAddressBuilder
 from eaeu_xml.services.xml_serializer import XmlSerializer
@@ -75,6 +76,159 @@ def test_values(engine, message_code: str) -> dict:
         while current:
             add(current)
             current = by_id.get(current.parent)
+
+    # Paths required by structured_rules (presence + condition/any in for_each).
+    for rule in (rules.structured_rules if rules else ()):
+        rule_kind = rule.get("kind")
+        # Top-level presence REQUIRED (e.g. MSG.016.R5 requires ApplicationId).
+        if rule_kind == "presence" and rule.get("state") == "REQUIRED":
+            tgt = rule.get("target")
+            if tgt in by_path:
+                current = by_path[tgt]
+                while current:
+                    add(current)
+                    current = by_id.get(current.parent)
+        # for_each: process assertions that name required children.
+        elif rule_kind == "for_each":
+            collection = (rule.get("selector") or {}).get("collection", "")
+            for assertion in rule.get("assertions", ()):
+                a_kind = assertion.get("kind")
+                if a_kind == "presence" and assertion.get("state") == "REQUIRED":
+                    # Add child field of the collection if collection is already present.
+                    child_name = (assertion.get("target") or {}).get("field", "")
+                    child_path = f"{collection}/{child_name}" if child_name else ""
+                    if child_path and child_path in by_path and collection in values:
+                        current = by_path[child_path]
+                        while current:
+                            add(current)
+                            current = by_id.get(current.parent)
+                elif a_kind == "condition":
+                    cond = assertion.get("condition") or {}
+                    any_branches = cond.get("any", [])
+                    # Simple any: branches are direct {field, operator, value} dicts.
+                    # Pick the first branch whose field exists; prefer ApplicationId.
+                    simple = [b for b in any_branches if "field" in b and "all" not in b]
+                    if simple:
+                        preferred = next((b for b in simple if b.get("field") == "ApplicationId"), None)
+                        chosen = preferred or simple[0]
+                        chosen_field = chosen.get("field", "")
+                        # Fields in condition/any for EDocCode-scoped rules are at root level.
+                        root_path = chosen_field
+                        if root_path in by_path:
+                            current = by_path[root_path]
+                            while current:
+                                add(current)
+                                current = by_id.get(current.parent)
+                    else:
+                        # Complex any: branches are {all: [...]} sub-lists.
+                        # Pick the first all-branch; add fields that must be NE null,
+                        # remove from values fields that must be EQ null.
+                        for branch in any_branches:
+                            sub = branch.get("all", [])
+                            nonnull = [c for c in sub if c.get("operator") == "NE" and c.get("value") is None]
+                            null_fields = [c for c in sub if c.get("operator") == "EQ" and c.get("value") is None]
+                            for c in nonnull:
+                                field_name = c.get("field", "")
+                                child_path = f"{collection}/{field_name}" if field_name else ""
+                                if child_path and child_path in by_path and collection in values:
+                                    add(by_path[child_path])
+                            # Clear any field that must be absent in this branch.
+                            for c in null_fields:
+                                field_name = c.get("field", "")
+                                null_path = f"{collection}/{field_name}" if field_name else ""
+                                if null_path in values:
+                                    del values[null_path]
+                            break  # Only apply first branch.
+
+    def rule_literal(path):
+        """Prefer an explicit normative literal over the generic TEST placeholder."""
+        for rule in (rules.structured_rules if rules else ()):
+            if rule.get("kind") != "for_each":
+                continue
+            if (rule.get("selector") or {}).get("collection") != path:
+                continue
+            for assertion in rule.get("assertions", ()):
+                if assertion.get("kind") != "condition":
+                    continue
+                condition = assertion.get("condition") or {}
+                alternatives = condition.get("any") or (condition,)
+                for alternative in alternatives:
+                    if alternative.get("field") != "#text":
+                        continue
+                    if alternative.get("operator") == "IN":
+                        options = alternative.get("value") or ()
+                        if isinstance(options, (list, tuple)) and options:
+                            return options[0]
+                    if alternative.get("operator") == "EQ":
+                        value = alternative.get("value")
+                        if value not in (None, "TEST"):
+                            return value
+        return None
+
+    for path in tuple(values):
+        literal = rule_literal(path)
+        if literal is not None:
+            values[path] = literal
+
+    # If the selected normative literal activates a conditional REQUIRED rule,
+    # materialize that field and apply its own executable literal constraint.
+    evaluator = StructuredRuleEvaluator()
+    for _ in range(len(rules.structured_rules if rules else ()) + 1):
+        changed = False
+        for rule in (rules.structured_rules if rules else ()):
+            if rule.get("kind") != "conditional_presence" or rule.get("state") != "REQUIRED":
+                continue
+            scope = rule.get("scope") or {}
+            collection = scope.get("collection")
+            target = rule.get("target") or {}
+            field_name = target.get("field") if isinstance(target, dict) else None
+            if not collection or not field_name:
+                continue
+            contexts = evaluator._select_contexts(scope, values, apply_where=False)
+            if not any(evaluator.evaluate_condition(rule.get("condition") or {}, context, values) for context in contexts):
+                continue
+            target_path = field_name if field_name in by_path else f"{collection}/{field_name}"
+            if target_path not in by_path:
+                continue
+            current = by_path[target_path]
+            while current:
+                add(current)
+                current = by_id.get(current.parent)
+            literal = rule_literal(target_path)
+            desired = literal if literal is not None else sample_value(by_path[target_path])
+            if values.get(target_path) != desired:
+                values[target_path] = desired
+                changed = True
+        if not changed:
+            break
+
+    # Normative minimal branch selection for MSG.027 and MSG.028:
+    # RegistrationFileIndicator="0" selects DrugRegistrationFileCode branch, satisfying XOR and code list rules.
+    if message_code in ("P.MM.01.MSG.027", "P.MM.01.MSG.028"):
+        values["RegistrationDossierDocDetails/RegistrationFileIndicator"] = "0"
+        values["RegistrationDossierDocDetails/DrugRegistrationFileCode"] = "0401"
+        file_code_field = by_path.get("RegistrationDossierDocDetails/DrugRegistrationFileCode")
+        if file_code_field:
+            current = file_code_field
+            while current:
+                add(current)
+                current = by_id.get(current.parent)
+        values["RegistrationDossierDocDetails/DrugRegistrationFileCode"] = "0401"
+        values["RegistrationDossierDocDetails/DrugRegistrationFileCode/@codeListId"] = "TEST"
+        # Remove DrugRegistrationDocCode to satisfy XOR condition
+        doc_code_path = "RegistrationDossierDocDetails/DrugRegistrationDocCode"
+        if doc_code_path in values:
+            del values[doc_code_path]
+        if f"{doc_code_path}/@codeListId" in values:
+            del values[f"{doc_code_path}/@codeListId"]
+        if message_code == "P.MM.01.MSG.028":
+            for extra in ("RegistrationDossierDocDetails/DocName", "RegistrationDossierDocDetails/DocCopyBinaryText"):
+                if extra in by_path:
+                    current = by_path[extra]
+                    while current:
+                        add(current)
+                        current = by_id.get(current.parent)
+                    values[extra] = "TEST"
 
     # Required descendants of branches introduced by MessageRules.
     for _ in range(3):

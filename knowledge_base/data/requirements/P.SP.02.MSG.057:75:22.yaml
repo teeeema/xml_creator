@@ -1,0 +1,148 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.IP.SP.03.003"
+    ]
+  },
+  "fields": [
+    {
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "9",
+      "path": "ipsdo:DutyPaymentIndicator"
+    }
+  ],
+  "gap": {
+    "category": "CLASSIFIER",
+    "closure_criteria": [
+      "Official classifier/reference-data payload and required version are available locally; the rule is wired and regression-validated against that payload."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Existing classifier/reference-data gap retained; local safe fragment does not establish full membership/existence."
+    ],
+    "reason": "OPEN_CLASSIFIER",
+    "required_action": [
+      "Preserve open remainder; no code correction is authorized in this report-only task."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "P.SP.02.MSG.057:75:22",
+    "message": "P.SP.02.MSG.057",
+    "op": "OP22",
+    "procedure": "P.SP.02.PRC.035",
+    "process": "P.SP.02",
+    "requirement": "22",
+    "source_occurrence": 1,
+    "source_requirement_number": "22",
+    "transaction": "P.SP.02.TRN.050"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "NUMERIC_DECIMAL_COMPARISON_NOT_SUPPORTED"
+    ],
+    "production_files": [
+      "P.SP.02_OP_22/message_rules/P.SP.02.MSG.057.yaml"
+    ],
+    "production_rules": [
+      "P.SP.02.MSG.057.T75.REQ.22"
+    ],
+    "status": "OPEN_CLASSIFIER"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "если значение реквизита реквизит «Признак подтверждения уплаты пошлины» (ipsdo:DutyPaymentIndicator) соответствует значению «ложь (false)», значение реквизита «Сумма платежа» (csdo:PaymentAmount) должно быть заполнено и содержать значение, большее, чем «0»"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "OPEN_CLASSIFIER",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "22",
+        "level": "CONFIRMED_PDF_SOURCE_REF",
+        "occurrence": 1,
+        "pdf_page": 808,
+        "section": null,
+        "source": "ОП_22.pdf",
+        "table": "75"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.SP.02_OP_22/tests/test_msg057_end_to_end.py; P.SP.02_OP_22/tests/test_msg057_repeatable_xml.py; P.SP.02_OP_22/tests/test_msg057_safe_mapping.py"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "ОП_22.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF_SOURCE_REF",
+      "source_page_ref": "sources/OP22_P_SP_02/pages/page_808.md"
+    },
+    "item": "22",
+    "occurrence": 1,
+    "pdf_page": 808,
+    "printed_page": 229,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/ОП_22.pdf",
+    "table": "75"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": "DutyPaymentIndicator",
+      "namespace": null,
+      "raw": "ipsdo:DutyPaymentIndicator",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.IP.SP.03.003",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+      "local_name": "IPDutyDetails",
+      "namespace": "urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "ipsdo:DutyPaymentIndicator"
+  },
+  "verification": {
+    "negative_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.SP.02_OP_22/tests/test_msg057_end_to_end.py; P.SP.02_OP_22/tests/test_msg057_repeatable_xml.py; P.SP.02_OP_22/tests/test_msg057_safe_mapping.py"
+    }
+  }
+}

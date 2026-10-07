@@ -1,0 +1,146 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.IP.SP.03.003"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": null,
+    "closure_criteria": [],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [],
+    "reason": "Production structured rule wired; positive and negative real XML accepted/rejected by production validator.",
+    "required_action": [],
+    "status": "CLOSED"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "P.SP.03.MSG.021.REQ.001",
+    "message": "P.SP.03.MSG.021",
+    "op": "OP23",
+    "procedure": "P.SP.03.PRC.008",
+    "process": "P.SP.03",
+    "requirement": "001",
+    "source_occurrence": 1,
+    "source_requirement_number": "1",
+    "transaction": "P.SP.03.TRN.017"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "Existing structured-rule primitives appear sufficient for the captured local condition; exact mapping must be proved during implementation."
+    ],
+    "production_files": [
+      "P.SP.03_OP_23/message_rules/P.SP.03.MSG.021.yaml"
+    ],
+    "production_rules": [
+      "P.SP.03.MSG.021.REQ.001"
+    ],
+    "status": "IMPLEMENTED_CONFIRMED"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "в составе реквизита «Национальное патентное ведомство» (ipcdo:PatentAuthorityDetails) должен быть заполнены реквизиты «Код страны» (csdo:UnifiedCountryCode) и «Наименование уполномоченного органа» (csdo:AuthorityName)"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Требование проверяется исполняемым OP23 structured rule; положительный XML проходит, отрицательный даёт ожидаемый rule ID.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [
+      {
+        "files": [
+          "P.SP.03_OP_23/message_rules/P.SP.03.MSG.021.yaml"
+        ],
+        "level": "CONFIRMED_PRODUCTION",
+        "rules": [
+          "P.SP.03.MSG.021.REQ.001"
+        ]
+      }
+    ],
+    "normative": [
+      {
+        "item": "1",
+        "level": "CONFIRMED_PDF",
+        "occurrence": 1,
+        "pdf_page": 281,
+        "section": null,
+        "source": "ОП_23.pdf",
+        "table": "25"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.SP.03_OP_23/tests/test_b1_production.py::test_msg021_req001_authority_fields_required_real_xml"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "ОП_23.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP23_P_SP_03/pages/page_281.md"
+    },
+    "item": "1",
+    "occurrence": 1,
+    "pdf_page": 281,
+    "printed_page": 115,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/ОП_23.pdf",
+    "table": "25"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "ipcdo:PatentAuthorityDetails; csdo:UnifiedCountryCode; csdo:AuthorityName",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.IP.SP.03.003",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+      "local_name": "IPDutyDetails",
+      "namespace": "urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "ipcdo:PatentAuthorityDetails => ipcdo:PatentAuthorityDetails || ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails; csdo:UnifiedCountryCode => ipcdo:PatentAuthorityDetails/csdo:UnifiedCountryCode || ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode || ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/csdo:UnifiedCountryCode || ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode || ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/csdo:UnifiedCountryCode || ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:UnifiedCountryCode || ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode || ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:UnifiedCountryCode; csdo:AuthorityName => ipcdo:PatentAuthorityDetails/csdo:AuthorityName || ipcdo:IPPaymentDetails/ipcdo:PatentAuthorityDetails/csdo:AuthorityName || ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:AuthorityName || ipcdo:IPPaymentDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:AuthorityName"
+  },
+  "verification": {
+    "negative_test": {
+      "status": "PRESENT",
+      "test": "PASS — real XML violation produces matching STRUCTURED_RULE_FAILED"
+    },
+    "positive_test": {
+      "status": "PRESENT",
+      "test": "PASS — real XML extracted and accepted by production validator"
+    },
+    "real_xml": {
+      "status": "PRESENT"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.SP.03_OP_23/tests/test_b1_production.py::test_msg021_req001_authority_fields_required_real_xml"
+    }
+  }
+}

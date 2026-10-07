@@ -1,0 +1,142 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [
+      {
+        "evidence": "AUDIT_DERIVED",
+        "id": "OFFICIAL_MEMBER_STATE_CURRENCY_CODE_MAPPING",
+        "secondary": "XSD_PAYLOAD_MISSING; IMPORTED_MODEL_EXACT_NAMESPACE_VERSION_UNRESOLVED",
+        "type": "CLASSIFIER"
+      }
+    ],
+    "requirements": [],
+    "structures": [
+      "R.FP.DS.01.001"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": "CLASSIFIER",
+    "closure_criteria": [
+      "Зафиксированы официальный classifier/reference source и версия для country→currency; positive/negative classifier cases проходят; Exact QName/path подтверждены официальным источником; production rule загружается; positive и negative regression проходят."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "XSD_PAYLOAD_MISSING; IMPORTED_MODEL_EXACT_NAMESPACE_VERSION_UNRESOLVED"
+    ],
+    "reason": "CLASSIFIER",
+    "required_action": [
+      "Получить официальный актуальный источник соответствия государства-члена и буквенного кода валюты с идентификатором/версией; подключить проверяемый resolver/fixture. Получить официальный XSD/точные версии импортируемых data-model namespaces и подтвердить exact Clark QName/path."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "OP49.P_DS_01.MSG_002.REQ.028",
+    "message": "P.DS.01.MSG.002",
+    "op": "OP49",
+    "procedure": "P.DS.01.PRC.002; P.DS.01.PRC.003",
+    "process": "P.DS.01",
+    "requirement": "028",
+    "source_occurrence": 1,
+    "source_requirement_number": "28",
+    "transaction": "P.DS.01.TRN.002; P.DS.01.TRN.003"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "B4"
+    ],
+    "production_files": [
+      "P.DS.01_OP_49/message_rules/P.DS.01.MSG.002.yaml"
+    ],
+    "production_rules": [],
+    "status": "OPEN_CLASSIFIER"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": "У суммы атрибут currencyCode должен соответствовать валюте государства-члена, определяемой по коду страны; для проверки нужен официальный справочник/классификатор.",
+      "purpose": null
+    },
+    "source_text": "для реквизита «Суммы поступлений в бюджет доходов от распределения ввозных таможенных пошлин» (ds01sdo:InternalRevenueDistributedDutyAmount) значение атрибута «Код валюты» (атрибут currencyCode) должно соответствовать буквенному коду валюты того государства-члена, код которого указан в реквизите «Код страны, предоставившей информацию» (ds01sdo:ReportCountryCode)"
+  },
+  "project_state": {
+    "audit_notes": "Package business_rule=YES; structured_rule=NO; package_source_page=90; package_source_page_match=YES; package_source_text_exact_match=YES",
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "У суммы атрибут currencyCode должен соответствовать валюте государства-члена, определяемой по коду страны; для проверки нужен официальный справочник/классификатор.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "28",
+        "level": "CONFIRMED_PDF",
+        "occurrence": 1,
+        "pdf_page": 90,
+        "section": "22",
+        "source": "49_ОП.pdf",
+        "table": "11"
+      }
+    ],
+    "runtime": []
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "49_ОП.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP49_P_DS_01/pages/page_090.md"
+    },
+    "item": "28",
+    "occurrence": 1,
+    "pdf_page": 90,
+    "printed_page": 37,
+    "section": "22",
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/49_ОП.pdf",
+    "table": "11"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "ds01sdo:InternalRevenueDistributedDutyAmount; ds01sdo:ReportCountryCode",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.FP.DS.01.001",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0}ChargedDistributedReport",
+      "local_name": "ChargedDistributedReport",
+      "namespace": "urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:InternalRevenueDistributedDutyAmount | ChargedDistributedReport/ds01sdo:ReportCountryCode | ChargedDistributedReport/ds01cdo:VerificationProDetails/ds01sdo:ReportCountryCode"
+  },
+  "verification": {
+    "negative_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "MISSING",
+      "test": null
+    }
+  }
+}

@@ -45,7 +45,20 @@ Item { id: root; signal saveDraftRequested()
         Card { Layout.preferredWidth: 300; Layout.fillHeight: true
             ColumnLayout { anchors.fill: parent; anchors.margins: 16; spacing: 10
                 Label { text: "Сведения о поле"; color: Theme.text; font.bold: true; font.pixelSize: 17 }
-                TextArea { text: (viewModel ? viewModel.selectedFieldInfo : ""); color: Theme.text; readOnly: true; wrapMode: TextArea.Wrap; background: null; Layout.fillWidth: true; Layout.fillHeight: true }
+                ScrollView {
+                    id: fieldInfoScroll
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    clip: true
+                    TextArea {
+                        text: (viewModel ? viewModel.selectedFieldInfo : "")
+                        color: Theme.text
+                        readOnly: true
+                        wrapMode: TextArea.Wrap
+                        background: null
+                        width: fieldInfoScroll.availableWidth
+                    }
+                }
             }
         }
     }

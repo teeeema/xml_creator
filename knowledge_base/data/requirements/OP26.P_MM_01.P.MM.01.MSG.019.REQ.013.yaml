@@ -1,0 +1,149 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.HC.MM.01.003"
+    ]
+  },
+  "fields": [
+    {
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "6.11.а",
+      "path": "RegistrationDossierDocDetails/DrugAttributeEnumText/@DrugAttributeKindEnumCode"
+    }
+  ],
+  "gap": {
+    "category": "PRODUCTION_MAPPING",
+    "closure_criteria": [
+      "Добавление валидационного правила в structured_rules и подтверждение positive/negative тестами."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Отсутствует исполняемый маппинг в structured_rules"
+    ],
+    "reason": "OPEN_PRODUCTION_MAPPING",
+    "required_action": [
+      "Сформировать production structured_rules для данного требования на базе capabilities rules_engine."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "OP26.P_MM_01.P.MM.01.MSG.019.REQ.013",
+    "message": "P.MM.01.MSG.019",
+    "op": "OP26",
+    "procedure": "P.MM.01.PRC.012",
+    "process": "P.MM.01",
+    "requirement": "013",
+    "source_occurrence": 1,
+    "source_requirement_number": "13",
+    "transaction": "P.MM.01.TRN.012"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "presence / cardinality / condition / where"
+    ],
+    "production_files": [
+      "P.MM.01_OP_26/message_rules/P.MM.01.MSG.019.yaml"
+    ],
+    "production_rules": [
+      "P.MM.01.MSG.019.R13"
+    ],
+    "status": "OPEN_PRODUCTION_MAPPING"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "значение атрибута «Код вида элемента документа» (атрибут DrugAttributeKindEnumCode) должно соответствовать одному из следующих значений: 01 – предельная дата ответа на запрос ГОСТ ИСО 8601-2001; 02 – номер документа основания; 03 – вид документа регистрационного досье, в отношении которого направляется запрос; 04 – вид документа, оформленного при рассмотрении регистрационного досье (документ регистрационного дела), в отношении которого направляется запрос; 05 – путь к файлу в структуре досье в формате UNC; 06 – наименование заменяемого файла; Код требования Формулировка требования 99 – другое 37. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Сведения из регистрационного дела или регистрационного досье» (P.MM.01.MSG.020), приведены в таблице 26."
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Общий движок rules engine поддерживает необходимые механизмы валидации (наличие, кардинальность, запрет, условные связи), но декларативное правило Решения №68 еще не трансформировано в исполняемый structured_rule для P.MM.01.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "13",
+        "level": "CONFIRMED_PDF",
+        "occurrence": 1,
+        "pdf_page": 240,
+        "section": null,
+        "source": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "table": "25"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.MM.01_OP_26/tests/test_pmm01_catalog.py"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP26_P_MM_01/pages/page_240.md"
+    },
+    "item": "13",
+    "occurrence": 1,
+    "pdf_page": 240,
+    "printed_page": 239,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/26_ОП.pdf",
+    "table": "25"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "@DrugAttributeKindEnumCode",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.HC.MM.01.003",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:HC:MM:01:DrugRegistrationDocContentDetails:v1.1.0}DrugRegistrationDocContentDetails",
+      "local_name": "DrugRegistrationDocContentDetails",
+      "namespace": "urn:EEC:R:HC:MM:01:DrugRegistrationDocContentDetails:v1.1.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.1.0",
+    "xml_path": "RegistrationDossierDocDetails/DrugAttributeEnumText/@DrugAttributeKindEnumCode"
+  },
+  "verification": {
+    "negative_test": {
+      "note": "NOT_WIRED",
+      "status": "NOT_WIRED",
+      "test": null
+    },
+    "positive_test": {
+      "status": "PRESENT",
+      "test": "YES (test suite payload)"
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.MM.01_OP_26/tests/test_pmm01_catalog.py"
+    }
+  }
+}

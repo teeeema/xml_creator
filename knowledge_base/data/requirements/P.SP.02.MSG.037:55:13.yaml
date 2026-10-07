@@ -1,0 +1,146 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.IP.SP.02.002"
+    ]
+  },
+  "fields": [
+    {
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.9.1",
+      "path": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails/ipsdo:IPPartyKindCode"
+    }
+  ],
+  "gap": {
+    "category": "NORMATIVE_AMBIGUITY",
+    "closure_criteria": [
+      "An authoritative normative clarification resolves the ambiguity; the selected interpretation is traced to that source and regression-tested."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Normative scope remains ambiguous; current capture/inventory does not authorize a guessed executable rule."
+    ],
+    "reason": "OPEN_NORMATIVE_AMBIGUITY",
+    "required_action": [
+      "Preserve open remainder; no code correction is authorized in this report-only task."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "P.SP.02.MSG.037:55:13",
+    "message": "P.SP.02.MSG.037",
+    "op": "OP22",
+    "procedure": "P.SP.02.PRC.013",
+    "process": "P.SP.02",
+    "requirement": "13",
+    "source_occurrence": 1,
+    "source_requirement_number": "13",
+    "transaction": "P.SP.02.TRN.032"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "owner/instance scope is ambiguous"
+    ],
+    "production_files": [
+      "P.SP.02_OP_22/message_rules/P.SP.02.MSG.037.yaml"
+    ],
+    "production_rules": [],
+    "status": "OPEN_NORMATIVE_AMBIGUITY"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "значение реквизита «Код вида участника отношений в сфере регистрации и использования прав на объекты интеллектуальной собственности» (ipsdo:IPPartyKindCode) должно соответствовать значению «AP» – «заявитель»"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "OPEN_NORMATIVE_AMBIGUITY",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "13",
+        "level": "CONFIRMED_PDF_SOURCE_REF",
+        "occurrence": 1,
+        "pdf_page": 716,
+        "section": null,
+        "source": "ОП_22.pdf",
+        "table": "55"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.SP.02_OP_22/tests/test_msg037_end_to_end.py; P.SP.02_OP_22/tests/test_msg037_repeatable_xml.py; P.SP.02_OP_22/tests/test_msg037_safe_mapping.py"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "ОП_22.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF_SOURCE_REF",
+      "source_page_ref": "sources/OP22_P_SP_02/pages/page_716.md"
+    },
+    "item": "13",
+    "occurrence": 1,
+    "pdf_page": 716,
+    "printed_page": 137,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/ОП_22.pdf",
+    "table": "55"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": "IPPartyKindCode",
+      "namespace": null,
+      "raw": "ipsdo:IPPartyKindCode",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.IP.SP.02.002",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "local_name": "TrademarkRegistrationDetails",
+      "namespace": "urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "ipcdo:TrademarkApplicationDetails/ipcdo:IPPartyDetails/ipsdo:IPPartyKindCode"
+  },
+  "verification": {
+    "negative_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.SP.02_OP_22/tests/test_msg037_end_to_end.py; P.SP.02_OP_22/tests/test_msg037_repeatable_xml.py; P.SP.02_OP_22/tests/test_msg037_safe_mapping.py"
+    }
+  }
+}

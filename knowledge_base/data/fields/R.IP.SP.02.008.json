@@ -1,0 +1,374 @@
+{
+  "fields": [
+    {
+      "datatype": "ccdo:EDocHeaderType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ccdo:EDocHeader",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "1",
+        "pdf_page": 987,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "csdo:InfEnvelopeCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ccdo:EDocHeader/csdo:InfEnvelopeCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "1.1",
+        "pdf_page": 987,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "csdo:EDocCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ccdo:EDocHeader/csdo:EDocCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "1.2",
+        "pdf_page": 987,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.3",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ccdo:EDocHeader/csdo:EDocId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "1.3",
+        "pdf_page": 988,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ccdo:EDocHeader/csdo:EDocRefId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "1.4",
+        "pdf_page": 988,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "bdt:DateTimeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.5",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "ccdo:EDocHeader/csdo:EDocDateTime",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "1.5",
+        "pdf_page": 988,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "csdo:LanguageCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ccdo:EDocHeader/csdo:LanguageCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "1.6",
+        "pdf_page": 988,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "bdt:DateTimeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "csdo:UpdateDateTime",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2",
+        "pdf_page": 988,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "3",
+        "pdf_page": 989,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3.a",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "3.a",
+        "pdf_page": 989,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "ipsdo:TrademarkCertificateIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipsdo:TrademarkId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "4",
+        "pdf_page": 989,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "ipsdo:ApplicationIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "5",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipsdo:TrademarkApplicationId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "5",
+        "pdf_page": 989,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "ipcdo:IPDocDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:AccompanyingDocumentsDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "6",
+        "pdf_page": 990,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "ipsdo:IPDocKindCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "6.1",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:AccompanyingDocumentsDetails/ipsdo:IPDocKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "6.1",
+        "pdf_page": 990,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "6.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:AccompanyingDocumentsDetails/ipsdo:IPDocKindName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "6.2",
+        "pdf_page": 990,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "6.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:AccompanyingDocumentsDetails/csdo:DocName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "6.3",
+        "pdf_page": 990,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "6.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:AccompanyingDocumentsDetails/csdo:DocId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "6.4",
+        "pdf_page": 991,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "6.5",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:AccompanyingDocumentsDetails/csdo:DocCreationDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "6.5",
+        "pdf_page": 991,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "6.6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:AccompanyingDocumentsDetails/csdo:DocValidityDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "6.6",
+        "pdf_page": 991,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "csdo:Text4000Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "6.7",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:AccompanyingDocumentsDetails/csdo:DescriptionText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "6.7",
+        "pdf_page": 991,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "csdo:Quantity4Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "6.8",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:AccompanyingDocumentsDetails/csdo:PageQuantity",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "6.8",
+        "pdf_page": 991,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "csdo:BinaryTextType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "6.9",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:AccompanyingDocumentsDetails/csdo:DocBinaryText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "6.9",
+        "pdf_page": 991,
+        "table": "16"
+      }
+    },
+    {
+      "datatype": "csdo:MediaTypeCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "6.9.a",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ipcdo:AccompanyingDocumentsDetails/csdo:DocBinaryText/@mediaTypeCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "6.9.a",
+        "pdf_page": 992,
+        "table": "16"
+      }
+    }
+  ],
+  "schema_version": "1.0",
+  "structure": "R.IP.SP.02.008"
+}

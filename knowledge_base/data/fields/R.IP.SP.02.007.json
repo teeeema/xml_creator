@@ -1,0 +1,3974 @@
+{
+  "fields": [
+    {
+      "datatype": "ccdo:EDocHeaderType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ccdo:EDocHeader",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "1",
+        "pdf_page": 931,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:InfEnvelopeCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.1",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ccdo:EDocHeader/csdo:InfEnvelopeCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "1.1",
+        "pdf_page": 931,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:EDocCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.2",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ccdo:EDocHeader/csdo:EDocCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "1.2",
+        "pdf_page": 931,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.3",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ccdo:EDocHeader/csdo:EDocId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "1.3",
+        "pdf_page": 932,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.4",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ccdo:EDocHeader/csdo:EDocRefId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "1.4",
+        "pdf_page": 932,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateTimeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.5",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ccdo:EDocHeader/csdo:EDocDateTime",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "1.5",
+        "pdf_page": 932,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:LanguageCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.6",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ccdo:EDocHeader/csdo:LanguageCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "1.6",
+        "pdf_page": 932,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:UnifiedRegisterRecordsDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2",
+      "max_occurs": "*",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2",
+        "pdf_page": 932,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:IPDocKindCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:IPDocKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.1",
+        "pdf_page": 933,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.10",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:PublicationDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.10",
+        "pdf_page": 937,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:PatentAuthorityDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11",
+        "pdf_page": 937,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.1",
+        "pdf_page": 938,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.1@codeListId",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.1@codeListId",
+        "pdf_page": 938,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/csdo:AuthorityId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.2",
+        "pdf_page": 938,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name300Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/csdo:AuthorityName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.3",
+        "pdf_page": 938,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.4",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/csdo:AuthorityBriefName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.4",
+        "pdf_page": 938,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:SubjectAddressDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.5",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.5",
+        "pdf_page": 939,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:AddressKindCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.5.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:AddressKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.5.1",
+        "pdf_page": 939,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.5.10",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:RoomNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.5.10",
+        "pdf_page": 941,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:PostCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.5.11",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:PostCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.5.11",
+        "pdf_page": 941,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.5.12",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:PostOfficeBoxId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.5.12",
+        "pdf_page": 941,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.5.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.5.2",
+        "pdf_page": 939,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.5.2@codeListId",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.5.2@codeListId",
+        "pdf_page": 939,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:TerritoryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.5.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:TerritoryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.5.3",
+        "pdf_page": 940,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.5.4",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:RegionName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.5.4",
+        "pdf_page": 940,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.5.5",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:DistrictName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.5.5",
+        "pdf_page": 940,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.5.6",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:CityName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.5.6",
+        "pdf_page": 940,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.5.7",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:SettlementName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.5.7",
+        "pdf_page": 940,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.5.8",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:StreetName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.5.8",
+        "pdf_page": 940,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.5.9",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/ccdo:SubjectAddressDetails/csdo:BuildingNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.5.9",
+        "pdf_page": 941,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:IndicatorType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.11.6",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:PatentAuthorityDetails/ipsdo:OriginOfficeIndicator",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.11.6",
+        "pdf_page": 941,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:CorrespondenceAddressDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12",
+        "pdf_page": 941,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name300Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/csdo:SubjectName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.1",
+        "pdf_page": 942,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:SubjectAddressDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.2",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.2",
+        "pdf_page": 942,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:AddressKindCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.2.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails/csdo:AddressKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.2.1",
+        "pdf_page": 942,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.2.10",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails/csdo:RoomNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.2.10",
+        "pdf_page": 944,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:PostCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.2.11",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails/csdo:PostCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.2.11",
+        "pdf_page": 944,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.2.12",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails/csdo:PostOfficeBoxId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.2.12",
+        "pdf_page": 944,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.2.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.2.2",
+        "pdf_page": 942,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.2.2@codeListId",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.2.2@codeListId",
+        "pdf_page": 943,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:TerritoryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.2.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails/csdo:TerritoryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.2.3",
+        "pdf_page": 943,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.2.4",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails/csdo:RegionName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.2.4",
+        "pdf_page": 943,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.2.5",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails/csdo:DistrictName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.2.5",
+        "pdf_page": 943,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.2.6",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails/csdo:CityName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.2.6",
+        "pdf_page": 943,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.2.7",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails/csdo:SettlementName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.2.7",
+        "pdf_page": 944,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.2.8",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails/csdo:StreetName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.2.8",
+        "pdf_page": 944,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.2.9",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:SubjectAddressDetails/csdo:BuildingNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.2.9",
+        "pdf_page": 944,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:CommunicationDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.3",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:CommunicationDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.3",
+        "pdf_page": 945,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:CommunicationChannelCodeV2Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.3.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.3.1",
+        "pdf_page": 945,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.3.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.3.2",
+        "pdf_page": 945,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:CommunicationChannelIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.12.3.3",
+      "max_occurs": "*",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:CorrespondenceAddressDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.12.3.3",
+        "pdf_page": 945,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:IPPartyDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13",
+        "pdf_page": 946,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Code2Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.1",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipsdo:IPPartyKindCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.1",
+        "pdf_page": 946,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:TaxRegistrationReasonCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.10",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/csdo:TaxRegistrationReasonCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.10",
+        "pdf_page": 949,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:IdentityDocDetailsV3Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.11",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.11",
+        "pdf_page": 950,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.11.1",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.11.1",
+        "pdf_page": 950,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.11.1@codeListId",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.11.1@codeListId",
+        "pdf_page": 950,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:IdentityDocKindCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.11.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:IdentityDocKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.11.2",
+        "pdf_page": 950,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.11.2@codeListId",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:IdentityDocKindCode/@codeListId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.11.2@codeListId",
+        "pdf_page": 951,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.11.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:DocKindName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.11.3",
+        "pdf_page": 951,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.11.4",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:DocSeriesId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.11.4",
+        "pdf_page": 951,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.11.5",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:DocId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.11.5",
+        "pdf_page": 951,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.11.6",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:DocCreationDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.11.6",
+        "pdf_page": 951,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.11.7",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:DocValidityDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.11.7",
+        "pdf_page": 951,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.11.8",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:AuthorityId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.11.8",
+        "pdf_page": 952,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name300Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.11.9",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:IdentityDocV3Details/csdo:AuthorityName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.11.9",
+        "pdf_page": 952,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:SubjectAddressDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.12",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.12",
+        "pdf_page": 952,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:AddressKindCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.12.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:AddressKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.12.1",
+        "pdf_page": 952,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.12.10",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:RoomNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.12.10",
+        "pdf_page": 954,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:PostCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.12.11",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:PostCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.12.11",
+        "pdf_page": 955,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.12.12",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:PostOfficeBoxId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.12.12",
+        "pdf_page": 955,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.12.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.12.2",
+        "pdf_page": 953,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.12.2@codeListId",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.12.2@codeListId",
+        "pdf_page": 953,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:TerritoryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.12.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:TerritoryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.12.3",
+        "pdf_page": 953,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.12.4",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:RegionName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.12.4",
+        "pdf_page": 953,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.12.5",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:DistrictName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.12.5",
+        "pdf_page": 954,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.12.6",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:CityName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.12.6",
+        "pdf_page": 954,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.12.7",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:SettlementName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.12.7",
+        "pdf_page": 954,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.12.8",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:StreetName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.12.8",
+        "pdf_page": 954,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.12.9",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:SubjectAddressDetails/csdo:BuildingNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.12.9",
+        "pdf_page": 954,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:CommunicationDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.13",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:CommunicationDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.13",
+        "pdf_page": 955,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:CommunicationChannelCodeV2Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.13.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.13.1",
+        "pdf_page": 955,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.13.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.13.2",
+        "pdf_page": 955,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:CommunicationChannelIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.13.3",
+      "max_occurs": "*",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.13.3",
+        "pdf_page": 956,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.14",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipsdo:PatentAttorneyId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.14",
+        "pdf_page": 956,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:DocDetailsV3Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.15",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.15",
+        "pdf_page": 956,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.15.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.15.1",
+        "pdf_page": 956,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.15.10",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:AuthorityId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.15.10",
+        "pdf_page": 959,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name300Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.15.11",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:AuthorityName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.15.11",
+        "pdf_page": 959,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Text4000Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.15.12",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DescriptionText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.15.12",
+        "pdf_page": 959,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Quantity4Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.15.13",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:PageQuantity",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.15.13",
+        "pdf_page": 959,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.15.1@codeListId",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.15.1@codeListId",
+        "pdf_page": 957,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCode20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.15.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.15.2",
+        "pdf_page": 957,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.15.2@codeListId",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocKindCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.15.2@codeListId",
+        "pdf_page": 957,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.15.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocKindName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.15.3",
+        "pdf_page": 957,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.15.4",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.15.4",
+        "pdf_page": 958,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.15.5",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocSeriesId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.15.5",
+        "pdf_page": 958,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.15.6",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.15.6",
+        "pdf_page": 958,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.15.7",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocCreationDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.15.7",
+        "pdf_page": 958,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.15.8",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocValidityDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.15.8",
+        "pdf_page": 958,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DurationType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.15.9",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipcdo:LetterOfAttorneyDetails/csdo:DocValidityDuration",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.15.9",
+        "pdf_page": 958,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.2",
+        "pdf_page": 946,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.2@codeListId",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.2@codeListId",
+        "pdf_page": 947,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:Qualified500NameType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipsdo:IPSubjectName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.3",
+        "pdf_page": 947,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:LanguageCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.3@languageCode",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/ipsdo:IPSubjectName/@languageCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.3@languageCode",
+        "pdf_page": 947,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.4",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/csdo:SubjectBriefName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.4",
+        "pdf_page": 947,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCode20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.5",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/csdo:BusinessEntityTypeCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.5",
+        "pdf_page": 948,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.5@codeListId",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/csdo:BusinessEntityTypeCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.5@codeListId",
+        "pdf_page": 948,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name300Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.6",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/csdo:BusinessEntityTypeName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.6",
+        "pdf_page": 948,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:BusinessEntityIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.7",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/csdo:BusinessEntityId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.7",
+        "pdf_page": 948,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:BusinessEntityIdKindIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.7@kindId",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/csdo:BusinessEntityId/@kindId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.7@kindId",
+        "pdf_page": 949,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UniqueCustomsNumberIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.8",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/csdo:UniqueCustomsNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.8",
+        "pdf_page": 949,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:TaxpayerIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.13.9",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPPartyDetails/csdo:TaxpayerId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.13.9",
+        "pdf_page": 949,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:TMBaseDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14",
+        "pdf_page": 959,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:TMPictureType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.1",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipsdo:TrademarkPicture",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.1",
+        "pdf_page": 960,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:MediaTypeCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.1@mediaTypeCode",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipsdo:TrademarkPicture/@mediaTypeCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.1@mediaTypeCode",
+        "pdf_page": 960,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name40Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.1@viewName",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipsdo:TrademarkPicture/@viewName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.1@viewName",
+        "pdf_page": 960,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:TMDescriptionDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipcdo:TMDescriptionDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.2",
+        "pdf_page": 960,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Text4000Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.2.1",
+      "max_occurs": "*",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipcdo:TMDescriptionDetails/csdo:DescriptionText",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.2.1",
+        "pdf_page": 960,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:TMElementDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.2.2",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipcdo:TMDescriptionDetails/ipcdo:TMElementDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.2.2",
+        "pdf_page": 961,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:TrademarkCFECodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.2.2.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipcdo:TMDescriptionDetails/ipcdo:TMElementDetails/ipsdo:TrademarkCFECode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.2.2.1",
+        "pdf_page": 961,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.2.2.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipcdo:TMDescriptionDetails/ipcdo:TMElementDetails/ipsdo:TrademarkCFEName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.2.2.2",
+        "pdf_page": 961,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.2.2.3",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipcdo:TMDescriptionDetails/ipcdo:TMElementDetails/csdo:DesignationName",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.2.2.3",
+        "pdf_page": 961,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:Localized120NameType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.2.2.4",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipcdo:TMDescriptionDetails/ipcdo:TMElementDetails/ipsdo:TMLocalizedName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.2.2.4",
+        "pdf_page": 961,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:LanguageCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.2.2.4@languageCode",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipcdo:TMDescriptionDetails/ipcdo:TMElementDetails/ipsdo:TMLocalizedName/@languageCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.2.2.4@languageCode",
+        "pdf_page": 962,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.2.2.5",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipcdo:TMDescriptionDetails/ipcdo:TMElementDetails/ipsdo:TMTransliterationName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.2.2.5",
+        "pdf_page": 962,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name40Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.3",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipsdo:TrademarkColourName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.3",
+        "pdf_page": 962,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:TrademarkBasicCharacteristicCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.4",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipsdo:TrademarkKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.4",
+        "pdf_page": 962,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.5",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipsdo:TrademarkKindName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.5",
+        "pdf_page": 962,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:IndicatorType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.6",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipsdo:CollectiveMarkIndicator",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.6",
+        "pdf_page": 963,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Text1000Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.14.7",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkDetails/ipsdo:UnprotectedElementDescriptionText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.14.7",
+        "pdf_page": 963,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:GoodsBaseDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.15",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.15",
+        "pdf_page": 963,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:ICGSCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.15.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails/ipsdo:GoodsClassCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.15.1",
+        "pdf_page": 963,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Text4000Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.15.10",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails/ipsdo:TrademarkRegRefusalReasonText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.15.10",
+        "pdf_page": 966,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:IndicatorType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.15.11",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails/ipsdo:CancellationStatusIndicator",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.15.11",
+        "pdf_page": 966,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.15.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails/ipsdo:GoodsClassName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.15.2",
+        "pdf_page": 964,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Ordinal3Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.15.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails/ipsdo:GoodsClassListOrdinal",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.15.3",
+        "pdf_page": 964,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.15.4",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails/ipsdo:GoodsName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.15.4",
+        "pdf_page": 964,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.15.5",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails/ipsdo:AdditionalGoodsName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.15.5",
+        "pdf_page": 964,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:IndicatorType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.15.6",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails/ipsdo:TrademarkDecisionIndicator",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.15.6",
+        "pdf_page": 965,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:ApplicationIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.15.7",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails/ipsdo:TrademarkApplicationId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.15.7",
+        "pdf_page": 965,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:TrademarkCertificateIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.15.8",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails/ipsdo:TrademarkId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.15.8",
+        "pdf_page": 965,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:ApellationOfOriginEAEUIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.15.9",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:GoodsBaseDetails/ipsdo:ApellationOfOriginEAEUId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.15.9",
+        "pdf_page": 965,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:TrademarkPriorityDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.16",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkPriorityDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.16",
+        "pdf_page": 966,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:TrademarkBasicCharacteristicCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.16.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkPriorityDetails/ipsdo:PriorityKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.16.1",
+        "pdf_page": 967,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.16.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkPriorityDetails/ipsdo:PriorityKindName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.16.2",
+        "pdf_page": 967,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.16.3",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkPriorityDetails/ipsdo:PriorityDate",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.16.3",
+        "pdf_page": 967,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.16.4",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkPriorityDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.16.4",
+        "pdf_page": 967,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.16.4@codeListId",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkPriorityDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.16.4@codeListId",
+        "pdf_page": 968,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.16.5",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkPriorityDetails/ipsdo:NationalIPObjectId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.16.5",
+        "pdf_page": 968,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Text250Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.16.6",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkPriorityDetails/ipsdo:ExhibitionSiteText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.16.6",
+        "pdf_page": 968,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.16.7",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkPriorityDetails/ipsdo:FirstTrademarkApplicationId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.16.7",
+        "pdf_page": 968,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.16.8",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkPriorityDetails/ipsdo:InternationalRegId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.16.8",
+        "pdf_page": 969,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:IPDocDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.17",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.17",
+        "pdf_page": 969,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:IPDocKindCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.17.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/ipsdo:IPDocKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.17.1",
+        "pdf_page": 969,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.17.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/ipsdo:IPDocKindName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.17.2",
+        "pdf_page": 970,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.17.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.17.3",
+        "pdf_page": 970,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.17.4",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.17.4",
+        "pdf_page": 970,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.17.5",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocCreationDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.17.5",
+        "pdf_page": 970,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.17.6",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocValidityDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.17.6",
+        "pdf_page": 970,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Text4000Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.17.7",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DescriptionText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.17.7",
+        "pdf_page": 971,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Quantity4Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.17.8",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/csdo:PageQuantity",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.17.8",
+        "pdf_page": 971,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:BinaryTextType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.17.9",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocBinaryText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.17.9",
+        "pdf_page": 971,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:MediaTypeCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.17.9@mediaTypeCode",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocBinaryText/@mediaTypeCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.17.9@mediaTypeCode",
+        "pdf_page": 971,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:TrademarkNationalRegistrationDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.18",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalRegistrationDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.18",
+        "pdf_page": 971,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.18.1",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalRegistrationDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.18.1",
+        "pdf_page": 972,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.18.1@codeListId",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalRegistrationDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.18.1@codeListId",
+        "pdf_page": 972,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.18.2",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalRegistrationDetails/ipsdo:TrademarkNationalId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.18.2",
+        "pdf_page": 972,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.18.3",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalRegistrationDetails/csdo:EventDate",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.18.3",
+        "pdf_page": 972,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.18.4",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalRegistrationDetails/ipsdo:PriorityDate",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.18.4",
+        "pdf_page": 972,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:TransformationDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.19",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TransformationDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.19",
+        "pdf_page": 973,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.19.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TransformationDetails/ipsdo:TransformationKindName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.19.1",
+        "pdf_page": 973,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:IPObjectIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.19.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TransformationDetails/ipsdo:IPObjectId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.19.2",
+        "pdf_page": 973,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.19.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TransformationDetails/csdo:EventDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.19.3",
+        "pdf_page": 973,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:IPDocKindName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.2",
+        "pdf_page": 933,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:TrademarkNationalApplicationDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.20",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalApplicationDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.20",
+        "pdf_page": 973,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.20.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalApplicationDetails/csdo:UnifiedCountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.20.1",
+        "pdf_page": 974,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.20.1@codeListId",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalApplicationDetails/csdo:UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.20.1@codeListId",
+        "pdf_page": 974,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.20.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalApplicationDetails/ipsdo:NationalApplicationId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.20.2",
+        "pdf_page": 974,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.20.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalApplicationDetails/ipsdo:NationalApplicationReceiptDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.20.3",
+        "pdf_page": 974,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.20.4",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalApplicationDetails/ipsdo:PriorityDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.20.4",
+        "pdf_page": 974,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Text4000Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.21",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:TechnicalErrorText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.21",
+        "pdf_page": 975,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:RegistrationCancellationDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22",
+        "pdf_page": 975,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Code2Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.1",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipsdo:CancellationTrademarkRegistrationReasonCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.1",
+        "pdf_page": 975,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:NationalPatentDecisionDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:NationalPatentDecisionDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.2",
+        "pdf_page": 975,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.2.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:NationalPatentDecisionDetails/ipsdo:NationalPatentDecisionNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.2.1",
+        "pdf_page": 976,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.2.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:NationalPatentDecisionDetails/ipsdo:NationalPatentDecisionDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.2.2",
+        "pdf_page": 976,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:ComplaintInvalidateProtectionTrademarkDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3",
+        "pdf_page": 976,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:CancellationRegistrationTrademarkCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.1",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipsdo:CancellationRegistrationTrademarkCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.1",
+        "pdf_page": 976,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:SolutionCancellationRegistrationTrademarkCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipsdo:SolutionCancellationRegistrationTrademarkCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.2",
+        "pdf_page": 977,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:TrademarkCertificateIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipsdo:TrademarkNewId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.3",
+        "pdf_page": 977,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:ApplicantV2DetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4",
+        "pdf_page": 977,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name300Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.1",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/csdo:OrganizationName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.1",
+        "pdf_page": 977,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:CountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/csdo:CountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.2",
+        "pdf_page": 977,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:AddressDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/ccdo:AddressDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.3",
+        "pdf_page": 978,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:CountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.3.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/ccdo:AddressDetails/csdo:CountryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.3.1",
+        "pdf_page": 978,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.3.10",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/ccdo:AddressDetails/csdo:RoomNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.3.10",
+        "pdf_page": 979,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Text1000Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.3.11",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/ccdo:AddressDetails/csdo:AddressText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.3.11",
+        "pdf_page": 980,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:TerritoryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.3.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/ccdo:AddressDetails/csdo:TerritoryCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.3.2",
+        "pdf_page": 978,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:PostCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.3.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/ccdo:AddressDetails/csdo:PostCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.3.3",
+        "pdf_page": 978,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.3.4",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/ccdo:AddressDetails/csdo:RegionName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.3.4",
+        "pdf_page": 978,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.3.5",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/ccdo:AddressDetails/csdo:DistrictName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.3.5",
+        "pdf_page": 979,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.3.6",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/ccdo:AddressDetails/csdo:CityName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.3.6",
+        "pdf_page": 979,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.3.7",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/ccdo:AddressDetails/csdo:SettlementName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.3.7",
+        "pdf_page": 979,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.3.8",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/ccdo:AddressDetails/csdo:StreetName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.3.8",
+        "pdf_page": 979,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.3.9",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/ccdo:AddressDetails/csdo:BuildingNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.3.9",
+        "pdf_page": 979,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:CommunicationDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.4",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/ccdo:CommunicationDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.4",
+        "pdf_page": 980,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:CommunicationChannelCodeV2Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.4.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/ccdo:CommunicationDetails/csdo:CommunicationChannelCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.4.1",
+        "pdf_page": 980,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.4.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/ccdo:CommunicationDetails/csdo:CommunicationChannelName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.4.2",
+        "pdf_page": 980,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:CommunicationChannelIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.4.4.3",
+      "max_occurs": "*",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/ipcdo:ApplicantV2Details/ccdo:CommunicationDetails/csdo:CommunicationChannelId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.4.4.3",
+        "pdf_page": 980,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.22.3.5",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:RegistrationCancellationDetails/ipcdo:ComplaintInvalidateProtectionTrademarkDetails/csdo:EventDate",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.22.3.5",
+        "pdf_page": 981,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:SignatureDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.23",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.23",
+        "pdf_page": 981,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.23.1",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/csdo:DocCreationDate",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.23.1",
+        "pdf_page": 981,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:OfficerDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.23.2",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.23.2",
+        "pdf_page": 981,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:FullNameDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.23.2.1",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/ccdo:FullNameDetails",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.23.2.1",
+        "pdf_page": 981,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.23.2.1.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/ccdo:FullNameDetails/csdo:FirstName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.23.2.1.1",
+        "pdf_page": 981,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.23.2.1.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/ccdo:FullNameDetails/csdo:MiddleName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.23.2.1.2",
+        "pdf_page": 982,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.23.2.1.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/ccdo:FullNameDetails/csdo:LastName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.23.2.1.3",
+        "pdf_page": 982,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.23.2.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/csdo:PositionName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.23.2.2",
+        "pdf_page": 982,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:CommunicationDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.23.2.3",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/ccdo:CommunicationDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.23.2.3",
+        "pdf_page": 982,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:CommunicationChannelCodeV2Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.23.2.3.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.23.2.3.1",
+        "pdf_page": 982,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.23.2.3.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.23.2.3.2",
+        "pdf_page": 983,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:CommunicationChannelIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.23.2.3.3",
+      "max_occurs": "*",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ipcdo:OfficerDetails/ccdo:CommunicationDetails/csdo:CommunicationChannelId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.23.2.3.3",
+        "pdf_page": 983,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:FullNameDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.23.3",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ccdo:FullNameDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.23.3",
+        "pdf_page": 983,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.23.3.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ccdo:FullNameDetails/csdo:FirstName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.23.3.1",
+        "pdf_page": 983,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.23.3.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ccdo:FullNameDetails/csdo:MiddleName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.23.3.2",
+        "pdf_page": 983,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name120Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.23.3.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:SignatureDetails/ccdo:FullNameDetails/csdo:LastName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.23.3.3",
+        "pdf_page": 983,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:ResourceItemStatusDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.24",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ccdo:ResourceItemStatusDetails",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.24",
+        "pdf_page": 984,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ccdo:PeriodDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.24.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.24.1",
+        "pdf_page": 984,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateTimeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.24.1.1",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:StartDateTime",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.24.1.1",
+        "pdf_page": 984,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateTimeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.24.1.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:EndDateTime",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.24.1.2",
+        "pdf_page": 984,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateTimeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.24.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ccdo:ResourceItemStatusDetails/csdo:UpdateDateTime",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.24.2",
+        "pdf_page": 984,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/csdo:DocId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.3",
+        "pdf_page": 933,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:ApplicationIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.4",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:TrademarkApplicationId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.4",
+        "pdf_page": 934,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.5",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:ApplicationReceiptDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.5",
+        "pdf_page": 934,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:TrademarkCertificateIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.6",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:TrademarkId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.6",
+        "pdf_page": 934,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipcdo:IPEntityStatusDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.7",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.7",
+        "pdf_page": 934,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:StatusCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.7.1",
+      "max_occurs": "1",
+      "min_occurs": 1,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/csdo:StatusCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.7.1",
+        "pdf_page": 934,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.7.1@codeListId",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/csdo:StatusCode/@codeListId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.7.1@codeListId",
+        "pdf_page": 935,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.7.2",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/csdo:EventDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.7.2",
+        "pdf_page": 935,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "ipsdo:IPDocKindCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.7.3",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/ipsdo:IPDocKindCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.7.3",
+        "pdf_page": 935,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.7.4",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/ipsdo:IPDocKindName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.7.4",
+        "pdf_page": 935,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.7.5",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/csdo:DocId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.7.5",
+        "pdf_page": 936,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.7.6",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/csdo:DocCreationDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.7.6",
+        "pdf_page": 936,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.7.7",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/ipsdo:IPDocReceiptDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.7.7",
+        "pdf_page": 936,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "csdo:Text4000Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.7.8",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/csdo:DescriptionText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.7.8",
+        "pdf_page": 937,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.8",
+      "max_occurs": "1",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:RegistrationDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.8",
+        "pdf_page": 937,
+        "table": "13"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.9",
+      "max_occurs": "*",
+      "min_occurs": 0,
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/csdo:DocValidityDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "ОП_22.pdf",
+        "item": "2.9",
+        "pdf_page": 937,
+        "table": "13"
+      }
+    }
+  ],
+  "schema_version": "1.0",
+  "structure": "R.IP.SP.02.007"
+}

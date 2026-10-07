@@ -1,0 +1,141 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.HC.MM.01.003"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": "CLASSIFIER",
+    "closure_criteria": [
+      "Загрузка подтвержденного классификатора и подключение проверки."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Официальный классификатор / реестр кодов ЕАЭС / ISO"
+    ],
+    "reason": "OPEN_CLASSIFIER",
+    "required_action": [
+      "Получить официальный реестр справочников НСИ ЕЭК."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "OP26.P_MM_01.P.MM.01.MSG.019.REQ.005",
+    "message": "P.MM.01.MSG.019",
+    "op": "OP26",
+    "procedure": "P.MM.01.PRC.012",
+    "process": "P.MM.01",
+    "requirement": "005",
+    "source_occurrence": 1,
+    "source_requirement_number": "5",
+    "transaction": "P.MM.01.TRN.012"
+  },
+  "implementation": {
+    "engine_capabilities": [],
+    "production_files": [
+      "P.MM.01_OP_26/message_rules/P.MM.01.MSG.019.yaml"
+    ],
+    "production_rules": [
+      "P.MM.01.MSG.019.R5"
+    ],
+    "status": "OPEN_CLASSIFIER"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "если реквизит «Код страны» (csdo:UnifiedCountryCode) в составе любых сложных реквизитов заполнен, то его значение должно соответствовать коду страны из классификатора стран мира, содержащего перечень кодов и наименований стран мира в соответствии со стандартом ISO 3166-1"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Требование предписывает проверку кодов или атрибута codeListId по справочнику/классификатору ЕАЭС/ISO, однако официальный эталонный датасет классификатора отсутствует в репозитории.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "5",
+        "level": "CONFIRMED_PDF",
+        "occurrence": 1,
+        "pdf_page": 239,
+        "section": null,
+        "source": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "table": "25"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.MM.01_OP_26/tests/test_pmm01_catalog.py"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP26_P_MM_01/pages/page_239.md"
+    },
+    "item": "5",
+    "occurrence": 1,
+    "pdf_page": 239,
+    "printed_page": 238,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/26_ОП.pdf",
+    "table": "25"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": "UnifiedCountryCode",
+      "namespace": null,
+      "raw": "csdo:UnifiedCountryCode",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.HC.MM.01.003",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:HC:MM:01:DrugRegistrationDocContentDetails:v1.1.0}DrugRegistrationDocContentDetails",
+      "local_name": "DrugRegistrationDocContentDetails",
+      "namespace": "urn:EEC:R:HC:MM:01:DrugRegistrationDocContentDetails:v1.1.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.1.0",
+    "xml_path": "csdo:UnifiedCountryCode"
+  },
+  "verification": {
+    "negative_test": {
+      "note": "NOT_WIRED",
+      "status": "NOT_WIRED",
+      "test": null
+    },
+    "positive_test": {
+      "status": "PRESENT",
+      "test": "BLOCKED_OR_EXTERNAL"
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.MM.01_OP_26/tests/test_pmm01_catalog.py"
+    }
+  }
+}

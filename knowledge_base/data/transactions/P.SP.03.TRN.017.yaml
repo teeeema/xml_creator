@@ -1,0 +1,48 @@
+{
+  "decision5": {
+    "reference": "data/decisions/Decision_5.yaml"
+  },
+  "identity": {
+    "op": "OP23",
+    "procedure": "P.SP.03.PRC.008",
+    "process": "P.SP.03",
+    "transaction": "P.SP.03.TRN.017"
+  },
+  "messages": {
+    "initiating": "P.SP.03.MSG.021",
+    "responses": [
+      "P.SP.03.MSG.022"
+    ]
+  },
+  "participants": {},
+  "plain_language": {
+    "description": null,
+    "name": "Получение сведений о суммах и платежных реквизитах для уплаты пошлины"
+  },
+  "project_state": {
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "protocol": {
+    "retry": null,
+    "signature": null,
+    "timeout": null
+  },
+  "runtime": {
+    "status": "CONFIRMED"
+  },
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "document": "ОП_23.pdf",
+      "item": "P.SP.03.TRN.017",
+      "location": "Перечень и описание транзакций общего процесса",
+      "page": 187,
+      "source_id": "23OP-TRN-P-SP-03-TRN-017",
+      "status": "CONFIRMED",
+      "version_context": "P.SP.03 1.0.0"
+    }
+  ],
+  "type": null
+}

@@ -29,6 +29,9 @@ class RuleContext:
 
 
 class StructuredRuleEvaluator:
+    def __init__(self, *, complex_paths=None):
+        self._complex_paths = None if complex_paths is None else frozenset(complex_paths)
+
     def evaluate_all(self, rules, values):
         return tuple(self.evaluate(rule, values) for rule in rules)
 
@@ -53,7 +56,8 @@ class StructuredRuleEvaluator:
                 passed = minimum <= count and (maximum is None or count <= maximum)
             elif kind == "presence":
                 required = rule.get("state") == "REQUIRED"
-                passed = (count > 0) == required
+                passed = (self._target_is_filled(rule.get("target"), None, values)
+                          if required else rule.get("target") not in values)
             else:
                 passed = value == rule.get("value")
 
@@ -83,7 +87,8 @@ class StructuredRuleEvaluator:
                 for item in scope_items:
                     if not self.evaluate_condition(rule["condition"], item, values):
                         continue
-                    target_is_present = self._target_value(target, item, values) is not None
+                    target_is_present = (self._target_value(target, item, values) is not None
+                                         if forbidden else self._target_is_filled(target, item, values))
                     if target_is_present == forbidden:
                         passed = False
                         break
@@ -162,7 +167,7 @@ class StructuredRuleEvaluator:
                     left_val = self._context_field_value(left_operand["field"], left_items[0])
                     right_val = self._context_field_value(right_operand["field"], right_items[0])
                     if left_val is None or right_val is None:
-                        passed = False
+                        passed = bool(rule.get("allow_both_missing")) and left_val is None and right_val is None
                     else:
                         passed = self._compare(left_val, operator, right_val, rule.get("value_type"))
             except (KeyError, TypeError, ValueError):
@@ -172,6 +177,56 @@ class StructuredRuleEvaluator:
             message = "Cross-instance comparison evaluated." if passed else "Cross-instance comparison failed."
             return self.out(rule, status, message)
 
+        if kind == "group_distinctness":
+            try:
+                contexts = self._select_contexts(rule["selector"], values)
+                passed = True
+                scopes = self._select_contexts(rule["scope"], values) if "scope" in rule else [None]
+                for scope in scopes:
+                    scoped_contexts = contexts
+                    if scope is not None:
+                        prefix = scope.path + "/"
+                        scalar_scope = len(self._contexts_for_path(scope.path, values)) == 1
+                        scoped_contexts = [
+                            context
+                            for context in contexts
+                            if context.path.startswith(prefix)
+                            and (scalar_scope or context.indexes[:len(scope.indexes)] == scope.indexes)
+                        ]
+
+                    groups = {}
+                    for context in scoped_contexts:
+                        key = self._context_field_value(rule["group_by"], context)
+                        if key is None:
+                            continue
+                        groups.setdefault(key, []).append(context)
+
+                    for group in groups.values():
+                        if len(group) < 2:
+                            continue
+                        distinguish_by = rule["distinguish_by"]
+                        if any(
+                            not any(self._context_field_value(field, context) is not None for field in distinguish_by)
+                            for context in group
+                        ):
+                            passed = False
+                            break
+                        if not any(
+                            all(self._context_field_value(field, context) is not None for context in group)
+                            and len({self._context_field_value(field, context) for context in group}) == len(group)
+                            for field in distinguish_by
+                        ):
+                            passed = False
+                            break
+                    if not passed:
+                        break
+            except (KeyError, TypeError, ValueError):
+                passed = False
+
+            status = RuleStatus.PASS if passed else RuleStatus.FAIL
+            message = "Group distinctness evaluated." if passed else "Group distinctness failed."
+            return self.out(rule, status, message)
+
         return self.out(rule, RuleStatus.UNSUPPORTED_RULE, "Unsupported structured rule.")
 
     def select(self, selector, values, all=False):
@@ -179,7 +234,19 @@ class StructuredRuleEvaluator:
 
     def _select_contexts(self, selector, values, *, apply_where=True):
         if "collection" in selector:
-            contexts = self._contexts_for_path(selector["collection"], values)
+            collection = selector["collection"]
+            contexts = self._contexts_for_path(collection, values)
+            raw = values.get(collection)
+            if isinstance(raw, list) and self._has_present_leaf(raw):
+                contexts = [
+                    item for item in contexts
+                    if self._value_at(raw, item.indexes) is not None
+                ]
+            elif collection not in values:
+                contexts = [
+                    item for item in contexts
+                    if any(value is not None for value in item.fields.values())
+                ]
         elif "qname" in selector:
             qname = selector["qname"]
             under = selector.get("under")
@@ -266,10 +333,7 @@ class StructuredRuleEvaluator:
         elif raw is None:
             if not descendants:
                 return []
-            index_candidates = set()
-            for value in descendants:
-                index_candidates.update(self._leaf_indexes(value))
-            indexes = sorted(index_candidates) or [()]
+            indexes = [()]
         else:
             indexes = list(self._leaf_indexes(raw))
 
@@ -329,7 +393,12 @@ class StructuredRuleEvaluator:
         left = self._field_value(condition["field"], context, values)
         if "position" in condition:
             left = self._at_position(left, condition["position"])
-        return self.c(left, condition["operator"], condition.get("value"))
+        return self._compare(
+            left,
+            condition["operator"],
+            condition.get("value"),
+            condition.get("value_type"),
+        )
 
     @staticmethod
     def _at_position(value, position):
@@ -364,6 +433,71 @@ class StructuredRuleEvaluator:
             return self._at_position(value, target["position"]) if "position" in target else value
         return self._field_value(target, context, values)
 
+    @staticmethod
+    def _target_path(target, context):
+        field = target.get("field") if isinstance(target, Mapping) else target
+        if not field:
+            return None
+        if field == "#text":
+            return context.path if context is not None else None
+        if context is None or not context.path:
+            return field
+        if field == context.path or field.startswith(context.path + "/"):
+            return field
+        return f"{context.path}/{field}"
+
+    def _target_is_present(self, target, context, values):
+        value = self._target_value(target, context, values)
+        if isinstance(value, list):
+            return bool(value)
+        return value is not None
+
+    @classmethod
+    def _structural_value_is_present(cls, value):
+        if isinstance(value, list):
+            return any(cls._structural_value_is_present(item) for item in value)
+        return value is not None
+
+    def _complex_target_is_present(self, target, context, values):
+        path = self._target_path(target, context)
+        if not path or path not in values:
+            return False
+
+        raw = values[path]
+        indexes = context.indexes if context is not None else ()
+        selected = self._value_at(raw, indexes) if indexes else raw
+        if self._structural_value_is_present(selected):
+            return True
+
+        prefix = path + "/"
+        for descendant_path, descendant in values.items():
+            if not descendant_path.startswith(prefix):
+                continue
+            selected_descendant = self._value_at(descendant, indexes) if indexes else descendant
+            if self._structural_value_is_present(selected_descendant):
+                return True
+        return False
+
+    @classmethod
+    def _value_is_filled(cls, value):
+        if isinstance(value, list):
+            return any(cls._value_is_filled(item) for item in value)
+        if isinstance(value, Mapping):
+            return any(cls._value_is_filled(item) for item in value.values())
+        if isinstance(value, str):
+            return bool(value.strip())
+        return value is not None
+
+    def _target_is_filled(self, target, context, values):
+        value = self._target_value(target, context, values)
+        if self._complex_paths is None:
+            # Without structure metadata the evaluator cannot safely distinguish
+            # a scalar text value from an empty complex element marker.
+            return self._target_is_present(target, context, values)
+        if self._target_path(target, context) in self._complex_paths:
+            return self._complex_target_is_present(target, context, values)
+        return self._value_is_filled(value)
+
     def _operand_value(self, operand, context, values):
         if isinstance(operand, Mapping):
             if "field" not in operand:
@@ -397,7 +531,8 @@ class StructuredRuleEvaluator:
                 return minimum <= count and (maximum is None or count <= maximum)
             if kind == "presence":
                 required = assertion.get("state") == "REQUIRED"
-                return (count > 0) == required
+                return (self._target_is_filled(assertion["target"], context, values)
+                        if required else count == 0)
             return value == assertion.get("value")
 
         if kind == "comparison":
@@ -411,8 +546,9 @@ class StructuredRuleEvaluator:
         if kind == "conditional_presence":
             if not self.evaluate_condition(assertion["condition"], context, values):
                 return True
-            present = self._target_value(assertion["target"], context, values) is not None
             forbidden = assertion["state"] == "FORBIDDEN"
+            present = (self._target_value(assertion["target"], context, values) is not None
+                       if forbidden else self._target_is_filled(assertion["target"], context, values))
             return present != forbidden
 
         if kind == "conditional_fixed_value":
@@ -456,6 +592,12 @@ class StructuredRuleEvaluator:
             right = datetime.fromisoformat(right)
             if (left.tzinfo is None) != (right.tzinfo is None):
                 raise ValueError("Cannot compare zoned and unzoned date-times")
+        elif value_type == "DECIMAL":
+            try:
+                left = Decimal(str(left))
+                right = Decimal(str(right))
+            except InvalidOperation as exc:
+                raise ValueError("Invalid decimal value") from exc
         elif value_type is not None:
             raise ValueError("Unknown comparison value_type")
         return StructuredRuleEvaluator.c(left, operator, right)

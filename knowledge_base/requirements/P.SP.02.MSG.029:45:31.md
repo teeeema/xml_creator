@@ -1,0 +1,66 @@
+---
+id: "P.SP.02.MSG.029:45:31"
+op: "OP22"
+process: "P.SP.02"
+message: "P.SP.02.MSG.029"
+requirement: "31"
+structure: "R.IP.SP.02.002"
+status: "IMPLEMENTED_CONFIRMED"
+evidence_level: "CONFIRMED_PDF_SOURCE_REF"
+source_document: "ОП_22.pdf"
+source_pages: 552
+source_table: "Table 45, item 31"
+source_item: "REQ 31 (Table 45)"
+qname_status: "PREFIXED_NAMESPACE_UNRESOLVED"
+implementation_status: "CLOSED_CONFIRMED"
+generated_by: "knowledge_base/tools/build_kb.py"
+---
+
+# P.SP.02.MSG.029:45:31
+
+## Нормативное требование
+
+ipcdo:IPEntityStatusDetails: ранее поданная заявка имеет csdo:StatusCode «02», выделенная заявка — «01»; для статуса ранее поданной заявки codeListId не заполняется
+
+## Простыми словами
+
+**AUDIT_DERIVED_EXPLANATION**
+
+Current executable coverage in FINAL_DELIVERY_AUDIT; this is not individual positive/negative certification.
+
+## Trace
+
+OP22 → P.SP.02.PRC.003 → P.SP.02.TRN.024 → P.SP.02.MSG.029 → P.SP.02.MSG.029:45:31
+
+## XML
+
+- Structure: R.IP.SP.02.002
+- QName: ipcdo:GoodsBaseDetails; ipcdo:TrademarkApplicationDetails; ipsdo:TrademarkDecisionIndicator; ipsdo:TrademarkRegistrationCode
+- Namespace: MISSING / UNRESOLVED
+- Path: ipcdo:TrademarkApplicationDetails; ipcdo:TrademarkApplicationDetails/ipcdo:GoodsBaseDetails; ipcdo:TrademarkApplicationDetails/ipcdo:GoodsBaseDetails/ipsdo:TrademarkDecisionIndicator; ipcdo:TrademarkApplicationDetails/ipsdo:TrademarkRegistrationCode
+
+## Source
+
+- Document: ОП_22.pdf
+- SHA256: see [[02_SOURCE_REGISTRY]]
+- PDF page: 552
+- Printed page: 140
+- Table/item: Table 45, item 31
+- Evidence level: CONFIRMED_PDF_SOURCE_REF
+- Source page: [[sources/OP22_P_SP_02/pages/page_552]]
+
+## Project state
+
+- Status: IMPLEMENTED_CONFIRMED
+- Production rule: P.SP.02.MSG.029.T45.REQ.31
+- Wiring: {"current": {"document": "ОП_22.pdf", "item": "31", "location": "Таблица 45", "page": 726, "source_id": "22OP-RULE-P.SP.02.MSG.029-T45-31", "status": "CONFIRMED", "table": "45", "version_context": "P.SP.02 1.0.0"}, "leaf": {"document": "ОП_22.pdf", "item": "31", "location": "Таблица 45. Требования к электронному документу (сведениям) P.SP.02.MSG.012", "page": 552, "source_id": "22OP-RULE-P.SP.02.MSG.012-T45-31", "status": "CONFIRMED", "table": "45", "version_context": "P.SP.02 1.0.0"}, "range_chain": ["45"]}
+- Positive test: P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg029_goods_filtered_cardinality_stays_with_application[False-positive-31]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg029_goods_filtered_cardinality_stays_with_application[True-positive-31]
+- Negative test: P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg029_goods_filtered_cardinality_stays_with_application[False-negative-31]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg029_goods_filtered_cardinality_stays_with_application[True-negative-31]
+- Runtime proof: P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg029_goods_filtered_cardinality_stays_with_application[False-negative-31]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg029_goods_filtered_cardinality_stays_with_application[False-positive-31]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg029_goods_filtered_cardinality_stays_with_application[True-negative-31]; P.SP.02_OP_22/tests/test_fix_now_code_register_xml.py::test_msg029_goods_filtered_cardinality_stays_with_application[True-positive-31]
+
+## Gap
+
+- Reason: Current verified delivery snapshot counts this requirement within executable coverage.
+- Missing information: None recorded
+- Required action: MISSING
+- Closure criterion: Already counted as implemented in the current verified delivery snapshot.

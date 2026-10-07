@@ -194,6 +194,43 @@ def test_sparse_repeated_child_cardinality_is_checked_per_parent(
     assert not [issue for issue in issues if issue.code == "DATATYPE_INVALID"]
 
 
+def test_nested_scalar_child_max_occurs_is_checked_per_repeated_ancestor() -> None:
+    engine = EaeuXmlEngine.load_process(FIXTURE)
+    structure = engine.resolve_structure(STRUCTURE_ID, mode=GenerationMode.TEST).definition
+    parent = structure.fields[0]
+    period = replace(
+        structure.fields[1],
+        field_id="1.2",
+        order=3,
+        path="Items/Period",
+        official_name="Period",
+        xml_name="Period",
+        datatype="PeriodType",
+        min_occurs=0,
+        max_occurs=1,
+    )
+    date_field = replace(
+        structure.fields[1],
+        field_id="1.2.1",
+        order=4,
+        parent="1.2",
+        path="Items/Period/StartDate",
+        official_name="StartDate",
+        xml_name="StartDate",
+        datatype="bdt:DateType",
+        datatype_text="date",
+        min_occurs=0,
+        max_occurs=1,
+    )
+    nested_structure = replace(structure, fields=(parent, period, date_field))
+    issues = engine.body_provider._validate_structure_values(
+        nested_structure,
+        {"Items": ["", ""], "Items/Period/StartDate": ["2026-09-24", "2026-09-25"]},
+        mode=GenerationMode.TEST,
+    )
+    assert not [issue for issue in issues if issue.code == "MAX_OCCURS"]
+
+
 @pytest.mark.parametrize("values", [["not-a-date", "2026-09-25"], ["2026-09-24", "not-a-date"]])
 def test_sparse_repeated_child_still_validates_real_invalid_values(values) -> None:
     engine = EaeuXmlEngine.load_process(FIXTURE)

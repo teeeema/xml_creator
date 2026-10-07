@@ -1,0 +1,51 @@
+{
+  "decision5": {
+    "reference": "data/decisions/Decision_5.yaml"
+  },
+  "identity": {
+    "op": "OP26",
+    "procedure": "P.MM.01.PRC.001",
+    "process": "P.MM.01",
+    "transaction": "P.MM.01.TRN.001"
+  },
+  "messages": {
+    "initiating": "P.MM.01.MSG.001",
+    "responses": [
+      "P.MM.01.MSG.004",
+      "P.MM.01.MSG.013"
+    ]
+  },
+  "participants": {},
+  "plain_language": {
+    "description": null,
+    "name": "Передача сведений о регистрации лекарственного препарата для включения в общий реестр"
+  },
+  "project_state": {
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "protocol": {
+    "retry": null,
+    "signature": null,
+    "timeout": null
+  },
+  "runtime": {
+    "status": "CONFIRMED"
+  },
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "document": "Решение Коллегии ЕЭК от 19.04.2022 №68 (изменения к Решению №122)",
+      "item": "TRN.001",
+      "location": "Регламент информационного взаимодействия, описание транзакции",
+      "page": 180,
+      "section": "Регламент информационного взаимодействия, описание транзакции",
+      "source_id": "SRC-PMM01-068",
+      "status": "CONFIRMED",
+      "table": "6",
+      "version_context": "редакция P.MM.01 1.1.0"
+    }
+  ],
+  "type": null
+}

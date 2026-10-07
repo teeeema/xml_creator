@@ -1,0 +1,150 @@
+{
+  "dependencies": {
+    "classifiers": [
+      {
+        "classifier": "P.MM.06.CLS.003",
+        "evidence": {
+          "level": "AUDIT_DERIVED",
+          "pdf_page": 109,
+          "source": "32_ОП.pdf §VII Table 9 + applicable structure table",
+          "table": "Таблица 13, требование 14, atomic 1/1"
+        },
+        "name": "классификатор статусов регистрационных удостоверений медицинских изделий",
+        "version": "dataset version/approval source not present in local payload"
+      }
+    ],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.HC.MM.06.001"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": "CLASSIFIER",
+    "closure_criteria": [
+      "Зафиксированы официальный classifier id/version/data; rule использует их и подтвержден positive/negative XML тестами."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Normative classifier reference/identifier was recovered where the source supports it, but no official machine-readable payload and applicable dataset version were found; exact QName namespace version is also unresolved."
+    ],
+    "reason": "OPEN_CLASSIFIER",
+    "required_action": [
+      "Получить официальный актуальный classifier/reference dataset и версию, затем зафиксировать mapping и regression."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "OP32.P_MM_06.MSG_001.REQ.014",
+    "message": "P.MM.06.MSG.001",
+    "op": "OP32",
+    "procedure": "P.MM.06.PRC.001",
+    "process": "P.MM.06",
+    "requirement": "014",
+    "source_occurrence": null,
+    "source_requirement_number": null,
+    "transaction": "P.MM.06.TRN.001"
+  },
+  "implementation": {
+    "engine_capabilities": [
+      "presence/conditional_presence + for_each where repeated"
+    ],
+    "production_files": [
+      "P.MM.06_OP_32/message_rules/P.MM.06.MSG.001.yaml"
+    ],
+    "production_rules": [],
+    "status": "OPEN_CLASSIFIER"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) соответствует значению \"другое\", то реквизит \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName) заполняется обязательно"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Нужно проверить нормативное условие: если значение реквизита \"Код статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusCode) соответствует значению \"другое\", то реквизит \"Наименование статуса регистрационного удостоверения медицинского изделия\" (hcsdo:MedicalProductRegistrationCertificateStatusName) заполняется обязательно. Нужны значения/машиночитаемые данные соответствующего классификатора; точный leaf namespace также не подтвержден.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": null,
+        "level": "CONFIRMED_PDF",
+        "occurrence": null,
+        "pdf_page": 109,
+        "section": null,
+        "source": "32_ОП.pdf",
+        "table": "13"
+      }
+    ],
+    "runtime": []
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "32_ОП.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF",
+      "source_page_ref": "sources/OP32_P_MM_06/pages/page_109.md"
+    },
+    "item": null,
+    "occurrence": null,
+    "pdf_page": 109,
+    "printed_page": null,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/32_ОП.pdf",
+    "table": "13"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "hcsdo:MedicalProductRegistrationCertificateStatusCode; hcsdo:MedicalProductRegistrationCertificateStatusName",
+      "status": "UNRESOLVED"
+    },
+    "id": "R.HC.MM.06.001",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:HC:MM:06:MedicalProductRegistrationDetails:v1.1.0}MedicalProductRegistrationDetails",
+      "local_name": "MedicalProductRegistrationDetails",
+      "namespace": "urn:EEC:R:HC:MM:06:MedicalProductRegistrationDetails:v1.1.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.1.0",
+    "xml_path": "UNRESOLVED_EXACT_PATH; normative tokens: hcsdo:MedicalProductRegistrationCertificateStatusCode; hcsdo:MedicalProductRegistrationCertificateStatusName"
+  },
+  "verification": {
+    "negative_test": {
+      "note": "NONE",
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "note": "NONE",
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "note": "NONE for this normative requirement",
+      "status": "MISSING",
+      "test": null
+    }
+  }
+}

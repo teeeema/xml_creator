@@ -1,0 +1,59 @@
+{
+  "evidence": {
+    "entity": "CONFIRMED_PDF",
+    "payload": "MISSING"
+  },
+  "identity": {
+    "classifier": "P.MM.06.CLS.004"
+  },
+  "machine_readable_payload": false,
+  "official_name": "классификатор статусов для отслеживания хода рассмотрения заявления о регистрации медицинского изделия",
+  "required_version": "dataset version/approval source not present in local payload",
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "document": "32_ОП.pdf §VII Table 9 + applicable structure table",
+      "evidence": "AUDIT_DERIVED",
+      "pdf_page": 108,
+      "table": "Таблица 13, требование 9, atomic 1/1"
+    },
+    {
+      "document": "32_ОП.pdf §VII Table 9 + applicable structure table",
+      "evidence": "AUDIT_DERIVED",
+      "pdf_page": 110,
+      "table": "Таблица 14, требование 4, atomic 1/1"
+    },
+    {
+      "document": "32_ОП.pdf §VII Table 9 + applicable structure table",
+      "evidence": "AUDIT_DERIVED",
+      "pdf_page": 111,
+      "table": "Таблица 14, требование 7, atomic 1/1"
+    },
+    {
+      "document": "32_ОП.pdf §VII Table 9 + applicable structure table",
+      "evidence": "AUDIT_DERIVED",
+      "pdf_page": 111,
+      "table": "Таблица 14, требование 8, atomic 1/1"
+    },
+    {
+      "document": "32_ОП.pdf §VII Table 9 + applicable structure table",
+      "evidence": "AUDIT_DERIVED",
+      "pdf_page": 111,
+      "table": "Таблица 14, требование 12, atomic 1/1"
+    },
+    {
+      "document": "32_ОП.pdf §VII Table 9 + applicable structure table",
+      "evidence": "AUDIT_DERIVED",
+      "pdf_page": 117,
+      "table": "Таблица 15, требование 10, atomic 1/1"
+    }
+  ],
+  "used_by": [
+    "OP32.P_MM_06.MSG_001.REQ.009",
+    "OP32.P_MM_06.MSG_002.REQ.004",
+    "OP32.P_MM_06.MSG_002.REQ.008",
+    "OP32.P_MM_06.MSG_002.REQ.009",
+    "OP32.P_MM_06.MSG_002.REQ.013",
+    "OP32.P_MM_06.MSG_003.REQ.010"
+  ]
+}

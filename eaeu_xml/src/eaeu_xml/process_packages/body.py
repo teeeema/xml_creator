@@ -106,6 +106,7 @@ class StructuredProcessBodyProvider:
         issues.extend(self._validate_structure_values(structure_definition, values, mode=mode))
 
         selected_structure_id = None
+        embedded_definition = None
         embedded_values: dict[str, object] | None = None
         if message_definition.embedded_structures:
             selected_structure_id, embedded_definition, embedded_element, selection_issues = self._select_embedded_payload(
@@ -129,21 +130,37 @@ class StructuredProcessBodyProvider:
                 if path in supplied_values and mismatch:
                     issues.append(self._issue("FIXED_VALUE_MISMATCH", path, f"Ожидается фиксированное значение {expected!r}.", rule_id=f"{message_definition.message_code}:{path}"))
             evaluations = []
-            evaluator = StructuredRuleEvaluator()
+            primary_complex_paths = self._complex_paths(structure_definition)
+            embedded_complex_paths = self._complex_paths(embedded_definition) if embedded_definition is not None else frozenset()
             for rule in rules.structured_rules:
                 applies_to = rule.get("applies_to_structure")
                 if applies_to and applies_to != structure_definition.structure_id:
                     if applies_to != selected_structure_id or embedded_values is None:
                         continue
                     evaluation_values = embedded_values
+                    complex_paths = embedded_complex_paths
                 else:
                     evaluation_values = values
+                    complex_paths = primary_complex_paths
+                evaluator = StructuredRuleEvaluator(complex_paths=complex_paths)
                 evaluations.extend(evaluator.evaluate_all((rule,), evaluation_values))
             rule_evaluations=tuple(evaluations)
             for evaluation in rule_evaluations:
                 if evaluation.status is RuleStatus.FAIL:
                     issues.append(self._issue("STRUCTURED_RULE_FAILED", "", evaluation.message, rule_id=evaluation.rule_id))
         return BodyValidationResult(tuple(issues),rule_evaluations)
+
+    @staticmethod
+    def _complex_paths(structure_definition: StructureDefinition) -> frozenset[str]:
+        element_paths = tuple(
+            field.path for field in structure_definition.fields
+            if field.kind != "ATTRIBUTE" and field.path != "*"
+        )
+        return frozenset(
+            path
+            for path in element_paths
+            if any(other.startswith(path + "/") for other in element_paths)
+        )
 
     def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
                    user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT,
@@ -153,6 +170,12 @@ class StructuredProcessBodyProvider:
         values = self._flatten(user_values)
         if message_definition.embedded_structures:
             definitions = embedded_structure_definitions or {}
+            if not embedded_structure_id and embedded_values is None:
+                selected_structure_id, _, _, selection_issues = self._select_embedded_payload(
+                    message_definition, structure_definition, values, definitions,
+                )
+                if selected_structure_id is not None and not selection_issues:
+                    embedded_structure_id = selected_structure_id
             if not embedded_structure_id:
                 raise BodyValidationError(
                     code="EMBEDDED_STRUCTURE_SELECTION_REQUIRED",
@@ -442,12 +465,29 @@ class StructuredProcessBodyProvider:
                 if candidate_counts:
                     aligned_counts = candidate_counts
             counts = aligned_counts if aligned_counts is not None else [count]
+            max_counts = counts
+            if aligned_counts is None and isinstance(raw, list) and field.max_occurs is not None:
+                ancestor_path = parent_path
+                while ancestor_path:
+                    ancestor_raw = values.get(ancestor_path)
+                    if isinstance(ancestor_raw, list) and self._positional_slot_count(ancestor_raw) > 1:
+                        candidate_counts = self._aligned_child_counts(
+                            ancestor_raw,
+                            raw,
+                            present,
+                            parent_path=ancestor_path,
+                            values=values,
+                        )
+                        if candidate_counts:
+                            max_counts = candidate_counts
+                        break
+                    ancestor_path = self._parent_path(ancestor_path)
             if parent_present and field.min_occurs is not None:
                 for item_count in counts:
                     if item_count < field.min_occurs:
                         issues.append(self._issue("MIN_OCCURS", field.path, f"Требуется минимум {field.min_occurs} значений, получено {item_count}.", field))
             if field.max_occurs is not None:
-                for item_count in counts:
+                for item_count in max_counts:
                     if item_count > field.max_occurs:
                         issues.append(self._issue("MAX_OCCURS", field.path, f"Допустимо максимум {field.max_occurs} значений, получено {item_count}.", field))
             if present:

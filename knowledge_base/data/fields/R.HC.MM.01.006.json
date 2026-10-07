@@ -1,0 +1,678 @@
+{
+  "fields": [
+    {
+      "datatype": "ccdo:EDocHeaderType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "EDocHeader",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "1",
+        "pdf_page": 440,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:InfEnvelopeCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "EDocHeader/InfEnvelopeCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "1.1",
+        "pdf_page": 440,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:EDocCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "EDocHeader/EDocCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "1.2",
+        "pdf_page": 440,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.3",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "EDocHeader/EDocId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "1.3",
+        "pdf_page": 441,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "EDocHeader/EDocRefId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "1.4",
+        "pdf_page": 441,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "bdt:DateTimeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.5",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "EDocHeader/EDocDateTime",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "1.5",
+        "pdf_page": 441,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:LanguageCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "1.6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "EDocHeader/LanguageCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "1.6",
+        "pdf_page": 441,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ApplicationId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "2",
+        "pdf_page": 442,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "hcsdo:RegistrationNumberIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationNumberId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "3",
+        "pdf_page": 442,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "hccdo:CountryDrugRegistrationDetails",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "4",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "CountryDrugRegistrationDetails",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "4",
+        "pdf_page": 442,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "4.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "CountryDrugRegistrationDetails/UnifiedCountryCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "4.1",
+        "pdf_page": 442,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "4.1.а",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "CountryDrugRegistrationDetails/UnifiedCountryCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "4.1.а",
+        "pdf_page": 443,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "hcsdo:CountryKindCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "4.2",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "CountryDrugRegistrationDetails/CountryKindCode",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "4.2",
+        "pdf_page": 443,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Code2Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "5",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "ApprovalImpossibilityReasonCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "5",
+        "pdf_page": 443,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Text4000Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "NoteText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "6",
+        "pdf_page": 443,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "hccdo:RegistrationDossierDocDetails",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7",
+      "max_occurs": null,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7",
+        "pdf_page": 444,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "bdt:IndicatorType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.1",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "RegistrationDossierDocDetails/RegistrationFileIndicator",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.1",
+        "pdf_page": 444,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Name300Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.10",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/BusinessEntityName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.10",
+        "pdf_page": 447,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "hcsdo:AttributeTextType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.11",
+      "max_occurs": null,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/DrugAttributeEnumText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.11",
+        "pdf_page": 447,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Code10Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.11.а",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/DrugAttributeEnumText/@DrugAttributeKindEnumCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.11.а",
+        "pdf_page": 447,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.11.б",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/DrugAttributeEnumText/@AttributeKindName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.11.б",
+        "pdf_page": 447,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:BinaryTextType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.12",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/DocCopyBinaryText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.12",
+        "pdf_page": 447,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:MediaTypeCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.12.а",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/DocCopyBinaryText/@mediaTypeCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.12.а",
+        "pdf_page": 448,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "ccdo:AnyDetailsType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.13",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/AnyDetails",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.13",
+        "pdf_page": 448,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "ANY_XML",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.13.1",
+      "max_occurs": null,
+      "min_occurs": 1,
+      "path": "RegistrationDossierDocDetails/AnyDetails/*",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.13.1",
+        "pdf_page": 448,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Code10Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.14",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/SubmissionSequenceCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.14",
+        "pdf_page": 448,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Code20Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.15",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/OperationAtributeCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.15",
+        "pdf_page": 448,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.16",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/ActiveSubstanceName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.16",
+        "pdf_page": 448,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.17",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/AuxiliarySubstanceName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.17",
+        "pdf_page": 449,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Name250Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.18",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/DrugProductName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.18",
+        "pdf_page": 449,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Text4000Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.19",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/IndicationText",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.19",
+        "pdf_page": 449,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Id50Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.2",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/DocId",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.2",
+        "pdf_page": 444,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Name300Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.20",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/ManufacturerName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.20",
+        "pdf_page": 449,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.3",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/DocName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.3",
+        "pdf_page": 444,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "hcsdo:DrugRegistrationDocCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.4",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/DrugRegistrationDocCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.4",
+        "pdf_page": 445,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.4.а",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "RegistrationDossierDocDetails/DrugRegistrationDocCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.4.а",
+        "pdf_page": 445,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.5",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/DrugRegistrationDocName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.5",
+        "pdf_page": 445,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "hcsdo:DrugRegistrationFileCodeType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.6",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/DrugRegistrationFileCode",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.6",
+        "pdf_page": 446,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:ReferenceDataIdType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.6.а",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "RegistrationDossierDocDetails/DrugRegistrationFileCode/@codeListId",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.6.а",
+        "pdf_page": 446,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "csdo:Name500Type",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.7",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/DrugRegistrationFileName",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.7",
+        "pdf_page": 446,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.8",
+      "max_occurs": 1,
+      "min_occurs": 1,
+      "path": "RegistrationDossierDocDetails/DocCreationDate",
+      "qname": null,
+      "required": true,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.8",
+        "pdf_page": 446,
+        "table": "22"
+      }
+    },
+    {
+      "datatype": "bdt:DateType",
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "7.9",
+      "max_occurs": 1,
+      "min_occurs": 0,
+      "path": "RegistrationDossierDocDetails/DocValidityDate",
+      "qname": null,
+      "required": false,
+      "source": {
+        "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+        "item": "7.9",
+        "pdf_page": 446,
+        "table": "22"
+      }
+    }
+  ],
+  "schema_version": "1.0",
+  "structure": "R.HC.MM.01.006"
+}

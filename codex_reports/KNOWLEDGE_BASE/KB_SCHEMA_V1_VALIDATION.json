@@ -1,0 +1,132 @@
+{
+  "broken_canonical_relations": 0,
+  "broken_dependency_graph_endpoints": 0,
+  "broken_internal_links": 0,
+  "by_op": {
+    "OP22": {
+      "canonical": 1609,
+      "scope": 1609
+    },
+    "OP23": {
+      "canonical": 710,
+      "scope": 710
+    },
+    "OP26": {
+      "canonical": 239,
+      "scope": 239
+    },
+    "OP32": {
+      "canonical": 170,
+      "scope": 170
+    },
+    "OP49": {
+      "canonical": 166,
+      "scope": 166
+    }
+  },
+  "canonical_requirement_files": 2894,
+  "classifiers_migrated": 10,
+  "dependency_edges": 5797,
+  "dependency_nodes": 6284,
+  "duplicate_canonical_ids": 0,
+  "duplicate_source_item_handling": {
+    "canonical_entities": [
+      "OP26.P_MM_01.P.MM.01.MSG.028.REQ.005",
+      "OP26.P_MM_01.P.MM.01.MSG.028.REQ.005.2"
+    ],
+    "source_item": "5",
+    "source_occurrences": [
+      1,
+      2
+    ],
+    "status": "PASS"
+  },
+  "errors": [],
+  "fields_migrated": 2030,
+  "gaps_with_closure_criteria": 1321,
+  "generated_at": "2026-10-07T12:07:39+03:00",
+  "gui_changed": 0,
+  "messages_migrated": 146,
+  "missing_requirement_files": 0,
+  "op26_gate": {
+    "duplicate_source_item_5_occurrences": [
+      1,
+      2
+    ],
+    "duplicate_source_item_5_rows": 2,
+    "message_002": 87,
+    "message_028": 8,
+    "rows": 239,
+    "source_trace_complete": 239,
+    "status": "PASS",
+    "unique_ids": 239
+  },
+  "op26_source_trace_complete": 239,
+  "op32_atomic_qname_resolved": 0,
+  "op32_atomic_qname_unresolved": 170,
+  "op49_gate": {
+    "message_counts": {
+      "P.DS.01.MSG.001": 35,
+      "P.DS.01.MSG.002": 38,
+      "P.DS.01.MSG.004": 2,
+      "P.DS.01.MSG.005": 54,
+      "P.DS.01.MSG.006": 37
+    },
+    "missing_closure_criteria": 0,
+    "missing_source_text": 0,
+    "missing_source_trace": 0,
+    "rows": 166,
+    "status": "PASS",
+    "strict_implemented_confirmed": 0,
+    "strict_open": 166,
+    "unique_ids": 166
+  },
+  "op49_implemented_confirmed": 0,
+  "op49_open": 166,
+  "op49_source_trace_complete": 166,
+  "open_gaps": 1321,
+  "pilot": {
+    "errors": [],
+    "pilot_ids": {
+      "op22_implemented": "P.SP.02.MSG.001:34:1",
+      "op22_open": "P.SP.02.MSG.001:34:13",
+      "op23_classifier_blocked": "P.SP.03.MSG.001.REQ.004",
+      "op23_inherited": "P.SP.03.MSG.014.REQ.023",
+      "op26": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.001",
+      "op32_unresolved_qname": "OP32.P_MM_06.MSG_001.REQ.001"
+    },
+    "status": "PASS"
+  },
+  "processes_migrated": 5,
+  "production_files_changed": 0,
+  "qname_conflicts": 72,
+  "qnames_resolved": 20,
+  "qnames_unresolved": 196,
+  "reproducibility": {
+    "excluded_timestamped_output": "data/project_state/current.json",
+    "first_fingerprint": "ccd16adcc6cc90c59091fd2d7aac279e585bbd4a6f50e6ff8a31213262dc3294",
+    "second_fingerprint": "ccd16adcc6cc90c59091fd2d7aac279e585bbd4a6f50e6ff8a31213262dc3294",
+    "status": "PASS"
+  },
+  "requirements_canonical": 2894,
+  "requirements_scope": 2894,
+  "schema_version": "1.0",
+  "shared_engine_changed": 0,
+  "stale_sources": 0,
+  "status": "PASS",
+  "structures_migrated": 23,
+  "transactions_migrated": 114,
+  "unexpected_requirement_files": 0,
+  "warning_counts": {
+    "MISSING_CLASSIFIER_PAYLOAD": 10,
+    "MISSING_NAMESPACE": 2894,
+    "MISSING_NEGATIVE_TEST": 2442,
+    "MISSING_PLAIN_LANGUAGE": 2728,
+    "MISSING_POSITIVE_TEST": 2243,
+    "MISSING_QNAME": 2894,
+    "MISSING_RUNTIME_PROOF": 1898,
+    "MISSING_STRUCTURE_NAMESPACE": 3,
+    "MISSING_STRUCTURE_QNAME": 3
+  },
+  "warnings": 15115
+}

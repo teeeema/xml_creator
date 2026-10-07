@@ -24,7 +24,122 @@
       ]
     }
   ],
-  "structured_rules": [],
+  "structured_rules": [
+    {
+      "kind": "presence",
+      "target": "csdo:UpdateDateTime",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.03.MSG.016.REQ.001.update_datetime",
+      "applies_to_structure": "R.IP.SP.03.007",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.016-1",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.016",
+          "status": "CONFIRMED",
+          "page": 399,
+          "table": "23",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "csdo:UnifiedCountryCode",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.03.MSG.016.REQ.001.country_code",
+      "applies_to_structure": "R.IP.SP.03.007",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.016-1",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.016",
+          "status": "CONFIRMED",
+          "page": 399,
+          "table": "23",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "ipsdo:ApellationOfOriginEAEUId",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.03.MSG.016.REQ.001.eaeu_id",
+      "applies_to_structure": "R.IP.SP.03.007",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.016-1",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.016",
+          "status": "CONFIRMED",
+          "page": 399,
+          "table": "23",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "ipsdo:ApellationOfOriginEAEUCertificateId",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.03.MSG.016.REQ.001.certificate_id",
+      "applies_to_structure": "R.IP.SP.03.007",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.016-1",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.016",
+          "status": "CONFIRMED",
+          "page": 399,
+          "table": "23",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "ipsdo:ApellationOfOriginApplicationId",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.03.MSG.016.REQ.001.application_id",
+      "applies_to_structure": "R.IP.SP.03.007",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.016-1",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.016",
+          "status": "CONFIRMED",
+          "page": 399,
+          "table": "23",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "1"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "target": "ipcdo:AccompanyingDocumentsDetails",
+      "state": "FORBIDDEN",
+      "rule_id": "P.SP.03.MSG.016.REQ.001.accompanying_document",
+      "applies_to_structure": "R.IP.SP.03.007",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.016-1",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 23. Требования к электронному документу (сведениям) P.SP.03.MSG.016",
+          "status": "CONFIRMED",
+          "page": 399,
+          "table": "23",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "1"
+        }
+      ]
+    }
+  ],
   "correlation_rules": [],
   "classifier_refs": [],
   "source_text": null,

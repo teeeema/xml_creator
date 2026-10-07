@@ -1,0 +1,141 @@
+{
+  "dependencies": {
+    "imports": [
+      {
+        "local_source_found": "YES_REFERENCE_ONLY",
+        "local_source_path": "/Users/tema/Documents/Work/Документы_xml/32_ОП.pdf",
+        "namespace": "urn:EEC:M:ComplexDataObjects:vX.X.X",
+        "notes": "32_ОП.pdf explicitly leaves the imported model version as a placeholder. Cross-search of all 7 local normative PDFs found only X.X.X/Z.Z.Z-style placeholders and no concrete vN.N.N model namespace. No XSD/archive was found.",
+        "owner_structure": "R.HC.MM.06.004",
+        "owner_version": "1.1.0",
+        "referenced_structure_or_type": "ccdo: base complex data model",
+        "resolution_status": "UNRESOLVED_PLACEHOLDER_ONLY",
+        "resolved_version": "",
+        "source_page": "202",
+        "source_table": "Table 18",
+        "version_as_written": "X.X.X",
+        "version_required": "Concrete model version used when the technical XSD was built"
+      },
+      {
+        "local_source_found": "YES_REFERENCE_ONLY",
+        "local_source_path": "/Users/tema/Documents/Work/Документы_xml/32_ОП.pdf",
+        "namespace": "urn:EEC:M:HC:ComplexDataObjects:vZ.Z.Z",
+        "notes": "32_ОП.pdf explicitly leaves the imported model version as a placeholder. Cross-search of all 7 local normative PDFs found only X.X.X/Z.Z.Z-style placeholders and no concrete vN.N.N model namespace. No XSD/archive was found.",
+        "owner_structure": "R.HC.MM.06.004",
+        "owner_version": "1.1.0",
+        "referenced_structure_or_type": "hccdo: healthcare complex data model",
+        "resolution_status": "UNRESOLVED_PLACEHOLDER_ONLY",
+        "resolved_version": "",
+        "source_page": "202",
+        "source_table": "Table 18",
+        "version_as_written": "Z.Z.Z",
+        "version_required": "Concrete model version used when the technical XSD was built"
+      },
+      {
+        "local_source_found": "YES_REFERENCE_ONLY",
+        "local_source_path": "/Users/tema/Documents/Work/Документы_xml/32_ОП.pdf",
+        "namespace": "urn:EEC:M:HC:SimpleDataObjects:vZ.Z.Z",
+        "notes": "32_ОП.pdf explicitly leaves the imported model version as a placeholder. Cross-search of all 7 local normative PDFs found only X.X.X/Z.Z.Z-style placeholders and no concrete vN.N.N model namespace. No XSD/archive was found.",
+        "owner_structure": "R.HC.MM.06.004",
+        "owner_version": "1.1.0",
+        "referenced_structure_or_type": "hcsdo: healthcare simple data model",
+        "resolution_status": "UNRESOLVED_PLACEHOLDER_ONLY",
+        "resolved_version": "",
+        "source_page": "202",
+        "source_table": "Table 18",
+        "version_as_written": "Z.Z.Z",
+        "version_required": "Concrete model version used when the technical XSD was built"
+      },
+      {
+        "local_source_found": "YES_REFERENCE_ONLY",
+        "local_source_path": "/Users/tema/Documents/Work/Документы_xml/32_ОП.pdf",
+        "namespace": "urn:EEC:M:SimpleDataObjects:vX.X.X",
+        "notes": "32_ОП.pdf explicitly leaves the imported model version as a placeholder. Cross-search of all 7 local normative PDFs found only X.X.X/Z.Z.Z-style placeholders and no concrete vN.N.N model namespace. No XSD/archive was found.",
+        "owner_structure": "R.HC.MM.06.004",
+        "owner_version": "1.1.0",
+        "referenced_structure_or_type": "csdo: base simple data model",
+        "resolution_status": "UNRESOLVED_PLACEHOLDER_ONLY",
+        "resolved_version": "",
+        "source_page": "202",
+        "source_table": "Table 18",
+        "version_as_written": "X.X.X",
+        "version_required": "Concrete model version used when the technical XSD was built"
+      }
+    ]
+  },
+  "evidence": {
+    "root_qname": "CONFIRMED_STRUCTURE_SOURCE_REF",
+    "xsd_status": "DECLARED_FILENAME_PAYLOAD_MISSING"
+  },
+  "field_index": {
+    "count": 0,
+    "path": "data/fields/R.HC.MM.06.004.json"
+  },
+  "identity": {
+    "structure": "R.HC.MM.06.004",
+    "versions": [
+      "1.1.0"
+    ]
+  },
+  "known_gaps": [
+    "MISSING_XSD_PAYLOAD"
+  ],
+  "root": {
+    "clark_name": "{urn:EEC:R:HC:MM:06:MedicalProductRegistrationNumberRequestDetails:v1.1.0}MedicalProductRegistrationNumberRequestDetails",
+    "local_name": "MedicalProductRegistrationNumberRequestDetails",
+    "namespace": "urn:EEC:R:HC:MM:06:MedicalProductRegistrationNumberRequestDetails:v1.1.0",
+    "status": "CONFIRMED"
+  },
+  "schema_version": "1.0",
+  "source": {
+    "primary": {
+      "document": "32_ОП.pdf",
+      "item": "P.MM.06.MSG.012",
+      "location": "Перечень сообщений общего процесса",
+      "page": 95,
+      "source_id": "32OP-MSG-012",
+      "status": "CONFIRMED"
+    },
+    "source_refs": [
+      {
+        "document": "32_ОП.pdf",
+        "item": "P.MM.06.MSG.012",
+        "location": "Перечень сообщений общего процесса",
+        "page": 95,
+        "source_id": "32OP-MSG-012",
+        "status": "CONFIRMED"
+      },
+      {
+        "document": "32_ОП.pdf",
+        "item": "P.MM.06.MSG.013",
+        "location": "Перечень сообщений общего процесса",
+        "page": 95,
+        "source_id": "32OP-MSG-013",
+        "status": "CONFIRMED"
+      },
+      {
+        "document": "32_ОП.pdf",
+        "location": "Structure metadata reference; field model intentionally deferred",
+        "source_id": "32OP-STRUCT-R-HC-MM-06-004",
+        "status": "CONFIRMED"
+      }
+    ]
+  },
+  "usage": {
+    "messages": [
+      "P.MM.06.MSG.012",
+      "P.MM.06.MSG.013"
+    ],
+    "requirements": [
+      "OP32.P_MM_06.MSG_012.REQ.001",
+      "OP32.P_MM_06.MSG_012.REQ.002"
+    ]
+  },
+  "xsd": {
+    "declared_filename": "EEC_R_HC_MM_06_MedicalProductRegistrationNumberRequestDetails_v1.1.0.xsd",
+    "declared_filenames": [
+      "EEC_R_HC_MM_06_MedicalProductRegistrationNumberRequestDetails_v1.1.0.xsd"
+    ],
+    "local_payload": false
+  }
+}

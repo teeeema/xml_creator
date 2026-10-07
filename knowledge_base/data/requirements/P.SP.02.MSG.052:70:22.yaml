@@ -1,0 +1,144 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.IP.SP.02.007"
+    ]
+  },
+  "fields": [],
+  "gap": {
+    "category": null,
+    "closure_criteria": [],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [],
+    "reason": "Current verified delivery snapshot counts this requirement within executable coverage.",
+    "required_action": [],
+    "status": "CLOSED"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "P.SP.02.MSG.052:70:22",
+    "message": "P.SP.02.MSG.052",
+    "op": "OP22",
+    "procedure": "P.SP.02.PRC.029",
+    "process": "P.SP.02",
+    "requirement": "22",
+    "source_occurrence": 1,
+    "source_requirement_number": "22",
+    "transaction": "P.SP.02.TRN.047"
+  },
+  "implementation": {
+    "engine_capabilities": [],
+    "production_files": [
+      "P.SP.02_OP_22/message_rules/P.SP.02.MSG.052.yaml"
+    ],
+    "production_rules": [
+      "P.SP.02.MSG.052.T70.REQ.22.CANCEL; P.SP.02.MSG.052.T70.REQ.22.NEW"
+    ],
+    "status": "IMPLEMENTED_CONFIRMED"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "в составе экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения об аннулировании регистрации ТЗ Союза, реквизит «Конечная дата и время» (csdo:EndDateTime) должен быть заполнен, и значение этого реквизита должно быть больше значения реквизита «Начальная дата и время» (csdo:StartDateTime) в составе этого же экземпляра «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails) и меньше значения реквизита «Начальная дата и время» (csdo:StartDateTime) в составе экземпляра реквизита «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), содержащего сведения о регистрации нового ТЗ Союза"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "Current executable coverage in FINAL_DELIVERY_AUDIT; this is not individual positive/negative certification.",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [
+      {
+        "files": [
+          "P.SP.02_OP_22/message_rules/P.SP.02.MSG.052.yaml"
+        ],
+        "level": "CONFIRMED_PRODUCTION",
+        "rules": [
+          "P.SP.02.MSG.052.T70.REQ.22.CANCEL; P.SP.02.MSG.052.T70.REQ.22.NEW"
+        ]
+      }
+    ],
+    "normative": [
+      {
+        "item": "22",
+        "level": "CONFIRMED_PDF_SOURCE_REF",
+        "occurrence": 1,
+        "pdf_page": 795,
+        "section": null,
+        "source": "ОП_22.pdf",
+        "table": "70"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[after_new-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[after_new-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[equal_new-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[equal_new-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[equal_start-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[equal_start-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[invalid-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[invalid-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[missing_end-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[missing_end-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[valid-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[valid-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[wrong_date_qname-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[wrong_date_qname-NEW_CANCEL]"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "ОП_22.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF_SOURCE_REF",
+      "source_page_ref": "sources/OP22_P_SP_02/pages/page_795.md"
+    },
+    "item": "22",
+    "occurrence": 1,
+    "pdf_page": 795,
+    "printed_page": 216,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/ОП_22.pdf",
+    "table": "70"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": null,
+      "namespace": null,
+      "raw": "csdo:EndDateTime; csdo:StartDateTime; csdo:StatusCode; ipcdo:UnifiedRegisterRecordsDetails",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.IP.SP.02.007",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:IP:SP:02:TrademarkRegisterDetails:v1.0.0}TrademarkRegisterDetails",
+      "local_name": "TrademarkRegisterDetails",
+      "namespace": "urn:EEC:R:IP:SP:02:TrademarkRegisterDetails:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "ipcdo:UnifiedRegisterRecordsDetails; ipcdo:UnifiedRegisterRecordsDetails/ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:EndDateTime; ipcdo:UnifiedRegisterRecordsDetails/ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:StartDateTime; ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/csdo:StatusCode"
+  },
+  "verification": {
+    "negative_test": {
+      "status": "PRESENT",
+      "test": "P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[after_new-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[after_new-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[equal_new-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[equal_new-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[equal_start-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[equal_start-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[invalid-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[invalid-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[missing_end-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[missing_end-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[wrong_date_qname-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[wrong_date_qname-NEW_CANCEL]"
+    },
+    "positive_test": {
+      "status": "PRESENT",
+      "test": "P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[valid-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[valid-NEW_CANCEL]"
+    },
+    "real_xml": {
+      "status": "PRESENT"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[after_new-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[after_new-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[equal_new-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[equal_new-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[equal_start-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[equal_start-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[invalid-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[invalid-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[missing_end-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[missing_end-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[valid-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[valid-NEW_CANCEL]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[wrong_date_qname-CANCEL_NEW]; P.SP.02_OP_22/tests/test_fix_now_code_msg052_xml.py::test_msg052_production_date_and_equality[wrong_date_qname-NEW_CANCEL]"
+    }
+  }
+}

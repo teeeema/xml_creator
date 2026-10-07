@@ -1,0 +1,263 @@
+{
+  "dependencies": {
+    "imports": [
+      {
+        "local_source_found": "YES_REFERENCE_ONLY",
+        "local_source_path": "/Users/tema/Documents/Work/Документы_xml/32_ОП.pdf",
+        "namespace": "urn:EEC:M:ComplexDataObjects:vX.X.X",
+        "notes": "32_ОП.pdf explicitly leaves the imported model version as a placeholder. Cross-search of all 7 local normative PDFs found only X.X.X/Z.Z.Z-style placeholders and no concrete vN.N.N model namespace. No XSD/archive was found.",
+        "owner_structure": "R.HC.MM.06.001",
+        "owner_version": "1.1.0",
+        "referenced_structure_or_type": "ccdo: base complex data model",
+        "resolution_status": "UNRESOLVED_PLACEHOLDER_ONLY",
+        "resolved_version": "",
+        "source_page": "168",
+        "source_table": "Table 9",
+        "version_as_written": "X.X.X",
+        "version_required": "Concrete model version used when the technical XSD was built"
+      },
+      {
+        "local_source_found": "YES_REFERENCE_ONLY",
+        "local_source_path": "/Users/tema/Documents/Work/Документы_xml/32_ОП.pdf",
+        "namespace": "urn:EEC:M:HC:ComplexDataObjects:vZ.Z.Z",
+        "notes": "32_ОП.pdf explicitly leaves the imported model version as a placeholder. Cross-search of all 7 local normative PDFs found only X.X.X/Z.Z.Z-style placeholders and no concrete vN.N.N model namespace. No XSD/archive was found.",
+        "owner_structure": "R.HC.MM.06.001",
+        "owner_version": "1.1.0",
+        "referenced_structure_or_type": "hccdo: healthcare complex data model",
+        "resolution_status": "UNRESOLVED_PLACEHOLDER_ONLY",
+        "resolved_version": "",
+        "source_page": "168",
+        "source_table": "Table 9",
+        "version_as_written": "Z.Z.Z",
+        "version_required": "Concrete model version used when the technical XSD was built"
+      },
+      {
+        "local_source_found": "YES_REFERENCE_ONLY",
+        "local_source_path": "/Users/tema/Documents/Work/Документы_xml/32_ОП.pdf",
+        "namespace": "urn:EEC:M:HC:SimpleDataObjects:vZ.Z.Z",
+        "notes": "32_ОП.pdf explicitly leaves the imported model version as a placeholder. Cross-search of all 7 local normative PDFs found only X.X.X/Z.Z.Z-style placeholders and no concrete vN.N.N model namespace. No XSD/archive was found.",
+        "owner_structure": "R.HC.MM.06.001",
+        "owner_version": "1.1.0",
+        "referenced_structure_or_type": "hcsdo: healthcare simple data model",
+        "resolution_status": "UNRESOLVED_PLACEHOLDER_ONLY",
+        "resolved_version": "",
+        "source_page": "168",
+        "source_table": "Table 9",
+        "version_as_written": "Z.Z.Z",
+        "version_required": "Concrete model version used when the technical XSD was built"
+      },
+      {
+        "local_source_found": "YES_REFERENCE_ONLY",
+        "local_source_path": "/Users/tema/Documents/Work/Документы_xml/32_ОП.pdf",
+        "namespace": "urn:EEC:M:SimpleDataObjects:vX.X.X",
+        "notes": "32_ОП.pdf explicitly leaves the imported model version as a placeholder. Cross-search of all 7 local normative PDFs found only X.X.X/Z.Z.Z-style placeholders and no concrete vN.N.N model namespace. No XSD/archive was found.",
+        "owner_structure": "R.HC.MM.06.001",
+        "owner_version": "1.1.0",
+        "referenced_structure_or_type": "csdo: base simple data model",
+        "resolution_status": "UNRESOLVED_PLACEHOLDER_ONLY",
+        "resolved_version": "",
+        "source_page": "168",
+        "source_table": "Table 9",
+        "version_as_written": "X.X.X",
+        "version_required": "Concrete model version used when the technical XSD was built"
+      }
+    ]
+  },
+  "evidence": {
+    "root_qname": "CONFIRMED_STRUCTURE_SOURCE_REF",
+    "xsd_status": "DECLARED_FILENAME_PAYLOAD_MISSING"
+  },
+  "field_index": {
+    "count": 0,
+    "path": "data/fields/R.HC.MM.06.001.json"
+  },
+  "identity": {
+    "structure": "R.HC.MM.06.001",
+    "versions": [
+      "1.1.0"
+    ]
+  },
+  "known_gaps": [
+    "MISSING_XSD_PAYLOAD"
+  ],
+  "root": {
+    "clark_name": "{urn:EEC:R:HC:MM:06:MedicalProductRegistrationDetails:v1.1.0}MedicalProductRegistrationDetails",
+    "local_name": "MedicalProductRegistrationDetails",
+    "namespace": "urn:EEC:R:HC:MM:06:MedicalProductRegistrationDetails:v1.1.0",
+    "status": "CONFIRMED"
+  },
+  "schema_version": "1.0",
+  "source": {
+    "primary": {
+      "document": "32_ОП.pdf",
+      "item": "P.MM.06.MSG.001",
+      "location": "Перечень сообщений общего процесса",
+      "page": 95,
+      "source_id": "32OP-MSG-001",
+      "status": "CONFIRMED"
+    },
+    "source_refs": [
+      {
+        "document": "32_ОП.pdf",
+        "item": "P.MM.06.MSG.001",
+        "location": "Перечень сообщений общего процесса",
+        "page": 95,
+        "source_id": "32OP-MSG-001",
+        "status": "CONFIRMED"
+      },
+      {
+        "document": "32_ОП.pdf",
+        "item": "P.MM.06.MSG.002",
+        "location": "Перечень сообщений общего процесса",
+        "page": 95,
+        "source_id": "32OP-MSG-002",
+        "status": "CONFIRMED"
+      },
+      {
+        "document": "32_ОП.pdf",
+        "item": "P.MM.06.MSG.003",
+        "location": "Перечень сообщений общего процесса",
+        "page": 95,
+        "source_id": "32OP-MSG-003",
+        "status": "CONFIRMED"
+      },
+      {
+        "document": "32_ОП.pdf",
+        "item": "P.MM.06.MSG.008",
+        "location": "Перечень сообщений общего процесса",
+        "page": 95,
+        "source_id": "32OP-MSG-008",
+        "status": "CONFIRMED"
+      },
+      {
+        "document": "32_ОП.pdf",
+        "item": "P.MM.06.MSG.011",
+        "location": "Перечень сообщений общего процесса",
+        "page": 95,
+        "source_id": "32OP-MSG-011",
+        "status": "CONFIRMED"
+      },
+      {
+        "document": "32_ОП.pdf",
+        "item": "P.MM.06.MSG.017",
+        "location": "Перечень сообщений общего процесса",
+        "page": 130,
+        "source_id": "32OP-MSG-017",
+        "status": "CONFIRMED"
+      },
+      {
+        "document": "32_ОП.pdf",
+        "location": "Structure metadata reference; field model intentionally deferred",
+        "source_id": "32OP-STRUCT-R-HC-MM-06-001",
+        "status": "CONFIRMED"
+      }
+    ]
+  },
+  "usage": {
+    "messages": [
+      "P.MM.06.MSG.001",
+      "P.MM.06.MSG.002",
+      "P.MM.06.MSG.003",
+      "P.MM.06.MSG.008",
+      "P.MM.06.MSG.011",
+      "P.MM.06.MSG.017"
+    ],
+    "requirements": [
+      "OP32.P_MM_06.MSG_001.REQ.001",
+      "OP32.P_MM_06.MSG_001.REQ.002",
+      "OP32.P_MM_06.MSG_001.REQ.003",
+      "OP32.P_MM_06.MSG_001.REQ.004",
+      "OP32.P_MM_06.MSG_001.REQ.005",
+      "OP32.P_MM_06.MSG_001.REQ.006",
+      "OP32.P_MM_06.MSG_001.REQ.007",
+      "OP32.P_MM_06.MSG_001.REQ.008",
+      "OP32.P_MM_06.MSG_001.REQ.009",
+      "OP32.P_MM_06.MSG_001.REQ.010",
+      "OP32.P_MM_06.MSG_001.REQ.011",
+      "OP32.P_MM_06.MSG_001.REQ.012",
+      "OP32.P_MM_06.MSG_001.REQ.013",
+      "OP32.P_MM_06.MSG_001.REQ.014",
+      "OP32.P_MM_06.MSG_001.REQ.015",
+      "OP32.P_MM_06.MSG_001.REQ.016",
+      "OP32.P_MM_06.MSG_001.REQ.017",
+      "OP32.P_MM_06.MSG_001.REQ.018",
+      "OP32.P_MM_06.MSG_001.REQ.019",
+      "OP32.P_MM_06.MSG_001.REQ.020",
+      "OP32.P_MM_06.MSG_001.REQ.021",
+      "OP32.P_MM_06.MSG_001.REQ.022",
+      "OP32.P_MM_06.MSG_001.REQ.023",
+      "OP32.P_MM_06.MSG_001.REQ.024",
+      "OP32.P_MM_06.MSG_001.REQ.025",
+      "OP32.P_MM_06.MSG_001.REQ.026",
+      "OP32.P_MM_06.MSG_002.REQ.001",
+      "OP32.P_MM_06.MSG_002.REQ.002",
+      "OP32.P_MM_06.MSG_002.REQ.003",
+      "OP32.P_MM_06.MSG_002.REQ.004",
+      "OP32.P_MM_06.MSG_002.REQ.005",
+      "OP32.P_MM_06.MSG_002.REQ.006",
+      "OP32.P_MM_06.MSG_002.REQ.007",
+      "OP32.P_MM_06.MSG_002.REQ.008",
+      "OP32.P_MM_06.MSG_002.REQ.009",
+      "OP32.P_MM_06.MSG_002.REQ.010",
+      "OP32.P_MM_06.MSG_002.REQ.011",
+      "OP32.P_MM_06.MSG_002.REQ.012",
+      "OP32.P_MM_06.MSG_002.REQ.013",
+      "OP32.P_MM_06.MSG_002.REQ.014",
+      "OP32.P_MM_06.MSG_002.REQ.015",
+      "OP32.P_MM_06.MSG_002.REQ.016",
+      "OP32.P_MM_06.MSG_002.REQ.017",
+      "OP32.P_MM_06.MSG_002.REQ.018",
+      "OP32.P_MM_06.MSG_002.REQ.019",
+      "OP32.P_MM_06.MSG_002.REQ.020",
+      "OP32.P_MM_06.MSG_002.REQ.021",
+      "OP32.P_MM_06.MSG_002.REQ.022",
+      "OP32.P_MM_06.MSG_002.REQ.023",
+      "OP32.P_MM_06.MSG_002.REQ.024",
+      "OP32.P_MM_06.MSG_002.REQ.025",
+      "OP32.P_MM_06.MSG_002.REQ.026",
+      "OP32.P_MM_06.MSG_002.REQ.027",
+      "OP32.P_MM_06.MSG_002.REQ.028",
+      "OP32.P_MM_06.MSG_002.REQ.029",
+      "OP32.P_MM_06.MSG_002.REQ.030",
+      "OP32.P_MM_06.MSG_002.REQ.031",
+      "OP32.P_MM_06.MSG_002.REQ.032",
+      "OP32.P_MM_06.MSG_002.REQ.033",
+      "OP32.P_MM_06.MSG_002.REQ.034",
+      "OP32.P_MM_06.MSG_002.REQ.035",
+      "OP32.P_MM_06.MSG_002.REQ.036",
+      "OP32.P_MM_06.MSG_002.REQ.037",
+      "OP32.P_MM_06.MSG_002.REQ.038",
+      "OP32.P_MM_06.MSG_002.REQ.039",
+      "OP32.P_MM_06.MSG_002.REQ.040",
+      "OP32.P_MM_06.MSG_002.REQ.041",
+      "OP32.P_MM_06.MSG_002.REQ.042",
+      "OP32.P_MM_06.MSG_002.REQ.043",
+      "OP32.P_MM_06.MSG_002.REQ.044",
+      "OP32.P_MM_06.MSG_002.REQ.045",
+      "OP32.P_MM_06.MSG_002.REQ.046",
+      "OP32.P_MM_06.MSG_002.REQ.047",
+      "OP32.P_MM_06.MSG_002.REQ.048",
+      "OP32.P_MM_06.MSG_002.REQ.049",
+      "OP32.P_MM_06.MSG_002.REQ.050",
+      "OP32.P_MM_06.MSG_002.REQ.051",
+      "OP32.P_MM_06.MSG_002.REQ.052",
+      "OP32.P_MM_06.MSG_003.REQ.001",
+      "OP32.P_MM_06.MSG_003.REQ.002",
+      "OP32.P_MM_06.MSG_003.REQ.003",
+      "OP32.P_MM_06.MSG_003.REQ.004",
+      "OP32.P_MM_06.MSG_003.REQ.005",
+      "OP32.P_MM_06.MSG_003.REQ.006",
+      "OP32.P_MM_06.MSG_003.REQ.007",
+      "OP32.P_MM_06.MSG_003.REQ.008",
+      "OP32.P_MM_06.MSG_003.REQ.009",
+      "OP32.P_MM_06.MSG_003.REQ.010"
+    ]
+  },
+  "xsd": {
+    "declared_filename": "EEC_R_HC_MM_06_MedicalProductRegistrationDetails_v1.1.0.xsd",
+    "declared_filenames": [
+      "EEC_R_HC_MM_06_MedicalProductRegistrationDetails_v1.1.0.xsd"
+    ],
+    "local_payload": false
+  }
+}

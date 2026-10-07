@@ -6,6 +6,7 @@ from xml.etree import ElementTree as ET
 
 import pytest
 
+from eaeu_xml.application import EaeuXmlApplication
 from eaeu_xml.core.errors import BodyValidationError
 from eaeu_xml.process_packages.body import GenerationMode
 from eaeu_xml.process_packages.engine import EaeuXmlEngine
@@ -14,7 +15,7 @@ from eaeu_xml.process_packages.rules_engine import RuleStatus
 
 FIXTURE = Path(__file__).parent / "fixtures/P.TEST.01"
 MESSAGE = "P.TS.01.MSG.001"
-ROOT = "R.TEST.CONTAINER"
+ROOT = "R.010"
 EMBEDDED_A = "R.TEST.EMBEDDED.A"
 EMBEDDED_B = "R.TEST.EMBEDDED.B"
 
@@ -64,60 +65,72 @@ def _field(field_id: str, order: int, path: str, xml_name: str, *, kind="ELEMENT
     }
 
 
+def _prepare_one_of_package(temporary: str) -> Path:
+    target = Path(temporary) / "P.TEST.ONEOF"
+    shutil.copytree(FIXTURE, target)
+
+    messages_path = target / "messages.yaml"
+    messages = json.loads(messages_path.read_text(encoding="utf-8"))
+    messages["messages"][0].update({
+        "structure_id": ROOT,
+        "embedded_structures": {"selection": "ONE_OF", "structures": [EMBEDDED_A, EMBEDDED_B]},
+    })
+    messages_path.write_text(json.dumps(messages), encoding="utf-8")
+
+    profile_path = target / "version_profiles/current.yaml"
+    profile = json.loads(profile_path.read_text(encoding="utf-8"))
+    profile["structures"].update({
+        ROOT: {"active_version": "1.0.0"},
+        EMBEDDED_A: {"active_version": "1.0.0"},
+        EMBEDDED_B: {"active_version": "1.0.0"},
+    })
+    profile_path.write_text(json.dumps(profile), encoding="utf-8")
+
+    root = _structure(ROOT, "urn:test:container", "Container", [
+        _field("1", 1, "Header", "Header"),
+        _field("2", 2, "*", "*", kind="ANY", datatype="xs:any"),
+    ])
+    embedded_a = _structure(EMBEDDED_A, "urn:test:embedded:a", "PayloadA", [
+        _field("1", 1, "Value", "Value"),
+    ])
+    embedded_b = _structure(EMBEDDED_B, "urn:test:embedded:b", "PayloadB", [
+        _field("1", 1, "Value", "Value"),
+    ])
+    for definition in (root, embedded_a, embedded_b):
+        path = target / "structures" / definition["structure_id"] / "1.0.0.yaml"
+        path.parent.mkdir(parents=True)
+        path.write_text(json.dumps(definition), encoding="utf-8")
+
+    rules_path = target / f"message_rules/{MESSAGE}.yaml"
+    rules = json.loads(rules_path.read_text(encoding="utf-8"))
+    rules.update({
+        "structure_id": ROOT,
+        "fixed_values": {},
+        "field_usage": {},
+        "structured_rules": [
+            {"rule_id": "A_ONLY", "kind": "fixed_value", "target": "Value", "value": "A",
+             "applies_to_structure": EMBEDDED_A},
+            {"rule_id": "B_ONLY", "kind": "fixed_value", "target": "Value", "value": "B",
+             "applies_to_structure": EMBEDDED_B},
+            {"rule_id": "UNSCOPED", "kind": "presence", "target": "Header", "state": "REQUIRED"},
+        ],
+    })
+    rules_path.write_text(json.dumps(rules), encoding="utf-8")
+    return target
+
+
 @pytest.fixture
 def one_of_engine():
     with TemporaryDirectory() as temporary:
-        target = Path(temporary) / "P.TEST.ONEOF"
-        shutil.copytree(FIXTURE, target)
-
-        messages_path = target / "messages.yaml"
-        messages = json.loads(messages_path.read_text(encoding="utf-8"))
-        messages["messages"][0].update({
-            "structure_id": ROOT,
-            "embedded_structures": {"selection": "ONE_OF", "structures": [EMBEDDED_A, EMBEDDED_B]},
-        })
-        messages_path.write_text(json.dumps(messages), encoding="utf-8")
-
-        profile_path = target / "version_profiles/current.yaml"
-        profile = json.loads(profile_path.read_text(encoding="utf-8"))
-        profile["structures"].update({
-            ROOT: {"active_version": "1.0.0"},
-            EMBEDDED_A: {"active_version": "1.0.0"},
-            EMBEDDED_B: {"active_version": "1.0.0"},
-        })
-        profile_path.write_text(json.dumps(profile), encoding="utf-8")
-
-        root = _structure(ROOT, "urn:test:container", "Container", [
-            _field("1", 1, "Header", "Header"),
-            _field("2", 2, "*", "*", kind="ANY", datatype="xs:any"),
-        ])
-        embedded_a = _structure(EMBEDDED_A, "urn:test:embedded:a", "PayloadA", [
-            _field("1", 1, "Value", "Value"),
-        ])
-        embedded_b = _structure(EMBEDDED_B, "urn:test:embedded:b", "PayloadB", [
-            _field("1", 1, "Value", "Value"),
-        ])
-        for definition in (root, embedded_a, embedded_b):
-            path = target / "structures" / definition["structure_id"] / "1.0.0.yaml"
-            path.parent.mkdir(parents=True)
-            path.write_text(json.dumps(definition), encoding="utf-8")
-
-        rules_path = target / f"message_rules/{MESSAGE}.yaml"
-        rules = json.loads(rules_path.read_text(encoding="utf-8"))
-        rules.update({
-            "structure_id": ROOT,
-            "fixed_values": {},
-            "field_usage": {},
-            "structured_rules": [
-                {"rule_id": "A_ONLY", "kind": "fixed_value", "target": "Value", "value": "A",
-                 "applies_to_structure": EMBEDDED_A},
-                {"rule_id": "B_ONLY", "kind": "fixed_value", "target": "Value", "value": "B",
-                 "applies_to_structure": EMBEDDED_B},
-                {"rule_id": "UNSCOPED", "kind": "presence", "target": "Header", "state": "REQUIRED"},
-            ],
-        })
-        rules_path.write_text(json.dumps(rules), encoding="utf-8")
+        target = _prepare_one_of_package(temporary)
         yield EaeuXmlEngine.load_process(target)
+
+
+@pytest.fixture
+def one_of_application():
+    with TemporaryDirectory() as temporary:
+        target = _prepare_one_of_package(temporary)
+        yield EaeuXmlApplication(target.parent)
 
 
 def _payload(namespace: str, root: str, value: str | None = None):
@@ -141,6 +154,35 @@ def test_one_of_build_serialize_and_validate(one_of_engine, structure_id, expect
     assert embedded.tag == expected_root
     result = one_of_engine.validate_body(MESSAGE, {"Header": "H", "*": embedded}, mode=GenerationMode.TEST)
     assert result.is_valid
+
+
+@pytest.mark.parametrize("data_mode", ["test", "required"])
+def test_r010_one_of_form_data_materializes_one_valid_embedded_root(one_of_application, data_mode):
+    app = one_of_application
+    transaction = "P.TS.01.TRN.001"
+    values = (
+        app.generate_test_data("P.TS.01", transaction, MESSAGE)
+        if data_mode == "test"
+        else app.generate_required_data("P.TS.01", transaction, MESSAGE)
+    )
+
+    payload = values["*"]
+    assert payload != "TEST"
+    assert isinstance(payload, ET.Element)
+    assert payload.tag == "{urn:test:embedded:a}PayloadA"
+    assert len([item for item in (payload,) if isinstance(item, ET.Element)]) == 1
+    assert payload.find("{urn:test:embedded:a}Value").text == "A"
+
+    validation = app.validate("P.TS.01", transaction, MESSAGE, values, mode=GenerationMode.TEST)
+    assert validation.is_valid, [(item.code, item.rule_id) for item in validation.errors]
+    assert "DATATYPE_INVALID" not in {item.code for item in validation.errors}
+    assert "EMBEDDED_STRUCTURE_CARDINALITY" not in {item.code for item in validation.errors}
+
+    body = app._engine("P.TS.01").build_body(MESSAGE, values, mode=GenerationMode.TEST)
+    serialized = ET.tostring(body.serialize_xml_element(), encoding="utf-8")
+    parsed = ET.fromstring(serialized)
+    assert parsed.tag == "{urn:test:container}Container"
+    assert list(parsed)[-1].tag == "{urn:test:embedded:a}PayloadA"
 
 
 def test_one_of_requires_explicit_build_selection(one_of_engine):

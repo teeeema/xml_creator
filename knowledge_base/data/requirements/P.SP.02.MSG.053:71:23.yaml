@@ -1,0 +1,144 @@
+{
+  "dependencies": {
+    "classifiers": [],
+    "external_registries": [],
+    "recorded": [],
+    "requirements": [],
+    "structures": [
+      "R.IP.SP.02.007"
+    ]
+  },
+  "fields": [
+    {
+      "evidence": "CONFIRMED_PDF_SOURCE_REF",
+      "field_id": "2.9",
+      "path": "ipcdo:UnifiedRegisterRecordsDetails/csdo:DocValidityDate"
+    }
+  ],
+  "gap": {
+    "category": "EXTERNAL_REGISTRY",
+    "closure_criteria": [
+      "Authoritative external-registry contract/data source is available and the requirement is validated against the confirmed external behavior."
+    ],
+    "do_not_do": [],
+    "evidence_status": "RECORDED",
+    "missing": [
+      "Full condition needs external/current or previous registry/resource state unavailable in message XML."
+    ],
+    "reason": "OPEN_EXTERNAL_REGISTRY",
+    "required_action": [
+      "Preserve open remainder; no code correction is authorized in this report-only task."
+    ],
+    "status": "OPEN"
+  },
+  "identity": {
+    "canonical_disambiguator": null,
+    "canonical_id": "P.SP.02.MSG.053:71:23",
+    "message": "P.SP.02.MSG.053",
+    "op": "OP22",
+    "procedure": "P.SP.02.PRC.030",
+    "process": "P.SP.02",
+    "requirement": "23",
+    "source_occurrence": 1,
+    "source_requirement_number": "23",
+    "transaction": "P.SP.02.TRN.048"
+  },
+  "implementation": {
+    "engine_capabilities": [],
+    "production_files": [
+      "P.SP.02_OP_22/message_rules/P.SP.02.MSG.053.yaml"
+    ],
+    "production_rules": [],
+    "status": "OPEN_EXTERNAL_REGISTRY"
+  },
+  "normative": {
+    "plain_language": {
+      "meaning": null,
+      "purpose": null
+    },
+    "source_text": "значение реквизита «Дата истечения срока действия документа» (csdo:DocValidityDate), непосредственно подчиненного реквизиту «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails), для которого не найдено соответствия в составе экземпляров реквизита «Дата истечения срока действия документа» (csdo:DocValidityDate), непосредственно подчиненных реквизиту «Сведения записи Единого реестра ТЗ Союза» (ipcdo:UnifiedRegisterRecordsDetails) в составе информационных ресурсах национального патентного ведомства, содержащих сведения о ТЗ Союза, должно быть больше, чем значения остальных реквизитов «Дата истечения срока действия документа» (csdo:DocValidityDate), непосредственно подчиненных реквизиту «Сведения записи Единого реестра ТЗ Союза» в составе сообщения"
+  },
+  "project_state": {
+    "audit_notes": null,
+    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "plain_explanation": "OPEN_EXTERNAL_REGISTRY",
+    "plain_explanation_evidence": "AUDIT_DERIVED",
+    "snapshot": "data/project_state/current.json",
+    "verified_at": null
+  },
+  "provenance": {
+    "implementation": [],
+    "normative": [
+      {
+        "item": "23",
+        "level": "CONFIRMED_PDF_SOURCE_REF",
+        "occurrence": 1,
+        "pdf_page": 800,
+        "section": null,
+        "source": "ОП_22.pdf",
+        "table": "71"
+      }
+    ],
+    "runtime": [
+      {
+        "level": "AUDIT_DERIVED",
+        "test": "P.SP.02_OP_22/tests/test_msg053_end_to_end.py; P.SP.02_OP_22/tests/test_msg053_repeatable_xml.py; P.SP.02_OP_22/tests/test_msg053_safe_mapping.py"
+      }
+    ]
+  },
+  "relationships": {
+    "inherits_from": [],
+    "referenced_by": [],
+    "related_to": []
+  },
+  "schema_version": "1.0",
+  "source": {
+    "document": "ОП_22.pdf",
+    "evidence": {
+      "level": "CONFIRMED_PDF_SOURCE_REF",
+      "source_page_ref": "sources/OP22_P_SP_02/pages/page_800.md"
+    },
+    "item": "23",
+    "occurrence": 1,
+    "pdf_page": 800,
+    "printed_page": 221,
+    "section": null,
+    "source_path": "/Users/tema/Documents/Work/Документы_xml/ОП_22.pdf",
+    "table": "71"
+  },
+  "structure": {
+    "atomic_qname": {
+      "clark_name": null,
+      "local_name": "DocValidityDate",
+      "namespace": null,
+      "raw": "csdo:DocValidityDate",
+      "status": "PREFIXED_NAMESPACE_UNRESOLVED"
+    },
+    "id": "R.IP.SP.02.007",
+    "root_qname": {
+      "clark_name": "{urn:EEC:R:IP:SP:02:TrademarkRegisterDetails:v1.0.0}TrademarkRegisterDetails",
+      "local_name": "TrademarkRegisterDetails",
+      "namespace": "urn:EEC:R:IP:SP:02:TrademarkRegisterDetails:v1.0.0",
+      "status": "CONFIRMED"
+    },
+    "version": "1.0.0",
+    "xml_path": "ipcdo:UnifiedRegisterRecordsDetails/csdo:DocValidityDate"
+  },
+  "verification": {
+    "negative_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "positive_test": {
+      "status": "MISSING",
+      "test": null
+    },
+    "real_xml": {
+      "status": "INCOMPLETE"
+    },
+    "runtime": {
+      "status": "PRESENT",
+      "test": "P.SP.02_OP_22/tests/test_msg053_end_to_end.py; P.SP.02_OP_22/tests/test_msg053_repeatable_xml.py; P.SP.02_OP_22/tests/test_msg053_safe_mapping.py"
+    }
+  }
+}
