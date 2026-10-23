@@ -1,5 +1,4 @@
 """Select immutable legacy packages or explicitly gated versioned catalogs."""
-import json
 import re
 from pathlib import Path
 
@@ -9,6 +8,7 @@ from eaeu_xml.core.errors import (
 )
 from eaeu_xml.process_packages.loader import ProcessPackageLoader
 from eaeu_xml.process_packages.models import ProcessPackage
+from eaeu_xml.process_packages.readiness import require_verified_version
 
 
 _VERSION_PATTERN = re.compile(r"[0-9]+\.[0-9]+\.[0-9]+\Z")
@@ -44,25 +44,10 @@ def load_process_version(
             message=f"Версия {version} процесса {legacy.process.process_code} отсутствует.",
         )
 
-    status_path = selected / "migration_status.json"
-    try:
-        metadata = json.loads(status_path.read_text(encoding="utf-8"))
-    except (FileNotFoundError, OSError, UnicodeError, json.JSONDecodeError) as error:
-        raise ProcessPackageValidationError(
-            code="PROCESS_VERSION_NOT_READY",
-            message=f"Версия {version}: отсутствует или повреждён паспорт готовности.",
-        ) from error
-
-    if not isinstance(metadata, dict) or (
-        metadata.get("target_version") != version
-        or metadata.get("process_code") != legacy.process.process_code
-        or metadata.get("state") != "VERIFIED_READY"
-        or metadata.get("promotion_allowed") is not True
-    ):
-        raise ProcessPackageValidationError(
-            code="PROCESS_VERSION_NOT_READY",
-            message=f"Версия {version} процесса {legacy.process.process_code} ещё не прошла приёмку.",
-        )
+    require_verified_version(
+        selected, version=version,
+        expected_process_code=legacy.process.process_code,
+    )
 
     selected_package = ProcessPackageLoader.load(selected, shared_structures=shared_structures)
     if (

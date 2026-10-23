@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Any
 
 from eaeu_xml.core.errors import ProcessPackageFormatError, ProcessPackagePathError, ProcessPackageValidationError
+from eaeu_xml.process_packages.readiness import require_verified_version
 from eaeu_xml.process_packages.models import (
     EmbeddedStructuresDefinition, FieldInputPolicyDefinition, UiInputPolicyDefinition, MessageDefinition, MessageRules, OperationDefinition, ParticipantDefinition, ProcedureDefinition, ProcessDefinition,
     ProcessPackage, SourceReference, StructureDefinition, TransactionDefinition,
@@ -67,6 +68,8 @@ class ProcessPackageLoader:
         path = package_path.expanduser().resolve()
         if not path.is_dir():
             raise ProcessPackagePathError(code="PACKAGE_NOT_FOUND", message=f"Process package не найден: {path}")
+        if path.parent.name == "versions":
+            require_verified_version(path, version=path.name)
         for name in cls.REQUIRED_FILES:
             if not (path / name).is_file():
                 raise ProcessPackagePathError(code="REQUIRED_MANIFEST_MISSING", message=f"Обязательный manifest отсутствует: {name}")

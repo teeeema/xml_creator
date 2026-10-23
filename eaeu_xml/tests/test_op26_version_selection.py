@@ -34,9 +34,15 @@ class Op26VersionSelectionTests(unittest.TestCase):
         with self.assertRaises(ProcessPackageValidationError) as direct:
             load_process_version(PACKAGE, version="1.3.0")
         self.assertEqual(direct.exception.code, "PROCESS_VERSION_NOT_READY")
+        with self.assertRaises(ProcessPackageValidationError) as loader:
+            ProcessPackageLoader.load(PACKAGE / "versions" / "1.3.0")
+        self.assertEqual(loader.exception.code, "PROCESS_VERSION_NOT_READY")
         with self.assertRaises(ProcessPackageValidationError) as engine:
             EaeuXmlEngine.load_process(PACKAGE, version="1.3.0")
         self.assertEqual(engine.exception.code, "PROCESS_VERSION_NOT_READY")
+        with self.assertRaises(ProcessPackageValidationError) as by_path:
+            EaeuXmlEngine.load_process(PACKAGE / "versions" / "1.3.0")
+        self.assertEqual(by_path.exception.code, "PROCESS_VERSION_NOT_READY")
         registry = ProcessRegistry.__new__(ProcessRegistry)
         registry._packages = {"P.MM.01": self.legacy}
         registry._version_packages = {}
