@@ -4,7 +4,7 @@ from eaeu_xml.core.errors import ProcessDefinitionNotFoundError
 from eaeu_xml.decision5.models.action import ApplicationAction
 from eaeu_xml.services.action_builder import ActionBuilder
 from eaeu_xml.process_packages.body import GenerationMode, StructuredProcessBodyProvider, ProcessBodyProvider
-from eaeu_xml.process_packages.loader import ProcessPackageLoader
+from eaeu_xml.process_packages.versioning import load_process_version
 from eaeu_xml.process_packages.models import MessageDefinition, ProcessPackage, StructureDefinition, TransactionDefinition
 from eaeu_xml.process_packages.resolver import StructureVersionResolver
 
@@ -24,8 +24,12 @@ class EaeuXmlEngine:
         self.structure_version_resolver = StructureVersionResolver(package)
 
     @classmethod
-    def load_process(cls, process_package_path: Path, *, body_provider: ProcessBodyProvider | None = None) -> "EaeuXmlEngine":
-        return cls(ProcessPackageLoader.load(process_package_path), body_provider)
+    def load_process(
+        cls, process_package_path: Path, *,
+        body_provider: ProcessBodyProvider | None = None,
+        version: str | None = None,
+    ) -> "EaeuXmlEngine":
+        return cls(load_process_version(process_package_path, version=version), body_provider)
 
     def get_transaction(self, code: str) -> TransactionDefinition:
         try:

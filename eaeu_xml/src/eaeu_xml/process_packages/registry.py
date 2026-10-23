@@ -9,6 +9,7 @@ from eaeu_xml.core.errors import (
 )
 from eaeu_xml.process_packages.loader import ProcessPackageLoader
 from eaeu_xml.process_packages.models import ProcessPackage
+from eaeu_xml.process_packages.versioning import load_process_version
 
 
 class ProcessRegistry:
@@ -27,6 +28,7 @@ class ProcessRegistry:
         shared_root = self.root / "shared" / "structures"
         self.shared_structures = ProcessPackageLoader.load_structures(shared_root)
         self._packages: dict[str, ProcessPackage] = {}
+        self._version_packages: dict[tuple[str, str], ProcessPackage] = {}
         self._index()
 
     def _index(self) -> None:
@@ -55,9 +57,14 @@ class ProcessRegistry:
                 code="PROCESS_NOT_FOUND",
                 message=f"Process package не найден: {process_code}",
             ) from error
-        if version is not None and package.profile.process_version != version:
-            raise ProcessDefinitionNotFoundError(
-                code="PROCESS_VERSION_NOT_FOUND",
-                message=f"Process {process_code} версии {version} не найден.",
+        if version is None or package.profile.process_version == version:
+            return package
+        key = (process_code, version)
+        if key not in self._version_packages:
+            self._version_packages[key] = load_process_version(
+                package.path,
+                version=version,
+                shared_structures=self.shared_structures,
+                legacy_package=package,
             )
-        return package
+        return self._version_packages[key]
