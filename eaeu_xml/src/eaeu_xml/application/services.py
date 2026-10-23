@@ -64,7 +64,7 @@ class TestDataGenerator:
             if field.visibility == "HIDDEN" or not should_include(field):
                 return
             if field.children:
-                if field.ui_input_policy == "GROUP":
+                if field.ui_input_policy == "GROUP" and any(child.kind != "ATTRIBUTE" for child in field.children):
                     result[field.path] = [None] * field.min_occurs if field.repeatable and (field.min_occurs or 0) > 1 else None
                 else:
                     value = field.fixed_value if field.fixed_value is not None else self._value(field, random)
@@ -83,7 +83,23 @@ class TestDataGenerator:
             if field.xml_name == "InfEnvelopeCode": result[field.path] = form.message_code
             elif field.xml_name == "EDocCode": result[field.path] = form.structure_id
         self._apply_structured_rules(result, fields_by_path, structured_rules, random)
+        self.align_sample_attributes(result, fields_by_path.values())
         return result
+
+    @staticmethod
+    def align_sample_attributes(values, fields):
+        """Materialize synthetic attribute samples for each present parent slot.
+
+        This generates explicit input arrays; the XML runtime must not broadcast
+        arbitrary scalar attributes across repeated parents.
+        """
+        def shape(parent, value):
+            if isinstance(parent, list): return [shape(item, value) for item in parent]
+            return None if parent is None else value
+        for field in fields:
+            if field.kind != "ATTRIBUTE" or field.path not in values or isinstance(values[field.path], list): continue
+            parent = values.get(field.path.rsplit("/", 1)[0])
+            if isinstance(parent, list): values[field.path] = shape(parent, values[field.path])
 
     @staticmethod
     def _structured_rule_paths(rules) -> set[str]:

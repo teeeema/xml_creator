@@ -1,0 +1,374 @@
+......F......................................................... [ 47%]
+.............................................F....F........F.FFFFF.FFF.              [100%]
+=================================== FAILURES ===================================
+_ ApplicationFacadeTests.test_ds01_test_data_satisfies_executable_structured_rules _
+
+self = <test_application_facade.ApplicationFacadeTests testMethod=test_ds01_test_data_satisfies_executable_structured_rules>
+
+    def test_ds01_test_data_satisfies_executable_structured_rules(self):
+        application = EaeuXmlApplication(PROJECT_ROOT)
+        values = application.generate_test_data(
+            "P.DS.01", "P.DS.01.TRN.001", "P.DS.01.MSG.001", seed=12345,
+        )
+    
+        validation = application.validate(
+            "P.DS.01", "P.DS.01.TRN.001", "P.DS.01.MSG.001", values,
+        )
+    
+>       self.assertEqual(validation.errors, ())
+E       AssertionError: Tuples differ: (IssueView(code='VALUE_CONTEXT_ALIGNMENT',[2358 chars]one)) != ()
+E       
+E       First tuple contains 6 additional elements.
+E       First extra element 0:
+E       IssueView(code='VALUE_CONTEXT_ALIGNMENT', field_path='ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails/csdo:UnifiedCountryCode/@codeListId', message='Число значений не соответствует повторяющимся родительским контекстам; scalar broadcast запрещён.', severity='ERROR', source_ref='49OP-R.R.FP.DS.01.001-3.5.9.3.@codeListId', rule_id=None)
+E       
+E       Diff is 2890 characters long. Set self.maxDiff to None to see it.
+
+eaeu_xml/tests/test_application_facade.py:71: AssertionError
+________ test_msg001_full_message_uses_the_generic_production_pipeline _________
+
+>   ???
+E   AssertionError: assert False
+E    +  where False = BodyValidationResult(issues=(BodyValidationIssue(code='UNRESOLVED_NAMESPACE_VERSION', severity=<IssueSeverity.WARNING:...SG.001-R034', 'document': '49 ОП.pdf', 'location': 'Таблица 10', 'status': 'CONFIRMED', 'page': 84, 'table': '10'},)))).is_valid
+
+/Users/tema/Documents/Work/xml_creator/P.DS.01/tests/test_msg001_full_message.py:118: AssertionError
+__________ Ds01CatalogTests.test_msg001_body_validation_and_mutations __________
+
+self = <test_pds01_catalog.Ds01CatalogTests testMethod=test_msg001_body_validation_and_mutations>
+
+    def test_msg001_body_validation_and_mutations(self):
+        engine, by, values = self.msg001_fixture(); result = engine.validate_body("P.DS.01.MSG.001", values, mode=GenerationMode.TEST)
+>       self.assertTrue(result.is_valid); self.assertFalse(result.is_complete); self.assertEqual(sum(x.status is RuleStatus.PASS for x in result.rule_evaluations),20)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: False is not true
+
+P.DS.01_OP_49/tests/test_pds01_catalog.py:157: AssertionError
+____ test_available_request_bodies_validate_and_serialize[P.DS.01.MSG.002] _____
+
+message_code = 'P.DS.01.MSG.002'
+
+    @pytest.mark.parametrize("message_code", REQUEST_MESSAGES)
+    def test_available_request_bodies_validate_and_serialize(message_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+        result = engine.validate_body(message_code, values_for(engine, message_code), mode=GenerationMode.TEST)
+>       assert result.is_valid
+E       AssertionError: assert False
+E        +  where False = BodyValidationResult(issues=(BodyValidationIssue(code='UNRESOLVED_NAMESPACE_VERSION', severity=<IssueSeverity.WARNING:...ion=None, table='7', item='3.5.12.3.@codeListId', page=154, version_context=None), rule_id=None)), rule_evaluations=()).is_valid
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:94: AssertionError
+____ test_available_request_bodies_validate_and_serialize[P.DS.01.MSG.005] _____
+
+message_code = 'P.DS.01.MSG.005'
+
+    @pytest.mark.parametrize("message_code", REQUEST_MESSAGES)
+    def test_available_request_bodies_validate_and_serialize(message_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+        result = engine.validate_body(message_code, values_for(engine, message_code), mode=GenerationMode.TEST)
+>       assert result.is_valid
+E       AssertionError: assert False
+E        +  where False = BodyValidationResult(issues=(BodyValidationIssue(code='UNRESOLVED_NAMESPACE_VERSION', severity=<IssueSeverity.WARNING:...ion=None, table='7', item='3.5.12.3.@codeListId', page=154, version_context=None), rule_id=None)), rule_evaluations=()).is_valid
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:94: AssertionError
+____ test_available_request_bodies_validate_and_serialize[P.DS.01.MSG.006] _____
+
+message_code = 'P.DS.01.MSG.006'
+
+    @pytest.mark.parametrize("message_code", REQUEST_MESSAGES)
+    def test_available_request_bodies_validate_and_serialize(message_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+        result = engine.validate_body(message_code, values_for(engine, message_code), mode=GenerationMode.TEST)
+>       assert result.is_valid
+E       AssertionError: assert False
+E        +  where False = BodyValidationResult(issues=(BodyValidationIssue(code='UNRESOLVED_NAMESPACE_VERSION', severity=<IssueSeverity.WARNING:...ion=None, table='7', item='3.5.12.3.@codeListId', page=154, version_context=None), rule_id=None)), rule_evaluations=()).is_valid
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:94: AssertionError
+_ test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.001] _
+
+transaction_code = 'P.DS.01.TRN.001'
+
+    @pytest.mark.parametrize("transaction_code", TRANSACTIONS)
+    def test_all_transactions_preserve_generic_request_response_correlation(transaction_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+        definition = engine.get_transaction(transaction_code)
+        request_code, response_code = definition.initiating_message, definition.response_messages[0]
+        ids = FixedIdentifierService(100 + int(transaction_code[-3:]) * 10)
+        procedure = ProcedureInstance(definition.procedure_code, ProcedureId.root(ids))
+        transaction = TransactionInstance(transaction_code, ids.new_conversation_id(), procedure)
+        addresses = LogicalAddressBuilder()
+        to = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_TO")
+        reply = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_REPLY")
+        factory = MessageFactory(ids)
+>       request = factory.create_initial_application_message(transaction=transaction, process_code="P.DS.01", process_version=engine.package.profile.process_version, message_code=request_code, to=to, reply_to=reply, body_payload=engine.build_body(request_code, values_for(engine, request_code), mode=GenerationMode.TEST))
+                                                                                                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/process_packages/engine.py:91: in build_body
+    return self.body_provider.build_body(message, structure, values, mode=mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x107bad4a0>
+message_definition = MessageDefinition(message_code='P.DS.01.MSG.001', name='информация за отчетный день', structure_id='R.FP.DS.01.001', e...итов структуры в сообщении', status='CONFIRMED', section=None, table='10', item=None, page=83, version_context=None),))
+structure_definition = StructureDefinition(structure_id='R.FP.DS.01.001', version='1.0.0', namespace='urn:EEC:R:FP:DS:01:ChargedDistributedRe...пошлин', status='CONFIRMED', section=None, table='5', item=None, page=151, version_context=None),), status='NEEDS_XSD')
+user_values = {'ChargedDistributedReport/ccdo:EDocHeader': 'x', 'ChargedDistributedReport/ccdo:EDocHeader/csdo:InfEnvelopeCode': 'x'...istributedReport/ccdo:EDocHeader/csdo:EDocCode': 'x', 'ChargedDistributedReport/ccdo:EDocHeader/csdo:EDocId': 'x', ...}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                   user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
+        values = self._flatten(user_values)
+        rules = self.package.rules.get(message_definition.message_code)
+        if rules:
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+        if not result.is_valid:
+>           raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
+E           eaeu_xml.core.errors.BodyValidationError: Body содержит 21 issue(s).
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:171: BodyValidationError
+_ test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.002] _
+
+transaction_code = 'P.DS.01.TRN.002'
+
+    @pytest.mark.parametrize("transaction_code", TRANSACTIONS)
+    def test_all_transactions_preserve_generic_request_response_correlation(transaction_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+        definition = engine.get_transaction(transaction_code)
+        request_code, response_code = definition.initiating_message, definition.response_messages[0]
+        ids = FixedIdentifierService(100 + int(transaction_code[-3:]) * 10)
+        procedure = ProcedureInstance(definition.procedure_code, ProcedureId.root(ids))
+        transaction = TransactionInstance(transaction_code, ids.new_conversation_id(), procedure)
+        addresses = LogicalAddressBuilder()
+        to = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_TO")
+        reply = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_REPLY")
+        factory = MessageFactory(ids)
+>       request = factory.create_initial_application_message(transaction=transaction, process_code="P.DS.01", process_version=engine.package.profile.process_version, message_code=request_code, to=to, reply_to=reply, body_payload=engine.build_body(request_code, values_for(engine, request_code), mode=GenerationMode.TEST))
+                                                                                                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/process_packages/engine.py:91: in build_body
+    return self.body_provider.build_body(message, structure, values, mode=mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x107b92c10>
+message_definition = MessageDefinition(message_code='P.DS.01.MSG.002', name='информация за отчетный месяц', structure_id='R.FP.DS.01.001', ...итов структуры в сообщении', status='CONFIRMED', section=None, table='11', item=None, page=86, version_context=None),))
+structure_definition = StructureDefinition(structure_id='R.FP.DS.01.001', version='1.0.0', namespace='urn:EEC:R:FP:DS:01:ChargedDistributedRe...пошлин', status='CONFIRMED', section=None, table='5', item=None, page=151, version_context=None),), status='NEEDS_XSD')
+user_values = {'ChargedDistributedReport/ccdo:EDocHeader': 'x', 'ChargedDistributedReport/ccdo:EDocHeader/csdo:InfEnvelopeCode': 'x'...istributedReport/ccdo:EDocHeader/csdo:EDocCode': 'x', 'ChargedDistributedReport/ccdo:EDocHeader/csdo:EDocId': 'x', ...}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                   user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
+        values = self._flatten(user_values)
+        rules = self.package.rules.get(message_definition.message_code)
+        if rules:
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+        if not result.is_valid:
+>           raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
+E           eaeu_xml.core.errors.BodyValidationError: Body содержит 7 issue(s).
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:171: BodyValidationError
+_ test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.003] _
+
+transaction_code = 'P.DS.01.TRN.003'
+
+    @pytest.mark.parametrize("transaction_code", TRANSACTIONS)
+    def test_all_transactions_preserve_generic_request_response_correlation(transaction_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+        definition = engine.get_transaction(transaction_code)
+        request_code, response_code = definition.initiating_message, definition.response_messages[0]
+        ids = FixedIdentifierService(100 + int(transaction_code[-3:]) * 10)
+        procedure = ProcedureInstance(definition.procedure_code, ProcedureId.root(ids))
+        transaction = TransactionInstance(transaction_code, ids.new_conversation_id(), procedure)
+        addresses = LogicalAddressBuilder()
+        to = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_TO")
+        reply = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_REPLY")
+        factory = MessageFactory(ids)
+>       request = factory.create_initial_application_message(transaction=transaction, process_code="P.DS.01", process_version=engine.package.profile.process_version, message_code=request_code, to=to, reply_to=reply, body_payload=engine.build_body(request_code, values_for(engine, request_code), mode=GenerationMode.TEST))
+                                                                                                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/process_packages/engine.py:91: in build_body
+    return self.body_provider.build_body(message, structure, values, mode=mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x1081a6df0>
+message_definition = MessageDefinition(message_code='P.DS.01.MSG.002', name='информация за отчетный месяц', structure_id='R.FP.DS.01.001', ...итов структуры в сообщении', status='CONFIRMED', section=None, table='11', item=None, page=86, version_context=None),))
+structure_definition = StructureDefinition(structure_id='R.FP.DS.01.001', version='1.0.0', namespace='urn:EEC:R:FP:DS:01:ChargedDistributedRe...пошлин', status='CONFIRMED', section=None, table='5', item=None, page=151, version_context=None),), status='NEEDS_XSD')
+user_values = {'ChargedDistributedReport/ccdo:EDocHeader': 'x', 'ChargedDistributedReport/ccdo:EDocHeader/csdo:InfEnvelopeCode': 'x'...istributedReport/ccdo:EDocHeader/csdo:EDocCode': 'x', 'ChargedDistributedReport/ccdo:EDocHeader/csdo:EDocId': 'x', ...}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                   user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
+        values = self._flatten(user_values)
+        rules = self.package.rules.get(message_definition.message_code)
+        if rules:
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+        if not result.is_valid:
+>           raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
+E           eaeu_xml.core.errors.BodyValidationError: Body содержит 7 issue(s).
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:171: BodyValidationError
+_ test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.005] _
+
+transaction_code = 'P.DS.01.TRN.005'
+
+    @pytest.mark.parametrize("transaction_code", TRANSACTIONS)
+    def test_all_transactions_preserve_generic_request_response_correlation(transaction_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+        definition = engine.get_transaction(transaction_code)
+        request_code, response_code = definition.initiating_message, definition.response_messages[0]
+        ids = FixedIdentifierService(100 + int(transaction_code[-3:]) * 10)
+        procedure = ProcedureInstance(definition.procedure_code, ProcedureId.root(ids))
+        transaction = TransactionInstance(transaction_code, ids.new_conversation_id(), procedure)
+        addresses = LogicalAddressBuilder()
+        to = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_TO")
+        reply = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_REPLY")
+        factory = MessageFactory(ids)
+>       request = factory.create_initial_application_message(transaction=transaction, process_code="P.DS.01", process_version=engine.package.profile.process_version, message_code=request_code, to=to, reply_to=reply, body_payload=engine.build_body(request_code, values_for(engine, request_code), mode=GenerationMode.TEST))
+                                                                                                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/process_packages/engine.py:91: in build_body
+    return self.body_provider.build_body(message, structure, values, mode=mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x107f35180>
+message_definition = MessageDefinition(message_code='P.DS.01.MSG.005', name='измененная ежемесячная информация', structure_id='R.FP.DS.01.0...итов структуры в сообщении', status='CONFIRMED', section=None, table='13', item=None, page=92, version_context=None),))
+structure_definition = StructureDefinition(structure_id='R.FP.DS.01.001', version='1.0.0', namespace='urn:EEC:R:FP:DS:01:ChargedDistributedRe...пошлин', status='CONFIRMED', section=None, table='5', item=None, page=151, version_context=None),), status='NEEDS_XSD')
+user_values = {'ChargedDistributedReport/ccdo:EDocHeader': 'x', 'ChargedDistributedReport/ccdo:EDocHeader/csdo:InfEnvelopeCode': 'x'...istributedReport/ccdo:EDocHeader/csdo:EDocCode': 'x', 'ChargedDistributedReport/ccdo:EDocHeader/csdo:EDocId': 'x', ...}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                   user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
+        values = self._flatten(user_values)
+        rules = self.package.rules.get(message_definition.message_code)
+        if rules:
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+        if not result.is_valid:
+>           raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
+E           eaeu_xml.core.errors.BodyValidationError: Body содержит 7 issue(s).
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:171: BodyValidationError
+_ test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.006] _
+
+transaction_code = 'P.DS.01.TRN.006'
+
+    @pytest.mark.parametrize("transaction_code", TRANSACTIONS)
+    def test_all_transactions_preserve_generic_request_response_correlation(transaction_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+        definition = engine.get_transaction(transaction_code)
+        request_code, response_code = definition.initiating_message, definition.response_messages[0]
+        ids = FixedIdentifierService(100 + int(transaction_code[-3:]) * 10)
+        procedure = ProcedureInstance(definition.procedure_code, ProcedureId.root(ids))
+        transaction = TransactionInstance(transaction_code, ids.new_conversation_id(), procedure)
+        addresses = LogicalAddressBuilder()
+        to = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_TO")
+        reply = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_REPLY")
+        factory = MessageFactory(ids)
+>       request = factory.create_initial_application_message(transaction=transaction, process_code="P.DS.01", process_version=engine.package.profile.process_version, message_code=request_code, to=to, reply_to=reply, body_payload=engine.build_body(request_code, values_for(engine, request_code), mode=GenerationMode.TEST))
+                                                                                                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/process_packages/engine.py:91: in build_body
+    return self.body_provider.build_body(message, structure, values, mode=mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x107fceee0>
+message_definition = MessageDefinition(message_code='P.DS.01.MSG.005', name='измененная ежемесячная информация', structure_id='R.FP.DS.01.0...итов структуры в сообщении', status='CONFIRMED', section=None, table='13', item=None, page=92, version_context=None),))
+structure_definition = StructureDefinition(structure_id='R.FP.DS.01.001', version='1.0.0', namespace='urn:EEC:R:FP:DS:01:ChargedDistributedRe...пошлин', status='CONFIRMED', section=None, table='5', item=None, page=151, version_context=None),), status='NEEDS_XSD')
+user_values = {'ChargedDistributedReport/ccdo:EDocHeader': 'x', 'ChargedDistributedReport/ccdo:EDocHeader/csdo:InfEnvelopeCode': 'x'...istributedReport/ccdo:EDocHeader/csdo:EDocCode': 'x', 'ChargedDistributedReport/ccdo:EDocHeader/csdo:EDocId': 'x', ...}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                   user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
+        values = self._flatten(user_values)
+        rules = self.package.rules.get(message_definition.message_code)
+        if rules:
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+        if not result.is_valid:
+>           raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
+E           eaeu_xml.core.errors.BodyValidationError: Body содержит 7 issue(s).
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:171: BodyValidationError
+_ test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.007] _
+
+transaction_code = 'P.DS.01.TRN.007'
+
+    @pytest.mark.parametrize("transaction_code", TRANSACTIONS)
+    def test_all_transactions_preserve_generic_request_response_correlation(transaction_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+        definition = engine.get_transaction(transaction_code)
+        request_code, response_code = definition.initiating_message, definition.response_messages[0]
+        ids = FixedIdentifierService(100 + int(transaction_code[-3:]) * 10)
+        procedure = ProcedureInstance(definition.procedure_code, ProcedureId.root(ids))
+        transaction = TransactionInstance(transaction_code, ids.new_conversation_id(), procedure)
+        addresses = LogicalAddressBuilder()
+        to = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_TO")
+        reply = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_REPLY")
+        factory = MessageFactory(ids)
+>       request = factory.create_initial_application_message(transaction=transaction, process_code="P.DS.01", process_version=engine.package.profile.process_version, message_code=request_code, to=to, reply_to=reply, body_payload=engine.build_body(request_code, values_for(engine, request_code), mode=GenerationMode.TEST))
+                                                                                                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/process_packages/engine.py:91: in build_body
+    return self.body_provider.build_body(message, structure, values, mode=mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x107fa7bb0>
+message_definition = MessageDefinition(message_code='P.DS.01.MSG.006', name='измененная ежедневная информация', structure_id='R.FP.DS.01.00...итов структуры в сообщении', status='CONFIRMED', section=None, table='14', item=None, page=96, version_context=None),))
+structure_definition = StructureDefinition(structure_id='R.FP.DS.01.001', version='1.0.0', namespace='urn:EEC:R:FP:DS:01:ChargedDistributedRe...пошлин', status='CONFIRMED', section=None, table='5', item=None, page=151, version_context=None),), status='NEEDS_XSD')
+user_values = {'ChargedDistributedReport/ccdo:EDocHeader': 'x', 'ChargedDistributedReport/ccdo:EDocHeader/csdo:InfEnvelopeCode': 'x'...istributedReport/ccdo:EDocHeader/csdo:EDocCode': 'x', 'ChargedDistributedReport/ccdo:EDocHeader/csdo:EDocId': 'x', ...}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                   user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
+        values = self._flatten(user_values)
+        rules = self.package.rules.get(message_definition.message_code)
+        if rules:
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+        if not result.is_valid:
+>           raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
+E           eaeu_xml.core.errors.BodyValidationError: Body содержит 7 issue(s).
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:171: BodyValidationError
+=========================== short test summary info ============================
+FAILED eaeu_xml/tests/test_application_facade.py::ApplicationFacadeTests::test_ds01_test_data_satisfies_executable_structured_rules
+FAILED eaeu_xml/test_msg001_full_message.py::test_msg001_full_message_uses_the_generic_production_pipeline
+FAILED eaeu_xml/test_pds01_catalog.py::Ds01CatalogTests::test_msg001_body_validation_and_mutations
+FAILED eaeu_xml/test_process_pipeline.py::test_available_request_bodies_validate_and_serialize[P.DS.01.MSG.002]
+FAILED eaeu_xml/test_process_pipeline.py::test_available_request_bodies_validate_and_serialize[P.DS.01.MSG.005]
+FAILED eaeu_xml/test_process_pipeline.py::test_available_request_bodies_validate_and_serialize[P.DS.01.MSG.006]
+FAILED eaeu_xml/test_process_pipeline.py::test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.001]
+FAILED eaeu_xml/test_process_pipeline.py::test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.002]
+FAILED eaeu_xml/test_process_pipeline.py::test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.003]
+FAILED eaeu_xml/test_process_pipeline.py::test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.005]
+FAILED eaeu_xml/test_process_pipeline.py::test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.006]
+FAILED eaeu_xml/test_process_pipeline.py::test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.007]
+12 failed, 123 passed, 500 subtests passed in 4.68s

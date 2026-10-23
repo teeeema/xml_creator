@@ -1,0 +1,150 @@
+F....................................F.F........................ [ 40%]
+.....FF................................................... [ 76%]
+................F....................                               [100%]
+=================================== FAILURES ===================================
+_ ApplicationFacadeTests.test_ds01_test_data_satisfies_executable_structured_rules _
+
+self = <test_application_facade.ApplicationFacadeTests testMethod=test_ds01_test_data_satisfies_executable_structured_rules>
+
+    def test_ds01_test_data_satisfies_executable_structured_rules(self):
+        application = EaeuXmlApplication(PROJECT_ROOT)
+        values = application.generate_test_data(
+            "P.DS.01", "P.DS.01.TRN.001", "P.DS.01.MSG.001", seed=12345,
+        )
+    
+        validation = application.validate(
+            "P.DS.01", "P.DS.01.TRN.001", "P.DS.01.MSG.001", values,
+        )
+    
+>       self.assertEqual(validation.errors, ())
+E       AssertionError: Tuples differ: (IssueView(code='MIN_OCCURS', field_path='[516 chars]one)) != ()
+E       
+E       First tuple contains 2 additional elements.
+E       First extra element 0:
+E       IssueView(code='MIN_OCCURS', field_path='ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/fpcdo:OfficerDetails/ccdo:FullNameDetails', message='Требуется минимум 1 значений, получено 0.', severity='ERROR', source_ref='49OP-R.FP.DS.01.001-3.6.1', rule_id=None)
+E       
+E       Diff is 704 characters long. Set self.maxDiff to None to see it.
+
+eaeu_xml/tests/test_application_facade.py:71: AssertionError
+_ AllTransactionsE2ETests.test_artifacts_cover_matrix_and_are_machine_readable _
+
+self = <test_all_transactions_e2e.AllTransactionsE2ETests testMethod=test_artifacts_cover_matrix_and_are_machine_readable>
+
+>   ???
+E   AssertionError: Items in the first set but not the second:
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.010/INITIATING_016.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.018/INITIATING_027.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.001/INITIATING_001.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.006/RESPONSE_011.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.017/RESPONSE_026.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.019/RESPONSE_004.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.008/INITIATING_019.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.009/INITIATING_012.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.005/RESPONSE_008.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.001/RESPONSE_013.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.013/INITIATING_022.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.014/RESPONSE_004.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.011/INITIATING_017.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.019/INITIATING_028.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.012/RESPONSE_020.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.007/RESPONSE_015.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.012/RESPONSE_018.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.003/INITIATING_003.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.007/INITIATING_014.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.017/RESPONSE_009.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.018/RESPONSE_028.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.008/RESPONSE_020.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.010/RESPONSE_004.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.014/INITIATING_021.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.017/INITIATING_025.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.012/INITIATING_019.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.009/RESPONSE_004.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.018/RESPONSE_009.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.003/RESPONSE_004.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.008/RESPONSE_018.xml')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.001/RESPONSE_004.xml')
+E   Items in the second set but not the first:
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.017/RESPONSE_009.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.014/RESPONSE_004.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.008/RESPONSE_020.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.001/RESPONSE_013.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.001/INITIATING_001.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.012/RESPONSE_018.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.005/RESPONSE_008.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.018/RESPONSE_028.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.009/INITIATING_012.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.017/INITIATING_025.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.010/INITIATING_016.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.018/INITIATING_027.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.018/RESPONSE_009.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.012/RESPONSE_020.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.012/INITIATING_019.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.008/RESPONSE_018.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.019/INITIATING_028.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.001/RESPONSE_004.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.019/RESPONSE_004.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.009/RESPONSE_004.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.003/INITIATING_003.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.007/RESPONSE_015.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.008/INITIATING_019.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.003/RESPONSE_004.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.010/RESPONSE_004.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.014/INITIATING_021.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.007/INITIATING_014.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.017/RESPONSE_026.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.011/INITIATING_017.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.013/INITIATING_022.blocked.txt')
+E   PosixPath('/Users/tema/Documents/Work/xml_creator/P.MM.01_OP_26/examples/all_transactions/TRN.006/RESPONSE_011.blocked.txt')
+
+/Users/tema/Documents/Work/xml_creator/P.MM.01/tests/test_all_transactions_e2e.py:73: AssertionError
+_ AllTransactionsE2ETests.test_every_branch_is_typed_and_expected_counts_are_stable _
+
+self = <test_all_transactions_e2e.AllTransactionsE2ETests testMethod=test_every_branch_is_typed_and_expected_counts_are_stable>
+
+>   ???
+E   AssertionError: Counter({'INITIAL_MESSAGE_BLOCKED': 19, '[79 chars]: 3}) != {'VERSION_PLACEHOLDER_TEST': 37, 'NORMATI[41 chars]': 3}
+
+/Users/tema/Documents/Work/xml_creator/P.MM.01/tests/test_all_transactions_e2e.py:33: AssertionError
+_ Pmm01EndToEndTransactionTests.test_trn005_both_response_branches_generate_in_test _
+
+self = <test_end_to_end_transactions.Pmm01EndToEndTransactionTests testMethod=test_trn005_both_response_branches_generate_in_test>
+
+>   ???
+
+/Users/tema/Documents/Work/xml_creator/P.MM.01/tests/test_end_to_end_transactions.py:149: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/Users/tema/Documents/Work/xml_creator/P.MM.01/tests/test_end_to_end_transactions.py:106: in run_resolved_branch
+    ???
+E   AssertionError: False is not true
+_ Pmm01EndToEndTransactionTests.test_trn006_both_response_branches_generate_in_test _
+
+self = <test_end_to_end_transactions.Pmm01EndToEndTransactionTests testMethod=test_trn006_both_response_branches_generate_in_test>
+
+>   ???
+
+/Users/tema/Documents/Work/xml_creator/P.MM.01/tests/test_end_to_end_transactions.py:155: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/Users/tema/Documents/Work/xml_creator/P.MM.01/tests/test_end_to_end_transactions.py:106: in run_resolved_branch
+    ???
+E   AssertionError: False is not true
+__________ Ds01CatalogTests.test_msg001_body_validation_and_mutations __________
+
+self = <test_pds01_catalog.Ds01CatalogTests testMethod=test_msg001_body_validation_and_mutations>
+
+    def test_msg001_body_validation_and_mutations(self):
+        engine, by, values = self.msg001_fixture(); result = engine.validate_body("P.DS.01.MSG.001", values, mode=GenerationMode.TEST)
+        self.assertTrue(result.is_valid); self.assertFalse(result.is_complete); self.assertEqual(sum(x.status is RuleStatus.PASS for x in result.rule_evaluations),20)
+        for path, value in [(by['3.5']+'/ds01sdo:DailyInfoIndicator',[True,False]), (by['3.5.9']+'/csdo:UnifiedCountryCode',['AA','AA']), (by['3.5.9']+'/ds01sdo:DistributableDutyAmount',['9.00','10.00']), (by['3.5.2'],'0.001')]:
+>           changed=dict(values); changed[path]=value; self.assertFalse(engine.validate_body("P.DS.01.MSG.001",changed,mode=GenerationMode.TEST).is_valid)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AssertionError: True is not false
+
+P.DS.01_OP_49/tests/test_pds01_catalog.py:159: AssertionError
+=========================== short test summary info ============================
+FAILED eaeu_xml/tests/test_application_facade.py::ApplicationFacadeTests::test_ds01_test_data_satisfies_executable_structured_rules
+FAILED eaeu_xml/test_all_transactions_e2e.py::AllTransactionsE2ETests::test_artifacts_cover_matrix_and_are_machine_readable
+FAILED eaeu_xml/test_all_transactions_e2e.py::AllTransactionsE2ETests::test_every_branch_is_typed_and_expected_counts_are_stable
+FAILED eaeu_xml/test_end_to_end_transactions.py::Pmm01EndToEndTransactionTests::test_trn005_both_response_branches_generate_in_test
+FAILED eaeu_xml/test_end_to_end_transactions.py::Pmm01EndToEndTransactionTests::test_trn006_both_response_branches_generate_in_test
+FAILED eaeu_xml/test_pds01_catalog.py::Ds01CatalogTests::test_msg001_body_validation_and_mutations
+6 failed, 153 passed, 531 subtests passed in 6.42s

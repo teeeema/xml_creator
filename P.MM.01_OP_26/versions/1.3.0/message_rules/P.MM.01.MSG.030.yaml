@@ -1,0 +1,548 @@
+{
+  "message_code": "P.MM.01.MSG.030",
+  "structure_id": "R.HC.MM.01.003",
+  "business_rules": [
+    {
+      "source_requirement_code": "1",
+      "source_regulation_table_index": 168,
+      "requirement": "должен быть заполнен только один экземпляр реквизита «Сведения о документе регистрационного досье (дела)» (hccdo:RegistrationDossierDocDetails)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=168; 55. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 43. / Таблица 43 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "43",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.1"
+    },
+    {
+      "source_requirement_code": "2",
+      "source_regulation_table_index": 168,
+      "requirement": "в составе реквизита «Сведения о документе регистрационного досье (дела)» (hccdo:RegistrationDossierDocDetails) должен быть заполнен только реквизит «Уникальный идентификатор документа» (hcsdo:DocUUId)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=168; 55. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 43. / Таблица 43 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "43",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.2"
+    },
+    {
+      "source_requirement_code": "3",
+      "source_regulation_table_index": 168,
+      "requirement": "не заполняется реквизит «Код страны» (csdo:UnifiedCountryCode)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=168; 55. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 43. / Таблица 43 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "43",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "3",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.3"
+    },
+    {
+      "source_requirement_code": "4",
+      "source_regulation_table_index": 168,
+      "requirement": "не заполняется реквизит «Признак согласования документа» (hcsdo:DocAgreementIndicator)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=168; 55. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 43. / Таблица 43 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "43",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "4",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.4"
+    },
+    {
+      "source_requirement_code": "5",
+      "source_regulation_table_index": 168,
+      "requirement": "должен быть заполнен реквизит «Номер заявления о регистрации лекарственного препарата» (hcsdo:ApplicationId) и (или) реквизит «Порядковый номер регистрационного удостоверения лекарственного препарата» (hcsdo:RegistrationNumberId)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=168; 55. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 43. / Таблица 43 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "43",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "5",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.5"
+    },
+    {
+      "source_requirement_code": "6",
+      "source_regulation_table_index": 168,
+      "requirement": "не заполняется реквизит «Код вида процедуры регистрации» (hcsdo:RegistrationKindCode)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=168; 55. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 43. / Таблица 43 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "43",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "6",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.6"
+    },
+    {
+      "source_requirement_code": "1",
+      "source_regulation_table_index": 204,
+      "requirement": "должен быть заполнен только один экземпляр реквизита «Сведения о документе регистрационного досье (дела)» (hccdo:RegistrationDossierDocDetails)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=204; 39. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 27. / Таблица 27 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "27",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.7"
+    },
+    {
+      "source_requirement_code": "2",
+      "source_regulation_table_index": 204,
+      "requirement": "в составе реквизита «Сведения о документе регистрационного досье (дела)» (hccdo:RegistrationDossierDocDetails) должен быть заполнен только реквизит «Уникальный идентификатор документа» (hcsdo:DocUUId)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=204; 39. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 27. / Таблица 27 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "27",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.8"
+    },
+    {
+      "source_requirement_code": "3",
+      "source_regulation_table_index": 204,
+      "requirement": "не заполняется реквизит «Код страны» (csdo:UnifiedCountryCode)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=204; 39. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 27. / Таблица 27 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "27",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "3",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.9"
+    },
+    {
+      "source_requirement_code": "4",
+      "source_regulation_table_index": 204,
+      "requirement": "не заполняется реквизит «Признак согласования документа» (hcsdo:DocAgreementIndicator)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=204; 39. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 27. / Таблица 27 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "27",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "4",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.10"
+    },
+    {
+      "source_requirement_code": "5",
+      "source_regulation_table_index": 204,
+      "requirement": "должен быть заполнен реквизит «Номер заявления о регистрации лекарственного препарата» (hcsdo:ApplicationId) и (или) реквизит «Порядковый номер регистрационного удостоверения лекарственного препарата» (hcsdo:RegistrationNumberId)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=204; 39. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 27. / Таблица 27 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "27",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "5",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.11"
+    },
+    {
+      "source_requirement_code": "6",
+      "source_regulation_table_index": 204,
+      "requirement": "не заполняется реквизит «Код вида процедуры регистрации» (hcsdo:RegistrationKindCode)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=204; 39. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 27. / Таблица 27 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "27",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "6",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.12"
+    }
+  ],
+  "source_refs": [
+    {
+      "source_id": "SRC-PMM01-140",
+      "document": "https://docs.eaeunion.org/documents/446/10427/",
+      "location": "Official Word attachment, table_index=130; Таблица 5 / Перечень сообщений общего процесса / ",
+      "status": "CONFIRMED",
+      "table": "5",
+      "page": null,
+      "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+      "item": "P.MM.01.MSG.030",
+      "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+    },
+    {
+      "source_id": "SRC-PMM01-140",
+      "document": "https://docs.eaeunion.org/documents/446/10427/",
+      "location": "Official Word attachment, table_index=183; Таблица 6 / Перечень сообщений общего процесса / ",
+      "status": "CONFIRMED",
+      "table": "6",
+      "page": null,
+      "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+      "item": "P.MM.01.MSG.030",
+      "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+    }
+  ],
+  "structured_rules": [
+    {
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.1.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.030.SOURCE_ROW.1",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=168; 55. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 43. / Таблица 43 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "43",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "NOT_IMPLEMENTED_SOURCE_INTERPRETATION"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.2.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.030.SOURCE_ROW.2",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=168; 55. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 43. / Таблица 43 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "43",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FORBIDDEN",
+      "target": "UnifiedCountryCode",
+      "ancestors": [],
+      "container": false,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=168; 55. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 43. / Таблица 43 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "43",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "3",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.3.Abdcc98961bd1",
+      "source_row_id": "P.MM.01.MSG.030.SOURCE_ROW.3",
+      "message_code": "P.MM.01.MSG.030",
+      "diagnostic": "P.MM.01.MSG.030: FORBIDDEN UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FORBIDDEN",
+      "target": "DocAgreementIndicator",
+      "ancestors": [],
+      "container": false,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=168; 55. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 43. / Таблица 43 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "43",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "4",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.4.A95f48f2a731e",
+      "source_row_id": "P.MM.01.MSG.030.SOURCE_ROW.4",
+      "message_code": "P.MM.01.MSG.030",
+      "diagnostic": "P.MM.01.MSG.030: FORBIDDEN DocAgreementIndicator",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.5.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.030.SOURCE_ROW.5",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=168; 55. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 43. / Таблица 43 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "43",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "5",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FORBIDDEN",
+      "target": "RegistrationKindCode",
+      "ancestors": [],
+      "container": false,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=168; 55. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 43. / Таблица 43 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "43",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "6",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.6.Ac026454235ea",
+      "source_row_id": "P.MM.01.MSG.030.SOURCE_ROW.6",
+      "message_code": "P.MM.01.MSG.030",
+      "diagnostic": "P.MM.01.MSG.030: FORBIDDEN RegistrationKindCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.7.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.030.SOURCE_ROW.7",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=204; 39. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 27. / Таблица 27 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "27",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "NOT_IMPLEMENTED_SOURCE_INTERPRETATION"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.8.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.030.SOURCE_ROW.8",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=204; 39. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 27. / Таблица 27 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "27",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FORBIDDEN",
+      "target": "UnifiedCountryCode",
+      "ancestors": [],
+      "container": false,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=204; 39. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 27. / Таблица 27 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "27",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "3",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.9.Abdcc98961bd1",
+      "source_row_id": "P.MM.01.MSG.030.SOURCE_ROW.9",
+      "message_code": "P.MM.01.MSG.030",
+      "diagnostic": "P.MM.01.MSG.030: FORBIDDEN UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FORBIDDEN",
+      "target": "DocAgreementIndicator",
+      "ancestors": [],
+      "container": false,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=204; 39. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 27. / Таблица 27 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "27",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "4",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.10.A95f48f2a731e",
+      "source_row_id": "P.MM.01.MSG.030.SOURCE_ROW.10",
+      "message_code": "P.MM.01.MSG.030",
+      "diagnostic": "P.MM.01.MSG.030: FORBIDDEN DocAgreementIndicator",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.11.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.030.SOURCE_ROW.11",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=204; 39. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 27. / Таблица 27 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "27",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "5",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FORBIDDEN",
+      "target": "RegistrationKindCode",
+      "ancestors": [],
+      "container": false,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=204; 39. Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030), приведены в таблице 27. / Таблица 27 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003), передаваемых в сообщении «Запрос документа из регистрационного дела или регистрационного досье» (P.MM.01.MSG.030)",
+          "status": "CONFIRMED",
+          "table": "27",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "6",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.12.Ac026454235ea",
+      "source_row_id": "P.MM.01.MSG.030.SOURCE_ROW.12",
+      "message_code": "P.MM.01.MSG.030",
+      "diagnostic": "P.MM.01.MSG.030: FORBIDDEN RegistrationKindCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    }
+  ]
+}

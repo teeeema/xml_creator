@@ -1,0 +1,32 @@
+{
+  "source": "git show HEAD:eaeu_xml/src/eaeu_xml/process_packages/body.py",
+  "input": {
+    "Groups": [
+      {},
+      {
+        "Name": "later"
+      }
+    ]
+  },
+  "old_flatten": {
+    "Groups": [
+      null,
+      null
+    ],
+    "Groups/Name": [
+      "later"
+    ]
+  },
+  "new_flatten": {
+    "Groups": [
+      {},
+      {}
+    ],
+    "Groups/Name": [
+      null,
+      "later"
+    ]
+  },
+  "defect": "missing first-parent child collapsed into the later value",
+  "regression": "test_xml_value_context.py"
+}

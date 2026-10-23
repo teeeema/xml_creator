@@ -1,0 +1,135 @@
+FF.FFFF....                                                  [100%]
+=================================== FAILURES ===================================
+_ VersionGateRegressionTests.test_direct_loader_checks_passport_process_and_profile_identity (key='process_code') _
+
+self = <test_op26_version_selection.VersionGateRegressionTests testMethod=test_direct_loader_checks_passport_process_and_profile_identity>
+
+    def test_direct_loader_checks_passport_process_and_profile_identity(self):
+        for key, value in (("process_code", "P.OTHER.01"), ("target_version", "9.9.9")):
+            with self.subTest(key=key):
+                original = self.metadata[key]
+                self.metadata[key] = value
+                self.write_status()
+>               with self.assertRaises(ProcessPackageValidationError):
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AssertionError: ProcessPackageValidationError not raised
+
+eaeu_xml/tests/test_op26_version_selection.py:73: AssertionError
+_ VersionGateRegressionTests.test_direct_loader_checks_passport_process_and_profile_identity _
+
+self = <test_op26_version_selection.VersionGateRegressionTests testMethod=test_direct_loader_checks_passport_process_and_profile_identity>
+
+    def test_direct_loader_checks_passport_process_and_profile_identity(self):
+        for key, value in (("process_code", "P.OTHER.01"), ("target_version", "9.9.9")):
+            with self.subTest(key=key):
+                original = self.metadata[key]
+                self.metadata[key] = value
+                self.write_status()
+                with self.assertRaises(ProcessPackageValidationError):
+                    ProcessPackageLoader.load(self.selected)
+                self.metadata[key] = original
+        self.write_status()
+        profile = self.selected / "version_profiles" / "current.yaml"
+        data = json.loads(profile.read_text())
+        data["process_version"] = "1.1.0"
+        profile.write_text(json.dumps(data))
+>       with self.assertRaises(ProcessPackageValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: ProcessPackageValidationError not raised
+
+eaeu_xml/tests/test_op26_version_selection.py:81: AssertionError
+----------------------------- Captured stdout call -----------------------------
+uu
+_ VersionGateRegressionTests.test_engine_rechecks_readiness_before_generation __
+
+self = <test_op26_version_selection.VersionGateRegressionTests testMethod=test_engine_rechecks_readiness_before_generation>
+
+    def test_engine_rechecks_readiness_before_generation(self):
+        engine = EaeuXmlEngine.load_process(self.root, version="1.3.0")
+        self.metadata["state"] = "DRAFT_NOT_READY"
+        self.write_status()
+        with self.assertRaises(ProcessPackageValidationError) as error:
+>           engine.build_body("P.TS.01.MSG.001", {})
+
+eaeu_xml/tests/test_op26_version_selection.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/process_packages/engine.py:86: in build_body
+    return self.body_provider.build_body(message, structure, values, mode=mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                   user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
+        values = self._flatten(user_values)
+        rules = self.package.rules.get(message_definition.message_code)
+        if rules:
+            for path, expected in rules.fixed_values.items(): values.setdefault(path, expected)
+        result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+        if not result.is_valid:
+>           raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
+E           eaeu_xml.core.errors.BodyValidationError: Body содержит 1 issue(s).
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:146: BodyValidationError
+___ VersionGateRegressionTests.test_registry_rechecks_revoked_cached_edition ___
+
+self = <test_op26_version_selection.VersionGateRegressionTests testMethod=test_registry_rechecks_revoked_cached_edition>
+
+    def test_registry_rechecks_revoked_cached_edition(self):
+        registry = ProcessRegistry(self.root.parent)
+        registry.get_process("P.TS.01", version="1.3.0")
+        self.metadata["promotion_allowed"] = False
+        self.write_status()
+>       with self.assertRaises(ProcessPackageValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: ProcessPackageValidationError not raised
+
+eaeu_xml/tests/test_op26_version_selection.py:55: AssertionError
+_ VersionGateRegressionTests.test_relocated_draft_with_passport_remains_blocked _
+
+self = <test_op26_version_selection.VersionGateRegressionTests testMethod=test_relocated_draft_with_passport_remains_blocked>
+
+    def test_relocated_draft_with_passport_remains_blocked(self):
+        target = Path(self.temporary.name) / "relocated"
+        shutil.copytree(self.selected, target)
+        status = target / "migration_status.json"
+        data = json.loads(status.read_text())
+        data["promotion_allowed"] = False
+        status.write_text(json.dumps(data))
+>       with self.assertRaises(ProcessPackageValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: ProcessPackageValidationError not raised
+
+eaeu_xml/tests/test_op26_version_selection.py:91: AssertionError
+_ VersionGateRegressionTests.test_verified_selection_is_independent_and_legacy_default_survives _
+
+self = <test_op26_version_selection.VersionGateRegressionTests testMethod=test_verified_selection_is_independent_and_legacy_default_survives>
+
+    def test_verified_selection_is_independent_and_legacy_default_survives(self):
+        legacy = load_process_version(self.root)
+        selected = load_process_version(self.root, version="1.3.0")
+>       self.assertEqual(selected.path, self.selected)
+E       AssertionError: PosixPath('/private/var/folders/rz/g871p_vs07x0k9f3cc[46 chars]3.0') != PosixPath('/var/folders/rz/g871p_vs07x0k9f3cck3qx_r00[38 chars]3.0')
+
+eaeu_xml/tests/test_op26_version_selection.py:44: AssertionError
+_ VersionGateRegressionTests.test_versioned_catalog_cannot_link_legacy_manifests _
+
+self = <test_op26_version_selection.VersionGateRegressionTests testMethod=test_versioned_catalog_cannot_link_legacy_manifests>
+
+    def test_versioned_catalog_cannot_link_legacy_manifests(self):
+        manifest = self.selected / "messages.yaml"
+        manifest.unlink()
+        manifest.symlink_to(self.root / "messages.yaml")
+>       with self.assertRaises(ProcessPackageValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: ProcessPackageValidationError not raised
+
+eaeu_xml/tests/test_op26_version_selection.py:98: AssertionError
+=========================== short test summary info ============================
+SUBFAILED(key='process_code') eaeu_xml/tests/test_op26_version_selection.py::VersionGateRegressionTests::test_direct_loader_checks_passport_process_and_profile_identity
+FAILED eaeu_xml/tests/test_op26_version_selection.py::VersionGateRegressionTests::test_direct_loader_checks_passport_process_and_profile_identity
+FAILED eaeu_xml/tests/test_op26_version_selection.py::VersionGateRegressionTests::test_engine_rechecks_readiness_before_generation
+FAILED eaeu_xml/tests/test_op26_version_selection.py::VersionGateRegressionTests::test_registry_rechecks_revoked_cached_edition
+FAILED eaeu_xml/tests/test_op26_version_selection.py::VersionGateRegressionTests::test_relocated_draft_with_passport_remains_blocked
+FAILED eaeu_xml/tests/test_op26_version_selection.py::VersionGateRegressionTests::test_verified_selection_is_independent_and_legacy_default_survives
+FAILED eaeu_xml/tests/test_op26_version_selection.py::VersionGateRegressionTests::test_versioned_catalog_cannot_link_legacy_manifests
+7 failed, 5 passed, 11 subtests passed in 0.23s

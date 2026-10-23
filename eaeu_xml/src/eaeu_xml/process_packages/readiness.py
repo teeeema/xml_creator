@@ -1,8 +1,24 @@
 """Fail-closed readiness gate for independently stored normative editions."""
 import json
+import re
 from pathlib import Path
 
+from eaeu_xml.process_packages.models import ProcessPackage
+
 from eaeu_xml.core.errors import ProcessPackageValidationError
+
+
+def is_versioned_package(path: Path) -> bool:
+    return path.parent.name == "versions" or (path / "migration_status.json").exists()
+
+
+def require_package_ready(package: ProcessPackage) -> None:
+    """Recheck the passport when a cached package reaches a generation boundary."""
+    if is_versioned_package(package.path):
+        require_verified_version(
+            package.path, version=package.profile.process_version,
+            expected_process_code=package.process.process_code,
+        )
 
 
 def require_verified_version(
@@ -18,7 +34,9 @@ def require_verified_version(
         ) from error
 
     if not isinstance(metadata, dict) or (
-        metadata.get("target_version") != version
+        not isinstance(version, str)
+        or re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", version) is None
+        or metadata.get("target_version") != version
         or (
             expected_process_code is not None
             and metadata.get("process_code") != expected_process_code

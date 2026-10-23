@@ -1,0 +1,19 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ VersionGateRegressionTests.test_directly_indexed_edition_cannot_bypass_revocation_as_default _
+
+self = <test_op26_version_selection.VersionGateRegressionTests testMethod=test_directly_indexed_edition_cannot_bypass_revocation_as_default>
+
+    def test_directly_indexed_edition_cannot_bypass_revocation_as_default(self):
+        registry = ProcessRegistry(self.root / "versions")
+        selected = registry.get_process("P.TS.01")
+        self.metadata["promotion_allowed"] = False
+        self.write_status()
+>       with self.assertRaises(ProcessPackageValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: ProcessPackageValidationError not raised
+
+eaeu_xml/tests/test_op26_version_selection.py:65: AssertionError
+=========================== short test summary info ============================
+FAILED eaeu_xml/tests/test_op26_version_selection.py::VersionGateRegressionTests::test_directly_indexed_edition_cannot_bypass_revocation_as_default
+1 failed, 16 deselected in 0.07s

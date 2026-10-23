@@ -1,0 +1,540 @@
+{
+  "message_code": "P.MM.01.MSG.002",
+  "structure_id": "R.HC.MM.01.001",
+  "business_rules": [
+    {
+      "source_requirement_code": "1",
+      "source_regulation_table_index": 152,
+      "requirement": "в едином реестре должна содержаться запись, в которой реквизит «Конечная дата и время» (csdo:EndDateTime) в составе сложного реквизита «Технологические характеристики записи общего ресурса» (ccdo:ResourceItemStatusDetails) не заполнен, значения реквизитов «Порядковый номер регистрационного удостоверения лекарственного препарата» (hcsdo:RegistrationNumberId) и «Код страны» (csdo:UnifiedCountryCode) в составе реквизита «Сведения о регистрации лекарственного препарата в государстве-члене» (hccdo:DrugCountryRegistrationDetails) совпадают с переданными в сообщении, а значение реквизита «Начальная дата и время» (csdo:StartDateTime) в составе сложного реквизита «Технологические характеристики записи общего ресурса» (ccdo:ResourceItemStatusDetails) раньше чем в сообщении",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=152; 39. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для изменения в едином реестре» (P.MM.01.MSG.002), приведены в таблице 27. / Таблица 27 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для изменения в едином реестре» (P.MM.01.MSG.002)",
+          "status": "CONFIRMED",
+          "table": "27",
+          "page": 320,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.002.SOURCE_ROW.1"
+    },
+    {
+      "source_requirement_code": "2",
+      "source_regulation_table_index": 152,
+      "requirement": "реквизит «Порядковый номер регистрационного удостоверения лекарственного препарата» (hcsdo:RegistrationNumberId) должен быть заполнен",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=152; 39. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для изменения в едином реестре» (P.MM.01.MSG.002), приведены в таблице 27. / Таблица 27 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для изменения в едином реестре» (P.MM.01.MSG.002)",
+          "status": "CONFIRMED",
+          "table": "27",
+          "page": 320,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.002.SOURCE_ROW.2"
+    },
+    {
+      "source_requirement_code": "3-87",
+      "source_regulation_table_index": 152,
+      "requirement": "соответствуют требованиям 3-87 таблицы 26 настоящего Регламента",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=3; в графе первой цифры «3-82» заменить цифрами «3-87»; / в графе второй цифры «3-85» заменить цифрами «3-87», слова «таблицы 20» заменить словами «таблицы 26»; / в) таблицу 35 дополнить позицией следующего содержания:",
+          "status": "CONFIRMED",
+          "table": null,
+          "page": 4,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2(b)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.002.SOURCE_ROW.3"
+    }
+  ],
+  "source_refs": [
+    {
+      "source_id": "SRC-PMM01-140",
+      "document": "https://docs.eaeunion.org/documents/446/10427/",
+      "location": "Official Word attachment, table_index=130; Таблица 5 / Перечень сообщений общего процесса / ",
+      "status": "CONFIRMED",
+      "table": "5",
+      "page": null,
+      "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+      "item": "P.MM.01.MSG.002",
+      "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+    }
+  ],
+  "structured_rules": [
+    {
+      "rule_id": "P.MM.01.MSG.002.SOURCE_ROW.1.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.002.SOURCE_ROW.1",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=152; 39. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для изменения в едином реестре» (P.MM.01.MSG.002), приведены в таблице 27. / Таблица 27 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для изменения в едином реестре» (P.MM.01.MSG.002)",
+          "status": "CONFIRMED",
+          "table": "27",
+          "page": 320,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/RegistrationNumberId",
+      "ancestors": [
+        "DrugRegistrationDetails"
+      ],
+      "container": false,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=152; 39. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для изменения в едином реестре» (P.MM.01.MSG.002), приведены в таблице 27. / Таблица 27 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для изменения в едином реестре» (P.MM.01.MSG.002)",
+          "status": "CONFIRMED",
+          "table": "27",
+          "page": 320,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.002.SOURCE_ROW.2.A872901c4746d",
+      "source_row_id": "P.MM.01.MSG.002.SOURCE_ROW.2",
+      "message_code": "P.MM.01.MSG.002",
+      "diagnostic": "P.MM.01.MSG.002: REQUIRED DrugRegistrationDetails/RegistrationNumberId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "ENUM",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/CountryKindCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails"
+      ],
+      "container": false,
+      "allowed_values": [
+        "01",
+        "02"
+      ],
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=3; в графе первой цифры «3-82» заменить цифрами «3-87»; / в графе второй цифры «3-85» заменить цифрами «3-87», слова «таблицы 20» заменить словами «таблицы 26»; / в) таблицу 35 дополнить позицией следующего содержания:",
+          "status": "CONFIRMED",
+          "table": null,
+          "page": 4,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2(b)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        },
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "8",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "inherited_source_row": "P.MM.01.MSG.001.SOURCE_ROW.8",
+      "rule_id": "P.MM.01.MSG.002.SOURCE_ROW.3.Aed78209c4d88",
+      "source_row_id": "P.MM.01.MSG.002.SOURCE_ROW.3",
+      "message_code": "P.MM.01.MSG.002",
+      "diagnostic": "P.MM.01.MSG.002: ENUM DrugRegistrationDetails/DrugCountryRegistrationDetails/CountryKindCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails"
+      ],
+      "container": true,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=3; в графе первой цифры «3-82» заменить цифрами «3-87»; / в графе второй цифры «3-85» заменить цифрами «3-87», слова «таблицы 20» заменить словами «таблицы 26»; / в) таблицу 35 дополнить позицией следующего содержания:",
+          "status": "CONFIRMED",
+          "table": null,
+          "page": 4,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2(b)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        },
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "9",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "inherited_source_row": "P.MM.01.MSG.001.SOURCE_ROW.9",
+      "rule_id": "P.MM.01.MSG.002.SOURCE_ROW.3.A71f2386a7603",
+      "source_row_id": "P.MM.01.MSG.002.SOURCE_ROW.3",
+      "message_code": "P.MM.01.MSG.002",
+      "diagnostic": "P.MM.01.MSG.002: REQUIRED DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "ENUM",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/RegistrationStatusCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails"
+      ],
+      "container": false,
+      "allowed_values": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "99"
+      ],
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=3; в графе первой цифры «3-82» заменить цифрами «3-87»; / в графе второй цифры «3-85» заменить цифрами «3-87», слова «таблицы 20» заменить словами «таблицы 26»; / в) таблицу 35 дополнить позицией следующего содержания:",
+          "status": "CONFIRMED",
+          "table": null,
+          "page": 4,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2(b)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        },
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "10",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "inherited_source_row": "P.MM.01.MSG.001.SOURCE_ROW.10",
+      "rule_id": "P.MM.01.MSG.002.SOURCE_ROW.3.A66b793fae068",
+      "source_row_id": "P.MM.01.MSG.002.SOURCE_ROW.3",
+      "message_code": "P.MM.01.MSG.002",
+      "diagnostic": "P.MM.01.MSG.002: ENUM DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/RegistrationStatusCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugDocumentsDetails",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails"
+      ],
+      "container": true,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=3; в графе первой цифры «3-82» заменить цифрами «3-87»; / в графе второй цифры «3-85» заменить цифрами «3-87», слова «таблицы 20» заменить словами «таблицы 26»; / в) таблицу 35 дополнить позицией следующего содержания:",
+          "status": "CONFIRMED",
+          "table": null,
+          "page": 4,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2(b)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        },
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "30",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "inherited_source_row": "P.MM.01.MSG.001.SOURCE_ROW.30",
+      "rule_id": "P.MM.01.MSG.002.SOURCE_ROW.3.Aa648d472d2b4",
+      "source_row_id": "P.MM.01.MSG.002.SOURCE_ROW.3",
+      "message_code": "P.MM.01.MSG.002",
+      "diagnostic": "P.MM.01.MSG.002: REQUIRED DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugDocumentsDetails",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "ENUM",
+      "target": "DrugRegistrationDetails/RegistrationKindCode",
+      "ancestors": [
+        "DrugRegistrationDetails"
+      ],
+      "container": false,
+      "allowed_values": [
+        "01",
+        "02",
+        "03"
+      ],
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=3; в графе первой цифры «3-82» заменить цифрами «3-87»; / в графе второй цифры «3-85» заменить цифрами «3-87», слова «таблицы 20» заменить словами «таблицы 26»; / в) таблицу 35 дополнить позицией следующего содержания:",
+          "status": "CONFIRMED",
+          "table": null,
+          "page": 4,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2(b)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        },
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "32",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "inherited_source_row": "P.MM.01.MSG.001.SOURCE_ROW.32",
+      "rule_id": "P.MM.01.MSG.002.SOURCE_ROW.3.Ac4eb3ad2ff45",
+      "source_row_id": "P.MM.01.MSG.002.SOURCE_ROW.3",
+      "message_code": "P.MM.01.MSG.002",
+      "diagnostic": "P.MM.01.MSG.002: ENUM DrugRegistrationDetails/RegistrationKindCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/StreetName",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details"
+      ],
+      "container": false,
+      "conditional_on_parent": true,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=3; в графе первой цифры «3-82» заменить цифрами «3-87»; / в графе второй цифры «3-85» заменить цифрами «3-87», слова «таблицы 20» заменить словами «таблицы 26»; / в) таблицу 35 дополнить позицией следующего содержания:",
+          "status": "CONFIRMED",
+          "table": null,
+          "page": 4,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2(b)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        },
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "71",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "inherited_source_row": "P.MM.01.MSG.001.SOURCE_ROW.71",
+      "rule_id": "P.MM.01.MSG.002.SOURCE_ROW.3.A8c444509e82f",
+      "source_row_id": "P.MM.01.MSG.002.SOURCE_ROW.3",
+      "message_code": "P.MM.01.MSG.002",
+      "diagnostic": "P.MM.01.MSG.002: REQUIRED DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/StreetName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/StreetName",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details"
+      ],
+      "container": false,
+      "conditional_on_parent": true,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=3; в графе первой цифры «3-82» заменить цифрами «3-87»; / в графе второй цифры «3-85» заменить цифрами «3-87», слова «таблицы 20» заменить словами «таблицы 26»; / в) таблицу 35 дополнить позицией следующего содержания:",
+          "status": "CONFIRMED",
+          "table": null,
+          "page": 4,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2(b)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        },
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "71",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "inherited_source_row": "P.MM.01.MSG.001.SOURCE_ROW.71",
+      "rule_id": "P.MM.01.MSG.002.SOURCE_ROW.3.Ad734f2f70223",
+      "source_row_id": "P.MM.01.MSG.002.SOURCE_ROW.3",
+      "message_code": "P.MM.01.MSG.002",
+      "diagnostic": "P.MM.01.MSG.002: REQUIRED DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/StreetName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/StreetName",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details"
+      ],
+      "container": false,
+      "conditional_on_parent": true,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=3; в графе первой цифры «3-82» заменить цифрами «3-87»; / в графе второй цифры «3-85» заменить цифрами «3-87», слова «таблицы 20» заменить словами «таблицы 26»; / в) таблицу 35 дополнить позицией следующего содержания:",
+          "status": "CONFIRMED",
+          "table": null,
+          "page": 4,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2(b)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        },
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "71",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "inherited_source_row": "P.MM.01.MSG.001.SOURCE_ROW.71",
+      "rule_id": "P.MM.01.MSG.002.SOURCE_ROW.3.A6c9f3aa45755",
+      "source_row_id": "P.MM.01.MSG.002.SOURCE_ROW.3",
+      "message_code": "P.MM.01.MSG.002",
+      "diagnostic": "P.MM.01.MSG.002: REQUIRED DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/StreetName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/StreetName",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details"
+      ],
+      "container": false,
+      "conditional_on_parent": true,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=3; в графе первой цифры «3-82» заменить цифрами «3-87»; / в графе второй цифры «3-85» заменить цифрами «3-87», слова «таблицы 20» заменить словами «таблицы 26»; / в) таблицу 35 дополнить позицией следующего содержания:",
+          "status": "CONFIRMED",
+          "table": null,
+          "page": 4,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2(b)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        },
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "71",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "inherited_source_row": "P.MM.01.MSG.001.SOURCE_ROW.71",
+      "rule_id": "P.MM.01.MSG.002.SOURCE_ROW.3.A10e0e7c94ebe",
+      "source_row_id": "P.MM.01.MSG.002.SOURCE_ROW.3",
+      "message_code": "P.MM.01.MSG.002",
+      "diagnostic": "P.MM.01.MSG.002: REQUIRED DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/StreetName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.002.SOURCE_ROW.3.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.002.SOURCE_ROW.3",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=3; в графе первой цифры «3-82» заменить цифрами «3-87»; / в графе второй цифры «3-85» заменить цифрами «3-87», слова «таблицы 20» заменить словами «таблицы 26»; / в) таблицу 35 дополнить позицией следующего содержания:",
+          "status": "CONFIRMED",
+          "table": null,
+          "page": 4,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2(b)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "INHERITED_RANGE_PARTIAL:P.MM.01.MSG.001.SOURCE_ROW.3,P.MM.01.MSG.001.SOURCE_ROW.4,P.MM.01.MSG.001.SOURCE_ROW.5,P.MM.01.MSG.001.SOURCE_ROW.6,P.MM.01.MSG.001.SOURCE_ROW.7,P.MM.01.MSG.001.SOURCE_ROW.11,P.MM.01.MSG.001.SOURCE_ROW.12,P.MM.01.MSG.001.SOURCE_ROW.13,P.MM.01.MSG.001.SOURCE_ROW.14,P.MM.01.MSG.001.SOURCE_ROW.15,P.MM.01.MSG.001.SOURCE_ROW.16,P.MM.01.MSG.001.SOURCE_ROW.17,P.MM.01.MSG.001.SOURCE_ROW.18,P.MM.01.MSG.001.SOURCE_ROW.19,P.MM.01.MSG.001.SOURCE_ROW.20,P.MM.01.MSG.001.SOURCE_ROW.21,P.MM.01.MSG.001.SOURCE_ROW.22,P.MM.01.MSG.001.SOURCE_ROW.23,P.MM.01.MSG.001.SOURCE_ROW.24,P.MM.01.MSG.001.SOURCE_ROW.25,P.MM.01.MSG.001.SOURCE_ROW.26,P.MM.01.MSG.001.SOURCE_ROW.27,P.MM.01.MSG.001.SOURCE_ROW.28,P.MM.01.MSG.001.SOURCE_ROW.29,P.MM.01.MSG.001.SOURCE_ROW.31,P.MM.01.MSG.001.SOURCE_ROW.33,P.MM.01.MSG.001.SOURCE_ROW.34,P.MM.01.MSG.001.SOURCE_ROW.35,P.MM.01.MSG.001.SOURCE_ROW.36,P.MM.01.MSG.001.SOURCE_ROW.37,P.MM.01.MSG.001.SOURCE_ROW.38,P.MM.01.MSG.001.SOURCE_ROW.39,P.MM.01.MSG.001.SOURCE_ROW.40,P.MM.01.MSG.001.SOURCE_ROW.41,P.MM.01.MSG.001.SOURCE_ROW.42,P.MM.01.MSG.001.SOURCE_ROW.43,P.MM.01.MSG.001.SOURCE_ROW.44,P.MM.01.MSG.001.SOURCE_ROW.45,P.MM.01.MSG.001.SOURCE_ROW.46,P.MM.01.MSG.001.SOURCE_ROW.47,P.MM.01.MSG.001.SOURCE_ROW.48,P.MM.01.MSG.001.SOURCE_ROW.49,P.MM.01.MSG.001.SOURCE_ROW.50,P.MM.01.MSG.001.SOURCE_ROW.51,P.MM.01.MSG.001.SOURCE_ROW.52,P.MM.01.MSG.001.SOURCE_ROW.53,P.MM.01.MSG.001.SOURCE_ROW.54,P.MM.01.MSG.001.SOURCE_ROW.55,P.MM.01.MSG.001.SOURCE_ROW.56,P.MM.01.MSG.001.SOURCE_ROW.57,P.MM.01.MSG.001.SOURCE_ROW.58,P.MM.01.MSG.001.SOURCE_ROW.59,P.MM.01.MSG.001.SOURCE_ROW.60,P.MM.01.MSG.001.SOURCE_ROW.61,P.MM.01.MSG.001.SOURCE_ROW.62,P.MM.01.MSG.001.SOURCE_ROW.63,P.MM.01.MSG.001.SOURCE_ROW.64,P.MM.01.MSG.001.SOURCE_ROW.65,P.MM.01.MSG.001.SOURCE_ROW.66,P.MM.01.MSG.001.SOURCE_ROW.67,P.MM.01.MSG.001.SOURCE_ROW.68,P.MM.01.MSG.001.SOURCE_ROW.69,P.MM.01.MSG.001.SOURCE_ROW.70,P.MM.01.MSG.001.SOURCE_ROW.72,P.MM.01.MSG.001.SOURCE_ROW.73,P.MM.01.MSG.001.SOURCE_ROW.74,P.MM.01.MSG.001.SOURCE_ROW.75,P.MM.01.MSG.001.SOURCE_ROW.76,P.MM.01.MSG.001.SOURCE_ROW.77,P.MM.01.MSG.001.SOURCE_ROW.78,P.MM.01.MSG.001.SOURCE_ROW.79,P.MM.01.MSG.001.SOURCE_ROW.80,P.MM.01.MSG.001.SOURCE_ROW.81,P.MM.01.MSG.001.SOURCE_ROW.82,P.MM.01.MSG.001.SOURCE_ROW.83,P.MM.01.MSG.001.SOURCE_ROW.84,P.MM.01.MSG.001.SOURCE_ROW.85,P.MM.01.MSG.001.SOURCE_ROW.86,P.MM.01.MSG.001.SOURCE_ROW.87"
+    }
+  ]
+}

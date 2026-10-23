@@ -1,0 +1,272 @@
+{
+  "message_code": "P.MM.01.MSG.009",
+  "structure_id": "R.006",
+  "business_rules": [
+    {
+      "source_requirement_code": "1",
+      "source_regulation_table_index": 155,
+      "requirement": "если уведомление о невозможности представления сведений сформировано в связи с отсутствием в реестре сведений, удовлетворяющих параметрам запроса, то реквизит «Код результата обработки» (csdo:ProcessingResultV2Code) должен соответствовать значению «1 – сведения отсутствуют»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=155; 42. Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009), приведены в таблице 30. / Таблица 30 / Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009)",
+          "status": "CONFIRMED",
+          "table": "30",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.009.SOURCE_ROW.1"
+    },
+    {
+      "source_requirement_code": "2",
+      "source_regulation_table_index": 155,
+      "requirement": "если уведомление о невозможности представления сведений сформировано в связи с превышением запрошенными сведениями допустимого объема, то реквизит «Код результата обработки» (csdo:ProcessingResultV2Code) должен соответствовать значению «8 – сведения не могут быть предоставлены», а реквизит «Описание» (csdo:DescriptionText) должен иметь значение «превышение запрошенными сведениями допустимого объема»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=155; 42. Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009), приведены в таблице 30. / Таблица 30 / Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009)",
+          "status": "CONFIRMED",
+          "table": "30",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.009.SOURCE_ROW.2"
+    },
+    {
+      "source_requirement_code": "3",
+      "source_regulation_table_index": 155,
+      "requirement": "если уведомление о невозможности представления сведений сформировано в связи с отсутствием у инициатора запроса права получения запрошенных сведений, то реквизит «Код результата обработки» (csdo:ProcessingResultV2Code) должен соответствовать значению «8 – сведения не могут быть предоставлены», а реквизит «Описание» (csdo:DescriptionText) должен иметь значение «отсутствует право получения запрошенных сведений»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=155; 42. Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009), приведены в таблице 30. / Таблица 30 / Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009)",
+          "status": "CONFIRMED",
+          "table": "30",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "3",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.009.SOURCE_ROW.3"
+    },
+    {
+      "source_requirement_code": "1",
+      "source_regulation_table_index": 194,
+      "requirement": "если уведомление о невозможности представления сведений сформировано в связи с отсутствием сведений, удовлетворяющих параметрам запроса, то реквизит «Код результата обработки» (csdo:ProcessingResultV2Code) должен соответствовать значению «1 – сведения отсутствуют»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=194; 29. Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009), приведены в таблице 17. / Таблица 17 / Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009)",
+          "status": "CONFIRMED",
+          "table": "17",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.009.SOURCE_ROW.4"
+    },
+    {
+      "source_requirement_code": "2",
+      "source_regulation_table_index": 194,
+      "requirement": "если уведомление о невозможности представления сведений сформировано в связи с превышением запрошенными сведениями допустимого объема, то реквизит «Код результата обработки» (csdo:ProcessingResultV2Code) должен соответствовать значению «8 – сведения не могут быть предоставлены», а реквизит «Описание» (csdo:DescriptionText) должен иметь значение «превышение запрошенными сведениями допустимого объема»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=194; 29. Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009), приведены в таблице 17. / Таблица 17 / Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009)",
+          "status": "CONFIRMED",
+          "table": "17",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.009.SOURCE_ROW.5"
+    },
+    {
+      "source_requirement_code": "3",
+      "source_regulation_table_index": 194,
+      "requirement": "если уведомление о невозможности представления сведений сформировано в связи с отсутствием у инициатора запроса права получения запрошенных сведений, то реквизит «Код результата обработки» (csdo:ProcessingResultV2Code) должен соответствовать значению «8 – сведения не могут быть предоставлены», а реквизит «Описание» (csdo:DescriptionText) должен иметь значение «отсутствует право получения запрошенных сведений»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=194; 29. Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009), приведены в таблице 17. / Таблица 17 / Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009)",
+          "status": "CONFIRMED",
+          "table": "17",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "3",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.009.SOURCE_ROW.6"
+    }
+  ],
+  "source_refs": [
+    {
+      "source_id": "SRC-PMM01-140",
+      "document": "https://docs.eaeunion.org/documents/446/10427/",
+      "location": "Official Word attachment, table_index=130; Таблица 5 / Перечень сообщений общего процесса / ",
+      "status": "CONFIRMED",
+      "table": "5",
+      "page": null,
+      "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+      "item": "P.MM.01.MSG.009",
+      "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+    },
+    {
+      "source_id": "SRC-PMM01-140",
+      "document": "https://docs.eaeunion.org/documents/446/10427/",
+      "location": "Official Word attachment, table_index=183; Таблица 6 / Перечень сообщений общего процесса / ",
+      "status": "CONFIRMED",
+      "table": "6",
+      "page": null,
+      "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+      "item": "P.MM.01.MSG.009",
+      "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+    }
+  ],
+  "structured_rules": [
+    {
+      "rule_id": "P.MM.01.MSG.009.SOURCE_ROW.1.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.009.SOURCE_ROW.1",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=155; 42. Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009), приведены в таблице 30. / Таблица 30 / Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009)",
+          "status": "CONFIRMED",
+          "table": "30",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.009.SOURCE_ROW.2.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.009.SOURCE_ROW.2",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=155; 42. Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009), приведены в таблице 30. / Таблица 30 / Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009)",
+          "status": "CONFIRMED",
+          "table": "30",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.009.SOURCE_ROW.3.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.009.SOURCE_ROW.3",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=155; 42. Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009), приведены в таблице 30. / Таблица 30 / Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009)",
+          "status": "CONFIRMED",
+          "table": "30",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "3",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.009.SOURCE_ROW.4.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.009.SOURCE_ROW.4",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=194; 29. Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009), приведены в таблице 17. / Таблица 17 / Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009)",
+          "status": "CONFIRMED",
+          "table": "17",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.009.SOURCE_ROW.5.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.009.SOURCE_ROW.5",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=194; 29. Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009), приведены в таблице 17. / Таблица 17 / Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009)",
+          "status": "CONFIRMED",
+          "table": "17",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.009.SOURCE_ROW.6.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.009.SOURCE_ROW.6",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=194; 29. Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009), приведены в таблице 17. / Таблица 17 / Требования к заполнению реквизитов электронных документов (сведений) «Уведомление о результате обработки» (R.006), передаваемых в сообщении «Уведомление о невозможности представления сведений» (P.MM.01.MSG.009)",
+          "status": "CONFIRMED",
+          "table": "17",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "3",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    }
+  ]
+}

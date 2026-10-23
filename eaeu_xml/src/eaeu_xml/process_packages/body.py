@@ -10,6 +10,7 @@ from eaeu_xml.core.errors import BodyValidationError, ProcessBodyNotImplementedE
 from eaeu_xml.decision5.models.envelope import BodyPayload
 from eaeu_xml.process_packages.models import MessageDefinition, ProcessPackage, SourceReference, StructureDefinition, StructureFieldDefinition
 from eaeu_xml.process_packages.rules_engine import RuleStatus, StructuredRuleEvaluator
+from eaeu_xml.process_packages.value_context import MISSING, at_context, contexts, present as context_present, leaf_values
 
 
 class GenerationMode(str, Enum):
@@ -43,7 +44,7 @@ class BodyValidationResult:
 
     @property
     def is_complete(self) -> bool:
-        return not any(getattr(item, "status", None) not in {RuleStatus.PASS} for item in self.rule_evaluations)
+        return not self.issues and not any(getattr(item, "status", None) not in {RuleStatus.PASS} for item in self.rule_evaluations)
 
 
 @dataclass(frozen=True)
@@ -90,33 +91,52 @@ class StructuredProcessBodyProvider:
                         message=rule.get("conflict_details") or "MessageRule противоречит объявленной StructureDefinition.",
                         source_ref=source, rule_id=rule.get("conflict_id") or rule.get("rule_id"),
                     ))
-            for path, expected in rules.fixed_values.items(): values.setdefault(path, expected)
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
         for path in values:
             if path not in fields_by_path:
                 issues.append(self._issue("UNKNOWN_FIELD", path, "Поле отсутствует в StructureDefinition."))
+        children = {field.parent for field in structure_definition.fields if field.parent and field.kind != "ATTRIBUTE"}
+        fields_by_id = {field.field_id: field for field in structure_definition.fields}
+        if any(re.search(r"[XYZ](?:\.[XYZ]){2}", text) for text in
+               (structure_definition.namespace or "", *structure_definition.imported_namespaces.values())):
+            severity = IssueSeverity.ERROR if mode == GenerationMode.STRICT else IssueSeverity.WARNING
+            issues.append(self._issue("UNRESOLVED_NAMESPACE_VERSION", "", "Версия namespace модели не подтверждена; XML доступен только для внутренней проверки.", severity=severity))
         for field in structure_definition.fields:
             if field.status != "CONFIRMED":
                 issues.append(self._issue("NEEDS_NORMATIVE_INTERPRETATION", field.path, "Строка нормативной таблицы требует ручной интерпретации.", field))
                 continue
-            present = self._field_is_present(values, field.path)
-            raw = values.get(field.path)
-            count = self._value_count(raw, present)
-            parent_path = self._parent_path(field.path)
-            parent_present = not parent_path or self._field_is_present(values, parent_path)
-            parent_raw = values.get(parent_path)
-            parent_count = len(parent_raw) if isinstance(parent_raw, list) else 1
-            if parent_count > 1 and isinstance(raw, list) and len(raw) == parent_count:
-                count = 1
-            if parent_present and field.min_occurs is not None and count < field.min_occurs:
-                issues.append(self._issue("MIN_OCCURS", field.path, f"Требуется минимум {field.min_occurs} значений, получено {count}.", field))
-            if field.max_occurs is not None and count > field.max_occurs:
-                issues.append(self._issue("MAX_OCCURS", field.path, f"Допустимо максимум {field.max_occurs} значений, получено {count}.", field))
-            if present:
-                for value in raw if isinstance(raw, list) else [raw]:
-                    self._validate_datatype(field, value, issues)
-            if field.classifier_ref and present:
-                severity = IssueSeverity.ERROR if mode == GenerationMode.STRICT else IssueSeverity.WARNING
-                issues.append(self._issue("CLASSIFIER_DATASET_NOT_AVAILABLE", field.path, "Набор данных классификатора отсутствует; значение не проверено.", field, severity))
+            ancestors = []
+            parent = fields_by_id.get(field.parent)
+            while parent:
+                ancestors.insert(0, parent.path)
+                parent = fields_by_id.get(parent.parent)
+            for context in contexts(values, ancestors):
+                raw = at_context(values, field.path, context)
+                if raw is MISSING and field.path in values:
+                    issues.append(self._issue("VALUE_CONTEXT_ALIGNMENT", field.path, "Число значений не соответствует повторяющимся родительским контекстам; scalar broadcast запрещён.", field))
+                is_container = field.field_id in children
+                exists = context_present(values, field.path, context)
+                if isinstance(raw, list):
+                    count = len(raw)
+                elif raw is MISSING or raw is None:
+                    count = int(exists and (is_container or raw is None))
+                else:
+                    count = 1
+                if field.min_occurs is not None and count < field.min_occurs:
+                    issues.append(self._issue("MIN_OCCURS", field.path, f"Требуется минимум {field.min_occurs} значений, получено {count}.", field))
+                if field.max_occurs is not None and count > field.max_occurs:
+                    issues.append(self._issue("MAX_OCCURS", field.path, f"Допустимо максимум {field.max_occurs} значений, получено {count}.", field))
+                if count:
+                    if raw is None and not is_container:
+                        self._validate_datatype(field, "", issues)
+                    for value in leaf_values(raw):
+                        if value is not None:
+                            self._validate_datatype(field, value, issues)
+                    if field.classifier_ref:
+                        severity = IssueSeverity.ERROR if mode == GenerationMode.STRICT else IssueSeverity.WARNING
+                        issues.append(self._issue("CLASSIFIER_DATASET_NOT_AVAILABLE", field.path, "Набор данных классификатора отсутствует; значение не проверено.", field, severity))
         if rules:
             for path, usage in rules.field_usage.items():
                 present = path in values
@@ -133,6 +153,9 @@ class StructuredProcessBodyProvider:
             for evaluation in rule_evaluations:
                 if evaluation.status is RuleStatus.FAIL:
                     issues.append(self._issue("STRUCTURED_RULE_FAILED", "", evaluation.message, rule_id=evaluation.rule_id))
+                elif evaluation.status is not RuleStatus.PASS:
+                    severity = IssueSeverity.ERROR if mode == GenerationMode.STRICT else IssueSeverity.WARNING
+                    issues.append(self._issue("STRUCTURED_RULE_NOT_EVALUATED", "", f"{evaluation.status.value}: {evaluation.message}", severity=severity, rule_id=evaluation.rule_id))
         return BodyValidationResult(tuple(issues),rule_evaluations)
 
     def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
@@ -140,57 +163,120 @@ class StructuredProcessBodyProvider:
         values = self._flatten(user_values)
         rules = self.package.rules.get(message_definition.message_code)
         if rules:
-            for path, expected in rules.fixed_values.items(): values.setdefault(path, expected)
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
         result = self.validate_body(message_definition, structure_definition, values, mode=mode)
         if not result.is_valid:
             raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
         return StructuredBodyPayload(self._serialize(structure_definition, values))
 
+    def extract_values(self, structure: StructureDefinition, element: ET.Element) -> dict[str, Any]:
+        """Extract exact QNames and aligned parent contexts from a Body root.
+
+        Unknown names and order violations are rejected, not matched by local name.
+        Cardinality/datatype/business diagnostics remain owned by validate_body.
+        """
+        from copy import deepcopy
+        def qname(field):
+            if field.kind == "ATTRIBUTE" and not field.namespace_prefix: return field.xml_name
+            return f"{{{structure.imported_namespaces.get(field.namespace_prefix, structure.namespace)}}}{field.xml_name}"
+        if element.tag != f"{{{structure.namespace}}}{structure.root_element}":
+            raise BodyValidationError(code="ROOT_QNAME_MISMATCH", message="QName корневого элемента не соответствует структуре.")
+        children = {}
+        for field in sorted(structure.fields, key=lambda f: f.order): children.setdefault(field.parent, []).append(field)
+        def group(parent, parent_id):
+            fields = children.get(parent_id, ())
+            known = {qname(f): f for f in fields if f.kind == "ELEMENT"}
+            attrs = {qname(f): f for f in fields if f.kind == "ATTRIBUTE"}
+            wildcard = next((f for f in fields if f.kind == "ARBITRARY_XML"), None)
+            if set(parent.attrib)-set(attrs):
+                raise BodyValidationError(code="UNKNOWN_XML_ATTRIBUTE", message="Атрибут отсутствует в нормативном дереве.")
+            last = -1
+            for child in parent:
+                field = known.get(child.tag)
+                if field is None:
+                    if wildcard is None: raise BodyValidationError(code="UNKNOWN_XML_QNAME", message=f"Неизвестный QName: {child.tag}")
+                    field = wildcard
+                if field.order < last: raise BodyValidationError(code="XML_SEQUENCE_ORDER", message="Нарушен порядок реквизитов нормативной таблицы.")
+                last = field.order
+            result = {f.path: parent.attrib[key] for key,f in attrs.items() if key in parent.attrib}
+            for field in fields:
+                if field.kind == "ATTRIBUTE": continue
+                nodes = [n for n in parent if n.tag == qname(field)] if field.kind != "ARBITRARY_XML" else [n for n in parent if n.tag not in known]
+                if not nodes: continue
+                if field.kind == "ARBITRARY_XML":
+                    result[field.path] = [deepcopy(n) for n in nodes] if len(nodes)>1 or field.max_occurs != 1 else deepcopy(nodes[0])
+                    continue
+                is_container = any(c.kind != "ATTRIBUTE" for c in children.get(field.field_id, ()))
+                values = []
+                nested = []
+                for node in nodes:
+                    value = {} if is_container else (node.text if node.text is not None else "")
+                    if "indicator" in (field.datatype or "").lower() and value in ("true", "false", "1", "0"):
+                        value = value in ("true", "1")
+                    values.append(value); nested.append(group(node, field.field_id))
+                repeat = field.max_occurs != 1 or len(nodes)>1
+                result[field.path] = values if repeat else values[0]
+                for path in set().union(*(item.keys() for item in nested)):
+                    result[path] = [item.get(path) for item in nested] if repeat else nested[0][path]
+            return result
+        return group(element, None)
+
     def _serialize(self, structure: StructureDefinition, values: Mapping[str, Any]) -> ET.Element:
+        from copy import deepcopy
         if not structure.namespace or not structure.root_element:
             raise BodyValidationError(code="STRUCTURE_XML_METADATA_UNRESOLVED", message="Root element или namespace не разрешены.")
         ET.register_namespace("", structure.namespace)
         for prefix, uri in structure.imported_namespaces.items():
             if prefix and uri: ET.register_namespace(prefix, uri)
         root = ET.Element(ET.QName(structure.namespace, structure.root_element))
-        elements: dict[str, list[ET.Element]] = {}
-        fields = sorted(structure.fields, key=lambda field: field.order)
-        for field in fields:
-            if field.kind == "ATTRIBUTE": continue
+        children = {}
+        for field in sorted(structure.fields, key=lambda field: field.order):
+            children.setdefault(field.parent, []).append(field)
+
+        def emit(field, parent, context):
+            raw = at_context(values, field.path, context)
+            if raw is MISSING and not context_present(values, field.path, context): return
+            if raw is None and not context_present(values, field.path, context): return
+            if field.kind == "ATTRIBUTE":
+                if raw is not MISSING and raw is not None:
+                    key = ET.QName(structure.imported_namespaces[field.namespace_prefix], field.xml_name) if field.namespace_prefix else field.xml_name
+                    parent.set(key, str(raw))
+                return
             if field.kind == "ARBITRARY_XML":
-                if field.path not in values: continue
-                parent_elements = elements.get(self._parent_path(field.path), [root])
-                raw = values[field.path]; instances = raw if isinstance(raw, list) else [raw]
-                for parent in parent_elements:
-                    for value in instances:
-                        if isinstance(value, ET.Element): parent.append(value)
-                continue
-            if not field.xml_name: continue
-            descendants_present = any(path.startswith(field.path + "/") for path in values)
-            if field.path not in values and not descendants_present: continue
-            raw = values.get(field.path); instances = raw if isinstance(raw, list) else [raw]
-            if raw is None and descendants_present: instances = [None]
-            parent_elements = elements.get(self._parent_path(field.path), [root]); created=[]
-            if len(parent_elements) > 1 and len(instances) == len(parent_elements):
-                placements = zip(parent_elements, ([value] for value in instances))
-            else:
-                placements = ((parent, instances) for parent in parent_elements)
-            for parent, parent_values in placements:
-                for value in parent_values:
-                    namespace = structure.imported_namespaces.get(field.namespace_prefix, structure.namespace)
-                    element = ET.SubElement(parent, ET.QName(namespace, field.xml_name))
-                    if value is not None and not isinstance(value, Mapping):
-                        if isinstance(value, ET.Element): element.append(value)
-                        elif isinstance(value, bool): element.text = "true" if value else "false"
-                        elif isinstance(value, (date, datetime)): element.text = value.isoformat()
-                        else: element.text = str(value)
-                    created.append(element)
-            elements[field.path]=created
-        for field in fields:
-            if field.kind != "ATTRIBUTE" or field.path not in values or not field.xml_name: continue
-            targets=elements.get(self._parent_path(field.path), []); raw=values[field.path]; vals=raw if isinstance(raw,list) else [raw]
-            for index,target in enumerate(targets): target.set(field.xml_name, str(vals[min(index,len(vals)-1)]))
+                for value in raw if isinstance(raw, list) else [raw]:
+                    if isinstance(value, ET.Element): parent.append(deepcopy(value))
+                return
+            if not field.xml_name: return
+            container = any(child.kind != "ATTRIBUTE" for child in children.get(field.field_id, ()))
+            if raw is MISSING and not container: return
+            instances = raw if isinstance(raw, list) else [raw]
+            for index, value in enumerate(instances):
+                next_context = (*context, (field.path, index, len(instances), isinstance(raw, list)))
+                if value is None and isinstance(raw, list) and not any(
+                        p.startswith(field.path + "/") and at_context(values, p, next_context) not in (MISSING, None) for p in values):
+                    continue
+                namespace = structure.imported_namespaces.get(field.namespace_prefix, structure.namespace)
+                element = ET.SubElement(parent, ET.QName(namespace, field.xml_name))
+                if value is not MISSING and value is not None and not isinstance(value, Mapping):
+                    if isinstance(value, ET.Element): element.append(deepcopy(value))
+                    elif isinstance(value, bool): element.text = "true" if value else "false"
+                    elif isinstance(value, (date, datetime)): element.text = value.isoformat()
+                    else: element.text = str(value)
+                for child in children.get(field.field_id, ()):
+                    emit(child, element, next_context)
+        for field in children.get(None, ()):
+            emit(field, root, ())
         return root
+
+    @staticmethod
+    def _set_fixed_value(values, path, expected):
+        parent_path = path.rsplit("/", 1)[0] if "/" in path else ""
+        parent = values.get(parent_path)
+        def fill(shape):
+            return [fill(v) for v in shape] if isinstance(shape, list) else expected
+        values[path] = fill(parent) if isinstance(parent, list) else expected
 
     @staticmethod
     def _parent_path(path: str) -> str:
@@ -219,15 +305,15 @@ class StructuredProcessBodyProvider:
                 if prefix: result[prefix] = value
                 continue
             path=f"{prefix}/{key}" if prefix else key
-            if isinstance(value, Mapping): result.update(cls._flatten(value,path))
+            if isinstance(value, Mapping):
+                result[path] = {}  # explicit container, including a present empty object
+                result.update(cls._flatten(value,path))
             elif isinstance(value, list) and value and all(isinstance(item, Mapping) for item in value):
-                result[path] = [None] * len(value)
-                collected: dict[str, list[object]] = {}
-                for item in value:
-                    flat_item = cls._flatten(item, path)
-                    for item_path, item_value in flat_item.items():
-                        collected.setdefault(item_path, []).append(item_value)
-                result.update(collected)
+                result[path] = [{} for _ in value]
+                flat_items = [cls._flatten(item, path) for item in value]
+                keys = set().union(*(item.keys() for item in flat_items))
+                for item_path in sorted(keys):
+                    result[item_path] = [item.get(item_path) for item in flat_items]
             else: result[path]=value
         return result
 

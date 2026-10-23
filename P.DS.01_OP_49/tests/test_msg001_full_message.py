@@ -99,6 +99,8 @@ def msg001_values(engine: EaeuXmlEngine) -> dict[str, object]:
             path + "/csdo:UnifiedCountryCode": [None, "AA"],
             path + "/ds01sdo:" + amount_name: ["10.00", "10.00"],
         })
+    from eaeu_xml.application.services import TestDataGenerator
+    TestDataGenerator.align_sample_attributes(values, structure.fields)
     return values
 
 

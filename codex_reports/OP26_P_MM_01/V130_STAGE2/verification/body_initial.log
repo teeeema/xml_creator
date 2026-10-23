@@ -1,0 +1,236 @@
+F........................F.F...........                                  [100%]
+=================================== FAILURES ===================================
+_ ProcessPackageTests.test_body_validation_aggregates_required_forbidden_and_fixed_errors _
+
+self = <test_process_packages.ProcessPackageTests testMethod=test_body_validation_aggregates_required_forbidden_and_fixed_errors>
+
+    def test_body_validation_aggregates_required_forbidden_and_fixed_errors(self):
+        engine = EaeuXmlEngine.load_process(FIXTURE)
+>       result = engine.validate_body("P.TS.01.MSG.001", {"Items": {"@code": "WRONG"}, "Note": "x"}, mode=GenerationMode.TEST)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+eaeu_xml/tests/test_process_packages.py:302: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/process_packages/engine.py:85: in validate_body
+    return validator(message, structure, values, mode=mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x1095a6f90>
+message_definition = MessageDefinition(message_code='P.TS.01.MSG.001', name='Test request', structure_id='R.TEST.001', embedded_structures=...location='separate rules', status='TEST_ONLY', section=None, table=None, item=None, page=None, version_context=None),))
+structure_definition = StructureDefinition(structure_id='R.TEST.001', version='2.0.0', namespace='urn:test:structure:v2.0.0', root_element='T...tatus='TEST_ONLY', section=None, table=None, item=None, page=None, version_context=None),), status='TEST_FIXTURE_ONLY')
+user_values = {'Items': {'@code': 'WRONG'}, 'Note': 'x'}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def validate_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                      user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyValidationResult:
+        values = self._flatten(user_values)
+        issues: list[BodyValidationIssue] = []
+        fields_by_path = {field.path: field for field in structure_definition.fields}
+        rules = self.package.rules.get(message_definition.message_code)
+        supplied_values = dict(values)
+        rule_evaluations=()
+        if rules:
+            for rule in rules.business_rules:
+                if rule.get("interpretation_status") == "INTERNAL_NORMATIVE_CONFLICT":
+                    raw_source = (rule.get("source_refs") or [None])[0]
+                    source = None
+                    if raw_source:
+                        allowed = SourceReference.__dataclass_fields__
+                        source = SourceReference(**{key: value for key, value in raw_source.items() if key in allowed})
+                    identifiers = rule.get("referenced_identifiers") or ()
+                    issues.append(BodyValidationIssue(
+                        code="NORMATIVE_CONFLICT", severity=IssueSeverity.ERROR,
+                        field_path=", ".join(identifiers),
+                        message=rule.get("conflict_details") or "MessageRule противоречит объявленной StructureDefinition.",
+                        source_ref=source, rule_id=rule.get("conflict_id") or rule.get("rule_id"),
+                    ))
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        for path in values:
+            if path not in fields_by_path:
+                issues.append(self._issue("UNKNOWN_FIELD", path, "Поле отсутствует в StructureDefinition."))
+        children = {field.parent for field in structure_definition.fields if field.parent}
+        fields_by_id = {field.field_id: field for field in structure_definition.fields}
+        if any(re.search(r"[XYZ](?:\.[XYZ]){2}", text) for text in
+               (structure_definition.namespace or "", *structure_definition.imported_namespaces.values())):
+            severity = IssueSeverity.ERROR if mode == GenerationMode.STRICT else IssueSeverity.WARNING
+            issues.append(self._issue("UNRESOLVED_NAMESPACE_VERSION", "", "Версия namespace модели не подтверждена; XML доступен только для внутренней проверки.", severity=severity))
+        for field in structure_definition.fields:
+            if field.status != "CONFIRMED":
+                issues.append(self._issue("NEEDS_NORMATIVE_INTERPRETATION", field.path, "Строка нормативной таблицы требует ручной интерпретации.", field))
+                continue
+            ancestors = []
+            parent = fields_by_id.get(field.parent)
+            while parent:
+                ancestors.insert(0, parent.path)
+                parent = fields_by_id.get(parent.parent)
+            for context in contexts(values, ancestors):
+                raw = at_context(values, field.path, context)
+                is_container = field.field_id in children
+>               exists = present(values, field.path, context)
+                         ^^^^^^^
+E               UnboundLocalError: cannot access local variable 'present' where it is not associated with a value
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:118: UnboundLocalError
+_ ProcessPackageTests.test_repeatable_complex_elements_keep_values_and_attributes_aligned _
+
+self = <test_process_packages.ProcessPackageTests testMethod=test_repeatable_complex_elements_keep_values_and_attributes_aligned>
+
+    def test_repeatable_complex_elements_keep_values_and_attributes_aligned(self):
+        engine = EaeuXmlEngine.load_process(FIXTURE)
+>       body = engine.build_body("P.TS.01.MSG.001", {"Items": [
+            {"Name": "A", "@code": "FIXED"}, {"Name": "B", "@code": "FIXED"}
+        ]}, mode=GenerationMode.TEST)
+
+eaeu_xml/tests/test_process_packages.py:294: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/process_packages/engine.py:91: in build_body
+    return self.body_provider.build_body(message, structure, values, mode=mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/process_packages/body.py:162: in build_body
+    result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x1096bdd30>
+message_definition = MessageDefinition(message_code='P.TS.01.MSG.001', name='Test request', structure_id='R.TEST.001', embedded_structures=...location='separate rules', status='TEST_ONLY', section=None, table=None, item=None, page=None, version_context=None),))
+structure_definition = StructureDefinition(structure_id='R.TEST.001', version='2.0.0', namespace='urn:test:structure:v2.0.0', root_element='T...tatus='TEST_ONLY', section=None, table=None, item=None, page=None, version_context=None),), status='TEST_FIXTURE_ONLY')
+user_values = {'Items': [None, None], 'Items/@code': ['FIXED', 'FIXED'], 'Items/Name': ['A', 'B']}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def validate_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                      user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyValidationResult:
+        values = self._flatten(user_values)
+        issues: list[BodyValidationIssue] = []
+        fields_by_path = {field.path: field for field in structure_definition.fields}
+        rules = self.package.rules.get(message_definition.message_code)
+        supplied_values = dict(values)
+        rule_evaluations=()
+        if rules:
+            for rule in rules.business_rules:
+                if rule.get("interpretation_status") == "INTERNAL_NORMATIVE_CONFLICT":
+                    raw_source = (rule.get("source_refs") or [None])[0]
+                    source = None
+                    if raw_source:
+                        allowed = SourceReference.__dataclass_fields__
+                        source = SourceReference(**{key: value for key, value in raw_source.items() if key in allowed})
+                    identifiers = rule.get("referenced_identifiers") or ()
+                    issues.append(BodyValidationIssue(
+                        code="NORMATIVE_CONFLICT", severity=IssueSeverity.ERROR,
+                        field_path=", ".join(identifiers),
+                        message=rule.get("conflict_details") or "MessageRule противоречит объявленной StructureDefinition.",
+                        source_ref=source, rule_id=rule.get("conflict_id") or rule.get("rule_id"),
+                    ))
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        for path in values:
+            if path not in fields_by_path:
+                issues.append(self._issue("UNKNOWN_FIELD", path, "Поле отсутствует в StructureDefinition."))
+        children = {field.parent for field in structure_definition.fields if field.parent}
+        fields_by_id = {field.field_id: field for field in structure_definition.fields}
+        if any(re.search(r"[XYZ](?:\.[XYZ]){2}", text) for text in
+               (structure_definition.namespace or "", *structure_definition.imported_namespaces.values())):
+            severity = IssueSeverity.ERROR if mode == GenerationMode.STRICT else IssueSeverity.WARNING
+            issues.append(self._issue("UNRESOLVED_NAMESPACE_VERSION", "", "Версия namespace модели не подтверждена; XML доступен только для внутренней проверки.", severity=severity))
+        for field in structure_definition.fields:
+            if field.status != "CONFIRMED":
+                issues.append(self._issue("NEEDS_NORMATIVE_INTERPRETATION", field.path, "Строка нормативной таблицы требует ручной интерпретации.", field))
+                continue
+            ancestors = []
+            parent = fields_by_id.get(field.parent)
+            while parent:
+                ancestors.insert(0, parent.path)
+                parent = fields_by_id.get(parent.parent)
+            for context in contexts(values, ancestors):
+                raw = at_context(values, field.path, context)
+                is_container = field.field_id in children
+>               exists = present(values, field.path, context)
+                         ^^^^^^^
+E               UnboundLocalError: cannot access local variable 'present' where it is not associated with a value
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:118: UnboundLocalError
+_ ProcessPackageTests.test_structured_body_serializes_order_repeatables_and_attributes _
+
+self = <test_process_packages.ProcessPackageTests testMethod=test_structured_body_serializes_order_repeatables_and_attributes>
+
+    def test_structured_body_serializes_order_repeatables_and_attributes(self):
+        engine = EaeuXmlEngine.load_process(FIXTURE)
+>       body = engine.build_body("P.TS.01.MSG.001", {"Items": {"Name": ["A", "B"]}}, mode=GenerationMode.TEST)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+eaeu_xml/tests/test_process_packages.py:285: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/process_packages/engine.py:91: in build_body
+    return self.body_provider.build_body(message, structure, values, mode=mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/process_packages/body.py:162: in build_body
+    result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x1096d3690>
+message_definition = MessageDefinition(message_code='P.TS.01.MSG.001', name='Test request', structure_id='R.TEST.001', embedded_structures=...location='separate rules', status='TEST_ONLY', section=None, table=None, item=None, page=None, version_context=None),))
+structure_definition = StructureDefinition(structure_id='R.TEST.001', version='2.0.0', namespace='urn:test:structure:v2.0.0', root_element='T...tatus='TEST_ONLY', section=None, table=None, item=None, page=None, version_context=None),), status='TEST_FIXTURE_ONLY')
+user_values = {'Items/Name': ['A', 'B'], 'Items/@code': 'FIXED'}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def validate_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                      user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyValidationResult:
+        values = self._flatten(user_values)
+        issues: list[BodyValidationIssue] = []
+        fields_by_path = {field.path: field for field in structure_definition.fields}
+        rules = self.package.rules.get(message_definition.message_code)
+        supplied_values = dict(values)
+        rule_evaluations=()
+        if rules:
+            for rule in rules.business_rules:
+                if rule.get("interpretation_status") == "INTERNAL_NORMATIVE_CONFLICT":
+                    raw_source = (rule.get("source_refs") or [None])[0]
+                    source = None
+                    if raw_source:
+                        allowed = SourceReference.__dataclass_fields__
+                        source = SourceReference(**{key: value for key, value in raw_source.items() if key in allowed})
+                    identifiers = rule.get("referenced_identifiers") or ()
+                    issues.append(BodyValidationIssue(
+                        code="NORMATIVE_CONFLICT", severity=IssueSeverity.ERROR,
+                        field_path=", ".join(identifiers),
+                        message=rule.get("conflict_details") or "MessageRule противоречит объявленной StructureDefinition.",
+                        source_ref=source, rule_id=rule.get("conflict_id") or rule.get("rule_id"),
+                    ))
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        for path in values:
+            if path not in fields_by_path:
+                issues.append(self._issue("UNKNOWN_FIELD", path, "Поле отсутствует в StructureDefinition."))
+        children = {field.parent for field in structure_definition.fields if field.parent}
+        fields_by_id = {field.field_id: field for field in structure_definition.fields}
+        if any(re.search(r"[XYZ](?:\.[XYZ]){2}", text) for text in
+               (structure_definition.namespace or "", *structure_definition.imported_namespaces.values())):
+            severity = IssueSeverity.ERROR if mode == GenerationMode.STRICT else IssueSeverity.WARNING
+            issues.append(self._issue("UNRESOLVED_NAMESPACE_VERSION", "", "Версия namespace модели не подтверждена; XML доступен только для внутренней проверки.", severity=severity))
+        for field in structure_definition.fields:
+            if field.status != "CONFIRMED":
+                issues.append(self._issue("NEEDS_NORMATIVE_INTERPRETATION", field.path, "Строка нормативной таблицы требует ручной интерпретации.", field))
+                continue
+            ancestors = []
+            parent = fields_by_id.get(field.parent)
+            while parent:
+                ancestors.insert(0, parent.path)
+                parent = fields_by_id.get(parent.parent)
+            for context in contexts(values, ancestors):
+                raw = at_context(values, field.path, context)
+                is_container = field.field_id in children
+>               exists = present(values, field.path, context)
+                         ^^^^^^^
+E               UnboundLocalError: cannot access local variable 'present' where it is not associated with a value
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:118: UnboundLocalError
+=========================== short test summary info ============================
+FAILED eaeu_xml/tests/test_process_packages.py::ProcessPackageTests::test_body_validation_aggregates_required_forbidden_and_fixed_errors
+FAILED eaeu_xml/tests/test_process_packages.py::ProcessPackageTests::test_repeatable_complex_elements_keep_values_and_attributes_aligned
+FAILED eaeu_xml/tests/test_process_packages.py::ProcessPackageTests::test_structured_body_serializes_order_repeatables_and_attributes
+3 failed, 36 passed in 0.23s

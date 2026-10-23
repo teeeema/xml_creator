@@ -1,0 +1,522 @@
+{
+  "message_code": "P.MM.01.MSG.017",
+  "structure_id": "R.HC.MM.01.006",
+  "business_rules": [
+    {
+      "source_requirement_code": "1",
+      "source_regulation_table_index": 197,
+      "requirement": "должен быть заполнен 1 экземпляр реквизита «Сведения о рассмотрении заявления и (или) регистрационного досье» (hccdo:DrugApprovalApplicationDetails)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.1"
+    },
+    {
+      "source_requirement_code": "2",
+      "source_regulation_table_index": 197,
+      "requirement": "значение реквизита «Код страны» (csdo:UnifiedCountryCode) должно соответствовать коду страны из классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в его составе должен содержать значение «2021»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.2"
+    },
+    {
+      "source_requirement_code": "3",
+      "source_regulation_table_index": 197,
+      "requirement": "реквизит «Номер заявления о регистрации лекарственного препарата» (hcsdo:ApplicationId) заполняется обязательно",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "3",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.3"
+    },
+    {
+      "source_requirement_code": "4",
+      "source_regulation_table_index": 197,
+      "requirement": "не заполняется реквизит «Код причины невозможности рассмотрения заявления» (hcsdo:ApprovalImpossibilityReasonCode)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "4",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.4"
+    },
+    {
+      "source_requirement_code": "5",
+      "source_regulation_table_index": 197,
+      "requirement": "не заполняется реквизит «Дата» (csdo:EventDate)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "5",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.5"
+    },
+    {
+      "source_requirement_code": "6",
+      "source_regulation_table_index": 197,
+      "requirement": "не заполняется реквизит «Код вида документа регистрационного досье на лекарственный препарат» (hcsdo:DrugRegistrationDocCode)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "6",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.6"
+    },
+    {
+      "source_requirement_code": "7",
+      "source_regulation_table_index": 197,
+      "requirement": "не заполняется реквизит «Сведения о наименовании лекарственного препарата (средства)» (hccdo:DrugNameDetails)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.7"
+    },
+    {
+      "source_requirement_code": "8",
+      "source_regulation_table_index": 197,
+      "requirement": "не заполняется реквизит «Сведения о лекарственной форме» (hccdo:DosageFormDetails)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "8",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.8"
+    },
+    {
+      "source_requirement_code": "9",
+      "source_regulation_table_index": 197,
+      "requirement": "не заполняется реквизит «Сведения о производителе»(hccdo:ManufacturingAuthorizationHolderDetails)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "9",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.9"
+    },
+    {
+      "source_requirement_code": "10",
+      "source_regulation_table_index": 197,
+      "requirement": "не заполняется реквизит «Сведения о держателе (заявителе) регистрационного удостоверения» (hccdo:RegistrationCertificateHolderDetails)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "10",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.10"
+    },
+    {
+      "source_requirement_code": "11",
+      "source_regulation_table_index": 197,
+      "requirement": "не заполняется реквизит «Технологические характеристики записи общего ресурса» (ccdo:ResourceItemStatusDetails)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "11",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.11"
+    }
+  ],
+  "source_refs": [
+    {
+      "source_id": "SRC-PMM01-140",
+      "document": "https://docs.eaeunion.org/documents/446/10427/",
+      "location": "Official Word attachment, table_index=183; Таблица 6 / Перечень сообщений общего процесса / ",
+      "status": "CONFIRMED",
+      "table": "6",
+      "page": null,
+      "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+      "item": "P.MM.01.MSG.017",
+      "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+    }
+  ],
+  "structured_rules": [
+    {
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.1.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.017.SOURCE_ROW.1",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.2.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.017.SOURCE_ROW.2",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugApprovalApplicationDetails/ApplicationId",
+      "ancestors": [
+        "DrugApprovalApplicationDetails"
+      ],
+      "container": false,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "3",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.3.A25e2e1b011f3",
+      "source_row_id": "P.MM.01.MSG.017.SOURCE_ROW.3",
+      "message_code": "P.MM.01.MSG.017",
+      "diagnostic": "P.MM.01.MSG.017: REQUIRED DrugApprovalApplicationDetails/ApplicationId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FORBIDDEN",
+      "target": "DrugApprovalApplicationDetails/ApprovalImpossibilityReasonCode",
+      "ancestors": [
+        "DrugApprovalApplicationDetails"
+      ],
+      "container": false,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "4",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.4.A4fbd923e508f",
+      "source_row_id": "P.MM.01.MSG.017.SOURCE_ROW.4",
+      "message_code": "P.MM.01.MSG.017",
+      "diagnostic": "P.MM.01.MSG.017: FORBIDDEN DrugApprovalApplicationDetails/ApprovalImpossibilityReasonCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.5.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.017.SOURCE_ROW.5",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "5",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.6.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.017.SOURCE_ROW.6",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "6",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FORBIDDEN",
+      "target": "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/DrugNameDetails",
+      "ancestors": [
+        "DrugApprovalApplicationDetails",
+        "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails"
+      ],
+      "container": true,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.7.Ac84c9cc7503d",
+      "source_row_id": "P.MM.01.MSG.017.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.017",
+      "diagnostic": "P.MM.01.MSG.017: FORBIDDEN DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/DrugNameDetails",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FORBIDDEN",
+      "target": "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/DosageFormDetails",
+      "ancestors": [
+        "DrugApprovalApplicationDetails",
+        "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails"
+      ],
+      "container": true,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "8",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.8.A63c3501ad334",
+      "source_row_id": "P.MM.01.MSG.017.SOURCE_ROW.8",
+      "message_code": "P.MM.01.MSG.017",
+      "diagnostic": "P.MM.01.MSG.017: FORBIDDEN DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/DosageFormDetails",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FORBIDDEN",
+      "target": "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/ManufacturingAuthorizationHolderDetails",
+      "ancestors": [
+        "DrugApprovalApplicationDetails",
+        "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails"
+      ],
+      "container": true,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "9",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.9.A0260fbe9dbe5",
+      "source_row_id": "P.MM.01.MSG.017.SOURCE_ROW.9",
+      "message_code": "P.MM.01.MSG.017",
+      "diagnostic": "P.MM.01.MSG.017: FORBIDDEN DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/ManufacturingAuthorizationHolderDetails",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FORBIDDEN",
+      "target": "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/RegistrationCertificateHolderDetails",
+      "ancestors": [
+        "DrugApprovalApplicationDetails",
+        "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails"
+      ],
+      "container": true,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "10",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.10.Ae6695b18b346",
+      "source_row_id": "P.MM.01.MSG.017.SOURCE_ROW.10",
+      "message_code": "P.MM.01.MSG.017",
+      "diagnostic": "P.MM.01.MSG.017: FORBIDDEN DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/RegistrationCertificateHolderDetails",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FORBIDDEN",
+      "target": "DrugApprovalApplicationDetails/ResourceItemStatusDetails",
+      "ancestors": [
+        "DrugApprovalApplicationDetails"
+      ],
+      "container": true,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=10; »;»;г) таблицу 20 изложить в следующей редакции: / «Таблица 20 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Уведомление об изменении сведений о регистрации лекарственного препарата» (P.MM.01.MSG.017)",
+          "status": "CONFIRMED",
+          "table": "20",
+          "page": 26,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "11",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.017.SOURCE_ROW.11.Ae391efb6682e",
+      "source_row_id": "P.MM.01.MSG.017.SOURCE_ROW.11",
+      "message_code": "P.MM.01.MSG.017",
+      "diagnostic": "P.MM.01.MSG.017: FORBIDDEN DrugApprovalApplicationDetails/ResourceItemStatusDetails",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    }
+  ]
+}

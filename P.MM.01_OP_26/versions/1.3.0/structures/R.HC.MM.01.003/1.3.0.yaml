@@ -1,0 +1,1578 @@
+{
+  "structure_id": "R.HC.MM.01.003",
+  "version": "1.3.0",
+  "namespace": "urn:EEC:R:HC:MM:01:DrugRegistrationDocContentDetails:v1.3.0",
+  "root_element": "DrugRegistrationDocContentDetails",
+  "xsd_file": "EEC_R_HC_MM_01_DrugRegistrationDocContentDetails_v1.3.0.xsd",
+  "official_name": "DrugRegistrationDocContentDetails",
+  "imported_namespaces": {
+    "ccdo": "urn:EEC:M:ComplexDataObjects:vX.X.X",
+    "hccdo": "urn:EEC:M:HC:ComplexDataObjects:vZ.Z.Z",
+    "hcsdo": "urn:EEC:M:HC:SimpleDataObjects:vZ.Z.Z",
+    "csdo": "urn:EEC:M:SimpleDataObjects:vX.X.X"
+  },
+  "fields": [
+    {
+      "field_id": "F0001",
+      "order": 1,
+      "depth": 0,
+      "parent": null,
+      "path": "EDocHeader",
+      "official_name": "1. Заголовок электронного документа (сведений)(ccdo:EDocHeader)",
+      "xml_name": "EDocHeader",
+      "namespace_prefix": "ccdo",
+      "kind": "ELEMENT",
+      "datatype": "ccdo:EDocHeaderType",
+      "datatype_text": "ccdo:EDocHeaderType (M.CDT.90001)Определяется областями значений вложенных элементов",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "совокупность технологических реквизитов электронного документа (сведений)",
+      "identifier": "M.CDE.90001",
+      "constraints": "ccdo:EDocHeaderType (M.CDT.90001)Определяется областями значений вложенных элементов",
+      "facets": null,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 1: 1.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0002",
+      "order": 2,
+      "depth": 1,
+      "parent": "F0001",
+      "path": "EDocHeader/InfEnvelopeCode",
+      "official_name": "1.1. Код сообщения общего процесса(csdo:InfEnvelopeCode)",
+      "xml_name": "InfEnvelopeCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:InfEnvelopeCodeType",
+      "datatype_text": "csdo:InfEnvelopeCodeType (M.SDT.90004)Значение кода в соответствии с Регламентом информационного взаимодействия.Шаблон: P\\.[A-Z]{2}\\.[0-9]{2}\\.MSG\\.[0-9]{3}",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "кодовое обозначение сообщения общего процесса",
+      "identifier": "M.SDE.90010",
+      "constraints": "csdo:InfEnvelopeCodeType (M.SDT.90004)Значение кода в соответствии с Регламентом информационного взаимодействия.Шаблон: P\\.[A-Z]{2}\\.[0-9]{2}\\.MSG\\.[0-9]{3}",
+      "facets": {
+        "pattern": "P\\.[A-Z]{2}\\.[0-9]{2}\\.MSG\\.[0-9]{3}"
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 2: 1.1.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0003",
+      "order": 3,
+      "depth": 1,
+      "parent": "F0001",
+      "path": "EDocHeader/EDocCode",
+      "official_name": "1.2. Код электронного документа (сведений)(csdo:EDocCode)",
+      "xml_name": "EDocCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:EDocCodeType",
+      "datatype_text": "csdo:EDocCodeType (M.SDT.90001)Значение кода в соответствии с реестром структур электронных документов и сведений.Шаблон: R(\\.[A-Z]{2}\\.[A-Z]{2}\\.[0-9]{2})?\\.[0-9]{3}",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "кодовое обозначение электронного документа (сведений) в соответствии с реестром структур электронных документов и сведений",
+      "identifier": "M.SDE.90001",
+      "constraints": "csdo:EDocCodeType (M.SDT.90001)Значение кода в соответствии с реестром структур электронных документов и сведений.Шаблон: R(\\.[A-Z]{2}\\.[A-Z]{2}\\.[0-9]{2})?\\.[0-9]{3}",
+      "facets": {
+        "pattern": "R(\\.[A-Z]{2}\\.[A-Z]{2}\\.[0-9]{2})?\\.[0-9]{3}"
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 3: 1.2.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0004",
+      "order": 4,
+      "depth": 1,
+      "parent": "F0001",
+      "path": "EDocHeader/EDocId",
+      "official_name": "1.3. Идентификатор электронного документа (сведений)(csdo:EDocId)",
+      "xml_name": "EDocId",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "datatype_text": "csdo:UniversallyUniqueIdType (M.SDT.90003)Значение идентификатора в соответствии с ISO/IEC 9834-8.Шаблон: [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "строка символов, однозначно идентифицирующая электронный документ (сведения)",
+      "identifier": "M.SDE.90007",
+      "constraints": "csdo:UniversallyUniqueIdType (M.SDT.90003)Значение идентификатора в соответствии с ISO/IEC 9834-8.Шаблон: [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+      "facets": {
+        "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 4: 1.3.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0005",
+      "order": 5,
+      "depth": 1,
+      "parent": "F0001",
+      "path": "EDocHeader/EDocRefId",
+      "official_name": "1.4. Идентификатор исходного электронного документа (сведений)(csdo:EDocRefId)",
+      "xml_name": "EDocRefId",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "datatype_text": "csdo:UniversallyUniqueIdType (M.SDT.90003)Значение идентификатора в соответствии с ISO/IEC 9834-8.Шаблон: [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "идентификатор электронного документа (сведений), в ответ на который был сформирован данный электронный документ (сведения)",
+      "identifier": "M.SDE.90008",
+      "constraints": "csdo:UniversallyUniqueIdType (M.SDT.90003)Значение идентификатора в соответствии с ISO/IEC 9834-8.Шаблон: [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+      "facets": {
+        "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 5: 1.4.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0006",
+      "order": 6,
+      "depth": 1,
+      "parent": "F0001",
+      "path": "EDocHeader/EDocDateTime",
+      "official_name": "1.5. Дата и время электронного документа (сведений)(csdo:EDocDateTime)",
+      "xml_name": "EDocDateTime",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateTimeType",
+      "datatype_text": "bdt:DateTimeType (M.BDT.00006)Обозначение даты и времени в соответствии с серией стандартов ISO 8601",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "дата и время создания электронного документа (сведений)",
+      "identifier": "M.SDE.90002",
+      "constraints": "bdt:DateTimeType (M.BDT.00006)Обозначение даты и времени в соответствии с серией стандартов ISO 8601",
+      "facets": null,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 6: 1.5.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0007",
+      "order": 7,
+      "depth": 1,
+      "parent": "F0001",
+      "path": "EDocHeader/LanguageCode",
+      "official_name": "1.6. Код языка(csdo:LanguageCode)",
+      "xml_name": "LanguageCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:LanguageCodeType",
+      "datatype_text": "csdo:LanguageCodeType (M.SDT.00051)Двухбуквенный код языка в соответствии с ISO 639-1.Шаблон: [a-z]{2}",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение языка",
+      "identifier": "M.SDE.00051",
+      "constraints": "csdo:LanguageCodeType (M.SDT.00051)Двухбуквенный код языка в соответствии с ISO 639-1.Шаблон: [a-z]{2}",
+      "facets": {
+        "pattern": "[a-z]{2}"
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 7: 1.6.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0008",
+      "order": 8,
+      "depth": 0,
+      "parent": null,
+      "path": "UnifiedCountryCode",
+      "official_name": "2. Код страны(csdo:UnifiedCountryCode)",
+      "xml_name": "UnifiedCountryCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UnifiedCountryCodeType",
+      "datatype_text": "csdo:UnifiedCountryCodeType (M.SDT.00112)Значение двухбуквенного кода страны в соответствии со справочником (классификатором), идентификатор которого определен в атрибуте «Идентификатор справочника (классификатора)».Шаблон: [A-Z]{2}",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение страны, направившей документ",
+      "identifier": "M.SDE.00162",
+      "constraints": "csdo:UnifiedCountryCodeType (M.SDT.00112)Значение двухбуквенного кода страны в соответствии со справочником (классификатором), идентификатор которого определен в атрибуте «Идентификатор справочника (классификатора)».Шаблон: [A-Z]{2}",
+      "facets": {
+        "pattern": "[A-Z]{2}"
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 8: 2.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0009",
+      "order": 9,
+      "depth": 1,
+      "parent": "F0008",
+      "path": "UnifiedCountryCode/@codeListId",
+      "official_name": "а) идентификатор справочника (классификатора)(атрибут codeListId)",
+      "xml_name": "codeListId",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:ReferenceDataIdType",
+      "datatype_text": "csdo:ReferenceDataIdType (M.SDT.00091)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 20",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "обозначение справочника (классификатора), в соответствии с которым указан код",
+      "identifier": "–",
+      "constraints": "csdo:ReferenceDataIdType (M.SDT.00091)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 20",
+      "facets": {
+        "min_length": 1,
+        "max_length": 20
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 9: а)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "reason_code": null
+    },
+    {
+      "field_id": "F0010",
+      "order": 10,
+      "depth": 0,
+      "parent": null,
+      "path": "RegistrationNumberId",
+      "official_name": "3. Порядковый номер регистрационного удостоверения лекарственного препарата(hcsdo:RegistrationNumberId)",
+      "xml_name": "RegistrationNumberId",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "hcsdo:RegistrationNumberIdType",
+      "datatype_text": "hcsdo:RegistrationNumberIdType (M.HC.SDT.00629)Нормализованная строка символов.Шаблон: \\d{6}",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "порядковый номер регистрационного удостоверения лекарственного препарата",
+      "identifier": "M.HC.SDE.00672",
+      "constraints": "hcsdo:RegistrationNumberIdType (M.HC.SDT.00629)Нормализованная строка символов.Шаблон: \\d{6}",
+      "facets": {
+        "pattern": "\\d{6}"
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 10: 3.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0011",
+      "order": 11,
+      "depth": 0,
+      "parent": null,
+      "path": "ApplicationId",
+      "official_name": "4. Номер заявления о регистрации лекарственного препарата(hcsdo:ApplicationId)",
+      "xml_name": "ApplicationId",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Id50Type",
+      "datatype_text": "csdo:Id50Type (M.SDT.00093)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 50",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "номер заявления о регистрации или проведении иных процедур, связанных с регистрацией лекарственного препарата",
+      "identifier": "M.HC.SDE.00260",
+      "constraints": "csdo:Id50Type (M.SDT.00093)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 50",
+      "facets": {
+        "min_length": 1,
+        "max_length": 50
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 11: 4.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0012",
+      "order": 12,
+      "depth": 0,
+      "parent": null,
+      "path": "RegistrationKindCode",
+      "official_name": "5. Код вида процедуры регистрации(hcsdo:RegistrationKindCode)",
+      "xml_name": "RegistrationKindCode",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Code10Type",
+      "datatype_text": "csdo:Code10Type (M.SDT.00179)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 10",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение вида процедуры регистрации",
+      "identifier": "M.HC.SDE.00425",
+      "constraints": "csdo:Code10Type (M.SDT.00179)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 10",
+      "facets": {
+        "min_length": 1,
+        "max_length": 10
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 12: 5.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0013",
+      "order": 13,
+      "depth": 0,
+      "parent": null,
+      "path": "DocAgreementIndicator",
+      "official_name": "6. Признак согласования документа(hcsdo:DocAgreementIndicator)",
+      "xml_name": "DocAgreementIndicator",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:IndicatorType",
+      "datatype_text": "bdt:IndicatorType (M.BDT.00013)Одно из двух значений: «true» (истина) или «false» (ложь)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "признак, определяющий статус согласования экспертного отчета: 1 – экспертный отчет согласован; 0 – экспертный отчет не согласован",
+      "identifier": "M.HC.SDE.00503",
+      "constraints": "bdt:IndicatorType (M.BDT.00013)Одно из двух значений: «true» (истина) или «false» (ложь)",
+      "facets": null,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 13: 6.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0014",
+      "order": 14,
+      "depth": 0,
+      "parent": null,
+      "path": "RegistrationDossierDocDetails",
+      "official_name": "7. Сведения о документе регистрационного досье (дела)(hccdo:RegistrationDossierDocDetails)",
+      "xml_name": "RegistrationDossierDocDetails",
+      "namespace_prefix": "hccdo",
+      "kind": "ELEMENT",
+      "datatype": "hccdo:RegistrationDossierDocDetailsType",
+      "datatype_text": "hccdo:RegistrationDossierDocDetailsType (M.HC.CDT.00023)Определяется областями значений вложенных элементов",
+      "min_occurs": 0,
+      "max_occurs": null,
+      "description": "сведения о документе регистрационного досье (дела)",
+      "identifier": "M.HC.CDE.00044",
+      "constraints": "hccdo:RegistrationDossierDocDetailsType (M.HC.CDT.00023)Определяется областями значений вложенных элементов",
+      "facets": null,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 14: 7.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0015",
+      "order": 15,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/RegistrationFileIndicator",
+      "official_name": "7.1. Признак принадлежности документа к регистрационному досье(hcsdo:RegistrationFileIndicator)",
+      "xml_name": "RegistrationFileIndicator",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:IndicatorType",
+      "datatype_text": "bdt:IndicatorType (M.BDT.00013)Одно из двух значений: «true» (истина) или «false» (ложь)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "признак, определяющий принадлежность документа к регистрационному досье:1 – документ регистрационного досье;0 – документ регистрационного дела",
+      "identifier": "M.HC.SDE.00527",
+      "constraints": "bdt:IndicatorType (M.BDT.00013)Одно из двух значений: «true» (истина) или «false» (ложь)",
+      "facets": null,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 15: 7.1.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0016",
+      "order": 16,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/DocId",
+      "official_name": "7.2. Номер документа(csdo:DocId)",
+      "xml_name": "DocId",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Id50Type",
+      "datatype_text": "csdo:Id50Type (M.SDT.00093)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 50",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "номер документа регистрационного дела (досье)",
+      "identifier": "M.SDE.00044",
+      "constraints": "csdo:Id50Type (M.SDT.00093)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 50",
+      "facets": {
+        "min_length": 1,
+        "max_length": 50
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 16: 7.2.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0017",
+      "order": 17,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/DocName",
+      "official_name": "7.3. Наименование документа(csdo:DocName)",
+      "xml_name": "DocName",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name500Type",
+      "datatype_text": "csdo:Name500Type (M.SDT.00134)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 500",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "наименование документа регистрационного дела (досье)",
+      "identifier": "M.SDE.00108",
+      "constraints": "csdo:Name500Type (M.SDT.00134)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 500",
+      "facets": {
+        "min_length": 1,
+        "max_length": 500
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 17: 7.3.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0018",
+      "order": 18,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/DrugRegistrationDocCode",
+      "official_name": "7.4. Код вида документа регистрационного досье на лекарственный препарат(hcsdo:DrugRegistrationDocCode)",
+      "xml_name": "DrugRegistrationDocCode",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "hcsdo:DrugRegistrationDocCodeType",
+      "datatype_text": "hcsdo:DrugRegistrationDocCodeType (M.HC.SDT.00022)Значение кода вида документа в соответствии со справочником (классификатором), идентификатор которого определен в атрибуте «Идентификатор справочника (классификатора)».Мин. длина: 1.Макс. длина: 10",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение вида документа регистрационного досье на лекарственный препарат",
+      "identifier": "M.HC.SDE.00098",
+      "constraints": "hcsdo:DrugRegistrationDocCodeType (M.HC.SDT.00022)Значение кода вида документа в соответствии со справочником (классификатором), идентификатор которого определен в атрибуте «Идентификатор справочника (классификатора)».Мин. длина: 1.Макс. длина: 10",
+      "facets": {
+        "min_length": 1,
+        "max_length": 10
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 18: 7.4.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0019",
+      "order": 19,
+      "depth": 2,
+      "parent": "F0018",
+      "path": "RegistrationDossierDocDetails/DrugRegistrationDocCode/@codeListId",
+      "official_name": "а) идентификатор справочника (классификатора)(атрибут codeListId)",
+      "xml_name": "codeListId",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:ReferenceDataIdType",
+      "datatype_text": "csdo:ReferenceDataIdType (M.SDT.00091)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 20",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "обозначение справочника (классификатора), в соответствии с которым указан код",
+      "identifier": "–",
+      "constraints": "csdo:ReferenceDataIdType (M.SDT.00091)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 20",
+      "facets": {
+        "min_length": 1,
+        "max_length": 20
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 19: а)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "reason_code": null
+    },
+    {
+      "field_id": "F0020",
+      "order": 20,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/DrugRegistrationDocName",
+      "official_name": "7.5. Наименование вида документа регистрационного досье на лекарственный препарат(hcsdo:DrugRegistrationDocName)",
+      "xml_name": "DrugRegistrationDocName",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name500Type",
+      "datatype_text": "csdo:Name500Type (M.SDT.00134)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 500",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "наименование вида документа регистрационного досье на лекарственный препарат",
+      "identifier": "M.HC.SDE.00789",
+      "constraints": "csdo:Name500Type (M.SDT.00134)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 500",
+      "facets": {
+        "min_length": 1,
+        "max_length": 500
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 20: 7.5.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0021",
+      "order": 21,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/DrugRegistrationFileCode",
+      "official_name": "7.6. Код вида документа регистрационного дела на лекарственный препарат(hcsdo:DrugRegistrationFileCode)",
+      "xml_name": "DrugRegistrationFileCode",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "hcsdo:DrugRegistrationFileCodeType",
+      "datatype_text": "hcsdo:DrugRegistrationFileCodeType (M.HC.SDT.00024)Значение кода вида документа в соответствии со справочником (классификатором), идентификатор которого определен в атрибуте «Идентификатор справочника (классификатора)».Мин. длина: 1.Макс. длина: 10",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение вида документа регистрационного дела на лекарственный препарат",
+      "identifier": "M.HC.SDE.00528",
+      "constraints": "hcsdo:DrugRegistrationFileCodeType (M.HC.SDT.00024)Значение кода вида документа в соответствии со справочником (классификатором), идентификатор которого определен в атрибуте «Идентификатор справочника (классификатора)».Мин. длина: 1.Макс. длина: 10",
+      "facets": {
+        "min_length": 1,
+        "max_length": 10
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 21: 7.6.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0022",
+      "order": 22,
+      "depth": 2,
+      "parent": "F0021",
+      "path": "RegistrationDossierDocDetails/DrugRegistrationFileCode/@codeListId",
+      "official_name": "а) идентификатор справочника (классификатора)(атрибут codeListId)",
+      "xml_name": "codeListId",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:ReferenceDataIdType",
+      "datatype_text": "csdo:ReferenceDataIdType (M.SDT.00091)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 20",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "обозначение справочника (классификатора), в соответствии с которым указан код",
+      "identifier": "–",
+      "constraints": "csdo:ReferenceDataIdType (M.SDT.00091)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 20",
+      "facets": {
+        "min_length": 1,
+        "max_length": 20
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 22: а)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "reason_code": null
+    },
+    {
+      "field_id": "F0023",
+      "order": 23,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/DrugRegistrationFileName",
+      "official_name": "7.7. Наименование вида документа регистрационного дела на лекарственный препарат(hcsdo:DrugRegistrationFileName)",
+      "xml_name": "DrugRegistrationFileName",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name500Type",
+      "datatype_text": "csdo:Name500Type (M.SDT.00134)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 500",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "наименование вида документа регистрационного дела на лекарственный препарат",
+      "identifier": "M.HC.SDE.00901",
+      "constraints": "csdo:Name500Type (M.SDT.00134)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 500",
+      "facets": {
+        "min_length": 1,
+        "max_length": 500
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 23: 7.7.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0024",
+      "order": 24,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/DocCreationDate",
+      "official_name": "7.8. Дата документа(csdo:DocCreationDate)",
+      "xml_name": "DocCreationDate",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateType",
+      "datatype_text": "bdt:DateType (M.BDT.00005)Обозначение даты в соответствии с серией стандартов ISO 8601",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "дата выдачи документа регистрационного дела (досье)",
+      "identifier": "M.SDE.00045",
+      "constraints": "bdt:DateType (M.BDT.00005)Обозначение даты в соответствии с серией стандартов ISO 8601",
+      "facets": null,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 24: 7.8.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0025",
+      "order": 25,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/DocValidityDate",
+      "official_name": "7.9. Дата истечения срока действия документа(csdo:DocValidityDate)",
+      "xml_name": "DocValidityDate",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateType",
+      "datatype_text": "bdt:DateType (M.BDT.00005)Обозначение даты в соответствии с серией стандартов ISO 8601",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "дата истечения срока действия документа регистрационного дела (досье)",
+      "identifier": "M.SDE.00052",
+      "constraints": "bdt:DateType (M.BDT.00005)Обозначение даты в соответствии с серией стандартов ISO 8601",
+      "facets": null,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 25: 7.9.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0026",
+      "order": 26,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/BusinessEntityName",
+      "official_name": "7.10. Наименование хозяйствующего субъекта(csdo:BusinessEntityName)",
+      "xml_name": "BusinessEntityName",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name300Type",
+      "datatype_text": "csdo:Name300Type (M.SDT.00056)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 300",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "наименование организации, выдавшей документ регистрационного дела (досье)",
+      "identifier": "M.SDE.00187",
+      "constraints": "csdo:Name300Type (M.SDT.00056)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 300",
+      "facets": {
+        "min_length": 1,
+        "max_length": 300
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 26: 7.10.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0027",
+      "order": 27,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/DrugAttributeEnumText",
+      "official_name": "7.11. Описание элемента документа(hcsdo:DrugAttributeEnumText)",
+      "xml_name": "DrugAttributeEnumText",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "hcsdo:AttributeTextType",
+      "datatype_text": "hcsdo:AttributeTextType (M.HC.SDT.00215)Строка символов.Мин. длина: 1.Макс. длина: 4000",
+      "min_occurs": 0,
+      "max_occurs": null,
+      "description": "описание дополнительного признака документа",
+      "identifier": "M.HC.SDE.01436",
+      "constraints": "hcsdo:AttributeTextType (M.HC.SDT.00215)Строка символов.Мин. длина: 1.Макс. длина: 4000",
+      "facets": {
+        "min_length": 1,
+        "max_length": 4000
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 27: 7.11.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0028",
+      "order": 28,
+      "depth": 2,
+      "parent": "F0027",
+      "path": "RegistrationDossierDocDetails/DrugAttributeEnumText/@DrugAttributeKindEnumCode",
+      "official_name": "а) код вида элемента документа(атрибут DrugAttributeKindEnumCode)",
+      "xml_name": "DrugAttributeKindEnumCode",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:Code10Type",
+      "datatype_text": "csdo:Code10Type (M.SDT.00179)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 10",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение вида дополнительного признака документа регистрационного дела (досье)",
+      "identifier": "–",
+      "constraints": "csdo:Code10Type (M.SDT.00179)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 10",
+      "facets": {
+        "min_length": 1,
+        "max_length": 10
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 28: а)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "reason_code": null
+    },
+    {
+      "field_id": "F0029",
+      "order": 29,
+      "depth": 2,
+      "parent": "F0027",
+      "path": "RegistrationDossierDocDetails/DrugAttributeEnumText/@AttributeKindName",
+      "official_name": "б) наименование вида элемента документа(атрибут AttributeKindName)",
+      "xml_name": "AttributeKindName",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:Name500Type",
+      "datatype_text": "csdo:Name500Type (M.SDT.00134)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 500",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "наименование вида дополнительного признака документа регистрационного дела (досье)",
+      "identifier": "–",
+      "constraints": "csdo:Name500Type (M.SDT.00134)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 500",
+      "facets": {
+        "min_length": 1,
+        "max_length": 500
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 29: б)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "reason_code": null
+    },
+    {
+      "field_id": "F0030",
+      "order": 30,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/DocCopyBinaryText",
+      "official_name": "7.12. Документ в бинарном формате(hcsdo:DocCopyBinaryText)",
+      "xml_name": "DocCopyBinaryText",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:BinaryTextType",
+      "datatype_text": "csdo:BinaryTextType (M.SDT.00143)Конечная последовательность двоичных октетов (байтов)",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "документ регистрационного дела (досье) в формате PDF",
+      "identifier": "M.HC.SDE.01435",
+      "constraints": "csdo:BinaryTextType (M.SDT.00143)Конечная последовательность двоичных октетов (байтов)",
+      "facets": null,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 30: 7.12.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0031",
+      "order": 31,
+      "depth": 2,
+      "parent": "F0030",
+      "path": "RegistrationDossierDocDetails/DocCopyBinaryText/@mediaTypeCode",
+      "official_name": "а) код формата данных(атрибут mediaTypeCode)",
+      "xml_name": "mediaTypeCode",
+      "namespace_prefix": null,
+      "kind": "ATTRIBUTE",
+      "datatype": "csdo:MediaTypeCodeType",
+      "datatype_text": "csdo:MediaTypeCodeType (M.SDT.00147)Значение кода в соответствии со справочником форматов данных.Мин. длина: 1.Макс. длина: 255",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение формата данных",
+      "identifier": "–",
+      "constraints": "csdo:MediaTypeCodeType (M.SDT.00147)Значение кода в соответствии со справочником форматов данных.Мин. длина: 1.Макс. длина: 255",
+      "facets": {
+        "min_length": 1,
+        "max_length": 255
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 31: а)",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "reason_code": null
+    },
+    {
+      "field_id": "F0032",
+      "order": 32,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/AnyDetails",
+      "official_name": "7.13. XML-документ(ccdo:AnyDetails)",
+      "xml_name": "AnyDetails",
+      "namespace_prefix": "ccdo",
+      "kind": "ELEMENT",
+      "datatype": "ccdo:AnyDetailsType",
+      "datatype_text": "ccdo:AnyDetailsType (M.CDT.00086)Определяется областями значений вложенных элементов",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "документ регистрационного дела (досье) в формате XML",
+      "identifier": "M.CDE.00081",
+      "constraints": "ccdo:AnyDetailsType (M.CDT.00086)Определяется областями значений вложенных элементов",
+      "facets": null,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 32: 7.13.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0033",
+      "order": 33,
+      "depth": 2,
+      "parent": "F0032",
+      "path": "RegistrationDossierDocDetails/AnyDetails/*",
+      "official_name": "7.13.1. XML-документ",
+      "xml_name": null,
+      "namespace_prefix": null,
+      "kind": "ARBITRARY_XML",
+      "datatype": "ANY_XML",
+      "datatype_text": "произвольный элемент.Пространство имен: любое.Валидация: производится всегда",
+      "min_occurs": 1,
+      "max_occurs": null,
+      "description": "содержимое XML-документа произвольной структуры",
+      "identifier": "–",
+      "constraints": "произвольный элемент.Пространство имен: любое.Валидация: производится всегда",
+      "facets": null,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 33: 7.13.1.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "VERIFIED",
+      "reason_code": null
+    },
+    {
+      "field_id": "F0034",
+      "order": 34,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/SubmissionSequence",
+      "official_name": "7.14. Последовательность представления досье(hcsdo:SubmissionSequence)",
+      "xml_name": "SubmissionSequence",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Code10Type",
+      "datatype_text": "csdo:Code10Type (M.SDT.00179)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 10",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "порядковый номер в последовательности представления досье",
+      "identifier": "M.HC.SDE.00102",
+      "constraints": "csdo:Code10Type (M.SDT.00179)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 10",
+      "facets": {
+        "min_length": 1,
+        "max_length": 10
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 34: 7.14.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0035",
+      "order": 35,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/OperationAtribute",
+      "official_name": "7.15. Атрибут операции(hcsdo:OperationAtribute)",
+      "xml_name": "OperationAtribute",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Code20Type",
+      "datatype_text": "csdo:Code20Type (M.SDT.00160)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 20",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "сведения об операции, выполняемой над документом досье",
+      "identifier": "M.HC.SDE.00103",
+      "constraints": "csdo:Code20Type (M.SDT.00160)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 20",
+      "facets": {
+        "min_length": 1,
+        "max_length": 20
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 35: 7.15.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0036",
+      "order": 36,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/ActiveSubstanceName",
+      "official_name": "7.16. Наименование активной фармацевтической субстанции(hcsdo:ActiveSubstanceName)",
+      "xml_name": "ActiveSubstanceName",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name500Type",
+      "datatype_text": "csdo:Name500Type (M.SDT.00134)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 500",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "наименование активной фармацевтической субстанции",
+      "identifier": "M.HC.SDE.00620",
+      "constraints": "csdo:Name500Type (M.SDT.00134)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 500",
+      "facets": {
+        "min_length": 1,
+        "max_length": 500
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 36: 7.16.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0037",
+      "order": 37,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/AuxiliarySubstanceName",
+      "official_name": "7.17. Наименование вспомогательного вещества, входящего в состав лекарственного препарата(hcsdo:AuxiliarySubstanceName)",
+      "xml_name": "AuxiliarySubstanceName",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name500Type",
+      "datatype_text": "csdo:Name500Type (M.SDT.00134)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 500",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "наименование вспомогательного вещества, входящего в состав лекарственного препарата",
+      "identifier": "M.HC.SDE.00044",
+      "constraints": "csdo:Name500Type (M.SDT.00134)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 500",
+      "facets": {
+        "min_length": 1,
+        "max_length": 500
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 37: 7.17.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0038",
+      "order": 38,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/DrugProductName",
+      "official_name": "7.18. Наименование фармацевтического продукта(hcsdo:DrugProductName)",
+      "xml_name": "DrugProductName",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name250Type",
+      "datatype_text": "csdo:Name250Type (M.SDT.00068)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 250",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "наименование фармацевтического продукта",
+      "identifier": "M.HC.SDE.00252",
+      "constraints": "csdo:Name250Type (M.SDT.00068)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 250",
+      "facets": {
+        "min_length": 1,
+        "max_length": 250
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 38: 7.18.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0039",
+      "order": 39,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/IndicationText",
+      "official_name": "7.19. Описание показаний к применению(hcsdo:IndicationText)",
+      "xml_name": "IndicationText",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Text4000Type",
+      "datatype_text": "csdo:Text4000Type (M.SDT.00088)Строка символов.Мин. длина: 1.Макс. длина: 4000",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "описание показания к применению",
+      "identifier": "M.HC.SDE.00079",
+      "constraints": "csdo:Text4000Type (M.SDT.00088)Строка символов.Мин. длина: 1.Макс. длина: 4000",
+      "facets": {
+        "min_length": 1,
+        "max_length": 4000
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 39: 7.19.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0040",
+      "order": 40,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/ManufacturerName",
+      "official_name": "7.20. Наименование производителя(hcsdo:ManufacturerName)",
+      "xml_name": "ManufacturerName",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Name300Type",
+      "datatype_text": "csdo:Name300Type (M.SDT.00056)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 300",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "наименование производителя",
+      "identifier": "M.HC.SDE.00235",
+      "constraints": "csdo:Name300Type (M.SDT.00056)Нормализованная строка символов.Мин. длина: 1.Макс. длина: 300",
+      "facets": {
+        "min_length": 1,
+        "max_length": 300
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 40: 7.20.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0041",
+      "order": 41,
+      "depth": 1,
+      "parent": "F0014",
+      "path": "RegistrationDossierDocDetails/DocUUId",
+      "official_name": "7.21. Уникальный идентификатор документа(hcsdo:DocUUId)",
+      "xml_name": "DocUUId",
+      "namespace_prefix": "hcsdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "datatype_text": "csdo:UniversallyUniqueIdType (M.SDT.90003)Значение идентификатора в соответствии с ISO/IEC 9834-8.Шаблон: [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "уникальный идентификатор документа регистрационного дела (досье)",
+      "identifier": "M.HC.SDE.02010",
+      "constraints": "csdo:UniversallyUniqueIdType (M.SDT.90003)Значение идентификатора в соответствии с ISO/IEC 9834-8.Шаблон: [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+      "facets": {
+        "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+          "status": "CONFIRMED",
+          "table": "13",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 41: 7.21.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    }
+  ],
+  "expected_normative_rows": 41,
+  "imported_normative_rows": 41,
+  "excluded_rows": [],
+  "source_refs": [
+    {
+      "source_id": "SRC-PMM01-140",
+      "document": "https://docs.eaeunion.org/documents/446/10427/",
+      "location": "Official Word attachment, table_index=217; Таблица 11 / Описание структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003) / ",
+      "status": "CONFIRMED",
+      "table": "11",
+      "page": 529,
+      "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+      "item": null,
+      "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+    },
+    {
+      "source_id": "SRC-PMM01-140",
+      "document": "https://docs.eaeunion.org/documents/446/10427/",
+      "location": "Official Word attachment, table_index=218; Таблица 12 / Импортируемые пространства имен / ",
+      "status": "CONFIRMED",
+      "table": "12",
+      "page": null,
+      "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+      "item": null,
+      "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+    },
+    {
+      "source_id": "SRC-PMM01-140",
+      "document": "https://docs.eaeunion.org/documents/446/10427/",
+      "location": "Official Word attachment, table_index=219;  / Таблица 13 / Реквизитный состав структуры электронного документа (сведений) «Сведения регистрационного дела или регистрационного досье на лекарственный препарат» (R.HC.MM.01.003)",
+      "status": "CONFIRMED",
+      "table": "13",
+      "page": null,
+      "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+      "item": null,
+      "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+    }
+  ],
+  "status": "DRAFT_MODEL_NAMESPACE_UNRESOLVED",
+  "field_table_reference": {
+    "status": "SOURCE_TREE_COMPILED;OFFICIAL_XSD_NOT_VERIFIED"
+  }
+}

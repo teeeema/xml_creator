@@ -1,0 +1,422 @@
+{
+  "structure_id": "R.006",
+  "version": "Y.Y.Y",
+  "namespace": "urn:EEC:R:ProcessingResultDetails:vY.Y.Y",
+  "root_element": "ProcessingResultDetails",
+  "xsd_file": "EEC_R_ProcessingResultDetails_vY.Y.Y.xsd",
+  "official_name": "ProcessingResultDetails",
+  "imported_namespaces": {
+    "ccdo": "urn:EEC:M:ComplexDataObjects:vX.X.X",
+    "csdo": "urn:EEC:M:SimpleDataObjects:vX.X.X"
+  },
+  "fields": [
+    {
+      "field_id": "F0001",
+      "order": 1,
+      "depth": 0,
+      "parent": null,
+      "path": "EDocHeader",
+      "official_name": "1. Заголовок электронного документа (сведений)(ccdo:EDocHeader)",
+      "xml_name": "EDocHeader",
+      "namespace_prefix": "ccdo",
+      "kind": "ELEMENT",
+      "datatype": "ccdo:EDocHeaderType",
+      "datatype_text": "ccdo:EDocHeaderType (M.CDT.90001)Определяется областями значений вложенных элементов",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "совокупность технологических реквизитов электронного документа (сведений)",
+      "identifier": "M.CDE.90001",
+      "constraints": "ccdo:EDocHeaderType (M.CDT.90001)Определяется областями значений вложенных элементов",
+      "facets": null,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=210;  / Таблица 4 / Реквизитный состав структуры электронного документа (сведений) «Уведомление о результате обработки» (R.006)",
+          "status": "CONFIRMED",
+          "table": "4",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 1: 1.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0002",
+      "order": 2,
+      "depth": 1,
+      "parent": "F0001",
+      "path": "EDocHeader/InfEnvelopeCode",
+      "official_name": "1.1. Код сообщения общего процесса(csdo:InfEnvelopeCode)",
+      "xml_name": "InfEnvelopeCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:InfEnvelopeCodeType",
+      "datatype_text": "csdo:InfEnvelopeCodeType (M.SDT.90004)Значение кода в соответствии с Регламентом информационного взаимодействия.Шаблон: P\\.[A-Z]{2}\\.[0-9]{2}\\.MSG\\.[0-9]{3}",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "кодовое обозначение сообщения общего процесса",
+      "identifier": "M.SDE.90010",
+      "constraints": "csdo:InfEnvelopeCodeType (M.SDT.90004)Значение кода в соответствии с Регламентом информационного взаимодействия.Шаблон: P\\.[A-Z]{2}\\.[0-9]{2}\\.MSG\\.[0-9]{3}",
+      "facets": {
+        "pattern": "P\\.[A-Z]{2}\\.[0-9]{2}\\.MSG\\.[0-9]{3}"
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=210;  / Таблица 4 / Реквизитный состав структуры электронного документа (сведений) «Уведомление о результате обработки» (R.006)",
+          "status": "CONFIRMED",
+          "table": "4",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 2: 1.1.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0003",
+      "order": 3,
+      "depth": 1,
+      "parent": "F0001",
+      "path": "EDocHeader/EDocCode",
+      "official_name": "1.2. Код электронного документа (сведений)(csdo:EDocCode)",
+      "xml_name": "EDocCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:EDocCodeType",
+      "datatype_text": "csdo:EDocCodeType (M.SDT.90001)Значение кода в соответствии с реестром структур электронных документов и сведений.Шаблон: R(\\.[A-Z]{2}\\.[A-Z]{2}\\.[0-9]{2})?\\.[0-9]{3}",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "кодовое обозначение электронного документа (сведений) в соответствии с реестром структур электронных документов и сведений",
+      "identifier": "M.SDE.90001",
+      "constraints": "csdo:EDocCodeType (M.SDT.90001)Значение кода в соответствии с реестром структур электронных документов и сведений.Шаблон: R(\\.[A-Z]{2}\\.[A-Z]{2}\\.[0-9]{2})?\\.[0-9]{3}",
+      "facets": {
+        "pattern": "R(\\.[A-Z]{2}\\.[A-Z]{2}\\.[0-9]{2})?\\.[0-9]{3}"
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=210;  / Таблица 4 / Реквизитный состав структуры электронного документа (сведений) «Уведомление о результате обработки» (R.006)",
+          "status": "CONFIRMED",
+          "table": "4",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 3: 1.2.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0004",
+      "order": 4,
+      "depth": 1,
+      "parent": "F0001",
+      "path": "EDocHeader/EDocId",
+      "official_name": "1.3. Идентификатор электронного документа (сведений)(csdo:EDocId)",
+      "xml_name": "EDocId",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "datatype_text": "csdo:UniversallyUniqueIdType (M.SDT.90003)Значение идентификатора в соответствии с ISO/IEC 9834-8.Шаблон: [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "строка символов, однозначно идентифицирующая электронный документ (сведения)",
+      "identifier": "M.SDE.90007",
+      "constraints": "csdo:UniversallyUniqueIdType (M.SDT.90003)Значение идентификатора в соответствии с ISO/IEC 9834-8.Шаблон: [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+      "facets": {
+        "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=210;  / Таблица 4 / Реквизитный состав структуры электронного документа (сведений) «Уведомление о результате обработки» (R.006)",
+          "status": "CONFIRMED",
+          "table": "4",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 4: 1.3.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0005",
+      "order": 5,
+      "depth": 1,
+      "parent": "F0001",
+      "path": "EDocHeader/EDocRefId",
+      "official_name": "1.4. Идентификатор исходного электронного документа (сведений)(csdo:EDocRefId)",
+      "xml_name": "EDocRefId",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:UniversallyUniqueIdType",
+      "datatype_text": "csdo:UniversallyUniqueIdType (M.SDT.90003)Значение идентификатора в соответствии с ISO/IEC 9834-8.Шаблон: [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "идентификатор электронного документа (сведений), в ответ на который был сформирован данный электронный документ (сведения)",
+      "identifier": "M.SDE.90008",
+      "constraints": "csdo:UniversallyUniqueIdType (M.SDT.90003)Значение идентификатора в соответствии с ISO/IEC 9834-8.Шаблон: [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+      "facets": {
+        "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=210;  / Таблица 4 / Реквизитный состав структуры электронного документа (сведений) «Уведомление о результате обработки» (R.006)",
+          "status": "CONFIRMED",
+          "table": "4",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 5: 1.4.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0006",
+      "order": 6,
+      "depth": 1,
+      "parent": "F0001",
+      "path": "EDocHeader/EDocDateTime",
+      "official_name": "1.5. Дата и время электронного документа (сведений)(csdo:EDocDateTime)",
+      "xml_name": "EDocDateTime",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateTimeType",
+      "datatype_text": "bdt:DateTimeType (M.BDT.00006)Обозначение даты и времени в соответствии с серией стандартов ISO 8601",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "дата и время создания электронного документа (сведений)",
+      "identifier": "M.SDE.90002",
+      "constraints": "bdt:DateTimeType (M.BDT.00006)Обозначение даты и времени в соответствии с серией стандартов ISO 8601",
+      "facets": null,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=210;  / Таблица 4 / Реквизитный состав структуры электронного документа (сведений) «Уведомление о результате обработки» (R.006)",
+          "status": "CONFIRMED",
+          "table": "4",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 6: 1.5.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0007",
+      "order": 7,
+      "depth": 1,
+      "parent": "F0001",
+      "path": "EDocHeader/LanguageCode",
+      "official_name": "1.6. Код языка(csdo:LanguageCode)",
+      "xml_name": "LanguageCode",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:LanguageCodeType",
+      "datatype_text": "csdo:LanguageCodeType (M.SDT.00051)Двухбуквенный код языка в соответствии с ISO 639-1.Шаблон: [a-z]{2}",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "кодовое обозначение языка",
+      "identifier": "M.SDE.00051",
+      "constraints": "csdo:LanguageCodeType (M.SDT.00051)Двухбуквенный код языка в соответствии с ISO 639-1.Шаблон: [a-z]{2}",
+      "facets": {
+        "pattern": "[a-z]{2}"
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=210;  / Таблица 4 / Реквизитный состав структуры электронного документа (сведений) «Уведомление о результате обработки» (R.006)",
+          "status": "CONFIRMED",
+          "table": "4",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 7: 1.6.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0008",
+      "order": 8,
+      "depth": 0,
+      "parent": null,
+      "path": "EventDateTime",
+      "official_name": "2. Дата и время(csdo:EventDateTime)",
+      "xml_name": "EventDateTime",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "bdt:DateTimeType",
+      "datatype_text": "bdt:DateTimeType (M.BDT.00006)Обозначение даты и времени в соответствии с серией стандартов ISO 8601",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "дата и время окончания обработки сведений",
+      "identifier": "M.SDE.00132",
+      "constraints": "bdt:DateTimeType (M.BDT.00006)Обозначение даты и времени в соответствии с серией стандартов ISO 8601",
+      "facets": null,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=210;  / Таблица 4 / Реквизитный состав структуры электронного документа (сведений) «Уведомление о результате обработки» (R.006)",
+          "status": "CONFIRMED",
+          "table": "4",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 8: 2.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0009",
+      "order": 9,
+      "depth": 0,
+      "parent": null,
+      "path": "ProcessingResultV2Code",
+      "official_name": "3. Код результата обработки(csdo:ProcessingResultV2Code)",
+      "xml_name": "ProcessingResultV2Code",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:ProcessingResultCodeV2Type",
+      "datatype_text": "csdo:ProcessingResultCodeV2Type (M.SDT.90006)Значение кода в соответствии со справочником результатов обработки электронных документов и сведений.Мин. длина: 1.Макс. длина: 20",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "кодовое обозначение результата обработки полученного электронного документа (сведений) информационной системой участника общего процесса",
+      "identifier": "M.SDE.90014",
+      "constraints": "csdo:ProcessingResultCodeV2Type (M.SDT.90006)Значение кода в соответствии со справочником результатов обработки электронных документов и сведений.Мин. длина: 1.Макс. длина: 20",
+      "facets": {
+        "min_length": 1,
+        "max_length": 20
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=210;  / Таблица 4 / Реквизитный состав структуры электронного документа (сведений) «Уведомление о результате обработки» (R.006)",
+          "status": "CONFIRMED",
+          "table": "4",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 9: 3.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    },
+    {
+      "field_id": "F0010",
+      "order": 10,
+      "depth": 0,
+      "parent": null,
+      "path": "DescriptionText",
+      "official_name": "4. Описание(csdo:DescriptionText)",
+      "xml_name": "DescriptionText",
+      "namespace_prefix": "csdo",
+      "kind": "ELEMENT",
+      "datatype": "csdo:Text4000Type",
+      "datatype_text": "csdo:Text4000Type (M.SDT.00088)Строка символов.Мин. длина: 1.Макс. длина: 4000",
+      "min_occurs": 0,
+      "max_occurs": 1,
+      "description": "описание результата обработки сведений в произвольной форме",
+      "identifier": "M.SDE.00002",
+      "constraints": "csdo:Text4000Type (M.SDT.00088)Строка символов.Мин. длина: 1.Макс. длина: 4000",
+      "facets": {
+        "min_length": 1,
+        "max_length": 4000
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=210;  / Таблица 4 / Реквизитный состав структуры электронного документа (сведений) «Уведомление о результате обработки» (R.006)",
+          "status": "CONFIRMED",
+          "table": "4",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "row 10: 4.",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "status": "CONFIRMED",
+      "interpretation_status": "NEEDS_EXTERNAL_SOURCE",
+      "reason_code": "MODEL_NAMESPACE_VERSION_UNRESOLVED"
+    }
+  ],
+  "expected_normative_rows": 10,
+  "imported_normative_rows": 10,
+  "excluded_rows": [],
+  "source_refs": [
+    {
+      "source_id": "SRC-PMM01-140",
+      "document": "https://docs.eaeunion.org/documents/446/10427/",
+      "location": "Official Word attachment, table_index=208; Таблица 2 / Описание структуры электронного документа (сведений) «Уведомление о результате обработки» (R.006) / ",
+      "status": "CONFIRMED",
+      "table": "2",
+      "page": null,
+      "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+      "item": null,
+      "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+    },
+    {
+      "source_id": "SRC-PMM01-140",
+      "document": "https://docs.eaeunion.org/documents/446/10427/",
+      "location": "Official Word attachment, table_index=209; Таблица 3 / Импортируемые пространства имен / ",
+      "status": "CONFIRMED",
+      "table": "3",
+      "page": null,
+      "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+      "item": null,
+      "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+    },
+    {
+      "source_id": "SRC-PMM01-140",
+      "document": "https://docs.eaeunion.org/documents/446/10427/",
+      "location": "Official Word attachment, table_index=210;  / Таблица 4 / Реквизитный состав структуры электронного документа (сведений) «Уведомление о результате обработки» (R.006)",
+      "status": "CONFIRMED",
+      "table": "4",
+      "page": null,
+      "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+      "item": null,
+      "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+    }
+  ],
+  "status": "DRAFT_MODEL_NAMESPACE_UNRESOLVED",
+  "field_table_reference": {
+    "status": "SOURCE_TREE_COMPILED;OFFICIAL_XSD_NOT_VERIFIED"
+  }
+}

@@ -1,0 +1,16 @@
+F.......                                                                 [100%]
+=================================== FAILURES ===================================
+_ Op26SourceCatalogTests.test_amended_inherited_range_handles_source_typographic_dash _
+
+self = <test_op26_v130_source_catalog.Op26SourceCatalogTests testMethod=test_amended_inherited_range_handles_source_typographic_dash>
+
+    def test_amended_inherited_range_handles_source_typographic_dash(self):
+        rules = read(PACKAGE / 'message_rules/P.MM.01.MSG.002.yaml')['business_rules']
+>       inherited = next(r for r in rules if r['source_requirement_code'] == '3-87')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       StopIteration
+
+eaeu_xml/tests/test_op26_v130_source_catalog.py:75: StopIteration
+=========================== short test summary info ============================
+FAILED eaeu_xml/tests/test_op26_v130_source_catalog.py::Op26SourceCatalogTests::test_amended_inherited_range_handles_source_typographic_dash
+1 failed, 7 passed in 0.06s

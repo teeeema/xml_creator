@@ -7,14 +7,14 @@
   "implementation_branch": "feature/op26-v1.3.0",
   "state": "DRAFT_NOT_READY",
   "active_in_application": false,
-  "normative_comparison": "NOT_COMPLETED",
-  "independent_catalogs": "NOT_IMPLEMENTED",
-  "structure_versions": "UNVERIFIED",
-  "official_xsd": "NOT_AVAILABLE_IN_PACKAGE",
-  "classifier_datasets": "NOT_AVAILABLE_IN_PACKAGE",
-  "regression_tests": "NOT_RUN",
-  "runtime_tests": "NOT_RUN",
-  "xsd_tests": "NOT_RUN",
+  "normative_comparison": "MEMBERSHIP_DELTA_COMPLETE_SEMANTIC_COMPARISON_INCOMPLETE",
+  "independent_catalogs": "SOURCE_IMPORTED_PARTIAL_EXECUTABLE_COMPONENTS",
+  "structure_versions": "DOMAIN_1_3_0_CONFIRMED_MODEL_IMPORTS_AND_BASE_VERSIONS_UNRESOLVED",
+  "official_xsd": "NOT_RETRIEVED_OFFICIAL_REGISTRY_TLS_OR_EMPTY_REPLY",
+  "classifier_datasets": "NOT_RETRIEVED",
+  "regression_tests": "Stage2: 424 passed, 1667 subtests passed; isolated Qt 13 passed; combined Qt NOT_RERUN",
+  "runtime_tests": "41 synthetic TEST Body roundtrips; 167 local constraints positive/negative; complete Level A 0; production engine E2E blocked",
+  "xsd_tests": "NOT_RUN_NO_OFFICIAL_XSD",
   "promotion_allowed": false,
   "readiness_requirements": [
     "Evidence-based delta audit for PRC, OPR, TRN, MSG, REQ",
@@ -22,5 +22,31 @@
     "Verified authoritative versions of dependencies, namespaces and XSD",
     "Version-aware loader that preserves 1.1.0 by default",
     "Successful runtime, negative tests, XSD and other-process regression"
-  ]
+  ],
+  "normative_catalog_counts": {
+    "PRC": 28,
+    "OPR": 84,
+    "TRN": 28,
+    "MSG": 41,
+    "ACT": 8,
+    "STRUCTURE": 7,
+    "SCOPED_REQUIREMENT_ROWS": 481,
+    "ATOMIC_REQ": "UNKNOWN_NOT_DECOMPOSED"
+  },
+  "executable_structured_rules": 167,
+  "last_audit_date": "2026-10-23",
+  "report": "codex_reports/OP26_P_MM_01/V130_STAGE2/FINAL_REPORT.md",
+  "stage2_coverage": {
+    "source_rows": 481,
+    "fully_compiled_local_predicates": 148,
+    "partial_rows": 2,
+    "external_context_rows": 87,
+    "not_implemented_rows": 244,
+    "field_rows": 710,
+    "source_interpretation_verified": 119,
+    "needs_model_namespace": 591,
+    "complete_structures": 0,
+    "partial_structure_trees": 7
+  },
+  "previous_stage_report": "codex_reports/OP26_P_MM_01/V130_COMPLETION/FINAL_REPORT.md"
 }

@@ -5,12 +5,14 @@ from eaeu_xml.decision5.models.action import ApplicationAction
 from eaeu_xml.services.action_builder import ActionBuilder
 from eaeu_xml.process_packages.body import GenerationMode, StructuredProcessBodyProvider, ProcessBodyProvider
 from eaeu_xml.process_packages.versioning import load_process_version
+from eaeu_xml.process_packages.readiness import require_package_ready
 from eaeu_xml.process_packages.models import MessageDefinition, ProcessPackage, StructureDefinition, TransactionDefinition
 from eaeu_xml.process_packages.resolver import StructureVersionResolver
 
 
 class EaeuXmlEngine:
     def __init__(self, package: ProcessPackage, body_provider: ProcessBodyProvider | None = None) -> None:
+        require_package_ready(package)
         self.package = package
         self.body_provider = body_provider or StructuredProcessBodyProvider(package)
         self.process = package.process
@@ -62,6 +64,7 @@ class EaeuXmlEngine:
         return self.structure_version_resolver.get_active_structure_version(structure_id)
 
     def build_application_action(self, transaction_code: str, message_code: str) -> ApplicationAction:
+        require_package_ready(self.package)
         transaction = self.get_transaction(transaction_code)
         self.get_message(message_code)
         if not self.package.profile.process_version:
@@ -73,6 +76,7 @@ class EaeuXmlEngine:
         )
 
     def validate_body(self, message_code: str, values: dict, *, mode: GenerationMode = GenerationMode.STRICT):
+        require_package_ready(self.package)
         message = self.get_message(message_code)
         structure = self.get_structure(message_code,mode=mode)
         validator = getattr(self.body_provider, "validate_body", None)
@@ -81,6 +85,7 @@ class EaeuXmlEngine:
         return validator(message, structure, values, mode=mode)
 
     def build_body(self, message_code: str, values: dict, *, mode: GenerationMode = GenerationMode.STRICT):
+        require_package_ready(self.package)
         message = self.get_message(message_code)
         structure = self.get_structure(message_code,mode=mode)
         return self.body_provider.build_body(message, structure, values, mode=mode)

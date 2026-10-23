@@ -1,0 +1,263 @@
+.F.....                              [100%]
+=================================== FAILURES ===================================
+_ V130RuntimeTests.test_actual_xml_mutation_rejects_every_compiled_constraint (rule='P.MM.01.MSG.012.SOURCE_ROW.5.A5acf50fa6306') _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_actual_xml_mutation_rejects_every_compiled_constraint>
+
+    def test_actual_xml_mutation_rejects_every_compiled_constraint(self):
+        for code,rules in self.rules.items():
+            message=self.messages[code];structure=self.structures[message.structure_id]
+            service=provider(self.rules);fields={f.path:f for f in structure.fields}
+            values=sample_values(structure,message,rules)
+            base=ET.tostring(service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element())
+            for rule in rules.structured_rules:
+                if rule.get('kind')!='field_constraint':continue
+                with self.subTest(rule=rule['rule_id']):
+                    root=ET.fromstring(base);parent=root;parts=rule['target'].split('/')
+                    for i,part in enumerate(parts):
+                        path='/'.join(parts[:i+1]);f=fields[path]
+                        tag=f'{{{structure.imported_namespaces[f.namespace_prefix]}}}{f.xml_name}'
+                        node=next((n for n in parent if n.tag==tag),None)
+                        if i==len(parts)-1 and rule['operation'] in ('REQUIRED','CARDINALITY'):
+                            for child in list(parent):
+                                if child.tag==tag:parent.remove(child)
+                            break
+                        if node is None:
+                            node=ET.Element(tag)
+                            siblings={g.xml_name:g.order for g in structure.fields if g.parent==f.parent}
+                            position=next((j for j,n in enumerate(parent) if siblings.get(str(n.tag).split('}')[-1],10**9)>f.order),len(parent))
+                            parent.insert(position,node)
+                        if i==len(parts)-1:
+                            node.text='INVALID_VALUE'
+                        parent=node
+                    extracted=service.extract_values(structure,root)
+                    result=service.validate_body(message,structure,extracted,mode=GenerationMode.TEST)
+                    evaluation=next(e for e in result.rule_evaluations if e.rule_id==rule['rule_id'])
+>                   self.assertEqual(evaluation.status,RuleStatus.FAIL)
+E                   AssertionError: <RuleStatus.PASS: 'PASS'> != <RuleStatus.FAIL: 'FAIL'>
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:100: AssertionError
+_ V130RuntimeTests.test_actual_xml_mutation_rejects_every_compiled_constraint (rule='P.MM.01.MSG.012.SOURCE_ROW.13.Abb9a1e9f6f04') _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_actual_xml_mutation_rejects_every_compiled_constraint>
+
+    def test_actual_xml_mutation_rejects_every_compiled_constraint(self):
+        for code,rules in self.rules.items():
+            message=self.messages[code];structure=self.structures[message.structure_id]
+            service=provider(self.rules);fields={f.path:f for f in structure.fields}
+            values=sample_values(structure,message,rules)
+            base=ET.tostring(service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element())
+            for rule in rules.structured_rules:
+                if rule.get('kind')!='field_constraint':continue
+                with self.subTest(rule=rule['rule_id']):
+                    root=ET.fromstring(base);parent=root;parts=rule['target'].split('/')
+                    for i,part in enumerate(parts):
+                        path='/'.join(parts[:i+1]);f=fields[path]
+>                       tag=f'{{{structure.imported_namespaces[f.namespace_prefix]}}}{f.xml_name}'
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E                       KeyError: None
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:83: KeyError
+_ V130RuntimeTests.test_actual_xml_mutation_rejects_every_compiled_constraint __
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_actual_xml_mutation_rejects_every_compiled_constraint>
+
+    def test_actual_xml_mutation_rejects_every_compiled_constraint(self):
+        for code,rules in self.rules.items():
+            message=self.messages[code];structure=self.structures[message.structure_id]
+            service=provider(self.rules);fields={f.path:f for f in structure.fields}
+            values=sample_values(structure,message,rules)
+>           base=ET.tostring(service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x107b25470>
+message_definition = MessageDefinition(message_code='P.MM.01.MSG.019', name='запрос сведений из регистрационного дела или регистрационного ..., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure_definition = StructureDefinition(structure_id='R.HC.MM.01.003', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugRegistrationDocC...ge=None, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+user_values = {'EDocHeader': None, 'EDocHeader/InfEnvelopeCode': 'P.MM.01.MSG.019', 'EDocHeader/EDocCode': 'R.HC.MM.01.003', 'EDocHeader/EDocId': '11111111-1111-4111-8111-111111111111', ...}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                   user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
+        values = self._flatten(user_values)
+        rules = self.package.rules.get(message_definition.message_code)
+        if rules:
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+        if not result.is_valid:
+>           raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
+E           eaeu_xml.core.errors.BodyValidationError: Body содержит 3 issue(s).
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:171: BodyValidationError
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.019] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+>               self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+E               AssertionError: False is not true : [('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', '')]
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:61: AssertionError
+_ V130RuntimeTests.test_every_compiled_atom_has_positive_and_negative_value_proof (rule='P.MM.01.MSG.012.SOURCE_ROW.5.A5acf50fa6306') _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_every_compiled_atom_has_positive_and_negative_value_proof>
+
+    def test_every_compiled_atom_has_positive_and_negative_value_proof(self):
+        evaluator=StructuredRuleEvaluator()
+        seen=0
+        for rules in self.rules.values():
+            for rule in rules.structured_rules:
+                if rule.get('kind')!='field_constraint':continue
+                with self.subTest(rule=rule['rule_id']):
+                    values={p:None for p in rule['ancestors']}
+                    operation=rule['operation']
+                    if operation=='REQUIRED':values[rule['target']]=None if rule['container'] else 'value'
+                    elif operation=='CARDINALITY':values[rule['target']]=[None]
+                    elif operation=='FIXED':values[rule['target']]=rule['value']
+                    elif operation=='ENUM':values[rule['target']]=rule['allowed_values'][0]
+>                   self.assertEqual(evaluator.evaluate(rule,values).status,RuleStatus.PASS)
+E                   AssertionError: <RuleStatus.FAIL: 'FAIL'> != <RuleStatus.PASS: 'PASS'>
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:44: AssertionError
+_ V130RuntimeTests.test_every_compiled_atom_has_positive_and_negative_value_proof (rule='P.MM.01.MSG.019.SOURCE_ROW.1.A57201178c0e8') _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_every_compiled_atom_has_positive_and_negative_value_proof>
+
+    def test_every_compiled_atom_has_positive_and_negative_value_proof(self):
+        evaluator=StructuredRuleEvaluator()
+        seen=0
+        for rules in self.rules.values():
+            for rule in rules.structured_rules:
+                if rule.get('kind')!='field_constraint':continue
+                with self.subTest(rule=rule['rule_id']):
+                    values={p:None for p in rule['ancestors']}
+                    operation=rule['operation']
+                    if operation=='REQUIRED':values[rule['target']]=None if rule['container'] else 'value'
+                    elif operation=='CARDINALITY':values[rule['target']]=[None]
+                    elif operation=='FIXED':values[rule['target']]=rule['value']
+                    elif operation=='ENUM':values[rule['target']]=rule['allowed_values'][0]
+>                   self.assertEqual(evaluator.evaluate(rule,values).status,RuleStatus.PASS)
+E                   AssertionError: <RuleStatus.FAIL: 'FAIL'> != <RuleStatus.PASS: 'PASS'>
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:44: AssertionError
+_ V130RuntimeTests.test_every_compiled_atom_has_positive_and_negative_value_proof (rule='P.MM.01.MSG.019.SOURCE_ROW.6.A57201178c0e8') _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_every_compiled_atom_has_positive_and_negative_value_proof>
+
+    def test_every_compiled_atom_has_positive_and_negative_value_proof(self):
+        evaluator=StructuredRuleEvaluator()
+        seen=0
+        for rules in self.rules.values():
+            for rule in rules.structured_rules:
+                if rule.get('kind')!='field_constraint':continue
+                with self.subTest(rule=rule['rule_id']):
+                    values={p:None for p in rule['ancestors']}
+                    operation=rule['operation']
+                    if operation=='REQUIRED':values[rule['target']]=None if rule['container'] else 'value'
+                    elif operation=='CARDINALITY':values[rule['target']]=[None]
+                    elif operation=='FIXED':values[rule['target']]=rule['value']
+                    elif operation=='ENUM':values[rule['target']]=rule['allowed_values'][0]
+>                   self.assertEqual(evaluator.evaluate(rule,values).status,RuleStatus.PASS)
+E                   AssertionError: <RuleStatus.FAIL: 'FAIL'> != <RuleStatus.PASS: 'PASS'>
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:44: AssertionError
+_ V130RuntimeTests.test_every_compiled_atom_has_positive_and_negative_value_proof (rule='P.MM.01.MSG.031.SOURCE_ROW.2.A5acf50fa6306') _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_every_compiled_atom_has_positive_and_negative_value_proof>
+
+    def test_every_compiled_atom_has_positive_and_negative_value_proof(self):
+        evaluator=StructuredRuleEvaluator()
+        seen=0
+        for rules in self.rules.values():
+            for rule in rules.structured_rules:
+                if rule.get('kind')!='field_constraint':continue
+                with self.subTest(rule=rule['rule_id']):
+                    values={p:None for p in rule['ancestors']}
+                    operation=rule['operation']
+                    if operation=='REQUIRED':values[rule['target']]=None if rule['container'] else 'value'
+                    elif operation=='CARDINALITY':values[rule['target']]=[None]
+                    elif operation=='FIXED':values[rule['target']]=rule['value']
+                    elif operation=='ENUM':values[rule['target']]=rule['allowed_values'][0]
+>                   self.assertEqual(evaluator.evaluate(rule,values).status,RuleStatus.PASS)
+E                   AssertionError: <RuleStatus.FAIL: 'FAIL'> != <RuleStatus.PASS: 'PASS'>
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:44: AssertionError
+_ V130RuntimeTests.test_every_compiled_atom_has_positive_and_negative_value_proof (rule='P.MM.01.MSG.031.SOURCE_ROW.22.A5acf50fa6306') _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_every_compiled_atom_has_positive_and_negative_value_proof>
+
+    def test_every_compiled_atom_has_positive_and_negative_value_proof(self):
+        evaluator=StructuredRuleEvaluator()
+        seen=0
+        for rules in self.rules.values():
+            for rule in rules.structured_rules:
+                if rule.get('kind')!='field_constraint':continue
+                with self.subTest(rule=rule['rule_id']):
+                    values={p:None for p in rule['ancestors']}
+                    operation=rule['operation']
+                    if operation=='REQUIRED':values[rule['target']]=None if rule['container'] else 'value'
+                    elif operation=='CARDINALITY':values[rule['target']]=[None]
+                    elif operation=='FIXED':values[rule['target']]=rule['value']
+                    elif operation=='ENUM':values[rule['target']]=rule['allowed_values'][0]
+>                   self.assertEqual(evaluator.evaluate(rule,values).status,RuleStatus.PASS)
+E                   AssertionError: <RuleStatus.FAIL: 'FAIL'> != <RuleStatus.PASS: 'PASS'>
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:44: AssertionError
+_ V130RuntimeTests.test_exact_namespaces_and_sequence_are_checked_for_every_message [P.MM.01.MSG.019] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_exact_namespaces_and_sequence_are_checked_for_every_message>
+
+    def test_exact_namespaces_and_sequence_are_checked_for_every_message(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id];service=provider(self.rules)
+>               root=ET.fromstring(ET.tostring(service.build_body(message,structure,sample_values(structure,message,self.rules.get(code)),mode=GenerationMode.TEST).serialize_xml_element()))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:106: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x107be8960>
+message_definition = MessageDefinition(message_code='P.MM.01.MSG.019', name='запрос сведений из регистрационного дела или регистрационного ..., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure_definition = StructureDefinition(structure_id='R.HC.MM.01.003', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugRegistrationDocC...ge=None, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+user_values = {'EDocHeader': None, 'EDocHeader/InfEnvelopeCode': 'P.MM.01.MSG.019', 'EDocHeader/EDocCode': 'R.HC.MM.01.003', 'EDocHeader/EDocId': '11111111-1111-4111-8111-111111111111', ...}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                   user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
+        values = self._flatten(user_values)
+        rules = self.package.rules.get(message_definition.message_code)
+        if rules:
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+        if not result.is_valid:
+>           raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
+E           eaeu_xml.core.errors.BodyValidationError: Body содержит 3 issue(s).
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:171: BodyValidationError
+=========================== short test summary info ============================
+SUBFAILED(rule='P.MM.01.MSG.012.SOURCE_ROW.5.A5acf50fa6306') P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_actual_xml_mutation_rejects_every_compiled_constraint
+SUBFAILED(rule='P.MM.01.MSG.012.SOURCE_ROW.13.Abb9a1e9f6f04') P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_actual_xml_mutation_rejects_every_compiled_constraint
+FAILED P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_actual_xml_mutation_rejects_every_compiled_constraint
+SUBFAILED[P.MM.01.MSG.019] P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED(rule='P.MM.01.MSG.012.SOURCE_ROW.5.A5acf50fa6306') P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_every_compiled_atom_has_positive_and_negative_value_proof
+SUBFAILED(rule='P.MM.01.MSG.019.SOURCE_ROW.1.A57201178c0e8') P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_every_compiled_atom_has_positive_and_negative_value_proof
+SUBFAILED(rule='P.MM.01.MSG.019.SOURCE_ROW.6.A57201178c0e8') P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_every_compiled_atom_has_positive_and_negative_value_proof
+SUBFAILED(rule='P.MM.01.MSG.031.SOURCE_ROW.2.A5acf50fa6306') P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_every_compiled_atom_has_positive_and_negative_value_proof
+SUBFAILED(rule='P.MM.01.MSG.031.SOURCE_ROW.22.A5acf50fa6306') P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_every_compiled_atom_has_positive_and_negative_value_proof
+SUBFAILED[P.MM.01.MSG.019] P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_exact_namespaces_and_sequence_are_checked_for_every_message
+10 failed, 6 passed, 315 subtests passed in 0.22s

@@ -1,0 +1,102 @@
+{
+  "message_code": "P.MM.01.MSG.041",
+  "structure_id": "R.HC.MM.01.007",
+  "business_rules": [
+    {
+      "source_requirement_code": "1",
+      "source_regulation_table_index": 176,
+      "requirement": "реквизит «Дата и время обновления» (csdo:UpdateDateTime) не заполняется",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=176; 63. Требования к заполнению реквизитов электронных документов (сведений) «Состояние актуализации единого реестра или единой базы данных» (R.HC.MM.01.007), передаваемых в сообщении «Запрос измененных сведений из единой базы данных» (P.MM.01.MSG.041), приведены в таблице 51. / Таблица 51 / ».».Требования к заполнению реквизитов электронных документов (сведений) «Состояние актуализации единого реестра или единой базы данных» (R.HC.MM.01.007), передаваемых в сообщении «Запрос измененных сведений из единой базы данных» (P.MM.01.MSG.041)",
+          "status": "CONFIRMED",
+          "table": "51",
+          "page": 358,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.041.SOURCE_ROW.1"
+    },
+    {
+      "source_requirement_code": "2",
+      "source_regulation_table_index": 176,
+      "requirement": "реквизит «Код страны» (csdo:UnifiedCountryCode) должен содержать кодовое обозначение государства-члена из классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия, а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в его составе должен содержать значение «2021»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=176; 63. Требования к заполнению реквизитов электронных документов (сведений) «Состояние актуализации единого реестра или единой базы данных» (R.HC.MM.01.007), передаваемых в сообщении «Запрос измененных сведений из единой базы данных» (P.MM.01.MSG.041), приведены в таблице 51. / Таблица 51 / ».».Требования к заполнению реквизитов электронных документов (сведений) «Состояние актуализации единого реестра или единой базы данных» (R.HC.MM.01.007), передаваемых в сообщении «Запрос измененных сведений из единой базы данных» (P.MM.01.MSG.041)",
+          "status": "CONFIRMED",
+          "table": "51",
+          "page": 358,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.041.SOURCE_ROW.2"
+    }
+  ],
+  "source_refs": [
+    {
+      "source_id": "SRC-PMM01-140",
+      "document": "https://docs.eaeunion.org/documents/446/10427/",
+      "location": "Official Word attachment, table_index=130; Таблица 5 / Перечень сообщений общего процесса / ",
+      "status": "CONFIRMED",
+      "table": "5",
+      "page": null,
+      "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+      "item": "P.MM.01.MSG.041",
+      "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+    }
+  ],
+  "structured_rules": [
+    {
+      "rule_id": "P.MM.01.MSG.041.SOURCE_ROW.1.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.041.SOURCE_ROW.1",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=176; 63. Требования к заполнению реквизитов электронных документов (сведений) «Состояние актуализации единого реестра или единой базы данных» (R.HC.MM.01.007), передаваемых в сообщении «Запрос измененных сведений из единой базы данных» (P.MM.01.MSG.041), приведены в таблице 51. / Таблица 51 / ».».Требования к заполнению реквизитов электронных документов (сведений) «Состояние актуализации единого реестра или единой базы данных» (R.HC.MM.01.007), передаваемых в сообщении «Запрос измененных сведений из единой базы данных» (P.MM.01.MSG.041)",
+          "status": "CONFIRMED",
+          "table": "51",
+          "page": 358,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.041.SOURCE_ROW.2.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.041.SOURCE_ROW.2",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=176; 63. Требования к заполнению реквизитов электронных документов (сведений) «Состояние актуализации единого реестра или единой базы данных» (R.HC.MM.01.007), передаваемых в сообщении «Запрос измененных сведений из единой базы данных» (P.MM.01.MSG.041), приведены в таблице 51. / Таблица 51 / ».».Требования к заполнению реквизитов электронных документов (сведений) «Состояние актуализации единого реестра или единой базы данных» (R.HC.MM.01.007), передаваемых в сообщении «Запрос измененных сведений из единой базы данных» (P.MM.01.MSG.041)",
+          "status": "CONFIRMED",
+          "table": "51",
+          "page": 358,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "NOT_IMPLEMENTED_SOURCE_INTERPRETATION",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    }
+  ]
+}

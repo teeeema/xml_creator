@@ -1,0 +1,234 @@
+{
+  "message_code": "P.MM.01.MSG.014",
+  "structure_id": "R.HC.MM.01.004",
+  "business_rules": [
+    {
+      "source_requirement_code": "1",
+      "source_regulation_table_index": 159,
+      "requirement": "реквизит «Порядковый номер регистрационного удостоверения лекарственного препарата» (hcsdo:RegistrationNumberId) не заполняется",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=159; 46. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о порядковом номере регистрационного удостоверения» (P.MM.01.MSG.014), приведены в таблице 34. / Таблица 34 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о порядковом номере регистрационного удостоверения» (P.MM.01.MSG.014)",
+          "status": "CONFIRMED",
+          "table": "34",
+          "page": 325,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.014.SOURCE_ROW.1"
+    },
+    {
+      "source_requirement_code": "2",
+      "source_regulation_table_index": 159,
+      "requirement": "должен быть заполнен реквизит «Номер заявления о регистрации лекарственного препарата» (hcsdo:ApplicationId)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=159; 46. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о порядковом номере регистрационного удостоверения» (P.MM.01.MSG.014), приведены в таблице 34. / Таблица 34 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о порядковом номере регистрационного удостоверения» (P.MM.01.MSG.014)",
+          "status": "CONFIRMED",
+          "table": "34",
+          "page": 325,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.014.SOURCE_ROW.2"
+    },
+    {
+      "source_requirement_code": "3",
+      "source_regulation_table_index": 159,
+      "requirement": "значение реквизита «Номер заявления о регистрации лекарственного препарата» (hcsdo:ApplicationId) должно соответствовать значению этого реквизита, направленного этим же уполномоченным органом референтного государства в Комиссию процедурой общего процесса «Направление сведений о рассмотрении заявления» (P.MM.01.PRC.023), которой установлен этап рассмотрения заявления, соответствующий значению «06 – одобрение экспертного отчета»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=159; 46. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о порядковом номере регистрационного удостоверения» (P.MM.01.MSG.014), приведены в таблице 34. / Таблица 34 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о порядковом номере регистрационного удостоверения» (P.MM.01.MSG.014)",
+          "status": "CONFIRMED",
+          "table": "34",
+          "page": 325,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "3",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.014.SOURCE_ROW.3"
+    },
+    {
+      "source_requirement_code": "4",
+      "source_regulation_table_index": 159,
+      "requirement": "реквизит «Код страны» (csdo:UnifiedCountryCode) должен содержать кодовое обозначение государства-члена из классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия, а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в его составе должен содержать значение «2021»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=159; 46. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о порядковом номере регистрационного удостоверения» (P.MM.01.MSG.014), приведены в таблице 34. / Таблица 34 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о порядковом номере регистрационного удостоверения» (P.MM.01.MSG.014)",
+          "status": "CONFIRMED",
+          "table": "34",
+          "page": 325,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "4",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.014.SOURCE_ROW.4"
+    },
+    {
+      "source_requirement_code": "4",
+      "source_regulation_table_index": 159,
+      "requirement": "значению, содержащемуся в реквизите «Номер заявления о регистрации лекарственного препарата» (hcsdo:ApplicationId) должно соответствовать только 1 уникальное значение реквизита «Порядковый номер регистрационного удостоверения лекарственного препарата» (hcsdo:RegistrationNumberId)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=3; в графе первой цифры «3-82» заменить цифрами «3-87»; / в графе второй цифры «3-85» заменить цифрами «3-87», слова «таблицы 20» заменить словами «таблицы 26»; / в) таблицу 35 дополнить позицией следующего содержания:",
+          "status": "CONFIRMED",
+          "table": null,
+          "page": 4,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "4",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.014.SOURCE_ROW.5"
+    }
+  ],
+  "source_refs": [
+    {
+      "source_id": "SRC-PMM01-140",
+      "document": "https://docs.eaeunion.org/documents/446/10427/",
+      "location": "Official Word attachment, table_index=130; Таблица 5 / Перечень сообщений общего процесса / ",
+      "status": "CONFIRMED",
+      "table": "5",
+      "page": null,
+      "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+      "item": "P.MM.01.MSG.014",
+      "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+    }
+  ],
+  "structured_rules": [
+    {
+      "kind": "field_constraint",
+      "operation": "FORBIDDEN",
+      "target": "RegistrationNumberId",
+      "ancestors": [],
+      "container": false,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=159; 46. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о порядковом номере регистрационного удостоверения» (P.MM.01.MSG.014), приведены в таблице 34. / Таблица 34 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о порядковом номере регистрационного удостоверения» (P.MM.01.MSG.014)",
+          "status": "CONFIRMED",
+          "table": "34",
+          "page": 325,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.014.SOURCE_ROW.1.A1f21038e753d",
+      "source_row_id": "P.MM.01.MSG.014.SOURCE_ROW.1",
+      "message_code": "P.MM.01.MSG.014",
+      "diagnostic": "P.MM.01.MSG.014: FORBIDDEN RegistrationNumberId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "ApplicationId",
+      "ancestors": [],
+      "container": false,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=159; 46. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о порядковом номере регистрационного удостоверения» (P.MM.01.MSG.014), приведены в таблице 34. / Таблица 34 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о порядковом номере регистрационного удостоверения» (P.MM.01.MSG.014)",
+          "status": "CONFIRMED",
+          "table": "34",
+          "page": 325,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.014.SOURCE_ROW.2.A954beab1ad73",
+      "source_row_id": "P.MM.01.MSG.014.SOURCE_ROW.2",
+      "message_code": "P.MM.01.MSG.014",
+      "diagnostic": "P.MM.01.MSG.014: REQUIRED ApplicationId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.014.SOURCE_ROW.3.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.014.SOURCE_ROW.3",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=159; 46. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о порядковом номере регистрационного удостоверения» (P.MM.01.MSG.014), приведены в таблице 34. / Таблица 34 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о порядковом номере регистрационного удостоверения» (P.MM.01.MSG.014)",
+          "status": "CONFIRMED",
+          "table": "34",
+          "page": 325,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "3",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.014.SOURCE_ROW.4.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.014.SOURCE_ROW.4",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=159; 46. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о порядковом номере регистрационного удостоверения» (P.MM.01.MSG.014), приведены в таблице 34. / Таблица 34 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о номере регистрационного удостоверения на лекарственный препарат» (R.HC.MM.01.004), передаваемых в сообщении «Запрос сведений о порядковом номере регистрационного удостоверения» (P.MM.01.MSG.014)",
+          "status": "CONFIRMED",
+          "table": "34",
+          "page": 325,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "4",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "NOT_IMPLEMENTED_SOURCE_INTERPRETATION",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.014.SOURCE_ROW.5.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.014.SOURCE_ROW.5",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=3; в графе первой цифры «3-82» заменить цифрами «3-87»; / в графе второй цифры «3-85» заменить цифрами «3-87», слова «таблицы 20» заменить словами «таблицы 26»; / в) таблицу 35 дополнить позицией следующего содержания:",
+          "status": "CONFIRMED",
+          "table": null,
+          "page": 4,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "4",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    }
+  ]
+}

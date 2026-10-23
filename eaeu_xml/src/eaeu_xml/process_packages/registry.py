@@ -10,6 +10,7 @@ from eaeu_xml.core.errors import (
 from eaeu_xml.process_packages.loader import ProcessPackageLoader
 from eaeu_xml.process_packages.models import ProcessPackage
 from eaeu_xml.process_packages.versioning import load_process_version
+from eaeu_xml.process_packages.readiness import require_package_ready
 
 
 class ProcessRegistry:
@@ -58,7 +59,11 @@ class ProcessRegistry:
                 message=f"Process package не найден: {process_code}",
             ) from error
         if version is None or package.profile.process_version == version:
+            require_package_ready(package)
             return package
+        if not isinstance(version, str):
+            # Let the common selector produce the domain error before cache hashing.
+            return load_process_version(package.path, version=version, legacy_package=package)
         key = (process_code, version)
         if key not in self._version_packages:
             self._version_packages[key] = load_process_version(
@@ -67,4 +72,6 @@ class ProcessRegistry:
                 shared_structures=self.shared_structures,
                 legacy_package=package,
             )
-        return self._version_packages[key]
+        selected = self._version_packages[key]
+        require_package_ready(selected)
+        return selected

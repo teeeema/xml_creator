@@ -1,0 +1,61 @@
+{
+  "message_code": "P.MM.01.MSG.008",
+  "structure_id": "R.HC.MM.01.001",
+  "business_rules": [
+    {
+      "source_requirement_code": "1",
+      "source_regulation_table_index": 154,
+      "requirement": "реквизит «Уникальный идентификатор документа» (hcsdo:DocUUId) должен быть указан в составе каждого заполненного реквизита в составе сложного реквизита «Сведения о документах регистрационного досье лекарственного препарата, вносимых в единый реестр» (hccdo:DrugDocumentsDetails)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=154; 41. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Актуальные сведения из единого реестра» (P.MM.01.MSG.008), приведены в таблице 29. / Таблица 29 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Актуальные сведения из единого реестра» (P.MM.01.MSG.008)",
+          "status": "CONFIRMED",
+          "table": "29",
+          "page": 322,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.008.SOURCE_ROW.1"
+    }
+  ],
+  "source_refs": [
+    {
+      "source_id": "SRC-PMM01-140",
+      "document": "https://docs.eaeunion.org/documents/446/10427/",
+      "location": "Official Word attachment, table_index=130; Таблица 5 / Перечень сообщений общего процесса / ",
+      "status": "CONFIRMED",
+      "table": "5",
+      "page": null,
+      "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+      "item": "P.MM.01.MSG.008",
+      "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+    }
+  ],
+  "structured_rules": [
+    {
+      "rule_id": "P.MM.01.MSG.008.SOURCE_ROW.1.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.008.SOURCE_ROW.1",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=154; 41. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Актуальные сведения из единого реестра» (P.MM.01.MSG.008), приведены в таблице 29. / Таблица 29 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Актуальные сведения из единого реестра» (P.MM.01.MSG.008)",
+          "status": "CONFIRMED",
+          "table": "29",
+          "page": 322,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    }
+  ]
+}

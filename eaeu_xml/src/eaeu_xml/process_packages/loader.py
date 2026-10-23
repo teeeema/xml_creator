@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import Any
 
 from eaeu_xml.core.errors import ProcessPackageFormatError, ProcessPackagePathError, ProcessPackageValidationError
-from eaeu_xml.process_packages.readiness import require_verified_version
+from eaeu_xml.process_packages.readiness import is_versioned_package, require_verified_version
 from eaeu_xml.process_packages.models import (
     EmbeddedStructuresDefinition, FieldInputPolicyDefinition, UiInputPolicyDefinition, MessageDefinition, MessageRules, OperationDefinition, ParticipantDefinition, ProcedureDefinition, ProcessDefinition,
     ProcessPackage, SourceReference, StructureDefinition, TransactionDefinition,
@@ -68,8 +68,18 @@ class ProcessPackageLoader:
         path = package_path.expanduser().resolve()
         if not path.is_dir():
             raise ProcessPackagePathError(code="PACKAGE_NOT_FOUND", message=f"Process package не найден: {path}")
+        versioned = is_versioned_package(path)
         if path.parent.name == "versions":
             require_verified_version(path, version=path.name)
+        if versioned:
+            # A new edition must own its manifests and dependencies. In particular,
+            # linking a legacy directory must not masquerade as an isolated catalog.
+            for entry in path.rglob("*"):
+                if entry.is_symlink():
+                    raise ProcessPackageValidationError(
+                        code="VERSION_CATALOG_SYMLINK",
+                        message=f"Версионный каталог содержит символическую ссылку: {entry.relative_to(path)}.",
+                    )
         for name in cls.REQUIRED_FILES:
             if not (path / name).is_file():
                 raise ProcessPackagePathError(code="REQUIRED_MANIFEST_MISSING", message=f"Обязательный manifest отсутствует: {name}")
@@ -135,10 +145,24 @@ class ProcessPackageLoader:
                 message_rules_status=rules_status,
                 message_rules_source_refs=_refs(rules_source_refs),
             )
+        if (not isinstance(process.active_profile, str)
+                or not process.active_profile
+                or Path(process.active_profile).name != process.active_profile
+                or process.active_profile in {".", ".."}):
+            raise ProcessPackageValidationError(
+                code="INVALID_ACTIVE_PROFILE", message="active_profile должен быть именем профиля без пути.",
+            )
         profile_path = path / "version_profiles" / f"{process.active_profile}.yaml"
         if not profile_path.is_file():
             raise ProcessPackagePathError(code="ACTIVE_PROFILE_MISSING", message=f"Active profile отсутствует: {profile_path.name}")
         profile_data = cls._read(profile_path)
+        if versioned:
+            version = profile_data.get("process_version")
+            if path.parent.name == "versions" and version != path.name:
+                raise ProcessPackageValidationError(
+                    code="PROCESS_VERSION_MISMATCH", message="Версия профиля не совпадает с каталогом версии.",
+                )
+            require_verified_version(path, version=version, expected_process_code=process.process_code)
         profile_structures = {}
         for structure_id, selection in profile_data.get("structures", {}).items():
             if isinstance(selection, dict):
@@ -173,17 +197,7 @@ class ProcessPackageLoader:
                 raise ProcessPackageValidationError(code="LOCAL_STRUCTURE_NOT_FOUND", message=f"Local структура {structure_id} версии {selection.active_version} не найдена.")
             if selection.source == "shared" and key not in shared_structures:
                 raise ProcessPackageValidationError(code="SHARED_STRUCTURE_NOT_FOUND", message=f"Shared структура {structure_id} версии {selection.active_version} не найдена.")
-        rules = {}
-        for file in sorted((path / "message_rules").glob("*.yaml")):
-            item = cls._read(file); code = item.get("message_code", file.stem)
-            rules[code] = MessageRules(
-                message_code=code, structure_id=item.get("structure_id"), fixed_values=item.get("fixed_values", {}),
-                applies_to_structure=item.get("applies_to_structure"),
-                field_usage=item.get("field_usage", {}), business_rules=tuple(item.get("business_rules", [])), structured_rules=tuple(item.get("structured_rules", [])),
-                correlation_rules=tuple(item.get("correlation_rules", [])), classifier_refs=tuple(item.get("classifier_refs", [])),
-                source_text=item.get("source_text"), normalized_field_reference=item.get("normalized_field_reference"),
-                source_refs=_refs(item.get("source_refs")),
-            )
+        rules = cls.load_rules(path / "message_rules")
         input_policies = {}
         policy_path = path / "field_input_policies.yaml"
         if policy_path.is_file():
@@ -234,6 +248,22 @@ class ProcessPackageLoader:
         )
         ProcessPackageValidator().validate(package)
         return package
+
+    @classmethod
+    def load_rules(cls, rules_path: Path) -> dict[str, MessageRules]:
+        """Read a rule catalog for inspection without activating a process edition."""
+        rules = {}
+        for file in sorted(rules_path.glob("*.yaml")):
+            item = cls._read(file); code = item.get("message_code", file.stem)
+            rules[code] = MessageRules(
+                message_code=code, structure_id=item.get("structure_id"), fixed_values=item.get("fixed_values", {}),
+                applies_to_structure=item.get("applies_to_structure"),
+                field_usage=item.get("field_usage", {}), business_rules=tuple(item.get("business_rules", [])), structured_rules=tuple(item.get("structured_rules", [])),
+                correlation_rules=tuple(item.get("correlation_rules", [])), classifier_refs=tuple(item.get("classifier_refs", [])),
+                source_text=item.get("source_text"), normalized_field_reference=item.get("normalized_field_reference"),
+                source_refs=_refs(item.get("source_refs")),
+            )
+        return rules
 
     @classmethod
     def load_structures(cls, structures_path: Path) -> dict[tuple[str, str], StructureDefinition]:

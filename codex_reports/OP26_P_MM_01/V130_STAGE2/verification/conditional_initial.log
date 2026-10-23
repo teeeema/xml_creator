@@ -1,0 +1,226 @@
+.......                                  [100%]
+=================================== FAILURES ===================================
+_ V130RuntimeTests.test_actual_xml_mutation_rejects_every_compiled_constraint (rule='P.MM.01.MSG.033.SOURCE_ROW.16.A3b28d611ae86') _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_actual_xml_mutation_rejects_every_compiled_constraint>
+
+    def test_actual_xml_mutation_rejects_every_compiled_constraint(self):
+        for code,rules in self.rules.items():
+            message=self.messages[code];structure=self.structures[message.structure_id]
+            service=provider(self.rules);fields={f.path:f for f in structure.fields}
+            values=sample_values(structure,message,rules)
+            base=ET.tostring(service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element())
+            for rule in rules.structured_rules:
+                if rule.get('kind')!='field_constraint':continue
+                with self.subTest(rule=rule['rule_id']):
+                    root=ET.fromstring(base);parent=root;parts=rule['target'].split('/')
+                    for i,part in enumerate(parts):
+                        path='/'.join(parts[:i+1]);f=fields[path]
+                        if f.kind=='ATTRIBUTE':
+                            parent.set(f.xml_name,'INVALID_VALUE')
+                            break
+                        tag=f'{{{structure.imported_namespaces[f.namespace_prefix]}}}{f.xml_name}'
+                        node=next((n for n in parent if n.tag==tag),None)
+                        if i==len(parts)-1 and rule['operation'] in ('REQUIRED','CARDINALITY','AT_LEAST_ONE'):
+                            for child in list(parent):
+                                if child.tag==tag:parent.remove(child)
+                                elif rule['operation']=='AT_LEAST_ONE':
+                                    alternatives={f"{{{structure.imported_namespaces[fields[p].namespace_prefix]}}}{fields[p].xml_name}" for p in rule['targets']}
+                                    if child.tag in alternatives:parent.remove(child)
+                            break
+                        if node is None:
+                            node=ET.Element(tag)
+                            siblings={g.xml_name:g.order for g in structure.fields if g.parent==f.parent}
+                            position=next((j for j,n in enumerate(parent) if siblings.get(str(n.tag).split('}')[-1],10**9)>f.order),len(parent))
+                            parent.insert(position,node)
+                        if i==len(parts)-1:
+                            node.text='INVALID_VALUE'
+                        parent=node
+                    extracted=service.extract_values(structure,root)
+                    result=service.validate_body(message,structure,extracted,mode=GenerationMode.TEST)
+                    evaluation=next(e for e in result.rule_evaluations if e.rule_id==rule['rule_id'])
+>                   self.assertEqual(evaluation.status,RuleStatus.FAIL)
+E                   AssertionError: <RuleStatus.PASS: 'PASS'> != <RuleStatus.FAIL: 'FAIL'>
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:109: AssertionError
+_ V130RuntimeTests.test_actual_xml_mutation_rejects_every_compiled_constraint (rule='P.MM.01.MSG.034.SOURCE_ROW.62.A3b28d611ae86') _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_actual_xml_mutation_rejects_every_compiled_constraint>
+
+    def test_actual_xml_mutation_rejects_every_compiled_constraint(self):
+        for code,rules in self.rules.items():
+            message=self.messages[code];structure=self.structures[message.structure_id]
+            service=provider(self.rules);fields={f.path:f for f in structure.fields}
+            values=sample_values(structure,message,rules)
+            base=ET.tostring(service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element())
+            for rule in rules.structured_rules:
+                if rule.get('kind')!='field_constraint':continue
+                with self.subTest(rule=rule['rule_id']):
+                    root=ET.fromstring(base);parent=root;parts=rule['target'].split('/')
+                    for i,part in enumerate(parts):
+                        path='/'.join(parts[:i+1]);f=fields[path]
+                        if f.kind=='ATTRIBUTE':
+                            parent.set(f.xml_name,'INVALID_VALUE')
+                            break
+                        tag=f'{{{structure.imported_namespaces[f.namespace_prefix]}}}{f.xml_name}'
+                        node=next((n for n in parent if n.tag==tag),None)
+                        if i==len(parts)-1 and rule['operation'] in ('REQUIRED','CARDINALITY','AT_LEAST_ONE'):
+                            for child in list(parent):
+                                if child.tag==tag:parent.remove(child)
+                                elif rule['operation']=='AT_LEAST_ONE':
+                                    alternatives={f"{{{structure.imported_namespaces[fields[p].namespace_prefix]}}}{fields[p].xml_name}" for p in rule['targets']}
+                                    if child.tag in alternatives:parent.remove(child)
+                            break
+                        if node is None:
+                            node=ET.Element(tag)
+                            siblings={g.xml_name:g.order for g in structure.fields if g.parent==f.parent}
+                            position=next((j for j,n in enumerate(parent) if siblings.get(str(n.tag).split('}')[-1],10**9)>f.order),len(parent))
+                            parent.insert(position,node)
+                        if i==len(parts)-1:
+                            node.text='INVALID_VALUE'
+                        parent=node
+                    extracted=service.extract_values(structure,root)
+                    result=service.validate_body(message,structure,extracted,mode=GenerationMode.TEST)
+                    evaluation=next(e for e in result.rule_evaluations if e.rule_id==rule['rule_id'])
+>                   self.assertEqual(evaluation.status,RuleStatus.FAIL)
+E                   AssertionError: <RuleStatus.PASS: 'PASS'> != <RuleStatus.FAIL: 'FAIL'>
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:109: AssertionError
+_ V130RuntimeTests.test_actual_xml_mutation_rejects_every_compiled_constraint (rule='P.MM.01.MSG.035.SOURCE_ROW.2.A93d064155097') _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_actual_xml_mutation_rejects_every_compiled_constraint>
+
+    def test_actual_xml_mutation_rejects_every_compiled_constraint(self):
+        for code,rules in self.rules.items():
+            message=self.messages[code];structure=self.structures[message.structure_id]
+            service=provider(self.rules);fields={f.path:f for f in structure.fields}
+            values=sample_values(structure,message,rules)
+            base=ET.tostring(service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element())
+            for rule in rules.structured_rules:
+                if rule.get('kind')!='field_constraint':continue
+                with self.subTest(rule=rule['rule_id']):
+                    root=ET.fromstring(base);parent=root;parts=rule['target'].split('/')
+                    for i,part in enumerate(parts):
+                        path='/'.join(parts[:i+1]);f=fields[path]
+                        if f.kind=='ATTRIBUTE':
+                            parent.set(f.xml_name,'INVALID_VALUE')
+                            break
+                        tag=f'{{{structure.imported_namespaces[f.namespace_prefix]}}}{f.xml_name}'
+                        node=next((n for n in parent if n.tag==tag),None)
+                        if i==len(parts)-1 and rule['operation'] in ('REQUIRED','CARDINALITY','AT_LEAST_ONE'):
+                            for child in list(parent):
+                                if child.tag==tag:parent.remove(child)
+                                elif rule['operation']=='AT_LEAST_ONE':
+                                    alternatives={f"{{{structure.imported_namespaces[fields[p].namespace_prefix]}}}{fields[p].xml_name}" for p in rule['targets']}
+                                    if child.tag in alternatives:parent.remove(child)
+                            break
+                        if node is None:
+                            node=ET.Element(tag)
+                            siblings={g.xml_name:g.order for g in structure.fields if g.parent==f.parent}
+                            position=next((j for j,n in enumerate(parent) if siblings.get(str(n.tag).split('}')[-1],10**9)>f.order),len(parent))
+                            parent.insert(position,node)
+                        if i==len(parts)-1:
+                            node.text='INVALID_VALUE'
+                        parent=node
+                    extracted=service.extract_values(structure,root)
+                    result=service.validate_body(message,structure,extracted,mode=GenerationMode.TEST)
+                    evaluation=next(e for e in result.rule_evaluations if e.rule_id==rule['rule_id'])
+>                   self.assertEqual(evaluation.status,RuleStatus.FAIL)
+E                   AssertionError: <RuleStatus.PASS: 'PASS'> != <RuleStatus.FAIL: 'FAIL'>
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:109: AssertionError
+_ V130RuntimeTests.test_every_compiled_atom_has_positive_and_negative_value_proof (rule='P.MM.01.MSG.033.SOURCE_ROW.16.A3b28d611ae86') _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_every_compiled_atom_has_positive_and_negative_value_proof>
+
+    def test_every_compiled_atom_has_positive_and_negative_value_proof(self):
+        evaluator=StructuredRuleEvaluator()
+        seen=0
+        for rules in self.rules.values():
+            for rule in rules.structured_rules:
+                if rule.get('kind')!='field_constraint':continue
+                with self.subTest(rule=rule['rule_id']):
+                    values={p:None for p in rule['ancestors']}
+                    operation=rule['operation']
+                    if operation=='REQUIRED':values[rule['target']]=None if rule['container'] else 'value'
+                    elif operation=='CARDINALITY':values[rule['target']]=[None]
+                    elif operation=='FIXED':values[rule['target']]=rule['value']
+                    elif operation=='ENUM':values[rule['target']]=rule['allowed_values'][0]
+                    elif operation=='AT_LEAST_ONE':values[rule['targets'][0]]='one alternative'
+                    self.assertEqual(evaluator.evaluate(rule,values).status,RuleStatus.PASS)
+                    bad=copy.deepcopy(values)
+                    if operation=='FORBIDDEN':bad[rule['target']]=None if rule['container'] else 'forbidden'
+                    elif operation in ('ENUM','FIXED'):bad[rule['target']]='INVALID_VALUE'
+                    elif operation=='AT_LEAST_ONE':
+                        for path in rule['targets']:bad.pop(path,None)
+                    else:bad.pop(rule['target'])
+>                   self.assertEqual(evaluator.evaluate(rule,bad).status,RuleStatus.FAIL)
+E                   AssertionError: <RuleStatus.PASS: 'PASS'> != <RuleStatus.FAIL: 'FAIL'>
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:52: AssertionError
+_ V130RuntimeTests.test_every_compiled_atom_has_positive_and_negative_value_proof (rule='P.MM.01.MSG.034.SOURCE_ROW.62.A3b28d611ae86') _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_every_compiled_atom_has_positive_and_negative_value_proof>
+
+    def test_every_compiled_atom_has_positive_and_negative_value_proof(self):
+        evaluator=StructuredRuleEvaluator()
+        seen=0
+        for rules in self.rules.values():
+            for rule in rules.structured_rules:
+                if rule.get('kind')!='field_constraint':continue
+                with self.subTest(rule=rule['rule_id']):
+                    values={p:None for p in rule['ancestors']}
+                    operation=rule['operation']
+                    if operation=='REQUIRED':values[rule['target']]=None if rule['container'] else 'value'
+                    elif operation=='CARDINALITY':values[rule['target']]=[None]
+                    elif operation=='FIXED':values[rule['target']]=rule['value']
+                    elif operation=='ENUM':values[rule['target']]=rule['allowed_values'][0]
+                    elif operation=='AT_LEAST_ONE':values[rule['targets'][0]]='one alternative'
+                    self.assertEqual(evaluator.evaluate(rule,values).status,RuleStatus.PASS)
+                    bad=copy.deepcopy(values)
+                    if operation=='FORBIDDEN':bad[rule['target']]=None if rule['container'] else 'forbidden'
+                    elif operation in ('ENUM','FIXED'):bad[rule['target']]='INVALID_VALUE'
+                    elif operation=='AT_LEAST_ONE':
+                        for path in rule['targets']:bad.pop(path,None)
+                    else:bad.pop(rule['target'])
+>                   self.assertEqual(evaluator.evaluate(rule,bad).status,RuleStatus.FAIL)
+E                   AssertionError: <RuleStatus.PASS: 'PASS'> != <RuleStatus.FAIL: 'FAIL'>
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:52: AssertionError
+_ V130RuntimeTests.test_every_compiled_atom_has_positive_and_negative_value_proof (rule='P.MM.01.MSG.035.SOURCE_ROW.2.A93d064155097') _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_every_compiled_atom_has_positive_and_negative_value_proof>
+
+    def test_every_compiled_atom_has_positive_and_negative_value_proof(self):
+        evaluator=StructuredRuleEvaluator()
+        seen=0
+        for rules in self.rules.values():
+            for rule in rules.structured_rules:
+                if rule.get('kind')!='field_constraint':continue
+                with self.subTest(rule=rule['rule_id']):
+                    values={p:None for p in rule['ancestors']}
+                    operation=rule['operation']
+                    if operation=='REQUIRED':values[rule['target']]=None if rule['container'] else 'value'
+                    elif operation=='CARDINALITY':values[rule['target']]=[None]
+                    elif operation=='FIXED':values[rule['target']]=rule['value']
+                    elif operation=='ENUM':values[rule['target']]=rule['allowed_values'][0]
+                    elif operation=='AT_LEAST_ONE':values[rule['targets'][0]]='one alternative'
+                    self.assertEqual(evaluator.evaluate(rule,values).status,RuleStatus.PASS)
+                    bad=copy.deepcopy(values)
+                    if operation=='FORBIDDEN':bad[rule['target']]=None if rule['container'] else 'forbidden'
+                    elif operation in ('ENUM','FIXED'):bad[rule['target']]='INVALID_VALUE'
+                    elif operation=='AT_LEAST_ONE':
+                        for path in rule['targets']:bad.pop(path,None)
+                    else:bad.pop(rule['target'])
+>                   self.assertEqual(evaluator.evaluate(rule,bad).status,RuleStatus.FAIL)
+E                   AssertionError: <RuleStatus.PASS: 'PASS'> != <RuleStatus.FAIL: 'FAIL'>
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:52: AssertionError
+=========================== short test summary info ============================
+SUBFAILED(rule='P.MM.01.MSG.033.SOURCE_ROW.16.A3b28d611ae86') P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_actual_xml_mutation_rejects_every_compiled_constraint
+SUBFAILED(rule='P.MM.01.MSG.034.SOURCE_ROW.62.A3b28d611ae86') P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_actual_xml_mutation_rejects_every_compiled_constraint
+SUBFAILED(rule='P.MM.01.MSG.035.SOURCE_ROW.2.A93d064155097') P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_actual_xml_mutation_rejects_every_compiled_constraint
+SUBFAILED(rule='P.MM.01.MSG.033.SOURCE_ROW.16.A3b28d611ae86') P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_every_compiled_atom_has_positive_and_negative_value_proof
+SUBFAILED(rule='P.MM.01.MSG.034.SOURCE_ROW.62.A3b28d611ae86') P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_every_compiled_atom_has_positive_and_negative_value_proof
+SUBFAILED(rule='P.MM.01.MSG.035.SOURCE_ROW.2.A93d064155097') P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_every_compiled_atom_has_positive_and_negative_value_proof
+6 failed, 7 passed, 458 subtests passed in 0.32s

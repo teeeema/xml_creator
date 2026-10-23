@@ -1,0 +1,8 @@
+Affected nodes for StructuredProcessBodyProvider
+Relations: calls, indirect_call, references, imports, imports_from, dynamic_import, re_exports, inherits, extends, implements, uses, mixes_in, embeds, requires
+Depth: 1
+- .__init__() [calls] eaeu_xml/src/eaeu_xml/process_packages/engine.py:L17
+- engine.py [imports] eaeu_xml/src/eaeu_xml/process_packages/engine.py:L6
+- process_packages/__init__.py [imports] eaeu_xml/src/eaeu_xml/process_packages/__init__.py:L2
+- EaeuXmlEngine [uses] eaeu_xml/src/eaeu_xml/process_packages/engine.py:L17
+- ProcessPackageTests [uses] eaeu_xml/tests/test_process_packages.py:L281

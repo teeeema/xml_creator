@@ -8,7 +8,7 @@ from eaeu_xml.core.errors import (
 )
 from eaeu_xml.process_packages.loader import ProcessPackageLoader
 from eaeu_xml.process_packages.models import ProcessPackage
-from eaeu_xml.process_packages.readiness import require_verified_version
+from eaeu_xml.process_packages.readiness import require_package_ready, require_verified_version
 
 
 _VERSION_PATTERN = re.compile(r"[0-9]+\.[0-9]+\.[0-9]+\Z")
@@ -24,6 +24,7 @@ def load_process_version(
     if legacy is None:
         legacy = ProcessPackageLoader.load(package_path, shared_structures=shared_structures)
     if version is None or version == legacy.profile.process_version:
+        require_package_ready(legacy)
         return legacy
 
     if not isinstance(version, str) or not _VERSION_PATTERN.fullmatch(version):
@@ -35,7 +36,8 @@ def load_process_version(
     versions_root = legacy.path / "versions"
     selected = versions_root / version
     if (
-        not selected.is_dir()
+        versions_root.is_symlink()
+        or not selected.is_dir()
         or selected.is_symlink()
         or selected.resolve().parent != versions_root.resolve()
     ):

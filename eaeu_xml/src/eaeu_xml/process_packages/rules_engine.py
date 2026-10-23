@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation
 from enum import Enum
 from typing import Any, Mapping
+from eaeu_xml.process_packages.value_context import MISSING, at_context, contexts, present, leaf_values, field_filled
 
 
 class RuleStatus(str, Enum):
@@ -35,6 +36,38 @@ class StructuredRuleEvaluator:
             return self.out(rule, status, "External dependency required.")
 
         kind = rule.get("kind")
+        if kind == "field_constraint":
+            target = rule["target"]
+            for context in contexts(values, rule.get("ancestors", ())):
+                condition = rule.get("condition")
+                if condition:
+                    condition_value = at_context(values, condition["target"], context)
+                    normalized = "1" if condition_value is True else "0" if condition_value is False else str(condition_value)
+                    if normalized not in condition["allowed_values"]: continue
+                raw = at_context(values, target, context)
+                operation = rule["operation"]
+                if operation == "AT_LEAST_ONE":
+                    passed = any(field_filled(values, path, context) for path in rule["targets"])
+                    if not passed: return self.out(rule, RuleStatus.FAIL, rule.get("diagnostic", "At least one field is required."))
+                    continue
+                exists = present(values, target, context)
+                items = list(raw) if isinstance(raw, list) else ([] if raw is MISSING or raw is None else [raw])
+                if rule.get("container") and exists and (raw is None or raw is MISSING):
+                    items = [None]
+                if operation == "REQUIRED":
+                    passed = bool(items) and (rule.get("container") or all(v is not None and (not isinstance(v, str) or bool(v.strip())) for v in leaf_values(items)))
+                elif operation == "FORBIDDEN":
+                    passed = not exists
+                elif operation == "CARDINALITY":
+                    passed = rule.get("min_occurs", 0) <= len(items) and (rule.get("max_occurs") is None or len(items) <= rule["max_occurs"])
+                elif operation in {"ENUM", "FIXED"}:
+                    allowed = rule.get("allowed_values", [rule.get("value")])
+                    passed = (bool(items) or operation == "ENUM") and all(("1" if v is True else "0" if v is False else str(v)) in allowed for v in leaf_values(items))
+                else:
+                    return self.out(rule, RuleStatus.UNSUPPORTED_RULE, "Unsupported field constraint.")
+                if not passed:
+                    return self.out(rule, RuleStatus.FAIL, rule.get("diagnostic", f"{operation}: {target}"))
+            return self.out(rule, RuleStatus.PASS, rule.get("diagnostic", "Field constraint evaluated in parent contexts."))
         if kind in {"cardinality", "presence", "fixed_value"}:
             value = values.get(rule.get("target"))
             count = len(value) if isinstance(value, list) else int(value is not None)

@@ -55,6 +55,8 @@ def report_values(engine: EaeuXmlEngine, message_code: str) -> dict[str, object]
         values.update({path: [None, None], path + "/ds01sdo:TotalAmountIndicator": [True, False], path + "/csdo:UnifiedCountryCode": [None, "AA"], path + "/ds01sdo:" + amount: ["10.00", "10.00"]})
     if message_code == "P.DS.01.MSG.005":
         values[by["3.4"]] = "2024-01-04T00:00:00"
+    from eaeu_xml.application.services import TestDataGenerator
+    TestDataGenerator.align_sample_attributes(values, structure.fields)
     return values
 
 

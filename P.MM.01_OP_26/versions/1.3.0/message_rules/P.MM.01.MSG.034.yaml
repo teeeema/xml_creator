@@ -1,0 +1,2898 @@
+{
+  "message_code": "P.MM.01.MSG.034",
+  "structure_id": "R.HC.MM.01.006",
+  "business_rules": [
+    {
+      "source_requirement_code": "1",
+      "source_regulation_table_index": 172,
+      "requirement": "в единой базе должна отсутствовать запись, в которой значение реквизита «Номер заявления о регистрации лекарственного препарата» (hcsdo:ApplicationId) совпадает с переданными в сообщении",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.1"
+    },
+    {
+      "source_requirement_code": "2",
+      "source_regulation_table_index": 172,
+      "requirement": "код страны, представляющей сведения для включения в единую базу данных, должен совпадать с кодом страны, получившей соответствующий номер заявления о регистрации лекарственного препарата в реквизите «Номер заявления о регистрации лекарственного препарата» (hcsdo:ApplicationId) от Комиссии в сообщении общего процесса «Сведения о номере заявления» (P.MM.01.MSG.013), при выполнении процедуры общего процесса «Направление сведений о рассмотрении заявления» (P.MM.01.PRC.023)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.2"
+    },
+    {
+      "source_requirement_code": "3",
+      "source_regulation_table_index": 172,
+      "requirement": "значение реквизита «Код страны» (csdo:UnifiedCountryCode) в составе сложного реквизита «Сведения о рассмотрении заявления и (или) регистрационного досье» (hccdo:DrugApprovalApplicationDetails) должно соответствовать значению реквизита «Код страны» (csdo:UnifiedCountryCode), содержащемуся в составе одного из экземпляров реквизита «Сведения о регистрации» (hccdo:CountryDrugRegistrationDetails)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "3",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.3"
+    },
+    {
+      "source_requirement_code": "4",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код страны» (csdo:UnifiedCountryCode) в составе любых сложных реквизитов заполнен, то его значение должно соответствовать коду страны из классификатора стран мира, указанного в разделе VII Правил информационного взаимодействия а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в его составе должен содержать значение «2021»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "4",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.4"
+    },
+    {
+      "source_requirement_code": "5",
+      "source_regulation_table_index": 172,
+      "requirement": "должен быть заполнен только 1 экземпляр реквизита «Сведения о рассмотрении заявления и (или) регистрационного досье» (hccdo:DrugApprovalApplicationDetails)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "5",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.5"
+    },
+    {
+      "source_requirement_code": "6",
+      "source_regulation_table_index": 172,
+      "requirement": "реквизит «Номер заявления о регистрации лекарственного препарата» (hcsdo:ApplicationId) должен быть заполнен",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "6",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.6"
+    },
+    {
+      "source_requirement_code": "7",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код вида документа регистрационного досье на лекарственный препарат» (hcsdo:DrugRegistrationDocCode) содержит 1 из значений: 01003 – заявление о внесении изменений в регистрационное досье лекарственного препарата;01004 – заявление о перерегистрации лекарственного препарата, то реквизит «Порядковый номер регистрационного удостоверения лекарственного препарата» (hcsdo:RegistrationNumberId) должен быть заполнен",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.7"
+    },
+    {
+      "source_requirement_code": "8",
+      "source_regulation_table_index": 172,
+      "requirement": "реквизит «Дата» (csdo:EventDate) должен быть заполнен",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "8",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.8"
+    },
+    {
+      "source_requirement_code": "9",
+      "source_regulation_table_index": 172,
+      "requirement": "реквизит «Код вида документа регистрационного досье на лекарственный препарат» (hcsdo:DrugRegistrationDocCode) должен быть заполнен",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "9",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.9"
+    },
+    {
+      "source_requirement_code": "10",
+      "source_regulation_table_index": 172,
+      "requirement": "реквизит «Код вида документа регистрационного досье на лекарственный препарат» (hcsdo:DrugRegistrationDocCode) должен содержать кодовое обозначение вида документа из классификатора видов документов регистрационного досье лекарственного препарата, указанного в разделе VII Правил информационного взаимодействия, а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в составе этого реквизита должен содержать значение «2058». Вид документа должен соответствовать значению «заявление о процедуре регистрации, оформленное в соответствии с приложением № 2 к Правилам регистрации» и может принимать следующие значения:01002 – заявление о регистрации лекарственного препарата для медицинского применения (приведении регистрационного досье лекарственного препарата в соответствие с требованиями Евразийского экономического союза);01003 – заявление о внесении изменений в регистрационное досье лекарственного препарата;01004 – заявление о перерегистрации лекарственного препарата",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "10",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.10"
+    },
+    {
+      "source_requirement_code": "11",
+      "source_regulation_table_index": 172,
+      "requirement": "должны быть заполнены один или несколько экземпляров реквизита «Сведения о регистрации» (hccdo:CountryDrugRegistrationDetails), из которых первый экземпляр должен содержать реквизит «Код роли государства-члена» (hcsdo:CountryKindCode), соответствующий значению «01 – референтное государство», а в других экземплярах этот реквизит должен соответствовать значению «02 – государство признания»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "11",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.11"
+    },
+    {
+      "source_requirement_code": "12",
+      "source_regulation_table_index": 172,
+      "requirement": "значения реквизитов «Код страны» (csdo:UnifiedCountryCode) не могут повторяться среди экземпляров реквизита «Сведения о регистрации» (hccdo:CountryDrugRegistrationDetails)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "12",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.12"
+    },
+    {
+      "source_requirement_code": "13",
+      "source_regulation_table_index": 172,
+      "requirement": "в каждом экземпляре реквизита «Сведения о регистрации» (hccdo:CountryDrugRegistrationDetails) реквизит «Код страны» (csdo:UnifiedCountryCode) должен быть заполнен",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "13",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.13"
+    },
+    {
+      "source_requirement_code": "14",
+      "source_regulation_table_index": 172,
+      "requirement": "если значение реквизита «Код роли государства-члена» (hcsdo:CountryKindCode) соответствует значению «02 – государство признания», то не должны быть заполнены реквизиты:«Сведения о наименовании лекарственного препарата (средства)» (hccdo:DrugNameDetails);«Сведения о лекарственной форме» (hccdo:DosageFormDetails);«Сведения о форме выпуска лекарственного препарата» (hccdo:PackageFormDetails);«Сведения о производителе» (hccdo:ManufacturingAuthorizationHolderDetails)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "14",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.14"
+    },
+    {
+      "source_requirement_code": "15",
+      "source_regulation_table_index": 172,
+      "requirement": "в каждом экземпляре реквизита «Сведения о регистрации» (hccdo:CountryDrugRegistrationDetails) реквизит «Торговое наименование лекарственного препарата» (hcsdo:DrugTradeName) должен быть заполнен",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "15",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.15"
+    },
+    {
+      "source_requirement_code": "16",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Сведения о наименовании лекарственного препарата (средства)» (hccdo:DrugNameDetails) заполнен, то в его составе должен быть заполнен реквизит «Код наименования активной фармацевтической субстанции» (hcsdo:DrugCode) или реквизит «Наименование активной фармацевтической субстанции» (hcsdo:DrugName)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "16",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.16"
+    },
+    {
+      "source_requirement_code": "17",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код наименования активной фармацевтической субстанции» (hcsdo:DrugCode) заполнен, то его значение должно соответствовать коду из справочника международных непатентованных наименований лекарственных средств, приведенного в разделе VII Правил информационного взаимодействия а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в его составе должен содержать значение «1016»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "17",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.17"
+    },
+    {
+      "source_requirement_code": "18",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Сведения о лекарственной форме» (hccdo:DosageFormDetails) заполнен, то в его составе должен быть заполнен реквизит «Код лекарственной формы» (hcsdo:DosageFormCode) или «Наименование лекарственной формы» (hcsdo:DosageFormName)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "18",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.18"
+    },
+    {
+      "source_requirement_code": "19",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Сведения о форме выпуска лекарственного препарата» (hccdo:PackageFormDetails)заполнен, то в его составе должен быть заполнен реквизит «Код лекарственной формы» (hcsdo:DosageFormCode) или «Наименование лекарственной формы» (hcsdo:DosageFormName)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "19",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.19"
+    },
+    {
+      "source_requirement_code": "20",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код лекарственной формы» (hcsdo:DosageFormCode) заполнен, то его значение должно соответствовать коду из номенклатуры лекарственных форм, указанной в разделе VII Правил информационного взаимодействия, а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в его составе должен содержать значение «2057»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "20",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.20"
+    },
+    {
+      "source_requirement_code": "21",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код степени измельченности сырьевой части растительного ингредиента» (hcsdo:DegreeRefinementRawMaterialCode) заполнен, то он должен соответствовать одному из значений:01 – цельное;02 – измельченное;03 – порошок;99 – другое",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "21",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.21"
+    },
+    {
+      "source_requirement_code": "22",
+      "source_regulation_table_index": 172,
+      "requirement": "если значение реквизита «Код степени измельченности сырьевой части растительного ингредиента» (hcsdo:DegreeRefinementRawMaterialCode) соответствует значению «99 – другое», то реквизит «Наименование степени измельченности сырьевой части растительного ингредиента лекарственного препарата» (hcsdo:DegreeRefinementRawMaterialName) заполняется обязательно",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "22",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.22"
+    },
+    {
+      "source_requirement_code": "23",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Сведения о единице дозирования лекарственного препарата» (hccdo:DrugDosageUnitDetails) заполнен, то в его составе должен быть заполнен реквизит «Код вида единицы выражения состава лекарственного препарата» (hcsdo:DrugDosageUnitKindCode) или реквизит «Наименование вида единицы выражения состава лекарственного препарата» (hcsdo:DosageUnitKindName)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "23",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.23"
+    },
+    {
+      "source_requirement_code": "24",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код вида единицы выражения состава лекарственного препарата» (hcsdo:DrugDosageUnitKindCode) заполнен, то его значение должно соответствовать одному из следующих значений:01 – дозировка указана на единицу лекарственной формы;02 – дозировка указана на единицу дозирования;03 – дозировка указана на единицу массы;04 – дозировка указана на единицу объема;05 – дозировка указана на общее количество лекарственного средства в первичной упаковке;06 – дозировка указана на единицу объема после растворения;07 – дозировка указана на единицу объема перед разведением;08 – дозировка указана на единицу времени;09 – дозировка указана на единицу лекарственной формы, совпадающую с единицей дозирования",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "24",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.24"
+    },
+    {
+      "source_requirement_code": "25",
+      "source_regulation_table_index": 172,
+      "requirement": "если атрибут «код единицы измерения дозировки и концентрации» (атрибут SubstanceMeasureCode) не заполнен, то атрибут «наименование единицы измерения дозировки и концентрации» (атрибут SubstanceMeasureName) заполняется обязательно",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "25",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.25"
+    },
+    {
+      "source_requirement_code": "26",
+      "source_regulation_table_index": 172,
+      "requirement": "если атрибут «код единицы измерения дозировки и концентрации» (атрибут SubstanceMeasureCode) заполнен, то его значение должно соответствовать коду из классификатора единиц измерения дозировки и концентрации действующих веществ в составе лекарственных препаратов, указанного в разделе VII Правил информационного взаимодействия, а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) должен содержать значение «2044»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "26",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.26"
+    },
+    {
+      "source_requirement_code": "27",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код функции ингредиента в составе лекарственного препарата» (hcsdo:DrugSubstanceRoleCode) заполнен, то он должен соответствовать одному из значений:01 – действующее вещество;02 – вспомогательное вещество;03 – реагент",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "27",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.27"
+    },
+    {
+      "source_requirement_code": "28",
+      "source_regulation_table_index": 172,
+      "requirement": "если значение реквизита «Код функции ингредиента в составе лекарственного препарата» (hcsdo:DrugSubstanceRoleCode) или реквизита «Наименование функции ингредиента в составе лекарственного препарата» (hcsdo:DrugSubstanceRoleName) соответствует значению «действующее вещество», то в составе сложного реквизита «Сведения об ингредиенте, входящем в состав лекарственного препарата» (hccdo:DrugSubstanceDetails) должен быть заполнен реквизит «Сведения об активной фармацевтической субстанции в составе лекарственного препарата» (hccdo:ActiveSubstanceDetails), а реквизиты «Сведения о вспомогательном веществе в составе лекарственного препарата» (hccdo:AuxiliarySubstanceDetails) и «Наименование реагента» (hcsdo:ReagentName) не заполняются",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "28",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.28"
+    },
+    {
+      "source_requirement_code": "29",
+      "source_regulation_table_index": 172,
+      "requirement": "если значение реквизита «Код функции ингредиента в составе лекарственного препарата» (hcsdo:DrugSubstanceRoleCode) или реквизита «Наименование функции ингредиента в составе лекарственного препарата» (hcsdo:DrugSubstanceRoleName) соответствует значению «реагент», то в составе сложного реквизита «Сведения об ингредиенте, входящем в состав лекарственного препарата» (hccdo:DrugSubstanceDetails) должен быть заполнен реквизит «Наименование реагента» (hcsdo:ReagentName), а реквизиты «Сведения об активной фармацевтической субстанции в составе лекарственного препарата» (hccdo:ActiveSubstanceDetails) и «Сведения о вспомогательном веществе в составе лекарственного препарата» (hccdo:AuxiliarySubstanceDetails) не заполняются",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "29",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.29"
+    },
+    {
+      "source_requirement_code": "30",
+      "source_regulation_table_index": 172,
+      "requirement": "если значение реквизита «Код функции ингредиента в составе лекарственного препарата» (hcsdo:DrugSubstanceRoleCode) или реквизита «Наименование функции ингредиента в составе лекарственного препарата» (hcsdo:DrugSubstanceRoleName) соответствует значению «вспомогательное вещество», то в составе сложного реквизита «Сведения об ингредиенте, входящем в состав лекарственного препарата» (hccdo:DrugSubstanceDetails) должен быть заполнен реквизит «Сведения о вспомогательном веществе в составе лекарственного препарата» (hccdo:AuxiliarySubstanceDetails), а реквизиты «Сведения об активной фармацевтической субстанции в составе лекарственного препарата» (hccdo:ActiveSubstanceDetails) и «Наименование реагента» (hcsdo:ReagentName) не заполняются",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "30",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.30"
+    },
+    {
+      "source_requirement_code": "31",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Сведения о вспомогательном веществе в составе лекарственного препарата» (hccdo:AuxiliarySubstanceDetails) заполнен, то в его составе должен быть заполнен реквизит «Код вспомогательного вещества, входящего в состав лекарственного препарата» (hcsdo:AuxiliarySubstanceCode) или «Наименование вспомогательного вещества, входящего в состав лекарственного препарата» (hcsdo:AuxiliarySubstanceName)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "31",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.31"
+    },
+    {
+      "source_requirement_code": "32",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код вспомогательного вещества, входящего в состав лекарственного препарата» (hcsdo:AuxiliarySubstanceCode) заполнен, то его значение должно соответствовать коду из справочника вспомогательных веществ, используемых при производстве лекарственных средств, указанного в разделе VII Правил информационного взаимодействия, а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в его составе должен содержать значение «1019»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "32",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.32"
+    },
+    {
+      "source_requirement_code": "33",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Сведения о вспомогательном веществе в составе лекарственного препарата» (hccdo:AuxiliarySubstanceDetails) заполнен, то в его составе должен быть заполнен реквизит «Код функционального назначения вспомогательного вещества» (hcsdo:FunctionalPurposeCode) или «Наименование функционального назначения вспомогательного вещества» (hcsdo:FunctionalPurposeName)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "33",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.33"
+    },
+    {
+      "source_requirement_code": "34",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код функционального назначения вспомогательного вещества» (hcsdo:FunctionalPurposeCode) заполнен, то его значение должно соответствовать коду из справочника функциональных назначений вспомогательных веществ, используемых при производстве лекарственных средств, указанного в разделе VII Правил информационного взаимодействия, а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в его составе должен содержать значение «1020»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "34",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.34"
+    },
+    {
+      "source_requirement_code": "35",
+      "source_regulation_table_index": 172,
+      "requirement": "если атрибут «код типа величины дозировки (концентрации)» (атрибут SubstanceMeasureTypeCode) заполнен, то он должен соответствовать одному из следующих значений:01 – указана точная величина дозировки;02 – величина дозировки меньше либо равна указанному значению;03 – величина дозировки больше либо равна указанному значению;04 – величина дозировки меньше указанного значения;05 – величина дозировки больше указанного значения",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "35",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.35"
+    },
+    {
+      "source_requirement_code": "36",
+      "source_regulation_table_index": 172,
+      "requirement": "в составе сложного реквизита «Сведения об упакованной единице лекарственного препарата» (hccdo:PackageDetails) должен быть заполнен реквизит «Код вида первичной упаковки лекарственного препарата» (hcsdo:DrugPackageKindCode) или реквизит «Наименование вида первичной упаковки лекарственного препарата» (hcsdo:DrugPackageKindName)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "36",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.36"
+    },
+    {
+      "source_requirement_code": "37",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код вида первичной упаковки лекарственного препарата» (hcsdo:DrugPackageKindCode) заполнен, то его значение должно соответствовать коду из классификатора видов первичных упаковок лекарственных средств, указанного в разделе VII Правил информационного взаимодействия, а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в его составе должен содержать значение «2045»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "37",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.37"
+    },
+    {
+      "source_requirement_code": "38",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Признак нерасфасованной продукции (in bulk)» (hcsdo:InbulkIndicator) соответствует значению «0 – продукция не является нерасфасованной», то в составе сложного реквизита «Сведения об упакованной единице лекарственного препарата» (hccdo:PackageDetails) в составе реквизита «Количество в упаковке лекарственного препарата» (hccdo:PackageMeasureDetails) реквизит «Количество в упаковке лекарственного препарата» (hcsdo:PackageMeasure) обязателен для заполнения, и реквизиты «Нижняя граница интервала количества в упаковке лекарственного препарата» (hcsdo:PackageLowerLimitMeasure), «Верхняя граница интервала количества в упаковке лекарственного препарата» (hcsdo:PackageUpperLimitMeasure) не заполняются",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "38",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.38"
+    },
+    {
+      "source_requirement_code": "39",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Признак нерасфасованной продукции (in bulk)» (hcsdo:InbulkIndicator) соответствует значению «0 – продукция не является нерасфасованной», в составе сложного реквизита «Сведения об упакованной единице лекарственного препарата» (hccdo:PackageDetails) должен быть заполнен реквизит «Код вида вторичной (потребительской) упаковки лекарственного препарата» (hcsdo:DrugSecondaryPackageKindCode) или реквизит «Наименование вида вторичной (потребительской) упаковки лекарственного препарата» (hcsdo:DrugSecondaryPackageKindName)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "39",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.39"
+    },
+    {
+      "source_requirement_code": "40",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код вида вторичной (потребительской) упаковки лекарственного препарата» (hcsdo:DrugSecondaryPackageKindCode) заполнен, то его значение должно соответствовать коду из классификатора видов вторичных (потребительских) упаковок лекарственных средств, указанного в разделе VII Правил информационного взаимодействия, а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в его составе должен содержать значение «2046»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "40",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.40"
+    },
+    {
+      "source_requirement_code": "41",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Признак нерасфасованной продукции (in bulk)» (hcsdo:InbulkIndicator) соответствует значению «1 – продукция является нерасфасованной», то реквизит «Количество в упаковке лекарственного препарата» (hccdo:PackageMeasureDetails) в составе сложного реквизита в «Сведения о форме выпуска лекарственного препарата» (hccdo:PackageFormDetails) не заполняется",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "41",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.41"
+    },
+    {
+      "source_requirement_code": "42",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Признак нерасфасованной продукции (in bulk)» (hcsdo:InbulkIndicator) соответствует значению «1 – продукция является нерасфасованной», то в составе сложного реквизита «Сведения об упакованной единице лекарственного препарата» (hccdo:PackageDetails) в составе реквизита «Количество в упаковке лекарственного препарата» (hccdo:PackageMeasureDetails) реквизиты «Нижняя граница интервала количества в упаковке лекарственного препарата» (hcsdo:PackageLowerLimitMeasure), «Верхняя граница интервала количества в упаковке лекарственного препарата» (hcsdo:PackageUpperLimitMeasure) обязательны для заполнения",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "42",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.42"
+    },
+    {
+      "source_requirement_code": "43",
+      "source_regulation_table_index": 172,
+      "requirement": "если атрибут «единица измерения» (атрибут measurementUnitCode) заполнен, то его значение должно соответствовать коду из классификатора единиц измерения и счета Евразийского экономического союза, указанного в разделе VII Правил информационного взаимодействия, а атрибут «идентификатор справочника (классификатора)» (атрибут measurementUnitCodeListId) должен содержать значение «2064»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "43",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.43"
+    },
+    {
+      "source_requirement_code": "44",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код комплектующего» (hcsdo:ComponentCode) заполнен, то его значение должно соответствовать коду из классификатора комплектующих средств упаковки лекарственных препаратов, указанного в разделе VII Правил информационного взаимодействия, а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в его составе должен содержать значение «2059»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "44",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.44"
+    },
+    {
+      "source_requirement_code": "45",
+      "source_regulation_table_index": 172,
+      "requirement": "если атрибут «код языка» (атрибут languageCode) заполнен, то его значение должно соответствовать коду из классификатора языков, указанного в разделе VII Правил информационного взаимодействия",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "45",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.45"
+    },
+    {
+      "source_requirement_code": "46",
+      "source_regulation_table_index": 172,
+      "requirement": "если значение реквизита «Код роли государства-члена» (hcsdo:CountryKindCode) соответствует значению «01 – референтное государство», то должен быть заполнен хотя бы 1 экземпляр реквизита «Сведения о производителе»(hccdo:ManufacturingAuthorizationHolderDetails)»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "46",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.46"
+    },
+    {
+      "source_requirement_code": "47",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код организационно-правовой формы» (csdo:BusinessEntityTypeCode) заполнен, то его значение должно соответствовать коду из классификатора организационно-правовых форм, указанного в разделе VII Правил информационного взаимодействия, а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в его составе должен содержать значение «2049»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "47",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.47"
+    },
+    {
+      "source_requirement_code": "48",
+      "source_regulation_table_index": 172,
+      "requirement": "если атрибут «метод идентификации» (атрибут kindId) заполнен, то его значение должно соответствовать коду из справочника методов идентификации хозяйствующих субъектов при их государственной регистрации в государствах - членах Евразийского экономического союза, указанного в разделе VII Правил информационного взаимодействия",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "48",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.48"
+    },
+    {
+      "source_requirement_code": "49",
+      "source_regulation_table_index": 172,
+      "requirement": "если в составе любых реквизитов заполнен реквизит «Адрес» (ccdo:AddressV4Details), то в его составе реквизит «Код вида адреса» (csdo:AddressKindCode) обязательно заполняется кодом из перечня видов адреса, указанного в разделе VII Правил информационного взаимодействия",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "49",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.49"
+    },
+    {
+      "source_requirement_code": "50",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Адрес» (ccdo:AddressV4Details) в составе любых сложных реквизитов заполнен, то в его составе реквизит «Код страны» (csdo:UnifiedCountryCode) должен быть заполнен",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "50",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.50"
+    },
+    {
+      "source_requirement_code": "51",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Адрес» (ccdo:AddressV4Details) в составе любых сложных реквизитов заполнен, то в его составе должен быть заполнен реквизит «Город» (csdo:CityName) или реквизит «Населенный пункт» (csdo:SettlementName)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "51",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.51"
+    },
+    {
+      "source_requirement_code": "52",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Адрес» (ccdo: AddressV4Details) в составе любых сложных реквизитов заполнен, то реквизит «Улица» (csdo:StreetName) в его составе заполняется обязательно",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "52",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.52"
+    },
+    {
+      "source_requirement_code": "53",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Контактный реквизит» (ccdo:CommunicationDetails) в составе любых сложных реквизитов заполнен, то в его составе должен быть заполнен реквизит «Код вида связи» (csdo:CommunicationChannelCode) или реквизит «Наименование вида связи» (csdo:CommunicationChannelName)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "53",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.53"
+    },
+    {
+      "source_requirement_code": "54",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код вида связи» (csdo:CommunicationChannelCode) заполнен, то его значение должно соответствовать коду вида связи из перечня видов средств (каналов) связи, указанного в разделе VII Правил информационного взаимодействия",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "54",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.54"
+    },
+    {
+      "source_requirement_code": "55",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код этапа производства лекарственного средства» (hcsdo:ManufacturingStageCode) заполнен, то его значение должно соответствовать коду из перечня этапов (стадий) производства лекарственных средств, указанного в разделе VII Правил информационного взаимодействия, а атрибут «идентификатор справочника (классификатора)» (атрибут codeListId) в его составе должен содержать значение «1018»",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "55",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.55"
+    },
+    {
+      "source_requirement_code": "56",
+      "source_regulation_table_index": 172,
+      "requirement": "в составе реквизита «Сведения о держателе (заявителе) регистрационного удостоверения» (hccdo:RegistrationCertificateHolderDetails) должен быть заполнен реквизит «Код страны» (csdo:UnifiedCountryCode)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "56",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.56"
+    },
+    {
+      "source_requirement_code": "57",
+      "source_regulation_table_index": 172,
+      "requirement": "в составе реквизита «Сведения о держателе (заявителе) регистрационного удостоверения» (hccdo:RegistrationCertificateHolderDetails) должен быть заполнен реквизит «Наименование хозяйствующего субъекта» (csdo:BusinessEntityName) и (или) реквизит «Краткое наименование хозяйствующего субъекта» (csdo:BusinessEntityBriefName)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "57",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.57"
+    },
+    {
+      "source_requirement_code": "58",
+      "source_regulation_table_index": 172,
+      "requirement": "в составе реквизита «Сведения о держателе (заявителе) регистрационного удостоверения» (hccdo:RegistrationCertificateHolderDetails) должен быть заполнен реквизит «Адрес» (ccdo:AddressV4Details)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "58",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.58"
+    },
+    {
+      "source_requirement_code": "59",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код вида процедуры регистрации» (hcsdo:RegistrationKindCode) заполнен, то он должен соответствовать одному из значений:01 – процедура взаимного признания;02 – децентрализованная процедура;03 – регистрация по инициативе уполномоченного органа государства-члена",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "59",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.59"
+    },
+    {
+      "source_requirement_code": "60",
+      "source_regulation_table_index": 172,
+      "requirement": "реквизит «Сведения об этапе рассмотрения заявления на регистрацию лекарственного препарата» (hccdo:ApplicationStatusDetails) должен быть заполнен и должен содержать информацию о текущем этапе",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "60",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.60"
+    },
+    {
+      "source_requirement_code": "61",
+      "source_regulation_table_index": 172,
+      "requirement": "реквизит «Код этапа рассмотрения заявления на регистрацию лекарственного препарата» (hcsdo:ApplicationStatusCode) должен соответствовать одному из следующих значений:01 – прием заявления;02 – экспертиза досье;03 – апробация методов контроля качества;04 – инспекция производства;05 – подготовка экспертного отчета;06 – одобрение экспертного отчета;07 – отказ;08 – отзыв по обращению заявителя;99 – другое",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "61",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.61"
+    },
+    {
+      "source_requirement_code": "62",
+      "source_regulation_table_index": 172,
+      "requirement": "если реквизит «Код этапа рассмотрения заявления на регистрацию лекарственного препарата» (hcsdo:ApplicationStatusCode) соответствует значению «99 – другое», то реквизит «Наименование этапа рассмотрения заявления на регистрацию лекарственного препарата» (hcsdo:ApplicationStatusName) заполняется обязательно",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "62",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.62"
+    },
+    {
+      "source_requirement_code": "63",
+      "source_regulation_table_index": 172,
+      "requirement": "в составе реквизита «Сведения об этапе рассмотрения заявления на регистрацию лекарственного препарата» (hccdo:ApplicationStatusDetails) должен быть заполнен реквизит «Дата» (csdo:EventDate)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "63",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.63"
+    },
+    {
+      "source_requirement_code": "64",
+      "source_regulation_table_index": 172,
+      "requirement": "не должен быть заполнен реквизит «Код причины невозможности рассмотрения заявления» (hcsdo:ApprovalImpossibilityReasonCode)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "64",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.64"
+    },
+    {
+      "source_requirement_code": "65",
+      "source_regulation_table_index": 172,
+      "requirement": "не должен быть заполнен реквизит «Сведения о документе регистрационного досье (дела)» (hccdo:RegistrationDossierDocDetails)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "65",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.65"
+    },
+    {
+      "source_requirement_code": "66",
+      "source_regulation_table_index": 172,
+      "requirement": "должен быть заполнен реквизит «Начальная дата и время» (csdo:StartDateTime) в составе реквизита «Технологические характеристики записи общего ресурса» (ccdo:ResourceItemStatusDetails)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "66",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.66"
+    },
+    {
+      "source_requirement_code": "67",
+      "source_regulation_table_index": 172,
+      "requirement": "не заполняется реквизит «Конечная дата и время» (csdo:EndDateTime) в составе реквизита «Технологические характеристики записи общего ресурса» (ccdo:ResourceItemStatusDetails)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "67",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.67"
+    },
+    {
+      "source_requirement_code": "68",
+      "source_regulation_table_index": 172,
+      "requirement": "значение реквизита «Торговое наименование лекарственного препарата» (hcsdo:DrugTradeName) в составе каждого экземпляра сложного реквизита «Сведения о регистрации» (hccdo:CountryDrugRegistrationDetails) должно совпадать со значением реквизита «Торговое наименование лекарственного препарата» (hcsdo:DrugTradeName) в составе одного из экземпляров сложного реквизита «Сведения о регистрации» (hccdo:CountryDrugRegistrationDetails), переданном в сообщении общего процесса «Сведения о рассмотрении заявления» (P.MM.01.MSG.033) в ответ на которое получен номер заявления о регистрации лекарственного препарата в реквизите «Номер заявления о регистрации лекарственного препарата» (hcsdo:ApplicationId) в сообщении общего процесса «Сведения о номере заявления» (P.MM.01.MSG.013), при выполнении процедуры общего процесса «Направление сведений о рассмотрении заявления» (P.MM.01.PRC.023), соответствующий передаваемому в сообщении общего процесса «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "68",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.68"
+    },
+    {
+      "source_requirement_code": "69",
+      "source_regulation_table_index": 172,
+      "requirement": "если заполнено не менее 2 экземпляров реквизита «Срок годности лекарственного препарата» (hcsdo:ShelfLifeDurationDetails), то реквизит «Наименование лекарственной формы» (hcsdo:DosageFormName) в составе реквизита «Срок годности лекарственного препарата» (hcsdo:ShelfLifeDurationDetails) должен быть заполнен",
+      "field_paths": [],
+      "interpretation_status": "NOT_EXECUTABLE_SOURCE_TEXT",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "69",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.69"
+    }
+  ],
+  "source_refs": [
+    {
+      "source_id": "SRC-PMM01-140",
+      "document": "https://docs.eaeunion.org/documents/446/10427/",
+      "location": "Official Word attachment, table_index=130; Таблица 5 / Перечень сообщений общего процесса / ",
+      "status": "CONFIRMED",
+      "table": "5",
+      "page": null,
+      "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+      "item": "P.MM.01.MSG.034",
+      "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+    }
+  ],
+  "structured_rules": [
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.1.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.1",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "1",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.2.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.2",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "2",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.3.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.3",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "3",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.4.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.4",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "4",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.5.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.5",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "5",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugApprovalApplicationDetails/ApplicationId",
+      "ancestors": [
+        "DrugApprovalApplicationDetails"
+      ],
+      "container": false,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "6",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.6.A25e2e1b011f3",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.6",
+      "message_code": "P.MM.01.MSG.034",
+      "diagnostic": "P.MM.01.MSG.034: REQUIRED DrugApprovalApplicationDetails/ApplicationId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.7.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.7",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.8.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.8",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "8",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.9.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.9",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "9",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.10.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.10",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "10",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.11.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.11",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "11",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.12.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.12",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "12",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.13.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.13",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "13",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.14.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.14",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "14",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.15.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.15",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "15",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.16.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.16",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "16",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.17.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.17",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "17",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.18.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.18",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "18",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.19.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.19",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "19",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.20.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.20",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "20",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.21.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.21",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "21",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.22.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.22",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "22",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.23.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.23",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "23",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.24.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.24",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "24",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.25.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.25",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "25",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "UNRESOLVED_FIELD_BINDING"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.26.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.26",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "26",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "UNRESOLVED_FIELD_BINDING",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.27.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.27",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "27",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.28.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.28",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "28",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.29.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.29",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "29",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.30.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.30",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "30",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.31.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.31",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "31",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.32.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.32",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "32",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.33.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.33",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "33",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.34.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.34",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "34",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.35.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.35",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "35",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "UNRESOLVED_FIELD_BINDING"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.36.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.36",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "36",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.37.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.37",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "37",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.38.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.38",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "38",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.39.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.39",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "39",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.40.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.40",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "40",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.41.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.41",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "41",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.42.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.42",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "42",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.43.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.43",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "43",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "UNRESOLVED_FIELD_BINDING",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.44.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.44",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "44",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.45.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.45",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "45",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "UNRESOLVED_FIELD_BINDING",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.46.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.46",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "46",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.47.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.47",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "47",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.48.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.48",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "48",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "UNRESOLVED_FIELD_BINDING",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.49.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.49",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "49",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.50.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.50",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "50",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.51.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.51",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "51",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/StreetName",
+      "ancestors": [
+        "DrugApprovalApplicationDetails",
+        "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails",
+        "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details"
+      ],
+      "container": false,
+      "conditional_on_parent": true,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "52",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.52.A271f018e6a1a",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.52",
+      "message_code": "P.MM.01.MSG.034",
+      "diagnostic": "P.MM.01.MSG.034: REQUIRED DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/StreetName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/StreetName",
+      "ancestors": [
+        "DrugApprovalApplicationDetails",
+        "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails",
+        "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails",
+        "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails",
+        "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details"
+      ],
+      "container": false,
+      "conditional_on_parent": true,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "52",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.52.A6d383e4f88cd",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.52",
+      "message_code": "P.MM.01.MSG.034",
+      "diagnostic": "P.MM.01.MSG.034: REQUIRED DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/StreetName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/StreetName",
+      "ancestors": [
+        "DrugApprovalApplicationDetails",
+        "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails",
+        "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/RegistrationCertificateHolderDetails",
+        "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details"
+      ],
+      "container": false,
+      "conditional_on_parent": true,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "52",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.52.A51e0ffb1e2f0",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.52",
+      "message_code": "P.MM.01.MSG.034",
+      "diagnostic": "P.MM.01.MSG.034: REQUIRED DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/StreetName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.53.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.53",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "53",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.54.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.54",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "54",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.55.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.55",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "55",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.56.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.56",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "56",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.57.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.57",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "57",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.58.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.58",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "58",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.59.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.59",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "59",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.60.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.60",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "60",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.61.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.61",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "61",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "NOT_IMPLEMENTED_SOURCE_INTERPRETATION"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugApprovalApplicationDetails/ApplicationStatusDetails/ApplicationStatusName",
+      "ancestors": [
+        "DrugApprovalApplicationDetails",
+        "DrugApprovalApplicationDetails/ApplicationStatusDetails"
+      ],
+      "container": false,
+      "condition": {
+        "target": "DrugApprovalApplicationDetails/ApplicationStatusDetails/ApplicationStatusCode",
+        "allowed_values": [
+          "99"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "62",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.62.A3b28d611ae86",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.62",
+      "message_code": "P.MM.01.MSG.034",
+      "diagnostic": "P.MM.01.MSG.034: REQUIRED DrugApprovalApplicationDetails/ApplicationStatusDetails/ApplicationStatusName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.63.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.63",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "63",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.64.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.64",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "64",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "NOT_IMPLEMENTED_SOURCE_INTERPRETATION"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.65.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.65",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "65",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "NOT_IMPLEMENTED_SOURCE_INTERPRETATION"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.66.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.66",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "66",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.67.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.67",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "67",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.68.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.68",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "68",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT",
+      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+    },
+    {
+      "rule_id": "P.MM.01.MSG.034.SOURCE_ROW.69.DEFERRED",
+      "source_row_id": "P.MM.01.MSG.034.SOURCE_ROW.69",
+      "kind": "unresolved_normative_requirement",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=5; д) таблицу 47 изложить в следующей редакции: / «Таблица 47 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения для включения в единую базу данных» (P.MM.01.MSG.034)",
+          "status": "CONFIRMED",
+          "table": "47",
+          "page": null,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "69",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+    }
+  ]
+}

@@ -24,6 +24,8 @@ class Ds01CatalogTests(unittest.TestCase):
         by = {field.field_id: field.path for field in structure.fields}; values.update({by['3']:[None],by['3.5']:[None],by['3.5']+'/ds01sdo:DailyInfoIndicator':[True],by['3.2']:'2024-01-02',by['3.1']:'2024-01-01'})
         for base, amount in [('3.5.9','DistributableDutyAmount'),('3.5.10','TransferDistributedDutyAmount'),('3.5.12','StopTransferDistributedDutyAmount')]:
             path=by[base]; values.update({path:[None,None],path+'/ds01sdo:TotalAmountIndicator':[True,False],path+'/csdo:UnifiedCountryCode':[None,'AA'],path+'/ds01sdo:'+amount:['10.00','10.00']})
+        from eaeu_xml.application.services import TestDataGenerator
+        TestDataGenerator.align_sample_attributes(values, structure.fields)
         return engine, by, values
     @classmethod
     def setUpClass(cls):

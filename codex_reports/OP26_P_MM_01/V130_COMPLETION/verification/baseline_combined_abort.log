@@ -1,0 +1,51 @@
+....................................................... [ 17%]
+....................................................... [ 35%]
+...................ssssssssssssssss.............................. [ 55%]
+........ssssssssss................................ [ 71%]
+...................Fatal Python error: Aborted
+
+Current thread 0x00000001eda27f80 (most recent call first):
+  File "/Users/tema/Documents/Work/xml_creator/eaeu_xml/src/eaeu_xml/gui_qt/fonts.py", line 10 in fixed_font_family
+  File "/Users/tema/Documents/Work/xml_creator/eaeu_xml/tests/test_validation_page_qml.py", line 28 in setUpClass
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/unittest.py", line 159 in unittest_setup_class_fixture
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/fixtures.py", line 998 in call_fixture_func
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/fixtures.py", line 1328 in pytest_fixture_setup
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/fixtures.py", line 1232 in execute
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/fixtures.py", line 726 in _get_active_fixturedef
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/fixtures.py", line 630 in getfixturevalue
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/fixtures.py", line 806 in _fillfixtures
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/python.py", line 1710 in setup
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/unittest.py", line 248 in setup
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/runner.py", line 536 in setup
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/runner.py", line 170 in pytest_runtest_setup
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/runner.py", line 250 in <lambda>
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/runner.py", line 361 in from_call
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/runner.py", line 249 in call_and_report
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/runner.py", line 132 in runtestprotocol
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/runner.py", line 118 in pytest_runtest_protocol
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/main.py", line 408 in pytest_runtestloop
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/main.py", line 384 in _main
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/main.py", line 330 in wrap_session
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/main.py", line 377 in pytest_cmdline_main
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/config/__init__.py", line 229 in _main
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_pytest/config/__init__.py", line 253 in _console_main
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pytest/__main__.py", line 9 in <module>
+  File "<frozen runpy>", line 88 in _run_code
+  File "<frozen runpy>", line 198 in _run_module_as_main
+
+Extension modules: shiboken6.Shiboken, PySide6.QtCore, PySide6.QtGui, PySide6.QtWidgets, PySide6.QtTest, PySide6.QtNetwork, PySide6.QtOpenGL, PySide6.QtQml, PySide6.QtQuick, PySide6.QtQuickWidgets (total: 10)

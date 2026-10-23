@@ -1,11 +1,40 @@
 {
   "process_version": "1.3.0",
   "models": {
-    "base": "X.X.X",
-    "healthcare": "X.X.X"
+    "base": null,
+    "healthcare": null
   },
-  "structures": {},
+  "structures": {
+    "R.006": {
+      "active_version": null,
+      "source": "local"
+    },
+    "R.007": {
+      "active_version": null,
+      "source": "local"
+    },
+    "R.HC.MM.01.001": {
+      "active_version": "1.3.0",
+      "source": "local"
+    },
+    "R.HC.MM.01.003": {
+      "active_version": "1.3.0",
+      "source": "local"
+    },
+    "R.HC.MM.01.004": {
+      "active_version": "1.3.0",
+      "source": "local"
+    },
+    "R.HC.MM.01.006": {
+      "active_version": "1.3.0",
+      "source": "local"
+    },
+    "R.HC.MM.01.007": {
+      "active_version": "1.3.0",
+      "source": "local"
+    }
+  },
   "draft": true,
   "readiness": "NOT_READY",
-  "notes": "Заготовка изолированного профиля: не активировать до переноса независимых каталогов, подтверждения XSD/версий и тестирования."
+  "notes": "Model X.X.X/Z.Z.Z and R.006/R.007 Y.Y.Y are literal unresolved source parameters; production is blocked."
 }
