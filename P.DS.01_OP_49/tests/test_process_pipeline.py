@@ -11,6 +11,7 @@ from eaeu_xml.core.namespaces import NamespaceRegistry
 from eaeu_xml.decision5.models import AcceptTime, ConversationId, MessageId, ProcedureId, ProcedureInstance, TrackId, TransactionInstance
 from eaeu_xml.process_packages import EaeuXmlEngine
 from eaeu_xml.process_packages.body import GenerationMode
+from eaeu_xml.process_packages.rules_engine import RuleStatus
 from eaeu_xml.services.logical_address_builder import LogicalAddressBuilder
 from eaeu_xml.services.message_factory import MessageFactory
 from eaeu_xml.services.platform_context import IntegrationPlatformContext
@@ -49,7 +50,7 @@ def report_values(engine: EaeuXmlEngine, message_code: str) -> dict[str, object]
             datatype = field.datatype or ""
             values[field.path] = ("2024-01-03T00:00:00" if "DateTime" in datatype else "2024-01-03" if "DateType" in datatype else True if "Indicator" in datatype else "0.00" if "PaymentAmount" in datatype else "AA" if "CountryCode" in datatype else "x")
     by = {field.field_id: field.path for field in structure.fields}
-    values.update({by["3"]: [None], by["3.5"]: [None], by["3.5"] + "/ds01sdo:DailyInfoIndicator": [True], by["3.2"]: "2024-01-03", by["3.1"]: "2024-01-02"})
+    values.update({by["3"]: [None], by["3.5"]: [None], by["3.5"] + "/ds01sdo:DailyInfoIndicator": [True], by["3.3"]: "2023-12-31", by["3.2"]: "2024-01-03", by["3.1"]: "2024-01-02"})
     for field_id, amount in (("3.5.9", "DistributableDutyAmount"), ("3.5.10", "TransferDistributedDutyAmount"), ("3.5.12", "StopTransferDistributedDutyAmount")):
         path = by[field_id]
         values.update({path: [None, None], path + "/ds01sdo:TotalAmountIndicator": [True, False], path + "/csdo:UnifiedCountryCode": [None, "AA"], path + "/ds01sdo:" + amount: ["10.00", "10.00"]})
@@ -139,3 +140,49 @@ def test_catalog_reuses_messages_without_transaction_state() -> None:
     assert [code for code, item in transactions.items() if item.initiating_message == "P.DS.01.MSG.005"] == ["P.DS.01.TRN.005", "P.DS.01.TRN.006"]
     assert all(item.response_messages == ("P.DS.01.MSG.003",) for item in transactions.values())
     assert not hasattr(engine.get_message("P.DS.01.MSG.002"), "transaction_id")
+
+
+@pytest.mark.parametrize(
+    ("message_code", "rule_id"),
+    (
+        ("P.DS.01.MSG.002", "P.DS.01.MSG.002.R001"),
+        ("P.DS.01.MSG.002", "P.DS.01.MSG.002.R007"),
+        ("P.DS.01.MSG.006", "P.DS.01.MSG.006.R006"),
+    ),
+)
+def test_wave1_safe_rules_pass_for_valid_runtime_values(message_code: str, rule_id: str) -> None:
+    engine = EaeuXmlEngine.load_process(PACKAGE)
+    result = engine.validate_body(message_code, report_values(engine, message_code), mode=GenerationMode.TEST)
+    evaluations = {item.rule_id: item for item in result.rule_evaluations}
+
+    assert result.is_valid
+    assert evaluations[rule_id].status is RuleStatus.PASS
+
+
+@pytest.mark.parametrize(
+    ("message_code", "rule_id", "invalid_case"),
+    (
+        ("P.DS.01.MSG.002", "P.DS.01.MSG.002.R001", "duplicate_report"),
+        ("P.DS.01.MSG.002", "P.DS.01.MSG.002.R007", "report_date_not_greater"),
+        ("P.DS.01.MSG.006", "P.DS.01.MSG.006.R006", "report_date_not_greater"),
+    ),
+)
+def test_wave1_safe_rules_reject_invalid_runtime_values(
+    message_code: str, rule_id: str, invalid_case: str,
+) -> None:
+    engine = EaeuXmlEngine.load_process(PACKAGE)
+    values = report_values(engine, message_code)
+    structure = engine.get_structure(message_code, mode=GenerationMode.TEST)
+    by_id = {field.field_id: field.path for field in structure.fields}
+
+    if invalid_case == "duplicate_report":
+        values[by_id["3"]] = [None, None]
+    else:
+        values[by_id["3.2"]] = "2024-01-02"
+        values[by_id["3.1"]] = "2024-01-02"
+
+    result = engine.validate_body(message_code, values, mode=GenerationMode.TEST)
+    evaluations = {item.rule_id: item for item in result.rule_evaluations}
+
+    assert evaluations[rule_id].status is RuleStatus.FAIL
+    assert any(issue.code == "STRUCTURED_RULE_FAILED" and issue.rule_id == rule_id for issue in result.issues)

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope
+    xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:wsa="http://www.w3.org/2005/08/addressing"
+    xmlns:int="urn:EEC:Interaction:v1.0"
+
+    xmlns="urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0"
+    xmlns:ccdo="urn:EEC:M:ComplexDataObjects:vX.X.X"
+    xmlns:csdo="urn:EEC:M:SimpleDataObjects:vX.X.X"
+    xmlns:ipcdo="urn:EEC:M:IP:ComplexDataObjects:vZ.Z.Z"
+    xmlns:ipsdo="urn:EEC:M:IP:SimpleDataObjects:vZ.Z.Z">
+    <!--
+      Y.Y.Y — версия структуры электронного документа R.IP.SP.02.002.
+      Определяется с учетом версии базисной модели данных,
+      использованной при разработке технической схемы структуры.
+
+      X.X.X — версия базисной модели данных,
+      использованной для импортируемых пространств имен ccdo, ipcdo, ipsdo, csdo.
+
+      Значения определяются в соответствии с п. 2 Решения
+      Коллегии ЕЭК от 25.10.2016 № 122.
+    -->
+    <soap:Header>
+        <wsa:To>EAEU://EEC/CP/P.SP.02/P.ACT.001</wsa:To>
+        <wsa:ReplyTo>
+            <wsa:Address>EAEU://RU/CP/P.SP.02/P.SP.02.ACT.001</wsa:Address>
+        </wsa:ReplyTo>
+        <wsa:MessageID>urn:uuid:e598a745-0ff2-4ccd-a88e-f56c57342ce9</wsa:MessageID>
+        <wsa:Action>int://CP/P.SP.02/1.0.0/P.SP.02.PRC.001/P.SP.02.TRN.001/P.SP.02.MSG.001</wsa:Action>
+        <int:ProcedureID>urn:uuid:4f203991-4163-4e94-8fd6-daf04be41eaa</int:ProcedureID>
+        <int:ConversationID>urn:uuid:e8411af6-61bc-41e4-bf3c-e63659fe9637</int:ConversationID>
+    </soap:Header>
+    <soap:Body>
+        <TrademarkRegistrationDetails>
+            <ccdo:EDocHeader>
+                <csdo:InfEnvelopeCode>P.SP.02.MSG.001</csdo:InfEnvelopeCode>
+                <csdo:EDocCode>R.IP.SP.02.002</csdo:EDocCode>
+                <csdo:EDocId>00000000-0000-0000-0000-000000000001</csdo:EDocId>
+                <csdo:EDocDateTime>2026-09-18T12:00:00+03:00</csdo:EDocDateTime>
+            </ccdo:EDocHeader>
+            <ipcdo:TrademarkApplicationDetails>
+                <ipsdo:IPDocKindCode>07220</ipsdo:IPDocKindCode>
+                <ipsdo:ApplicationReceiptDate>2026-09-18</ipsdo:ApplicationReceiptDate>
+                <ipsdo:TrademarkApplicationId>2026/RU-000001</ipsdo:TrademarkApplicationId>
+                <ipcdo:IPEntityStatusDetails>
+                    <csdo:StatusCode>01</csdo:StatusCode>
+                </ipcdo:IPEntityStatusDetails>
+                <ipcdo:PatentAuthorityDetails>
+                    <csdo:UnifiedCountryCode codeListId="ВОИС ST.3">RU</csdo:UnifiedCountryCode>
+                    <csdo:AuthorityName>Национальное патентное ведомство</csdo:AuthorityName>
+                    <ccdo:SubjectAddressDetails>
+                        <csdo:AddressKindCode>2</csdo:AddressKindCode>
+                        <csdo:UnifiedCountryCode codeListId="ВОИС ST.3">RU</csdo:UnifiedCountryCode>
+                        <csdo:CityName>Москва</csdo:CityName>
+                        <csdo:StreetName>Тестовая</csdo:StreetName>
+                        <csdo:BuildingNumberId>1</csdo:BuildingNumberId>
+                    </ccdo:SubjectAddressDetails>
+                    <ipsdo:OriginOfficeIndicator>1</ipsdo:OriginOfficeIndicator>
+                </ipcdo:PatentAuthorityDetails>
+                <ipcdo:IPPartyDetails>
+                    <ipsdo:IPPartyKindCode>AP</ipsdo:IPPartyKindCode>
+                    <csdo:UnifiedCountryCode codeListId="ВОИС ST.3">RU</csdo:UnifiedCountryCode>
+                    <ipsdo:IPSubjectName nameRepresentationKindCode="OR" languageCode="RU">Заявитель</ipsdo:IPSubjectName>
+                    <ccdo:SubjectAddressDetails>
+                        <csdo:AddressKindCode>2</csdo:AddressKindCode>
+                        <csdo:UnifiedCountryCode codeListId="ВОИС ST.3">RU</csdo:UnifiedCountryCode>
+                        <csdo:CityName>Москва</csdo:CityName>
+                        <csdo:StreetName>Тестовая</csdo:StreetName>
+                        <csdo:BuildingNumberId>1</csdo:BuildingNumberId>
+                    </ccdo:SubjectAddressDetails>
+                    <ccdo:CommunicationDetails>
+                        <csdo:CommunicationChannelCode>EM</csdo:CommunicationChannelCode>
+                        <csdo:CommunicationChannelId>test@example.com</csdo:CommunicationChannelId>
+                    </ccdo:CommunicationDetails>
+                </ipcdo:IPPartyDetails>
+                <ipcdo:CorrespondenceAddressDetails>
+                    <ccdo:SubjectAddressDetails>
+                        <csdo:AddressKindCode>3</csdo:AddressKindCode>
+                        <csdo:UnifiedCountryCode codeListId="ВОИС ST.3">RU</csdo:UnifiedCountryCode>
+                        <csdo:CityName>Москва</csdo:CityName>
+                        <csdo:StreetName>Тестовая</csdo:StreetName>
+                        <csdo:BuildingNumberId>1</csdo:BuildingNumberId>
+                    </ccdo:SubjectAddressDetails>
+                    <ccdo:CommunicationDetails>
+                        <csdo:CommunicationChannelCode>EM</csdo:CommunicationChannelCode>
+                        <csdo:CommunicationChannelId>test@example.test</csdo:CommunicationChannelId>
+                    </ccdo:CommunicationDetails>
+                </ipcdo:CorrespondenceAddressDetails>
+                <ipcdo:TrademarkDetails>
+                    <ipcdo:TMDescriptionDetails>
+                        <csdo:DescriptionText>Описание</csdo:DescriptionText>
+                    </ipcdo:TMDescriptionDetails>
+                    <ipsdo:TrademarkKindCode>110</ipsdo:TrademarkKindCode>
+                    <ipsdo:TrademarkKindName>Словесный знак</ipsdo:TrademarkKindName>
+                    <ipsdo:CollectiveMarkIndicator>1</ipsdo:CollectiveMarkIndicator>
+                </ipcdo:TrademarkDetails>
+                <ipcdo:GoodsBaseDetails>
+                    <ipsdo:GoodsClassCode>01</ipsdo:GoodsClassCode>
+                    <ipsdo:GoodsClassName>Класс 01</ipsdo:GoodsClassName>
+                    <ipsdo:GoodsName>Товар</ipsdo:GoodsName>
+                </ipcdo:GoodsBaseDetails>
+                <ipcdo:TrademarkPriorityDetails>
+                    <ipsdo:PriorityKindCode>100</ipsdo:PriorityKindCode>
+                    <ipsdo:PriorityKindName>Приоритет</ipsdo:PriorityKindName>
+                    <ipsdo:PriorityDate>2026-09-18</ipsdo:PriorityDate>
+                    <csdo:UnifiedCountryCode codeListId="ВОИС ST.3">RU</csdo:UnifiedCountryCode>
+                </ipcdo:TrademarkPriorityDetails>
+                <ipsdo:ConsentToDataProcessingIndicator>1</ipsdo:ConsentToDataProcessingIndicator>
+            </ipcdo:TrademarkApplicationDetails>
+            <ccdo:ResourceItemStatusDetails>
+                <ccdo:ValidityPeriodDetails>
+                    <csdo:StartDateTime>2026-09-18T12:00:00+03:00</csdo:StartDateTime>
+                </ccdo:ValidityPeriodDetails>
+            </ccdo:ResourceItemStatusDetails>
+        </TrademarkRegistrationDetails>
+    </soap:Body>
+</soap:Envelope>

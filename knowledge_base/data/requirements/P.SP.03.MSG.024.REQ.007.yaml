@@ -52,10 +52,36 @@
   },
   "project_state": {
     "audit_notes": null,
-    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "blockers": [],
+    "evidence_refs": [
+      "codex_reports/OP23_P_SP_03/PROOF_CLOSURE/OP23_CURRENT_STRICT_STATE.md",
+      "codex_reports/OP23_P_SP_03/PROOF_CLOSURE/OP23_PROOF_CLOSURE_MATRIX.csv"
+    ],
+    "full_proof": true,
+    "git_head": "ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b",
+    "mapped": true,
     "plain_explanation": "Требование проверяется исполняемым OP23 structured rule; положительный XML проходит, отрицательный даёт ожидаемый rule ID.",
     "plain_explanation_evidence": "AUDIT_DERIVED",
+    "proof_links": {
+      "negative_test_ids": [
+        "P.SP.03_OP_23/tests/test_b1_production.py::test_msg024_inherited_req001_to_req018_real_xml"
+      ],
+      "positive_test_ids": [
+        "P.SP.03_OP_23/tests/test_b1_production.py::test_msg024_inherited_req001_to_req018_real_xml"
+      ],
+      "production_rule_ids": [
+        "P.SP.03.MSG.024.REQ.007.accounts_forbidden",
+        "P.SP.03.MSG.024.REQ.007.payment_details"
+      ],
+      "real_xml_status": "PRESENT",
+      "runtime_evidence": [
+        "P.SP.03_OP_23/tests/test_b1_production.py::test_msg024_inherited_req001_to_req018_real_xml"
+      ]
+    },
     "snapshot": "data/project_state/current.json",
+    "state": "FULL_PROOF",
+    "state_note": "Existing mapped requirement with source-linked production rule and direct positive/negative real-XML proof.",
+    "state_overlay": "project_state/requirement_state.json",
     "verified_at": null
   },
   "provenance": {

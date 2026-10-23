@@ -1717,6 +1717,43 @@
           "item": "37"
         }
       ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.004.REQ.2",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "mapping_status": "FULL",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.004-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 38. Требования к электронному документу (сведениям) P.SP.02.MSG.004",
+          "status": "CONFIRMED",
+          "page": 532,
+          "table": "38",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2"
+        }
+      ],
+      "selector": {
+        "collection": "ipcdo:TrademarkApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "ipsdo:IPDocKindCode"
+          },
+          "value": "07320"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:IPDocKindName"
+          },
+          "state": "FORBIDDEN"
+        }
+      ]
     }
   ]
 }

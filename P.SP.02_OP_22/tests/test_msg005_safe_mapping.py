@@ -29,9 +29,9 @@ VALIDITY = f"{RESOURCE}/ccdo:ValidityPeriodDetails"
 
 INHERITED_FULL = {"6", "7", "8", "9", "10", "11", "12", "14", "15", "21", "22", "23", "24", "25", "28", "29"}
 INHERITED_PARTIAL = {"26"}
-DIRECT_FULL = {"1", "5", "30", "31", "32", "34", "35", "36", "37"}
+DIRECT_FULL = {"1", "2", "5", "30", "31", "32", "34", "35", "36", "37"}
 DIRECT_PARTIAL = {"4"}
-INTENTIONALLY_UNMAPPED = {"2", "3", "13", "16", "17", "18", "19", "20", "27", "33"}
+INTENTIONALLY_UNMAPPED = {"3", "13", "16", "17", "18", "19", "20", "27", "33"}
 
 
 def _engine() -> EaeuXmlEngine:
@@ -43,10 +43,10 @@ def _rules():
 
 
 def _rules_for_code(code: str):
-    direct_id = f"{MESSAGE}.REQ.{code}"
+    direct_ids = {f"{MESSAGE}.REQ.{code}", f"{MESSAGE}.T39.REQ.{code}"}
     result = []
     for rule in _rules():
-        if rule["rule_id"] == direct_id:
+        if rule["rule_id"] in direct_ids:
             result.append(rule)
             continue
         refs = rule.get("source_refs", [])
@@ -65,6 +65,7 @@ def _base_values() -> dict[str, object]:
         APP: [None],
         f"{APP}/ipsdo:TrademarkApplicationId": "APP-005",
         f"{APP}/ipsdo:ApplicationReceiptDate": "2026-09-18",
+        f"{APP}/ipsdo:IPDocKindCode": "07360",
         PATENT: [None],
         f"{PATENT}/csdo:UnifiedCountryCode": "RU",
         f"{PATENT}/csdo:UnifiedCountryCode/@codeListId": "ВОИС ST.3",
@@ -135,18 +136,20 @@ def _base_values() -> dict[str, object]:
 
 def test_mapping_scope_status_and_intentionally_unmapped_requirements() -> None:
     rules = _rules()
-    assert len(rules) == 33
+    assert len(rules) == 34
     assert all(rule.get("applies_to_structure") == STRUCTURE for rule in rules)
 
     inherited_items = {
         rule["source_refs"][1]["item"]
         for rule in rules
         if len(rule.get("source_refs", [])) == 2
+        and rule["source_refs"][0].get("source_id") == "22OP-RULE-P.SP.02.MSG.005-T39-6-29"
     }
     direct_codes = {
         rule["rule_id"].rsplit(".", 1)[-1]
         for rule in rules
         if rule["rule_id"].startswith(f"{MESSAGE}.REQ.")
+        or rule["rule_id"] == f"{MESSAGE}.T39.REQ.2"
     }
     assert inherited_items == INHERITED_FULL | INHERITED_PARTIAL
     assert direct_codes == DIRECT_FULL | DIRECT_PARTIAL
@@ -179,6 +182,7 @@ def test_all_executable_fragments_pass_for_valid_values() -> None:
     ("code", "mutator"),
     [
         ("1", lambda v: v.__setitem__(APP, [None, None])),
+        ("2", lambda v: v.__setitem__(f"{APP}/ipsdo:IPDocKindCode", "99999")),
         ("4", lambda v: v.pop(f"{APP}/ipsdo:TrademarkApplicationId")),
         ("5", lambda v: v.__setitem__(f"{APP}/ipcdo:SignatureDetails", [None])),
         ("6", lambda v: v.pop(f"{APP}/ipsdo:ApplicationReceiptDate")),

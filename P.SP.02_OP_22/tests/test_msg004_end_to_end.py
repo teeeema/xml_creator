@@ -38,6 +38,7 @@ def _generation_values() -> dict[str, object]:
         "ccdo:EDocHeader/csdo:EDocId": "00000000-0000-0000-0000-000000000004",
         "ccdo:EDocHeader/csdo:EDocDateTime": "2026-09-18T12:00:00+03:00",
         APP: [None],
+        f"{APP}/ipsdo:IPDocKindCode": "07320",
         f"{APP}/ipsdo:ApplicationReceiptDate": "2026-09-18",
         f"{APP}/ipsdo:TrademarkApplicationId": "APP-004",
         PARTY: [None],

@@ -64,10 +64,35 @@
   },
   "project_state": {
     "audit_notes": null,
-    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "blockers": [],
+    "evidence_refs": [
+      "codex_reports/OP26_P_MM_01/EXECUTABLE_PROOF/OP26_EXECUTABLE204_PROOF_AUDIT.md",
+      "codex_reports/OP26_P_MM_01/EXECUTABLE_PROOF/OP26_EXECUTABLE204_PROOF_MATRIX.csv"
+    ],
+    "full_proof": true,
+    "git_head": "ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b",
+    "mapped": true,
     "plain_explanation": "Общий движок rules engine поддерживает необходимые механизмы валидации (наличие, кардинальность, запрет, условные связи), но декларативное правило Решения №68 еще не трансформировано в исполняемый structured_rule для P.MM.01.",
     "plain_explanation_evidence": "AUDIT_DERIVED",
+    "proof_links": {
+      "negative_test_ids": [
+        "P.MM.01_OP_26/tests/test_executable204_proof.py"
+      ],
+      "positive_test_ids": [
+        "P.MM.01_OP_26/tests/test_executable204_proof.py"
+      ],
+      "production_rule_ids": [
+        "P.MM.01.MSG.001.R19"
+      ],
+      "real_xml_status": "PRESENT",
+      "runtime_evidence": [
+        "P.MM.01_OP_26/tests/test_executable204_proof.py"
+      ]
+    },
     "snapshot": "data/project_state/current.json",
+    "state": "FULL_PROOF",
+    "state_note": "Production mapping, confirmed source link, positive/negative proof, engine runtime and serialized body XML are all present.",
+    "state_overlay": "project_state/requirement_state.json",
     "verified_at": null
   },
   "provenance": {

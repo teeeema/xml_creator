@@ -1,0 +1,47 @@
+{
+  "positive": {
+    "expected_valid": true,
+    "actual_valid": true,
+    "rules": {
+      "P.SP.02.MSG.027.T57.REQ.2": "PASS"
+    },
+    "xml": "positive.xml",
+    "sha256": "2ac1dce5108c85a8adc1488447e3191d0fe06d37ac23469234c8195ee0de3766"
+  },
+  "wrong_code": {
+    "expected_valid": false,
+    "actual_valid": false,
+    "rules": {
+      "P.SP.02.MSG.027.T57.REQ.2": "FAIL"
+    },
+    "xml": "wrong_code.xml",
+    "sha256": "dbc4b2a53b7994abe57702218a9eeb4a96c3600df2d7da7fa89b44a5c73017d1"
+  },
+  "missing_code": {
+    "expected_valid": false,
+    "actual_valid": false,
+    "rules": {
+      "P.SP.02.MSG.027.T57.REQ.2": "FAIL"
+    },
+    "xml": "missing_code.xml",
+    "sha256": "eb1f16cdf251aedad4c9e33cd267d2bfa581774502b299327e253864385ab5ca"
+  },
+  "both": {
+    "expected_valid": false,
+    "actual_valid": false,
+    "rules": {
+      "P.SP.02.MSG.027.T57.REQ.2": "FAIL"
+    },
+    "xml": "both.xml",
+    "sha256": "1a37d5ff0ae9ea94ba47dd016e2ce800228ffa671ee1215b060a7008ff3cd00e"
+  },
+  "legacy_fallback": {
+    "expected_valid": false,
+    "actual_valid": false,
+    "rules": {
+      "P.SP.02.MSG.027.T57.REQ.2": "FAIL"
+    },
+    "xml": "legacy_fallback.xml",
+    "sha256": "36934597a0862681b05fccee313f4942766e0c9390a0e6266ed8235f1097721a"
+  }
+}

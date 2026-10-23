@@ -106,6 +106,12 @@ class FieldView:
     supports_file_picker: bool = False
     assisted_input_kind: str | None = None
     pattern: str | None = None
+    effective_message_policy: str | None = None
+    message_policy_condition: str | None = None
+    message_policy_external_dependency: str | None = None
+    message_policy_req_ids: tuple[str, ...] = ()
+    message_policy_notes: str | None = None
+    message_policy_materialize_when_parent_present: bool = False
 
 
 @dataclass(frozen=True)

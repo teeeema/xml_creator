@@ -12,6 +12,7 @@ from eaeu_xml.application import EaeuXmlApplication
 from eaeu_xml.application.xml_validation_service import XmlValidationService
 from eaeu_xml.application.xml_formatter import XmlFormatter
 from eaeu_xml.presentation.controller import GuiController
+from eaeu_xml.presentation.field_info import build_field_details
 
 
 class GuiViewModel(QObject):
@@ -65,9 +66,11 @@ class GuiViewModel(QObject):
         def add(model, level=0):
             if model.visibility == "HIDDEN": return
             if model.control_kind == "GROUP":
+                field = self.controller.find_field(model.path)
                 result.append({"path": model.path, "label": model.label, "kind": "GROUP", "level": level,
                                "required": model.required, "readOnly": model.read_only, "value": "", "choices": [],
-                               "help": model.tooltip})
+                               "help": model.tooltip,
+                               "conditional": bool(field and field.effective_message_policy == "CONDITIONAL")})
                 for child in model.children: add(child, level + 1)
                 return
             field = self.controller.find_field(model.path)
@@ -78,7 +81,8 @@ class GuiViewModel(QObject):
             result.append({"path": model.path, "label": model.label, "kind": model.control_kind, "level": level,
                            "required": model.required, "readOnly": model.read_only, "value": str(value),
                            "choices": [str(item) for item in (field.allowed_values if field else ())],
-                           "help": model.tooltip, "placeholder": str(model.example_value or "")})
+                           "help": model.tooltip, "placeholder": str(model.example_value or ""),
+                           "conditional": bool(field and field.effective_message_policy == "CONDITIONAL")})
             for child in model.children: add(child, level + 1)
         for model in self.controller.visible_control_models(): add(model)
         return result
@@ -93,6 +97,45 @@ class GuiViewModel(QObject):
     def selectedFieldInfo(self):
         field = self.controller.find_field(self._selected_field) if self._selected_field else None
         return self.controller.field_help(field) if field else self.messageSummary
+
+    def _uses_op22_field_info(self):
+        message = self.controller.current_message
+        return bool(
+            self.controller.process_code == "P.SP.02"
+            and message
+            and message.structure_id
+        )
+
+    def _selected_op22_structure_field(self):
+        if not self._uses_op22_field_info() or not self._selected_field:
+            return None
+        application = self.controller.application
+        engine = application._engine(self.controller.process_code)
+        structure = application._structure_for_form(engine, self.controller.message_code)
+        return next((field for field in structure.presentation_fields if field.path == self._selected_field), None)
+
+    @Property(bool, notify=changed)
+    def fieldInfoDetailedEnabled(self):
+        return self._uses_op22_field_info()
+
+    @Property(bool, notify=changed)
+    def fieldInfoDetailedHasSelection(self):
+        return self._selected_op22_structure_field() is not None
+
+    @Property("QVariantMap", notify=changed)
+    def selectedFieldDetails(self):
+        definition = self._selected_op22_structure_field()
+        if definition is None:
+            return {
+                "name": "",
+                "description": "",
+                "datatype": "",
+                "multiplicity": "",
+                "constraints": [],
+                "policy": "",
+            }
+        field = self.controller.find_field(definition.path)
+        return build_field_details(definition, field, normalize_op22_regex=True)
 
     @Property(str, notify=changed)
     def xml(self): return self._xml

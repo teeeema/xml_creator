@@ -56,10 +56,35 @@
   },
   "project_state": {
     "audit_notes": null,
-    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "blockers": [],
+    "evidence_refs": [
+      "codex_reports/OP22_P_SP_02/FINAL_ATOMIC_REVIEW/OP22_FINAL_STRICT_STATE.md",
+      "codex_reports/OP22_P_SP_02/FINAL_MAPPED_PROOF/OP22_OLD_OPEN261_PROOF_MATRIX.csv"
+    ],
+    "full_proof": true,
+    "git_head": "ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b",
+    "mapped": true,
     "plain_explanation": "OPEN_EXTERNAL_REGISTRY",
     "plain_explanation_evidence": "AUDIT_DERIVED",
+    "proof_links": {
+      "negative_test_ids": [
+        "P.SP.02_OP_22/tests/test_old_open261_mapped_proof.py"
+      ],
+      "positive_test_ids": [
+        "P.SP.02_OP_22/tests/test_old_open261_mapped_proof.py"
+      ],
+      "production_rule_ids": [
+        "P.SP.02.MSG.003.T36.REQ.1"
+      ],
+      "real_xml_status": null,
+      "runtime_evidence": [
+        "P.SP.02_OP_22/tests/test_old_open261_mapped_proof.py"
+      ]
+    },
     "snapshot": "data/project_state/current.json",
+    "state": "FULL_PROOF",
+    "state_note": "Current OP22 strict-state partition: 1405 FULL_PROOF; exact links are copied only where the requirement-level report names them.",
+    "state_overlay": "project_state/requirement_state.json",
     "verified_at": null
   },
   "provenance": {

@@ -1,0 +1,579 @@
+{
+  "source26": {
+    "document": "/Users/tema/Documents/Work/Документы_xml/26_ОП.pdf",
+    "sha256": "a15cc6c946b35145e58304b7e3621ea76241f510e2202bbaf8912b4f8b0715e6",
+    "verified_pdf_pages": {
+      "39": [
+        "P.CLS.019",
+        "классификатор стран"
+      ],
+      "213": [
+        "34",
+        "codeListId",
+        "csdo:UnifiedCountryCode"
+      ]
+    }
+  },
+  "source23": {
+    "document": "/Users/tema/Documents/Work/Документы_xml/ОП_23.pdf",
+    "sha256": "438611a5c16d2d699df244768d167a59ea0c020039853a44845346d96366fa1d",
+    "verified_pdf_pages": {
+      "342": [
+        "10",
+        "csdo:DocId",
+        "14",
+        "csdo:AuthorityName"
+      ],
+      "350": [
+        "43",
+        "ipsdo:ConsentToDataProcessingIndicator"
+      ]
+    }
+  },
+  "case7": {
+    "status": "PASS",
+    "form": {
+      "op": "P.MM.01",
+      "transaction": "P.MM.01.TRN.001",
+      "message": "P.MM.01.MSG.001",
+      "structure": "R.HC.MM.01.001",
+      "generation_status": "VERSION_PLACEHOLDER_TEST",
+      "fields": {
+        "classifier_id": {
+          "path": "DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode/@codeListId",
+          "structure_min_occurs": 1,
+          "get_form_effective_policy": "FIXED",
+          "get_form_fixed_value": "P.CLS.019",
+          "get_form_editable": false,
+          "get_form_visibility": "VISIBLE",
+          "get_form_rule_ids": [
+            "OP26.P_MM_01.P.MM.01.MSG.001.REQ.034"
+          ],
+          "resolver": {
+            "policy": "FIXED",
+            "fixed_value": "P.CLS.019",
+            "condition": null,
+            "external_dependency": null,
+            "affected_by_req": [
+              "OP26.P_MM_01.P.MM.01.MSG.001.REQ.034"
+            ],
+            "notes": "Безусловная проекция structured rule для формы; runtime-validator остаётся источником проверки.",
+            "materialize_when_parent_present": true,
+            "application_enforced": false
+          }
+        }
+      }
+    },
+    "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.034",
+    "positive": {
+      "xml": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op26_op23_B_case07_positive.xml",
+      "sha256": "7bf1642ab304a5d7c2e7ca87fad9db053436c2143e73a2fbcec5d472442212a1",
+      "bytes": 1032,
+      "root_qname": "{urn:EEC:R:HC:MM:01:DrugRegistrationDetails:v1.1.0}DrugRegistrationDetails",
+      "xml_readback": true,
+      "extraction_issues": [],
+      "extracted_values": 13,
+      "is_valid": true,
+      "issues": [
+        {
+          "code": "CLASSIFIER_DATASET_NOT_AVAILABLE",
+          "severity": "WARNING",
+          "rule_id": null,
+          "path": "DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode"
+        }
+      ],
+      "evaluations": {
+        "OP26.P_MM_01.P.MM.01.MSG.001.REQ.034": [
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          }
+        ]
+      }
+    },
+    "negative_raw_xml": {
+      "xml": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op26_op23_B_case14_negative_raw_xml_tamper.xml",
+      "sha256": "7a5155d2d4a8ec1265ea2b38d64f71bd53f4bcbbbb8355281326d05089d56a96",
+      "bytes": 1032,
+      "root_qname": "{urn:EEC:R:HC:MM:01:DrugRegistrationDetails:v1.1.0}DrugRegistrationDetails",
+      "xml_readback": true,
+      "extraction_issues": [],
+      "extracted_values": 13,
+      "is_valid": false,
+      "issues": [
+        {
+          "code": "CLASSIFIER_DATASET_NOT_AVAILABLE",
+          "severity": "WARNING",
+          "rule_id": null,
+          "path": "DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode"
+        },
+        {
+          "code": "STRUCTURED_RULE_FAILED",
+          "severity": "ERROR",
+          "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.034",
+          "path": ""
+        }
+      ],
+      "evaluations": {
+        "OP26.P_MM_01.P.MM.01.MSG.001.REQ.034": [
+          {
+            "status": "FAIL",
+            "message": "For-each assertion failed."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          }
+        ]
+      }
+    },
+    "observation": "P.CLS.019 FIXED readonly, negative XML fails REQ034"
+  },
+  "case8": {
+    "status": "PASS",
+    "form": {
+      "op": "P.SP.03",
+      "transaction": "P.SP.03.TRN.001",
+      "message": "P.SP.03.MSG.001",
+      "structure": "R.IP.SP.03.001",
+      "generation_status": "VERSION_PLACEHOLDER_TEST",
+      "fields": {
+        "required_docid": {
+          "path": "ipcdo:ApellationOfOriginApplicationDetails/csdo:DocId",
+          "structure_min_occurs": 0,
+          "get_form_effective_policy": "REQUIRED",
+          "get_form_fixed_value": null,
+          "get_form_editable": true,
+          "get_form_visibility": "VISIBLE",
+          "get_form_rule_ids": [
+            "P.SP.03.MSG.001.REQ.010"
+          ],
+          "resolver": {
+            "policy": "REQUIRED",
+            "fixed_value": null,
+            "condition": null,
+            "external_dependency": null,
+            "affected_by_req": [
+              "P.SP.03.MSG.001.REQ.010"
+            ],
+            "notes": "Безусловная проекция structured rule для формы; runtime-validator остаётся источником проверки.",
+            "materialize_when_parent_present": false,
+            "application_enforced": false
+          }
+        },
+        "required_authority": {
+          "path": "ipcdo:ApellationOfOriginApplicationDetails/ipcdo:PatentAuthorityDetails/csdo:AuthorityName",
+          "structure_min_occurs": 0,
+          "get_form_effective_policy": "REQUIRED",
+          "get_form_fixed_value": null,
+          "get_form_editable": true,
+          "get_form_visibility": "VISIBLE",
+          "get_form_rule_ids": [
+            "P.SP.03.MSG.001.REQ.014"
+          ],
+          "resolver": {
+            "policy": "REQUIRED",
+            "fixed_value": null,
+            "condition": null,
+            "external_dependency": null,
+            "affected_by_req": [
+              "P.SP.03.MSG.001.REQ.014"
+            ],
+            "notes": "Безусловная проекция structured rule для формы; runtime-validator остаётся источником проверки.",
+            "materialize_when_parent_present": false,
+            "application_enforced": false
+          }
+        },
+        "forbidden_consent": {
+          "path": "ipcdo:ApellationOfOriginApplicationDetails/ipsdo:ConsentToDataProcessingIndicator",
+          "structure_min_occurs": 0,
+          "get_form_effective_policy": "FORBIDDEN",
+          "get_form_fixed_value": null,
+          "get_form_editable": false,
+          "get_form_visibility": "HIDDEN",
+          "get_form_rule_ids": [
+            "P.SP.03.MSG.001.REQ.043"
+          ],
+          "resolver": {
+            "policy": "FORBIDDEN",
+            "fixed_value": null,
+            "condition": null,
+            "external_dependency": null,
+            "affected_by_req": [
+              "P.SP.03.MSG.001.REQ.043"
+            ],
+            "notes": "Безусловная проекция structured rule для формы; runtime-validator остаётся источником проверки.",
+            "materialize_when_parent_present": false,
+            "application_enforced": false
+          }
+        }
+      }
+    },
+    "rule_ids": [
+      "P.SP.03.MSG.001.REQ.010",
+      "P.SP.03.MSG.001.REQ.014",
+      "P.SP.03.MSG.001.REQ.043"
+    ],
+    "positive": {
+      "xml": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op26_op23_B_case08_positive.xml",
+      "sha256": "3e6a951de0d66667073a5d48d9fcfa2a8ddbebd2ba6b7f9aa81c263dfa55fec1",
+      "bytes": 3249,
+      "root_qname": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegistrationDetails:v1.0.0}ApellationOfOriginRegistrationDetails",
+      "xml_readback": true,
+      "extraction_issues": [],
+      "extracted_values": 55,
+      "is_valid": true,
+      "issues": [],
+      "evaluations": {
+        "P.SP.03.MSG.001.REQ.010": [
+          {
+            "status": "PASS",
+            "message": "Rule evaluated."
+          }
+        ],
+        "P.SP.03.MSG.001.REQ.014": [
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          }
+        ],
+        "P.SP.03.MSG.001.REQ.043": [
+          {
+            "status": "PASS",
+            "message": "Rule evaluated."
+          }
+        ]
+      }
+    },
+    "missing_docid": {
+      "xml": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op26_op23_B_case08_negative_missing_docid.xml",
+      "sha256": "2bfc01ef9e068f86e25e7533f105e7777bd76afbe77ab905bfc9c7223995ca96",
+      "bytes": 3220,
+      "root_qname": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegistrationDetails:v1.0.0}ApellationOfOriginRegistrationDetails",
+      "xml_readback": true,
+      "extraction_issues": [],
+      "extracted_values": 54,
+      "is_valid": false,
+      "issues": [
+        {
+          "code": "STRUCTURED_RULE_FAILED",
+          "severity": "ERROR",
+          "rule_id": "P.SP.03.MSG.001.REQ.010",
+          "path": ""
+        }
+      ],
+      "evaluations": {
+        "P.SP.03.MSG.001.REQ.010": [
+          {
+            "status": "FAIL",
+            "message": "Rule evaluated."
+          }
+        ]
+      }
+    },
+    "missing_authorityname": {
+      "xml": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op26_op23_B_case08_negative_missing_authority.xml",
+      "sha256": "55f1658caf7eb79cbe67dd916db2b1ce65444746421da6630178ce4750f6f2fa",
+      "bytes": 3190,
+      "root_qname": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegistrationDetails:v1.0.0}ApellationOfOriginRegistrationDetails",
+      "xml_readback": true,
+      "extraction_issues": [],
+      "extracted_values": 54,
+      "is_valid": false,
+      "issues": [
+        {
+          "code": "STRUCTURED_RULE_FAILED",
+          "severity": "ERROR",
+          "rule_id": "P.SP.03.MSG.001.REQ.014",
+          "path": ""
+        }
+      ],
+      "evaluations": {
+        "P.SP.03.MSG.001.REQ.014": [
+          {
+            "status": "FAIL",
+            "message": "For-each assertion failed."
+          }
+        ]
+      }
+    },
+    "forbidden_consent": {
+      "xml": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op26_op23_B_case08_negative_forbidden_consent.xml",
+      "sha256": "2f2466c4a44b920a357c77c7030a1f00116dec89b72656a495b0d6237d19b453",
+      "bytes": 3331,
+      "root_qname": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegistrationDetails:v1.0.0}ApellationOfOriginRegistrationDetails",
+      "xml_readback": true,
+      "extraction_issues": [],
+      "extracted_values": 56,
+      "is_valid": false,
+      "issues": [
+        {
+          "code": "STRUCTURED_RULE_FAILED",
+          "severity": "ERROR",
+          "rule_id": "P.SP.03.MSG.001.REQ.043",
+          "path": ""
+        }
+      ],
+      "evaluations": {
+        "P.SP.03.MSG.001.REQ.043": [
+          {
+            "status": "FAIL",
+            "message": "Rule evaluated."
+          }
+        ]
+      }
+    }
+  },
+  "case14": {
+    "status": "PASS",
+    "form": {
+      "op": "P.MM.01",
+      "transaction": "P.MM.01.TRN.001",
+      "message": "P.MM.01.MSG.001",
+      "structure": "R.HC.MM.01.001",
+      "generation_status": "VERSION_PLACEHOLDER_TEST",
+      "fields": {
+        "classifier_id": {
+          "path": "DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode/@codeListId",
+          "structure_min_occurs": 1,
+          "get_form_effective_policy": "FIXED",
+          "get_form_fixed_value": "P.CLS.019",
+          "get_form_editable": false,
+          "get_form_visibility": "VISIBLE",
+          "get_form_rule_ids": [
+            "OP26.P_MM_01.P.MM.01.MSG.001.REQ.034"
+          ],
+          "resolver": {
+            "policy": "FIXED",
+            "fixed_value": "P.CLS.019",
+            "condition": null,
+            "external_dependency": null,
+            "affected_by_req": [
+              "OP26.P_MM_01.P.MM.01.MSG.001.REQ.034"
+            ],
+            "notes": "Безусловная проекция structured rule для формы; runtime-validator остаётся источником проверки.",
+            "materialize_when_parent_present": true,
+            "application_enforced": false
+          }
+        }
+      }
+    },
+    "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.034",
+    "positive": {
+      "xml": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op26_op23_B_case07_positive.xml",
+      "sha256": "7bf1642ab304a5d7c2e7ca87fad9db053436c2143e73a2fbcec5d472442212a1",
+      "bytes": 1032,
+      "root_qname": "{urn:EEC:R:HC:MM:01:DrugRegistrationDetails:v1.1.0}DrugRegistrationDetails",
+      "xml_readback": true,
+      "extraction_issues": [],
+      "extracted_values": 13,
+      "is_valid": true,
+      "issues": [
+        {
+          "code": "CLASSIFIER_DATASET_NOT_AVAILABLE",
+          "severity": "WARNING",
+          "rule_id": null,
+          "path": "DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode"
+        }
+      ],
+      "evaluations": {
+        "OP26.P_MM_01.P.MM.01.MSG.001.REQ.034": [
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          }
+        ]
+      }
+    },
+    "tampered_xml": {
+      "xml": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op26_op23_B_case14_negative_raw_xml_tamper.xml",
+      "sha256": "7a5155d2d4a8ec1265ea2b38d64f71bd53f4bcbbbb8355281326d05089d56a96",
+      "bytes": 1032,
+      "root_qname": "{urn:EEC:R:HC:MM:01:DrugRegistrationDetails:v1.1.0}DrugRegistrationDetails",
+      "xml_readback": true,
+      "extraction_issues": [],
+      "extracted_values": 13,
+      "is_valid": false,
+      "issues": [
+        {
+          "code": "CLASSIFIER_DATASET_NOT_AVAILABLE",
+          "severity": "WARNING",
+          "rule_id": null,
+          "path": "DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode"
+        },
+        {
+          "code": "STRUCTURED_RULE_FAILED",
+          "severity": "ERROR",
+          "rule_id": "OP26.P_MM_01.P.MM.01.MSG.001.REQ.034",
+          "path": ""
+        }
+      ],
+      "evaluations": {
+        "OP26.P_MM_01.P.MM.01.MSG.001.REQ.034": [
+          {
+            "status": "FAIL",
+            "message": "For-each assertion failed."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          },
+          {
+            "status": "PASS",
+            "message": "For-each evaluated."
+          }
+        ]
+      }
+    },
+    "observation": "Generated XML mutated after serialization; extracted XML fails REQ034"
+  },
+  "status": "PASS"
+}

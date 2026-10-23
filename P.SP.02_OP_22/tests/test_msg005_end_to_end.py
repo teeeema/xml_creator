@@ -1,6 +1,7 @@
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
+from eaeu_xml.application import EaeuXmlApplication
 from eaeu_xml.process_packages.body import GenerationMode
 from eaeu_xml.process_packages.engine import EaeuXmlEngine
 from eaeu_xml.process_packages.rules_engine import RuleStatus
@@ -141,3 +142,43 @@ def test_msg005_representative_invalid_round_trip_fails_structured_validation() 
         item.rule_id == "P.SP.02.MSG.005.T39.REQ.6_29" and item.status is RuleStatus.FAIL
         for item in validation.rule_evaluations
     )
+
+
+def test_msg005_document_kind_policy_validator_and_xml_proof(tmp_path: Path) -> None:
+    app = EaeuXmlApplication(PACKAGE.parent, drafts_root=tmp_path / "drafts")
+
+    def flatten(fields):
+        for field in fields:
+            yield field
+            yield from flatten(field.children)
+
+    fields = {field.path: field for field in flatten(app.get_form("P.SP.02", TRANSACTION, MESSAGE).fields)}
+    code_path = f"{APP}/ipsdo:IPDocKindCode"
+    name_path = f"{APP}/ipsdo:IPDocKindName"
+    assert (fields[code_path].effective_message_policy, fields[code_path].fixed_value, fields[code_path].editable) == (
+        "FIXED", "07360", False
+    )
+    assert (fields[name_path].effective_message_policy, fields[name_path].visibility, fields[name_path].editable) == (
+        "FORBIDDEN", "HIDDEN", False
+    )
+
+    engine = _engine()
+    for mutation in ({name_path: "forbidden"}, {code_path: "99999"}):
+        invalid = _generation_values() | {code_path: "07360"} | mutation
+        validation = engine.validate_body(MESSAGE, invalid, mode=GenerationMode.TEST)
+        assert any(
+            issue.code == "STRUCTURED_RULE_FAILED" and issue.rule_id == "P.SP.02.MSG.005.T39.REQ.2"
+            for issue in validation.issues
+        )
+
+    result = app.generate_test_xml(
+        "P.SP.02", TRANSACTION, MESSAGE,
+        values=_generation_values() | {code_path: "07360", name_path: "stale input"},
+        seed=41,
+    )
+    assert result.success, [(issue.code, issue.rule_id, issue.field_path) for issue in result.errors]
+    root = ET.fromstring(result.xml)
+    structure = engine.get_structure(MESSAGE, mode=GenerationMode.TEST)
+    simple = structure.imported_namespaces["ipsdo"]
+    assert [node.text for node in root.iter(f"{{{simple}}}IPDocKindCode")] == ["07360"]
+    assert list(root.iter(f"{{{simple}}}IPDocKindName")) == []

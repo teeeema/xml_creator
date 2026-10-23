@@ -58,10 +58,29 @@
   },
   "project_state": {
     "audit_notes": null,
-    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "blockers": [
+      "BLOCKED_CLASSIFIER_NO_AUTHORITATIVE_CODE_NAME_MAPPING"
+    ],
+    "evidence_refs": [
+      "codex_reports/OP23_P_SP_03/PROOF_CLOSURE/OP23_CURRENT_STRICT_STATE.md",
+      "codex_reports/OP23_P_SP_03/PROOF_CLOSURE/OP23_PROOF_CLOSURE_MATRIX.csv"
+    ],
+    "full_proof": false,
+    "git_head": "ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b",
+    "mapped": false,
     "plain_explanation": "Требование записано в OP23 YAML как нормативный текст, но исполняемое правило к нему не подключено. Поэтому валидатор сейчас не проверяет это условие, даже если общий rules engine уже умеет нужные операции.",
     "plain_explanation_evidence": "AUDIT_DERIVED",
+    "proof_links": {
+      "negative_test_ids": [],
+      "positive_test_ids": [],
+      "production_rule_ids": [],
+      "real_xml_status": null,
+      "runtime_evidence": []
+    },
     "snapshot": "data/project_state/current.json",
+    "state": "BLOCKED_CLASSIFIER",
+    "state_note": "Normative condition/category depends directly or transitively on IPDocKindCode OR IPDocKindName for a named official document kind. No authoritative Decision No. 92 classifier snapshot/version with code-to-name mapping is available locally.",
+    "state_overlay": "project_state/requirement_state.json",
     "verified_at": null
   },
   "provenance": {

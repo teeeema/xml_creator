@@ -63,10 +63,35 @@
   },
   "project_state": {
     "audit_notes": "Package business_rule=YES; structured_rule=NO; package_source_page=103; package_source_page_match=YES; package_source_text_exact_match=NO",
-    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "blockers": [],
+    "evidence_refs": [
+      "codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_1/OP49_WAVE1_RESULTS.csv"
+    ],
+    "full_proof": true,
+    "git_head": "ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b",
+    "mapped": true,
     "plain_explanation": "Нужно проверить нормативное условие: значение реквизита «Дата составления отчета» (ds01sdo:ReportDate) должно быть больше значения, указанного в реквизите «Дата отчета» (csdo:EventDate)",
     "plain_explanation_evidence": "AUDIT_DERIVED",
+    "proof_links": {
+      "negative_test_ids": [
+        "P.DS.01_OP_49/tests/test_process_pipeline.py::test_wave1_safe_rules_reject_invalid_runtime_values"
+      ],
+      "positive_test_ids": [
+        "P.DS.01_OP_49/tests/test_process_pipeline.py::test_wave1_safe_rules_pass_for_valid_runtime_values"
+      ],
+      "production_rule_ids": [
+        "P.DS.01.MSG.006.R006"
+      ],
+      "real_xml_status": "PRESENT",
+      "runtime_evidence": [
+        "P.DS.01_OP_49/tests/test_process_pipeline.py::test_wave1_safe_rules_pass_for_valid_runtime_values",
+        "P.DS.01_OP_49/tests/test_process_pipeline.py::test_wave1_safe_rules_reject_invalid_runtime_values"
+      ]
+    },
     "snapshot": "data/project_state/current.json",
+    "state": "FULL_PROOF",
+    "state_note": "ReportDate > EventDate; current comparison primitive and confirmed OP49 structure paths suffice.",
+    "state_overlay": "project_state/requirement_state.json",
     "verified_at": null
   },
   "provenance": {

@@ -11,14 +11,17 @@ class ProcessPackageValidator:
     EMBEDDED_STRUCTURE_SELECTIONS = {"ONE_OF"}
     STRUCTURED_RULE_KINDS = {
         "aggregate_comparison", "cardinality", "comparison", "conditional_fixed_value",
-        "conditional_presence", "cross_instance_comparison", "external", "fixed_value",
-        "for_each", "group_distinctness", "presence", "selection_cardinality",
+        "conditional_presence", "cross_instance_comparison", "decoded_binary_length",
+        "external", "fixed_value", "for_each", "group_distinctness", "presence",
+        "selection_cardinality", "set_equivalence",
     }
     STRUCTURED_RULE_OPERATORS = {"EQ", "NE", "GT", "GE", "LT", "LE", "IN", "NOT_IN"}
     FOR_EACH_ASSERTION_KINDS = {
-        "cardinality", "comparison", "condition", "conditional_fixed_value",
-        "conditional_presence", "fixed_value", "presence", "selection_cardinality",
+        "aggregate_comparison", "cardinality", "comparison", "condition",
+        "conditional_fixed_value", "conditional_presence", "decoded_binary_length",
+        "fixed_value", "presence", "selection_cardinality",
     }
+    COMPARISON_VALUE_TYPES = {"CALENDAR_MONTH", "DATE", "DATETIME", "DECIMAL"}
 
     def validate(self, package: ProcessPackage) -> None:
         if not package.process.process_code or not package.process.active_profile:
@@ -157,10 +160,19 @@ class ProcessPackageValidator:
         if not isinstance(rule, Mapping):
             self._fail("INVALID_STRUCTURED_RULE", f"Structured rule {message_code} должен быть объектом.")
         kind = rule.get("kind")
-        if "when" in rule and (kind != "selection_cardinality" or assertion):
-            self._fail("INVALID_FOR_EACH_ASSERTION_SCOPE", "when is only supported on document selection cardinality.")
-        if "value_type" in rule and (kind not in {"comparison", "cross_instance_comparison"} or rule["value_type"] != "DATETIME"):
-            self._fail("INVALID_COMPARISON_TYPE", f"Comparison {message_code} supports only DATETIME value_type.")
+        if "when" in rule and (kind not in {"selection_cardinality", "cross_instance_comparison"} or assertion):
+            self._fail("INVALID_FOR_EACH_ASSERTION_SCOPE", "when is only supported on document selection cardinality and cross-instance comparison.")
+        if "value_type" in rule and (
+            kind not in {"comparison", "cross_instance_comparison"}
+            or rule["value_type"] not in self.COMPARISON_VALUE_TYPES
+        ):
+            self._fail("INVALID_COMPARISON_TYPE", f"Comparison {message_code} has unsupported value_type.")
+        if "offset_months" in rule and (
+            kind != "comparison"
+            or rule.get("value_type") != "CALENDAR_MONTH"
+            or type(rule["offset_months"]) is not int
+        ):
+            self._fail("INVALID_CALENDAR_MONTH_OFFSET", f"Comparison {message_code} has invalid offset_months.")
         allowed_kinds = self.FOR_EACH_ASSERTION_KINDS if assertion else self.STRUCTURED_RULE_KINDS
         if kind not in allowed_kinds:
             self._fail("UNKNOWN_STRUCTURED_RULE_KIND", f"Неизвестный kind structured rule {message_code}: {kind}.")
@@ -231,6 +243,8 @@ class ProcessPackageValidator:
             return
 
         if kind == "cross_instance_comparison":
+            if "when" in rule:
+                self._validate_condition(rule["when"], message_code)
             self._validate_operator(rule.get("operator"), message_code)
             for side in ("left", "right"):
                 operand = rule.get(side)
@@ -239,6 +253,27 @@ class ProcessPackageValidator:
                 self._validate_selector(operand.get("selector"), message_code)
                 if not isinstance(operand.get("field"), str) or not operand.get("field"):
                     self._fail("INVALID_CROSS_INSTANCE_FIELD", f"Cross-instance comparison {message_code}/{side} требует строковый field.")
+            return
+
+        if kind == "set_equivalence":
+            for side in ("left", "right"):
+                operand = rule.get(side)
+                if not isinstance(operand, Mapping):
+                    self._fail("INVALID_SET_OPERAND", f"Set equivalence {message_code}/{side} должен быть объектом.")
+                self._validate_selector(operand.get("selector"), message_code)
+                if not isinstance(operand.get("field"), str) or not operand.get("field"):
+                    self._fail("INVALID_SET_OPERAND", f"Set equivalence {message_code}/{side} требует строковый field.")
+            if "allow_both_missing" in rule and type(rule["allow_both_missing"]) is not bool:
+                self._fail("INVALID_SET_OPERAND", f"Set equivalence {message_code} имеет некорректный allow_both_missing.")
+            return
+
+        if kind == "decoded_binary_length":
+            self._validate_target(rule.get("target"), message_code, relative=assertion)
+            self._validate_operator(rule.get("operator"), message_code)
+            if rule.get("operator") in {"IN", "NOT_IN"}:
+                self._fail("INVALID_BINARY_LENGTH_OPERATOR", f"Decoded binary length {message_code} требует scalar comparison operator.")
+            if type(rule.get("byte_length")) is not int or rule["byte_length"] < 0:
+                self._fail("INVALID_BINARY_LENGTH", f"Decoded binary length {message_code} требует неотрицательный byte_length.")
             return
 
         if kind == "group_distinctness":
@@ -265,7 +300,7 @@ class ProcessPackageValidator:
             self._validate_condition(rule.get("condition"), message_code)
             return
 
-    def _validate_selector(self, selector, message_code: str) -> None:
+    def _validate_selector(self, selector, message_code: str, *, relative_context: bool = False) -> None:
         if not isinstance(selector, Mapping):
             self._fail("INVALID_STRUCTURED_RULE_SELECTOR", f"Selector {message_code} должен быть объектом.")
         has_collection = "collection" in selector
@@ -289,6 +324,22 @@ class ProcessPackageValidator:
             position = selector["position"]
             if position != "last" and (type(position) is not int or position < 1):
                 self._fail("INVALID_STRUCTURED_RULE_SELECTOR", f"Selector {message_code} требует положительный 1-based position или 'last'.")
+        if "relative_to_context" in selector:
+            relative = selector["relative_to_context"]
+            if not relative_context or not isinstance(relative, Mapping):
+                self._fail("INVALID_RELATIVE_SELECTOR", f"Selector {message_code} не может использовать relative_to_context в этом scope.")
+            required = {"candidate_field", "context_field", "value_type", "offset_months"}
+            if set(relative) != required:
+                self._fail("INVALID_RELATIVE_SELECTOR", f"Selector {message_code} имеет некорректную relative_to_context форму.")
+            if (
+                not isinstance(relative.get("candidate_field"), str)
+                or not relative.get("candidate_field")
+                or not isinstance(relative.get("context_field"), str)
+                or not relative.get("context_field")
+                or relative.get("value_type") != "CALENDAR_MONTH"
+                or type(relative.get("offset_months")) is not int
+            ):
+                self._fail("INVALID_RELATIVE_SELECTOR", f"Selector {message_code} имеет некорректную relative_to_context форму.")
 
     def _validate_condition(self, condition, message_code: str) -> None:
         if not isinstance(condition, Mapping):
@@ -340,7 +391,7 @@ class ProcessPackageValidator:
         for side in ("left", "right"):
             operand = rule.get(side)
             if isinstance(operand, Mapping) and "selector" in operand:
-                self._validate_selector(operand["selector"], message_code)
+                self._validate_selector(operand["selector"], message_code, relative_context=relative)
         if rule.get("operator") in {"IN", "NOT_IN"} and has_right_value and not isinstance(rule.get("right_value"), (list, tuple)):
             self._fail("INVALID_MEMBERSHIP_RHS", f"{rule.get('operator')} comparison {message_code} требует список right_value.")
 

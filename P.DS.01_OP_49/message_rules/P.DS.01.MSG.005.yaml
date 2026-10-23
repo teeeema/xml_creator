@@ -352,6 +352,149 @@
       ]
     }
   ],
+  "structured_rules": [
+    {
+      "rule_id": "P.DS.01.MSG.005.R023",
+      "kind": "for_each",
+      "selector": {
+        "collection": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails"
+      },
+      "assertions": [
+        {
+          "kind": "aggregate_comparison",
+          "left": {
+            "selector": {
+              "collection": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails",
+              "where": {
+                "field": "ds01sdo:TotalAmountIndicator",
+                "operator": "EQ",
+                "value": true
+              }
+            },
+            "value_field": "ds01sdo:DistributableDutyAmount",
+            "aggregation": "VALUE"
+          },
+          "operator": "EQ",
+          "right": {
+            "selector": {
+              "collection": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails",
+              "where": {
+                "field": "ds01sdo:TotalAmountIndicator",
+                "operator": "EQ",
+                "value": false
+              }
+            },
+            "value_field": "ds01sdo:DistributableDutyAmount",
+            "aggregation": "SUM"
+          }
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.005-R023",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 13",
+          "status": "CONFIRMED",
+          "page": 96,
+          "table": "13"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.005.R029",
+      "kind": "for_each",
+      "selector": {
+        "collection": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails"
+      },
+      "assertions": [
+        {
+          "kind": "aggregate_comparison",
+          "left": {
+            "selector": {
+              "collection": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails",
+              "where": {
+                "field": "ds01sdo:TotalAmountIndicator",
+                "operator": "EQ",
+                "value": true
+              }
+            },
+            "value_field": "ds01sdo:TransferDistributedDutyAmount",
+            "aggregation": "VALUE"
+          },
+          "operator": "EQ",
+          "right": {
+            "selector": {
+              "collection": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:TransferDistributedDutyDetails",
+              "where": {
+                "field": "ds01sdo:TotalAmountIndicator",
+                "operator": "EQ",
+                "value": false
+              }
+            },
+            "value_field": "ds01sdo:TransferDistributedDutyAmount",
+            "aggregation": "SUM"
+          }
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.005-R029",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 13",
+          "status": "CONFIRMED",
+          "page": 97,
+          "table": "13"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.005.R036",
+      "kind": "for_each",
+      "selector": {
+        "collection": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails"
+      },
+      "assertions": [
+        {
+          "kind": "aggregate_comparison",
+          "left": {
+            "selector": {
+              "collection": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:StopTransferDistributedDutyDetails",
+              "where": {
+                "field": "ds01sdo:TotalAmountIndicator",
+                "operator": "EQ",
+                "value": true
+              }
+            },
+            "value_field": "ds01sdo:StopTransferDistributedDutyAmount",
+            "aggregation": "VALUE"
+          },
+          "operator": "EQ",
+          "right": {
+            "selector": {
+              "collection": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:StopTransferDistributedDutyDetails",
+              "where": {
+                "field": "ds01sdo:TotalAmountIndicator",
+                "operator": "EQ",
+                "value": false
+              }
+            },
+            "value_field": "ds01sdo:StopTransferDistributedDutyAmount",
+            "aggregation": "SUM"
+          }
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.005-R036",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 13",
+          "status": "CONFIRMED",
+          "page": 99,
+          "table": "13"
+        }
+      ]
+    }
+  ],
   "correlation_rules": [],
   "classifier_refs": [],
   "source_refs": [

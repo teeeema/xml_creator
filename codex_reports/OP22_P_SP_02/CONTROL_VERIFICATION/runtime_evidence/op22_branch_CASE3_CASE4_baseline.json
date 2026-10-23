@@ -1,0 +1,321 @@
+{
+  "source_sha256": {
+    "92 решение.pdf": "405c58398555674fcdaaa66be5630411d5b2510e4cce262f25cc7d87ddde53f9",
+    "148 решение.pdf": "ac133e8bffcb446b444d3a9862258a8a821b9435766536fb70c5dd52406c3eba",
+    "ОП_22.pdf": "99b2e82a9eb65a5e996bee2200262623aead907e77db067c556f4e3575410bd3"
+  },
+  "classifier_entry_count": 30,
+  "cases": {
+    "CV-03": {
+      "message": "P.SP.02.MSG.027",
+      "transaction": "P.SP.02.TRN.022",
+      "normative_table": 57,
+      "normative_requirements": [
+        2,
+        3
+      ],
+      "actual_classifier_code": "07365",
+      "classifier_snapshot_entry": {
+        "code": "07365",
+        "name": "уведомление о признании заявки на регистрацию товарного знака, знака обслуживания Евразийского экономического союза отозванной",
+        "member_states": [
+          "AM",
+          "BY",
+          "KZ",
+          "KG",
+          "RU"
+        ],
+        "source_document": "Решение Коллегии ЕЭК от 27.07.2021 №92",
+        "source_page": 15,
+        "effective_revision": "Решение №92 в редакции Решения №148 от 23.12.2024"
+      },
+      "get_form": {
+        "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode": {
+          "path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode",
+          "required": false,
+          "fixed_value": null,
+          "editable": true,
+          "visibility": "VISIBLE",
+          "effective_message_policy": null,
+          "manual_edit_allowed": true,
+          "message_policy_req_ids": []
+        },
+        "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName": {
+          "path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName",
+          "required": false,
+          "fixed_value": null,
+          "editable": true,
+          "visibility": "VISIBLE",
+          "effective_message_policy": null,
+          "manual_edit_allowed": true,
+          "message_policy_req_ids": []
+        }
+      },
+      "effective_resolver": {
+        "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode": null,
+        "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName": null
+      },
+      "structured_rules": [
+        {
+          "rule_id": "P.SP.02.MSG.027.T57.REQ.2",
+          "kind": "conditional_presence",
+          "mapping_status": "PARTIAL"
+        },
+        {
+          "rule_id": "P.SP.02.MSG.027.T57.REQ.3",
+          "kind": "conditional_fixed_value",
+          "mapping_status": "PARTIAL"
+        }
+      ],
+      "scenarios": {
+        "positive": {
+          "xml_path": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op22_branch_CASE3_positive.xml",
+          "xml_sha256": "2ac1dce5108c85a8adc1488447e3191d0fe06d37ac23469234c8195ee0de3766",
+          "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+          "code": [
+            "07365"
+          ],
+          "name": [],
+          "direct_values_valid": true,
+          "extraction_issues": [],
+          "runtime_valid": true,
+          "runtime_complete": true,
+          "issues": [],
+          "targeted_rules": [
+            {
+              "rule_id": "P.SP.02.MSG.027.T57.REQ.2",
+              "status": "PASS"
+            },
+            {
+              "rule_id": "P.SP.02.MSG.027.T57.REQ.3",
+              "status": "PASS"
+            }
+          ]
+        },
+        "wrong_code": {
+          "xml_path": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op22_branch_CASE3_wrong_code.xml",
+          "xml_sha256": "dbc4b2a53b7994abe57702218a9eeb4a96c3600df2d7da7fa89b44a5c73017d1",
+          "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+          "code": [
+            "99999"
+          ],
+          "name": [],
+          "direct_values_valid": true,
+          "extraction_issues": [],
+          "runtime_valid": true,
+          "runtime_complete": true,
+          "issues": [],
+          "targeted_rules": [
+            {
+              "rule_id": "P.SP.02.MSG.027.T57.REQ.2",
+              "status": "PASS"
+            },
+            {
+              "rule_id": "P.SP.02.MSG.027.T57.REQ.3",
+              "status": "PASS"
+            }
+          ]
+        },
+        "code_and_name": {
+          "xml_path": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op22_branch_CASE3_code_and_name.xml",
+          "xml_sha256": "14bdb9f731a38494febeffbbf66168893986cadbf042e9e07fa3b04eefac1dd9",
+          "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+          "code": [
+            "07365"
+          ],
+          "name": [
+            "НЕДОПУСТИМОЕ НАИМЕНОВАНИЕ"
+          ],
+          "direct_values_valid": true,
+          "extraction_issues": [],
+          "runtime_valid": false,
+          "runtime_complete": false,
+          "issues": [
+            {
+              "code": "STRUCTURED_RULE_FAILED",
+              "rule_id": "P.SP.02.MSG.027.T57.REQ.2",
+              "path": "",
+              "message": "Conditional presence failed."
+            }
+          ],
+          "targeted_rules": [
+            {
+              "rule_id": "P.SP.02.MSG.027.T57.REQ.2",
+              "status": "FAIL"
+            },
+            {
+              "rule_id": "P.SP.02.MSG.027.T57.REQ.3",
+              "status": "PASS"
+            }
+          ]
+        },
+        "missing_code": {
+          "xml_path": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op22_branch_CASE3_missing_code.xml",
+          "xml_sha256": "eb1f16cdf251aedad4c9e33cd267d2bfa581774502b299327e253864385ab5ca",
+          "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+          "code": [],
+          "name": [],
+          "direct_values_valid": true,
+          "extraction_issues": [],
+          "runtime_valid": false,
+          "runtime_complete": false,
+          "issues": [
+            {
+              "code": "STRUCTURED_RULE_FAILED",
+              "rule_id": "P.SP.02.MSG.027.T57.REQ.3",
+              "path": "",
+              "message": "Conditional fixed value failed."
+            }
+          ],
+          "targeted_rules": [
+            {
+              "rule_id": "P.SP.02.MSG.027.T57.REQ.2",
+              "status": "PASS"
+            },
+            {
+              "rule_id": "P.SP.02.MSG.027.T57.REQ.3",
+              "status": "FAIL"
+            }
+          ]
+        },
+        "legacy_fallback": {
+          "xml_path": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op22_branch_CASE3_legacy_fallback.xml",
+          "xml_sha256": "3e7ffcf52282d485cc5ad92ea5fbffcd782f53281d7dc7a377b7a40a9ab9b5aa",
+          "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+          "code": [],
+          "name": [
+            "Уведомление о признании заявки на регистрацию товарного знака, знака обслуживания Евразийского экономического союза отозванной"
+          ],
+          "direct_values_valid": true,
+          "extraction_issues": [],
+          "runtime_valid": true,
+          "runtime_complete": true,
+          "issues": [],
+          "targeted_rules": [
+            {
+              "rule_id": "P.SP.02.MSG.027.T57.REQ.2",
+              "status": "PASS"
+            },
+            {
+              "rule_id": "P.SP.02.MSG.027.T57.REQ.3",
+              "status": "PASS"
+            }
+          ]
+        }
+      }
+    },
+    "CV-04": {
+      "message": "P.SP.02.MSG.004",
+      "transaction": "P.SP.02.TRN.003",
+      "normative_table": 38,
+      "normative_requirements": [
+        2,
+        3
+      ],
+      "actual_classifier_code": "07320",
+      "classifier_snapshot_entry": null,
+      "get_form": {
+        "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode": {
+          "path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode",
+          "required": false,
+          "fixed_value": null,
+          "editable": true,
+          "visibility": "VISIBLE",
+          "effective_message_policy": null,
+          "manual_edit_allowed": true,
+          "message_policy_req_ids": []
+        },
+        "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName": {
+          "path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName",
+          "required": false,
+          "fixed_value": null,
+          "editable": true,
+          "visibility": "VISIBLE",
+          "effective_message_policy": null,
+          "manual_edit_allowed": true,
+          "message_policy_req_ids": []
+        }
+      },
+      "effective_resolver": {
+        "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode": null,
+        "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName": null
+      },
+      "structured_rules": [],
+      "scenarios": {
+        "positive": {
+          "xml_path": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op22_branch_CASE4_positive.xml",
+          "xml_sha256": "6ec5bf54722b1a9edeb01b9bd23573796a862a58012dfe6a0837eef24cbe1c3e",
+          "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+          "code": [
+            "07320"
+          ],
+          "name": [],
+          "direct_values_valid": true,
+          "extraction_issues": [],
+          "runtime_valid": true,
+          "runtime_complete": true,
+          "issues": [],
+          "targeted_rules": []
+        },
+        "wrong_code": {
+          "xml_path": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op22_branch_CASE4_wrong_code.xml",
+          "xml_sha256": "52bb843107badb2d1a4c4add464977b96e6c1d45704207e78efa576297af3aa7",
+          "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+          "code": [
+            "99999"
+          ],
+          "name": [],
+          "direct_values_valid": true,
+          "extraction_issues": [],
+          "runtime_valid": true,
+          "runtime_complete": true,
+          "issues": [],
+          "targeted_rules": []
+        },
+        "code_and_name": {
+          "xml_path": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op22_branch_CASE4_code_and_name.xml",
+          "xml_sha256": "6a1d103490cca0bfe3e88069a70375689942bbb4f6a2b6383b76bafe66db7675",
+          "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+          "code": [
+            "07320"
+          ],
+          "name": [
+            "НЕДОПУСТИМОЕ НАИМЕНОВАНИЕ"
+          ],
+          "direct_values_valid": true,
+          "extraction_issues": [],
+          "runtime_valid": true,
+          "runtime_complete": true,
+          "issues": [],
+          "targeted_rules": []
+        },
+        "missing_code": {
+          "xml_path": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op22_branch_CASE4_missing_code.xml",
+          "xml_sha256": "8f70925bfdbfd9a604c4e296069b6ac28fc9dd5577a872afe38090bb5ed23b30",
+          "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+          "code": [],
+          "name": [],
+          "direct_values_valid": true,
+          "extraction_issues": [],
+          "runtime_valid": true,
+          "runtime_complete": true,
+          "issues": [],
+          "targeted_rules": []
+        },
+        "legacy_fallback": {
+          "xml_path": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op22_branch_CASE4_legacy_fallback.xml",
+          "xml_sha256": "8f70925bfdbfd9a604c4e296069b6ac28fc9dd5577a872afe38090bb5ed23b30",
+          "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+          "code": [],
+          "name": [],
+          "direct_values_valid": true,
+          "extraction_issues": [],
+          "runtime_valid": true,
+          "runtime_complete": true,
+          "issues": [],
+          "targeted_rules": []
+        }
+      }
+    }
+  }
+}

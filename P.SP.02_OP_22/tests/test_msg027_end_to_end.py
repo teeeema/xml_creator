@@ -38,7 +38,7 @@ def _valid_values():
         'ccdo:EDocHeader/csdo:EDocId': '00000000-0000-0000-0000-000000000027',
         'ccdo:EDocHeader/csdo:EDocDateTime': '2026-09-24T12:00:00+03:00',
         APP: [None],
-        f'{APP}/ipsdo:IPDocKindName': FALLBACK,
+        f'{APP}/ipsdo:IPDocKindCode': '07365',
         f'{APP}/ipsdo:ApplicationReceiptDate': '2026-09-24',
         f'{APP}/ipsdo:TrademarkApplicationId': 'APP-027',
         STATUS: [None],
@@ -183,7 +183,8 @@ def test_valid_msg027_full_build_serialize_parse_extract_validate_pipeline():
     assert not extraction_issues, [(i.code, i.field_path, i.message) for i in extraction_issues]
     assert parsed.tag == '{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails'
     assert values[f'{STATUS}/csdo:StatusCode'] == '32'
-    assert values[f'{APP}/ipsdo:IPDocKindName'] == FALLBACK
+    assert values[f'{APP}/ipsdo:IPDocKindCode'] == '07365'
+    assert f'{APP}/ipsdo:IPDocKindName' not in values
     assert validation.is_valid, [(i.code, i.rule_id, i.field_path, i.message) for i in validation.issues]
     assert validation.is_complete
     assert validation.rule_evaluations
@@ -201,14 +202,25 @@ def _mutate_req1_two_apps(root, structure):
 
 def _mutate_req2(root, structure):
     app = _required(root, structure, 'ipcdo', 'TrademarkApplicationDetails')
-    code = ET.Element(ET.QName(structure.imported_namespaces['ipsdo'], 'IPDocKindCode'))
-    code.text = '12345'
-    app.insert(0, code)
+    _required(app, structure, 'ipsdo', 'IPDocKindCode').text = '12345'
 
 
 def _mutate_req3(root, structure):
+    # REQ3's fallback is inactive with the confirmed current classifier entry.
+    # Its obsolete Name-only XML must fail the active REQ2 instead.
     app = _required(root, structure, 'ipcdo', 'TrademarkApplicationDetails')
-    _required(app, structure, 'ipsdo', 'IPDocKindName').text = 'WRONG'
+    app.remove(_required(app, structure, 'ipsdo', 'IPDocKindCode'))
+    _child(app, structure, 'ipsdo', 'IPDocKindName', FALLBACK)
+
+
+def _mutate_req2_missing_code(root, structure):
+    app = _required(root, structure, 'ipcdo', 'TrademarkApplicationDetails')
+    app.remove(_required(app, structure, 'ipsdo', 'IPDocKindCode'))
+
+
+def _mutate_req2_code_and_name(root, structure):
+    app = _required(root, structure, 'ipcdo', 'TrademarkApplicationDetails')
+    _child(app, structure, 'ipsdo', 'IPDocKindName', FALLBACK)
 
 
 def _mutate_req4(root, structure):
@@ -332,7 +344,9 @@ def _mutate_req30(root, structure):
 INVALID_CASES = [
     (1, _mutate_req1_two_apps),
     (2, _mutate_req2),
-    (3, _mutate_req3),
+    (2, _mutate_req3),
+    (2, _mutate_req2_missing_code),
+    (2, _mutate_req2_code_and_name),
     (4, _mutate_req4),
     (5, _mutate_req5),
     (6, _mutate_req6),
@@ -392,3 +406,20 @@ def test_unmapped_requirements_never_produce_synthetic_evaluations():
             for rule in rules
         )
     assert all(item.rule_id != f'{MESSAGE}.T57.REQ.13' for item in validation.rule_evaluations)
+
+
+def test_current_classifier_policy_reaches_real_form_and_sanitization(tmp_path):
+    from eaeu_xml.application import EaeuXmlApplication
+
+    app = EaeuXmlApplication(PACKAGE.parent, drafts_root=tmp_path)
+    form = app.get_form('P.SP.02', TRANSACTION, MESSAGE)
+    fields = {f.path: f for f in app._walk_fields(form.fields)}
+    code, name = f'{APP}/ipsdo:IPDocKindCode', f'{APP}/ipsdo:IPDocKindName'
+    policies = app._effective_message_field_policies(app._engine('P.SP.02'), MESSAGE)
+    assert fields[code].effective_message_policy == policies[code].policy == 'FIXED'
+    assert fields[code].fixed_value == policies[code].fixed_value == '07365'
+    assert not fields[code].editable
+    assert fields[name].effective_message_policy == policies[name].policy == 'FORBIDDEN'
+    assert not fields[name].editable
+    sanitized = app._sanitize_message_values('P.SP.02', MESSAGE, {code: '99999', name: FALLBACK})
+    assert sanitized[code] == '07365' and name not in sanitized

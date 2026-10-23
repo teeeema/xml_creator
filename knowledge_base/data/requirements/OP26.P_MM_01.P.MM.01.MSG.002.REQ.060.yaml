@@ -54,10 +54,40 @@
   },
   "project_state": {
     "audit_notes": null,
-    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "blockers": [
+      "NORMATIVE_CONFLICT-001;CLASSIFIER_DATASET_NOT_AVAILABLE"
+    ],
+    "evidence_refs": [
+      "codex_reports/OP26_P_MM_01/EXECUTABLE_PROOF/OP26_EXECUTABLE204_PROOF_AUDIT.md",
+      "codex_reports/OP26_P_MM_01/EXECUTABLE_PROOF/OP26_EXECUTABLE204_PROOF_MATRIX.csv"
+    ],
+    "full_proof": false,
+    "git_head": "ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b",
+    "mapped": true,
     "plain_explanation": "Atomic source row recovered from the primary PDF; production mapping and requirement-level proof must be synchronized separately.",
     "plain_explanation_evidence": "AUDIT_DERIVED",
+    "proof_links": {
+      "negative_test_ids": [
+        "P.MM.01_OP_26/tests/test_executable204_proof.py"
+      ],
+      "positive_test_ids": [
+        "P.MM.01_OP_26/tests/test_executable204_proof.py"
+      ],
+      "production_rule_ids": [
+        "P.MM.01.MSG.002.R60.01",
+        "P.MM.01.MSG.002.R60.02",
+        "P.MM.01.MSG.002.R60.03",
+        "P.MM.01.MSG.002.R60.04"
+      ],
+      "real_xml_status": "BLOCKED",
+      "runtime_evidence": [
+        "P.MM.01_OP_26/tests/test_executable204_proof.py"
+      ]
+    },
     "snapshot": "data/project_state/current.json",
+    "state": "IMPLEMENTED_REAL_XML_PROOF_BLOCKED",
+    "state_note": "Executable rule proof passes; serialized body XML is blocked by existing message-level normative/classifier issues.",
+    "state_overlay": "project_state/requirement_state.json",
     "verified_at": null
   },
   "provenance": {

@@ -286,6 +286,8 @@ class GuiController:
                 else:
                     merged[path] = normalized_value
 
+        if self.process_code and self.message_code:
+            merged = self.application._sanitize_message_values(self.process_code, self.message_code, merged)
         changed = merged != self.values
         self.values = merged
         self._clear_result()
@@ -410,8 +412,11 @@ class GuiController:
                    if not field.children)
 
     def set_values(self, values) -> None:
-        changed=dict(values)!=self.values
-        self.values = dict(values); self._clear_result();self._reevaluate_all_conditions()
+        normalized = dict(values)
+        if self.process_code and self.message_code:
+            normalized = self.application._sanitize_message_values(self.process_code, self.message_code, normalized)
+        changed=normalized!=self.values
+        self.values = normalized; self._clear_result();self._reevaluate_all_conditions()
         if changed:self._mark_dirty()
 
     def assisted_value(self, action: str, *, timezone_name: str | None = None, temporal_kind: str = "DATETIME") -> str:
@@ -443,7 +448,8 @@ class GuiController:
         if self.form:
             def fixed(fields):
                 for field in fields:
-                    if field.fixed_value is not None: self.values[field.path] = field.fixed_value
+                    if field.fixed_value is not None and not field.message_policy_materialize_when_parent_present:
+                        self.values[field.path] = field.fixed_value
                     fixed(field.children)
             fixed(self.form.fields)
         self._clear_result()

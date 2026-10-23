@@ -1,0 +1,344 @@
+{
+  "phase": "after",
+  "transaction": {
+    "transaction_code": "P.SP.02.TRN.003",
+    "name": "представление обращения заинтересованного лица для опубликования",
+    "procedure_code": "P.SP.02.PRC.008",
+    "pattern": "REQUEST_RESPONSE",
+    "initiating_role": "инициатор",
+    "responding_role": "респондент",
+    "initiating_operation": "P.SP.02.OPR.028",
+    "responding_operation": "P.SP.02.OPR.029",
+    "initiating_participant": "P.SP.02.ACT.001",
+    "responding_participant": "P.ACT.001",
+    "initiating_message": "P.SP.02.MSG.004",
+    "response_messages": [
+      "P.SP.02.MSG.002"
+    ],
+    "timeouts": {
+      "receipt_confirmation": "PT5M",
+      "processing_confirmation": "PT10M",
+      "response": "PT20M"
+    },
+    "retry_count": 3,
+    "authorization": {
+      "required": true
+    },
+    "signature_requirements": {
+      "required": false,
+      "invalid_signature_delivery": null
+    },
+    "guaranteed_delivery": null,
+    "source_refs": [
+      {
+        "source_id": "22OP-TRN-P-SP-02-TRN-003",
+        "document": "ОП_22.pdf",
+        "location": "Перечень и описание транзакций общего процесса",
+        "status": "CONFIRMED",
+        "section": null,
+        "table": null,
+        "item": "P.SP.02.TRN.003",
+        "page": 461,
+        "version_context": "P.SP.02 1.0.0"
+      }
+    ],
+    "status": "CONFIRMED"
+  },
+  "structure": "R.IP.SP.02.002",
+  "namespace": "urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0",
+  "fields": {
+    "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode": {
+      "form": {
+        "path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode",
+        "xml_name": "IPDocKindCode",
+        "display_name": "Код вида документа, используемого в сфере интеллектуальной собственности",
+        "description": "кодовое обозначение вида документа, используемого в сфере интеллектуальной собственности, в том числе при проведении процедур, связанных с регистрацией объектов интеллектуальной собственности Евразийского экономического союза",
+        "kind": "ELEMENT",
+        "datatype": "ipsdo:IPDocKindCodeType",
+        "required": true,
+        "min_occurs": 0,
+        "max_occurs": 1,
+        "is_attribute": false,
+        "repeatable": false,
+        "allowed_values": [],
+        "fixed_value": "07320",
+        "default_value": null,
+        "classifier": null,
+        "editable": false,
+        "visibility": "VISIBLE",
+        "validation_hints": [
+          "ipsdo:IPDocKindCodeType (M.IP.SDT.00009) Значение кода в соответствии с классификатором видов документов, сведений и материалов, используемых в сфере интеллектуальной собственности. Шаблон: \\d{5}",
+          "message_policy=FIXED",
+          "message_policy_req=P.SP.02.MSG.004.REQ.2"
+        ],
+        "status": "CONFIRMED",
+        "source_refs": [
+          "22OP-R.IP.SP.02.002-2.1"
+        ],
+        "children": [],
+        "official_name": "Код вида документа, используемого в сфере интеллектуальной собственности (ipsdo:IPDocKindCode)",
+        "xml_qname": "ipsdo:IPDocKindCode",
+        "example_value": "07320",
+        "cardinality_display": "0..1",
+        "input_policy": "UNRESOLVED_INPUT_POLICY",
+        "value_source": "UNKNOWN",
+        "help_text": "Назначение: кодовое обозначение вида документа, используемого в сфере интеллектуальной собственности, в том числе при проведении процедур, связанных с регистрацией объектов интеллектуальной собственности Евразийского экономического союза\nНормативный источник значения: не установлен отдельным правилом\nСпособ заполнения в программе: вводится пользователем\nОбязательность: обязательно\nЧто указать: кодовое обозначение вида документа, используемого в сфере интеллектуальной собственности, в том числе при проведении процедур, связанных с регистрацией объектов интеллектуальной собственности Евразийского экономического союза\nПример: 07320",
+        "condition_description": "Код 07320 подтвержден Решением №92 в редакции Решения №148; применяется ветвь таблицы 38 REQ.2.",
+        "condition_ref": null,
+        "policy_reason": "Существующая модель не определяет, кто предоставляет значение; автоматизация не предполагается.",
+        "normative_input_policy": "UNRESOLVED_INPUT_POLICY",
+        "ui_input_policy": "READ_ONLY",
+        "ui_policy_origin": "PROJECT_UI_DEFAULT",
+        "ui_policy_reason": "Project UX fallback: no automatic, classifier, external, conditional or structural source applies.",
+        "example_origin": "FIXED_VALUE",
+        "no_example_reason": null,
+        "unresolved_ui_reason": null,
+        "conditional_machine_evaluable": false,
+        "condition_result": null,
+        "manual_edit_allowed": true,
+        "show_today_button": false,
+        "show_date_picker": false,
+        "show_now_button": false,
+        "show_timezone_picker": false,
+        "show_identifier_generator": false,
+        "supports_file_picker": false,
+        "assisted_input_kind": null,
+        "pattern": null,
+        "effective_message_policy": "FIXED",
+        "message_policy_condition": "Код 07320 подтвержден Решением №92 в редакции Решения №148; применяется ветвь таблицы 38 REQ.2.",
+        "message_policy_external_dependency": null,
+        "message_policy_req_ids": [
+          "P.SP.02.MSG.004.REQ.2"
+        ],
+        "message_policy_notes": "Вид документа таблицы 38 подтвержден записью 07320: Решение №92, стр. 13; Решение №148, стр. 3.",
+        "message_policy_materialize_when_parent_present": false
+      },
+      "resolver": {
+        "policy": "FIXED",
+        "fixed_value": "07320",
+        "condition": "Код 07320 подтвержден Решением №92 в редакции Решения №148; применяется ветвь таблицы 38 REQ.2.",
+        "external_dependency": null,
+        "affected_by_req": [
+          "P.SP.02.MSG.004.REQ.2"
+        ],
+        "notes": "Вид документа таблицы 38 подтвержден записью 07320: Решение №92, стр. 13; Решение №148, стр. 3.",
+        "materialize_when_parent_present": false,
+        "application_enforced": true
+      },
+      "gui_control": "ControlModel(path='ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode', label='Код вида документа, используемого в сфере интеллектуальной собственности', control_kind='TEXT', required=False, read_only=True, repeatable=False, is_attribute=False, visibility='VISIBLE', tooltip='Код вида документа, используемого в сфере интеллектуальной собственности\\n\\nНазначение: кодовое обозначение вида документа, используемого в сфере интеллектуальной собственности, в том числе при проведении процедур, связанных с регистрацией объектов интеллектуальной собственности Евразийского экономического союза\\nЧто указывать: Код соответствующего объекта из применимого нормативного справочника или правила.\\nПример: 07320\\nОбязательность: Условно обязательное\\n\\nТехнические сведения\\nXML: ipsdo:IPDocKindCode\\nXML path: ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode\\nТип: ipsdo:IPDocKindCodeType\\nВид: XML-элемент\\nКардинальность: 0..1\\nFixed value: 07320\\nNormative input policy: UNRESOLVED_INPUT_POLICY\\nNormative value source: UNKNOWN\\nUI input policy: READ_ONLY\\nUI policy origin: PROJECT_UI_DEFAULT\\nУсловие: Код 07320 подтвержден Решением №92 в редакции Решения №148; применяется ветвь таблицы 38 REQ.2.\\nSource: 22OP-R.IP.SP.02.002-2.1', example_value='07320', children=(), supports_file_picker=False)"
+    },
+    "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName": {
+      "form": {
+        "path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName",
+        "xml_name": "IPDocKindName",
+        "display_name": "Наименование вида документа, используемого в сфере интеллектуальной собственности",
+        "description": "наименование вида документа, используемого в сфере интеллектуальной собственности, в том числе при проведении процедур, связанных с регистрацией объектов интеллектуальной собственности Евразийского экономического союза",
+        "kind": "ELEMENT",
+        "datatype": "csdo:Name500Type",
+        "required": false,
+        "min_occurs": 0,
+        "max_occurs": 1,
+        "is_attribute": false,
+        "repeatable": false,
+        "allowed_values": [],
+        "fixed_value": null,
+        "default_value": null,
+        "classifier": null,
+        "editable": false,
+        "visibility": "HIDDEN",
+        "validation_hints": [
+          "csdo:Name500Type (M.SDT.00134) Нормализованная строка символов. Мин. длина: 1. Макс. длина: 500",
+          "message_policy=FORBIDDEN",
+          "message_policy_req=P.SP.02.MSG.004.REQ.2"
+        ],
+        "status": "CONFIRMED",
+        "source_refs": [
+          "22OP-R.IP.SP.02.002-2.2"
+        ],
+        "children": [],
+        "official_name": "Наименование вида документа, используемого в сфере интеллектуальной собственности (ipsdo:IPDocKindName)",
+        "xml_qname": "ipsdo:IPDocKindName",
+        "example_value": "Пример текстового значения",
+        "cardinality_display": "0..1",
+        "input_policy": "UNRESOLVED_INPUT_POLICY",
+        "value_source": "UNKNOWN",
+        "help_text": "Назначение: наименование вида документа, используемого в сфере интеллектуальной собственности, в том числе при проведении процедур, связанных с регистрацией объектов интеллектуальной собственности Евразийского экономического союза\nНормативный источник значения: не установлен отдельным правилом\nСпособ заполнения в программе: служебное скрытое поле\nОбязательность: необязательно\nЧто указать: наименование вида документа, используемого в сфере интеллектуальной собственности, в том числе при проведении процедур, связанных с регистрацией объектов интеллектуальной собственности Евразийского экономического союза\nПример: Пример текстового значения",
+        "condition_description": "При заполненном коде 07320 наименование не заполняется согласно таблице 38 REQ.2.",
+        "condition_ref": null,
+        "policy_reason": "Существующая модель не определяет, кто предоставляет значение; автоматизация не предполагается.",
+        "normative_input_policy": "UNRESOLVED_INPUT_POLICY",
+        "ui_input_policy": "HIDDEN",
+        "ui_policy_origin": "DERIVED_FROM_MODEL",
+        "ui_policy_reason": "MessageRules marks the field forbidden/not used.",
+        "example_origin": "DATATYPE_EXAMPLE",
+        "no_example_reason": null,
+        "unresolved_ui_reason": "OTHER",
+        "conditional_machine_evaluable": false,
+        "condition_result": null,
+        "manual_edit_allowed": false,
+        "show_today_button": false,
+        "show_date_picker": false,
+        "show_now_button": false,
+        "show_timezone_picker": false,
+        "show_identifier_generator": false,
+        "supports_file_picker": false,
+        "assisted_input_kind": null,
+        "pattern": null,
+        "effective_message_policy": "FORBIDDEN",
+        "message_policy_condition": "При заполненном коде 07320 наименование не заполняется согласно таблице 38 REQ.2.",
+        "message_policy_external_dependency": null,
+        "message_policy_req_ids": [
+          "P.SP.02.MSG.004.REQ.2"
+        ],
+        "message_policy_notes": null,
+        "message_policy_materialize_when_parent_present": false
+      },
+      "resolver": {
+        "policy": "FORBIDDEN",
+        "fixed_value": null,
+        "condition": "При заполненном коде 07320 наименование не заполняется согласно таблице 38 REQ.2.",
+        "external_dependency": null,
+        "affected_by_req": [
+          "P.SP.02.MSG.004.REQ.2"
+        ],
+        "notes": null,
+        "materialize_when_parent_present": false,
+        "application_enforced": true
+      },
+      "gui_control": "ControlModel(path='ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName', label='Наименование вида документа, используемого в сфере интеллектуальной собственности', control_kind='TEXT', required=False, read_only=True, repeatable=False, is_attribute=False, visibility='HIDDEN', tooltip='Наименование вида документа, используемого в сфере интеллектуальной собственности\\n\\nНазначение: наименование вида документа, используемого в сфере интеллектуальной собственности, в том числе при проведении процедур, связанных с регистрацией объектов интеллектуальной собственности Евразийского экономического союза\\nЧто указывать: Наименование соответствующего объекта в том виде, в котором оно используется в документе.\\nПример: Пример текстового значения\\nОбязательность: Условно обязательное\\n\\nТехнические сведения\\nXML: ipsdo:IPDocKindName\\nXML path: ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName\\nТип: csdo:Name500Type\\nВид: XML-элемент\\nКардинальность: 0..1\\nNormative input policy: UNRESOLVED_INPUT_POLICY\\nNormative value source: UNKNOWN\\nUI input policy: HIDDEN\\nUI policy origin: DERIVED_FROM_MODEL\\nУсловие: При заполненном коде 07320 наименование не заполняется согласно таблице 38 REQ.2.\\nSource: 22OP-R.IP.SP.02.002-2.2', example_value='Пример текстового значения', children=(), supports_file_picker=False)"
+    }
+  },
+  "scenarios": {
+    "positive": {
+      "expected_valid": true,
+      "actual_valid": true,
+      "matches_expected": true,
+      "code": [
+        "07320"
+      ],
+      "name": [],
+      "xml": "after_positive.xml",
+      "sha256": "6ec5bf54722b1a9edeb01b9bd23573796a862a58012dfe6a0837eef24cbe1c3e",
+      "extraction_issues": [],
+      "rule_results": {
+        "P.SP.02.MSG.004.REQ.2": "PASS"
+      },
+      "issues": []
+    },
+    "missing": {
+      "expected_valid": false,
+      "actual_valid": false,
+      "matches_expected": true,
+      "code": [],
+      "name": [],
+      "xml": "after_missing.xml",
+      "sha256": "8f70925bfdbfd9a604c4e296069b6ac28fc9dd5577a872afe38090bb5ed23b30",
+      "extraction_issues": [],
+      "rule_results": {
+        "P.SP.02.MSG.004.REQ.2": "FAIL"
+      },
+      "issues": [
+        {
+          "rule_id": "P.SP.02.MSG.004.REQ.2",
+          "code": "STRUCTURED_RULE_FAILED"
+        }
+      ]
+    },
+    "forbidden": {
+      "expected_valid": false,
+      "actual_valid": false,
+      "matches_expected": true,
+      "code": [
+        "07320"
+      ],
+      "name": [
+        "Forbidden Name"
+      ],
+      "xml": "after_forbidden.xml",
+      "sha256": "2267da7736a0a7f2d37b2fa144ee7c06382629d22a0f110f0ff054ffaddd0c0c",
+      "extraction_issues": [],
+      "rule_results": {
+        "P.SP.02.MSG.004.REQ.2": "FAIL"
+      },
+      "issues": [
+        {
+          "rule_id": "P.SP.02.MSG.004.REQ.2",
+          "code": "STRUCTURED_RULE_FAILED"
+        }
+      ]
+    },
+    "wrong_code": {
+      "expected_valid": false,
+      "actual_valid": false,
+      "matches_expected": true,
+      "code": [
+        "99999"
+      ],
+      "name": [],
+      "xml": "after_wrong_code.xml",
+      "sha256": "52bb843107badb2d1a4c4add464977b96e6c1d45704207e78efa576297af3aa7",
+      "extraction_issues": [],
+      "rule_results": {
+        "P.SP.02.MSG.004.REQ.2": "FAIL"
+      },
+      "issues": [
+        {
+          "rule_id": "P.SP.02.MSG.004.REQ.2",
+          "code": "STRUCTURED_RULE_FAILED"
+        }
+      ]
+    },
+    "both": {
+      "expected_valid": false,
+      "actual_valid": false,
+      "matches_expected": true,
+      "code": [
+        "07320"
+      ],
+      "name": [
+        "Forbidden Name"
+      ],
+      "xml": "after_both.xml",
+      "sha256": "2267da7736a0a7f2d37b2fa144ee7c06382629d22a0f110f0ff054ffaddd0c0c",
+      "extraction_issues": [],
+      "rule_results": {
+        "P.SP.02.MSG.004.REQ.2": "FAIL"
+      },
+      "issues": [
+        {
+          "rule_id": "P.SP.02.MSG.004.REQ.2",
+          "code": "STRUCTURED_RULE_FAILED"
+        }
+      ]
+    },
+    "form_tamper": {
+      "expected_valid": true,
+      "actual_valid": true,
+      "matches_expected": true,
+      "code": [
+        "07320"
+      ],
+      "name": [],
+      "xml": "after_form_tamper.xml",
+      "sha256": "6ec5bf54722b1a9edeb01b9bd23573796a862a58012dfe6a0837eef24cbe1c3e",
+      "extraction_issues": [],
+      "rule_results": {
+        "P.SP.02.MSG.004.REQ.2": "PASS"
+      },
+      "issues": []
+    },
+    "serializer_tamper": {
+      "expected_valid": false,
+      "actual_valid": false,
+      "matches_expected": true,
+      "serializer_rejected": true,
+      "exception": "BodyValidationError",
+      "issues": [
+        {
+          "rule_id": "P.SP.02.MSG.004.REQ.2",
+          "code": "STRUCTURED_RULE_FAILED"
+        }
+      ]
+    }
+  }
+}

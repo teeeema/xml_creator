@@ -41,7 +41,7 @@ class TestDataGenerator:
                  existing_values: Mapping[str, object] | None = None) -> dict[str, object]:
         if mode not in {"test", "required"}:
             raise ValueError(f"Unknown form data mode: {mode}")
-        if form.generation_status == "NORMATIVE_CONFLICT":
+        if form.generation_status in {"NORMATIVE_CONFLICT", "UNRESOLVED_STRUCTURE_VERSION"}:
             return dict(existing_values or {}) if mode == "required" else {}
         random = Random(seed)
         result: dict[str, object] = dict(existing_values or {}) if mode == "required" else {}
@@ -170,8 +170,11 @@ class TestDataGenerator:
         def explicitly_required(field: FieldView) -> bool:
             return any(hint == "message_rule=REQUIRED" for hint in field.validation_hints)
 
+        def materializing_fixed(field: FieldView) -> bool:
+            return field.fixed_value is not None and not field.message_policy_materialize_when_parent_present
+
         def any_explicit_descendant(field: FieldView) -> bool:
-            return any(explicitly_required(child) or child.fixed_value is not None or any_explicit_descendant(child)
+            return any(explicitly_required(child) or materializing_fixed(child) or any_explicit_descendant(child)
                        for child in field.children)
 
         def should_include(field: FieldView) -> bool:
@@ -185,8 +188,8 @@ class TestDataGenerator:
                 path == field.path or path.startswith(field.path + "/")
                 for path in rule_paths
             )
-            return required_by_structured_rule or field.required or field.fixed_value is not None or any(
-                explicitly_required(child) or child.fixed_value is not None or any_explicit_descendant(child)
+            return required_by_structured_rule or field.required or materializing_fixed(field) or any(
+                explicitly_required(child) or materializing_fixed(child) or any_explicit_descendant(child)
                 for child in field.children
             )
 
@@ -1018,6 +1021,7 @@ class TestDataGenerator:
         if "decimal" in datatype or "paymentamount" in datatype:return "10.50"
         if "quantity" in datatype or "integer" in datatype or "number" in datatype:return 1
         if field.classifier: return "TEST_CLASSIFIER_PLACEHOLDER"
+        if field.status == "DISPLAY_ONLY_UNRESOLVED_QNAME": return None
         return "TEST"
 
     @staticmethod

@@ -1,0 +1,9 @@
+﻿classifier_id,name,registry_id,op22_reference,source,source_status,requirement_blocker_status,notes
+P.CLS.002,классификатор валют / Decision 378-referenced data,2022,ОП_22.pdf p.68,378 решение.pdf,PRESENT_CONFIRMED,SOURCE_PRESENT; requirement-specific mapping/proof still required,Use only OP22-explicit Decision №378 classifier data.
+P.CLS.008,перечень видов средств (каналов) связи,1041,ОП_22.pdf p.69,192 решение .pdf,PRESENT_CONFIRMED,SOURCE_PRESENT,Decision №192.
+P.CLS.024,классификатор языков,2055,ОП_22.pdf p.69,52 решение.pdf (actual Decision №152),PRESENT_CONFIRMED,SOURCE_PRESENT,Do not list Decision №152 as missing.
+P.CLS.027,"классификатор видов документов, сведений и материалов в сфере ИС",2065,ОП_22.pdf p.70,92 решение.pdf + 148 решение.pdf,PRESENT_CONFIRMED,PARTIAL: exact matches resolved; semantic ambiguity/no exact match remains requirement-level blocked,07220 confirmed; 07245 collective→ordinary; 07250 ordinary→collective.
+P.CLS.051,"классификатор видов документов, удостоверяющих личность",2053,ОП_22.pdf p.70,Decision №53 dated 02.04.2019 not found locally,MISSING,NO_CANONICAL_OLD85_REQUIREMENT_LINK; keep document gap explicit,52 решение.pdf is Decision №152 and is not this source.
+P.CLS.054,классификатор организационно-правовых форм,,ОП_22.pdf p.71,54 решение.pdf,PRESENT_CONFIRMED,SOURCE_PRESENT,Decision №54.
+P.P.SP.02.CLS.001,справочник основных характеристик товарного знака по виду и приоритету,1039,ОП_22.pdf p.72,184 решение.pdf,PRESENT_CONFIRMED,OLD_SOURCE_ABSENCE_BLOCKER_RESOLVED; mapping/proof still required,Values include mark types 110–180 and priority types 210–250.
+P.P.SP.03.CLS.001 / WIPO ST.3,"страны, административные единицы и межправительственные организации по WIPO ST.3",,"ОП_22.pdf p.73 and explicit codeListId=""ВОИС ST.3"" rules",WIPO Standard ST.3.pdf,PRESENT_CONFIRMED,OLD_SOURCE_ABSENCE_BLOCKER_RESOLVED; mapping/proof still required,ST.3 is authoritative for ST.3-specific fields.

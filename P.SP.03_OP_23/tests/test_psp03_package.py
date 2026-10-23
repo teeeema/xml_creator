@@ -8,6 +8,7 @@ from eaeu_xml.presentation.controller import GuiController
 from eaeu_xml.process_packages.loader import ProcessPackageLoader
 
 from test_b1_production import _positive_xml, _two_register_document, _validate_document, _validate_xml
+from test_next_implementation import _msg014_document, _msg015_document, _submission_document
 
 
 ROOT = Path(__file__).parents[2]
@@ -110,6 +111,21 @@ class Psp03PackageTests(TestCase):
                 }:
                     # These messages require two ordered register-item instances.
                     document = _two_register_document(message_code)
+                    self.assertTrue(_validate_document(message_code, document).is_valid)
+                    ET.fromstring(ET.tostring(document))
+                    continue
+                if message_code in {"P.SP.03.MSG.004", "P.SP.03.MSG.011"}:
+                    document = _submission_document(message_code, two_items=False)
+                    self.assertTrue(_validate_document(message_code, document).is_valid)
+                    ET.fromstring(ET.tostring(document))
+                    continue
+                if message_code == "P.SP.03.MSG.014":
+                    document = _msg014_document()
+                    self.assertTrue(_validate_document(message_code, document).is_valid)
+                    ET.fromstring(ET.tostring(document))
+                    continue
+                if message_code == "P.SP.03.MSG.015":
+                    document = _msg015_document()
                     self.assertTrue(_validate_document(message_code, document).is_valid)
                     ET.fromstring(ET.tostring(document))
                     continue

@@ -1,0 +1,11 @@
+capability,prior_state,implementation,status,op_specific_hardcode,validator_weakened
+TYPED_DATE,"No typed DATE comparison path","Generic ISO date comparison in StructuredRuleEvaluator; validator accepts DATE",NEW_GENERIC_CAPABILITY,NO,NO
+CONDITIONAL_CROSS_INSTANCE,"cross_instance_comparison already existed without condition guard","Optional when condition added while preserving exact-one selected-instance semantics",NEW_GENERIC_CAPABILITY,NO,NO
+SET_EQUIVALENCE,"Absent","Order-independent generic set equivalence with explicit missing-source semantics",NEW_GENERIC_CAPABILITY,NO,NO
+CALENDAR_MONTH_RELATION,"Absent","Generic calendar-month ordinal comparison with signed offset_months and year rollover",NEW_GENERIC_CAPABILITY,NO,NO
+CONTEXT_RELATIVE_SELECTOR,"Absent","Generic relative_to_context selector using field values and calendar-month relation rather than XML position",NEW_GENERIC_CAPABILITY,NO,NO
+DECIMAL_VALIDATOR,"DECIMAL evaluator support already existed; validator grammar rejected it","Validator now admits existing DECIMAL runtime semantics",NEW_VALIDATOR_ENABLEMENT,NO,NO
+CONTEXT_SCOPED_AGGREGATE,"Document-scope aggregate_comparison already existed","aggregate_comparison is supported inside for_each and scoped to the current repeated owner",NEW_GENERIC_CAPABILITY,NO,NO
+DECODED_BINARY_BYTE_LENGTH,"Absent","Strict Base64 decode and decoded-byte comparison against caller-supplied threshold",NEW_GENERIC_CAPABILITY,NO,NO
+ALL_EQUAL_COMPOSITION,"Existing generic composition","No new primitive added; existing for_each/comparison/position composition remains the intended engine mechanism",ALREADY_EXISTING,NO,NO
+MAX_REDUCTION,"Existing requirement can reduce to current primitives for the known singleton scope","No MAX primitive added",ALREADY_EXISTING,NO,NO

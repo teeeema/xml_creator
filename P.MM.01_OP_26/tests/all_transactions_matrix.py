@@ -145,10 +145,17 @@ def test_values(engine, message_code: str) -> dict:
         for rule in (rules.structured_rules if rules else ()):
             if rule.get("kind") != "for_each":
                 continue
-            if (rule.get("selector") or {}).get("collection") != path:
-                continue
+            collection = (rule.get("selector") or {}).get("collection")
             for assertion in rule.get("assertions", ()):
+                if assertion.get("kind") == "fixed_value":
+                    target = assertion.get("target") or {}
+                    field_name = target.get("field") if isinstance(target, dict) else None
+                    target_path = collection if field_name == "#text" else f"{collection}/{field_name}"
+                    if collection and path == target_path:
+                        return assertion.get("value")
                 if assertion.get("kind") != "condition":
+                    continue
+                if collection != path:
                     continue
                 condition = assertion.get("condition") or {}
                 alternatives = condition.get("any") or (condition,)
@@ -229,6 +236,16 @@ def test_values(engine, message_code: str) -> dict:
                         add(current)
                         current = by_id.get(current.parent)
                     values[extra] = "TEST"
+
+    # R.HC.MM.01.002 keeps these document fields at the root. Generic TEST
+    # placeholders do not satisfy the message-specific normative branches for
+    # MSG.023/024, so materialize one explicit valid branch for the matrix.
+    if message_code == "P.MM.01.MSG.023":
+        values["DrugRegistrationFileCode"] = "0401"
+        values["PdfBinaryText"] = "TEST"
+    elif message_code == "P.MM.01.MSG.024":
+        values["DrugRegistrationFileCode"] = "0101"
+        values["PdfBinaryText"] = "TEST"
 
     # Required descendants of branches introduced by MessageRules.
     for _ in range(3):

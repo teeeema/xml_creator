@@ -56,10 +56,29 @@
   },
   "project_state": {
     "audit_notes": null,
-    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "blockers": [
+      "SOURCE_CONFLICT"
+    ],
+    "evidence_refs": [
+      "codex_reports/OP26_P_MM_01/EXECUTABLE_PROOF/OP26_BLOCKED35_CONFIRMATION.csv",
+      "codex_reports/OP26_P_MM_01/EXECUTABLE_PROOF/OP26_EXECUTABLE204_PROOF_AUDIT.md"
+    ],
+    "full_proof": false,
+    "git_head": "ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b",
+    "mapped": false,
     "plain_explanation": "Выявлено внутреннее нормативное противоречие между правилами заполнения Решения №68 и структурой R.HC.MM.01.002: Таблица 22, пункт 6 ссылается на реквизиты, отсутствующие в таблице 13 R.HC.MM.01.002 v1.1.0.",
     "plain_explanation_evidence": "AUDIT_DERIVED",
+    "proof_links": {
+      "negative_test_ids": [],
+      "positive_test_ids": [],
+      "production_rule_ids": [],
+      "real_xml_status": null,
+      "runtime_evidence": []
+    },
     "snapshot": "data/project_state/current.json",
+    "state": "BLOCKED_SOURCE_CONFLICT",
+    "state_note": "STILL_BLOCKED_SOURCE_CONFLICT",
+    "state_overlay": "project_state/requirement_state.json",
     "verified_at": null
   },
   "provenance": {

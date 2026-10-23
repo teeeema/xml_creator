@@ -60,10 +60,30 @@
   },
   "project_state": {
     "audit_notes": null,
-    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "blockers": [
+      "EXECUTABLE_ATOMIC_LINK_MISSING"
+    ],
+    "evidence_refs": [
+      "codex_reports/OP22_P_SP_02/FINAL_ATOMIC_REVIEW/OP22_ATOMIC_SOURCE_119_MATRIX.csv",
+      "codex_reports/OP22_P_SP_02/FINAL_ATOMIC_REVIEW/OP22_FINAL_STRICT_STATE.md",
+      "codex_reports/OP22_P_SP_02/FINAL_MAPPED_PROOF/OP22_OLD_OPEN261_PROOF_MATRIX.csv"
+    ],
+    "full_proof": false,
+    "git_head": "ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b",
+    "mapped": true,
     "plain_explanation": "OPEN_NORMATIVE_AMBIGUITY",
     "plain_explanation_evidence": "AUDIT_DERIVED",
+    "proof_links": {
+      "negative_test_ids": [],
+      "positive_test_ids": [],
+      "production_rule_ids": [],
+      "real_xml_status": null,
+      "runtime_evidence": []
+    },
     "snapshot": "data/project_state/current.json",
+    "state": "IMPLEMENTED_PROOF_INCOMPLETE",
+    "state_note": "Primary atomic normative source is confirmed, but strict executable attribution remains incomplete; aggregate proof is not promoted to atomic proof.",
+    "state_overlay": "project_state/requirement_state.json",
     "verified_at": null
   },
   "provenance": {

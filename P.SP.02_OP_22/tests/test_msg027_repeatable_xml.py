@@ -142,10 +142,10 @@ def test_req1_exact_application_cardinality_raw_xml(count, expected):
     _assert_status(_direct(engine, 1), values, expected)
 
 
-def test_req2_req3_ignore_nested_document_kind_collisions():
+def test_req2_ignores_nested_document_kind_collisions():
     def direct_code_nested_name(root, structure):
         app = _child(root, structure, 'ipcdo', 'TrademarkApplicationDetails')
-        _child(app, structure, 'ipsdo', 'IPDocKindCode', '12345')
+        _child(app, structure, 'ipsdo', 'IPDocKindCode', '07365')
         status = _child(app, structure, 'ipcdo', 'IPEntityStatusDetails')
         _child(status, structure, 'ipsdo', 'IPDocKindName', FALLBACK)
 
@@ -155,20 +155,19 @@ def test_req2_req3_ignore_nested_document_kind_collisions():
         status = _child(app, structure, 'ipcdo', 'IPEntityStatusDetails')
         _child(status, structure, 'ipsdo', 'IPDocKindCode', '99999')
 
-    for builder in (direct_code_nested_name, fallback_nested_code):
+    for builder, expected in ((direct_code_nested_name, RuleStatus.PASS), (fallback_nested_code, RuleStatus.FAIL)):
         engine, _, values, _ = _parsed_values(builder, allow_issues=True)
-        _assert_status(_direct(engine, 2), values, RuleStatus.PASS)
-        _assert_status(_direct(engine, 3), values, RuleStatus.PASS)
+        _assert_status(_direct(engine, 2), values, expected)
 
 
-def test_req3_nested_fallback_cannot_satisfy_missing_direct_name():
+def test_req2_nested_fallback_cannot_satisfy_missing_direct_code():
     def build(root, structure):
         app = _child(root, structure, 'ipcdo', 'TrademarkApplicationDetails')
         status = _child(app, structure, 'ipcdo', 'IPEntityStatusDetails')
         _child(status, structure, 'ipsdo', 'IPDocKindName', FALLBACK)
 
     engine, _, values, _ = _parsed_values(build, allow_issues=True)
-    _assert_status(_direct(engine, 3), values, RuleStatus.FAIL)
+    _assert_status(_direct(engine, 2), values, RuleStatus.FAIL)
 
 
 @pytest.mark.parametrize(('code', 'code_list', 'expected'), [('32', None, RuleStatus.PASS), ('33', None, RuleStatus.PASS), ('31', None, RuleStatus.FAIL), ('32', 'STATUS-LIST', RuleStatus.FAIL)])

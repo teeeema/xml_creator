@@ -1,0 +1,4 @@
+canonical_id,previous_wave,classification,evidence,required_next_step
+OP49.P_DS_01.MSG_002.REQ.034,WAVE_1,ENGINE_GAP,"49_ОП.pdf p.91 table 11 item 34; current runtime returns UNKNOWN_FIELD for StopTransferDistributedDutyAmount/@currencyCode","Resolve StructureDefinition/attribute modeling at responsible shared or structure layer; do not add a message-rule workaround."
+OP49.P_DS_01.MSG_005.REQ.001,WAVE_1,EXTERNAL_REGISTRY_BLOCKED,"49_ОП.pdf p.93 table 13 item 1 explicitly refers to months whose information was previously sent","Provide authoritative prior-message/history state or registry interface before implementing."
+OP49.P_DS_01.MSG_005.REQ.018,WAVE_1,CLASSIFIER_BLOCKED,"49_ОП.pdf p.96 table 13 item 18 requires currencyCode to correspond to the member state identified by ReportCountryCode","Provide authoritative member-state country-to-currency classifier/reference data and version before implementing."

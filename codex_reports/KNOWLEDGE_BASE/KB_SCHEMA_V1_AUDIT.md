@@ -21,7 +21,7 @@
 - Production files changed by this builder: 0
 - Shared engine changed by this builder: 0
 - GUI changed by this builder: 0
-- Git HEAD: `5df76609131e9ce88fea5502fdc942238ab2c792`
+- Git HEAD: `ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b`
 
 ## CURRENT_BUILDER_INVOCATION_CREATED_FILES
 
@@ -31,7 +31,12 @@
 
 - `codex_reports/KNOWLEDGE_BASE/KB_CANONICAL_SCOPE_2894_VALIDATION.json`
 - `codex_reports/KNOWLEDGE_BASE/KB_SCHEMA_V1_VALIDATION.json`
+- `knowledge_base/data/processes/P.MM.06.yaml`
 - `knowledge_base/data/project_state/current.json`
+- `knowledge_base/data/requirements/OP49.P_DS_01.MSG_002.REQ.001.yaml`
+- `knowledge_base/data/requirements/OP49.P_DS_01.MSG_002.REQ.007.yaml`
+- `knowledge_base/data/requirements/OP49.P_DS_01.MSG_006.REQ.006.yaml`
+- `knowledge_base/indexes/requirements.json`
 
 ## EXACT_SESSION_MANIFEST
 

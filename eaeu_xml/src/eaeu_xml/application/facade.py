@@ -30,6 +30,7 @@ from eaeu_xml.application.input_helpers import datatype_category
 from eaeu_xml.application.file_input import FileInputService
 from eaeu_xml.application.session_snapshot import SessionPersistenceService, SessionSnapshotValidator, TransactionSessionSnapshot
 from eaeu_xml.application.message_artifacts import PersistedMessageArtifact, SessionBundlePersistenceService
+from eaeu_xml.application.message_field_policy import MessageFieldPolicyResolver
 
 
 class EaeuXmlApplication:
@@ -43,6 +44,7 @@ class EaeuXmlApplication:
         self.conditional_rule_compiler = ConditionalRuleCompiler()
         self.condition_evaluator = ConditionEvaluator()
         self.file_input_service = FileInputService()
+        self.message_field_policy_resolver = MessageFieldPolicyResolver()
         self._guide_service_instance = None
         self.drafts = DraftService(drafts_root)
         self._processes = {item.process_code: item for item in self.discovery.discover_processes(processes_root)}
@@ -81,7 +83,7 @@ class EaeuXmlApplication:
         if message_code not in (transaction.initiating_message,*transaction.response_messages):
             raise DraftError("DRAFT_MESSAGE_UNKNOWN",f"Message {message_code} is not a branch of {transaction_code}.")
         message=engine.get_message(message_code); active=engine.package.profile.structures[message.structure_id].active_version
-        saved_values=dict(values)
+        saved_values=self._sanitize_message_values(process_code, message_code, values)
         if previous_document:
             current_paths=set()
             def collect(fields):
@@ -114,6 +116,9 @@ class EaeuXmlApplication:
             for field in fields:paths.add(field.path);collect(field.children)
         collect(form.fields)
         compatible={path:value for path,value in document.values.items() if path in paths}
+        policy_compatible=self._sanitize_message_values(document.process_code,document.message_code,compatible)
+        policy_removed=sorted(set(compatible)-set(policy_compatible))
+        compatible=policy_compatible
         unmapped={path:value for path,value in document.values.items() if path not in paths}
         warnings=[]
         current_process_version=engine.package.profile.process_version
@@ -121,6 +126,7 @@ class EaeuXmlApplication:
         if document.structure_id!=form.structure_id:warnings.append(f"STRUCTURE_MISMATCH: draft={document.structure_id}, current={form.structure_id}")
         if document.structure_version!=form.active_version:warnings.append(f"STRUCTURE_VERSION_MISMATCH: draft={document.structure_version}, current={form.active_version}")
         if unmapped:warnings.append("UNMAPPED_DRAFT_FIELDS: "+", ".join(sorted(unmapped)))
+        if policy_removed:warnings.append("MESSAGE_POLICY_DROPPED_FIELDS: "+", ".join(policy_removed))
         if document.session_metadata:warnings.append("SESSION_RESTART_REQUIRED: form values restored; transaction session must be started again")
         validation=self.validate(document.process_code,document.transaction_code,document.message_code,compatible,mode=document.generation_mode)
         return DraftLoadResult(document,compatible,unmapped,tuple(warnings),validation)
@@ -247,6 +253,29 @@ class EaeuXmlApplication:
         if not candidates: raise KeyError(structure_id)
         return sorted(candidates, key=lambda value: value.version)[-1]
 
+    def _effective_message_field_policies(self, engine, message_code: str, structure_id: str | None = None):
+        definition = engine.package.message_field_policies.get(message_code)
+        structure_id = structure_id or engine.get_message(message_code).structure_id
+        structure = self._structure_for_form(engine, message_code, structure_id)
+        rules = engine.rules.get(message_code)
+        structured_rules = rules.structured_rules if rules else ()
+        if definition is not None and definition.structure_id == structure_id:
+            return self.message_field_policy_resolver.resolve_all(
+                structure,
+                definition,
+                structured_rules=structured_rules,
+            )
+        derived = self.message_field_policy_resolver.resolve_structured_rules(structure, structured_rules)
+        return derived or None
+
+    def _sanitize_message_values(self, process_code: str, message_code: str,
+                                 values: Mapping[str, object]) -> dict[str, object]:
+        engine = self._engine(process_code)
+        policies = self._effective_message_field_policies(engine, message_code)
+        if policies is None:
+            return dict(values)
+        return self.message_field_policy_resolver.sanitize_values(values, policies)
+
     def get_form(self, process_code: str, transaction_code: str, message_code: str,
                  *, structure_id: str | None = None) -> FormDefinition:
         engine = self._engine(process_code); transaction = engine.get_transaction(transaction_code)
@@ -256,8 +285,9 @@ class EaeuXmlApplication:
         structure_id = structure_id or message.structure_id
         structure = self._structure_for_form(engine, message_code, structure_id)
         rules = engine.rules.get(message_code); usage = rules.field_usage if rules else {}; fixed = rules.fixed_values if rules else {}
+        effective_policies = self._effective_message_field_policies(engine, message_code, structure_id)
         children = {}
-        for field in structure.fields: children.setdefault(field.parent, []).append(field)
+        for field in structure.presentation_fields: children.setdefault(field.parent, []).append(field)
 
         def display_name(field):
             name = field.official_name or field.xml_name or field.path
@@ -270,9 +300,21 @@ class EaeuXmlApplication:
 
         def convert(field):
             usage_policy = usage.get(field.path)
-            forbidden = usage_policy in {"FORBIDDEN", "NOT_USED"}
-            required = usage_policy == "REQUIRED" or (field.min_occurs or 0) > 0
-            hints = tuple(filter(None, (field.constraints, f"message_rule={usage_policy}" if usage_policy else None)))
+            message_policy = effective_policies.get(field.path) if effective_policies else None
+            forbidden = (message_policy.policy == "FORBIDDEN" if message_policy else
+                         usage_policy in {"FORBIDDEN", "NOT_USED"})
+            if message_policy:
+                required = message_policy.policy == "REQUIRED" or (
+                    message_policy.policy == "FIXED" and not message_policy.materialize_when_parent_present
+                )
+            else:
+                required = usage_policy == "REQUIRED" or (field.min_occurs or 0) > 0
+            hints = tuple(filter(None, (
+                field.constraints,
+                f"message_rule={usage_policy}" if usage_policy else None,
+                f"message_policy={message_policy.policy}" if message_policy else None,
+                *(f"message_policy_req={req}" for req in (message_policy.affected_by_req if message_policy else ())),
+            )))
             caption, qname = display_name(field)
             resolved = self.input_policy_resolver.resolve(
                 message_code=message_code, field=field, rules=rules,
@@ -295,9 +337,11 @@ class EaeuXmlApplication:
             automatic_value = None
             if explicit_policy and explicit_policy.generated_value == "MESSAGE_CODE": automatic_value = message_code
             elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = structure_id
+            effective_fixed = (message_policy.fixed_value if message_policy and message_policy.policy == "FIXED"
+                               else fixed.get(field.path, automatic_value))
             example_result = self.example_value_resolver.resolve(
                 datatype=field.datatype, description=field.description,
-                fixed_value=fixed.get(field.path, automatic_value),
+                fixed_value=effective_fixed,
                 allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
                                 else field.facets.enum if field.facets else ()),
                 existing_value=resolved.example_value,
@@ -316,22 +360,31 @@ class EaeuXmlApplication:
                 policy_help=resolved.help_text, reason=resolved.reason,
                 ui_policy=ui_resolved.ui_input_policy, ui_origin=ui_resolved.policy_origin,
             )
+            visible = (not forbidden) if message_policy else ui_resolved.visible
+            editable = (False if message_policy and message_policy.policy in {"FORBIDDEN", "FIXED"}
+                        else ui_resolved.editable)
+            effective_ui_policy = (
+                "HIDDEN" if message_policy and message_policy.policy == "FORBIDDEN" else
+                "READ_ONLY" if message_policy and message_policy.policy == "FIXED" else
+                "CONDITIONAL" if message_policy and message_policy.policy == "CONDITIONAL" else
+                ui_resolved.ui_input_policy
+            )
             return FieldView(field.path, field.xml_name, caption,
                              field.description, field.kind, field.datatype, required, field.min_occurs, field.max_occurs,
                              field.kind == "ATTRIBUTE", field.max_occurs is None or (field.max_occurs or 0) > 1,
                              allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
                                              else field.facets.enum if field.facets else ()),
-                             fixed_value=fixed.get(field.path, automatic_value), classifier=field.classifier_ref,
-                             editable=ui_resolved.editable,
-                             visibility="VISIBLE" if ui_resolved.visible else "HIDDEN", validation_hints=hints,
+                             fixed_value=effective_fixed, classifier=field.classifier_ref,
+                             editable=editable,
+                             visibility="VISIBLE" if visible else "HIDDEN", validation_hints=hints,
                              status=field.status, source_refs=tuple(ref.source_id for ref in field.source_refs),
                              children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
                              official_name=field.official_name, xml_qname=qname, example_value=example,
                              cardinality_display=cardinality, input_policy=resolved.input_policy,
                              value_source=resolved.value_source, help_text=help_text,
-                             condition_description=resolved.condition_description, condition_ref=resolved.condition_ref,
+                             condition_description=(message_policy.condition if message_policy else resolved.condition_description), condition_ref=resolved.condition_ref,
                              policy_reason=resolved.reason, normative_input_policy=resolved.input_policy,
-                             ui_input_policy=ui_resolved.ui_input_policy, ui_policy_origin=ui_resolved.policy_origin,
+                             ui_input_policy=effective_ui_policy, ui_policy_origin=ui_resolved.policy_origin,
                              ui_policy_reason=ui_resolved.reason, example_origin=example_result.origin,
                              no_example_reason=no_example_reason,
                              unresolved_ui_reason=ui_resolved.reason_code,
@@ -343,7 +396,15 @@ class EaeuXmlApplication:
                              show_identifier_generator=show_identifier,
                              supports_file_picker=binary_file,
                              assisted_input_kind=("FILE" if binary_file else "IDENTIFIER" if show_identifier else category if date_helpers_allowed else None),
-                             pattern=field.facets.pattern if field.facets else None)
+                             pattern=field.facets.pattern if field.facets else None,
+                             effective_message_policy=message_policy.policy if message_policy else None,
+                             message_policy_condition=message_policy.condition if message_policy else None,
+                             message_policy_external_dependency=message_policy.external_dependency if message_policy else None,
+                             message_policy_req_ids=message_policy.affected_by_req if message_policy else (),
+                             message_policy_notes=message_policy.notes if message_policy else None,
+                             message_policy_materialize_when_parent_present=(
+                                 message_policy.materialize_when_parent_present if message_policy else False
+                             ))
         status, reason = self._preflight(engine, transaction_code, message_code)
         roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
         active = engine.package.profile.structures[structure_id].active_version
@@ -492,10 +553,11 @@ class EaeuXmlApplication:
             if ((item.rule.effect=="SHOW" and item.result.value=="FALSE") or
                 (item.rule.effect=="HIDE" and item.result.value=="TRUE")):
                 values.pop(item.rule.target_field_path,None)
-        return self._materialize_embedded_one_of(
+        values = self._materialize_embedded_one_of(
             process_code, transaction_code, message_code, values,
             seed=seed, mode="test",
         )
+        return self._sanitize_message_values(process_code, message_code, values)
 
     def generate_required_data(self, process_code: str, transaction_code: str, message_code: str,
                                *, existing_values=None, seed: int = 0):
@@ -506,22 +568,41 @@ class EaeuXmlApplication:
             seed=seed, mode="required", existing_values=existing_values,
             structured_rules=rules.structured_rules if rules else (),
         )
-        return self._materialize_embedded_one_of(
+        values = self._materialize_embedded_one_of(
             process_code, transaction_code, message_code, values,
             seed=seed, mode="required", existing_values=existing_values,
         )
+        return self._sanitize_message_values(process_code, message_code, values)
 
     def validate(self, process_code: str, transaction_code: str, message_code: str,
                  values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.TEST) -> ValidationView:
         engine = self._engine(process_code)
         if isinstance(mode, str): mode = GenerationMode(mode)
+        sanitized_values = self._sanitize_message_values(process_code, message_code, values)
         try:
-            result = engine.validate_body(message_code, dict(values), mode=mode)
+            result = engine.validate_body(message_code, sanitized_values, mode=mode)
         except UnresolvedStructureVersionError as error:
             issue = IssueView(error.code, "", error.message, "ERROR", rule_id=error.rule_id)
             return ValidationView(False, (issue,), (), error.code)
         issues = tuple(self._issue(issue) for issue in result.issues)
-        issues += self.condition_evaluator.validation_issues(self.get_conditional_rules(process_code,message_code),values)
+        issues += self.condition_evaluator.validation_issues(self.get_conditional_rules(process_code,message_code),sanitized_values)
+        policies = self._effective_message_field_policies(engine, message_code)
+        if policies:
+            structure = self._structure_for_form(engine, message_code)
+            children = {field.parent for field in structure.presentation_fields if field.parent}
+            for field in structure.presentation_fields:
+                policy = policies.get(field.path)
+                if policy is None or not policy.application_enforced or policy.policy != "REQUIRED":
+                    continue
+                present = field.path in sanitized_values or any(
+                    path.startswith(field.path + "/") for path in sanitized_values
+                )
+                if not present and field.field_id not in children:
+                    issues += (IssueView(
+                        "MESSAGE_POLICY_REQUIRED", field.path,
+                        f"Реквизит обязателен для {message_code} согласно эффективной политике заполнения.",
+                        "ERROR", rule_id=policy.affected_by_req[0] if policy.affected_by_req else None,
+                    ),)
         message=engine.get_message(message_code); resolution=engine.resolve_structure(message.structure_id,mode=mode)
         if resolution.uses_version_placeholders:
             issues+=(IssueView("VERSION_PLACEHOLDER","",f"TEST XML сохраняет нормативные placeholders: {', '.join(resolution.placeholder_versions)}.","WARNING"),)
@@ -557,6 +638,9 @@ class EaeuXmlApplication:
         conflicts = [rule for rule in (rules.business_rules if rules else ()) if rule.get("interpretation_status") == "INTERNAL_NORMATIVE_CONFLICT"]
         if conflicts:
             return "NORMATIVE_CONFLICT", ", ".join(rule.get("conflict_id", "NORMATIVE_CONFLICT") for rule in conflicts)
+        structure_for_form = self._structure_for_form(engine, message_code)
+        if structure_for_form.display_fields and not structure_for_form.fields:
+            return "UNRESOLVED_STRUCTURE_VERSION", "Поля формы подтверждены для отображения, но поля сериализации не разрешены: отсутствуют точные QName/XSD и конкретные версии импортируемых моделей."
         if active is None:
             try:resolution=engine.resolve_structure(message.structure_id,mode=GenerationMode.TEST)
             except UnresolvedStructureVersionError:return "UNRESOLVED_STRUCTURE_VERSION", "active_version is null and no normative placeholder definition is available"
@@ -659,6 +743,7 @@ class TransactionSession:
         if self.transaction.message_history:
             return self._error("INITIAL_ALREADY_GENERATED", "Initial message already exists in this session.")
         values = dict(values) if values is not None else self.application.generate_test_data(self.process_code, self.definition.transaction_code, code, seed=self.seed)
+        values = self.application._sanitize_message_values(self.process_code, code, values)
         result = self._generate(code, values, followup=False)
         if result.success:
             self.request_body_values = values
@@ -675,6 +760,7 @@ class TransactionSession:
         try:values.update(self.resolve_body_correlations(message_code))
         except ValueError as error:return self._error(str(error),"Historical Body correlation is unavailable.",message_code)
         values.update(body_correlations or {})
+        values = self.application._sanitize_message_values(self.process_code, message_code, values)
         previous_state = self.transaction.state
         result = self._generate(message_code, values, followup=True)
         if result.success:
@@ -701,6 +787,7 @@ class TransactionSession:
         return result
 
     def _generate(self, message_code, values, followup):
+        values = self.application._sanitize_message_values(self.process_code, message_code, values)
         validation = self.application.validate(self.process_code, self.definition.transaction_code, message_code, values, mode=GenerationMode.TEST)
         if not validation.is_valid:
             return GenerationResult(False, None, validation.status, validation.errors, validation.warnings, self._metadata(message_code))

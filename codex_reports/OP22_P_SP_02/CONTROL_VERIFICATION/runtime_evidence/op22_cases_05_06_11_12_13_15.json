@@ -1,0 +1,311 @@
+{
+  "05": {
+    "message": "P.SP.02.MSG.054",
+    "transaction": "P.SP.02.TRN.049",
+    "get_form": true,
+    "policy_count": 10,
+    "positive_is_valid": true,
+    "positive_issues": [],
+    "roundtrip_is_valid": true,
+    "roundtrip_issues": [],
+    "extraction_issues": [],
+    "xml": "cv05_msg054_positive.xml",
+    "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+    "normative": "ОП_22.pdf p.803 Table72 REQ.7",
+    "field": {
+      "path": "csdo:DocId",
+      "structure_min_occurs": 0,
+      "structure_source_refs": [
+        "SourceReference(source_id='23OP-R.IP.SP.03.003-7', document='ОП_23.pdf', location='Реквизитный состав структуры', status='CONFIRMED', section=None, table='13', item='7', page=542, version_context='P.SP.03 1.0.0')"
+      ],
+      "form_required": false,
+      "form_editable": false,
+      "form_effective_policy": "FORBIDDEN",
+      "effective_policy": "FORBIDDEN",
+      "policy_reqs": [
+        "P.SP.02.MSG.054.T72.REQ.7.DOC_ID"
+      ]
+    },
+    "negative": {
+      "xml": "cv05_msg054_forbidden_root.xml",
+      "valid": false,
+      "issues": [
+        [
+          "P.SP.02.MSG.054.T72.REQ.7.DOC_ID",
+          "Rule evaluated."
+        ]
+      ],
+      "extraction_issues": [],
+      "extracted_DocId": {
+        "csdo:DocId": "FORBIDDEN-054"
+      }
+    }
+  },
+  "06": {
+    "message": "P.SP.02.MSG.056",
+    "transaction": "P.SP.02.TRN.050",
+    "get_form": true,
+    "policy_count": 20,
+    "positive_is_valid": true,
+    "positive_issues": [],
+    "roundtrip_is_valid": true,
+    "roundtrip_issues": [],
+    "extraction_issues": [],
+    "xml": "cv06_msg056_positive.xml",
+    "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+    "normative": "ОП_22.pdf p.807 Table74 REQ.18",
+    "field": {
+      "path": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocId",
+      "structure_min_occurs": 0,
+      "structure_source_refs": [
+        "SourceReference(source_id='23OP-R.IP.SP.03.003-8-10-4', document='ОП_23.pdf', location='Реквизитный состав структуры', status='CONFIRMED', section=None, table='13', item='8.10.4', page=565, version_context='P.SP.03 1.0.0')"
+      ],
+      "form_required": true,
+      "form_editable": true,
+      "form_effective_policy": "REQUIRED",
+      "effective_policy": "REQUIRED",
+      "policy_reqs": [
+        "P.SP.02.MSG.056.T74.REQ.18"
+      ]
+    },
+    "negative": {
+      "xml": "cv06_msg056_missing_nested_id.xml",
+      "valid": false,
+      "issues": [
+        [
+          "P.SP.02.MSG.056.T74.REQ.18",
+          "For-each assertion failed."
+        ]
+      ],
+      "extraction_issues": [],
+      "extracted_DocId": {}
+    }
+  },
+  "11": {
+    "get_form": true,
+    "transaction": "P.SP.02.TRN.023",
+    "message": "P.SP.02.MSG.028",
+    "normative": "ОП_22.pdf p.722 Table44 REQ.33",
+    "field": {
+      "path": "ipcdo:TrademarkApplicationDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocId",
+      "structure_min_occurs": 0,
+      "structure_source_refs": [
+        "SourceReference(source_id='22OP-R.IP.SP.02.002-2.16.4', document='ОП_22.pdf', location='Реквизитный состав структуры', status='CONFIRMED', section=None, table='10', item='2.16.4', page=879, version_context='P.SP.02 1.0.0')"
+      ],
+      "form_required": true,
+      "form_editable": true,
+      "form_effective_policy": "REQUIRED",
+      "effective_policy": "REQUIRED",
+      "policy_reqs": [
+        "P.SP.02.MSG.028.T44.REQ.33"
+      ]
+    },
+    "positive": {
+      "xml": "cv11_msg028_two_documents.xml",
+      "valid": true,
+      "issues": [],
+      "extraction_issues": [],
+      "extracted_DocId": {
+        "ipcdo:TrademarkApplicationDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocId": [
+          "DOCUMENT-1",
+          "DOCUMENT-2"
+        ]
+      }
+    },
+    "negative": {
+      "xml": "cv11_msg028_second_document_missing_id.xml",
+      "valid": false,
+      "issues": [
+        [
+          "P.SP.02.MSG.028.T44.REQ.33",
+          "For-each assertion failed."
+        ]
+      ],
+      "extraction_issues": [],
+      "extracted_DocId": {
+        "ipcdo:TrademarkApplicationDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocId": [
+          "DOCUMENT-1",
+          null
+        ]
+      }
+    }
+  },
+  "12": {
+    "get_form": true,
+    "normative": "ОП_22.pdf p.807 Table74 REQ.18; R.IP.SP.03.003 Table13 row 8.10.4",
+    "field": {
+      "path": "ipcdo:IPPaymentDetails/ipcdo:AccompanyingDocumentsDetails/csdo:DocId",
+      "structure_min_occurs": 0,
+      "structure_source_refs": [
+        "SourceReference(source_id='23OP-R.IP.SP.03.003-8-10-4', document='ОП_23.pdf', location='Реквизитный состав структуры', status='CONFIRMED', section=None, table='13', item='8.10.4', page=565, version_context='P.SP.03 1.0.0')"
+      ],
+      "form_required": true,
+      "form_editable": true,
+      "form_effective_policy": "REQUIRED",
+      "effective_policy": "REQUIRED",
+      "policy_reqs": [
+        "P.SP.02.MSG.056.T74.REQ.18"
+      ]
+    },
+    "positive": {
+      "message": "P.SP.02.MSG.056",
+      "transaction": "P.SP.02.TRN.050",
+      "get_form": true,
+      "policy_count": 20,
+      "positive_is_valid": true,
+      "positive_issues": [],
+      "roundtrip_is_valid": true,
+      "roundtrip_issues": [],
+      "extraction_issues": [],
+      "xml": "cv06_msg056_positive.xml",
+      "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails"
+    },
+    "negative": {
+      "xml": "cv06_msg056_missing_nested_id.xml",
+      "valid": false,
+      "issues": [
+        [
+          "P.SP.02.MSG.056.T74.REQ.18",
+          "For-each assertion failed."
+        ]
+      ],
+      "extraction_issues": [],
+      "extracted_DocId": {}
+    }
+  },
+  "13": {
+    "get_form": true,
+    "normative": "ОП_22.pdf p.803 Table72 REQ.7; R.IP.SP.03.003",
+    "field": {
+      "path": "csdo:DocId",
+      "structure_min_occurs": 0,
+      "structure_source_refs": [
+        "SourceReference(source_id='23OP-R.IP.SP.03.003-7', document='ОП_23.pdf', location='Реквизитный состав структуры', status='CONFIRMED', section=None, table='13', item='7', page=542, version_context='P.SP.03 1.0.0')"
+      ],
+      "form_required": false,
+      "form_editable": false,
+      "form_effective_policy": "FORBIDDEN",
+      "effective_policy": "FORBIDDEN",
+      "policy_reqs": [
+        "P.SP.02.MSG.054.T72.REQ.7.DOC_ID"
+      ]
+    },
+    "positive": {
+      "message": "P.SP.02.MSG.054",
+      "transaction": "P.SP.02.TRN.049",
+      "get_form": true,
+      "policy_count": 10,
+      "positive_is_valid": true,
+      "positive_issues": [],
+      "roundtrip_is_valid": true,
+      "roundtrip_issues": [],
+      "extraction_issues": [],
+      "xml": "cv05_msg054_positive.xml",
+      "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails"
+    },
+    "negative": {
+      "xml": "cv05_msg054_forbidden_root.xml",
+      "valid": false,
+      "issues": [
+        [
+          "P.SP.02.MSG.054.T72.REQ.7.DOC_ID",
+          "Rule evaluated."
+        ]
+      ],
+      "extraction_issues": [],
+      "extracted_DocId": {
+        "csdo:DocId": "FORBIDDEN-054"
+      }
+    }
+  },
+  "15": {
+    "get_form": true,
+    "normative": "ОП_22.pdf p.802 Table72 REQ.4/5",
+    "field": {
+      "path": "ipsdo:IPLegalActionKindName",
+      "structure_min_occurs": 0,
+      "structure_source_refs": [
+        "SourceReference(source_id='23OP-R.IP.SP.03.003-4', document='ОП_23.pdf', location='Реквизитный состав структуры', status='CONFIRMED', section=None, table='13', item='4', page=542, version_context='P.SP.03 1.0.0')"
+      ],
+      "form_required": false,
+      "form_editable": true,
+      "form_effective_policy": null,
+      "effective_policy": null,
+      "policy_reqs": []
+    },
+    "context_field": {
+      "path": "ipsdo:IPLegalActionKindCode",
+      "structure_min_occurs": 0,
+      "structure_source_refs": [
+        "SourceReference(source_id='23OP-R.IP.SP.03.003-3', document='ОП_23.pdf', location='Реквизитный состав структуры', status='CONFIRMED', section=None, table='13', item='3', page=541, version_context='P.SP.03 1.0.0')"
+      ],
+      "form_required": false,
+      "form_editable": false,
+      "form_effective_policy": null,
+      "effective_policy": null,
+      "policy_reqs": []
+    },
+    "context_rules": [
+      "P.SP.02.MSG.054.T72.REQ.4",
+      "P.SP.02.MSG.054.T72.REQ.5.PRESENCE",
+      "P.SP.02.MSG.054.T72.REQ.5.VALUE"
+    ],
+    "positive": {
+      "message": "P.SP.02.MSG.054",
+      "transaction": "P.SP.02.TRN.049",
+      "get_form": true,
+      "policy_count": 10,
+      "positive_is_valid": true,
+      "positive_issues": [],
+      "roundtrip_is_valid": true,
+      "roundtrip_issues": [],
+      "extraction_issues": [],
+      "xml": "cv05_msg054_positive.xml",
+      "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails"
+    },
+    "negative": {
+      "xml": "cv15_msg054_bad_legal_action_name.xml",
+      "valid": false,
+      "issues": [
+        [
+          "P.SP.02.MSG.054.T72.REQ.5.VALUE",
+          "For-each assertion failed."
+        ]
+      ],
+      "extraction_issues": [],
+      "extracted_DocId": {}
+    },
+    "negative_missing": {
+      "xml": "cv15_msg054_missing_legal_action_name.xml",
+      "valid": false,
+      "issues": [
+        [
+          "P.SP.02.MSG.054.T72.REQ.5.PRESENCE",
+          "Conditional presence failed."
+        ],
+        [
+          "P.SP.02.MSG.054.T72.REQ.5.VALUE",
+          "For-each assertion failed."
+        ]
+      ],
+      "extraction_issues": [],
+      "extracted_DocId": {}
+    },
+    "negative_code_and_name": {
+      "xml": "cv15_msg054_code_and_name.xml",
+      "valid": false,
+      "issues": [
+        [
+          null,
+          "Требуется минимум 1 значений, получено 0."
+        ],
+        [
+          "P.SP.02.MSG.054.T72.REQ.4",
+          "Conditional presence failed."
+        ]
+      ],
+      "extraction_issues": [],
+      "extracted_DocId": {}
+    }
+  }
+}

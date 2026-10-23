@@ -2,7 +2,9 @@
   "message_code": "P.SP.02.MSG.027",
   "structure_id": "R.IP.SP.02.002",
   "fixed_values": {},
-  "field_usage": {},
+  "field_usage": {
+    "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName": "FORBIDDEN"
+  },
   "business_rules": [
     {
       "rule_id": "P.SP.02.MSG.027.T57.REQ.1",
@@ -169,21 +171,28 @@
       ]
     },
     {
-      "kind": "conditional_presence",
-      "scope": {
+      "kind": "for_each",
+      "selector": {
         "collection": "ipcdo:TrademarkApplicationDetails"
       },
-      "condition": {
-        "field": "ipsdo:IPDocKindCode",
-        "operator": "NE",
-        "value": null
-      },
-      "target": {
-        "field": "ipsdo:IPDocKindName"
-      },
-      "state": "FORBIDDEN",
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "ipsdo:IPDocKindCode"
+          },
+          "value": "07365"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:IPDocKindName"
+          },
+          "state": "FORBIDDEN"
+        }
+      ],
       "rule_id": "P.SP.02.MSG.027.T57.REQ.2",
-      "mapping_status": "PARTIAL",
+      "mapping_status": "FULL",
       "applies_to_structure": "R.IP.SP.02.002",
       "source_refs": [
         {
@@ -195,36 +204,14 @@
           "table": "57",
           "version_context": "P.SP.02 1.0.0",
           "item": "2"
-        }
-      ]
-    },
-    {
-      "kind": "conditional_fixed_value",
-      "scope": {
-        "collection": "ipcdo:TrademarkApplicationDetails"
-      },
-      "condition": {
-        "field": "ipsdo:IPDocKindCode",
-        "operator": "EQ",
-        "value": null
-      },
-      "target": {
-        "field": "ipsdo:IPDocKindName"
-      },
-      "value": "Уведомление о признании заявки на регистрацию товарного знака, знака обслуживания Евразийского экономического союза отозванной",
-      "rule_id": "P.SP.02.MSG.027.T57.REQ.3",
-      "mapping_status": "PARTIAL",
-      "applies_to_structure": "R.IP.SP.02.002",
-      "source_refs": [
+        },
         {
-          "source_id": "22OP-RULE-P.SP.02.MSG.027-T57-3",
-          "document": "ОП_22.pdf",
-          "location": "Таблица 57. Требования к заполнению реквизитов P.SP.02.MSG.027",
+          "source_id": "P.CLS.027-07365",
+          "document": "Решение Коллегии ЕЭК от 27.07.2021 №92 в редакции Решения №148",
+          "location": "стр. 15; изменение №148, стр. 4",
           "status": "CONFIRMED",
-          "page": 579,
-          "table": "57",
-          "version_context": "P.SP.02 1.0.0",
-          "item": "3"
+          "page": 15,
+          "item": "07365"
         }
       ]
     },

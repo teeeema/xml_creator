@@ -45,7 +45,7 @@ class GuideService:
         transaction_code = usages[0].transaction_code
         form = self.application.get_form(process_code, transaction_code, message_code)
         structure = self.application._structure_for_form(engine, message_code)
-        definitions = {field.path: field for field in structure.fields}
+        definitions = {field.path: field for field in structure.presentation_fields}
         conflicts = self._conflicts(engine, message_code)
         condition_rules={rule.target_field_path:rule for rule in self.application.get_conditional_rules(process_code,message_code)}
 

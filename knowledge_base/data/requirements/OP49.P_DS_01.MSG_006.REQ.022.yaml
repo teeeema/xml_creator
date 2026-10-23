@@ -63,10 +63,28 @@
   },
   "project_state": {
     "audit_notes": "Package business_rule=NO; structured_rule=NO",
-    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "blockers": [
+      "PRODUCTION_MAPPING_MISSING"
+    ],
+    "evidence_refs": [
+      "codex_reports/OP49_P_DS_01/OP49_IMPLEMENTATION_TRIAGE.csv"
+    ],
+    "full_proof": false,
+    "git_head": "ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b",
+    "mapped": false,
     "plain_explanation": "Нужно проверить нормативное условие: если существует реквизит «Сведения о суммах распределенных ввозных таможенных пошлин, перечисленных на счета» (ds01cdo:TransferDistributedDutyDetails), имеющий индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «1», то должен быть хотя бы один реквизит «Сведения о суммах распределенных ввозных таможенных пошлин, перечисленных на счета» (ds01cdo:TransferDistributedDutyDetails), имеющий индикатор «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «0»",
     "plain_explanation_evidence": "AUDIT_DERIVED",
+    "proof_links": {
+      "negative_test_ids": [],
+      "positive_test_ids": [],
+      "production_rule_ids": [],
+      "real_xml_status": null,
+      "runtime_evidence": []
+    },
     "snapshot": "data/project_state/current.json",
+    "state": "UNMAPPED",
+    "state_note": "Normative text/path is available and current engine can represent the rule; structured production mapping is absent.",
+    "state_overlay": "project_state/requirement_state.json",
     "verified_at": null
   },
   "provenance": {

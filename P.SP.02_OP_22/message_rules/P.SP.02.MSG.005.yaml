@@ -1,8 +1,12 @@
 {
   "message_code": "P.SP.02.MSG.005",
   "structure_id": "R.IP.SP.02.002",
-  "fixed_values": {},
-  "field_usage": {},
+  "fixed_values": {
+    "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode": "07360"
+  },
+  "field_usage": {
+    "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName": "FORBIDDEN"
+  },
   "business_rules": [
     {
       "rule_id": "P.SP.02.MSG.005.T39.REQ.1",
@@ -27,8 +31,8 @@
       "rule_id": "P.SP.02.MSG.005.T39.REQ.2",
       "requirement_code": "2",
       "source_text": "при включении в классификатор видов документов, сведений и материалов значения, соответствующего виду документа «Доводы заявителя в отношении обращения заинтересованного лица о наличии оснований для отказа в регистрации товарного знака, знака обслуживания Евразийского экономического союза, предусмотренных статьей 8 Договора о товарных знаках, знаках обслуживания и наименованиях мест происхождения товаров Евразийского экономического союза от 3 февраля 2020 года», реквизит ipsdo:IPDocKindCode должен быть заполнен кодовым обозначением указанного вида документа, а ipsdo:IPDocKindName не заполняется",
-      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
-      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "classification": "EXECUTABLE",
+      "interpretation_status": "CONFIRMED_BY_DECISION_92_148",
       "source_refs": [
         {
           "source_id": "22OP-RULE-P.SP.02.MSG.005-T39-2",
@@ -304,6 +308,37 @@
     {"kind":"selection_cardinality","selector":{"collection":"ipcdo:TrademarkApplicationDetails/ipcdo:TrademarkNationalApplicationDetails"},"min_occurs":0,"max_occurs":0,"rule_id":"P.SP.02.MSG.005.REQ.34","applies_to_structure":"R.IP.SP.02.002","source_refs":[{"source_id":"22OP-RULE-P.SP.02.MSG.005-T39-34","document":"ОП_22.pdf","location":"Таблица 39. Требования к электронному документу (сведениям) P.SP.02.MSG.005","status":"CONFIRMED","page":537,"table":"39","version_context":"P.SP.02 1.0.0","item":"34"}]},
     {"kind":"selection_cardinality","selector":{"collection":"ipcdo:TrademarkApplicationDetails/ipcdo:ApplicantChangeDetails"},"min_occurs":0,"max_occurs":0,"rule_id":"P.SP.02.MSG.005.REQ.34","applies_to_structure":"R.IP.SP.02.002","source_refs":[{"source_id":"22OP-RULE-P.SP.02.MSG.005-T39-34","document":"ОП_22.pdf","location":"Таблица 39. Требования к электронному документу (сведениям) P.SP.02.MSG.005","status":"CONFIRMED","page":537,"table":"39","version_context":"P.SP.02 1.0.0","item":"34"}]},
     {"kind":"selection_cardinality","selector":{"collection":"ipcdo:TrademarkApplicationDetails/ipcdo:ComplaintDetails"},"min_occurs":0,"max_occurs":0,"rule_id":"P.SP.02.MSG.005.REQ.34","applies_to_structure":"R.IP.SP.02.002","source_refs":[{"source_id":"22OP-RULE-P.SP.02.MSG.005-T39-34","document":"ОП_22.pdf","location":"Таблица 39. Требования к электронному документу (сведениям) P.SP.02.MSG.005","status":"CONFIRMED","page":537,"table":"39","version_context":"P.SP.02 1.0.0","item":"34"}]},
-    {"kind":"selection_cardinality","selector":{"collection":"ipcdo:TrademarkApplicationDetails/ipcdo:ApplicantComplainResponseDetails"},"min_occurs":0,"max_occurs":0,"rule_id":"P.SP.02.MSG.005.REQ.34","applies_to_structure":"R.IP.SP.02.002","source_refs":[{"source_id":"22OP-RULE-P.SP.02.MSG.005-T39-34","document":"ОП_22.pdf","location":"Таблица 39. Требования к электронному документу (сведениям) P.SP.02.MSG.005","status":"CONFIRMED","page":537,"table":"39","version_context":"P.SP.02 1.0.0","item":"34"}]}
+    {"kind":"selection_cardinality","selector":{"collection":"ipcdo:TrademarkApplicationDetails/ipcdo:ApplicantComplainResponseDetails"},"min_occurs":0,"max_occurs":0,"rule_id":"P.SP.02.MSG.005.REQ.34","applies_to_structure":"R.IP.SP.02.002","source_refs":[{"source_id":"22OP-RULE-P.SP.02.MSG.005-T39-34","document":"ОП_22.pdf","location":"Таблица 39. Требования к электронному документу (сведениям) P.SP.02.MSG.005","status":"CONFIRMED","page":537,"table":"39","version_context":"P.SP.02 1.0.0","item":"34"}]},
+    {
+      "rule_id": "P.SP.02.MSG.005.T39.REQ.2",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.002",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.005-T39-2",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 39. Требования к электронному документу (сведениям) P.SP.02.MSG.005",
+          "status": "CONFIRMED",
+          "page": 535,
+          "table": "39",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "2"
+        },
+        {
+          "source_id": "P.CLS.027-07360",
+          "document": "Решение Коллегии ЕЭК от 27.07.2021 №92 в редакции Решения №148",
+          "location": "стр. 14; изменение №148, стр. 4",
+          "status": "CONFIRMED",
+          "page": 14,
+          "item": "07360"
+        }
+      ],
+      "selector": {"collection": "ipcdo:TrademarkApplicationDetails"},
+      "mapping_status": "FULL",
+      "assertions": [
+        {"kind": "fixed_value", "target": {"field": "ipsdo:IPDocKindCode"}, "value": "07360"},
+        {"kind": "presence", "target": {"field": "ipsdo:IPDocKindName"}, "state": "FORBIDDEN"}
+      ]
+    }
   ]
 }

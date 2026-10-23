@@ -1,5 +1,7 @@
+import base64
+import binascii
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import date, datetime
 from decimal import Decimal, InvalidOperation
 from enum import Enum
 from typing import Any, Mapping
@@ -59,7 +61,7 @@ class StructuredRuleEvaluator:
                 passed = (self._target_is_filled(rule.get("target"), None, values)
                           if required else rule.get("target") not in values)
             else:
-                passed = value == rule.get("value")
+                passed = self._fixed_value_equal(value, rule.get("value"))
 
             status = RuleStatus.PASS if passed else RuleStatus.FAIL
             return self.out(rule, status, "Rule evaluated.")
@@ -145,7 +147,13 @@ class StructuredRuleEvaluator:
                 left_value = values.get(rule["left"])
                 right_key = rule.get("right")
                 right_value = values.get(right_key, rule.get("right_value"))
-                passed = self._compare(left_value, rule["operator"], right_value, rule.get("value_type"))
+                passed = self._compare(
+                    left_value,
+                    rule["operator"],
+                    right_value,
+                    rule.get("value_type"),
+                    offset_months=rule.get("offset_months", 0),
+                )
             except (KeyError, TypeError, ValueError):
                 passed = False
 
@@ -154,6 +162,8 @@ class StructuredRuleEvaluator:
 
         if kind == "cross_instance_comparison":
             try:
+                if "when" in rule and not self.evaluate_condition(rule["when"], None, values):
+                    return self.out(rule, RuleStatus.PASS, "Cross-instance comparison condition does not apply.")
                 left_operand = rule["left"]
                 right_operand = rule["right"]
                 operator = rule["operator"]
@@ -176,6 +186,31 @@ class StructuredRuleEvaluator:
             status = RuleStatus.PASS if passed else RuleStatus.FAIL
             message = "Cross-instance comparison evaluated." if passed else "Cross-instance comparison failed."
             return self.out(rule, status, message)
+
+        if kind == "set_equivalence":
+            try:
+                left_exists, left_values = self._set_operand_values(rule["left"], values)
+                right_exists, right_values = self._set_operand_values(rule["right"], values)
+                if not left_exists or not right_exists:
+                    passed = bool(rule.get("allow_both_missing")) and not left_exists and not right_exists
+                else:
+                    passed = frozenset(left_values) == frozenset(right_values)
+            except (KeyError, TypeError, ValueError):
+                passed = False
+
+            status = RuleStatus.PASS if passed else RuleStatus.FAIL
+            return self.out(rule, status, "Set equivalence evaluated.")
+
+        if kind == "decoded_binary_length":
+            try:
+                value = self._target_value(rule["target"], None, values)
+                decoded_length = self._decoded_binary_byte_length(value)
+                passed = self.c(decoded_length, rule["operator"], rule["byte_length"])
+            except (KeyError, TypeError, ValueError):
+                passed = False
+
+            status = RuleStatus.PASS if passed else RuleStatus.FAIL
+            return self.out(rule, status, "Decoded binary length evaluated.")
 
         if kind == "group_distinctness":
             try:
@@ -232,7 +267,7 @@ class StructuredRuleEvaluator:
     def select(self, selector, values, all=False):
         return [dict(item.fields) for item in self._select_contexts(selector, values, apply_where=not all)]
 
-    def _select_contexts(self, selector, values, *, apply_where=True):
+    def _select_contexts(self, selector, values, *, apply_where=True, context=None):
         if "collection" in selector:
             collection = selector["collection"]
             contexts = self._contexts_for_path(collection, values)
@@ -292,7 +327,7 @@ class StructuredRuleEvaluator:
                 raise ValueError(
                     f"Parent collection '{parent_collection}' is not an ancestor of '{child_collection}'"
                 )
-            parent_contexts = self._select_contexts(parent_selector, values)
+            parent_contexts = self._select_contexts(parent_selector, values, context=context)
             allowed_parent_indexes = {ctx.indexes for ctx in parent_contexts}
             scalar_parent = bool(parent_contexts) and len(self._contexts_for_path(parent_collection, values)) == 1
             contexts = [
@@ -312,6 +347,31 @@ class StructuredRuleEvaluator:
                 for group in siblings.values()
                 for item in ([group[-1]] if position == "last" else group[position - 1:position])
             ]
+
+        relative = selector.get("relative_to_context")
+        if relative is not None:
+            if context is None:
+                raise ValueError("relative_to_context selector requires RuleContext")
+            candidate_field = relative["candidate_field"]
+            context_field = relative["context_field"]
+            current_value = self._context_field_value(context_field, context)
+            if current_value is None:
+                contexts = []
+            else:
+                contexts = [
+                    item
+                    for item in contexts
+                    if item.path == context.path
+                    and item.indexes[:-1] == context.indexes[:-1]
+                    and self._context_field_value(candidate_field, item) is not None
+                    and self._compare(
+                        self._context_field_value(candidate_field, item),
+                        "EQ",
+                        current_value,
+                        relative["value_type"],
+                        offset_months=relative["offset_months"],
+                    )
+                ]
 
         where = selector.get("where")
         if apply_where and where:
@@ -503,7 +563,7 @@ class StructuredRuleEvaluator:
             if "field" not in operand:
                 raise ValueError("operand requires field")
             if "selector" in operand:
-                selected = self._select_contexts(operand["selector"], values)
+                selected = self._select_contexts(operand["selector"], values, context=context)
                 if len(selected) != 1:
                     raise ValueError("comparison operand requires exactly one selected owner")
                 value = self._context_field_value(operand["field"], selected[0])
@@ -533,7 +593,7 @@ class StructuredRuleEvaluator:
                 required = assertion.get("state") == "REQUIRED"
                 return (self._target_is_filled(assertion["target"], context, values)
                         if required else count == 0)
-            return value == assertion.get("value")
+            return self._fixed_value_equal(value, assertion.get("value"))
 
         if kind == "comparison":
             left = self._operand_value(assertion["left"], context, values)
@@ -541,7 +601,23 @@ class StructuredRuleEvaluator:
                 right = self._operand_value(assertion["right"], context, values)
             else:
                 right = assertion.get("right_value")
-            return self._compare(left, assertion["operator"], right, assertion.get("value_type"))
+            return self._compare(
+                left,
+                assertion["operator"],
+                right,
+                assertion.get("value_type"),
+                offset_months=assertion.get("offset_months", 0),
+            )
+
+        if kind == "aggregate_comparison":
+            left_value = self.agg(assertion["left"], values, context=context)
+            right_value = self.agg(assertion["right"], values, context=context)
+            return self.c(left_value, assertion["operator"], right_value)
+
+        if kind == "decoded_binary_length":
+            value = self._target_value(assertion["target"], context, values)
+            decoded_length = self._decoded_binary_byte_length(value)
+            return self.c(decoded_length, assertion["operator"], assertion["byte_length"])
 
         if kind == "conditional_presence":
             if not self.evaluate_condition(assertion["condition"], context, values):
@@ -564,34 +640,119 @@ class StructuredRuleEvaluator:
 
     def _selected_child_count(self, selector, context, values):
         children = [
-            child for child in self._select_contexts(selector, values)
+            child for child in self._select_contexts(selector, values, context=context)
             if any(self._has_present_leaf(value) for value in child.fields.values())
         ]
         if context is None:
             return len(children)
-        prefix = context.path + "/"
-        scalar_parent = len(self._contexts_for_path(context.path, values)) == 1
-        return sum(child.path.startswith(prefix) and (scalar_parent or child.indexes[:len(context.indexes)] == context.indexes) for child in children)
+        return len(self._contexts_in_context(children, context, values))
 
-    def agg(self, aggregate, values):
-        selected_items = self.select(aggregate["selector"], values)
-        decimals = [
-            Decimal(str(item[aggregate["value_field"]]))
-            for item in selected_items
-        ]
+    def agg(self, aggregate, values, context=None):
+        selected_contexts = self._select_contexts(aggregate["selector"], values, context=context)
+        if context is not None:
+            selected_contexts = self._contexts_in_context(selected_contexts, context, values)
+        try:
+            decimals = [
+                Decimal(str(self._context_field_value(aggregate["value_field"], item)))
+                for item in selected_contexts
+                if self._context_field_value(aggregate["value_field"], item) is not None
+            ]
+        except InvalidOperation as exc:
+            raise ValueError("Invalid aggregate decimal value") from exc
+        if len(decimals) != len(selected_contexts):
+            raise ValueError("aggregate value field is missing")
         if aggregate["aggregation"] == "SUM":
             return sum(decimals, Decimal())
         if len(decimals) == 1:
             return decimals[0]
         raise ValueError()
 
+    def _contexts_in_context(self, contexts, context, values):
+        prefix = context.path + "/"
+        scalar_parent = len(self._contexts_for_path(context.path, values)) == 1
+        return [
+            child
+            for child in contexts
+            if child.path.startswith(prefix)
+            and (scalar_parent or child.indexes[:len(context.indexes)] == context.indexes)
+        ]
+
+    def _set_operand_values(self, operand, values):
+        selector = operand["selector"]
+        exists = self._selector_source_present(selector, values)
+        contexts = self._select_contexts(selector, values)
+        result = []
+        for context in contexts:
+            value = self._context_field_value(operand["field"], context)
+            if value is None:
+                raise ValueError("set operand field is missing")
+            result.append(value)
+        return exists, result
+
     @staticmethod
-    def _compare(left, operator, right, value_type=None):
+    def _selector_source_present(selector, values):
+        collection = selector.get("collection")
+        if collection:
+            return collection in values or any(path.startswith(collection + "/") for path in values)
+        qname = selector.get("qname")
+        under = selector.get("under")
+        for path in values:
+            segments = path.split("/")
+            for index, segment in enumerate(segments):
+                if segment != qname:
+                    continue
+                candidate = "/".join(segments[:index + 1])
+                if under and candidate != under and not candidate.startswith(under + "/"):
+                    continue
+                return True
+        return False
+
+    @staticmethod
+    def _decoded_binary_byte_length(value):
+        if not isinstance(value, str):
+            raise ValueError("Base64 value must be text")
+        compact = "".join(value.split())
+        try:
+            return len(base64.b64decode(compact, validate=True))
+        except (binascii.Error, ValueError) as exc:
+            raise ValueError("Invalid Base64 value") from exc
+
+    @staticmethod
+    def _fixed_value_equal(actual, expected) -> bool:
+        """Compare scalar values as they serialize into an XML simple value.
+
+        Input policies may provide an integer for an indicator while a normative
+        structured rule retains its source lexical form (for example ``"1"``).
+        The serializer emits both as the same XML character data.  This applies
+        only to fixed-value checks; comparison rules keep their declared types.
+        """
+        if actual == expected:
+            return True
+        scalar = (str, int, float, Decimal, bool)
+        return isinstance(actual, scalar) and isinstance(expected, scalar) and str(actual) == str(expected)
+
+    @staticmethod
+    def _compare(left, operator, right, value_type=None, *, offset_months=0):
+        if value_type is None and operator in {"EQ", "NE"}:
+            # XML extraction preserves simple-value text, while JSON rules can
+            # contain native boolean literals. Match only xs:boolean lexicals;
+            # leave other strings and numeric operands unchanged.
+            xml_booleans = {"true": True, "false": False, "1": True, "0": False}
+            if type(left) is bool and isinstance(right, str):
+                right = xml_booleans.get(right.strip(" \t\r\n"), right)
+            elif type(right) is bool and isinstance(left, str):
+                left = xml_booleans.get(left.strip(" \t\r\n"), left)
         if value_type == "DATETIME":
             left = datetime.fromisoformat(left)
             right = datetime.fromisoformat(right)
             if (left.tzinfo is None) != (right.tzinfo is None):
                 raise ValueError("Cannot compare zoned and unzoned date-times")
+        elif value_type == "DATE":
+            left = date.fromisoformat(left)
+            right = date.fromisoformat(right)
+        elif value_type == "CALENDAR_MONTH":
+            left = StructuredRuleEvaluator._calendar_month_ordinal(left)
+            right = StructuredRuleEvaluator._calendar_month_ordinal(right) + offset_months
         elif value_type == "DECIMAL":
             try:
                 left = Decimal(str(left))
@@ -601,6 +762,16 @@ class StructuredRuleEvaluator:
         elif value_type is not None:
             raise ValueError("Unknown comparison value_type")
         return StructuredRuleEvaluator.c(left, operator, right)
+
+    @staticmethod
+    def _calendar_month_ordinal(value):
+        if not isinstance(value, str):
+            raise ValueError("Calendar-month value must be text")
+        try:
+            parsed = date.fromisoformat(value)
+        except ValueError:
+            parsed = datetime.fromisoformat(value)
+        return parsed.year * 12 + (parsed.month - 1)
 
     @staticmethod
     def c(left, operator, right):

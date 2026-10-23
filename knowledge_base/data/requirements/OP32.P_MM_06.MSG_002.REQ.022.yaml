@@ -56,10 +56,29 @@
   },
   "project_state": {
     "audit_notes": null,
-    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "blockers": [
+      "IMPORTED_MODEL_VERSION_UNRESOLVED"
+    ],
+    "evidence_refs": [
+      "codex_reports/OP32_P_MM_06/OP32_MISSING_OPERATIONS_AUDIT.md",
+      "codex_reports/OP32_P_MM_06/REAUDIT_2026/OP32_REAUDIT_FINAL.md"
+    ],
+    "full_proof": false,
+    "git_head": "ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b",
+    "mapped": false,
     "plain_explanation": "Нужно проверить нормативное условие: если реквизит \"Сведения о регистрационном удостоверении медицинского изделия\" (hccdo:MedicalProductRegistrationCertificateDetails) не заполнен, то реквизит \"Изображение маркировки медицинского изделия\" (hcsdo:ImageMarkingPdfBinaryText) не заполняется. PDF подтверждает prefixed QName/local name, но версии импортируемых моделей X.X.X/Z.Z.Z и XSD отсутствуют, поэтому точный namespace/Clark QName и production path не доказаны.",
     "plain_explanation_evidence": "AUDIT_DERIVED",
+    "proof_links": {
+      "negative_test_ids": [],
+      "positive_test_ids": [],
+      "production_rule_ids": [],
+      "real_xml_status": null,
+      "runtime_evidence": []
+    },
     "snapshot": "data/project_state/current.json",
+    "state": "BLOCKED_MODEL_VERSION",
+    "state_note": "All OP32 child-payload requirements remain non-implementable because imported model versions and exact child Clark QName/path are unresolved.",
+    "state_overlay": "project_state/requirement_state.json",
     "verified_at": null
   },
   "provenance": {

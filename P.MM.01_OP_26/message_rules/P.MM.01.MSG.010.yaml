@@ -139,6 +139,36 @@
           }
         }
       ]
+    },
+    {
+      "rule_id": "OP26.P_MM_01.P.MM.01.MSG.010.REQ.002",
+      "production_rule_id": "P.MM.01.MSG.010.R2",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Требования к заполнению электронных документов и сведений",
+          "status": "CONFIRMED",
+          "section": "IX. Требования к заполнению",
+          "table": "28",
+          "item": "2",
+          "page": 244,
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ],
+      "kind": "for_each",
+      "selector": {
+        "collection": "UnifiedCountryCode"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "@codeListId"
+          },
+          "value": "P.CLS.019"
+        }
+      ]
     }
   ]
 }

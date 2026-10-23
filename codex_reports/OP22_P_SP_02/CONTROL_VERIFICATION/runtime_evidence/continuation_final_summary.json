@@ -1,0 +1,391 @@
+{
+  "TOTAL": 15,
+  "PASS": 14,
+  "FAIL": 0,
+  "SOURCE_BLOCKED": 1,
+  "NOT_EXECUTED": 0,
+  "STATUS": "COMPLETE",
+  "status_scope": "Control verification executed; external source dependency remains open.",
+  "ACTUAL_XML_PROOFS": {
+    "confirmed_cases": 14,
+    "partial_source_blocked_cases": 1,
+    "current_unique_files": 28,
+    "retained_unique_files": 5
+  },
+  "TESTS": {
+    "passed": 435,
+    "scope": "MSG027-030 end_to_end/safe_mapping/repeatable_xml plus test_continuation.py",
+    "full_suite": "NOT RUN: focused scope; no shared engine change"
+  },
+  "DIFF_CHECK": "PASS",
+  "cases": [
+    {
+      "case_id": "CV-03",
+      "evidence_json": "continuation_case03.json",
+      "positive_xml": [
+        "cv03_positive.xml"
+      ],
+      "negative_xml": [
+        "cv03_wrong_code.xml",
+        "cv03_both.xml",
+        "cv03_missing_code.xml",
+        "cv03_legacy_name_only.xml"
+      ],
+      "result": "PASS",
+      "executed_on": "2026-10-23"
+    },
+    {
+      "case_id": "CV-04",
+      "evidence_json": "continuation_case04_case15.json",
+      "positive_xml": [
+        "cv04_name_branch.xml"
+      ],
+      "negative_xml": [
+        "cv04_bad_name.xml",
+        "cv04_missing_name.xml",
+        "cv04_both.xml",
+        "cv04_unverified_code_only.xml"
+      ],
+      "result": "SOURCE_BLOCKED",
+      "executed_on": "2026-10-23"
+    },
+    {
+      "case_id": "CV-05",
+      "evidence_json": "op22_cases_05_06_11_12_13_15.json",
+      "positive_xml": [
+        "cv05_msg054_positive.xml"
+      ],
+      "negative_xml": [
+        "cv05_msg054_forbidden_root.xml"
+      ],
+      "result": "PASS",
+      "executed_on": "2026-10-23"
+    },
+    {
+      "case_id": "CV-06",
+      "evidence_json": "op22_cases_05_06_11_12_13_15.json",
+      "positive_xml": [
+        "cv06_msg056_positive.xml"
+      ],
+      "negative_xml": [
+        "cv06_msg056_missing_nested_id.xml"
+      ],
+      "result": "PASS",
+      "executed_on": "2026-10-23"
+    },
+    {
+      "case_id": "CV-07",
+      "evidence_json": "op26_op23_B_case07_case08_case14_evidence.json",
+      "positive_xml": [
+        "op26_op23_B_case07_positive.xml"
+      ],
+      "negative_xml": [
+        "op26_op23_B_case14_negative_raw_xml_tamper.xml"
+      ],
+      "result": "PASS",
+      "executed_on": "2026-10-23"
+    },
+    {
+      "case_id": "CV-08",
+      "evidence_json": "op26_op23_B_case07_case08_case14_evidence.json",
+      "positive_xml": [
+        "op26_op23_B_case08_positive.xml"
+      ],
+      "negative_xml": [
+        "op26_op23_B_case08_negative_missing_docid.xml",
+        "op26_op23_B_case08_negative_missing_authority.xml",
+        "op26_op23_B_case08_negative_forbidden_consent.xml"
+      ],
+      "result": "PASS",
+      "executed_on": "2026-10-23"
+    },
+    {
+      "case_id": "CV-09",
+      "evidence_json": "op49_case09_case10_evidence.json",
+      "positive_xml": [
+        "op49_case09_generated_positive.xml"
+      ],
+      "negative_xml": [
+        "op49_case09_duplicate_true.xml",
+        "op49_case09_add_forbidden_false.xml",
+        "op49_case09_replace_daily_with_false.xml"
+      ],
+      "result": "PASS",
+      "executed_on": "2026-10-23"
+    },
+    {
+      "case_id": "CV-10",
+      "evidence_json": "op49_case09_case10_evidence.json",
+      "positive_xml": [
+        "op49_case09_generated_positive.xml"
+      ],
+      "negative_xml": [
+        "op49_case09_duplicate_true.xml",
+        "op49_case09_add_forbidden_false.xml",
+        "op49_case09_replace_daily_with_false.xml"
+      ],
+      "result": "PASS",
+      "executed_on": "2026-10-23"
+    },
+    {
+      "case_id": "CV-11",
+      "evidence_json": "op22_cases_05_06_11_12_13_15.json",
+      "positive_xml": [
+        "cv11_msg028_two_documents.xml"
+      ],
+      "negative_xml": [
+        "cv11_msg028_second_document_missing_id.xml"
+      ],
+      "result": "PASS",
+      "executed_on": "2026-10-23"
+    },
+    {
+      "case_id": "CV-12",
+      "evidence_json": "op22_cases_05_06_11_12_13_15.json",
+      "positive_xml": [
+        "cv06_msg056_positive.xml"
+      ],
+      "negative_xml": [
+        "cv06_msg056_missing_nested_id.xml"
+      ],
+      "result": "PASS",
+      "executed_on": "2026-10-23"
+    },
+    {
+      "case_id": "CV-13",
+      "evidence_json": "op22_cases_05_06_11_12_13_15.json",
+      "positive_xml": [
+        "cv05_msg054_positive.xml"
+      ],
+      "negative_xml": [
+        "cv05_msg054_forbidden_root.xml"
+      ],
+      "result": "PASS",
+      "executed_on": "2026-10-23"
+    },
+    {
+      "case_id": "CV-14",
+      "evidence_json": "op26_op23_B_case07_case08_case14_evidence.json",
+      "positive_xml": [
+        "op26_op23_B_case07_positive.xml"
+      ],
+      "negative_xml": [
+        "op26_op23_B_case14_negative_raw_xml_tamper.xml"
+      ],
+      "result": "PASS",
+      "executed_on": "2026-10-23"
+    },
+    {
+      "case_id": "CV-15",
+      "evidence_json": "continuation_case04_case15.json",
+      "positive_xml": [
+        "cv15_op23_positive.xml"
+      ],
+      "negative_xml": [
+        "cv15_op23_missing_language.xml"
+      ],
+      "result": "PASS",
+      "executed_on": "2026-10-23"
+    }
+  ],
+  "xml_manifest": {
+    "cv03_both.xml": {
+      "sha256": "1a37d5ff0ae9ea94ba47dd016e2ce800228ffa671ee1215b060a7008ff3cd00e",
+      "bytes": 2824,
+      "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv03_legacy_name_only.xml": {
+      "sha256": "36934597a0862681b05fccee313f4942766e0c9390a0e6266ed8235f1097721a",
+      "bytes": 2776,
+      "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv03_missing_code.xml": {
+      "sha256": "eb1f16cdf251aedad4c9e33cd267d2bfa581774502b299327e253864385ab5ca",
+      "bytes": 2495,
+      "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv03_positive.xml": {
+      "sha256": "2ac1dce5108c85a8adc1488447e3191d0fe06d37ac23469234c8195ee0de3766",
+      "bytes": 2543,
+      "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv03_wrong_code.xml": {
+      "sha256": "dbc4b2a53b7994abe57702218a9eeb4a96c3600df2d7da7fa89b44a5c73017d1",
+      "bytes": 2543,
+      "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv04_bad_name.xml": {
+      "sha256": "60bd140f1072962ef05522b8940d51b1c9dde98a6c8e17148bb27ebb8ba517a9",
+      "bytes": 1116,
+      "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv04_both.xml": {
+      "sha256": "d3c3c7f856db7f3774ff018d0cc32bcdb88366b5da836a5a427e4463f650943a",
+      "bytes": 1379,
+      "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv04_missing_name.xml": {
+      "sha256": "1ed4f70f39b2ba470e0811c762457fed60a40f95431133a0bb2c388ebb725d7f",
+      "bytes": 1037,
+      "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv04_name_branch.xml": {
+      "sha256": "2319149e87282537e922c9545b80beefb09d68a4d354e8b47f64910aff561b65",
+      "bytes": 1300,
+      "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv04_unverified_code_only.xml": {
+      "sha256": "f2afe9d47592d02c5e0d7178a472ffeed9f3bb3b44332e44a8dd7aca07505807",
+      "bytes": 1116,
+      "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv05_msg054_forbidden_root.xml": {
+      "sha256": "91fa5dcebafd00a6366ef4c5e6c4acda19ac7b9bb2cff56a97c02156eab033d4",
+      "bytes": 1326,
+      "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv05_msg054_positive.xml": {
+      "sha256": "3de64c9c1bff396a93ea7cbb623a0e0125edf3ba38da4d2e7f6003ebecfa80a1",
+      "bytes": 1288,
+      "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv06_msg056_missing_nested_id.xml": {
+      "sha256": "27988e4c423669a636de6dd42d9994352a05c41a7330876b65caaa79225548b3",
+      "bytes": 1666,
+      "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv06_msg056_positive.xml": {
+      "sha256": "be098a578afd878e736c5befd25b14770180d191df4b6a5d8cf24b247abc8ddf",
+      "bytes": 1698,
+      "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv11_msg028_second_document_missing_id.xml": {
+      "sha256": "ed211911fb8aadab9c5a18bdd9cc460c098b7872de48ab21f365cda58cd70247",
+      "bytes": 3736,
+      "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv11_msg028_two_documents.xml": {
+      "sha256": "92a843300ae4ddabfc9dd80336e9f399a85d5158b4fa3c9ec10bc32c34ca5b95",
+      "bytes": 3771,
+      "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv15_op23_missing_language.xml": {
+      "sha256": "cd8fb403c26607146e850f8c36ed25889c1f8453eeffde946b45c6ec74cd5ea5",
+      "bytes": 3243,
+      "root_qname": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegistrationDetails:v1.0.0}ApellationOfOriginRegistrationDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "cv15_op23_positive.xml": {
+      "sha256": "1dc63efea5b705c35ac6eedc6ae069de9faa393695e90107cf501ba475771619",
+      "bytes": 3261,
+      "root_qname": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegistrationDetails:v1.0.0}ApellationOfOriginRegistrationDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "op26_op23_B_case07_positive.xml": {
+      "sha256": "7bf1642ab304a5d7c2e7ca87fad9db053436c2143e73a2fbcec5d472442212a1",
+      "bytes": 1032,
+      "root_qname": "{urn:EEC:R:HC:MM:01:DrugRegistrationDetails:v1.1.0}DrugRegistrationDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "op26_op23_B_case08_negative_forbidden_consent.xml": {
+      "sha256": "2f2466c4a44b920a357c77c7030a1f00116dec89b72656a495b0d6237d19b453",
+      "bytes": 3331,
+      "root_qname": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegistrationDetails:v1.0.0}ApellationOfOriginRegistrationDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "op26_op23_B_case08_negative_missing_authority.xml": {
+      "sha256": "55f1658caf7eb79cbe67dd916db2b1ce65444746421da6630178ce4750f6f2fa",
+      "bytes": 3190,
+      "root_qname": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegistrationDetails:v1.0.0}ApellationOfOriginRegistrationDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "op26_op23_B_case08_negative_missing_docid.xml": {
+      "sha256": "2bfc01ef9e068f86e25e7533f105e7777bd76afbe77ab905bfc9c7223995ca96",
+      "bytes": 3220,
+      "root_qname": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegistrationDetails:v1.0.0}ApellationOfOriginRegistrationDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "op26_op23_B_case08_positive.xml": {
+      "sha256": "3e6a951de0d66667073a5d48d9fcfa2a8ddbebd2ba6b7f9aa81c263dfa55fec1",
+      "bytes": 3249,
+      "root_qname": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegistrationDetails:v1.0.0}ApellationOfOriginRegistrationDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "op26_op23_B_case14_negative_raw_xml_tamper.xml": {
+      "sha256": "7a5155d2d4a8ec1265ea2b38d64f71bd53f4bcbbbb8355281326d05089d56a96",
+      "bytes": 1032,
+      "root_qname": "{urn:EEC:R:HC:MM:01:DrugRegistrationDetails:v1.1.0}DrugRegistrationDetails",
+      "origin": "executed_2026-10-23"
+    },
+    "op49_case09_add_forbidden_false.xml": {
+      "sha256": "16e6187f3227c47d48c5ae4e9d34d8da65274931880a1829eba27601a358526a",
+      "bytes": 6424,
+      "root_qname": "{urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0}ChargedDistributedReport",
+      "origin": "executed_2026-10-23"
+    },
+    "op49_case09_duplicate_true.xml": {
+      "sha256": "5b9c11addd3182ced44cb2994b6f23e6394e5148279caf5813bf284aab1be753",
+      "bytes": 6423,
+      "root_qname": "{urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0}ChargedDistributedReport",
+      "origin": "executed_2026-10-23"
+    },
+    "op49_case09_generated_positive.xml": {
+      "sha256": "e454fe2a850fe903709d474431824ad2366345caae50b870cb539fc3edadd9ae",
+      "bytes": 3930,
+      "root_qname": "{urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0}ChargedDistributedReport",
+      "origin": "executed_2026-10-23"
+    },
+    "op49_case09_replace_daily_with_false.xml": {
+      "sha256": "951378256eb55eb53b30573da58ef46a1ef6238d48d2620437e6a644cf14fd20",
+      "bytes": 3931,
+      "root_qname": "{urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0}ChargedDistributedReport",
+      "origin": "executed_2026-10-23"
+    },
+    "MSG005_VALID_CODE.xml": {
+      "sha256": "4835ec982c95d4d698a219998fd9124bb47c14abf67aa5b3632c437eb5d48f97",
+      "bytes": 6229,
+      "root_qname": "{http://www.w3.org/2003/05/soap-envelope}Envelope",
+      "origin": "retained_user_confirmed"
+    },
+    "MSG005_REJECT_CODE_AND_NAME.xml": {
+      "sha256": "70f68612fa9e7590712b7a17d382b264bc143cee2013cd4abc7576cf491946ca",
+      "bytes": 4567,
+      "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "origin": "retained_user_confirmed"
+    },
+    "MSG005_REJECT_UNKNOWN_CODE.xml": {
+      "sha256": "3a62b9896a26948add77fb368314f503088b299c0abdce0b22b331f1d8f028d5",
+      "bytes": 4519,
+      "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "origin": "retained_user_confirmed"
+    },
+    "MSG001_STANDARD.xml": {
+      "sha256": "ea13335f772a19d89247810f04c9a545082a17e63dab522110dd6a86b46543c0",
+      "bytes": 7331,
+      "root_qname": "{http://www.w3.org/2003/05/soap-envelope}Envelope",
+      "origin": "retained_user_confirmed"
+    },
+    "MSG001_CONFLICTING_USER_FIELDS.xml": {
+      "sha256": "5e95194adc2feee6156bf8d995b463b5786cdde14fb0c56380eb0a2654fd4b70",
+      "bytes": 7331,
+      "root_qname": "{http://www.w3.org/2003/05/soap-envelope}Envelope",
+      "origin": "retained_user_confirmed"
+    }
+  }
+}

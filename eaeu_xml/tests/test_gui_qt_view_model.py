@@ -9,6 +9,7 @@ except ModuleNotFoundError as error:
     GuiViewModel = None
 
 from eaeu_xml.application import EaeuXmlApplication
+from eaeu_xml.presentation.text_sanitizer import sanitize_presentation_text
 
 
 FIXTURES = Path(__file__).parent / "fixtures"
@@ -180,11 +181,150 @@ class GuiQtViewModelTests(unittest.TestCase):
         """TEST 1: Field info with long content is inside a scrollable container in QML."""
         qml = Path(__file__).parents[1] / "src" / "eaeu_xml" / "gui_qt" / "qml"
         home = (qml / "pages" / "HomePage.qml").read_text(encoding="utf-8")
+        section = (qml / "components" / "SectionHeader.qml").read_text(encoding="utf-8")
         self.assertIn("ScrollView", home)
         self.assertIn("fieldInfoScroll", home)
         self.assertIn("selectedFieldInfo", home)
         self.assertIn("width: fieldInfoScroll.availableWidth", home)
         self.assertIn("clip: true", home)
+        for heading in ("Имя реквизита", "Описание реквизита", "Тип данных", "Множитель", "Ограничения"):
+            self.assertIn(f'text: "{heading}"', home)
+        self.assertIn('text: "Выберите поле, чтобы посмотреть его нормативное описание."', home)
+        self.assertIn("fieldInfoDetailedEnabled", home)
+        self.assertIn("onSelected: viewModel.selectField(modelData.path)", home)
+        self.assertIn("signal selected()", section)
+        self.assertIn("textFormat: Text.PlainText", home)
+        self.assertIn("selectedFieldDetails.constraints.length > 0", home)
+
+    def test_op22_msg001_field_info_uses_structure_metadata_only(self):
+        root = Path(__file__).parents[2]
+        app = EaeuXmlApplication(root, drafts_root=Path(self.temp.name) / "op22")
+        model = GuiViewModel(root, application=app)
+        model.selectProcess("P.SP.02")
+        model.selectTransaction("P.SP.02.TRN.001")
+        model.selectMessage("P.SP.02.MSG.001")
+
+        self.assertTrue(model.fieldInfoDetailedEnabled)
+        self.assertFalse(model.fieldInfoDetailedHasSelection)
+        self.assertEqual(model.selectedFieldDetails, {
+            "name": "",
+            "description": "",
+            "datatype": "",
+            "multiplicity": "",
+            "constraints": [],
+            "policy": "",
+        })
+
+        model.selectField("ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode")
+        details = model.selectedFieldDetails
+        self.assertEqual(details["name"], "Код вида документа, используемого в сфере интеллектуальной собственности")
+        self.assertIn("кодовое обозначение вида документа", details["description"])
+        self.assertEqual(details["datatype"], "ipsdo:IPDocKindCodeType\n(M.IP.SDT.00009)")
+        self.assertEqual(details["multiplicity"], "0..1")
+        self.assertEqual(details["constraints"], [
+            {"label": "Шаблон", "value": r"\d{5}"},
+            {"label": "Пояснение", "value": "Ровно 5 цифр"},
+        ])
+        self.assertIn("Фиксированное значение", details["policy"])
+        self.assertIn("07220", details["policy"])
+        self.assertIn("Решению №92", details["policy"])
+        self.assertFalse(next(item for item in model.fields if item["path"] == "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode")["conditional"])
+        debug_text = "\n".join(
+            [str(value) for key, value in details.items() if key != "constraints"]
+            + [item["value"] for item in details["constraints"]]
+        )
+        for marker in (
+            "UNRESOLVED_INPUT_POLICY", "UI_INPUT_POLICY", "UI policy origin",
+            "Normative value source", "source_id", "VERSION_PLACEHOLDER_TEST",
+        ):
+            self.assertNotIn(marker, debug_text)
+
+        model.selectField("ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName")
+        self.assertEqual(model.selectedFieldDetails["constraints"], [
+            {"label": "Минимальная длина", "value": "1 символ"},
+            {"label": "Максимальная длина", "value": "500 символов"},
+        ])
+
+        model.selectField("ipcdo:TrademarkApplicationDetails/ipsdo:ApplicationReceiptDate")
+        self.assertEqual(model.selectedFieldDetails["datatype"], "bdt:DateType\n(M.BDT.00005)")
+        self.assertEqual(model.selectedFieldDetails["multiplicity"], "1")
+        self.assertEqual(model.selectedFieldDetails["constraints"], [
+            {"label": "Формат", "value": "ISO 8601"},
+            {"label": "Пояснение", "value": "Дата в соответствии с ISO 8601"},
+        ])
+
+        model.selectField("ipcdo:TrademarkApplicationDetails/ipsdo:TrademarkApplicationId")
+        self.assertEqual(model.selectedFieldDetails["datatype"], "ipsdo:ApplicationIdType\n(M.IP.SDT.00016)")
+        self.assertEqual(model.selectedFieldDetails["multiplicity"], "1")
+        complex_constraints = model.selectedFieldDetails["constraints"]
+        self.assertEqual(complex_constraints, [
+            {"label": "Шаблон", "value": r"\d{4}/(AM|BY|KG|KZ|RU)-\d{6}"},
+        ])
+        self.assertNotIn("Пояснение", {item["label"] for item in complex_constraints})
+
+        model.selectField("ipcdo:TrademarkApplicationDetails/ipcdo:IPEntityStatusDetails/csdo:StatusCode")
+        self.assertEqual(model.selectedFieldDetails["constraints"], [
+            {"label": "Минимальная длина", "value": "1 символ"},
+            {"label": "Максимальная длина", "value": "3 символа"},
+        ])
+
+        model.selectField("ipcdo:TrademarkApplicationDetails/ipcdo:IPEntityStatusDetails/csdo:StatusCode/@codeListId")
+        self.assertEqual(model.selectedFieldDetails["constraints"], [
+            {"label": "Минимальная длина", "value": "1 символ"},
+            {"label": "Максимальная длина", "value": "20 символов"},
+        ])
+
+        district_path = next(item["path"] for item in model.fields if item["path"].endswith("/csdo:DistrictName"))
+        model.selectField(district_path)
+        district = model.selectedFieldDetails
+        self.assertEqual(
+            district["description"],
+            "наименование единицы административно-территориального деления второго уровня",
+        )
+        self.assertNotIn("\ufffe", district["description"])
+
+        raw_definition = model._selected_op22_structure_field()
+        self.assertIn("\ufffe", raw_definition.description)
+
+        original = "A\ufdd0B\ufdefC\ufffeD\uffffE\U0001fffeF\U0010ffffG"
+        fake_definition = type("Definition", (), {"description": original})()
+        sanitized = sanitize_presentation_text(fake_definition.description)
+        self.assertEqual(sanitized, "A-B-C-D-E-F-G")
+        self.assertEqual(fake_definition.description, original)
+
+        model.selectField("ipcdo:TrademarkApplicationDetails")
+        group = model.selectedFieldDetails
+        self.assertEqual(group["name"], "Заявка на товарный знак Союза (ходатайство, жалоба)")
+        self.assertEqual(group["datatype"], "ipcdo:TrademarkApplicationDetailsType\n(M.IP.CDT.00225)")
+        self.assertEqual(group["multiplicity"], "1..*")
+        self.assertEqual(group["constraints"], [
+            {"label": "Условие", "value": "Определяется областями значений вложенных элементов"},
+        ])
+
+        home = (Path(__file__).parents[1] / "src" / "eaeu_xml" / "gui_qt" / "qml" / "pages" / "HomePage.qml").read_text(encoding="utf-8")
+        self.assertIn('text: "Правило заполнения для текущего сообщения"', home)
+        self.assertIn('modelData.conditional ? " (условно)" : ""', home)
+
+    def test_op22_msg002_uses_same_detailed_field_info(self):
+        root = Path(__file__).parents[2]
+        app = EaeuXmlApplication(root, drafts_root=Path(self.temp.name) / "op22-msg002")
+        model = GuiViewModel(root, application=app)
+        model.selectProcess("P.SP.02")
+        model.selectTransaction("P.SP.02.TRN.001")
+        model.selectMessage("P.SP.02.MSG.002")
+
+        self.assertTrue(model.fieldInfoDetailedEnabled)
+        self.assertFalse(model.fieldInfoDetailedHasSelection)
+        field_model = next(item for item in model.fields if item["kind"] != "GROUP")
+        model.selectField(field_model["path"])
+        self.assertTrue(model.fieldInfoDetailedHasSelection)
+        details = model.selectedFieldDetails
+        self.assertEqual(details["name"], "Код сообщения общего процесса")
+        self.assertEqual(details["description"], "кодовое обозначение сообщения общего процесса")
+        self.assertEqual(details["datatype"], "csdo:InfEnvelopeCodeType\n(M.SDT.90004)")
+        self.assertEqual(details["multiplicity"], "1")
+        self.assertEqual(details["constraints"], [])
+        self.assertEqual(details["policy"], "")
 
     def test_user_input_field_is_editable(self):
         """TEST 2: USER_INPUT field creates editable row."""

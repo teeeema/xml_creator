@@ -1,8 +1,12 @@
 {
   "message_code": "P.SP.02.MSG.001",
   "structure_id": "R.IP.SP.02.002",
-  "fixed_values": {},
-  "field_usage": {},
+  "fixed_values": {
+    "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode": "07220"
+  },
+  "field_usage": {
+    "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName": "FORBIDDEN"
+  },
   "business_rules": [
     {
       "rule_id": "P.SP.02.MSG.001.REQ.001",

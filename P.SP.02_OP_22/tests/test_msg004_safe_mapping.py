@@ -27,9 +27,9 @@ VALIDITY = f"{RESOURCE}/ccdo:ValidityPeriodDetails"
 
 INHERITED_FULL = {"6", "7", "8", "9", "10", "11", "12", "14", "15", "21", "22", "23", "24", "25", "28", "29"}
 INHERITED_PARTIAL = {"26"}
-DIRECT_FULL = {"1", "5", "30", "31", "32", "33", "34", "35", "36", "37"}
+DIRECT_FULL = {"2", "1", "5", "30", "31", "32", "33", "34", "35", "36", "37"}
 DIRECT_PARTIAL = {"4"}
-INTENTIONALLY_UNMAPPED = {"2", "3", "13", "16", "17", "18", "19", "20", "27"}
+INTENTIONALLY_UNMAPPED = {"3", "13", "16", "17", "18", "19", "20", "27"}
 
 
 def _engine() -> EaeuXmlEngine:
@@ -61,6 +61,7 @@ def _statuses(code: str, values: dict[str, object]) -> list[RuleStatus]:
 def _base_values() -> dict[str, object]:
     return {
         APP: [None],
+        f"{APP}/ipsdo:IPDocKindCode": "07320",
         f"{APP}/ipsdo:TrademarkApplicationId": "APP-001",
         f"{APP}/ipsdo:ApplicationReceiptDate": "2026-09-18",
         PARTY: [None],

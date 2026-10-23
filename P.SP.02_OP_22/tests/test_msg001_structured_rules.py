@@ -1,8 +1,10 @@
 from copy import deepcopy
 from pathlib import Path
+from xml.etree import ElementTree as ET
 
 import pytest
 
+from eaeu_xml.application import EaeuXmlApplication
 from eaeu_xml.process_packages.body import GenerationMode
 from eaeu_xml.process_packages.engine import EaeuXmlEngine
 from eaeu_xml.process_packages.rules_engine import RuleStatus, StructuredRuleEvaluator
@@ -431,3 +433,25 @@ def test_trn001_msg001_generation_then_structured_validation() -> None:
     assert all(item.status is RuleStatus.PASS for item in validation.rule_evaluations)
     assert str(body.serialize_xml_element().tag).endswith("TrademarkRegistrationDetails")
     assert engine.build_application_action("P.SP.02.TRN.001", MESSAGE).serialize().endswith(f"/{MESSAGE}")
+
+
+def test_req034_xml_lexical_fixed_value_accepts_policy_integer_and_rejects_wrong_value() -> None:
+    values = _rule_values()
+    values[f"{APP}/ipsdo:ConsentToDataProcessingIndicator"] = 1
+    assert _statuses(values, "P.SP.02.MSG.001.REQ.034") == [RuleStatus.PASS]
+
+    values[f"{APP}/ipsdo:ConsentToDataProcessingIndicator"] = 0
+    assert _statuses(values, "P.SP.02.MSG.001.REQ.034") == [RuleStatus.FAIL]
+
+
+def test_msg001_application_generates_xml_after_req034_runtime_fix(tmp_path: Path) -> None:
+    app = EaeuXmlApplication(PACKAGE.parent, drafts_root=tmp_path / "drafts")
+    result = app.generate_test_xml("P.SP.02", "P.SP.02.TRN.001", MESSAGE, values=_generation_values(), seed=43)
+
+    assert result.success, [(issue.code, issue.rule_id, issue.field_path) for issue in result.errors]
+    root = ET.fromstring(result.xml)
+    structure = app._engine("P.SP.02").get_structure(MESSAGE, mode=GenerationMode.TEST)
+    simple = structure.imported_namespaces["ipsdo"]
+    assert [node.text for node in root.iter(f"{{{simple}}}ConsentToDataProcessingIndicator")] == ["1"]
+    assert [node.text for node in root.iter(f"{{{simple}}}IPDocKindCode")] == ["07220"]
+    assert list(root.iter(f"{{{simple}}}IPDocKindName")) == []

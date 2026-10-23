@@ -1,0 +1,476 @@
+{
+  "04": {
+    "process": "P.SP.02",
+    "transaction": "P.SP.02.TRN.049",
+    "message": "P.SP.02.MSG.054",
+    "requirements": [
+      "P.SP.02.MSG.054.T72.REQ.4",
+      "P.SP.02.MSG.054.T72.REQ.5.PRESENCE",
+      "P.SP.02.MSG.054.T72.REQ.5.VALUE"
+    ],
+    "fields": {
+      "ipsdo:IPLegalActionKindCode": {
+        "get_form": {
+          "path": "ipsdo:IPLegalActionKindCode",
+          "xml_name": "IPLegalActionKindCode",
+          "display_name": "Код вида юридически значимого действия",
+          "description": "кодовое обозначение вида юридически значимого действия",
+          "kind": "ELEMENT",
+          "datatype": "ipsdo:IPLegalActionKindCodeType",
+          "required": false,
+          "min_occurs": 0,
+          "max_occurs": 1,
+          "is_attribute": false,
+          "repeatable": false,
+          "allowed_values": [],
+          "fixed_value": null,
+          "default_value": null,
+          "classifier": null,
+          "editable": false,
+          "visibility": "VISIBLE",
+          "validation_hints": [
+            "ipsdo:IPLegalActionKindCodeType (M.IP.SDT.00506) Значение кода в соответствии с перечнем видов юридически значимых действий при регистрации, правовой охране и использовании товарных знаков Евразийского экономического союза, знаков обслуживания Евразийского экономического союза и наименований мест происхождения товаров Евразийского экономического союза"
+          ],
+          "status": "CONFIRMED",
+          "source_refs": [
+            "23OP-R.IP.SP.03.003-3"
+          ],
+          "children": [
+            {
+              "path": "ipsdo:IPLegalActionKindCode/@codeListId",
+              "xml_name": "codeListId",
+              "display_name": "идентификатор справочника (классификатора) (атрибут codeListId)",
+              "description": "обозначение справочника (классификатора), в соответствии с которым указан код",
+              "kind": "ATTRIBUTE",
+              "datatype": "csdo:ReferenceDataIdType",
+              "required": true,
+              "min_occurs": 1,
+              "max_occurs": 1,
+              "is_attribute": true,
+              "repeatable": false,
+              "allowed_values": [],
+              "fixed_value": null,
+              "default_value": null,
+              "classifier": null,
+              "editable": true,
+              "visibility": "VISIBLE",
+              "validation_hints": [
+                "csdo:ReferenceDataIdType (M.SDT.00091) Нормализованная строка символов. Мин. длина: 1. Макс. длина: 20"
+              ],
+              "status": "CONFIRMED",
+              "source_refs": [
+                "23OP-R.IP.SP.03.003-3-codeListId"
+              ],
+              "children": [],
+              "official_name": "идентификатор справочника (классификатора) (атрибут codeListId)",
+              "xml_qname": "codeListId",
+              "example_value": "123456",
+              "cardinality_display": "1..1",
+              "input_policy": "UNRESOLVED_INPUT_POLICY",
+              "value_source": "UNKNOWN",
+              "help_text": "Назначение: обозначение справочника (классификатора), в соответствии с которым указан код\nНормативный источник значения: не установлен отдельным правилом\nСпособ заполнения в программе: вводится пользователем\nОбязательность: обязательно\nЧто указать: обозначение справочника (классификатора), в соответствии с которым указан код\nПример: 123456",
+              "condition_description": null,
+              "condition_ref": null,
+              "policy_reason": "Существующая модель не определяет, кто предоставляет значение; автоматизация не предполагается.",
+              "normative_input_policy": "UNRESOLVED_INPUT_POLICY",
+              "ui_input_policy": "USER_INPUT",
+              "ui_policy_origin": "PROJECT_UI_DEFAULT",
+              "ui_policy_reason": "Project UX fallback: no automatic, classifier, external, conditional or structural source applies.",
+              "example_origin": "DATATYPE_EXAMPLE",
+              "no_example_reason": null,
+              "unresolved_ui_reason": null,
+              "conditional_machine_evaluable": false,
+              "condition_result": null,
+              "manual_edit_allowed": true,
+              "show_today_button": false,
+              "show_date_picker": false,
+              "show_now_button": false,
+              "show_timezone_picker": false,
+              "show_identifier_generator": false,
+              "supports_file_picker": false,
+              "assisted_input_kind": null,
+              "pattern": null,
+              "effective_message_policy": null,
+              "message_policy_condition": null,
+              "message_policy_external_dependency": null,
+              "message_policy_req_ids": [],
+              "message_policy_notes": null,
+              "message_policy_materialize_when_parent_present": false
+            }
+          ],
+          "official_name": "Код вида юридически значимого действия (ipsdo:IPLegalActionKindCode)",
+          "xml_qname": "ipsdo:IPLegalActionKindCode",
+          "example_value": null,
+          "cardinality_display": "0..1",
+          "input_policy": "STRUCTURAL_CONTAINER",
+          "value_source": "NOT_APPLICABLE",
+          "help_text": "Назначение: кодовое обозначение вида юридически значимого действия\nНормативный источник значения: NOT_APPLICABLE\nСпособ заполнения в программе: группа реквизитов\nОбязательность: необязательно\nЧто указать: кодовое обозначение вида юридически значимого действия",
+          "condition_description": null,
+          "condition_ref": null,
+          "policy_reason": null,
+          "normative_input_policy": "STRUCTURAL_CONTAINER",
+          "ui_input_policy": "GROUP",
+          "ui_policy_origin": "DERIVED_FROM_MODEL",
+          "ui_policy_reason": "Complex container is presented as a visual group.",
+          "example_origin": "UNAVAILABLE",
+          "no_example_reason": "OTHER",
+          "unresolved_ui_reason": null,
+          "conditional_machine_evaluable": false,
+          "condition_result": null,
+          "manual_edit_allowed": false,
+          "show_today_button": false,
+          "show_date_picker": false,
+          "show_now_button": false,
+          "show_timezone_picker": false,
+          "show_identifier_generator": false,
+          "supports_file_picker": false,
+          "assisted_input_kind": null,
+          "pattern": null,
+          "effective_message_policy": null,
+          "message_policy_condition": null,
+          "message_policy_external_dependency": null,
+          "message_policy_req_ids": [],
+          "message_policy_notes": null,
+          "message_policy_materialize_when_parent_present": false
+        },
+        "resolver": null
+      },
+      "ipsdo:IPLegalActionKindName": {
+        "get_form": {
+          "path": "ipsdo:IPLegalActionKindName",
+          "xml_name": "IPLegalActionKindName",
+          "display_name": "Наименование вида юридически значимого действия",
+          "description": "наименование вида юридически значимого действия",
+          "kind": "ELEMENT",
+          "datatype": "csdo:Name500Type",
+          "required": false,
+          "min_occurs": 0,
+          "max_occurs": 1,
+          "is_attribute": false,
+          "repeatable": false,
+          "allowed_values": [],
+          "fixed_value": null,
+          "default_value": null,
+          "classifier": null,
+          "editable": true,
+          "visibility": "VISIBLE",
+          "validation_hints": [
+            "csdo:Name500Type (M.SDT.00134) Нормализованная строка символов. Мин. длина: 1. Макс. длина: 500"
+          ],
+          "status": "CONFIRMED",
+          "source_refs": [
+            "23OP-R.IP.SP.03.003-4"
+          ],
+          "children": [],
+          "official_name": "Наименование вида юридически значимого действия (ipsdo:IPLegalActionKindName)",
+          "xml_qname": "ipsdo:IPLegalActionKindName",
+          "example_value": "Пример текстового значения",
+          "cardinality_display": "0..1",
+          "input_policy": "UNRESOLVED_INPUT_POLICY",
+          "value_source": "UNKNOWN",
+          "help_text": "Назначение: наименование вида юридически значимого действия\nНормативный источник значения: не установлен отдельным правилом\nСпособ заполнения в программе: вводится пользователем\nОбязательность: необязательно\nЧто указать: наименование вида юридически значимого действия\nПример: Пример текстового значения",
+          "condition_description": null,
+          "condition_ref": null,
+          "policy_reason": "Существующая модель не определяет, кто предоставляет значение; автоматизация не предполагается.",
+          "normative_input_policy": "UNRESOLVED_INPUT_POLICY",
+          "ui_input_policy": "USER_INPUT",
+          "ui_policy_origin": "PROJECT_UI_DEFAULT",
+          "ui_policy_reason": "Project UX fallback: no automatic, classifier, external, conditional or structural source applies.",
+          "example_origin": "DATATYPE_EXAMPLE",
+          "no_example_reason": null,
+          "unresolved_ui_reason": null,
+          "conditional_machine_evaluable": false,
+          "condition_result": null,
+          "manual_edit_allowed": true,
+          "show_today_button": false,
+          "show_date_picker": false,
+          "show_now_button": false,
+          "show_timezone_picker": false,
+          "show_identifier_generator": false,
+          "supports_file_picker": false,
+          "assisted_input_kind": null,
+          "pattern": null,
+          "effective_message_policy": null,
+          "message_policy_condition": null,
+          "message_policy_external_dependency": null,
+          "message_policy_req_ids": [],
+          "message_policy_notes": null,
+          "message_policy_materialize_when_parent_present": false
+        },
+        "resolver": null
+      }
+    },
+    "result": "SOURCE_BLOCKED",
+    "dependency_status": "STILL_EXTERNAL",
+    "reason": "T72 REQ4/5 depend on publication and payload of the named legal-action reference. No authoritative payload/publication-state artifact is identified in the local source registry or normative_classifier_data. Code absence is not proof of reference absence. Name-branch tests are implementation evidence only; code membership cannot be certified.",
+    "local_source_inventory": [
+      ".DS_Store",
+      "120 решене.doc",
+      "120 решене.pdf",
+      "148 решение.pdf",
+      "184 решение.pdf",
+      "192 решение .pdf",
+      "26_ОП.pdf",
+      "32_ОП.pdf",
+      "35.1 ОП.pdf",
+      "378 решение.pdf",
+      "49_ОП.pdf",
+      "5 решение.doc",
+      "5 решение.pdf",
+      "52 решение.pdf",
+      "54 решение.pdf",
+      "89 решение.pdf",
+      "92 решение.pdf",
+      "OP22_P_SP_02_FINAL_3_WORD/.DS_Store",
+      "OP22_P_SP_02_FINAL_3_WORD/01_OP22_Недостаточность_данных.docx",
+      "OP22_P_SP_02_FINAL_3_WORD/02_OP22_Расхождения_и_неоднозначности.docx",
+      "OP22_P_SP_02_FINAL_3_WORD/03_OP22_Неполное_production_покрытие.docx",
+      "WIPO Standard ST.3.pdf",
+      "XML/.DS_Store",
+      "XML/.obsidian/.DS_Store",
+      "XML/.obsidian/app.json",
+      "XML/.obsidian/appearance.json",
+      "XML/.obsidian/community-plugins.json",
+      "XML/.obsidian/core-plugins.json",
+      "XML/.obsidian/graph.json",
+      "XML/.obsidian/plugins/.DS_Store",
+      "XML/.obsidian/plugins/new-tab-default-page/data.json",
+      "XML/.obsidian/plugins/new-tab-default-page/main.js",
+      "XML/.obsidian/plugins/new-tab-default-page/manifest.json",
+      "XML/.obsidian/plugins/new-tab-default-page/styles.css",
+      "XML/.obsidian/plugins/obsidian-daily-notes-opener/main.js",
+      "XML/.obsidian/plugins/obsidian-daily-notes-opener/manifest.json",
+      "XML/.obsidian/plugins/obsidian-daily-notes-opener/styles.css",
+      "XML/.obsidian/plugins/obsidian-icon-folder/data.json",
+      "XML/.obsidian/plugins/obsidian-icon-folder/main.js",
+      "XML/.obsidian/plugins/obsidian-icon-folder/manifest.json",
+      "XML/.obsidian/plugins/obsidian-icon-folder/styles.css",
+      "XML/.obsidian/workspace.json",
+      "XML/49 оп.md",
+      "XML/ГИС_ДТС/ГИС ДТС запрос и ответ.md",
+      "XML/ГИС_ИШ/.DS_Store",
+      "XML/ГИС_ИШ/ОП 26/R.HC.MM.01.001 - сведения о регистрации лекарственного препарата**.md",
+      "XML/ГИС_ИШ/ОП 26/R.HC.MM.01.002.md",
+      "XML/ГИС_ИШ/ОП 26/R.HC.MM.01.003.md",
+      "XML/ГИС_ИШ/ОП 26/R.HC.MM.01.004.md",
+      "XML/ГИС_ИШ/ОП 26/R.HC.MM.01.006.md",
+      "XML/ГИС_ИШ/ОП 26/R.HC.MM.01.007.md",
+      "XML/ГИС_ИШ/ОП 26/Взаимосвязь между R, TRN, MSG.md",
+      "XML/ГИС_ИШ/ОП 26/Решение №68.md",
+      "XML/ГИС_ИШ/ОП 26/Структура R.006 — «Уведомление о результате обработки».md",
+      "XML/ГИС_ИШ/ОП 26/Структура R.007 — «Состояние актуализации общего ресурса».md",
+      "XML/ГИС_ИШ/Решение №5/Решение №5.md",
+      "ОП_22.pdf",
+      "ОП_23.pdf",
+      "Требования к форматам составу передаваемой информации (ГИС ДТС РФ).docx",
+      "оп_22 обновление свединий.rtf"
+    ],
+    "classifier_inventory": [
+      "P.SP.02_OP_22/normative_classifier_data/P.CLS.027.yaml"
+    ],
+    "scenarios": {
+      "name_branch": {
+        "xml": "cv04_name_branch.xml",
+        "sha256": "2319149e87282537e922c9545b80beefb09d68a4d354e8b47f64910aff561b65",
+        "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+        "extraction_issues": [],
+        "valid": true,
+        "complete": true,
+        "rule_results": {
+          "P.SP.02.MSG.054.T72.REQ.4": "PASS",
+          "P.SP.02.MSG.054.T72.REQ.5.PRESENCE": "PASS",
+          "P.SP.02.MSG.054.T72.REQ.5.VALUE": "PASS"
+        },
+        "issues": []
+      },
+      "bad_name": {
+        "xml": "cv04_bad_name.xml",
+        "sha256": "60bd140f1072962ef05522b8940d51b1c9dde98a6c8e17148bb27ebb8ba517a9",
+        "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+        "extraction_issues": [],
+        "valid": false,
+        "complete": false,
+        "rule_results": {
+          "P.SP.02.MSG.054.T72.REQ.4": "PASS",
+          "P.SP.02.MSG.054.T72.REQ.5.PRESENCE": "PASS",
+          "P.SP.02.MSG.054.T72.REQ.5.VALUE": "FAIL"
+        },
+        "issues": [
+          {
+            "rule_id": "P.SP.02.MSG.054.T72.REQ.5.VALUE",
+            "code": "STRUCTURED_RULE_FAILED"
+          }
+        ]
+      },
+      "missing_name": {
+        "xml": "cv04_missing_name.xml",
+        "sha256": "1ed4f70f39b2ba470e0811c762457fed60a40f95431133a0bb2c388ebb725d7f",
+        "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+        "extraction_issues": [],
+        "valid": false,
+        "complete": false,
+        "rule_results": {
+          "P.SP.02.MSG.054.T72.REQ.4": "PASS",
+          "P.SP.02.MSG.054.T72.REQ.5.PRESENCE": "FAIL",
+          "P.SP.02.MSG.054.T72.REQ.5.VALUE": "FAIL"
+        },
+        "issues": [
+          {
+            "rule_id": "P.SP.02.MSG.054.T72.REQ.5.PRESENCE",
+            "code": "STRUCTURED_RULE_FAILED"
+          },
+          {
+            "rule_id": "P.SP.02.MSG.054.T72.REQ.5.VALUE",
+            "code": "STRUCTURED_RULE_FAILED"
+          }
+        ]
+      },
+      "both": {
+        "xml": "cv04_both.xml",
+        "sha256": "d3c3c7f856db7f3774ff018d0cc32bcdb88366b5da836a5a427e4463f650943a",
+        "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+        "extraction_issues": [],
+        "valid": false,
+        "complete": false,
+        "rule_results": {
+          "P.SP.02.MSG.054.T72.REQ.4": "FAIL",
+          "P.SP.02.MSG.054.T72.REQ.5.PRESENCE": "PASS",
+          "P.SP.02.MSG.054.T72.REQ.5.VALUE": "PASS"
+        },
+        "issues": [
+          {
+            "rule_id": null,
+            "code": "MIN_OCCURS"
+          },
+          {
+            "rule_id": "P.SP.02.MSG.054.T72.REQ.4",
+            "code": "STRUCTURED_RULE_FAILED"
+          }
+        ]
+      },
+      "unverified_code_only": {
+        "xml": "cv04_unverified_code_only.xml",
+        "sha256": "f2afe9d47592d02c5e0d7178a472ffeed9f3bb3b44332e44a8dd7aca07505807",
+        "root_qname": "{urn:EEC:R:IP:SP:03:IPDutyDetails:v1.0.0}IPDutyDetails",
+        "extraction_issues": [],
+        "valid": false,
+        "complete": true,
+        "rule_results": {
+          "P.SP.02.MSG.054.T72.REQ.4": "PASS",
+          "P.SP.02.MSG.054.T72.REQ.5.PRESENCE": "PASS",
+          "P.SP.02.MSG.054.T72.REQ.5.VALUE": "PASS"
+        },
+        "issues": [
+          {
+            "rule_id": null,
+            "code": "MIN_OCCURS"
+          }
+        ]
+      }
+    }
+  },
+  "15": {
+    "process": "P.SP.03",
+    "transaction": "P.SP.03.TRN.001",
+    "message": "P.SP.03.MSG.001",
+    "requirements": [
+      "P.SP.03.MSG.001.REQ.021.or_language"
+    ],
+    "result": "PASS",
+    "field": {
+      "ipcdo:ApellationOfOriginApplicationDetails/ipcdo:IPPartyDetails/ipsdo:IPSubjectName/@languageCode": {
+        "get_form": {
+          "path": "ipcdo:ApellationOfOriginApplicationDetails/ipcdo:IPPartyDetails/ipsdo:IPSubjectName/@languageCode",
+          "xml_name": "languageCode",
+          "display_name": "код языка (атрибут languageCode)",
+          "description": "код языка в исходном (оригинальном) представлении сведений",
+          "kind": "ATTRIBUTE",
+          "datatype": "csdo:LanguageCodeType",
+          "required": false,
+          "min_occurs": 0,
+          "max_occurs": 1,
+          "is_attribute": true,
+          "repeatable": false,
+          "allowed_values": [],
+          "fixed_value": null,
+          "default_value": null,
+          "classifier": null,
+          "editable": true,
+          "visibility": "VISIBLE",
+          "validation_hints": [
+            "csdo:LanguageCodeType (M.SDT.00051) Двухбуквенный код языка в соответствии с ISO 639-1. Шаблон: [a-z]{2}"
+          ],
+          "status": "CONFIRMED",
+          "source_refs": [
+            "23OP-R.IP.SP.03.001-2-9-3-languageCode"
+          ],
+          "children": [],
+          "official_name": "код языка (атрибут languageCode)",
+          "xml_qname": "languageCode",
+          "example_value": "ru",
+          "cardinality_display": "0..1",
+          "input_policy": "UNRESOLVED_INPUT_POLICY",
+          "value_source": "UNKNOWN",
+          "help_text": "Назначение: код языка в исходном (оригинальном) представлении сведений\nНормативный источник значения: не установлен отдельным правилом\nСпособ заполнения в программе: вводится пользователем\nОбязательность: необязательно\nЧто указать: код языка в исходном (оригинальном) представлении сведений\nПример: ru",
+          "condition_description": null,
+          "condition_ref": null,
+          "policy_reason": "Существующая модель не определяет, кто предоставляет значение; автоматизация не предполагается.",
+          "normative_input_policy": "UNRESOLVED_INPUT_POLICY",
+          "ui_input_policy": "USER_INPUT",
+          "ui_policy_origin": "PROJECT_UI_DEFAULT",
+          "ui_policy_reason": "Project UX fallback: no automatic, classifier, external, conditional or structural source applies.",
+          "example_origin": "DATATYPE_EXAMPLE",
+          "no_example_reason": null,
+          "unresolved_ui_reason": null,
+          "conditional_machine_evaluable": false,
+          "condition_result": null,
+          "manual_edit_allowed": true,
+          "show_today_button": false,
+          "show_date_picker": false,
+          "show_now_button": false,
+          "show_timezone_picker": false,
+          "show_identifier_generator": false,
+          "supports_file_picker": false,
+          "assisted_input_kind": null,
+          "pattern": null,
+          "effective_message_policy": null,
+          "message_policy_condition": null,
+          "message_policy_external_dependency": null,
+          "message_policy_req_ids": [],
+          "message_policy_notes": null,
+          "message_policy_materialize_when_parent_present": false
+        },
+        "resolver": null
+      }
+    },
+    "positive": {
+      "xml": "cv15_op23_positive.xml",
+      "sha256": "1dc63efea5b705c35ac6eedc6ae069de9faa393695e90107cf501ba475771619",
+      "root_qname": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegistrationDetails:v1.0.0}ApellationOfOriginRegistrationDetails",
+      "extraction_issues": [],
+      "valid": true,
+      "complete": true,
+      "rule_results": {
+        "P.SP.03.MSG.001.REQ.021.or_language": "PASS"
+      },
+      "issues": []
+    },
+    "negative": {
+      "xml": "cv15_op23_missing_language.xml",
+      "sha256": "cd8fb403c26607146e850f8c36ed25889c1f8453eeffde946b45c6ec74cd5ea5",
+      "root_qname": "{urn:EEC:R:IP:SP:03:ApellationOfOriginRegistrationDetails:v1.0.0}ApellationOfOriginRegistrationDetails",
+      "extraction_issues": [],
+      "valid": false,
+      "complete": false,
+      "rule_results": {
+        "P.SP.03.MSG.001.REQ.021.or_language": "FAIL"
+      },
+      "issues": [
+        {
+          "rule_id": "P.SP.03.MSG.001.REQ.021.or_language",
+          "code": "STRUCTURED_RULE_FAILED"
+        }
+      ]
+    }
+  }
+}

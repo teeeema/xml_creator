@@ -1,7 +1,7 @@
 ---
 layer: "SOURCE"
 generated_by: "knowledge_base/tools/build_kb.py"
-checked_at: "2026-10-07T12:06:31+03:00"
+checked_at: "2026-10-13T12:40:41+03:00"
 ---
 
 # Stale Sources

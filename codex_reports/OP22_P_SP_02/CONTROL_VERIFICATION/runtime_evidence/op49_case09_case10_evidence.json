@@ -1,0 +1,671 @@
+{
+  "case_ids": [
+    9,
+    10
+  ],
+  "process": "P.DS.01",
+  "transaction": "P.DS.01.TRN.001",
+  "message": "P.DS.01.MSG.001",
+  "requirements": [
+    "P.DS.01.MSG.001.R002",
+    "P.DS.01.MSG.001.R003"
+  ],
+  "normative_source": {
+    "file": "/Users/tema/Documents/Work/Документы_xml/49_ОП.pdf",
+    "sha256": "81f82f343650ea19bb293ef7f45d86c57e9195e0cef315e4d190ab47e6d8bae8",
+    "pdf_page_1_based": 79,
+    "table": 10,
+    "R002": "one DailyInfoIndicator=1 entry in ChargedDistributedDutyDetails",
+    "R003": "zero DailyInfoIndicator=0 entries in ChargedDistributedDutyDetails"
+  },
+  "get_form": {
+    "executed": true,
+    "message": "P.DS.01.MSG.001",
+    "generation_status": "VERSION_PLACEHOLDER_TEST",
+    "field_evidence": [
+      {
+        "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails",
+        "xml_qname": "ds01cdo:ChargedDistributedDutyDetails",
+        "structural_required": true,
+        "effective_message_policy": null,
+        "message_policy_req_ids": [],
+        "min_occurs": 1,
+        "max_occurs": 2,
+        "editable": false,
+        "input_policy": "STRUCTURAL_CONTAINER"
+      },
+      {
+        "path": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01sdo:DailyInfoIndicator",
+        "xml_qname": "ds01sdo:DailyInfoIndicator",
+        "structural_required": true,
+        "effective_message_policy": null,
+        "message_policy_req_ids": [],
+        "min_occurs": 1,
+        "max_occurs": 1,
+        "editable": true,
+        "input_policy": "UNRESOLVED_INPUT_POLICY"
+      }
+    ]
+  },
+  "effective_resolver": {
+    "executed": true,
+    "policy_count": 1,
+    "all_resolved_paths": [
+      "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01sdo:ModificationDateTime"
+    ],
+    "rule_scope": [
+      {
+        "rule_id": "P.DS.01.MSG.001.R002",
+        "kind": "selection_cardinality",
+        "source_refs": [
+          {
+            "source_id": "49OP-P.DS.01.MSG.001-R002",
+            "document": "49 ОП.pdf",
+            "location": "Таблица 10",
+            "status": "CONFIRMED",
+            "page": 79,
+            "table": "10"
+          }
+        ],
+        "selector": {
+          "collection": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails",
+          "where": {
+            "field": "ds01sdo:DailyInfoIndicator",
+            "operator": "EQ",
+            "value": true
+          }
+        },
+        "min_occurs": 1,
+        "max_occurs": 1
+      },
+      {
+        "rule_id": "P.DS.01.MSG.001.R003",
+        "kind": "selection_cardinality",
+        "source_refs": [
+          {
+            "source_id": "49OP-P.DS.01.MSG.001-R003",
+            "document": "49 ОП.pdf",
+            "location": "Таблица 10",
+            "status": "CONFIRMED",
+            "page": 79,
+            "table": "10"
+          }
+        ],
+        "selector": {
+          "collection": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails",
+          "where": {
+            "field": "ds01sdo:DailyInfoIndicator",
+            "operator": "EQ",
+            "value": false
+          }
+        },
+        "min_occurs": 0,
+        "max_occurs": 0
+      }
+    ],
+    "indicator_static_policy": null
+  },
+  "validator": {
+    "direct_positive": {
+      "valid": true,
+      "complete": false,
+      "issue_codes": [],
+      "rule_results": {
+        "P.DS.01.MSG.001.R002": {
+          "status": "PASS",
+          "message": "Selection cardinality evaluated.",
+          "source_refs": [
+            {
+              "source_id": "49OP-P.DS.01.MSG.001-R002",
+              "document": "49 ОП.pdf",
+              "location": "Таблица 10",
+              "status": "CONFIRMED",
+              "page": 79,
+              "table": "10"
+            }
+          ]
+        },
+        "P.DS.01.MSG.001.R003": {
+          "status": "PASS",
+          "message": "Selection cardinality evaluated.",
+          "source_refs": [
+            {
+              "source_id": "49OP-P.DS.01.MSG.001-R003",
+              "document": "49 ОП.pdf",
+              "location": "Таблица 10",
+              "status": "CONFIRMED",
+              "page": 79,
+              "table": "10"
+            }
+          ]
+        }
+      }
+    },
+    "direct_negative": {
+      "two_true": {
+        "valid": false,
+        "complete": false,
+        "issue_codes": [
+          "STRUCTURED_RULE_FAILED"
+        ],
+        "rule_results": {
+          "P.DS.01.MSG.001.R002": {
+            "status": "FAIL",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R002",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          },
+          "P.DS.01.MSG.001.R003": {
+            "status": "PASS",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R003",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          }
+        }
+      },
+      "true_plus_false": {
+        "valid": false,
+        "complete": false,
+        "issue_codes": [
+          "STRUCTURED_RULE_FAILED"
+        ],
+        "rule_results": {
+          "P.DS.01.MSG.001.R002": {
+            "status": "PASS",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R002",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          },
+          "P.DS.01.MSG.001.R003": {
+            "status": "FAIL",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R003",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          }
+        }
+      },
+      "only_false": {
+        "valid": false,
+        "complete": false,
+        "issue_codes": [
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED"
+        ],
+        "rule_results": {
+          "P.DS.01.MSG.001.R002": {
+            "status": "FAIL",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R002",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          },
+          "P.DS.01.MSG.001.R003": {
+            "status": "FAIL",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R003",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          }
+        }
+      },
+      "no_indicators": {
+        "valid": false,
+        "complete": false,
+        "issue_codes": [
+          "MIN_OCCURS",
+          "MIN_OCCURS",
+          "STRUCTURED_RULE_FAILED"
+        ],
+        "rule_results": {
+          "P.DS.01.MSG.001.R002": {
+            "status": "FAIL",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R002",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          },
+          "P.DS.01.MSG.001.R003": {
+            "status": "PASS",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R003",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "xml_proof": {
+    "generated_positive": {
+      "xml_file": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op49_case09_generated_positive.xml",
+      "root_qname": "{urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0}ChargedDistributedReport",
+      "entry_count": 1,
+      "indicator_lexical_values": [
+        "true"
+      ],
+      "extracted_indicator_value": "true",
+      "extract_issue_codes": [],
+      "validation": {
+        "valid": true,
+        "complete": false,
+        "issue_codes": [],
+        "rule_results": {
+          "P.DS.01.MSG.001.R002": {
+            "status": "PASS",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R002",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          },
+          "P.DS.01.MSG.001.R003": {
+            "status": "PASS",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R003",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          }
+        }
+      },
+      "diagnostic_indicator_type_conversion_only": {
+        "valid": true,
+        "complete": false,
+        "issue_codes": [],
+        "rule_results": {
+          "P.DS.01.MSG.001.R002": {
+            "status": "PASS",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R002",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          },
+          "P.DS.01.MSG.001.R003": {
+            "status": "PASS",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R003",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "duplicate_true": {
+      "xml_file": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op49_case09_duplicate_true.xml",
+      "root_qname": "{urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0}ChargedDistributedReport",
+      "entry_count": 2,
+      "indicator_lexical_values": [
+        "true",
+        "true"
+      ],
+      "extracted_indicator_value": [
+        "true",
+        "true"
+      ],
+      "extract_issue_codes": [],
+      "validation": {
+        "valid": false,
+        "complete": false,
+        "issue_codes": [
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED"
+        ],
+        "rule_results": {
+          "P.DS.01.MSG.001.R002": {
+            "status": "FAIL",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R002",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          },
+          "P.DS.01.MSG.001.R003": {
+            "status": "PASS",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R003",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          }
+        }
+      },
+      "diagnostic_indicator_type_conversion_only": {
+        "valid": false,
+        "complete": false,
+        "issue_codes": [
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED"
+        ],
+        "rule_results": {
+          "P.DS.01.MSG.001.R002": {
+            "status": "FAIL",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R002",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          },
+          "P.DS.01.MSG.001.R003": {
+            "status": "PASS",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R003",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "add_forbidden_false": {
+      "xml_file": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op49_case09_add_forbidden_false.xml",
+      "root_qname": "{urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0}ChargedDistributedReport",
+      "entry_count": 2,
+      "indicator_lexical_values": [
+        "true",
+        "false"
+      ],
+      "extracted_indicator_value": [
+        "true",
+        "false"
+      ],
+      "extract_issue_codes": [],
+      "validation": {
+        "valid": false,
+        "complete": false,
+        "issue_codes": [
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED"
+        ],
+        "rule_results": {
+          "P.DS.01.MSG.001.R002": {
+            "status": "PASS",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R002",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          },
+          "P.DS.01.MSG.001.R003": {
+            "status": "FAIL",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R003",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          }
+        }
+      },
+      "diagnostic_indicator_type_conversion_only": {
+        "valid": false,
+        "complete": false,
+        "issue_codes": [
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED"
+        ],
+        "rule_results": {
+          "P.DS.01.MSG.001.R002": {
+            "status": "PASS",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R002",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          },
+          "P.DS.01.MSG.001.R003": {
+            "status": "FAIL",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R003",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "replace_daily_with_false": {
+      "xml_file": "/Users/tema/Documents/Work/xml_creator/codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/op49_case09_replace_daily_with_false.xml",
+      "root_qname": "{urn:EEC:R:FP:DS:01:ChargedDistributedReport:v1.0.0}ChargedDistributedReport",
+      "entry_count": 1,
+      "indicator_lexical_values": [
+        "false"
+      ],
+      "extracted_indicator_value": "false",
+      "extract_issue_codes": [],
+      "validation": {
+        "valid": false,
+        "complete": false,
+        "issue_codes": [
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED"
+        ],
+        "rule_results": {
+          "P.DS.01.MSG.001.R002": {
+            "status": "FAIL",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R002",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          },
+          "P.DS.01.MSG.001.R003": {
+            "status": "FAIL",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R003",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          }
+        }
+      },
+      "diagnostic_indicator_type_conversion_only": {
+        "valid": false,
+        "complete": false,
+        "issue_codes": [
+          "STRUCTURED_RULE_FAILED",
+          "STRUCTURED_RULE_FAILED"
+        ],
+        "rule_results": {
+          "P.DS.01.MSG.001.R002": {
+            "status": "FAIL",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R002",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          },
+          "P.DS.01.MSG.001.R003": {
+            "status": "FAIL",
+            "message": "Selection cardinality evaluated.",
+            "source_refs": [
+              {
+                "source_id": "49OP-P.DS.01.MSG.001-R003",
+                "document": "49 ОП.pdf",
+                "location": "Таблица 10",
+                "status": "CONFIRMED",
+                "page": 79,
+                "table": "10"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "observation": "XML extraction preserves lexical 'true'/'false' strings. StructuredRuleEvaluator._compare now interprets XML boolean lexicals when the compared rule literal is a Python bool. R002/R003 select the expected instances after actual XML serialization and extraction.",
+  "previous_defect": "Before the shared evaluator fix, generated positive XML failed R002 and a forbidden false entry incorrectly passed R003.",
+  "focused_test_command": "PYTHONPATH=eaeu_xml/src python3.13 -m pytest -q P.DS.01_OP_49/tests/test_msg001_full_message.py P.DS.01_OP_49/tests/test_pds01_catalog.py -k msg001",
+  "focused_test_result": "101 passed, 7 subtests passed in 0.58s (observed on 2026-10-21; includes new XML roundtrip tests)",
+  "scope": "Shared evaluator typed-boolean comparison fix with serialized XML regression tests"
+}

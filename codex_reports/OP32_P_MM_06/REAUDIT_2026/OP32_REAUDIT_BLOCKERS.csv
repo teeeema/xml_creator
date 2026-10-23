@@ -1,0 +1,6 @@
+blocker_category,count,description,unblocking_action
+BLOCKED_XSD,170,"Target XSD schema files not present; targetNamespace of child fields uninstantiated (vX.X.X, vZ.Z.Z)",Obtain official technical XSD schemas from EEC IT Department
+BLOCKED_CLASSIFIER,59,Mandatory classifier code lists missing machine-readable code list payloads,Acquire official NSI releases for P.CLS.* and P.MM.06.CLS.*
+BLOCKED_REGISTRY,11,Requires stateful query contracts with central store or 3 unified registers,Define or acquire EEC integration query service contracts and endpoints
+BLOCKED_ENGINE_CAPABILITY,2,Requires string regex evaluation (MSG.002.REQ.043) or PDF binary inspection (MSG.015.REQ.008),Implement regex operator in StructuredRuleEvaluator; define binary parser
+BLOCKED_SOURCE_CONFLICT,1,Grammatical/semantic corruption in normative text (Table 14 row 47 / MSG.002.REQ.052),Obtain official regulatory clarification from EEC Commission

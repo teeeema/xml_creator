@@ -1,0 +1,94 @@
+{
+  "P.SP.02.MSG.005": {
+    "process": "P.SP.02",
+    "transaction": "P.SP.02.TRN.004",
+    "message": "P.SP.02.MSG.005",
+    "structure": "R.IP.SP.02.002",
+    "version": "1.0.0",
+    "generation_status": "VERSION_PLACEHOLDER_TEST",
+    "blocking_reason": "X.X.X, Z.Z.Z",
+    "IPDocKindCode": {
+      "path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode",
+      "effective_message_policy": "FIXED",
+      "input_policy": "AUTO_FIXED",
+      "ui_input_policy": "READ_ONLY",
+      "editable": false,
+      "manual_edit_allowed": false,
+      "readonly": true,
+      "fixed_value": "07360",
+      "required": true,
+      "visibility": "VISIBLE",
+      "source_refs": [
+        "22OP-R.IP.SP.02.002-2.1"
+      ],
+      "affected_by_req": [
+        "P.SP.02.MSG.005.T39.REQ.2"
+      ]
+    },
+    "IPDocKindName": {
+      "path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName",
+      "effective_message_policy": "FORBIDDEN",
+      "input_policy": "UNRESOLVED_INPUT_POLICY",
+      "ui_input_policy": "HIDDEN",
+      "editable": false,
+      "manual_edit_allowed": false,
+      "readonly": true,
+      "fixed_value": null,
+      "required": false,
+      "visibility": "HIDDEN",
+      "source_refs": [
+        "22OP-R.IP.SP.02.002-2.2"
+      ],
+      "affected_by_req": [
+        "P.SP.02.MSG.005.T39.REQ.2"
+      ]
+    }
+  },
+  "P.SP.02.MSG.001": {
+    "process": "P.SP.02",
+    "transaction": "P.SP.02.TRN.001",
+    "message": "P.SP.02.MSG.001",
+    "structure": "R.IP.SP.02.002",
+    "version": "1.0.0",
+    "generation_status": "VERSION_PLACEHOLDER_TEST",
+    "blocking_reason": "X.X.X, Z.Z.Z",
+    "IPDocKindCode": {
+      "path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode",
+      "effective_message_policy": "FIXED",
+      "input_policy": "AUTO_FIXED",
+      "ui_input_policy": "READ_ONLY",
+      "editable": false,
+      "manual_edit_allowed": false,
+      "readonly": true,
+      "fixed_value": "07220",
+      "required": true,
+      "visibility": "VISIBLE",
+      "source_refs": [
+        "22OP-R.IP.SP.02.002-2.1"
+      ],
+      "affected_by_req": [
+        "P.SP.02.MSG.001.REQ.004",
+        "P.SP.02.MSG.001.REQ.005"
+      ]
+    },
+    "IPDocKindName": {
+      "path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName",
+      "effective_message_policy": "FORBIDDEN",
+      "input_policy": "UNRESOLVED_INPUT_POLICY",
+      "ui_input_policy": "HIDDEN",
+      "editable": false,
+      "manual_edit_allowed": false,
+      "readonly": true,
+      "fixed_value": null,
+      "required": false,
+      "visibility": "HIDDEN",
+      "source_refs": [
+        "22OP-R.IP.SP.02.002-2.2"
+      ],
+      "affected_by_req": [
+        "P.SP.02.MSG.001.REQ.004",
+        "P.SP.02.MSG.001.REQ.005"
+      ]
+    }
+  }
+}

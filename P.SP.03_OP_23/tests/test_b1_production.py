@@ -1121,10 +1121,21 @@ def _append_origin(message: str, application: ET.Element):
 
 def _msg011_document():
     message = "P.SP.03.MSG.011"
-    document = _raw_generated_document(message)
+    document = _raw_register_document(message)
     structure = EaeuXmlEngine.load_process(PACKAGE).get_structure(message, mode=GenerationMode.TEST)
     namespaces = structure.imported_namespaces
-    item = next(element for element in document if element.tag.endswith("}ApellationOfOriginRegisterItemDetails"))
+    items = [element for element in document if element.tag.endswith("}ApellationOfOriginRegisterItemDetails")]
+    item = items[0]
+    for extra in items[1:]:
+        document.remove(extra)
+    _normalise_register_item(item, namespaces, "RH")
+    geographic = next(
+        element
+        for element in item.iter()
+        if element.tag.endswith("}GeographicRegionDescriptionTextDetails")
+    )
+    geo_country = _ensure_child(geographic, namespaces["csdo"], "UnifiedCountryCode", "RU")
+    geo_country.set("codeListId", "ВОИС ST.3")
     authority = _ensure_child(item, namespaces["ipcdo"], "PatentAuthorityDetails")
     country = _ensure_child(authority, namespaces["csdo"], "UnifiedCountryCode", "RU")
     country.set("codeListId", "ВОИС ST.3")
@@ -1135,6 +1146,10 @@ def _msg011_document():
     resource = _ensure_child(item, namespaces["ccdo"], "ResourceItemStatusDetails")
     period = _ensure_child(resource, namespaces["ccdo"], "ValidityPeriodDetails")
     _ensure_child(period, namespaces["csdo"], "StartDateTime", "2026-10-06T10:00:00+03:00")
+    status = _ensure_child(item, namespaces["ipcdo"], "IPEntityStatusDetails")
+    _ensure_child(status, namespaces["csdo"], "EventDate", "2026-10-06")
+    status_code = _ensure_child(status, namespaces["csdo"], "StatusCode", "10")
+    status_code.attrib.pop("codeListId", None)
     end = _direct_child(period, "EndDateTime")
     if end is not None:
         period.remove(end)
@@ -1163,8 +1178,8 @@ def _append_msg011_communication(item: ET.Element):
     message = "P.SP.03.MSG.011"
     structure = EaeuXmlEngine.load_process(PACKAGE).get_structure(message, mode=GenerationMode.TEST)
     namespaces = structure.imported_namespaces
-    correspondence = ET.SubElement(item, f"{{{namespaces['ipcdo']}}}CorrespondenceAddressDetails")
-    communication = ET.SubElement(correspondence, f"{{{namespaces['ccdo']}}}CommunicationDetails")
+    correspondence = _ensure_child(item, namespaces["ipcdo"], "CorrespondenceAddressDetails")
+    communication = _ensure_child(correspondence, namespaces["ccdo"], "CommunicationDetails")
     _normalise_communication(communication, namespaces)
     return communication
 
@@ -1172,10 +1187,21 @@ def _append_msg011_communication(item: ET.Element):
 def _register_rule_document(message: str, *, require_attachment: bool = False):
     if message == "P.SP.03.MSG.013":
         return _two_register_document(message)
-    document = _raw_generated_document(message)
+    document = _raw_register_document(message)
     structure = EaeuXmlEngine.load_process(PACKAGE).get_structure(message, mode=GenerationMode.TEST)
     namespaces = structure.imported_namespaces
-    item = next(element for element in document if element.tag.endswith("}ApellationOfOriginRegisterItemDetails"))
+    items = [element for element in document if element.tag.endswith("}ApellationOfOriginRegisterItemDetails")]
+    item = items[0]
+    for extra in items[1:]:
+        document.remove(extra)
+    _normalise_register_item(item, namespaces, "RH")
+    geographic = next(
+        element
+        for element in item.iter()
+        if element.tag.endswith("}GeographicRegionDescriptionTextDetails")
+    )
+    geo_country = _ensure_child(geographic, namespaces["csdo"], "UnifiedCountryCode", "RU")
+    geo_country.set("codeListId", "ВОИС ST.3")
     authority = _ensure_child(item, namespaces["ipcdo"], "PatentAuthorityDetails")
     country = _ensure_child(authority, namespaces["csdo"], "UnifiedCountryCode", "RU")
     country.set("codeListId", "ВОИС ST.3")
@@ -1186,11 +1212,53 @@ def _register_rule_document(message: str, *, require_attachment: bool = False):
     resource = _ensure_child(item, namespaces["ccdo"], "ResourceItemStatusDetails")
     period = _ensure_child(resource, namespaces["ccdo"], "ValidityPeriodDetails")
     _ensure_child(period, namespaces["csdo"], "StartDateTime", "2026-10-06T10:00:00+03:00")
-    end = _direct_child(period, "EndDateTime")
-    if end is not None:
-        period.remove(end)
+    status = _ensure_child(item, namespaces["ipcdo"], "IPEntityStatusDetails")
+    _ensure_child(status, namespaces["csdo"], "EventDate", "2026-10-06")
+    status_code = _ensure_child(status, namespaces["csdo"], "StatusCode", "10")
+    status_code.attrib.pop("codeListId", None)
+
+    if message in {"P.SP.03.MSG.004", "P.SP.03.MSG.011"}:
+        end = _direct_child(period, "EndDateTime")
+        if end is not None:
+            period.remove(end)
+
+    if message in {"P.SP.03.MSG.014", "P.SP.03.MSG.015"}:
+        first_period = period
+        _ensure_child(first_period, namespaces["csdo"], "EndDateTime", "2026-10-07T10:00:00+03:00")
+        second = deepcopy(item)
+        document.append(second)
+        second_period = next(element for element in second.iter() if element.tag.endswith("}ValidityPeriodDetails"))
+        _ensure_child(second_period, namespaces["csdo"], "StartDateTime", "2026-10-08T10:00:00+03:00")
+        if message == "P.SP.03.MSG.014":
+            second_right = next(
+                element
+                for element in second
+                if element.tag.endswith("}ApellationOfOriginEAEURightDetails")
+            )
+            next(
+                element
+                for element in second_right
+                if element.tag.endswith("}DocValidityDate")
+            ).text = "2031-01-01"
+            end = _direct_child(second_period, "EndDateTime")
+            if end is not None:
+                second_period.remove(end)
+        second_status = _ensure_child(second, namespaces["ipcdo"], "IPEntityStatusDetails")
+        _ensure_child(second_status, namespaces["csdo"], "EventDate", "2026-10-08")
+        second_status_code = _ensure_child(
+            second_status,
+            namespaces["csdo"],
+            "StatusCode",
+            "12" if message == "P.SP.03.MSG.014" else "19",
+        )
+        second_status_code.attrib.pop("codeListId", None)
+
     for attachment in [element for element in item if element.tag.endswith("}AccompanyingDocumentsDetails")]:
         item.remove(attachment)
+    if message in {"P.SP.03.MSG.014", "P.SP.03.MSG.015"}:
+        second = _register_items(document)[1]
+        for attachment in [element for element in second if element.tag.endswith("}AccompanyingDocumentsDetails")]:
+            second.remove(attachment)
     if require_attachment:
         _append_register_attachment(message, item)
     return document
@@ -1209,8 +1277,8 @@ def _append_register_attachment(message: str, item: ET.Element):
 def _append_register_communication(message: str, item: ET.Element):
     structure = EaeuXmlEngine.load_process(PACKAGE).get_structure(message, mode=GenerationMode.TEST)
     namespaces = structure.imported_namespaces
-    correspondence = ET.SubElement(item, f"{{{namespaces['ipcdo']}}}CorrespondenceAddressDetails")
-    communication = ET.SubElement(correspondence, f"{{{namespaces['ccdo']}}}CommunicationDetails")
+    correspondence = _ensure_child(item, namespaces["ipcdo"], "CorrespondenceAddressDetails")
+    communication = _ensure_child(correspondence, namespaces["ccdo"], "CommunicationDetails")
     _normalise_communication(communication, namespaces)
     return communication
 
@@ -1221,9 +1289,13 @@ def test_msg011_req038_goods_properties_attributes_forbidden_real_xml():
     document = _msg011_document()
     item, _, _ = _msg011_parts(document)
     structure = EaeuXmlEngine.load_process(PACKAGE).get_structure(message, mode=GenerationMode.TEST)
-    origin = ET.SubElement(item, f"{{{structure.imported_namespaces['ipcdo']}}}ApellationOfOriginDetails")
-    properties = ET.SubElement(origin, f"{{{structure.imported_namespaces['ipsdo']}}}GoodsPropertiesDescriptionText")
-    properties.text = "Особые свойства товара"
+    origin = next(element for element in item if element.tag.endswith("}ApellationOfOriginDetails"))
+    properties = _ensure_child(
+        origin,
+        structure.imported_namespaces["ipsdo"],
+        "GoodsPropertiesDescriptionText",
+        "Особые свойства товара",
+    )
     _assert_rule_passes(message, document, rule)
     properties.set("featureKindCode", "TEST")
     _assert_rule_fails(message, document, rule)
@@ -1559,9 +1631,13 @@ def test_msg004_req038_047_common_register_rules_real_xml(req, mutation):
     properties = None
     communication = None
     if mutation == "goods_attribute":
-        origin = ET.SubElement(item, f"{{{namespaces['ipcdo']}}}ApellationOfOriginDetails")
-        properties = ET.SubElement(origin, f"{{{namespaces['ipsdo']}}}GoodsPropertiesDescriptionText")
-        properties.text = "Особые свойства товара"
+        origin = next(element for element in item if element.tag.endswith("}ApellationOfOriginDetails"))
+        properties = _ensure_child(
+            origin,
+            namespaces["ipsdo"],
+            "GoodsPropertiesDescriptionText",
+            "Особые свойства товара",
+        )
     elif mutation.startswith("communication"):
         communication = _append_register_communication(message, item)
 
@@ -3517,6 +3593,12 @@ def _two_register_document(message: str, *, kind: str = "RH", identifier_pair: s
     second = deepcopy(first)
     document.append(second)
     _set_identifier_pair(second, namespaces, identifier_pair)
+    if message == "P.SP.03.MSG.007" and kind == "RH":
+        next(
+            element
+            for element in _right_of(second)
+            if element.tag.endswith("}DocValidityDate")
+        ).text = "2031-01-01"
 
     first_period = next(element for element in first.iter() if element.tag.endswith("}ValidityPeriodDetails"))
     second_period = next(element for element in second.iter() if element.tag.endswith("}ValidityPeriodDetails"))
@@ -3904,16 +3986,7 @@ def test_msg008_safe_production_rules_real_xml(rule_id, mutation, identifier_pai
 def test_register_changed_item_end_datetime_forbidden_real_xml(message):
     rule = f"{message}.REQ.005"
     document = _register_rule_document(message, require_attachment=True)
-    if message == "P.SP.03.MSG.013":
-        first, second = _register_items(document)
-    else:
-        first = next(
-            element
-            for element in document
-            if element.tag.endswith("}ApellationOfOriginRegisterItemDetails")
-        )
-        second = deepcopy(first)
-        document.append(second)
+    first, second = _register_items(document)
     _assert_rule_passes(message, document, rule)
 
     structure = EaeuXmlEngine.load_process(PACKAGE).get_structure(message, mode=GenerationMode.TEST)
@@ -4014,7 +4087,7 @@ def test_msg013_014_rh_inherited_shape_rules_real_xml(req, mutation, message):
     _append_register_attachment(message, item)
 
     _assert_rule_passes(message, document, rule)
-    if message == "P.SP.03.MSG.013" and req == 14:
+    if req == 14:
         for register_item in _register_items(document):
             right = _right_of(register_item)
             right.remove(
@@ -4057,6 +4130,31 @@ def test_msg013_change_pair_rules_real_xml(rule_id, mutation, identifier_pair):
     document = _two_register_document(message, identifier_pair=identifier_pair)
     _assert_rule_passes(message, document, rule_id)
     _apply_rh_register_mutation(message, document, mutation)
+    _assert_rule_fails(message, document, rule_id)
+
+
+@pytest.mark.parametrize(
+    "rule_id,mutation",
+    [
+        ("P.SP.03.MSG.013.REQ.001.cardinality", "remove_second"),
+        ("P.SP.03.MSG.013.REQ.001.resource_kind", "change_second_kind"),
+    ],
+)
+def test_msg013_req001_two_items_same_resource_kind_real_xml(rule_id, mutation):
+    message = "P.SP.03.MSG.013"
+    document = _two_register_document(message)
+    items = _register_items(document)
+    _assert_rule_passes(message, document, rule_id)
+
+    if mutation == "remove_second":
+        document.remove(items[1])
+    else:
+        next(
+            element
+            for element in items[1]
+            if element.tag.endswith("}ResourceItemKindCode")
+        ).text = "AO"
+
     _assert_rule_fails(message, document, rule_id)
 
 

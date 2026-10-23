@@ -1,0 +1,185 @@
+# KB Final Sync Workspace Snapshot
+
+- HEAD: `ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b`
+- Branch: `pyside6-gui`
+- Captured project-state snapshot: `knowledge_base/data/project_state/current.json`
+- WORKSPACE_RELEVANT_DIRTY_FILES: **36**
+- Production dirty files: **22**
+- Test dirty files: **12**
+- Shared-engine dirty files: **2**
+- GUI dirty files: **0**
+- KB dirty files: **3165**
+- Report dirty files: **77**
+- Generated graph dirty files: **0**
+- Engine state: **COMPLETE** per `codex_reports/SHARED_ENGINE_WAVE/SHARED_ENGINE_IMPLEMENTATION_REPORT.md`
+- Engine implementation report mtime: `2026-10-13T11:23:21+03:00`
+- Engine regression report mtime: `2026-10-13T11:23:21+03:00`
+
+## Relevant production/test/engine dirty inventory
+
+- ` M P.DS.01_OP_49/message_rules/P.DS.01.MSG.002.yaml` | production
+- ` M P.DS.01_OP_49/message_rules/P.DS.01.MSG.005.yaml` | production
+- ` M P.DS.01_OP_49/message_rules/P.DS.01.MSG.006.yaml` | production
+- ` M P.DS.01_OP_49/tests/test_process_pipeline.py` | test
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.001.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.002.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.003.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.007.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.010.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.016.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.019.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.020.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.021.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.023.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.024.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.028.yaml` | production
+- ` M P.MM.01_OP_26/tests/all_transactions_matrix.py` | test
+- ` M P.SP.03_OP_23/message_rules/P.SP.03.MSG.004.yaml` | production
+- ` M P.SP.03_OP_23/message_rules/P.SP.03.MSG.006.yaml` | production
+- ` M P.SP.03_OP_23/message_rules/P.SP.03.MSG.007.yaml` | production
+- ` M P.SP.03_OP_23/message_rules/P.SP.03.MSG.008.yaml` | production
+- ` M P.SP.03_OP_23/message_rules/P.SP.03.MSG.011.yaml` | production
+- ` M P.SP.03_OP_23/message_rules/P.SP.03.MSG.014.yaml` | production
+- ` M P.SP.03_OP_23/message_rules/P.SP.03.MSG.015.yaml` | production
+- ` M P.SP.03_OP_23/tests/test_b1_production.py` | test
+- ` M P.SP.03_OP_23/tests/test_psp03_package.py` | test
+- ` M eaeu_xml/src/eaeu_xml/process_packages/rules_engine.py` | shared_engine
+- ` M eaeu_xml/src/eaeu_xml/process_packages/validator.py` | shared_engine
+- `?? P.DS.01_OP_49/tests/test_wave2_implementation.py` | test
+- `?? P.MM.01_OP_26/tests/test_executable204_proof.py` | test
+- `?? P.MM.01_OP_26/tests/test_safe52_implementation_wave.py` | test
+- `?? P.SP.02_OP_22/tests/proof_completion_support.py` | test
+- `?? P.SP.02_OP_22/tests/test_old_open261_mapped_proof.py` | test
+- `?? P.SP.02_OP_22/tests/test_proof_completion.py` | test
+- `?? P.SP.03_OP_23/tests/test_next_implementation.py` | test
+- `?? eaeu_xml/tests/test_shared_engine_capabilities.py` | test
+
+## Latest requirement-level evidence used
+
+- `codex_reports/OP22_P_SP_02/FINAL_ATOMIC_REVIEW/OP22_ATOMIC_SOURCE_119_MATRIX.csv` | mtime `2026-10-13T12:08:14+03:00` | sha256 `2f9a24fe9499319b104233d9451ba806182824864a7c359318285fa768ca5857`
+- `codex_reports/OP22_P_SP_02/FINAL_ATOMIC_REVIEW/OP22_FINAL_STRICT_STATE.md` | mtime `2026-10-13T12:15:25+03:00` | sha256 `1932284850d9e14505e4319b280c02e9709cdad51979eb4ded277e0954488c08`
+- `codex_reports/OP22_P_SP_02/FINAL_MAPPED_PROOF/OP22_FINAL_BLOCKED85.csv` | mtime `2026-10-13T11:01:58+03:00` | sha256 `8c04aa566a85442411f9bc3753877676f2e03331747d6abce5f5082fd68f3757`
+- `codex_reports/OP22_P_SP_02/FINAL_MAPPED_PROOF/OP22_OLD_OPEN261_PROOF_MATRIX.csv` | mtime `2026-10-13T11:01:58+03:00` | sha256 `bf273d7f0764c56fb5e20a6dacd772163d79a4facdeb3f4bbaa342af05571bff`
+- `codex_reports/OP23_P_SP_03/POST_ENGINE_WAVE/OP23_POST_ENGINE_AUDIT.md` | mtime `2026-10-13T11:58:22+03:00` | sha256 `1eb814ae094fd7b298860767496a8b5b916aa020adbe4be89671314516cb8ffd`
+- `codex_reports/OP23_P_SP_03/POST_ENGINE_WAVE/OP23_POST_ENGINE_MATRIX.csv` | mtime `2026-10-13T11:58:22+03:00` | sha256 `bfe74860e2cca0848da6fbd631cc4f349fea1a4eeb2573c4b836b164e65dff6d`
+- `codex_reports/OP23_P_SP_03/PROOF_CLOSURE/OP23_CURRENT_STRICT_STATE.md` | mtime `2026-10-13T11:06:45+03:00` | sha256 `643a41ebfa10d85af68e3e65c8edfa26bd55933f017e1aa06a686562f715a8e1`
+- `codex_reports/OP23_P_SP_03/PROOF_CLOSURE/OP23_PROOF_CLOSURE_MATRIX.csv` | mtime `2026-10-13T11:05:58+03:00` | sha256 `5179e8b3d309446d31f043d9c484cecab96a1f43f6e865b363ac641ef77b39a0`
+- `codex_reports/OP26_P_MM_01/EXECUTABLE_PROOF/OP26_BLOCKED35_CONFIRMATION.csv` | mtime `2026-10-13T11:19:26+03:00` | sha256 `87caf3b44a30d7318d5b82e77fed3dd1d025211438a2cf48862fce32bb65fb8a`
+- `codex_reports/OP26_P_MM_01/EXECUTABLE_PROOF/OP26_EXECUTABLE204_PROOF_AUDIT.md` | mtime `2026-10-13T11:19:26+03:00` | sha256 `cacd77de0bcd3eaff722620b75843e8e37c61072e1a0819cade380798404d56b`
+- `codex_reports/OP26_P_MM_01/EXECUTABLE_PROOF/OP26_EXECUTABLE204_PROOF_MATRIX.csv` | mtime `2026-10-13T11:19:26+03:00` | sha256 `22debb5aaab3d0e29ccc871e9d603a7d82fc97781e6928279cdeebeea52cbc1a`
+- `codex_reports/OP32_P_MM_06/OP32_MISSING_OPERATIONS_AUDIT.md` | mtime `2026-10-06T14:50:42+03:00` | sha256 `8367d6343fefd0cb98e62475fa189d341f072ab592e74111926b59763a9a204f`
+- `codex_reports/OP32_P_MM_06/REAUDIT_2026/OP32_REAUDIT_FINAL.md` | mtime `2026-10-07T15:52:40+03:00` | sha256 `9624b1fd8c4e58db5a328ee9c458a75b732c8ccc095550139dc64d06e794d5a6`
+- `codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_1/OP49_WAVE1_RECLASSIFIED.csv` | mtime `2026-10-07T16:41:30+03:00` | sha256 `623ab6767d48aa41326b38fed9f69c014599644829aa6f223c42e3c1f794190c`
+- `codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_1/OP49_WAVE1_RESULTS.csv` | mtime `2026-10-07T16:41:30+03:00` | sha256 `4f992c8578e752eda52f5bc8e5a3bb4690177879e93ad5a4fdfee438b39012b0`
+- `codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_2/OP49_WAVE2_RECLASSIFIED.csv` | mtime `2026-10-13T11:56:02+03:00` | sha256 `6492c53c2a000aa7b8913eeb4f6aec8a5cfbbde4acb79c747d2c8e7c27970ef9`
+- `codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_2/OP49_WAVE2_RESULTS.csv` | mtime `2026-10-13T11:56:02+03:00` | sha256 `98e3ac9dd06f2048c89bdcee05612ea752a60fd458b7954d612b1d5bce260749`
+- `codex_reports/OP49_P_DS_01/OP49_IMPLEMENTATION_TRIAGE.csv` | mtime `2026-10-07T14:30:35+03:00` | sha256 `5366a8590f3bf8d34dc788dd4ed61a099e4c1b172f68ce58cbf69ff77b998c5f`
+- `codex_reports/SHARED_ENGINE_WAVE/SHARED_ENGINE_IMPLEMENTATION_REPORT.md` | mtime `2026-10-13T11:23:21+03:00` | sha256 `7c30188e0f965452becc375bcd10af50ae5252c2d4f027ff193a5d6bd025a60f`
+- `codex_reports/SHARED_ENGINE_WAVE/SHARED_ENGINE_REGRESSION_RESULTS.md` | mtime `2026-10-13T11:23:21+03:00` | sha256 `ea572adf5009d9257ab1e3944798d462f6917ad7baea988195acdb3ff16c1787`
+
+## Preserved pre-existing / parallel non-sync entries
+
+- ` M P.DS.01_OP_49/message_rules/P.DS.01.MSG.002.yaml` | production
+- ` M P.DS.01_OP_49/message_rules/P.DS.01.MSG.005.yaml` | production
+- ` M P.DS.01_OP_49/message_rules/P.DS.01.MSG.006.yaml` | production
+- ` M P.DS.01_OP_49/tests/test_process_pipeline.py` | test
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.001.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.002.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.003.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.007.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.010.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.016.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.019.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.020.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.021.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.023.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.024.yaml` | production
+- ` M P.MM.01_OP_26/message_rules/P.MM.01.MSG.028.yaml` | production
+- ` M P.MM.01_OP_26/tests/all_transactions_matrix.py` | test
+- ` M P.SP.03_OP_23/message_rules/P.SP.03.MSG.004.yaml` | production
+- ` M P.SP.03_OP_23/message_rules/P.SP.03.MSG.006.yaml` | production
+- ` M P.SP.03_OP_23/message_rules/P.SP.03.MSG.007.yaml` | production
+- ` M P.SP.03_OP_23/message_rules/P.SP.03.MSG.008.yaml` | production
+- ` M P.SP.03_OP_23/message_rules/P.SP.03.MSG.011.yaml` | production
+- ` M P.SP.03_OP_23/message_rules/P.SP.03.MSG.014.yaml` | production
+- ` M P.SP.03_OP_23/message_rules/P.SP.03.MSG.015.yaml` | production
+- ` M P.SP.03_OP_23/tests/test_b1_production.py` | test
+- ` M P.SP.03_OP_23/tests/test_psp03_package.py` | test
+- ` M eaeu_xml/.DS_Store` | unrelated
+- ` M eaeu_xml/src/eaeu_xml/process_packages/rules_engine.py` | shared_engine
+- ` M eaeu_xml/src/eaeu_xml/process_packages/validator.py` | shared_engine
+- `?? P.DS.01_OP_49/tests/test_wave2_implementation.py` | test
+- `?? P.MM.01_OP_26/tests/test_executable204_proof.py` | test
+- `?? P.MM.01_OP_26/tests/test_safe52_implementation_wave.py` | test
+- `?? P.SP.02_OP_22/tests/proof_completion_support.py` | test
+- `?? P.SP.02_OP_22/tests/test_old_open261_mapped_proof.py` | test
+- `?? P.SP.02_OP_22/tests/test_proof_completion.py` | test
+- `?? P.SP.03_OP_23/tests/test_next_implementation.py` | test
+- `?? codex_reports/FINAL_RELEASE_GATE_2026/FINAL_BLOCKERS.md` | report
+- `?? codex_reports/FINAL_RELEASE_GATE_2026/FINAL_GENERATOR_VALIDATOR_MATRIX.csv` | report
+- `?? codex_reports/FINAL_RELEASE_GATE_2026/FINAL_NEGATIVE_QA.csv` | report
+- `?? codex_reports/FINAL_RELEASE_GATE_2026/FINAL_NEXT_ACTIONS.md` | report
+- `?? codex_reports/FINAL_RELEASE_GATE_2026/FINAL_REGRESSION_RESULTS.md` | report
+- `?? codex_reports/FINAL_RELEASE_GATE_2026/FINAL_RELEASE_GATE_SUMMARY.md` | report
+- `?? codex_reports/FINAL_RELEASE_GATE_2026/FINAL_REQUIREMENT_READINESS.csv` | report
+- `?? codex_reports/FINAL_RELEASE_GATE_2026/FINAL_TRACEABILITY_MATRIX.csv` | report
+- `?? codex_reports/OP22_P_SP_02/FINAL_ATOMIC_REVIEW/OP22_ATOMIC_SOURCE_119_MATRIX.csv` | report
+- `?? codex_reports/OP22_P_SP_02/FINAL_ATOMIC_REVIEW/OP22_FINAL_STRICT_STATE.md` | report
+- `?? codex_reports/OP22_P_SP_02/FINAL_ATOMIC_REVIEW/OP22_PROOF_INCOMPLETE21_REVIEW.csv` | report
+- `?? codex_reports/OP22_P_SP_02/FINAL_ATOMIC_REVIEW/OP22_SEMANTIC98_REVIEW.md` | report
+- `?? codex_reports/OP22_P_SP_02/FINAL_MAPPED_PROOF/OP22_FINAL_BLOCKED85.csv` | report
+- `?? codex_reports/OP22_P_SP_02/FINAL_MAPPED_PROOF/OP22_OLD_OPEN261_NEGATIVE_RESULTS.csv` | report
+- `?? codex_reports/OP22_P_SP_02/FINAL_MAPPED_PROOF/OP22_OLD_OPEN261_PROOF_AUDIT.md` | report
+- `?? codex_reports/OP22_P_SP_02/FINAL_MAPPED_PROOF/OP22_OLD_OPEN261_PROOF_MATRIX.csv` | report
+- `?? codex_reports/OP22_P_SP_02/PROOF_COMPLETION/OP22_AGGREGATED_PROOF_REVIEW.csv` | report
+- `?? codex_reports/OP22_P_SP_02/PROOF_COMPLETION/OP22_NEGATIVE_PROOF_RESULTS.csv` | report
+- `?? codex_reports/OP22_P_SP_02/PROOF_COMPLETION/OP22_OPEN346_CURRENT_STATE.csv` | report
+- `?? codex_reports/OP22_P_SP_02/PROOF_COMPLETION/OP22_PROOF_COMPLETION_AUDIT.md` | report
+- `?? codex_reports/OP22_P_SP_02/PROOF_COMPLETION/OP22_PROOF_COMPLETION_MATRIX.csv` | report
+- `?? codex_reports/OP23_P_SP_03/NEXT_IMPLEMENTATION/OP23_NEXT_IMPLEMENTATION_AUDIT.md` | report
+- `?? codex_reports/OP23_P_SP_03/NEXT_IMPLEMENTATION/OP23_NEXT_IMPLEMENTATION_RESULTS.csv` | report
+- `?? codex_reports/OP23_P_SP_03/NEXT_IMPLEMENTATION/OP23_NEXT_RUNTIME_PROOF.csv` | report
+- `?? codex_reports/OP23_P_SP_03/NEXT_IMPLEMENTATION/OP23_RECLASSIFIED_BLOCKED.csv` | report
+- `?? codex_reports/OP23_P_SP_03/POST_ENGINE_WAVE/OP23_POST_ENGINE_AUDIT.md` | report
+- `?? codex_reports/OP23_P_SP_03/POST_ENGINE_WAVE/OP23_POST_ENGINE_MATRIX.csv` | report
+- `?? codex_reports/OP23_P_SP_03/POST_ENGINE_WAVE/OP23_POST_ENGINE_RESULTS.csv` | report
+- `?? codex_reports/OP23_P_SP_03/PROOF_CLOSURE/OP23_CURRENT_STRICT_STATE.md` | report
+- `?? codex_reports/OP23_P_SP_03/PROOF_CLOSURE/OP23_PROOF_CLOSURE_AUDIT.md` | report
+- `?? codex_reports/OP23_P_SP_03/PROOF_CLOSURE/OP23_PROOF_CLOSURE_MATRIX.csv` | report
+- `?? codex_reports/OP23_P_SP_03/PROOF_COMPLETION/OP23_B1_5MB_CAPABILITY_REVIEW.md` | report
+- `?? codex_reports/OP23_P_SP_03/PROOF_COMPLETION/OP23_PROOF_COMPLETION_AUDIT.md` | report
+- `?? codex_reports/OP23_P_SP_03/PROOF_COMPLETION/OP23_PROOF_COMPLETION_PLAN.csv` | report
+- `?? codex_reports/OP26_P_MM_01/BLOCKER_RECOVERY_2/OP26_BLOCKER35_MATRIX.csv` | report
+- `?? codex_reports/OP26_P_MM_01/BLOCKER_RECOVERY_2/OP26_BLOCKER35_RECOVERY.md` | report
+- `?? codex_reports/OP26_P_MM_01/BLOCKER_RECOVERY_2/OP26_EXTERNAL_MATERIAL_REQUESTS.md` | report
+- `?? codex_reports/OP26_P_MM_01/EXECUTABLE_PROOF/OP26_BLOCKED35_CONFIRMATION.csv` | report
+- `?? codex_reports/OP26_P_MM_01/EXECUTABLE_PROOF/OP26_EXECUTABLE204_PROOF_AUDIT.md` | report
+- `?? codex_reports/OP26_P_MM_01/EXECUTABLE_PROOF/OP26_EXECUTABLE204_PROOF_MATRIX.csv` | report
+- `?? codex_reports/OP26_P_MM_01/EXECUTABLE_PROOF/OP26_PROOF_GAPS.csv` | report
+- `?? codex_reports/OP26_P_MM_01/OP26_RUNTIME6_REVIEW.md` | report
+- `?? codex_reports/OP26_P_MM_01/OP26_SAFE52_IMPLEMENTATION_AUDIT.md` | report
+- `?? codex_reports/OP26_P_MM_01/OP26_SAFE52_IMPLEMENTATION_MATRIX.csv` | report
+- `?? codex_reports/OP32_P_MM_06/REAUDIT_2026/OP32_REAUDIT_BLOCKERS.csv` | report
+- `?? codex_reports/OP32_P_MM_06/REAUDIT_2026/OP32_REAUDIT_FINAL.md` | report
+- `?? codex_reports/OP32_P_MM_06/REAUDIT_2026/OP32_REAUDIT_IMPLEMENTABLE_QUEUE.csv` | report
+- `?? codex_reports/OP32_P_MM_06/REAUDIT_2026/OP32_REAUDIT_MATERIAL_IMPACT.csv` | report
+- `?? codex_reports/OP32_P_MM_06/REAUDIT_2026/OP32_REAUDIT_MISSING_MATERIALS.csv` | report
+- `?? codex_reports/OP32_P_MM_06/REAUDIT_2026/OP32_REAUDIT_REQUIREMENTS.csv` | report
+- `?? codex_reports/OP32_P_MM_06/REAUDIT_2026/OP32_REAUDIT_SCOPE.md` | report
+- `?? codex_reports/OP32_P_MM_06/REAUDIT_2026/OP32_REAUDIT_STRUCTURES.csv` | report
+- `?? codex_reports/OP49_P_DS_01/ENGINE_DESIGN/OP49_ENGINE_EXTENSION_DESIGN.md` | report
+- `?? codex_reports/OP49_P_DS_01/ENGINE_DESIGN/OP49_ENGINE_EXTENSION_TEST_PLAN.md` | report
+- `?? codex_reports/OP49_P_DS_01/ENGINE_DESIGN/OP49_ENGINE_GAP_MATRIX.csv` | report
+- `?? codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_1/OP49_WAVE1_AUDIT.md` | report
+- `?? codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_1/OP49_WAVE1_RECLASSIFIED.csv` | report
+- `?? codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_1/OP49_WAVE1_RESULTS.csv` | report
+- `?? codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_2/OP49_WAVE2_AUDIT.md` | report
+- `?? codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_2/OP49_WAVE2_CANDIDATE_REVERIFY.csv` | report
+- `?? codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_2/OP49_WAVE2_RECLASSIFIED.csv` | report
+- `?? codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_2/OP49_WAVE2_RESULTS.csv` | report
+- `?? codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_2/OP49_WAVE2_RUNTIME_PROOF.csv` | report
+- `?? codex_reports/SHARED_ENGINE_WAVE/SHARED_ENGINE_CAPABILITY_MATRIX.csv` | report
+- `?? codex_reports/SHARED_ENGINE_WAVE/SHARED_ENGINE_IMPLEMENTATION_REPORT.md` | report
+- `?? codex_reports/SHARED_ENGINE_WAVE/SHARED_ENGINE_NEXT_OP_RULES.md` | report
+- `?? codex_reports/SHARED_ENGINE_WAVE/SHARED_ENGINE_REGRESSION_RESULTS.md` | report
+- `?? eaeu_xml/tests/test_shared_engine_capabilities.py` | test

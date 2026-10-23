@@ -62,6 +62,8 @@
     "P.MM.06.OPR.004",
     "P.MM.06.OPR.005",
     "P.MM.06.OPR.006",
+    "P.MM.06.OPR.007",
+    "P.MM.06.OPR.008",
     "P.MM.06.OPR.009",
     "P.MM.06.OPR.010",
     "P.MM.06.OPR.011",
@@ -128,8 +130,35 @@
     "P.MM.06.PRC.015"
   ],
   "project_state": {
-    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "git_head": "ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b",
+    "package_operation_inventory": {
+      "count": 44,
+      "evidence_refs": [
+        "codex_reports/OP32_P_MM_06/OP32_MISSING_OPERATIONS_AUDIT.md"
+      ],
+      "missing_from_package": [
+        "P.MM.06.OPR.007",
+        "P.MM.06.OPR.008"
+      ]
+    },
     "snapshot": "data/project_state/current.json",
+    "structure_qname_state": {
+      "confirmed_root_qnames": [
+        "R.HC.MM.06.001",
+        "R.HC.MM.06.002",
+        "R.HC.MM.06.003",
+        "R.HC.MM.06.004",
+        "R.HC.MM.06.005"
+      ],
+      "evidence_refs": [
+        "codex_reports/OP32_P_MM_06/REAUDIT_2026/OP32_REAUDIT_FINAL.md"
+      ],
+      "unresolved_child_payload_requirements": 170,
+      "unresolved_root_qnames": [
+        "R.006",
+        "R.007"
+      ]
+    },
     "verified_at": null
   },
   "purpose": {

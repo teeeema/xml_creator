@@ -1,0 +1,68 @@
+<ns0:TrademarkRegistrationDetails xmlns:ns0="urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0" xmlns:ns1="urn:EEC:M:ComplexDataObjects:vX.X.X" xmlns:ns2="urn:EEC:M:SimpleDataObjects:vX.X.X" xmlns:ns3="urn:EEC:M:IP:ComplexDataObjects:vZ.Z.Z" xmlns:ns4="urn:EEC:M:IP:SimpleDataObjects:vZ.Z.Z">
+            <ns1:EDocHeader>
+                <ns2:InfEnvelopeCode>P.SP.02.MSG.005</ns2:InfEnvelopeCode>
+                <ns2:EDocCode>R.IP.SP.02.002</ns2:EDocCode>
+                <ns2:EDocId>00000000-0000-0000-0000-000000000005</ns2:EDocId>
+                <ns2:EDocDateTime>2026-09-18T12:00:00+03:00</ns2:EDocDateTime>
+            </ns1:EDocHeader>
+            <ns3:TrademarkApplicationDetails>
+                <ns4:IPDocKindCode>99999</ns4:IPDocKindCode>
+                <ns4:ApplicationReceiptDate>2026-09-18</ns4:ApplicationReceiptDate>
+                <ns4:TrademarkApplicationId>APP-005</ns4:TrademarkApplicationId>
+                <ns3:IPPartyDetails>
+                    <ns4:IPPartyKindCode>AP</ns4:IPPartyKindCode>
+                    <ns2:UnifiedCountryCode codeListId="ВОИС ST.3">RU</ns2:UnifiedCountryCode>
+                    <ns4:IPSubjectName nameRepresentationKindCode="OR" languageCode="RU">Заявитель</ns4:IPSubjectName>
+                    <ns1:SubjectAddressDetails>
+                        <ns2:AddressKindCode>2</ns2:AddressKindCode>
+                        <ns2:UnifiedCountryCode codeListId="ВОИС ST.3">RU</ns2:UnifiedCountryCode>
+                        <ns2:CityName>Москва</ns2:CityName>
+                        <ns2:StreetName>Тестовая</ns2:StreetName>
+                        <ns2:BuildingNumberId>1</ns2:BuildingNumberId>
+                    </ns1:SubjectAddressDetails>
+                    <ns1:CommunicationDetails>
+                        <ns2:CommunicationChannelCode>EM</ns2:CommunicationChannelCode>
+                        <ns2:CommunicationChannelId>test@example.test</ns2:CommunicationChannelId>
+                    </ns1:CommunicationDetails>
+                </ns3:IPPartyDetails>
+                <ns3:TrademarkDetails>
+                    <ns3:TMDescriptionDetails>
+                        <ns2:DescriptionText>Описание</ns2:DescriptionText>
+                    </ns3:TMDescriptionDetails>
+                    <ns4:TrademarkKindCode>110</ns4:TrademarkKindCode>
+                    <ns4:TrademarkKindName>Словесный знак</ns4:TrademarkKindName>
+                    <ns4:CollectiveMarkIndicator>0</ns4:CollectiveMarkIndicator>
+                </ns3:TrademarkDetails>
+                <ns3:GoodsBaseDetails>
+                    <ns4:GoodsClassCode>01</ns4:GoodsClassCode>
+                    <ns4:GoodsClassName>Класс 01</ns4:GoodsClassName>
+                    <ns4:GoodsName>Товар</ns4:GoodsName>
+                </ns3:GoodsBaseDetails>
+                <ns3:TrademarkClaimDetails>
+                    <ns3:StakeholderDetails>
+                        <ns2:UnifiedCountryCode codeListId="ВОИС ST.3">RU</ns2:UnifiedCountryCode>
+                        <ns2:SubjectName>Заинтересованное лицо</ns2:SubjectName>
+                        <ns2:SubjectBriefName>ЗЛ</ns2:SubjectBriefName>
+                        <ns1:SubjectAddressDetails>
+                            <ns2:AddressKindCode>2</ns2:AddressKindCode>
+                            <ns2:UnifiedCountryCode codeListId="ВОИС ST.3">RU</ns2:UnifiedCountryCode>
+                            <ns2:CityName>Москва</ns2:CityName>
+                            <ns2:StreetName>Тестовая</ns2:StreetName>
+                            <ns2:BuildingNumberId>2</ns2:BuildingNumberId>
+                        </ns1:SubjectAddressDetails>
+                    </ns3:StakeholderDetails>
+                    <ns4:RequestId>REQ-005</ns4:RequestId>
+                    <ns4:RequestDate>2026-09-18</ns4:RequestDate>
+                </ns3:TrademarkClaimDetails>
+                <ns3:ArgumentDetails>
+                    <ns2:DescriptionText>Доводы заявителя</ns2:DescriptionText>
+                    <ns2:EventDate>2026-09-18</ns2:EventDate>
+                </ns3:ArgumentDetails>
+            </ns3:TrademarkApplicationDetails>
+            <ns1:ResourceItemStatusDetails>
+                <ns1:ValidityPeriodDetails>
+                    <ns2:StartDateTime>2026-09-18T12:00:00+03:00</ns2:StartDateTime>
+                </ns1:ValidityPeriodDetails>
+            </ns1:ResourceItemStatusDetails>
+        </ns0:TrademarkRegistrationDetails>
+    

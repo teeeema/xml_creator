@@ -1,0 +1,63 @@
+{
+  "ops_found": [
+    "OP22",
+    "OP23",
+    "OP26",
+    "OP32",
+    "OP49"
+  ],
+  "runtime_processes": {
+    "OP49": "P.DS.01",
+    "OP26": "P.MM.01",
+    "OP32": "P.MM.06",
+    "OP22": "P.SP.02",
+    "OP23": "P.SP.03"
+  },
+  "trn_total": 114,
+  "msg_total": 146,
+  "fields_reviewed": 27351,
+  "matrix_rows": 28528,
+  "unique_effective_policy_rows": 27351,
+  "status_counts": {
+    "PASS": 27351
+  },
+  "branch_status_counts": {
+    "PASS": 28528
+  },
+  "priority_counts": {},
+  "classifier_counts": {
+    "STILL_EXTERNAL": 162,
+    "RESOLVED_CODE_OR_NAME": 14,
+    "RESOLVED_FIXED_CODE": 8
+  },
+  "requirement_blocker_status_counts": {
+    "SOURCE_BLOCKED": 507,
+    "SOURCE_RESOLVED_RUNTIME_UNIMPLEMENTED": 44,
+    "ENGINE_BLOCKED": 25,
+    "SOURCE_AND_ENGINE_BLOCKED": 4,
+    "PARTIAL_PROOF": 2,
+    "REVIEWED_BLOCKER": 2,
+    "SOURCE_REPORT_ONLY_BLOCKED": 11
+  },
+  "runtime_source_blocked_requirements": 511,
+  "source_report_only_blocked_messages": 11,
+  "op23_decision92_source_resolved_runtime_unimplemented": 44,
+  "message_review_counts": {
+    "SOURCE_BLOCKED": 63,
+    "PASS": 63,
+    "EXPLICIT_DEFECT": 20
+  },
+  "op_status": {
+    "OP22": "AUDITED_SOURCE_BLOCKED",
+    "OP23": "AUDITED_WITH_EXPLICIT_DEFECTS",
+    "OP26": "AUDITED_SOURCE_BLOCKED",
+    "OP32": "AUDITED_SOURCE_BLOCKED",
+    "OP49": "AUDITED_WITH_EXPLICIT_DEFECTS"
+  },
+  "op35_1_status": "SOURCE_REPORT_ONLY/BLOCKED_BY_SOURCE",
+  "unreviewed_trn": 0,
+  "unreviewed_msg": 0,
+  "unknown_policy": 0,
+  "unresolved_structured_rule_targets": 944,
+  "source_files_inventoried": 60
+}

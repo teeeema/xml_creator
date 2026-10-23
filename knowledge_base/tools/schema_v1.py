@@ -29,6 +29,7 @@ SCHEMA_DIR = KB / "schemas"
 INDEX_DIR = KB / "indexes"
 SCHEMA_VERSION = "1.0"
 GENERATOR = "knowledge_base/tools/schema_v1.py"
+PROJECT_STATE_OVERLAY = KB / "project_state" / "requirement_state.json"
 
 ENTITY_DIRS = {
     "requirements": DATA_DIR / "requirements",
@@ -56,6 +57,9 @@ INDEX_FILES = {
 
 EXPECTED_SCOPE = {"OP22": 1609, "OP23": 710, "OP26": 239, "OP32": 170, "OP49": 166}
 EXPECTED_CANONICAL_CURRENT = dict(EXPECTED_SCOPE)
+OP32_CANONICAL_OPERATIONS = {"P.MM.06.OPR.007", "P.MM.06.OPR.008"}
+OP32_OPERATION_EVIDENCE = "codex_reports/OP32_P_MM_06/OP32_MISSING_OPERATIONS_AUDIT.md"
+OP32_REAUDIT_EVIDENCE = "codex_reports/OP32_P_MM_06/REAUDIT_2026/OP32_REAUDIT_FINAL.md"
 
 WRITTEN_FILES: set[Path] = set()
 CHANGED_FILES: set[Path] = set()
@@ -94,6 +98,52 @@ def load_json(path: Path, default: Any = None) -> Any:
     if not path.exists():
         return default
     return json.loads(path.read_text(encoding="utf-8-sig"))
+
+
+def load_requirement_state_overlay() -> dict[str, dict[str, Any]]:
+    payload = load_json(PROJECT_STATE_OVERLAY, {}) or {}
+    requirements = payload.get("requirements", {}) if isinstance(payload, dict) else {}
+    if requirements and not isinstance(requirements, dict):
+        raise RuntimeError("PROJECT_STATE requirement overlay must contain an object named 'requirements'")
+    return requirements
+
+
+def apply_requirement_state_overlay(
+    requirements: dict[str, dict[str, Any]],
+    overlay: dict[str, dict[str, Any]],
+    git_head: str | None,
+) -> None:
+    if not overlay:
+        return
+    if set(overlay) != set(requirements):
+        missing = sorted(set(requirements) - set(overlay))[:20]
+        extra = sorted(set(overlay) - set(requirements))[:20]
+        raise RuntimeError(f"PROJECT_STATE overlay/canonical mismatch: missing={missing} extra={extra}")
+    overlay_counts = Counter(requirements[cid]["identity"]["op"] for cid in overlay)
+    if dict(sorted(overlay_counts.items())) != dict(sorted(EXPECTED_SCOPE.items())):
+        raise RuntimeError(f"PROJECT_STATE overlay scope mismatch: {dict(overlay_counts)}")
+    for cid, req in requirements.items():
+        state = overlay[cid]
+        req["project_state"].update(
+            {
+                "snapshot": "data/project_state/current.json",
+                "git_head": git_head,
+                "state": state.get("state"),
+                "mapped": bool(state.get("mapped")),
+                "full_proof": bool(state.get("full_proof")),
+                "blockers": list(state.get("blockers") or []),
+                "proof_links": {
+                    "production_rule_ids": list(state.get("production_rule_ids") or []),
+                    "positive_test_ids": list(state.get("positive_test_ids") or []),
+                    "negative_test_ids": list(state.get("negative_test_ids") or []),
+                    "runtime_evidence": list(state.get("runtime_evidence") or []),
+                    "real_xml_status": state.get("real_xml_status"),
+                },
+                "evidence_refs": list(state.get("evidence_refs") or []),
+                "state_note": state.get("note") or "",
+                "state_overlay": str(PROJECT_STATE_OVERLAY.relative_to(KB)),
+            }
+        )
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -830,12 +880,35 @@ def build_processes(
         req_ids = sorted(req_by_process.get(process, []))
         structure_ids = sorted({messages[mid]["structure"]["id"] for mid in msg_ids if messages[mid]["structure"]["id"]})
         blocker_counts = Counter(requirements[cid]["implementation"]["status"] for cid in req_ids if requirements[cid]["gap"]["status"] == "OPEN")
+        package_operations = sorted(clean(x.get("operation_code")) for x in ent["operations"] if clean(x.get("operation_code")))
+        canonical_operations = list(package_operations)
+        process_project_state: dict[str, Any] = {
+            "snapshot": "data/project_state/current.json",
+            "git_head": git_head,
+            "verified_at": None,
+        }
+        if process == "P.MM.06":
+            # The primary-source extract confirms OPR.007/008 in OP32 while the
+            # current production package still omits them. Keep the canonical
+            # operation inventory and runtime/package gap in separate layers.
+            canonical_operations = sorted(set(canonical_operations) | OP32_CANONICAL_OPERATIONS)
+            process_project_state["package_operation_inventory"] = {
+                "count": len(package_operations),
+                "missing_from_package": sorted(set(canonical_operations) - set(package_operations)),
+                "evidence_refs": [OP32_OPERATION_EVIDENCE],
+            }
+            process_project_state["structure_qname_state"] = {
+                "confirmed_root_qnames": [f"R.HC.MM.06.{idx:03d}" for idx in range(1, 6)],
+                "unresolved_root_qnames": ["R.006", "R.007"],
+                "unresolved_child_payload_requirements": 170,
+                "evidence_refs": [OP32_REAUDIT_EVIDENCE],
+            }
         out[process] = {
             "schema_version": SCHEMA_VERSION,
             "identity": {"op": item["op"], "process": process, "version": process_version(raw)},
             "purpose": {"name": clean(raw.get("name")), "description": clean(raw.get("description"))},
             "participants": sorted(clean(x.get("participant_code")) for x in ent["participants"] if clean(x.get("participant_code"))),
-            "operations": sorted(clean(x.get("operation_code")) for x in ent["operations"] if clean(x.get("operation_code"))),
+            "operations": canonical_operations,
             "procedures": sorted(clean(x.get("procedure_code")) for x in ent["procedures"] if clean(x.get("procedure_code"))),
             "transactions": trn_ids,
             "messages": msg_ids,
@@ -848,7 +921,7 @@ def build_processes(
             "known_blockers": dict(sorted(blocker_counts.items())),
             "runtime": {"requirement_inventory_status": item["cfg"]["requirement_status"]},
             "sources": source_refs(raw.get("source_refs")),
-            "project_state": {"snapshot": "data/project_state/current.json", "git_head": git_head, "verified_at": None},
+            "project_state": process_project_state,
         }
     return out
 
@@ -1094,7 +1167,15 @@ def write_project_snapshot(state: dict[str, Any], op26_gate: dict[str, Any], op4
         ROOT / "codex_reports" / "OP49_P_DS_01" / "OP49_REAUDIT_REQUIREMENTS.csv",
         ROOT / "codex_reports" / "OP49_P_DS_01" / "OP49_REAUDIT_AUDIT.md",
         REPORT_DIR / "KB_ENRICHMENT_GAPS.csv",
+        PROJECT_STATE_OVERLAY,
+        ROOT / "codex_reports" / "SHARED_ENGINE_WAVE" / "SHARED_ENGINE_IMPLEMENTATION_REPORT.md",
+        ROOT / "codex_reports" / "SHARED_ENGINE_WAVE" / "SHARED_ENGINE_REGRESSION_RESULTS.md",
     ]
+    overlay_payload = load_json(PROJECT_STATE_OVERLAY, {}) or {}
+    for rel in overlay_payload.get("evidence_sources", []) if isinstance(overlay_payload, dict) else []:
+        candidate = ROOT / str(rel)
+        if candidate not in input_paths:
+            input_paths.append(candidate)
     inputs = []
     for path in input_paths:
         if path.exists():
@@ -1130,6 +1211,15 @@ def indexes_from_entities(
             "gap_category": obj["gap"]["category"],
             "structure": obj["structure"]["id"],
             "atomic_qname_status": obj["structure"]["atomic_qname"]["status"],
+            "project_state": obj["project_state"].get("state"),
+            "mapped": obj["project_state"].get("mapped"),
+            "full_proof": obj["project_state"].get("full_proof"),
+            "blockers": obj["project_state"].get("blockers", []),
+            "production_rule_ids": obj["project_state"].get("proof_links", {}).get("production_rule_ids", []),
+            "positive_test_ids": obj["project_state"].get("proof_links", {}).get("positive_test_ids", []),
+            "negative_test_ids": obj["project_state"].get("proof_links", {}).get("negative_test_ids", []),
+            "runtime_evidence": obj["project_state"].get("proof_links", {}).get("runtime_evidence", []),
+            "real_xml_status": obj["project_state"].get("proof_links", {}).get("real_xml_status"),
             "path": f"data/requirements/{cid}.yaml",
         }
         for cid, obj in sorted(entities["requirements"].items())
@@ -1242,6 +1332,8 @@ def deterministic_paths() -> list[Path]:
     paths.extend(path for path in INDEX_FILES.values() if path.exists())
     paths.append(INDEX_DIR / "SCHEMA_V1.md")
     paths.append(KB / "AGENT_START_HERE.md")
+    if PROJECT_STATE_OVERLAY.exists():
+        paths.append(PROJECT_STATE_OVERLAY)
     return sorted(set(paths))
 
 
@@ -1270,6 +1362,7 @@ def validate_all(
     requirements = entities["requirements"]
     messages = entities["messages"]
     transactions = entities["transactions"]
+    processes = entities["processes"]
     structures = entities["structures"]
     classifiers = entities["classifiers"]
 
@@ -1343,18 +1436,81 @@ def validate_all(
         errors.append(f"OP26 reconciliation gate failed: {op26_gate}")
     if op49_gate.get("status") != "PASS":
         errors.append(f"OP49 import gate failed: {op49_gate}")
-    if counts_by_op.get("OP22") == 1609:
-        op22_status = Counter(req["implementation"]["status"] for req in requirements.values() if req["identity"]["op"] == "OP22")
-        if op22_status.get("IMPLEMENTED_CONFIRMED", 0) != 1263:
-            errors.append(f"OP22 IMPLEMENTED_CONFIRMED {op22_status.get('IMPLEMENTED_CONFIRMED', 0)} != 1263")
-        if 1609 - op22_status.get("IMPLEMENTED_CONFIRMED", 0) != 346:
-            errors.append("OP22 OPEN count != 346")
+    project_state_missing = [
+        cid for cid, req in requirements.items()
+        if req.get("project_state", {}).get("state_overlay") != str(PROJECT_STATE_OVERLAY.relative_to(KB))
+    ]
+    if project_state_missing:
+        errors.append(f"requirements missing current PROJECT_STATE overlay: {project_state_missing[:20]}")
+
+    def op_state(op: str) -> list[dict[str, Any]]:
+        return [req["project_state"] for req in requirements.values() if req["identity"]["op"] == op]
+
+    op22_ps = op_state("OP22")
+    if (
+        sum(row.get("state") == "FULL_PROOF" for row in op22_ps) != 1405
+        or sum(row.get("state") == "IMPLEMENTED_PROOF_INCOMPLETE" for row in op22_ps) != 119
+        or sum(not row.get("mapped") for row in op22_ps) != 85
+    ):
+        errors.append("OP22 PROJECT_STATE invariant violated: expected FULL_PROOF=1405, MAPPED_NOT_STRICT=119, BLOCKED=85")
+
+    op23_ps = op_state("OP23")
+    if (
+        sum(row.get("state") == "FULL_PROOF" for row in op23_ps) != 501
+        or sum(row.get("state") == "PARTIAL" for row in op23_ps) != 2
+        or sum(not row.get("mapped") for row in op23_ps) != 207
+        or sum(bool(row.get("mapped")) for row in op23_ps) != 503
+    ):
+        errors.append("OP23 PROJECT_STATE invariant violated: expected FULL_PROOF=501, PARTIAL=2, BLOCKED=207, MAPPED=503")
+
+    op26_ps = op_state("OP26")
+    if (
+        sum(row.get("state") == "FULL_PROOF" for row in op26_ps) != 113
+        or sum(row.get("state") == "IMPLEMENTED_REAL_XML_PROOF_BLOCKED" for row in op26_ps) != 91
+        or sum(not row.get("mapped") for row in op26_ps) != 35
+        or sum(bool(row.get("mapped")) for row in op26_ps) != 204
+    ):
+        errors.append("OP26 PROJECT_STATE invariant violated: expected FULL_PROOF=113, REAL_XML_PROOF_BLOCKED=91, BLOCKED=35, MAPPED=204")
+
+    op32_ps = op_state("OP32")
+    if len(op32_ps) != 170 or any(row.get("mapped") or row.get("full_proof") for row in op32_ps):
+        errors.append("OP32 PROJECT_STATE invariant violated: expected IMPLEMENTABLE=0, BLOCKED=170")
+
+    op49_ps = op_state("OP49")
+    if (
+        sum(bool(row.get("mapped")) for row in op49_ps) != 46
+        or sum(row.get("state") == "FULL_PROOF" for row in op49_ps) != 10
+        or sum(not row.get("mapped") for row in op49_ps) != 120
+    ):
+        errors.append("OP49 PROJECT_STATE invariant violated: expected MAPPED=46, FULL_PROOF_KNOWN=10, BLOCKED_OR_UNMAPPED=120")
+
+    known_full_proof = sum(req["project_state"].get("full_proof") is True for req in requirements.values())
+    if known_full_proof != 2029:
+        errors.append(f"PROJECT_STATE known FULL_PROOF total {known_full_proof} != 2029")
 
     op32 = [req for req in requirements.values() if req["identity"]["op"] == "OP32"]
     op32_resolved = sum(req["structure"]["atomic_qname"]["status"] == "RESOLVED_CLARK" for req in op32)
     op32_unresolved = len(op32) - op32_resolved
     if op32_resolved != 0 or op32_unresolved != 170:
         errors.append(f"OP32 atomic QName invariant violated: resolved={op32_resolved} unresolved={op32_unresolved}")
+
+    op32_process = processes.get("P.MM.06", {})
+    op32_operations = set(op32_process.get("operations") or [])
+    if len(op32_operations) != 46 or not OP32_CANONICAL_OPERATIONS.issubset(op32_operations):
+        errors.append(f"OP32 canonical operation inventory violated: count={len(op32_operations)} missing={sorted(OP32_CANONICAL_OPERATIONS - op32_operations)}")
+    op32_package_inventory = op32_process.get("project_state", {}).get("package_operation_inventory", {})
+    if (
+        op32_package_inventory.get("count") != 44
+        or set(op32_package_inventory.get("missing_from_package") or []) != OP32_CANONICAL_OPERATIONS
+    ):
+        errors.append(f"OP32 package operation gap invariant violated: {op32_package_inventory}")
+    op32_qname_state = op32_process.get("project_state", {}).get("structure_qname_state", {})
+    if (
+        len(op32_qname_state.get("confirmed_root_qnames") or []) != 5
+        or set(op32_qname_state.get("unresolved_root_qnames") or []) != {"R.006", "R.007"}
+        or op32_qname_state.get("unresolved_child_payload_requirements") != 170
+    ):
+        errors.append(f"OP32 structure QName project-state invariant violated: {op32_qname_state}")
 
     op26 = [req for req in requirements.values() if req["identity"]["op"] == "OP26"]
     op49 = [req for req in requirements.values() if req["identity"]["op"] == "OP49"]
@@ -1377,11 +1533,11 @@ def validate_all(
     if op49_source_trace != 166:
         errors.append(f"OP49 source trace complete {op49_source_trace} != 166")
 
+    # Legacy implementation/gap fields remain historical normalized inputs.
+    # Current strict closure is validated exclusively through PROJECT_STATE.
     op49_status = Counter(req["implementation"]["status"] for req in op49)
     op49_implemented = op49_status.get("IMPLEMENTED_CONFIRMED", 0)
     op49_open = sum(req["gap"]["status"] == "OPEN" for req in op49)
-    if op49_implemented != 0 or op49_open != 166:
-        errors.append(f"OP49 strict closure invariant violated: implemented={op49_implemented} open={op49_open}")
 
     duplicate_source_item_5 = sorted(
         (
@@ -1459,10 +1615,14 @@ def validate_all(
         "qname_conflicts": int(legacy_stats.get("qname_conflicts", 0)),
         "op32_atomic_qname_resolved": op32_resolved,
         "op32_atomic_qname_unresolved": op32_unresolved,
+        "op32_canonical_operations": len(op32_operations),
+        "op32_package_operations": op32_package_inventory.get("count"),
+        "op32_missing_package_operations": sorted(op32_package_inventory.get("missing_from_package") or []),
         "op26_source_trace_complete": op26_source_trace,
         "op49_source_trace_complete": op49_source_trace,
         "op49_implemented_confirmed": op49_implemented,
         "op49_open": op49_open,
+        "project_state_known_full_proof": known_full_proof,
         "duplicate_source_item_handling": {
             "source_item": "5",
             "canonical_entities": [row[0] for row in duplicate_source_item_5],
@@ -1682,6 +1842,7 @@ def build_once(initial_existing: set[Path]) -> tuple[dict[str, Any], dict[str, A
     classifier_index = load_json(INDEX_DIR / "classifier_index.json", []) or []
     state = git_state()
     requirements, _, _ = build_requirements(records, source_by_id, printed, structure_index, field_index, classifier_index, state["head"])
+    apply_requirement_state_overlay(requirements, load_requirement_state_overlay(), state["head"])
     pilot = pilot_validation(requirements)
     if pilot["status"] != "PASS":
         raise RuntimeError("Pilot migration failed: " + "; ".join(pilot["errors"]))

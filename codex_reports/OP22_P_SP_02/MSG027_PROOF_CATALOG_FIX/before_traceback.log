@@ -1,0 +1,98 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.13.9, pytest-9.1.1, pluggy-1.6.0 -- /Library/Frameworks/Python.framework/Versions/3.13/bin/python3.13
+cachedir: .pytest_cache
+rootdir: /Users/tema/Documents/Work/xml_creator
+plugins: anyio-4.12.1
+collecting ... collected 1 item
+
+P.SP.02_OP_22/tests/test_old_open261_mapped_proof.py::test_old_open_now_mapped_requirement_matches_strict_proof_verdict[P.SP.02.MSG.027:57:3] FAILED [100%]
+
+=================================== FAILURES ===================================
+_ test_old_open_now_mapped_requirement_matches_strict_proof_verdict[P.SP.02.MSG.027:57:3] _
+
+proof_row = {'canonical_id': 'P.SP.02.MSG.027:57:3', 'op': 'OP22', 'process': 'P.SP.02', 'prc': 'P.SP.02.PRC.034', ...}
+
+    @pytest.mark.parametrize("proof_row", MATRIX_ROWS, ids=lambda row: row["canonical_id"])
+    def test_old_open_now_mapped_requirement_matches_strict_proof_verdict(proof_row):
+        row = RECONCILIATION[proof_row["canonical_id"]]
+        assert row["old_open_now_has_mapping"] == "YES"
+        assert row["rule_status"] == proof_row["production_rule_status"]
+        assert row["current_rule_or_mechanism"] == proof_row["production_rule_or_mechanism"]
+    
+        if proof_row["closure_verdict"] == "FULL_PROOF_CLOSED":
+            if row["rule_status"] == "RULE_EXISTS_AGGREGATED":
+                ok, results, errors = support.prove_aggregated_requirement(row)
+            else:
+                ok, results, errors = support.prove_requirement(row)
+>           assert ok, f"{row['canonical_id']}: {errors}"
+E           AssertionError: P.SP.02.MSG.027:57:3: ['P.SP.02.MSG.027.T57.REQ.3']
+E           assert False
+
+errors     = ['P.SP.02.MSG.027.T57.REQ.3']
+ok         = False
+proof_row  = {'canonical_id': 'P.SP.02.MSG.027:57:3',
+ 'closure_verdict': 'FULL_PROOF_CLOSED',
+ 'historical_status': 'OPEN_CLASSIFIER',
+ 'item': '3',
+ 'mapping_kind': 'EXACT',
+ 'msg': 'P.SP.02.MSG.027',
+ 'op': 'OP22',
+ 'pdf_page': '579',
+ 'positive_proof': 'PASS',
+ 'prc': 'P.SP.02.PRC.034',
+ 'printed_page': '',
+ 'process': 'P.SP.02',
+ 'production_rule_or_mechanism': 'P.SP.02.MSG.027.T57.REQ.3',
+ 'production_rule_status': 'RULE_EXISTS_EXACT',
+ 'proof_errors': '',
+ 'reason': 'Exact current production mechanism has source coverage and '
+           'deterministic PASS->FAIL runtime proof.',
+ 'requirement': 'REQ 3 (Table 57)',
+ 'runtime_component_count': '1',
+ 'runtime_rule_ids': 'P.SP.02.MSG.027.T57.REQ.3',
+ 'runtime_rule_kinds': 'conditional_fixed_value',
+ 'source_document': 'ОП_22.pdf',
+ 'source_link_status': 'CURRENT_RULE_SOURCE_REF_COVERS_CANONICAL_ITEM',
+ 'source_table': '57',
+ 'structure': 'R.IP.SP.02.002',
+ 'targeted_mutations': 'conditional_fixed_value',
+ 'targeted_negative_proof': 'FAIL',
+ 'test_evidence': 'P.SP.02_OP_22/tests/test_old_open261_mapped_proof.py',
+ 'trn': 'P.SP.02.TRN.022'}
+results    = []
+row        = {'audit_note': 'Missing/incomplete: POSITIVE_TEST; NEGATIVE_TEST',
+ 'broken_flags': '',
+ 'canonical_id': 'P.SP.02.MSG.027:57:3',
+ 'current_rule_or_mechanism': 'P.SP.02.MSG.027.T57.REQ.3',
+ 'historical_status': 'OPEN_CLASSIFIER',
+ 'item': '3',
+ 'kb_link_status': 'KB_LINK_CORRECT',
+ 'kb_production_rule': 'P.SP.02.MSG.027.T57.REQ.3',
+ 'msg': 'P.SP.02.MSG.027',
+ 'negative_test_evidence': '',
+ 'negative_test_status': 'NEGATIVE_TEST_MISSING',
+ 'old_open_now_has_mapping': 'YES',
+ 'op': 'OP22',
+ 'pdf_page': '579',
+ 'positive_test_evidence': 'OP22_GUI_XML_RUNTIME_MATRIX: message runtime PASS; '
+                           'positive application-level evidence only',
+ 'positive_test_status': 'POSITIVE_TEST_INDIRECT',
+ 'prc': 'P.SP.02.PRC.034',
+ 'printed_page': '',
+ 'process': 'P.SP.02',
+ 'real_xml_proof': 'REAL_XML_PROOF_INDIRECT_MESSAGE_RUNTIME',
+ 'reconciliation_group': 'OPEN_REVIEW',
+ 'requirement': 'REQ 3 (Table 57)',
+ 'rule_status': 'RULE_EXISTS_EXACT',
+ 'runtime_proof': 'RUNTIME_PROOF_EXACT',
+ 'source_document': 'ОП_22.pdf',
+ 'source_table': '57',
+ 'structure': 'R.IP.SP.02.002',
+ 'trace_status': 'PARTIAL_TRACE',
+ 'trn': 'P.SP.02.TRN.022'}
+
+P.SP.02_OP_22/tests/test_old_open261_mapped_proof.py:58: AssertionError
+=========================== short test summary info ============================
+FAILED P.SP.02_OP_22/tests/test_old_open261_mapped_proof.py::test_old_open_now_mapped_requirement_matches_strict_proof_verdict[P.SP.02.MSG.027:57:3] - AssertionError: P.SP.02.MSG.027:57:3: ['P.SP.02.MSG.027.T57.REQ.3']
+assert False
+============================== 1 failed in 0.23s ===============================

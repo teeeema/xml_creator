@@ -1,0 +1,261 @@
+{
+  "process": "P.SP.02",
+  "transaction": "P.SP.02.TRN.022",
+  "message": "P.SP.02.MSG.027",
+  "requirements": [
+    "P.SP.02.MSG.027.T57.REQ.2"
+  ],
+  "fields": {
+    "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode": {
+      "get_form": {
+        "path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode",
+        "xml_name": "IPDocKindCode",
+        "display_name": "Код вида документа, используемого в сфере интеллектуальной собственности",
+        "description": "кодовое обозначение вида документа, используемого в сфере интеллектуальной собственности, в том числе при проведении процедур, связанных с регистрацией объектов интеллектуальной собственности Евразийского экономического союза",
+        "kind": "ELEMENT",
+        "datatype": "ipsdo:IPDocKindCodeType",
+        "required": true,
+        "min_occurs": 0,
+        "max_occurs": 1,
+        "is_attribute": false,
+        "repeatable": false,
+        "allowed_values": [],
+        "fixed_value": "07365",
+        "default_value": null,
+        "classifier": null,
+        "editable": false,
+        "visibility": "VISIBLE",
+        "validation_hints": [
+          "ipsdo:IPDocKindCodeType (M.IP.SDT.00009) Значение кода в соответствии с классификатором видов документов, сведений и материалов, используемых в сфере интеллектуальной собственности. Шаблон: \\d{5}",
+          "message_policy=FIXED",
+          "message_policy_req=P.SP.02.MSG.027.T57.REQ.2"
+        ],
+        "status": "CONFIRMED",
+        "source_refs": [
+          "22OP-R.IP.SP.02.002-2.1"
+        ],
+        "children": [],
+        "official_name": "Код вида документа, используемого в сфере интеллектуальной собственности (ipsdo:IPDocKindCode)",
+        "xml_qname": "ipsdo:IPDocKindCode",
+        "example_value": "07365",
+        "cardinality_display": "0..1",
+        "input_policy": "UNRESOLVED_INPUT_POLICY",
+        "value_source": "UNKNOWN",
+        "help_text": "Назначение: кодовое обозначение вида документа, используемого в сфере интеллектуальной собственности, в том числе при проведении процедур, связанных с регистрацией объектов интеллектуальной собственности Евразийского экономического союза\nНормативный источник значения: не установлен отдельным правилом\nСпособ заполнения в программе: вводится пользователем\nОбязательность: обязательно\nЧто указать: кодовое обозначение вида документа, используемого в сфере интеллектуальной собственности, в том числе при проведении процедур, связанных с регистрацией объектов интеллектуальной собственности Евразийского экономического союза\nПример: 07365",
+        "condition_description": "Код 07365 подтвержден Решением №92 в редакции Решения №148; применяется ветвь таблицы 57 REQ.2.",
+        "condition_ref": null,
+        "policy_reason": "Существующая модель не определяет, кто предоставляет значение; автоматизация не предполагается.",
+        "normative_input_policy": "UNRESOLVED_INPUT_POLICY",
+        "ui_input_policy": "READ_ONLY",
+        "ui_policy_origin": "PROJECT_UI_DEFAULT",
+        "ui_policy_reason": "Project UX fallback: no automatic, classifier, external, conditional or structural source applies.",
+        "example_origin": "FIXED_VALUE",
+        "no_example_reason": null,
+        "unresolved_ui_reason": null,
+        "conditional_machine_evaluable": false,
+        "condition_result": null,
+        "manual_edit_allowed": true,
+        "show_today_button": false,
+        "show_date_picker": false,
+        "show_now_button": false,
+        "show_timezone_picker": false,
+        "show_identifier_generator": false,
+        "supports_file_picker": false,
+        "assisted_input_kind": null,
+        "pattern": null,
+        "effective_message_policy": "FIXED",
+        "message_policy_condition": "Код 07365 подтвержден Решением №92 в редакции Решения №148; применяется ветвь таблицы 57 REQ.2.",
+        "message_policy_external_dependency": null,
+        "message_policy_req_ids": [
+          "P.SP.02.MSG.027.T57.REQ.2"
+        ],
+        "message_policy_notes": "Вид документа таблицы 57 подтвержден записью 07365: Решение №92, стр. 15; Решение №148, стр. 4.",
+        "message_policy_materialize_when_parent_present": false
+      },
+      "resolver": {
+        "policy": "FIXED",
+        "fixed_value": "07365",
+        "condition": "Код 07365 подтвержден Решением №92 в редакции Решения №148; применяется ветвь таблицы 57 REQ.2.",
+        "external_dependency": null,
+        "affected_by_req": [
+          "P.SP.02.MSG.027.T57.REQ.2"
+        ],
+        "notes": "Вид документа таблицы 57 подтвержден записью 07365: Решение №92, стр. 15; Решение №148, стр. 4.",
+        "materialize_when_parent_present": false,
+        "application_enforced": true
+      }
+    },
+    "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName": {
+      "get_form": {
+        "path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName",
+        "xml_name": "IPDocKindName",
+        "display_name": "Наименование вида документа, используемого в сфере интеллектуальной собственности",
+        "description": "наименование вида документа, используемого в сфере интеллектуальной собственности, в том числе при проведении процедур, связанных с регистрацией объектов интеллектуальной собственности Евразийского экономического союза",
+        "kind": "ELEMENT",
+        "datatype": "csdo:Name500Type",
+        "required": false,
+        "min_occurs": 0,
+        "max_occurs": 1,
+        "is_attribute": false,
+        "repeatable": false,
+        "allowed_values": [],
+        "fixed_value": null,
+        "default_value": null,
+        "classifier": null,
+        "editable": false,
+        "visibility": "HIDDEN",
+        "validation_hints": [
+          "csdo:Name500Type (M.SDT.00134) Нормализованная строка символов. Мин. длина: 1. Макс. длина: 500",
+          "message_rule=FORBIDDEN",
+          "message_policy=FORBIDDEN",
+          "message_policy_req=P.SP.02.MSG.027.T57.REQ.2"
+        ],
+        "status": "CONFIRMED",
+        "source_refs": [
+          "22OP-R.IP.SP.02.002-2.2"
+        ],
+        "children": [],
+        "official_name": "Наименование вида документа, используемого в сфере интеллектуальной собственности (ipsdo:IPDocKindName)",
+        "xml_qname": "ipsdo:IPDocKindName",
+        "example_value": "Пример текстового значения",
+        "cardinality_display": "0..1",
+        "input_policy": "UNRESOLVED_INPUT_POLICY",
+        "value_source": "UNKNOWN",
+        "help_text": "Назначение: наименование вида документа, используемого в сфере интеллектуальной собственности, в том числе при проведении процедур, связанных с регистрацией объектов интеллектуальной собственности Евразийского экономического союза\nНормативный источник значения: не установлен отдельным правилом\nСпособ заполнения в программе: служебное скрытое поле\nОбязательность: необязательно\nЧто указать: наименование вида документа, используемого в сфере интеллектуальной собственности, в том числе при проведении процедур, связанных с регистрацией объектов интеллектуальной собственности Евразийского экономического союза\nПример: Пример текстового значения",
+        "condition_description": "При заполненном коде 07365 наименование не заполняется согласно таблице 57 REQ.2.",
+        "condition_ref": null,
+        "policy_reason": "Существующая модель не определяет, кто предоставляет значение; автоматизация не предполагается.",
+        "normative_input_policy": "UNRESOLVED_INPUT_POLICY",
+        "ui_input_policy": "HIDDEN",
+        "ui_policy_origin": "DERIVED_FROM_MODEL",
+        "ui_policy_reason": "MessageRules marks the field forbidden/not used.",
+        "example_origin": "DATATYPE_EXAMPLE",
+        "no_example_reason": null,
+        "unresolved_ui_reason": "OTHER",
+        "conditional_machine_evaluable": false,
+        "condition_result": null,
+        "manual_edit_allowed": false,
+        "show_today_button": false,
+        "show_date_picker": false,
+        "show_now_button": false,
+        "show_timezone_picker": false,
+        "show_identifier_generator": false,
+        "supports_file_picker": false,
+        "assisted_input_kind": null,
+        "pattern": null,
+        "effective_message_policy": "FORBIDDEN",
+        "message_policy_condition": "При заполненном коде 07365 наименование не заполняется согласно таблице 57 REQ.2.",
+        "message_policy_external_dependency": null,
+        "message_policy_req_ids": [
+          "P.SP.02.MSG.027.T57.REQ.2"
+        ],
+        "message_policy_notes": null,
+        "message_policy_materialize_when_parent_present": false
+      },
+      "resolver": {
+        "policy": "FORBIDDEN",
+        "fixed_value": null,
+        "condition": "При заполненном коде 07365 наименование не заполняется согласно таблице 57 REQ.2.",
+        "external_dependency": null,
+        "affected_by_req": [
+          "P.SP.02.MSG.027.T57.REQ.2"
+        ],
+        "notes": null,
+        "materialize_when_parent_present": false,
+        "application_enforced": true
+      }
+    }
+  },
+  "sanitization_checked": true,
+  "scenarios": {
+    "positive": {
+      "xml": "cv03_positive.xml",
+      "sha256": "2ac1dce5108c85a8adc1488447e3191d0fe06d37ac23469234c8195ee0de3766",
+      "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "extraction_issues": [],
+      "valid": true,
+      "complete": true,
+      "rule_results": {
+        "P.SP.02.MSG.027.T57.REQ.2": "PASS"
+      },
+      "issues": []
+    },
+    "wrong_code": {
+      "xml": "cv03_wrong_code.xml",
+      "sha256": "dbc4b2a53b7994abe57702218a9eeb4a96c3600df2d7da7fa89b44a5c73017d1",
+      "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "extraction_issues": [],
+      "valid": false,
+      "complete": false,
+      "rule_results": {
+        "P.SP.02.MSG.027.T57.REQ.2": "FAIL"
+      },
+      "issues": [
+        {
+          "rule_id": "P.SP.02.MSG.027.T57.REQ.2",
+          "code": "STRUCTURED_RULE_FAILED"
+        }
+      ]
+    },
+    "both": {
+      "xml": "cv03_both.xml",
+      "sha256": "1a37d5ff0ae9ea94ba47dd016e2ce800228ffa671ee1215b060a7008ff3cd00e",
+      "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "extraction_issues": [],
+      "valid": false,
+      "complete": false,
+      "rule_results": {
+        "P.SP.02.MSG.027.T57.REQ.2": "FAIL"
+      },
+      "issues": [
+        {
+          "rule_id": "P.SP.02.MSG.027:ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName",
+          "code": "FORBIDDEN_FIELD"
+        },
+        {
+          "rule_id": "P.SP.02.MSG.027.T57.REQ.2",
+          "code": "STRUCTURED_RULE_FAILED"
+        }
+      ]
+    },
+    "missing_code": {
+      "xml": "cv03_missing_code.xml",
+      "sha256": "eb1f16cdf251aedad4c9e33cd267d2bfa581774502b299327e253864385ab5ca",
+      "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "extraction_issues": [],
+      "valid": false,
+      "complete": false,
+      "rule_results": {
+        "P.SP.02.MSG.027.T57.REQ.2": "FAIL"
+      },
+      "issues": [
+        {
+          "rule_id": "P.SP.02.MSG.027.T57.REQ.2",
+          "code": "STRUCTURED_RULE_FAILED"
+        }
+      ]
+    },
+    "legacy_name_only": {
+      "xml": "cv03_legacy_name_only.xml",
+      "sha256": "36934597a0862681b05fccee313f4942766e0c9390a0e6266ed8235f1097721a",
+      "root_qname": "{urn:EEC:R:IP:SP:02:TrademarkRegistrationDetails:v1.0.0}TrademarkRegistrationDetails",
+      "extraction_issues": [],
+      "valid": false,
+      "complete": false,
+      "rule_results": {
+        "P.SP.02.MSG.027.T57.REQ.2": "FAIL"
+      },
+      "issues": [
+        {
+          "rule_id": "P.SP.02.MSG.027:ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName",
+          "code": "FORBIDDEN_FIELD"
+        },
+        {
+          "rule_id": "P.SP.02.MSG.027.T57.REQ.2",
+          "code": "STRUCTURED_RULE_FAILED"
+        }
+      ]
+    }
+  },
+  "result": "PASS"
+}

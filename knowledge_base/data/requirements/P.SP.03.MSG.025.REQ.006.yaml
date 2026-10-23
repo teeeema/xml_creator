@@ -56,10 +56,29 @@
   },
   "project_state": {
     "audit_notes": null,
-    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "blockers": [
+      "XSD"
+    ],
+    "evidence_refs": [
+      "codex_reports/OP23_P_SP_03/PROOF_CLOSURE/OP23_CURRENT_STRICT_STATE.md",
+      "codex_reports/OP23_P_SP_03/PROOF_CLOSURE/OP23_PROOF_CLOSURE_MATRIX.csv"
+    ],
+    "full_proof": false,
+    "git_head": "ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b",
+    "mapped": false,
     "plain_explanation": "PDF стр. 288, таблица 29, требование 6 запрещает csdo:DocBinaryText. Таблица 16 структуры R.IP.SP.03.007 (PDF стр. 573-574) не перечисляет этот дочерний элемент, но контейнер имеет тип ipcdo:IPDocDetailsType. В других структурах ОП23 этот же тип содержит DocBinaryText (PDF стр. 468/531/565). Без официальной XSD и импортированного определения типа нельзя определить фактический XML content model для MSG.025.",
     "plain_explanation_evidence": "AUDIT_DERIVED",
+    "proof_links": {
+      "negative_test_ids": [],
+      "positive_test_ids": [],
+      "production_rule_ids": [],
+      "real_xml_status": null,
+      "runtime_evidence": []
+    },
     "snapshot": "data/project_state/current.json",
+    "state": "BLOCKED_XSD",
+    "state_note": "EEC_R_IP_SP_03_ApellationOfOriginRegisterRequestDetails_v1.0.0.xsd and imported common-model XSD defining M.IP.CDT.00003 / IPDocDetailsType with exact namespace bindings.",
+    "state_overlay": "project_state/requirement_state.json",
     "verified_at": null
   },
   "provenance": {

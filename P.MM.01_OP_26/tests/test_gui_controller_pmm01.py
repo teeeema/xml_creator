@@ -88,9 +88,14 @@ class Pmm01GuiControllerTests(unittest.TestCase):
                         usages.append((message.message_code,field))
         self.assertEqual(len(usages),53)
         self.assertTrue(all(field.datatype == "csdo:BinaryTextType" for _,field in usages))
-        self.assertTrue(all(field.supports_file_picker for _,field in usages))
-        self.assertTrue(all(field.assisted_input_kind == "FILE" for _,field in usages))
-        self.assertTrue(all(field.ui_input_policy == "GROUP" for _,field in usages))
+        visible = [(message, field) for message, field in usages if field.visibility != "HIDDEN"]
+        forbidden = [(message, field) for message, field in usages if field.effective_message_policy == "FORBIDDEN"]
+        self.assertEqual(len(visible),51)
+        self.assertTrue(all(field.supports_file_picker for _,field in visible))
+        self.assertEqual(len(forbidden),2)
+        self.assertTrue(all(field.visibility == "HIDDEN" and not field.supports_file_picker for _,field in forbidden))
+        self.assertTrue(all(field.assisted_input_kind == "FILE" and field.ui_input_policy == "GROUP" for _,field in visible))
+        self.assertTrue(all(field.assisted_input_kind is None and field.ui_input_policy == "HIDDEN" for _,field in forbidden))
 
     def test_binary_value_is_preserved_by_form_filters(self):
         self.select("P.MM.01.TRN.001","P.MM.01.MSG.001")

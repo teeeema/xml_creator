@@ -63,10 +63,29 @@
   },
   "project_state": {
     "audit_notes": "Package business_rule=NO; structured_rule=NO",
-    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "blockers": [
+      "NESTED_CONTEXT_CORRELATION"
+    ],
+    "evidence_refs": [
+      "codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_2/OP49_WAVE2_RECLASSIFIED.csv",
+      "codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_2/OP49_WAVE2_RESULTS.csv"
+    ],
+    "full_proof": false,
+    "git_head": "ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b",
+    "mapped": false,
     "plain_explanation": "Правило требует календарной связи между месяцами или выбора предыдущего месячного экземпляра; текущий structured rules engine не умеет выразить эту относительную выборку полностью.",
     "plain_explanation_evidence": "AUDIT_DERIVED",
+    "proof_links": {
+      "negative_test_ids": [],
+      "positive_test_ids": [],
+      "production_rule_ids": [],
+      "real_xml_status": null,
+      "runtime_evidence": []
+    },
     "snapshot": "data/project_state/current.json",
+    "state": "BLOCKED_ENGINE",
+    "state_note": "Requirement compares ScoreDutyDeptRepayCurrentDayAmount with the previous monthly report, but item 41 limits the comparison to nested ChargedDistributedDutyDetails where DailyInfoIndicator=0. Current selectors cannot safely preserve both the previous-report relation and that nested owner context, so implementing this requirement alone could compare the wrong instance.",
+    "state_overlay": "project_state/requirement_state.json",
     "verified_at": null
   },
   "provenance": {

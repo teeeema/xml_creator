@@ -113,8 +113,12 @@ class Pmm01ApplicationFacadeTests(unittest.TestCase):
                 self.assertGreater(sum(field.ui_input_policy == "USER_INPUT" for field in fields), 0)
                 unresolved = [field for field in fields if field.normative_input_policy == "UNRESOLVED_INPUT_POLICY" and field.visibility != "HIDDEN"]
                 self.assertTrue(unresolved)
-                self.assertTrue(all(field.ui_input_policy == "USER_INPUT" for field in unresolved))
-                self.assertTrue(all(field.ui_policy_origin in {"PROJECT_UI_DEFAULT", "MANUAL_OVERRIDE"} for field in unresolved))
+                plain_unresolved = [field for field in unresolved if field.effective_message_policy is None]
+                fixed_by_message = [field for field in unresolved if field.effective_message_policy == "FIXED"]
+                self.assertTrue(all(field.ui_input_policy == "USER_INPUT" for field in plain_unresolved))
+                self.assertTrue(all(field.ui_policy_origin in {"PROJECT_UI_DEFAULT", "MANUAL_OVERRIDE"} for field in plain_unresolved))
+                self.assertTrue(all(field.ui_input_policy == "READ_ONLY" for field in fixed_by_message))
+                self.assertTrue(all(field.fixed_value is not None and field.message_policy_req_ids for field in fixed_by_message))
 
     def test_structured_message_guides_cover_key_messages(self):
         def flat(guide): return tuple(self.app._guide_service._walk(guide.fields))
@@ -160,7 +164,8 @@ class Pmm01ApplicationFacadeTests(unittest.TestCase):
         self.assertEqual(doc_date.example_value,"2026-08-24")
         self.assertEqual((entity.example_value,entity.example_origin),("ООО «Пример»","PROJECT_DOCUMENTATION"))
         self.assertEqual((country.example_value,country.example_origin),("RU","DATATYPE_EXAMPLE"))
-        self.assertEqual(code_list.example_value,"123456")
+        self.assertEqual((code_list.example_value,code_list.example_origin),("P.CLS.019","FIXED_VALUE"))
+        self.assertEqual((code_list.fixed_value,code_list.ui_input_policy,code_list.effective_message_policy),("P.CLS.019","READ_ONLY","FIXED"))
         self.assertEqual((update.example_value,update.ui_input_policy),("2026-08-24T15:24:00+03:00","EXTERNAL_SYSTEM"))
 
     def test_unresolved_ui_audit_preserves_conditional_policy(self):
@@ -212,8 +217,8 @@ class Pmm01ApplicationFacadeTests(unittest.TestCase):
         required=filter_service.apply(form,mode=FormDisplayMode.REQUIRED)
         user_fields=filter_service.apply(form,mode=FormDisplayMode.USER_FIELDS)
         summary=self.app.get_message_input_summary("P.MM.01","P.MM.01.TRN.001","P.MM.01.MSG.001")
-        self.assertEqual((summary.visible_fields,summary.manual_fields),(401,308))
-        self.assertEqual((len(all_fields.visible_paths),len(required.visible_paths),len(user_fields.visible_paths)),(401,168,399))
+        self.assertEqual((summary.visible_fields,summary.manual_fields),(395,297))
+        self.assertEqual((len(all_fields.visible_paths),len(required.visible_paths),len(user_fields.visible_paths)),(395,144,381))
         search=filter_service.apply(form,query="DocName")
         self.assertTrue(search.matching_paths)
         self.assertTrue(all(path.endswith("DocName") or "DocName" in path for path in search.matching_paths))

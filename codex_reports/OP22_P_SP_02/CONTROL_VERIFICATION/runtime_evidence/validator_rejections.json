@@ -1,0 +1,46 @@
+{
+  "MSG005_REJECT_CODE_AND_NAME": {
+    "xml_path": "codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/MSG005_REJECT_CODE_AND_NAME.xml",
+    "xml_sha256": "70f68612fa9e7590712b7a17d382b264bc143cee2013cd4abc7576cf491946ca",
+    "xml_well_formed": true,
+    "extraction_issues": [],
+    "code": "07360",
+    "name": "forbidden",
+    "valid": false,
+    "req2_failed": true,
+    "issues": [
+      {
+        "code": "FORBIDDEN_FIELD",
+        "rule_id": "P.SP.02.MSG.005:ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName",
+        "field_path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName"
+      },
+      {
+        "code": "STRUCTURED_RULE_FAILED",
+        "rule_id": "P.SP.02.MSG.005.T39.REQ.2",
+        "field_path": ""
+      }
+    ]
+  },
+  "MSG005_REJECT_UNKNOWN_CODE": {
+    "xml_path": "codex_reports/OP22_P_SP_02/CONTROL_VERIFICATION/runtime_evidence/MSG005_REJECT_UNKNOWN_CODE.xml",
+    "xml_sha256": "3a62b9896a26948add77fb368314f503088b299c0abdce0b22b331f1d8f028d5",
+    "xml_well_formed": true,
+    "extraction_issues": [],
+    "code": "99999",
+    "name": null,
+    "valid": false,
+    "req2_failed": true,
+    "issues": [
+      {
+        "code": "FIXED_VALUE_MISMATCH",
+        "rule_id": "P.SP.02.MSG.005:ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode",
+        "field_path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode"
+      },
+      {
+        "code": "STRUCTURED_RULE_FAILED",
+        "rule_id": "P.SP.02.MSG.005.T39.REQ.2",
+        "field_path": ""
+      }
+    ]
+  }
+}

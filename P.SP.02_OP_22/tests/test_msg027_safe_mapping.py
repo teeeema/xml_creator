@@ -70,7 +70,9 @@ def test_classification_sets_are_exact_and_unmapped_have_no_rules():
     assert _direct(1)
     assert _direct(5)
     assert _direct(30)
-    for code in (2, 3, 4):
+    assert _direct(2)[0]['mapping_status'] == 'FULL'
+    assert not _direct(3)  # Current classifier 07365 activates REQ2, not fallback.
+    for code in (4,):
         rules = _direct(code)
         assert rules and all(r.get('mapping_status') == 'PARTIAL' for r in rules)
     inherited_items = {
@@ -89,20 +91,16 @@ def test_req1_exactly_one_application():
     assert (rule['min_occurs'], rule['max_occurs']) == (1, 1)
 
 
-def test_req2_and_req3_are_exact_safe_partial_document_kind_branches():
+def test_req2_enforces_confirmed_classifier_and_req3_fallback_is_inactive():
     req2, = _direct(2)
-    assert req2['kind'] == 'conditional_presence'
-    assert req2['scope'] == {'collection': APP}
-    assert req2['condition'] == {'field': 'ipsdo:IPDocKindCode', 'operator': 'NE', 'value': None}
-    assert req2['target'] == {'field': 'ipsdo:IPDocKindName'}
-    assert req2['state'] == 'FORBIDDEN'
-
-    req3, = _direct(3)
-    assert req3['kind'] == 'conditional_fixed_value'
-    assert req3['scope'] == {'collection': APP}
-    assert req3['condition'] == {'field': 'ipsdo:IPDocKindCode', 'operator': 'EQ', 'value': None}
-    assert req3['target'] == {'field': 'ipsdo:IPDocKindName'}
-    assert req3['value'] == FALLBACK
+    assert req2['kind'] == 'for_each'
+    assert req2['selector'] == {'collection': APP}
+    assert req2['assertions'] == [
+        {'kind': 'fixed_value', 'target': {'field': 'ipsdo:IPDocKindCode'}, 'value': '07365'},
+        {'kind': 'presence', 'target': {'field': 'ipsdo:IPDocKindName'}, 'state': 'FORBIDDEN'},
+    ]
+    assert req2['source_refs'][1]['item'] == '07365'
+    assert not _direct(3)
 
 
 def test_req4_contains_only_local_identifier_presence_fragment():

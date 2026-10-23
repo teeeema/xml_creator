@@ -63,10 +63,34 @@
   },
   "project_state": {
     "audit_notes": "Package business_rule=YES; structured_rule=NO; package_source_page=86; package_source_page_match=YES; package_source_text_exact_match=YES",
-    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "blockers": [],
+    "evidence_refs": [
+      "codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_2/OP49_WAVE2_RESULTS.csv"
+    ],
+    "full_proof": true,
+    "git_head": "ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b",
+    "mapped": true,
     "plain_explanation": "Правило требует календарной связи между месяцами или выбора предыдущего месячного экземпляра; текущий structured rules engine не умеет выразить эту относительную выборку полностью.",
     "plain_explanation_evidence": "AUDIT_DERIVED",
+    "proof_links": {
+      "negative_test_ids": [
+        "P.DS.01_OP_49/tests/test_wave2_implementation.py"
+      ],
+      "positive_test_ids": [
+        "P.DS.01_OP_49/tests/test_wave2_implementation.py"
+      ],
+      "production_rule_ids": [
+        "P.DS.01.MSG.002.R006"
+      ],
+      "real_xml_status": "PRESENT",
+      "runtime_evidence": [
+        "P.DS.01_OP_49/tests/test_wave2_implementation.py"
+      ]
+    },
     "snapshot": "data/project_state/current.json",
+    "state": "FULL_PROOF",
+    "state_note": "EventDate calendar month must equal PreviousReportDate calendar month + 1; existing CALENDAR_MONTH comparison with offset_months=1 represents the requirement exactly.",
+    "state_overlay": "project_state/requirement_state.json",
     "verified_at": null
   },
   "provenance": {

@@ -69,21 +69,21 @@ def test_e2e_req3_and_req6_negative_cases():
 def test_e2e_req7_root_forbidden_fields_including_payment_details():
     engine, structure, parsed, _ = extracted_valid()
     cases = [
-        ("ipsdo", "ApellationOfOriginApplicationId", "AO-054"),
-        ("csdo", "DocId", "DOC-054"),
-        ("ipcdo", "IPPaymentDetails", None),
-        ("ipsdo", "DutyPaymentIndicator", "1"),
-        ("csdo", "PaymentAmount", "100"),
+        ("ipsdo", "ApellationOfOriginApplicationId", "AO-054", f"{MESSAGE}.T72.REQ.7"),
+        ("csdo", "DocId", "DOC-054", f"{MESSAGE}.T72.REQ.7.DOC_ID"),
+        ("ipcdo", "IPPaymentDetails", None, f"{MESSAGE}.T72.REQ.7.PAYMENT_DETAILS"),
+        ("ipsdo", "DutyPaymentIndicator", "1", f"{MESSAGE}.T72.REQ.7.DUTY_PAYMENT_INDICATOR"),
+        ("csdo", "PaymentAmount", "100", f"{MESSAGE}.T72.REQ.7.PAYMENT_AMOUNT"),
     ]
 
-    for prefix, local, text in cases:
+    for prefix, local, text, expected_rule_id in cases:
         root = ET.fromstring(ET.tostring(parsed, encoding="utf-8"))
         node = ET.SubElement(root, ET.QName(structure.imported_namespaces[prefix], local))
         if text is not None:
             node.text = text
         values, _ = engine.body_provider._values_from_element(structure, root)
         result = engine.validate_body(MESSAGE, values, mode=GenerationMode.TEST)
-        assert any(issue.rule_id == f"{MESSAGE}.T72.REQ.7" for issue in result.issues), local
+        assert any(issue.rule_id == expected_rule_id for issue in result.issues), local
 
 
 def test_critical_message_isolation_from_msg055():

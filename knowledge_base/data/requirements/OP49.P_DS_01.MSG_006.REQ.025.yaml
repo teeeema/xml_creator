@@ -63,10 +63,34 @@
   },
   "project_state": {
     "audit_notes": "Package business_rule=NO; structured_rule=NO",
-    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "blockers": [],
+    "evidence_refs": [
+      "codex_reports/OP49_P_DS_01/IMPLEMENTATION_WAVE_2/OP49_WAVE2_RESULTS.csv"
+    ],
+    "full_proof": true,
+    "git_head": "ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b",
+    "mapped": true,
     "plain_explanation": "Нужно проверить нормативное условие: если для реквизита «Сведения о суммах распределенных ввозных таможенных пошлин, перечисленных на счета» (ds01cdo:TransferDistributedDutyDetails) реквизит «Признак общей суммы» (ds01sdo:TotalAmountIndicator) имеет значение «1», то значение реквизита «Суммы распределенных ввозных таможенных пошлин, перечисленные на счет» (ds01sdo:TransferDistributedDutyAmount) должно быть равно сумме всех значений реквизитов «Суммы распределенных ввозных таможенных пошлин, перечисленные на счет» (ds01sdo:TransferDistributedDutyAmount), указанных в реквизите «Сведения о суммах распределенных ввозных таможенных пошлин, перечисленных на счета» (ds01cdo:TransferDistributedDutyDetails) с индикатором «Признак общей суммы» (ds01sdo:TotalAmountIndicator) со значением «0»",
     "plain_explanation_evidence": "AUDIT_DERIVED",
+    "proof_links": {
+      "negative_test_ids": [
+        "P.DS.01_OP_49/tests/test_wave2_implementation.py"
+      ],
+      "positive_test_ids": [
+        "P.DS.01_OP_49/tests/test_wave2_implementation.py"
+      ],
+      "production_rule_ids": [
+        "P.DS.01.MSG.006.R025"
+      ],
+      "real_xml_status": "PRESENT",
+      "runtime_evidence": [
+        "P.DS.01_OP_49/tests/test_wave2_implementation.py"
+      ]
+    },
     "snapshot": "data/project_state/current.json",
+    "state": "FULL_PROOF",
+    "state_note": "Within each ChargedDistributedDutyReportDetails, TransferDistributedDutyAmount total (TotalAmountIndicator=1) must equal the sum of rows with indicator=0; existing for_each + context-scoped aggregate_comparison represents this exactly.",
+    "state_overlay": "project_state/requirement_state.json",
     "verified_at": null
   },
   "provenance": {

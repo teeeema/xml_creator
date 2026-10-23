@@ -581,6 +581,61 @@
       ]
     }
   ],
+  "structured_rules": [
+    {
+      "rule_id": "P.DS.01.MSG.002.R001",
+      "kind": "cardinality",
+      "target": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R001",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 85,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R006",
+      "kind": "comparison",
+      "left": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/csdo:EventDate",
+      "operator": "EQ",
+      "right": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01sdo:PreviousReportDate",
+      "value_type": "CALENDAR_MONTH",
+      "offset_months": 1,
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R006",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 86,
+          "table": "11"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.DS.01.MSG.002.R007",
+      "kind": "comparison",
+      "left": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01sdo:ReportDate",
+      "operator": "GT",
+      "right": "ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/csdo:EventDate",
+      "source_refs": [
+        {
+          "source_id": "49OP-P.DS.01.MSG.002-R007",
+          "document": "49 ОП.pdf",
+          "location": "Таблица 11",
+          "status": "CONFIRMED",
+          "page": 86,
+          "table": "11"
+        }
+      ]
+    }
+  ],
   "correlation_rules": [],
   "classifier_refs": [],
   "source_refs": [

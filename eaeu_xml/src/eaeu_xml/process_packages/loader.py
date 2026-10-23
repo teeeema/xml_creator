@@ -4,7 +4,8 @@ from typing import Any
 
 from eaeu_xml.core.errors import ProcessPackageFormatError, ProcessPackagePathError, ProcessPackageValidationError
 from eaeu_xml.process_packages.models import (
-    EmbeddedStructuresDefinition, FieldInputPolicyDefinition, UiInputPolicyDefinition, MessageDefinition, MessageRules, OperationDefinition, ParticipantDefinition, ProcedureDefinition, ProcessDefinition,
+    EmbeddedStructuresDefinition, FieldInputPolicyDefinition, MessageFieldPolicyDefinition, MessageFieldPolicyRule,
+    UiInputPolicyDefinition, MessageDefinition, MessageRules, OperationDefinition, ParticipantDefinition, ProcedureDefinition, ProcessDefinition,
     ProcessPackage, SourceReference, StructureDefinition, TransactionDefinition,
     VersionProfile, StructureFieldDefinition, DatatypeFacets,
     StructureVersionSelection,
@@ -51,7 +52,7 @@ def _message_has_field(message: MessageDefinition | None, field_path: str,
     for (structure_id, _version), structure in structures.items():
         if structure_id not in message.structure_ids:
             continue
-        for field in structure.fields:
+        for field in structure.presentation_fields:
             if field.path == field_path:
                 return True
     return False
@@ -223,9 +224,37 @@ class ProcessPackageLoader:
                         capabilities=tuple(item.get("capabilities", [])),
                     )
                     ui_input_policies[(message_code, definition.field_path)] = definition
+        message_field_policies = {}
+        message_policy_path = path / "message_field_policies"
+        if message_policy_path.is_dir():
+            for file in sorted(message_policy_path.glob("*.yaml")):
+                item = cls._read(file)
+                message_code = item.get("message_code", file.stem)
+                structure_id = item.get("structure_id")
+                if message_code not in messages or not structure_id:
+                    continue
+                policy_rules = tuple(MessageFieldPolicyRule(
+                    selector=rule.get("selector", {}),
+                    policy=rule["policy"],
+                    fixed_value=rule.get("fixed_value"),
+                    condition=rule.get("condition"),
+                    external_dependency=rule.get("external_dependency"),
+                    affected_by_req=tuple(rule.get("affected_by_req", [])),
+                    source_refs=_refs(rule.get("source_refs")),
+                    notes=rule.get("notes"),
+                    priority=int(rule.get("priority", 0)),
+                    materialize_when_parent_present=bool(rule.get("materialize_when_parent_present", False)),
+                ) for rule in item.get("rules", []))
+                message_field_policies[message_code] = MessageFieldPolicyDefinition(
+                    message_code=message_code,
+                    structure_id=structure_id,
+                    rules=policy_rules,
+                    default_policy=item.get("default_policy", "OPTIONAL"),
+                )
         package = ProcessPackage(
             path=path, process=process, procedures=procedures, operations=operations, participants=participants, transactions=transactions, messages=messages,
-            structures=structures, rules=rules, input_policies=input_policies, ui_input_policies=ui_input_policies, profile=profile,
+            structures=structures, rules=rules, input_policies=input_policies, ui_input_policies=ui_input_policies,
+            message_field_policies=message_field_policies, profile=profile,
             classifiers_available=any(item.is_file() and not item.name.startswith(".") for item in (path / "classifiers").glob("*")),
             xsd_available=any((path / "xsd").glob("*.xsd")),
         )
@@ -235,10 +264,8 @@ class ProcessPackageLoader:
     @classmethod
     def load_structures(cls, structures_path: Path) -> dict[tuple[str, str], StructureDefinition]:
         """Parse a structure catalog using the package loader's canonical parser."""
-        structures = {}
-        for file in sorted(structures_path.glob("*/*.yaml")):
-            item = cls._read(file)
-            fields = tuple(StructureFieldDefinition(
+        def parse_fields(values):
+            return tuple(StructureFieldDefinition(
                 field_id=field["field_id"], order=int(field["order"]), depth=int(field["depth"]),
                 parent=field.get("parent"), path=field.get("path", ""), official_name=field.get("official_name", ""),
                 xml_name=field.get("xml_name"), namespace_prefix=field.get("namespace_prefix"), kind=field.get("kind", "ELEMENT"),
@@ -248,13 +275,20 @@ class ProcessPackageLoader:
                 identifier=field.get("identifier"), facets=DatatypeFacets(**field["facets"]) if field.get("facets") else None,
                 source_refs=_refs(field.get("source_refs")), status=field.get("status", "CONFIRMED"),
                 interpretation_status=field.get("interpretation_status", "VERIFIED"), reason_code=field.get("reason_code"),
-            ) for field in item.get("fields", []))
+            ) for field in values)
+
+        structures = {}
+        for file in sorted(structures_path.glob("*/*.yaml")):
+            item = cls._read(file)
+            fields = parse_fields(item.get("fields", []))
+            display_fields = parse_fields(item.get("display_fields", []))
             definition = StructureDefinition(
                 structure_id=item.get("structure_id", file.parent.name), version=str(item.get("version", file.stem)),
                 namespace=item.get("namespace"), root_element=item.get("root_element"), xsd_file=item.get("xsd_file"),
                 official_name=item.get("official_name"), imported_namespaces=item.get("imported_namespaces", {}),
                 field_table_reference=item.get("field_table_reference", {}),
-                fields=fields, expected_normative_rows=int(item.get("expected_normative_rows", len(fields))),
+                fields=fields, display_fields=display_fields,
+                expected_normative_rows=int(item.get("expected_normative_rows", len(fields))),
                 imported_normative_rows=int(item.get("imported_normative_rows", len(fields))),
                 excluded_rows=tuple(item.get("excluded_rows", [])),
                 source_refs=_refs(item.get("source_refs")), status=item.get("status", "NEEDS_VERIFICATION"),

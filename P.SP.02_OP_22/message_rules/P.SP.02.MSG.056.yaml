@@ -888,8 +888,10 @@
       "mapping_status": "PARTIAL"
     },
     {
-      "kind": "for_each",
+      "kind": "presence",
       "rule_id": "P.SP.02.MSG.056.T74.REQ.20",
+      "target": "ipsdo:ApellationOfOriginApplicationId",
+      "state": "FORBIDDEN",
       "applies_to_structure": "R.IP.SP.03.003",
       "source_refs": [
         {
@@ -902,38 +904,62 @@
           "version_context": "P.SP.02 1.0.0",
           "item": "20"
         }
-      ],
-      "selector": {
-        "collection": "ccdo:EDocHeader"
-      },
-      "assertions": [
+      ]
+    },
+    {
+      "kind": "presence",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.20.DOC_ID",
+      "target": "csdo:DocId",
+      "state": "FORBIDDEN",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
         {
-          "kind": "presence",
-          "target": {
-            "field": "ipsdo:ApellationOfOriginApplicationId"
-          },
-          "state": "FORBIDDEN"
-        },
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 807,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "20"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.20.DUTY_PAYMENT_INDICATOR",
+      "target": "ipsdo:DutyPaymentIndicator",
+      "state": "FORBIDDEN",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
         {
-          "kind": "presence",
-          "target": {
-            "field": "csdo:DocId"
-          },
-          "state": "FORBIDDEN"
-        },
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 807,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "20"
+        }
+      ]
+    },
+    {
+      "kind": "presence",
+      "rule_id": "P.SP.02.MSG.056.T74.REQ.20.PAYMENT_AMOUNT",
+      "target": "csdo:PaymentAmount",
+      "state": "FORBIDDEN",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
         {
-          "kind": "presence",
-          "target": {
-            "field": "ipsdo:DutyPaymentIndicator"
-          },
-          "state": "FORBIDDEN"
-        },
-        {
-          "kind": "presence",
-          "target": {
-            "field": "csdo:PaymentAmount"
-          },
-          "state": "FORBIDDEN"
+          "source_id": "22OP-RULE-P.SP.02.MSG.056-T74-20",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 74",
+          "status": "CONFIRMED",
+          "page": 807,
+          "table": "74",
+          "version_context": "P.SP.02 1.0.0",
+          "item": "20"
         }
       ]
     }

@@ -56,10 +56,35 @@
   },
   "project_state": {
     "audit_notes": null,
-    "git_head": "5df76609131e9ce88fea5502fdc942238ab2c792",
+    "blockers": [],
+    "evidence_refs": [
+      "codex_reports/OP23_P_SP_03/PROOF_CLOSURE/OP23_CURRENT_STRICT_STATE.md",
+      "codex_reports/OP23_P_SP_03/PROOF_CLOSURE/OP23_PROOF_CLOSURE_MATRIX.csv"
+    ],
+    "full_proof": true,
+    "git_head": "ac0dd6f24e5e2536b20cb1ae7936aa0cd370a16b",
+    "mapped": true,
     "plain_explanation": "Требование записано в OP23 YAML как нормативный текст, но исполняемое правило к нему не подключено. Поэтому валидатор сейчас не проверяет это условие, даже если общий rules engine уже умеет нужные операции.",
     "plain_explanation_evidence": "AUDIT_DERIVED",
+    "proof_links": {
+      "negative_test_ids": [
+        "P.SP.03_OP_23/tests/test_b1_production.py::test_msg007_safe_production_rules_real_xml[P.SP.03.MSG.007.REQ.028-communication_name-application]"
+      ],
+      "positive_test_ids": [
+        "P.SP.03_OP_23/tests/test_b1_production.py::test_msg007_safe_production_rules_real_xml[P.SP.03.MSG.007.REQ.028-communication_name-application]"
+      ],
+      "production_rule_ids": [
+        "P.SP.03.MSG.007.REQ.028"
+      ],
+      "real_xml_status": "PRESENT",
+      "runtime_evidence": [
+        "P.SP.03_OP_23/tests/test_b1_production.py::test_msg007_safe_production_rules_real_xml[P.SP.03.MSG.007.REQ.028-communication_name-application]"
+      ]
+    },
     "snapshot": "data/project_state/current.json",
+    "state": "FULL_PROOF",
+    "state_note": "Existing requirement-specific positive + negative real-XML runtime proof linked to exact production rule_id(s).",
+    "state_overlay": "project_state/requirement_state.json",
     "verified_at": null
   },
   "provenance": {

@@ -1,0 +1,15 @@
+﻿dimension,category,count,unit,notes
+REQUIREMENTS,TOTAL,1609,requirements,Current OP22 reverify inventory.
+REQUIREMENTS,DONE,117,requirements,Strict DONE in current reverify.
+REQUIREMENTS,PROOF_ONLY,1454,requirements,Current FIX_MAPPING_OR_PROOF. No missing external document is implied; mapping/test/runtime/XML proof remains.
+REQUIREMENTS,ACTUAL_SOURCE_BLOCKED,38,requirements,Exactly 7 source conflicts + 20 normative ambiguities + 11 external-registry dependencies.
+REQUIREMENTS,SOURCE_CONFLICT,7,requirements,Structural/normative conflict rows.
+REQUIREMENTS,NORMATIVE_AMBIGUITY,20,requirements,Includes 14 P.CLS.027 semantic/no-exact-match cases; P.CLS.027 source is present.
+REQUIREMENTS,EXTERNAL_REGISTRY,11,requirements,Cannot be proven by static PDF/XSD alone.
+ARTIFACTS,ACTUAL_EXTERNAL_MATERIAL_GAPS_TOTAL,21,distinct artifacts/materials,6 XSD + 4 model packages + 1 classifier + 4 registry contracts + 3 semantic source/clarification artifacts + 3 version-metadata families. Not additive to 38 requirement blockers.
+ARTIFACTS,XSD_MISSING,6,artifacts,Physical XSD files.
+ARTIFACTS,MODEL_PACKAGES_MISSING,4,artifacts,Common/IP model packages.
+ARTIFACTS,CLASSIFIER_MISSING,1,artifact,P.CLS.051 / Decision №53; zero current canonical requirement blockers.
+ARTIFACTS,REGISTRY_CONTRACTS_MISSING,4,contracts,Technical access contracts for four external resource groups.
+ARTIFACTS,SEMANTIC_SOURCE_OR_CLARIFICATION,3,artifacts,IPPartyKind semantics; MSG038 REQ2 classifier mapping; Tables 78/79 scope.
+ARTIFACTS,VERSION_UNRESOLVED,3,version families,Y.Y.Y for R.006/R.010; X.X.X common model; Z.Z.Z IP model.

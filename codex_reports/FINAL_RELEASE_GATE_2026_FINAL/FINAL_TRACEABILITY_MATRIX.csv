@@ -1,0 +1,7 @@
+op,total,full_trace,partial_trace,blocked_trace,broken_trace,no_production_expected,status,basis
+OP22,1609,142,1382,85,0,0,PARTIAL,"142 FULL_PROOF rows have materialized rule+positive+negative+runtime refs; 1263 FULL_PROOF rows lack requirement-level materialized refs; 119 implemented-not-strict rows remain partial; 85 blocked"
+OP23,710,501,2,207,0,0,PARTIAL,"501 materialized complete traces; 2 partial 5 MB semantic cases; 207 blocked"
+OP26,239,204,0,35,0,0,PARTIAL_READINESS_FULL_TRACE_FOR_EXECUTABLE,"113 FULL_PROOF plus 91 executable rows have source+rule+positive+negative+runtime trace; the 91 still lack real-XML proof; 35 blocked"
+OP32,170,0,0,0,0,170,NO_PRODUCTION_EXPECTED,"170/170 model-version/QName blocked; production trace is not expected"
+OP49,166,10,36,120,0,0,PARTIAL,"10 complete traces; 36 mapped proof-incomplete; 90 blocked plus 30 source-confirmed unmapped rows with PREFIXED_NAMESPACE_UNRESOLVED"
+GLOBAL,2894,857,1420,447,0,170,PARTIAL,"Conservative materialized-link classification. Row-level re-read after discovering the previous classification issue was TOOLING_BLOCKED, so this aggregate matrix replaces the earlier project-state-equals-traceability interpretation."
