@@ -40,8 +40,10 @@ class Op26SourceCatalogTests(unittest.TestCase):
         self.assertNotIn('P.MM.01.CLS.009', codes)
         self.assertNotIn('P.MM.01.CLS.010', codes)
         self.assertTrue({'P.MM.01.CLS.028', 'P.MM.01.CLS.029'} <= codes)
-        self.assertFalse(data['datasets_available'])
-        self.assertFalse(any(p.is_file() and not p.name.startswith('.') for p in (PACKAGE / 'classifiers').iterdir()))
+        self.assertTrue(data['datasets_available'])
+        self.assertEqual(data['complete_dataset_count'], 8)
+        self.assertEqual(len(list((PACKAGE/'classifiers').glob('*.json'))), 8)
+        self.assertEqual(sum(c['dataset_status']=='COMPLETE_OFFICIAL_SNAPSHOT' for c in data['classifiers']),8)
 
     def test_structure_versions_and_removed_structure_follow_source(self):
         inventory = read(PACKAGE / 'structures/source_inventory.json')['structures']

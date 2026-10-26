@@ -1,0 +1,25 @@
+Affected nodes for ProcessPackage
+Relations: calls, indirect_call, references, imports, imports_from, dynamic_import, re_exports, inherits, extends, implements, uses, mixes_in, embeds, requires
+Depth: 1
+- .load() [calls] eaeu_xml/src/eaeu_xml/process_packages/loader.py:L243
+- .list_processes() [references] eaeu_xml/src/eaeu_xml/process_packages/registry.py:L50
+- body.py [imports] eaeu_xml/src/eaeu_xml/process_packages/body.py:L11
+- engine.py [imports] eaeu_xml/src/eaeu_xml/process_packages/engine.py:L9
+- process_packages/__init__.py [imports] eaeu_xml/src/eaeu_xml/process_packages/__init__.py:L8
+- loader.py [imports] eaeu_xml/src/eaeu_xml/process_packages/loader.py:L7
+- readiness.py [imports] eaeu_xml/src/eaeu_xml/process_packages/readiness.py:L6
+- registry.py [imports] eaeu_xml/src/eaeu_xml/process_packages/registry.py:L11
+- resolver.py [imports] eaeu_xml/src/eaeu_xml/process_packages/resolver.py:L6
+- validator.py [imports] eaeu_xml/src/eaeu_xml/process_packages/validator.py:L6
+- versioning.py [imports] eaeu_xml/src/eaeu_xml/process_packages/versioning.py:L10
+- .__init__() [references] eaeu_xml/src/eaeu_xml/process_packages/body.py:L68
+- .__init__() [references] eaeu_xml/src/eaeu_xml/process_packages/engine.py:L14
+- require_package_ready() [references] eaeu_xml/src/eaeu_xml/process_packages/readiness.py:L15
+- .resolve() [references] eaeu_xml/src/eaeu_xml/process_packages/resolver.py:L69
+- .__init__() [references] eaeu_xml/src/eaeu_xml/process_packages/resolver.py:L21
+- .validate() [references] eaeu_xml/src/eaeu_xml/process_packages/validator.py:L12
+- ._validate_message_structures() [references] eaeu_xml/src/eaeu_xml/process_packages/validator.py:L154
+- ._validate_orphans() [references] eaeu_xml/src/eaeu_xml/process_packages/validator.py:L138
+- ._validate_sources() [references] eaeu_xml/src/eaeu_xml/process_packages/validator.py:L147
+- .get_process() [references] eaeu_xml/src/eaeu_xml/process_packages/registry.py:L53
+- load_process_version() [references] eaeu_xml/src/eaeu_xml/process_packages/versioning.py:L17

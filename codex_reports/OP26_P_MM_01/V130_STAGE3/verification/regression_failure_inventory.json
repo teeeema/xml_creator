@@ -1,0 +1,102 @@
+[
+  {
+    "classname": "P.DS.01_OP_49.tests.test_msg001_full_message",
+    "name": "test_msg001_full_message_uses_the_generic_production_pipeline",
+    "message": "AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'"
+  },
+  {
+    "classname": "P.DS.01_OP_49.tests.test_pds01_catalog.Ds01CatalogTests",
+    "name": "test_msg001_body_validation_and_mutations",
+    "message": "AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'"
+  },
+  {
+    "classname": "P.DS.01_OP_49.tests.test_process_pipeline",
+    "name": "test_available_request_bodies_validate_and_serialize[P.DS.01.MSG.002]",
+    "message": "AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'"
+  },
+  {
+    "classname": "P.DS.01_OP_49.tests.test_process_pipeline",
+    "name": "test_available_request_bodies_validate_and_serialize[P.DS.01.MSG.005]",
+    "message": "AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'"
+  },
+  {
+    "classname": "P.DS.01_OP_49.tests.test_process_pipeline",
+    "name": "test_available_request_bodies_validate_and_serialize[P.DS.01.MSG.006]",
+    "message": "AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'"
+  },
+  {
+    "classname": "P.DS.01_OP_49.tests.test_process_pipeline",
+    "name": "test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.001]",
+    "message": "AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'"
+  },
+  {
+    "classname": "P.DS.01_OP_49.tests.test_process_pipeline",
+    "name": "test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.002]",
+    "message": "AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'"
+  },
+  {
+    "classname": "P.DS.01_OP_49.tests.test_process_pipeline",
+    "name": "test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.003]",
+    "message": "AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'"
+  },
+  {
+    "classname": "P.DS.01_OP_49.tests.test_process_pipeline",
+    "name": "test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.005]",
+    "message": "AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'"
+  },
+  {
+    "classname": "P.DS.01_OP_49.tests.test_process_pipeline",
+    "name": "test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.006]",
+    "message": "AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'"
+  },
+  {
+    "classname": "P.DS.01_OP_49.tests.test_process_pipeline",
+    "name": "test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.007]",
+    "message": "AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'"
+  },
+  {
+    "classname": "P.MM.01_OP_26.tests.test_application_facade_pmm01.Pmm01ApplicationFacadeTests",
+    "name": "test_priority_field_examples_are_safe_and_origin_traced",
+    "message": "AssertionError: Tuples differ: ('123456', 'DATATYPE_EXAMPLE') != ('[идентификатор]', 'PROJECT_DOCUMENTATION')\n\nFirst differing element 0:\n'123456'\n'[идентификатор]'\n\n- ('123456', 'DATATYPE_EXAMPLE')\n+ ('[идентификатор]', 'PROJECT_DOCUMENTATION')"
+  },
+  {
+    "classname": "P.MM.01_OP_26.tests.test_v130_runtime.V130RuntimeTests",
+    "name": "test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode",
+    "message": "AssertionError: True is not false"
+  },
+  {
+    "classname": "eaeu_xml.tests.test_application_facade.ApplicationFacadeTests",
+    "name": "test_ds01_test_data_satisfies_executable_structured_rules",
+    "message": "AssertionError: Tuples differ: (IssueView(code='PATTERN', field_path='Cha[946 chars]one)) != ()\n\nFirst tuple contains 3 additional elements.\nFirst extra element 0:\nIssueView(code='PATTERN', field_path='ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails/csdo:UnifiedCountryCode', message='Значение нарушает facet PATTERN.', severity='ERROR', source_ref='49OP-R.R.FP.DS.01.001-3.5.9.3', rule_id=None)\n\nDiff is 1202 characters long. Set self.maxDiff to None to see it."
+  },
+  {
+    "classname": "eaeu_xml.tests.test_examples.ExampleValueResolverTests",
+    "name": "test_classifier_uses_instructional_placeholder",
+    "message": "AssertionError: Tuples differ: (None, 'UNAVAILABLE') != ('[значение выбирается из классификатора]', 'CLASSIFIER_EXAMPLE')\n\nFirst differing element 0:\nNone\n'[значение выбирается из классификатора]'\n\n- (None, 'UNAVAILABLE')\n+ ('[значение выбирается из классификатора]', 'CLASSIFIER_EXAMPLE')"
+  },
+  {
+    "classname": "eaeu_xml.tests.test_examples.ExampleValueResolverTests",
+    "name": "test_uuid_only_when_datatype_confirms_it",
+    "message": "AssertionError: 'd1f6f86c-029a-4245-bb91-433a6aa79987' != '550e8400-e29b-41d4-a716-446655440000'\n- d1f6f86c-029a-4245-bb91-433a6aa79987\n+ 550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "classname": "eaeu_xml.tests.test_structured_rule_form_policy",
+    "name": "test_top_level_string_target_presence_rules_project_into_form_policy[P.SP.03-P.SP.03.TRN.018-P.SP.03.MSG.023-ipsdo:ApellationOfOriginApplicationId]",
+    "message": "AssertionError: assert None == 'REQUIRED'\n +  where None = FieldView(path='ipsdo:ApellationOfOriginApplicationId', xml_name='ApellationOfOriginApplicationId', display_name='Реги...dency=None, message_policy_req_ids=(), message_policy_notes=None, message_policy_materialize_when_parent_present=False).effective_message_policy"
+  },
+  {
+    "classname": "eaeu_xml.tests.test_structured_rule_form_policy",
+    "name": "test_top_level_string_target_presence_rules_project_into_form_policy[P.MM.01-P.MM.01.TRN.018-P.MM.01.MSG.027-RegistrationNumberId]",
+    "message": "AssertionError: assert None == 'REQUIRED'\n +  where None = FieldView(path='RegistrationNumberId', xml_name='RegistrationNumberId', display_name='Порядковый номер регистрационног...dency=None, message_policy_req_ids=(), message_policy_notes=None, message_policy_materialize_when_parent_present=False).effective_message_policy"
+  },
+  {
+    "classname": "eaeu_xml.tests.test_structured_rule_form_policy",
+    "name": "test_op23_msg001_projects_static_authority_requirement",
+    "message": "AssertionError: assert None == 'REQUIRED'\n +  where None = FieldView(path='ipcdo:ApellationOfOriginApplicationDetails/ipcdo:PatentAuthorityDetails/csdo:AuthorityName', xml_name=...dency=None, message_policy_req_ids=(), message_policy_notes=None, message_policy_materialize_when_parent_present=False).effective_message_policy"
+  },
+  {
+    "classname": "eaeu_xml.tests.test_structured_rule_form_policy",
+    "name": "test_op26_msg001_projects_static_classifier_id_as_read_only_fixed_value",
+    "message": "AssertionError: assert None == 'FIXED'\n +  where None = FieldView(path='DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode/@codeListId', xml_name='code...dency=None, message_policy_req_ids=(), message_policy_notes=None, message_policy_materialize_when_parent_present=False).effective_message_policy"
+  }
+]

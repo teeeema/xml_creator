@@ -1,0 +1,31 @@
+{
+  "message_code": "P.SP.02.MSG.004",
+  "structure_id": "R.IP.SP.02.002",
+  "default_policy": "OPTIONAL",
+  "rules": [
+    {
+      "selector": {
+        "path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode"
+      },
+      "policy": "FIXED",
+      "fixed_value": "07320",
+      "condition": "Код 07320 подтвержден Решением №92 в редакции Решения №148; применяется ветвь таблицы 38 REQ.2.",
+      "affected_by_req": [
+        "P.SP.02.MSG.004.REQ.2"
+      ],
+      "notes": "Вид документа таблицы 38 подтвержден записью 07320: Решение №92, стр. 13; Решение №148, стр. 3.",
+      "priority": 60
+    },
+    {
+      "selector": {
+        "path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName"
+      },
+      "policy": "FORBIDDEN",
+      "condition": "При заполненном коде 07320 наименование не заполняется согласно таблице 38 REQ.2.",
+      "affected_by_req": [
+        "P.SP.02.MSG.004.REQ.2"
+      ],
+      "priority": 90
+    }
+  ]
+}

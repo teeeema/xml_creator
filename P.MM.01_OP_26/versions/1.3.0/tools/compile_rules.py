@@ -8,7 +8,10 @@ import copy
 import json
 import re
 import hashlib
-from compile_structures import clean, dump, PACKAGE, REPORT
+from compile_structures import clean, dump, PACKAGE
+from rule_patterns import bind_local
+
+REPORT = PACKAGE.parents[2] / "codex_reports/OP26_P_MM_01/V130_STAGE3"
 
 QNAME=re.compile(r'\(([a-z]+):\s*([A-Za-z0-9_]+)\)')
 
@@ -22,6 +25,8 @@ def ancestry(field, by_id):
 
 
 def bind(row, structure):
+    local, reason = bind_local(row, structure)
+    if local: return local, reason
     text=clean(row['requirement']).strip().rstrip('.')
     qnames=QNAME.findall(text)
     if not qnames:return [],'UNRESOLVED_FIELD_BINDING'
@@ -102,7 +107,10 @@ def compile_all():
             # Printed table numbers in 140: A table 26 -> index151; A47 ->172.
             table_index=int(inherited[3])+125 if scope=='A' else int(inherited[3])+177
             candidates=[r for d in catalogs.values() for r in d['business_rules'] if r['source_regulation_table_index']==table_index and r['source_requirement_code'].isdigit() and int(inherited[1])<=int(r['source_requirement_code'])<=int(inherited[2])]
-            if not candidates or row['rule_id'] in trail:return [],'UNRESOLVED_INHERITED_RANGE'
+            expected=set(range(int(inherited[1]),int(inherited[2])+1))
+            actual=[int(r['source_requirement_code']) for r in candidates]
+            if set(actual)!=expected or len(actual)!=len(set(actual)) or row['rule_id'] in trail:
+                return [],'UNRESOLVED_INHERITED_RANGE'
             output=[];unresolved=[]
             for source in candidates:
                 atoms,reason=atoms_for(source,structure,(*trail,row['rule_id']))

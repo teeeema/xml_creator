@@ -78,5 +78,17 @@ class XmlContextTests(unittest.TestCase):
                 self.assertEqual(evaluator.evaluate(rule,self.provider._flatten(values)).status,RuleStatus.FAIL)
         self.assertEqual(evaluator.evaluate(rule,{'Groups':[{},{}],'Groups/Name':[None,None]}).status,RuleStatus.PASS)
 
+    def test_cardinality_counts_only_emitted_nodes_and_empty_lists_are_absent(self):
+        from dataclasses import replace
+        required=replace(self.schema,fields=(replace(self.schema.fields[0],min_occurs=1),*self.schema.fields[1:]))
+        for value in ([],[None]):
+            with self.subTest(value=value):
+                values={'Groups':value}
+                self.assertTrue(any(i.code=='MIN_OCCURS' for i in self.provider.validate_body(self.message,required,values).issues))
+                rule={'kind':'field_constraint','operation':'CARDINALITY','target':'Groups','ancestors':[],'container':True,'min_occurs':1}
+                self.assertEqual(StructuredRuleEvaluator().evaluate(rule,values).status,RuleStatus.FAIL)
+                rule['operation']='FORBIDDEN'
+                self.assertEqual(StructuredRuleEvaluator().evaluate(rule,values).status,RuleStatus.PASS)
+
 
 if __name__=='__main__':unittest.main()

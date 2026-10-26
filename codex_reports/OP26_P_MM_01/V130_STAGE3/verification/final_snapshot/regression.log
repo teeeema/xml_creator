@@ -1,0 +1,970 @@
+F....F........F.FFFFF.FFF.... [  3%]
+.............F............................ [  9%]
+................................................................... [ 18%]
+........................................................................ [ 28%]
+........................................................................ [ 37%]
+........................................................................ [ 47%]
+........................................................................ [ 57%]
+.....................F...................................................................... [ 69%]
+..F..F......................................................... [ 78%]
+..................................................... [ 85%]
+................................................. [ 91%]
+..........FF.FF............................................ [ 99%]
+..                                                                    [100%]
+=================================== FAILURES ===================================
+________ test_msg001_full_message_uses_the_generic_production_pipeline _________
+
+    def test_msg001_full_message_uses_the_generic_production_pipeline() -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+>       values = msg001_values(engine)
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_msg001_full_message.py:117: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+engine = <eaeu_xml.process_packages.engine.EaeuXmlEngine object at 0x11606e120>
+
+    def msg001_values(engine: EaeuXmlEngine) -> dict[str, object]:
+        """A deterministic body satisfying every locally executable MSG.001 rule."""
+        structure = engine.get_structure("P.DS.01.MSG.001", mode=GenerationMode.TEST)
+        values: dict[str, object] = {}
+        for field in structure.fields:
+            if field.kind == "ATTRIBUTE":
+                values[field.path] = (
+                    "AAA" if field.xml_name == "currencyCode"
+                    else "0" if field.xml_name == "scaleNumber" else "ID"
+                )
+            elif field.min_occurs:
+                datatype = field.datatype or ""
+                values[field.path] = (
+                    "2024-01-02T00:00:00" if "DateTime" in datatype
+                    else "2024-01-02" if "DateType" in datatype
+                    else True if "Indicator" in datatype
+                    else "0.00" if "PaymentAmount" in datatype
+                    else "AA" if "CountryCode" in datatype
+                    else "x"
+                )
+    
+        by_id = {field.field_id: field.path for field in structure.fields}
+        values.update({
+            by_id["3"]: [None],
+            by_id["3.5"]: [None],
+            by_id["3.5"] + "/ds01sdo:DailyInfoIndicator": [True],
+            by_id["3.2"]: "2024-01-02",
+            by_id["3.1"]: "2024-01-01",
+        })
+        for field_id, amount_name in (
+            ("3.5.9", "DistributableDutyAmount"),
+            ("3.5.10", "TransferDistributedDutyAmount"),
+            ("3.5.12", "StopTransferDistributedDutyAmount"),
+        ):
+            path = by_id[field_id]
+            values.update({
+                path: [None, None],
+                path + "/ds01sdo:TotalAmountIndicator": [True, False],
+                path + "/csdo:UnifiedCountryCode": [None, "AA"],
+                path + "/ds01sdo:" + amount_name: ["10.00", "10.00"],
+            })
+        from eaeu_xml.application.services import TestDataGenerator
+>       TestDataGenerator.align_sample_attributes(values, structure.fields)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'
+
+P.DS.01_OP_49/tests/test_msg001_full_message.py:103: AttributeError
+__________ Ds01CatalogTests.test_msg001_body_validation_and_mutations __________
+
+self = <test_pds01_catalog.Ds01CatalogTests testMethod=test_msg001_body_validation_and_mutations>
+
+    def test_msg001_body_validation_and_mutations(self):
+>       engine, by, values = self.msg001_fixture(); result = engine.validate_body("P.DS.01.MSG.001", values, mode=GenerationMode.TEST)
+                             ^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_pds01_catalog.py:158: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    @staticmethod
+    def msg001_fixture():
+        engine = EaeuXmlEngine.load_process(PACKAGE); structure = engine.get_structure("P.DS.01.MSG.001", mode=GenerationMode.TEST)
+        values = {}
+        for field in structure.fields:
+            if field.kind == "ATTRIBUTE": values[field.path] = "AAA" if field.xml_name == "currencyCode" else ("0" if field.xml_name == "scaleNumber" else "ID")
+            elif field.min_occurs:
+                dtype = field.datatype or ""; values[field.path] = ("2024-01-02T00:00:00" if "DateTime" in dtype else "2024-01-02" if "DateType" in dtype else True if "Indicator" in dtype else "0.00" if "PaymentAmount" in dtype else "AA" if "CountryCode" in dtype else "x")
+        by = {field.field_id: field.path for field in structure.fields}; values.update({by['3']:[None],by['3.5']:[None],by['3.5']+'/ds01sdo:DailyInfoIndicator':[True],by['3.2']:'2024-01-02',by['3.1']:'2024-01-01'})
+        for base, amount in [('3.5.9','DistributableDutyAmount'),('3.5.10','TransferDistributedDutyAmount'),('3.5.12','StopTransferDistributedDutyAmount')]:
+            path=by[base]; values.update({path:[None,None],path+'/ds01sdo:TotalAmountIndicator':[True,False],path+'/csdo:UnifiedCountryCode':[None,'AA'],path+'/ds01sdo:'+amount:['10.00','10.00']})
+        from eaeu_xml.application.services import TestDataGenerator
+>       TestDataGenerator.align_sample_attributes(values, structure.fields)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'
+
+P.DS.01_OP_49/tests/test_pds01_catalog.py:28: AttributeError
+____ test_available_request_bodies_validate_and_serialize[P.DS.01.MSG.002] _____
+
+message_code = 'P.DS.01.MSG.002'
+
+    @pytest.mark.parametrize("message_code", REQUEST_MESSAGES)
+    def test_available_request_bodies_validate_and_serialize(message_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+>       result = engine.validate_body(message_code, values_for(engine, message_code), mode=GenerationMode.TEST)
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:95: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.DS.01_OP_49/tests/test_process_pipeline.py:86: in values_for
+    return report_values(engine, message_code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+engine = <eaeu_xml.process_packages.engine.EaeuXmlEngine object at 0x116063c50>
+message_code = 'P.DS.01.MSG.002'
+
+    def report_values(engine: EaeuXmlEngine, message_code: str) -> dict[str, object]:
+        structure = engine.get_structure(message_code, mode=GenerationMode.TEST)
+        values: dict[str, object] = {}
+        for field in structure.fields:
+            if field.kind == "ATTRIBUTE":
+                values[field.path] = "AAA" if field.xml_name == "currencyCode" else ("0" if field.xml_name == "scaleNumber" else "ID")
+            elif field.min_occurs:
+                datatype = field.datatype or ""
+                values[field.path] = ("2024-01-03T00:00:00" if "DateTime" in datatype else "2024-01-03" if "DateType" in datatype else True if "Indicator" in datatype else "0.00" if "PaymentAmount" in datatype else "AA" if "CountryCode" in datatype else "x")
+        by = {field.field_id: field.path for field in structure.fields}
+        values.update({by["3"]: [None], by["3.5"]: [None], by["3.5"] + "/ds01sdo:DailyInfoIndicator": [True], by["3.2"]: "2024-01-03", by["3.1"]: "2024-01-02"})
+        for field_id, amount in (("3.5.9", "DistributableDutyAmount"), ("3.5.10", "TransferDistributedDutyAmount"), ("3.5.12", "StopTransferDistributedDutyAmount")):
+            path = by[field_id]
+            values.update({path: [None, None], path + "/ds01sdo:TotalAmountIndicator": [True, False], path + "/csdo:UnifiedCountryCode": [None, "AA"], path + "/ds01sdo:" + amount: ["10.00", "10.00"]})
+        if message_code == "P.DS.01.MSG.005":
+            values[by["3.4"]] = "2024-01-04T00:00:00"
+        from eaeu_xml.application.services import TestDataGenerator
+>       TestDataGenerator.align_sample_attributes(values, structure.fields)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:59: AttributeError
+____ test_available_request_bodies_validate_and_serialize[P.DS.01.MSG.005] _____
+
+message_code = 'P.DS.01.MSG.005'
+
+    @pytest.mark.parametrize("message_code", REQUEST_MESSAGES)
+    def test_available_request_bodies_validate_and_serialize(message_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+>       result = engine.validate_body(message_code, values_for(engine, message_code), mode=GenerationMode.TEST)
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:95: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.DS.01_OP_49/tests/test_process_pipeline.py:86: in values_for
+    return report_values(engine, message_code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+engine = <eaeu_xml.process_packages.engine.EaeuXmlEngine object at 0x115d83100>
+message_code = 'P.DS.01.MSG.005'
+
+    def report_values(engine: EaeuXmlEngine, message_code: str) -> dict[str, object]:
+        structure = engine.get_structure(message_code, mode=GenerationMode.TEST)
+        values: dict[str, object] = {}
+        for field in structure.fields:
+            if field.kind == "ATTRIBUTE":
+                values[field.path] = "AAA" if field.xml_name == "currencyCode" else ("0" if field.xml_name == "scaleNumber" else "ID")
+            elif field.min_occurs:
+                datatype = field.datatype or ""
+                values[field.path] = ("2024-01-03T00:00:00" if "DateTime" in datatype else "2024-01-03" if "DateType" in datatype else True if "Indicator" in datatype else "0.00" if "PaymentAmount" in datatype else "AA" if "CountryCode" in datatype else "x")
+        by = {field.field_id: field.path for field in structure.fields}
+        values.update({by["3"]: [None], by["3.5"]: [None], by["3.5"] + "/ds01sdo:DailyInfoIndicator": [True], by["3.2"]: "2024-01-03", by["3.1"]: "2024-01-02"})
+        for field_id, amount in (("3.5.9", "DistributableDutyAmount"), ("3.5.10", "TransferDistributedDutyAmount"), ("3.5.12", "StopTransferDistributedDutyAmount")):
+            path = by[field_id]
+            values.update({path: [None, None], path + "/ds01sdo:TotalAmountIndicator": [True, False], path + "/csdo:UnifiedCountryCode": [None, "AA"], path + "/ds01sdo:" + amount: ["10.00", "10.00"]})
+        if message_code == "P.DS.01.MSG.005":
+            values[by["3.4"]] = "2024-01-04T00:00:00"
+        from eaeu_xml.application.services import TestDataGenerator
+>       TestDataGenerator.align_sample_attributes(values, structure.fields)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:59: AttributeError
+____ test_available_request_bodies_validate_and_serialize[P.DS.01.MSG.006] _____
+
+message_code = 'P.DS.01.MSG.006'
+
+    @pytest.mark.parametrize("message_code", REQUEST_MESSAGES)
+    def test_available_request_bodies_validate_and_serialize(message_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+>       result = engine.validate_body(message_code, values_for(engine, message_code), mode=GenerationMode.TEST)
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:95: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.DS.01_OP_49/tests/test_process_pipeline.py:86: in values_for
+    return report_values(engine, message_code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+engine = <eaeu_xml.process_packages.engine.EaeuXmlEngine object at 0x1160d71d0>
+message_code = 'P.DS.01.MSG.006'
+
+    def report_values(engine: EaeuXmlEngine, message_code: str) -> dict[str, object]:
+        structure = engine.get_structure(message_code, mode=GenerationMode.TEST)
+        values: dict[str, object] = {}
+        for field in structure.fields:
+            if field.kind == "ATTRIBUTE":
+                values[field.path] = "AAA" if field.xml_name == "currencyCode" else ("0" if field.xml_name == "scaleNumber" else "ID")
+            elif field.min_occurs:
+                datatype = field.datatype or ""
+                values[field.path] = ("2024-01-03T00:00:00" if "DateTime" in datatype else "2024-01-03" if "DateType" in datatype else True if "Indicator" in datatype else "0.00" if "PaymentAmount" in datatype else "AA" if "CountryCode" in datatype else "x")
+        by = {field.field_id: field.path for field in structure.fields}
+        values.update({by["3"]: [None], by["3.5"]: [None], by["3.5"] + "/ds01sdo:DailyInfoIndicator": [True], by["3.2"]: "2024-01-03", by["3.1"]: "2024-01-02"})
+        for field_id, amount in (("3.5.9", "DistributableDutyAmount"), ("3.5.10", "TransferDistributedDutyAmount"), ("3.5.12", "StopTransferDistributedDutyAmount")):
+            path = by[field_id]
+            values.update({path: [None, None], path + "/ds01sdo:TotalAmountIndicator": [True, False], path + "/csdo:UnifiedCountryCode": [None, "AA"], path + "/ds01sdo:" + amount: ["10.00", "10.00"]})
+        if message_code == "P.DS.01.MSG.005":
+            values[by["3.4"]] = "2024-01-04T00:00:00"
+        from eaeu_xml.application.services import TestDataGenerator
+>       TestDataGenerator.align_sample_attributes(values, structure.fields)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:59: AttributeError
+_ test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.001] _
+
+transaction_code = 'P.DS.01.TRN.001'
+
+    @pytest.mark.parametrize("transaction_code", TRANSACTIONS)
+    def test_all_transactions_preserve_generic_request_response_correlation(transaction_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+        definition = engine.get_transaction(transaction_code)
+        request_code, response_code = definition.initiating_message, definition.response_messages[0]
+        ids = FixedIdentifierService(100 + int(transaction_code[-3:]) * 10)
+        procedure = ProcedureInstance(definition.procedure_code, ProcedureId.root(ids))
+        transaction = TransactionInstance(transaction_code, ids.new_conversation_id(), procedure)
+        addresses = LogicalAddressBuilder()
+        to = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_TO")
+        reply = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_REPLY")
+        factory = MessageFactory(ids)
+>       request = factory.create_initial_application_message(transaction=transaction, process_code="P.DS.01", process_version=engine.package.profile.process_version, message_code=request_code, to=to, reply_to=reply, body_payload=engine.build_body(request_code, values_for(engine, request_code), mode=GenerationMode.TEST))
+                                                                                                                                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:114: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.DS.01_OP_49/tests/test_process_pipeline.py:86: in values_for
+    return report_values(engine, message_code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+engine = <eaeu_xml.process_packages.engine.EaeuXmlEngine object at 0x116238160>
+message_code = 'P.DS.01.MSG.001'
+
+    def report_values(engine: EaeuXmlEngine, message_code: str) -> dict[str, object]:
+        structure = engine.get_structure(message_code, mode=GenerationMode.TEST)
+        values: dict[str, object] = {}
+        for field in structure.fields:
+            if field.kind == "ATTRIBUTE":
+                values[field.path] = "AAA" if field.xml_name == "currencyCode" else ("0" if field.xml_name == "scaleNumber" else "ID")
+            elif field.min_occurs:
+                datatype = field.datatype or ""
+                values[field.path] = ("2024-01-03T00:00:00" if "DateTime" in datatype else "2024-01-03" if "DateType" in datatype else True if "Indicator" in datatype else "0.00" if "PaymentAmount" in datatype else "AA" if "CountryCode" in datatype else "x")
+        by = {field.field_id: field.path for field in structure.fields}
+        values.update({by["3"]: [None], by["3.5"]: [None], by["3.5"] + "/ds01sdo:DailyInfoIndicator": [True], by["3.2"]: "2024-01-03", by["3.1"]: "2024-01-02"})
+        for field_id, amount in (("3.5.9", "DistributableDutyAmount"), ("3.5.10", "TransferDistributedDutyAmount"), ("3.5.12", "StopTransferDistributedDutyAmount")):
+            path = by[field_id]
+            values.update({path: [None, None], path + "/ds01sdo:TotalAmountIndicator": [True, False], path + "/csdo:UnifiedCountryCode": [None, "AA"], path + "/ds01sdo:" + amount: ["10.00", "10.00"]})
+        if message_code == "P.DS.01.MSG.005":
+            values[by["3.4"]] = "2024-01-04T00:00:00"
+        from eaeu_xml.application.services import TestDataGenerator
+>       TestDataGenerator.align_sample_attributes(values, structure.fields)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:59: AttributeError
+_ test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.002] _
+
+transaction_code = 'P.DS.01.TRN.002'
+
+    @pytest.mark.parametrize("transaction_code", TRANSACTIONS)
+    def test_all_transactions_preserve_generic_request_response_correlation(transaction_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+        definition = engine.get_transaction(transaction_code)
+        request_code, response_code = definition.initiating_message, definition.response_messages[0]
+        ids = FixedIdentifierService(100 + int(transaction_code[-3:]) * 10)
+        procedure = ProcedureInstance(definition.procedure_code, ProcedureId.root(ids))
+        transaction = TransactionInstance(transaction_code, ids.new_conversation_id(), procedure)
+        addresses = LogicalAddressBuilder()
+        to = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_TO")
+        reply = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_REPLY")
+        factory = MessageFactory(ids)
+>       request = factory.create_initial_application_message(transaction=transaction, process_code="P.DS.01", process_version=engine.package.profile.process_version, message_code=request_code, to=to, reply_to=reply, body_payload=engine.build_body(request_code, values_for(engine, request_code), mode=GenerationMode.TEST))
+                                                                                                                                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:114: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.DS.01_OP_49/tests/test_process_pipeline.py:86: in values_for
+    return report_values(engine, message_code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+engine = <eaeu_xml.process_packages.engine.EaeuXmlEngine object at 0x116236ad0>
+message_code = 'P.DS.01.MSG.002'
+
+    def report_values(engine: EaeuXmlEngine, message_code: str) -> dict[str, object]:
+        structure = engine.get_structure(message_code, mode=GenerationMode.TEST)
+        values: dict[str, object] = {}
+        for field in structure.fields:
+            if field.kind == "ATTRIBUTE":
+                values[field.path] = "AAA" if field.xml_name == "currencyCode" else ("0" if field.xml_name == "scaleNumber" else "ID")
+            elif field.min_occurs:
+                datatype = field.datatype or ""
+                values[field.path] = ("2024-01-03T00:00:00" if "DateTime" in datatype else "2024-01-03" if "DateType" in datatype else True if "Indicator" in datatype else "0.00" if "PaymentAmount" in datatype else "AA" if "CountryCode" in datatype else "x")
+        by = {field.field_id: field.path for field in structure.fields}
+        values.update({by["3"]: [None], by["3.5"]: [None], by["3.5"] + "/ds01sdo:DailyInfoIndicator": [True], by["3.2"]: "2024-01-03", by["3.1"]: "2024-01-02"})
+        for field_id, amount in (("3.5.9", "DistributableDutyAmount"), ("3.5.10", "TransferDistributedDutyAmount"), ("3.5.12", "StopTransferDistributedDutyAmount")):
+            path = by[field_id]
+            values.update({path: [None, None], path + "/ds01sdo:TotalAmountIndicator": [True, False], path + "/csdo:UnifiedCountryCode": [None, "AA"], path + "/ds01sdo:" + amount: ["10.00", "10.00"]})
+        if message_code == "P.DS.01.MSG.005":
+            values[by["3.4"]] = "2024-01-04T00:00:00"
+        from eaeu_xml.application.services import TestDataGenerator
+>       TestDataGenerator.align_sample_attributes(values, structure.fields)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:59: AttributeError
+_ test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.003] _
+
+transaction_code = 'P.DS.01.TRN.003'
+
+    @pytest.mark.parametrize("transaction_code", TRANSACTIONS)
+    def test_all_transactions_preserve_generic_request_response_correlation(transaction_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+        definition = engine.get_transaction(transaction_code)
+        request_code, response_code = definition.initiating_message, definition.response_messages[0]
+        ids = FixedIdentifierService(100 + int(transaction_code[-3:]) * 10)
+        procedure = ProcedureInstance(definition.procedure_code, ProcedureId.root(ids))
+        transaction = TransactionInstance(transaction_code, ids.new_conversation_id(), procedure)
+        addresses = LogicalAddressBuilder()
+        to = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_TO")
+        reply = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_REPLY")
+        factory = MessageFactory(ids)
+>       request = factory.create_initial_application_message(transaction=transaction, process_code="P.DS.01", process_version=engine.package.profile.process_version, message_code=request_code, to=to, reply_to=reply, body_payload=engine.build_body(request_code, values_for(engine, request_code), mode=GenerationMode.TEST))
+                                                                                                                                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:114: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.DS.01_OP_49/tests/test_process_pipeline.py:86: in values_for
+    return report_values(engine, message_code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+engine = <eaeu_xml.process_packages.engine.EaeuXmlEngine object at 0x1162a1750>
+message_code = 'P.DS.01.MSG.002'
+
+    def report_values(engine: EaeuXmlEngine, message_code: str) -> dict[str, object]:
+        structure = engine.get_structure(message_code, mode=GenerationMode.TEST)
+        values: dict[str, object] = {}
+        for field in structure.fields:
+            if field.kind == "ATTRIBUTE":
+                values[field.path] = "AAA" if field.xml_name == "currencyCode" else ("0" if field.xml_name == "scaleNumber" else "ID")
+            elif field.min_occurs:
+                datatype = field.datatype or ""
+                values[field.path] = ("2024-01-03T00:00:00" if "DateTime" in datatype else "2024-01-03" if "DateType" in datatype else True if "Indicator" in datatype else "0.00" if "PaymentAmount" in datatype else "AA" if "CountryCode" in datatype else "x")
+        by = {field.field_id: field.path for field in structure.fields}
+        values.update({by["3"]: [None], by["3.5"]: [None], by["3.5"] + "/ds01sdo:DailyInfoIndicator": [True], by["3.2"]: "2024-01-03", by["3.1"]: "2024-01-02"})
+        for field_id, amount in (("3.5.9", "DistributableDutyAmount"), ("3.5.10", "TransferDistributedDutyAmount"), ("3.5.12", "StopTransferDistributedDutyAmount")):
+            path = by[field_id]
+            values.update({path: [None, None], path + "/ds01sdo:TotalAmountIndicator": [True, False], path + "/csdo:UnifiedCountryCode": [None, "AA"], path + "/ds01sdo:" + amount: ["10.00", "10.00"]})
+        if message_code == "P.DS.01.MSG.005":
+            values[by["3.4"]] = "2024-01-04T00:00:00"
+        from eaeu_xml.application.services import TestDataGenerator
+>       TestDataGenerator.align_sample_attributes(values, structure.fields)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:59: AttributeError
+_ test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.005] _
+
+transaction_code = 'P.DS.01.TRN.005'
+
+    @pytest.mark.parametrize("transaction_code", TRANSACTIONS)
+    def test_all_transactions_preserve_generic_request_response_correlation(transaction_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+        definition = engine.get_transaction(transaction_code)
+        request_code, response_code = definition.initiating_message, definition.response_messages[0]
+        ids = FixedIdentifierService(100 + int(transaction_code[-3:]) * 10)
+        procedure = ProcedureInstance(definition.procedure_code, ProcedureId.root(ids))
+        transaction = TransactionInstance(transaction_code, ids.new_conversation_id(), procedure)
+        addresses = LogicalAddressBuilder()
+        to = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_TO")
+        reply = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_REPLY")
+        factory = MessageFactory(ids)
+>       request = factory.create_initial_application_message(transaction=transaction, process_code="P.DS.01", process_version=engine.package.profile.process_version, message_code=request_code, to=to, reply_to=reply, body_payload=engine.build_body(request_code, values_for(engine, request_code), mode=GenerationMode.TEST))
+                                                                                                                                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:114: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.DS.01_OP_49/tests/test_process_pipeline.py:86: in values_for
+    return report_values(engine, message_code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+engine = <eaeu_xml.process_packages.engine.EaeuXmlEngine object at 0x11821fe30>
+message_code = 'P.DS.01.MSG.005'
+
+    def report_values(engine: EaeuXmlEngine, message_code: str) -> dict[str, object]:
+        structure = engine.get_structure(message_code, mode=GenerationMode.TEST)
+        values: dict[str, object] = {}
+        for field in structure.fields:
+            if field.kind == "ATTRIBUTE":
+                values[field.path] = "AAA" if field.xml_name == "currencyCode" else ("0" if field.xml_name == "scaleNumber" else "ID")
+            elif field.min_occurs:
+                datatype = field.datatype or ""
+                values[field.path] = ("2024-01-03T00:00:00" if "DateTime" in datatype else "2024-01-03" if "DateType" in datatype else True if "Indicator" in datatype else "0.00" if "PaymentAmount" in datatype else "AA" if "CountryCode" in datatype else "x")
+        by = {field.field_id: field.path for field in structure.fields}
+        values.update({by["3"]: [None], by["3.5"]: [None], by["3.5"] + "/ds01sdo:DailyInfoIndicator": [True], by["3.2"]: "2024-01-03", by["3.1"]: "2024-01-02"})
+        for field_id, amount in (("3.5.9", "DistributableDutyAmount"), ("3.5.10", "TransferDistributedDutyAmount"), ("3.5.12", "StopTransferDistributedDutyAmount")):
+            path = by[field_id]
+            values.update({path: [None, None], path + "/ds01sdo:TotalAmountIndicator": [True, False], path + "/csdo:UnifiedCountryCode": [None, "AA"], path + "/ds01sdo:" + amount: ["10.00", "10.00"]})
+        if message_code == "P.DS.01.MSG.005":
+            values[by["3.4"]] = "2024-01-04T00:00:00"
+        from eaeu_xml.application.services import TestDataGenerator
+>       TestDataGenerator.align_sample_attributes(values, structure.fields)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:59: AttributeError
+_ test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.006] _
+
+transaction_code = 'P.DS.01.TRN.006'
+
+    @pytest.mark.parametrize("transaction_code", TRANSACTIONS)
+    def test_all_transactions_preserve_generic_request_response_correlation(transaction_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+        definition = engine.get_transaction(transaction_code)
+        request_code, response_code = definition.initiating_message, definition.response_messages[0]
+        ids = FixedIdentifierService(100 + int(transaction_code[-3:]) * 10)
+        procedure = ProcedureInstance(definition.procedure_code, ProcedureId.root(ids))
+        transaction = TransactionInstance(transaction_code, ids.new_conversation_id(), procedure)
+        addresses = LogicalAddressBuilder()
+        to = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_TO")
+        reply = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_REPLY")
+        factory = MessageFactory(ids)
+>       request = factory.create_initial_application_message(transaction=transaction, process_code="P.DS.01", process_version=engine.package.profile.process_version, message_code=request_code, to=to, reply_to=reply, body_payload=engine.build_body(request_code, values_for(engine, request_code), mode=GenerationMode.TEST))
+                                                                                                                                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:114: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.DS.01_OP_49/tests/test_process_pipeline.py:86: in values_for
+    return report_values(engine, message_code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+engine = <eaeu_xml.process_packages.engine.EaeuXmlEngine object at 0x1180a1c70>
+message_code = 'P.DS.01.MSG.005'
+
+    def report_values(engine: EaeuXmlEngine, message_code: str) -> dict[str, object]:
+        structure = engine.get_structure(message_code, mode=GenerationMode.TEST)
+        values: dict[str, object] = {}
+        for field in structure.fields:
+            if field.kind == "ATTRIBUTE":
+                values[field.path] = "AAA" if field.xml_name == "currencyCode" else ("0" if field.xml_name == "scaleNumber" else "ID")
+            elif field.min_occurs:
+                datatype = field.datatype or ""
+                values[field.path] = ("2024-01-03T00:00:00" if "DateTime" in datatype else "2024-01-03" if "DateType" in datatype else True if "Indicator" in datatype else "0.00" if "PaymentAmount" in datatype else "AA" if "CountryCode" in datatype else "x")
+        by = {field.field_id: field.path for field in structure.fields}
+        values.update({by["3"]: [None], by["3.5"]: [None], by["3.5"] + "/ds01sdo:DailyInfoIndicator": [True], by["3.2"]: "2024-01-03", by["3.1"]: "2024-01-02"})
+        for field_id, amount in (("3.5.9", "DistributableDutyAmount"), ("3.5.10", "TransferDistributedDutyAmount"), ("3.5.12", "StopTransferDistributedDutyAmount")):
+            path = by[field_id]
+            values.update({path: [None, None], path + "/ds01sdo:TotalAmountIndicator": [True, False], path + "/csdo:UnifiedCountryCode": [None, "AA"], path + "/ds01sdo:" + amount: ["10.00", "10.00"]})
+        if message_code == "P.DS.01.MSG.005":
+            values[by["3.4"]] = "2024-01-04T00:00:00"
+        from eaeu_xml.application.services import TestDataGenerator
+>       TestDataGenerator.align_sample_attributes(values, structure.fields)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:59: AttributeError
+_ test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.007] _
+
+transaction_code = 'P.DS.01.TRN.007'
+
+    @pytest.mark.parametrize("transaction_code", TRANSACTIONS)
+    def test_all_transactions_preserve_generic_request_response_correlation(transaction_code: str) -> None:
+        engine = EaeuXmlEngine.load_process(PACKAGE)
+        definition = engine.get_transaction(transaction_code)
+        request_code, response_code = definition.initiating_message, definition.response_messages[0]
+        ids = FixedIdentifierService(100 + int(transaction_code[-3:]) * 10)
+        procedure = ProcedureInstance(definition.procedure_code, ProcedureId.root(ids))
+        transaction = TransactionInstance(transaction_code, ids.new_conversation_id(), procedure)
+        addresses = LogicalAddressBuilder()
+        to = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_TO")
+        reply = addresses.build_common_process(segment="EEC", process_code="P.DS.01", participant_code="TEST_REPLY")
+        factory = MessageFactory(ids)
+>       request = factory.create_initial_application_message(transaction=transaction, process_code="P.DS.01", process_version=engine.package.profile.process_version, message_code=request_code, to=to, reply_to=reply, body_payload=engine.build_body(request_code, values_for(engine, request_code), mode=GenerationMode.TEST))
+                                                                                                                                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:114: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.DS.01_OP_49/tests/test_process_pipeline.py:86: in values_for
+    return report_values(engine, message_code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+engine = <eaeu_xml.process_packages.engine.EaeuXmlEngine object at 0x117fd2430>
+message_code = 'P.DS.01.MSG.006'
+
+    def report_values(engine: EaeuXmlEngine, message_code: str) -> dict[str, object]:
+        structure = engine.get_structure(message_code, mode=GenerationMode.TEST)
+        values: dict[str, object] = {}
+        for field in structure.fields:
+            if field.kind == "ATTRIBUTE":
+                values[field.path] = "AAA" if field.xml_name == "currencyCode" else ("0" if field.xml_name == "scaleNumber" else "ID")
+            elif field.min_occurs:
+                datatype = field.datatype or ""
+                values[field.path] = ("2024-01-03T00:00:00" if "DateTime" in datatype else "2024-01-03" if "DateType" in datatype else True if "Indicator" in datatype else "0.00" if "PaymentAmount" in datatype else "AA" if "CountryCode" in datatype else "x")
+        by = {field.field_id: field.path for field in structure.fields}
+        values.update({by["3"]: [None], by["3.5"]: [None], by["3.5"] + "/ds01sdo:DailyInfoIndicator": [True], by["3.2"]: "2024-01-03", by["3.1"]: "2024-01-02"})
+        for field_id, amount in (("3.5.9", "DistributableDutyAmount"), ("3.5.10", "TransferDistributedDutyAmount"), ("3.5.12", "StopTransferDistributedDutyAmount")):
+            path = by[field_id]
+            values.update({path: [None, None], path + "/ds01sdo:TotalAmountIndicator": [True, False], path + "/csdo:UnifiedCountryCode": [None, "AA"], path + "/ds01sdo:" + amount: ["10.00", "10.00"]})
+        if message_code == "P.DS.01.MSG.005":
+            values[by["3.4"]] = "2024-01-04T00:00:00"
+        from eaeu_xml.application.services import TestDataGenerator
+>       TestDataGenerator.align_sample_attributes(values, structure.fields)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: type object 'TestDataGenerator' has no attribute 'align_sample_attributes'
+
+P.DS.01_OP_49/tests/test_process_pipeline.py:59: AttributeError
+_ Pmm01ApplicationFacadeTests.test_priority_field_examples_are_safe_and_origin_traced _
+
+self = <test_application_facade_pmm01.Pmm01ApplicationFacadeTests testMethod=test_priority_field_examples_are_safe_and_origin_traced>
+
+    def test_priority_field_examples_are_safe_and_origin_traced(self):
+        def named(message,transaction,name):
+            fields=self.app._walk_fields(self.app.get_form("P.MM.01",transaction,message).fields)
+            return next(field for field in fields if field.xml_name==name)
+        edoc=named("P.MM.01.MSG.005","P.MM.01.TRN.004","EDocDateTime")
+        language=named("P.MM.01.MSG.005","P.MM.01.TRN.004","LanguageCode")
+        self.assertEqual((edoc.example_value,edoc.example_origin),("2026-08-24T15:24:00+03:00","DATATYPE_EXAMPLE"))
+        self.assertEqual((language.example_value,language.example_origin),("ru","DATATYPE_EXAMPLE"))
+        for name in ("ApplicationId","RegistrationNumberId"):
+            field=named("P.MM.01.MSG.001","P.MM.01.TRN.001",name)
+>           self.assertEqual((field.example_value,field.example_origin),("[идентификатор]","PROJECT_DOCUMENTATION"))
+E           AssertionError: Tuples differ: ('123456', 'DATATYPE_EXAMPLE') != ('[идентификатор]', 'PROJECT_DOCUMENTATION')
+E           
+E           First differing element 0:
+E           '123456'
+E           '[идентификатор]'
+E           
+E           - ('123456', 'DATATYPE_EXAMPLE')
+E           + ('[идентификатор]', 'PROJECT_DOCUMENTATION')
+
+P.MM.01_OP_26/tests/test_application_facade_pmm01.py:151: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.004] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.005] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.006] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.013] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.015] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.018] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.019] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.025] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.037] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.038] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.040] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.042] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ ApplicationFacadeTests.test_ds01_test_data_satisfies_executable_structured_rules _
+
+self = <test_application_facade.ApplicationFacadeTests testMethod=test_ds01_test_data_satisfies_executable_structured_rules>
+
+    def test_ds01_test_data_satisfies_executable_structured_rules(self):
+        application = EaeuXmlApplication(PROJECT_ROOT)
+        values = application.generate_test_data(
+            "P.DS.01", "P.DS.01.TRN.001", "P.DS.01.MSG.001", seed=12345,
+        )
+    
+        validation = application.validate(
+            "P.DS.01", "P.DS.01.TRN.001", "P.DS.01.MSG.001", values,
+        )
+    
+>       self.assertEqual(validation.errors, ())
+E       AssertionError: Tuples differ: (IssueView(code='PATTERN', field_path='Cha[946 chars]one)) != ()
+E       
+E       First tuple contains 3 additional elements.
+E       First extra element 0:
+E       IssueView(code='PATTERN', field_path='ChargedDistributedReport/ds01cdo:ChargedDistributedDutyReportDetails/ds01cdo:ChargedDistributedDutyDetails/ds01cdo:DistributableDutyDetails/csdo:UnifiedCountryCode', message='Значение нарушает facet PATTERN.', severity='ERROR', source_ref='49OP-R.R.FP.DS.01.001-3.5.9.3', rule_id=None)
+E       
+E       Diff is 1202 characters long. Set self.maxDiff to None to see it.
+
+eaeu_xml/tests/test_application_facade.py:71: AssertionError
+___ ExampleValueResolverTests.test_classifier_uses_instructional_placeholder ___
+
+self = <test_examples.ExampleValueResolverTests testMethod=test_classifier_uses_instructional_placeholder>
+
+    def test_classifier_uses_instructional_placeholder(self):
+        result=self.resolver.resolve(datatype="CodeType",description=None,classifier=True)
+>       self.assertEqual((result.value,result.origin),("[значение выбирается из классификатора]","CLASSIFIER_EXAMPLE"))
+E       AssertionError: Tuples differ: (None, 'UNAVAILABLE') != ('[значение выбирается из классификатора]', 'CLASSIFIER_EXAMPLE')
+E       
+E       First differing element 0:
+E       None
+E       '[значение выбирается из классификатора]'
+E       
+E       - (None, 'UNAVAILABLE')
+E       + ('[значение выбирается из классификатора]', 'CLASSIFIER_EXAMPLE')
+
+eaeu_xml/tests/test_examples.py:24: AssertionError
+______ ExampleValueResolverTests.test_uuid_only_when_datatype_confirms_it ______
+
+self = <test_examples.ExampleValueResolverTests testMethod=test_uuid_only_when_datatype_confirms_it>
+
+    def test_uuid_only_when_datatype_confirms_it(self):
+        uuid=self.resolver.resolve(datatype="UUIDType",description=None)
+        business=self.resolver.resolve(datatype="csdo:Id50Type",description="номер заявления")
+>       self.assertEqual(uuid.value,"550e8400-e29b-41d4-a716-446655440000")
+E       AssertionError: 'd1f6f86c-029a-4245-bb91-433a6aa79987' != '550e8400-e29b-41d4-a716-446655440000'
+E       - d1f6f86c-029a-4245-bb91-433a6aa79987
+E       + 550e8400-e29b-41d4-a716-446655440000
+
+eaeu_xml/tests/test_examples.py:18: AssertionError
+_ test_top_level_string_target_presence_rules_project_into_form_policy[P.SP.03-P.SP.03.TRN.018-P.SP.03.MSG.023-ipsdo:ApellationOfOriginApplicationId] _
+
+app = <eaeu_xml.application.facade.EaeuXmlApplication object at 0x16142e390>
+process = 'P.SP.03', transaction = 'P.SP.03.TRN.018'
+message = 'P.SP.03.MSG.023', path = 'ipsdo:ApellationOfOriginApplicationId'
+
+    @pytest.mark.parametrize(
+        ("process", "transaction", "message", "path"),
+        (
+            ("P.SP.02", "P.SP.02.TRN.049", "P.SP.02.MSG.055", "ipsdo:TrademarkApplicationId"),
+            ("P.SP.03", "P.SP.03.TRN.018", "P.SP.03.MSG.023", "ipsdo:ApellationOfOriginApplicationId"),
+            ("P.MM.01", "P.MM.01.TRN.018", "P.MM.01.MSG.027", "RegistrationNumberId"),
+        ),
+    )
+    def test_top_level_string_target_presence_rules_project_into_form_policy(
+        app: EaeuXmlApplication,
+        process: str,
+        transaction: str,
+        message: str,
+        path: str,
+    ) -> None:
+        fields = _flatten(app.get_form(process, transaction, message).fields)
+    
+>       assert fields[path].effective_message_policy == "REQUIRED"
+E       AssertionError: assert None == 'REQUIRED'
+E        +  where None = FieldView(path='ipsdo:ApellationOfOriginApplicationId', xml_name='ApellationOfOriginApplicationId', display_name='Реги...dency=None, message_policy_req_ids=(), message_policy_notes=None, message_policy_materialize_when_parent_present=False).effective_message_policy
+
+eaeu_xml/tests/test_structured_rule_form_policy.py:98: AssertionError
+_ test_top_level_string_target_presence_rules_project_into_form_policy[P.MM.01-P.MM.01.TRN.018-P.MM.01.MSG.027-RegistrationNumberId] _
+
+app = <eaeu_xml.application.facade.EaeuXmlApplication object at 0x162b21790>
+process = 'P.MM.01', transaction = 'P.MM.01.TRN.018'
+message = 'P.MM.01.MSG.027', path = 'RegistrationNumberId'
+
+    @pytest.mark.parametrize(
+        ("process", "transaction", "message", "path"),
+        (
+            ("P.SP.02", "P.SP.02.TRN.049", "P.SP.02.MSG.055", "ipsdo:TrademarkApplicationId"),
+            ("P.SP.03", "P.SP.03.TRN.018", "P.SP.03.MSG.023", "ipsdo:ApellationOfOriginApplicationId"),
+            ("P.MM.01", "P.MM.01.TRN.018", "P.MM.01.MSG.027", "RegistrationNumberId"),
+        ),
+    )
+    def test_top_level_string_target_presence_rules_project_into_form_policy(
+        app: EaeuXmlApplication,
+        process: str,
+        transaction: str,
+        message: str,
+        path: str,
+    ) -> None:
+        fields = _flatten(app.get_form(process, transaction, message).fields)
+    
+>       assert fields[path].effective_message_policy == "REQUIRED"
+E       AssertionError: assert None == 'REQUIRED'
+E        +  where None = FieldView(path='RegistrationNumberId', xml_name='RegistrationNumberId', display_name='Порядковый номер регистрационног...dency=None, message_policy_req_ids=(), message_policy_notes=None, message_policy_materialize_when_parent_present=False).effective_message_policy
+
+eaeu_xml/tests/test_structured_rule_form_policy.py:98: AssertionError
+____________ test_op23_msg001_projects_static_authority_requirement ____________
+
+app = <eaeu_xml.application.facade.EaeuXmlApplication object at 0x119744650>
+
+    def test_op23_msg001_projects_static_authority_requirement(app: EaeuXmlApplication) -> None:
+        authority_name = (
+            "ipcdo:ApellationOfOriginApplicationDetails/ipcdo:PatentAuthorityDetails/csdo:AuthorityName"
+        )
+        fields = _flatten(app.get_form("P.SP.03", "P.SP.03.TRN.001", "P.SP.03.MSG.001").fields)
+    
+>       assert fields[authority_name].effective_message_policy == "REQUIRED"
+E       AssertionError: assert None == 'REQUIRED'
+E        +  where None = FieldView(path='ipcdo:ApellationOfOriginApplicationDetails/ipcdo:PatentAuthorityDetails/csdo:AuthorityName', xml_name=...dency=None, message_policy_req_ids=(), message_policy_notes=None, message_policy_materialize_when_parent_present=False).effective_message_policy
+
+eaeu_xml/tests/test_structured_rule_form_policy.py:129: AssertionError
+___ test_op26_msg001_projects_static_classifier_id_as_read_only_fixed_value ____
+
+app = <eaeu_xml.application.facade.EaeuXmlApplication object at 0x161064350>
+
+    def test_op26_msg001_projects_static_classifier_id_as_read_only_fixed_value(app: EaeuXmlApplication) -> None:
+        code_list_id = "DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode/@codeListId"
+        fields = _flatten(app.get_form("P.MM.01", "P.MM.01.TRN.001", "P.MM.01.MSG.001").fields)
+    
+        field = fields[code_list_id]
+>       assert field.effective_message_policy == "FIXED"
+E       AssertionError: assert None == 'FIXED'
+E        +  where None = FieldView(path='DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode/@codeListId', xml_name='code...dency=None, message_policy_req_ids=(), message_policy_notes=None, message_policy_materialize_when_parent_present=False).effective_message_policy
+
+eaeu_xml/tests/test_structured_rule_form_policy.py:138: AssertionError
+=========================== short test summary info ============================
+FAILED P.DS.01_OP_49/tests/test_msg001_full_message.py::test_msg001_full_message_uses_the_generic_production_pipeline
+FAILED P.DS.01_OP_49/tests/test_pds01_catalog.py::Ds01CatalogTests::test_msg001_body_validation_and_mutations
+FAILED P.DS.01_OP_49/tests/test_process_pipeline.py::test_available_request_bodies_validate_and_serialize[P.DS.01.MSG.002]
+FAILED P.DS.01_OP_49/tests/test_process_pipeline.py::test_available_request_bodies_validate_and_serialize[P.DS.01.MSG.005]
+FAILED P.DS.01_OP_49/tests/test_process_pipeline.py::test_available_request_bodies_validate_and_serialize[P.DS.01.MSG.006]
+FAILED P.DS.01_OP_49/tests/test_process_pipeline.py::test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.001]
+FAILED P.DS.01_OP_49/tests/test_process_pipeline.py::test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.002]
+FAILED P.DS.01_OP_49/tests/test_process_pipeline.py::test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.003]
+FAILED P.DS.01_OP_49/tests/test_process_pipeline.py::test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.005]
+FAILED P.DS.01_OP_49/tests/test_process_pipeline.py::test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.006]
+FAILED P.DS.01_OP_49/tests/test_process_pipeline.py::test_all_transactions_preserve_generic_request_response_correlation[P.DS.01.TRN.007]
+FAILED P.MM.01_OP_26/tests/test_application_facade_pmm01.py::Pmm01ApplicationFacadeTests::test_priority_field_examples_are_safe_and_origin_traced
+SUBFAILED[P.MM.01.MSG.004] P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.005] P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.006] P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.013] P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.015] P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.018] P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.019] P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.025] P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.037] P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.038] P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.040] P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.042] P.MM.01_OP_26/tests/test_v130_runtime.py::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+FAILED eaeu_xml/tests/test_application_facade.py::ApplicationFacadeTests::test_ds01_test_data_satisfies_executable_structured_rules
+FAILED eaeu_xml/tests/test_examples.py::ExampleValueResolverTests::test_classifier_uses_instructional_placeholder
+FAILED eaeu_xml/tests/test_examples.py::ExampleValueResolverTests::test_uuid_only_when_datatype_confirms_it
+FAILED eaeu_xml/tests/test_structured_rule_form_policy.py::test_top_level_string_target_presence_rules_project_into_form_policy[P.SP.03-P.SP.03.TRN.018-P.SP.03.MSG.023-ipsdo:ApellationOfOriginApplicationId]
+FAILED eaeu_xml/tests/test_structured_rule_form_policy.py::test_top_level_string_target_presence_rules_project_into_form_policy[P.MM.01-P.MM.01.TRN.018-P.MM.01.MSG.027-RegistrationNumberId]
+FAILED eaeu_xml/tests/test_structured_rule_form_policy.py::test_op23_msg001_projects_static_authority_requirement
+FAILED eaeu_xml/tests/test_structured_rule_form_policy.py::test_op26_msg001_projects_static_classifier_id_as_read_only_fixed_value
+31 failed, 725 passed, 2417 subtests passed in 33.08s

@@ -1,0 +1,40 @@
+Traceback (most recent call last):
+  File "/Users/tema/Documents/Work/xml_creator/codex_reports/OP26_P_MM_01/V130_STAGE3/tools/render_gui_preview.py", line 14, in <module>
+    model=GuiViewModel(R,application=EaeuXmlApplication(R,drafts_root=Path(directory)));model.selectProcess('P.MM.01')
+  File "/Users/tema/Documents/Work/xml_creator/eaeu_xml/src/eaeu_xml/gui_qt/view_model.py", line 27, in __init__
+    self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tema/Documents/Work/xml_creator/eaeu_xml/src/eaeu_xml/presentation/controller.py", line 97, in __init__
+    self.select_process(self.processes[0].process_code)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tema/Documents/Work/xml_creator/eaeu_xml/src/eaeu_xml/presentation/controller.py", line 167, in select_process
+    if self.transactions: self.select_transaction(self.transactions[0].transaction_code)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tema/Documents/Work/xml_creator/eaeu_xml/src/eaeu_xml/presentation/controller.py", line 173, in select_transaction
+    if self.messages: self.select_message(self.messages[0].message_code)
+                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tema/Documents/Work/xml_creator/eaeu_xml/src/eaeu_xml/presentation/controller.py", line 177, in select_message
+    self.form = self.application.get_form(self.process_code, self.transaction_code, message_code)
+                ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tema/Documents/Work/xml_creator/eaeu_xml/src/eaeu_xml/application/facade.py", line 424, in get_form
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+  File "/Users/tema/Documents/Work/xml_creator/eaeu_xml/src/eaeu_xml/application/facade.py", line 424, in <genexpr>
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+                  ~~~~~~~^^^^^^^
+  File "/Users/tema/Documents/Work/xml_creator/eaeu_xml/src/eaeu_xml/application/facade.py", line 398, in convert
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tema/Documents/Work/xml_creator/eaeu_xml/src/eaeu_xml/application/facade.py", line 398, in <genexpr>
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+                   ~~~~~~~^^^^^^^
+  File "/Users/tema/Documents/Work/xml_creator/eaeu_xml/src/eaeu_xml/application/facade.py", line 359, in convert
+    example_result = self.example_value_resolver.resolve(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        datatype=field.datatype, description=field.description,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        pattern=field.facets.pattern if field.facets else None,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) if not children.get(field.field_id) or resolved.input_policy == "CLASSIFIER" else self.example_value_resolver.resolve(
+    ^
+TypeError: ExampleValueResolver.resolve() got an unexpected keyword argument 'pattern'

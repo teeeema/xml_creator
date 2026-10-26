@@ -787,9 +787,13 @@
       "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
     },
     {
-      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.5.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.5",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "CARDINALITY",
+      "target": "DrugApprovalApplicationDetails",
+      "ancestors": [],
+      "container": true,
+      "min_occurs": 1,
+      "max_occurs": 1,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-77",
@@ -803,7 +807,11 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.5.Af86c5a7959d9",
+      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.5",
+      "message_code": "P.MM.01.MSG.033",
+      "diagnostic": "P.MM.01.MSG.033: CARDINALITY DrugApprovalApplicationDetails",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.6.DEFERRED",
@@ -864,9 +872,15 @@
       "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
     },
     {
-      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.9.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.9",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "CARDINALITY",
+      "target": "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails",
+      "ancestors": [
+        "DrugApprovalApplicationDetails"
+      ],
+      "container": true,
+      "min_occurs": 1,
+      "max_occurs": null,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-77",
@@ -880,12 +894,49 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.9.Ada36d5a676ef",
+      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.9",
+      "message_code": "P.MM.01.MSG.033",
+      "diagnostic": "P.MM.01.MSG.033: CARDINALITY DrugApprovalApplicationDetails/CountryDrugRegistrationDetails",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.10.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.10",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "POSITIONAL_VALUES",
+      "target": "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/CountryKindCode",
+      "ancestors": [
+        "DrugApprovalApplicationDetails"
+      ],
+      "container": false,
+      "first_value": "01",
+      "other_value": "02",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=4; г) таблицу 46 изложить в следующей редакции: / «Таблица 46 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения о рассмотрении заявления» (P.MM.01.MSG.033)",
+          "status": "CONFIRMED",
+          "table": "46",
+          "page": 5,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "9",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.9.Ae65f52837fe6",
+      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.9",
+      "message_code": "P.MM.01.MSG.033",
+      "diagnostic": "P.MM.01.MSG.033: POSITIONAL_VALUES DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/CountryKindCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "UNIQUE",
+      "target": "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/UnifiedCountryCode",
+      "ancestors": [
+        "DrugApprovalApplicationDetails"
+      ],
+      "container": false,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-77",
@@ -899,7 +950,11 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.10.Ab32695db12f9",
+      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.10",
+      "message_code": "P.MM.01.MSG.033",
+      "diagnostic": "P.MM.01.MSG.033: UNIQUE DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.11.DEFERRED",
@@ -922,9 +977,14 @@
       "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
     },
     {
-      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.12.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.12",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/DrugTradeName",
+      "ancestors": [
+        "DrugApprovalApplicationDetails",
+        "DrugApprovalApplicationDetails/CountryDrugRegistrationDetails"
+      ],
+      "container": false,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-77",
@@ -938,12 +998,25 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.12.A88f94fadbac0",
+      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.12",
+      "message_code": "P.MM.01.MSG.033",
+      "diagnostic": "P.MM.01.MSG.033: REQUIRED DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/DrugTradeName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.13.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.13",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "ENUM",
+      "target": "DrugApprovalApplicationDetails/RegistrationKindCode",
+      "ancestors": [
+        "DrugApprovalApplicationDetails"
+      ],
+      "container": false,
+      "allowed_values": [
+        "01",
+        "02",
+        "03"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-77",
@@ -957,7 +1030,38 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.13.A827d084a19c0",
+      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.13",
+      "message_code": "P.MM.01.MSG.033",
+      "diagnostic": "P.MM.01.MSG.033: ENUM DrugApprovalApplicationDetails/RegistrationKindCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugApprovalApplicationDetails/ApplicationStatusDetails",
+      "ancestors": [
+        "DrugApprovalApplicationDetails"
+      ],
+      "container": true,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=4; г) таблицу 46 изложить в следующей редакции: / «Таблица 46 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения о рассмотрении заявления» (P.MM.01.MSG.033)",
+          "status": "CONFIRMED",
+          "table": "46",
+          "page": 5,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "14",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.14.A0b2ec542d0bd",
+      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.14",
+      "message_code": "P.MM.01.MSG.033",
+      "diagnostic": "P.MM.01.MSG.033: REQUIRED DrugApprovalApplicationDetails/ApplicationStatusDetails",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.14.DEFERRED",
@@ -976,12 +1080,28 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+      "diagnostic": "CURRENT_STAGE_SEMANTICS_NOT_IMPLEMENTED"
     },
     {
-      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.15.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.15",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "ENUM",
+      "target": "DrugApprovalApplicationDetails/ApplicationStatusDetails/ApplicationStatusCode",
+      "ancestors": [
+        "DrugApprovalApplicationDetails",
+        "DrugApprovalApplicationDetails/ApplicationStatusDetails"
+      ],
+      "container": false,
+      "allowed_values": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "99"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-77",
@@ -995,7 +1115,11 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "NOT_IMPLEMENTED_SOURCE_INTERPRETATION"
+      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.15.A7c83a0ad3508",
+      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.15",
+      "message_code": "P.MM.01.MSG.033",
+      "diagnostic": "P.MM.01.MSG.033: ENUM DrugApprovalApplicationDetails/ApplicationStatusDetails/ApplicationStatusCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "kind": "field_constraint",
@@ -1032,9 +1156,14 @@
       "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.17.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.17",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugApprovalApplicationDetails/ApplicationStatusDetails/EventDate",
+      "ancestors": [
+        "DrugApprovalApplicationDetails",
+        "DrugApprovalApplicationDetails/ApplicationStatusDetails"
+      ],
+      "container": false,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-77",
@@ -1048,7 +1177,11 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.17.Adfbc708b23bd",
+      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.17",
+      "message_code": "P.MM.01.MSG.033",
+      "diagnostic": "P.MM.01.MSG.033: REQUIRED DrugApprovalApplicationDetails/ApplicationStatusDetails/EventDate",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "kind": "field_constraint",
@@ -1078,9 +1211,15 @@
       "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.19.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.19",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "CARDINALITY",
+      "target": "DrugApprovalApplicationDetails/RegistrationDossierDocDetails",
+      "ancestors": [
+        "DrugApprovalApplicationDetails"
+      ],
+      "container": true,
+      "min_occurs": 1,
+      "max_occurs": 1,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-77",
@@ -1094,12 +1233,21 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "NOT_IMPLEMENTED_SOURCE_INTERPRETATION"
+      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.19.Afe270dc54b76",
+      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.19",
+      "message_code": "P.MM.01.MSG.033",
+      "diagnostic": "P.MM.01.MSG.033: CARDINALITY DrugApprovalApplicationDetails/RegistrationDossierDocDetails",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.20.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.20",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugApprovalApplicationDetails/RegistrationDossierDocDetails/RegistrationFileIndicator",
+      "ancestors": [
+        "DrugApprovalApplicationDetails",
+        "DrugApprovalApplicationDetails/RegistrationDossierDocDetails"
+      ],
+      "container": false,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-77",
@@ -1113,7 +1261,43 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.20.A9a3036d70184",
+      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.20",
+      "message_code": "P.MM.01.MSG.033",
+      "diagnostic": "P.MM.01.MSG.033: REQUIRED DrugApprovalApplicationDetails/RegistrationDossierDocDetails/RegistrationFileIndicator",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "ENUM",
+      "target": "DrugApprovalApplicationDetails/RegistrationDossierDocDetails/RegistrationFileIndicator",
+      "ancestors": [
+        "DrugApprovalApplicationDetails",
+        "DrugApprovalApplicationDetails/RegistrationDossierDocDetails"
+      ],
+      "container": false,
+      "allowed_values": [
+        "0",
+        "1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-77",
+          "document": "https://docs.eaeunion.org/documents/463/10765/",
+          "location": "Official Word attachment, table_index=4; г) таблицу 46 изложить в следующей редакции: / «Таблица 46 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о рассмотрении заявления и (или) регистрационного досье» (R.HC.MM.01.006), передаваемых в сообщении «Сведения о рассмотрении заявления» (P.MM.01.MSG.033)",
+          "status": "CONFIRMED",
+          "table": "46",
+          "page": 5,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "20",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.20.A93c59abcf440",
+      "source_row_id": "P.MM.01.MSG.033.SOURCE_ROW.20",
+      "message_code": "P.MM.01.MSG.033",
+      "diagnostic": "P.MM.01.MSG.033: ENUM DrugApprovalApplicationDetails/RegistrationDossierDocDetails/RegistrationFileIndicator",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.033.SOURCE_ROW.21.DEFERRED",

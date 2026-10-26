@@ -1,0 +1,256 @@
+.................................                                 [100%]
+=================================== FAILURES ===================================
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.004] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.005] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.006] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.013] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.015] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.018] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.019] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.025] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.037] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.038] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.040] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.042] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+                self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+                body=service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element()
+                xml=ET.tostring(body,encoding='unicode');parsed=ET.fromstring(xml)
+                self.assertEqual(parsed.tag,f'{{{structure.namespace}}}{structure.root_element}')
+                self.assertTrue(any(i.code=='UNRESOLVED_NAMESPACE_VERSION' for i in validation.issues))
+>               self.assertFalse(validation.is_complete)
+E               AssertionError: True is not false
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:80: AssertionError
+=========================== short test summary info ============================
+SUBFAILED[P.MM.01.MSG.004] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.005] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.006] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.013] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.015] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.018] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.019] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.025] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.037] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.038] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.040] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.042] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+12 failed, 33 passed, 1219 subtests passed in 1.89s

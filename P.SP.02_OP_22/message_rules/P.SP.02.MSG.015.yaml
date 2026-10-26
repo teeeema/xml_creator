@@ -8,8 +8,8 @@
       "rule_id": "P.SP.02.MSG.015.T48.REQ.1",
       "requirement_code": "1",
       "source_text": "При наличии в классификаторе вида документа «Ходатайство о преобразовании аннулированной регистрации ... в национальную заявку ...» ipsdo:IPDocKindCode заполняется кодом, ipsdo:IPDocKindName не заполняется.",
-      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
-      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "classification": "EXTERNAL",
+      "interpretation_status": "CONFIRMED_NON_EXECUTABLE",
       "source_refs": [
         {
           "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-1",
@@ -27,8 +27,8 @@
       "rule_id": "P.SP.02.MSG.015.T48.REQ.2",
       "requirement_code": "2",
       "source_text": "При отсутствии указанного вида документа ipsdo:IPDocKindCode не заполняется, ipsdo:IPDocKindName заполняется нормативным наименованием ходатайства.",
-      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
-      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "classification": "EXTERNAL",
+      "interpretation_status": "CONFIRMED_NON_EXECUTABLE",
       "source_refs": [
         {
           "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-2",
@@ -46,8 +46,8 @@
       "rule_id": "P.SP.02.MSG.015.T48.REQ.3",
       "requirement_code": "3",
       "source_text": "ipsdo:TrademarkId должен быть заполнен; в Едином реестре должна быть запись со статусом «04», заполненным csdo:EndDateTime и совпадающим TrademarkId.",
-      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
-      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "classification": "SAFE_PARTIAL",
+      "interpretation_status": "PARTIAL_EXECUTABLE",
       "source_refs": [
         {
           "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-3",
@@ -65,8 +65,8 @@
       "rule_id": "P.SP.02.MSG.015.T48.REQ.4",
       "requirement_code": "4",
       "source_text": "В ipcdo:TrademarkNationalApplicationDetails должны быть заполнены csdo:UnifiedCountryCode, ipsdo:NationalApplicationId, ipsdo:NationalApplicationReceiptDate.",
-      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
-      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "classification": "FULLY_MAPPABLE",
+      "interpretation_status": "EXECUTABLE",
       "source_refs": [
         {
           "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-4",
@@ -84,8 +84,8 @@
       "rule_id": "P.SP.02.MSG.015.T48.REQ.5",
       "requirement_code": "5",
       "source_text": "В ipcdo:IPEntityStatusDetails должен быть заполнен csdo:EventDate; csdo:StatusCode = «06», codeListId не заполняется.",
-      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
-      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "classification": "FULLY_MAPPABLE",
+      "interpretation_status": "EXECUTABLE",
       "source_refs": [
         {
           "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-5",
@@ -103,8 +103,8 @@
       "rule_id": "P.SP.02.MSG.015.T48.REQ.6",
       "requirement_code": "6",
       "source_text": "ipcdo:UnifiedRegisterRecordsDetails/csdo:EndDateTime должен быть заполнен.",
-      "classification": "DECLARATIVE_NOT_YET_EXECUTABLE",
-      "interpretation_status": "CAPTURED_NOT_MACHINE_MAPPED",
+      "classification": "FULLY_MAPPABLE",
+      "interpretation_status": "EXECUTABLE",
       "source_refs": [
         {
           "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-6",
@@ -119,5 +119,450 @@
       ]
     }
   ],
+  "structured_rules": [
+    {
+      "rule_id": "P.SP.02.MSG.015.T48.REQ.3",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "mapping_status": "PARTIAL",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:TrademarkId"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 48",
+          "status": "CONFIRMED",
+          "page": 560,
+          "table": "48",
+          "item": "3",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.015.T48.REQ.4.PRESENCE",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "mapping_status": "EXECUTABLE",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipcdo:TrademarkNationalApplicationDetails"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 48",
+          "status": "CONFIRMED",
+          "page": 560,
+          "table": "48",
+          "item": "4",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.015.T48.REQ.4.FIELDS",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "mapping_status": "EXECUTABLE",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalApplicationDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:NationalApplicationId"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipsdo:NationalApplicationReceiptDate"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-4",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 48",
+          "status": "CONFIRMED",
+          "page": 560,
+          "table": "48",
+          "item": "4",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.015.T48.REQ.5.PRESENCE",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "mapping_status": "EXECUTABLE",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ipcdo:IPEntityStatusDetails"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 48",
+          "status": "CONFIRMED",
+          "page": 560,
+          "table": "48",
+          "item": "5",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.015.T48.REQ.5.FIELDS",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "mapping_status": "EXECUTABLE",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "csdo:StatusCode"
+          },
+          "value": "06"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:EventDate"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:StatusCode/@codeListId"
+          },
+          "state": "FORBIDDEN"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-5",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 48",
+          "status": "CONFIRMED",
+          "page": 560,
+          "table": "48",
+          "item": "5",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "rule_id": "P.SP.02.MSG.015.T48.REQ.6",
+      "kind": "for_each",
+      "applies_to_structure": "R.IP.SP.02.007",
+      "mapping_status": "EXECUTABLE",
+      "selector": {
+        "collection": "ipcdo:UnifiedRegisterRecordsDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:EndDateTime"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-6",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 48",
+          "status": "CONFIRMED",
+          "page": 560,
+          "table": "48",
+          "item": "6",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    }
+  ],
+  "mapping_audit": {
+    "audit_version": "1.0.0",
+    "message_code": "P.SP.02.MSG.015",
+    "structure_id": "R.IP.SP.02.007",
+    "document": "ОП_22.pdf",
+    "table": "48",
+    "captured_row_count": 6,
+    "expanded_requirement_count": 6,
+    "counts": {
+      "FULLY_MAPPABLE": 3,
+      "SAFE_PARTIAL": 1,
+      "EXTERNAL": 2,
+      "ENGINE_UNSUPPORTED": 0,
+      "AMBIGUOUS": 0,
+      "SOURCE_CONFLICT": 0
+    },
+    "classification_counts": {
+      "FULLY_MAPPABLE": 3,
+      "SAFE_PARTIAL": 1,
+      "EXTERNAL": 2,
+      "AMBIGUOUS": 0,
+      "ENGINE_UNSUPPORTED": 0,
+      "SOURCE_CONFLICT": 0
+    },
+    "summary": {
+      "FULLY_MAPPABLE": [4, 5, 6],
+      "SAFE_PARTIAL": [3],
+      "EXTERNAL": [1, 2],
+      "AMBIGUOUS": [],
+      "ENGINE_UNSUPPORTED": [],
+      "SOURCE_CONFLICT": []
+    },
+    "inventory": [
+      {
+        "table": "48",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "1",
+        "classification": "EXTERNAL",
+        "mapping_status": "UNMAPPED",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-1",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 48",
+            "status": "CONFIRMED",
+            "page": 559,
+            "table": "48",
+            "item": "1",
+            "version_context": "P.SP.02 1.0.0"
+          }
+        ],
+        "reason": "Requires external lookup in unified classifier resource for IP document kind presence. Non-executable.",
+        "safe_fragment": null,
+        "unmapped_remainder": [
+          "Unified classifier lookup for document kind presence"
+        ],
+        "external_dependency": "Unified classifier of IP document kinds",
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:IPDocKindCode",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:IPDocKindName"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "48",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "2",
+        "classification": "EXTERNAL",
+        "mapping_status": "UNMAPPED",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-2",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 48",
+            "status": "CONFIRMED",
+            "page": 559,
+            "table": "48",
+            "item": "2",
+            "version_context": "P.SP.02 1.0.0"
+          }
+        ],
+        "reason": "Requires external lookup verifying absence of document kind in unified classifier resource. Non-executable.",
+        "safe_fragment": null,
+        "unmapped_remainder": [
+          "Unified classifier lookup verifying document kind absence"
+        ],
+        "external_dependency": "Unified classifier of IP document kinds",
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:IPDocKindCode",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:IPDocKindName"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "48",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "3",
+        "classification": "SAFE_PARTIAL",
+        "mapping_status": "PARTIAL",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-3",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 48",
+            "status": "CONFIRMED",
+            "page": 560,
+            "table": "48",
+            "item": "3",
+            "version_context": "P.SP.02 1.0.0"
+          }
+        ],
+        "reason": "Local predicate mapped: TrademarkId is required in each record. External lookup of canceled status 04 in registry remains unmapped remainder.",
+        "safe_fragment": "TrademarkId is required under UnifiedRegisterRecordsDetails",
+        "unmapped_remainder": [
+          "Unified Register record lookup, StatusCode=04, EndDateTime presence, and TrademarkId equality against external registry"
+        ],
+        "external_dependency": "Unified Register external records",
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipsdo:TrademarkId"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "48",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "4",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-4",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 48",
+            "status": "CONFIRMED",
+            "page": 560,
+            "table": "48",
+            "item": "4",
+            "version_context": "P.SP.02 1.0.0"
+          }
+        ],
+        "reason": "TrademarkNationalApplicationDetails container is required; UnifiedCountryCode, NationalApplicationId, NationalApplicationReceiptDate are required within the container.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalApplicationDetails",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalApplicationDetails/csdo:UnifiedCountryCode",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalApplicationDetails/ipsdo:NationalApplicationId",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:TrademarkNationalApplicationDetails/ipsdo:NationalApplicationReceiptDate"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "48",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "5",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-5",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 48",
+            "status": "CONFIRMED",
+            "page": 560,
+            "table": "48",
+            "item": "5",
+            "version_context": "P.SP.02 1.0.0"
+          }
+        ],
+        "reason": "IPEntityStatusDetails is required; StatusCode must be 06; EventDate is required; StatusCode/@codeListId is forbidden.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/csdo:StatusCode",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/csdo:EventDate",
+          "ipcdo:UnifiedRegisterRecordsDetails/ipcdo:IPEntityStatusDetails/csdo:StatusCode/@codeListId"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      },
+      {
+        "table": "48",
+        "branch": "R.IP.SP.02.007",
+        "requirement_code": "6",
+        "classification": "FULLY_MAPPABLE",
+        "mapping_status": "EXECUTABLE",
+        "source_refs": [
+          {
+            "source_id": "22OP-RULE-P.SP.02.MSG.015-T48-6",
+            "document": "ОП_22.pdf",
+            "location": "Таблица 48",
+            "status": "CONFIRMED",
+            "page": 560,
+            "table": "48",
+            "item": "6",
+            "version_context": "P.SP.02 1.0.0"
+          }
+        ],
+        "reason": "EndDateTime under ResourceItemStatusDetails/ValidityPeriodDetails is required.",
+        "safe_fragment": null,
+        "unmapped_remainder": [],
+        "external_dependency": null,
+        "engine_gap": null,
+        "source_conflict": null,
+        "target_paths": [
+          "ipcdo:UnifiedRegisterRecordsDetails/ccdo:ResourceItemStatusDetails/ccdo:ValidityPeriodDetails/csdo:EndDateTime"
+        ],
+        "owner": "ipcdo:UnifiedRegisterRecordsDetails",
+        "repeatability": "PER_PARENT_OR_EXISTING_INSTANCE",
+        "provenance_kind": "DIRECT"
+      }
+    ]
+  },
   "status": "CONFIRMED"
 }

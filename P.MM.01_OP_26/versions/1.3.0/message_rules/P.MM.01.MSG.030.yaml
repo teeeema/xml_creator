@@ -281,9 +281,13 @@
   ],
   "structured_rules": [
     {
-      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.1.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.030.SOURCE_ROW.1",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "CARDINALITY",
+      "target": "RegistrationDossierDocDetails",
+      "ancestors": [],
+      "container": true,
+      "min_occurs": 1,
+      "max_occurs": 1,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -297,7 +301,11 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "NOT_IMPLEMENTED_SOURCE_INTERPRETATION"
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.1.Af652323d9131",
+      "source_row_id": "P.MM.01.MSG.030.SOURCE_ROW.1",
+      "message_code": "P.MM.01.MSG.030",
+      "diagnostic": "P.MM.01.MSG.030: CARDINALITY RegistrationDossierDocDetails",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.2.DEFERRED",
@@ -413,9 +421,13 @@
       "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.7.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.030.SOURCE_ROW.7",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "CARDINALITY",
+      "target": "RegistrationDossierDocDetails",
+      "ancestors": [],
+      "container": true,
+      "min_occurs": 1,
+      "max_occurs": 1,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -429,7 +441,11 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "NOT_IMPLEMENTED_SOURCE_INTERPRETATION"
+      "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.7.Af652323d9131",
+      "source_row_id": "P.MM.01.MSG.030.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.030",
+      "diagnostic": "P.MM.01.MSG.030: CARDINALITY RegistrationDossierDocDetails",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.030.SOURCE_ROW.8.DEFERRED",

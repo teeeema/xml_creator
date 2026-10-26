@@ -1,0 +1,71 @@
+
+==================================== ERRORS ====================================
+________________________ ERROR collecting test session _________________________
+P.MM.01_OP_26/tests/test_v130_runtime.py:7: in <module>
+    from eaeu_xml.process_packages import EaeuXmlEngine, GenerationMode
+eaeu_xml/src/eaeu_xml/__init__.py:5: in <module>
+    from eaeu_xml.process_packages.engine import EaeuXmlEngine
+eaeu_xml/src/eaeu_xml/process_packages/__init__.py:1: in <module>
+    from eaeu_xml.process_packages.engine import EaeuXmlEngine
+eaeu_xml/src/eaeu_xml/process_packages/engine.py:6: in <module>
+    from eaeu_xml.process_packages.body import GenerationMode, StructuredProcessBodyProvider, ProcessBodyProvider
+eaeu_xml/src/eaeu_xml/process_packages/body.py:11: in <module>
+    from eaeu_xml.process_packages.models import MessageDefinition, ProcessPackage, SourceReference, StructureDefinition, StructureFieldDefinition
+eaeu_xml/src/eaeu_xml/process_packages/models.py:284: in <module>
+    @dataclass(frozen=True)
+     ^^^^^^^^^^^^^^^^^^^^^^
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/dataclasses.py:1295: in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/dataclasses.py:1078: in _process_class
+    _init_fn(all_init_fields,
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/dataclasses.py:627: in _init_fn
+    raise TypeError(f'non-default argument {f.name!r} '
+E   TypeError: non-default argument 'profile' follows default argument 'message_field_policies'
+________________________ ERROR collecting test session _________________________
+P.MM.01_OP_26/tests/test_v130_stage3.py:11: in <module>
+    from eaeu_xml.application import EaeuXmlApplication
+eaeu_xml/src/eaeu_xml/__init__.py:5: in <module>
+    from eaeu_xml.process_packages.engine import EaeuXmlEngine
+eaeu_xml/src/eaeu_xml/process_packages/__init__.py:1: in <module>
+    from eaeu_xml.process_packages.engine import EaeuXmlEngine
+eaeu_xml/src/eaeu_xml/process_packages/engine.py:6: in <module>
+    from eaeu_xml.process_packages.body import GenerationMode, StructuredProcessBodyProvider, ProcessBodyProvider
+eaeu_xml/src/eaeu_xml/process_packages/body.py:11: in <module>
+    from eaeu_xml.process_packages.models import MessageDefinition, ProcessPackage, SourceReference, StructureDefinition, StructureFieldDefinition
+eaeu_xml/src/eaeu_xml/process_packages/models.py:284: in <module>
+    @dataclass(frozen=True)
+     ^^^^^^^^^^^^^^^^^^^^^^
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/dataclasses.py:1295: in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/dataclasses.py:1078: in _process_class
+    _init_fn(all_init_fields,
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/dataclasses.py:627: in _init_fn
+    raise TypeError(f'non-default argument {f.name!r} '
+E   TypeError: non-default argument 'profile' follows default argument 'message_field_policies'
+_______________ ERROR collecting tests/test_xml_value_context.py _______________
+eaeu_xml/tests/test_xml_value_context.py:5: in <module>
+    from eaeu_xml.process_packages.body import StructuredProcessBodyProvider, GenerationMode
+eaeu_xml/src/eaeu_xml/__init__.py:5: in <module>
+    from eaeu_xml.process_packages.engine import EaeuXmlEngine
+eaeu_xml/src/eaeu_xml/process_packages/__init__.py:1: in <module>
+    from eaeu_xml.process_packages.engine import EaeuXmlEngine
+eaeu_xml/src/eaeu_xml/process_packages/engine.py:6: in <module>
+    from eaeu_xml.process_packages.body import GenerationMode, StructuredProcessBodyProvider, ProcessBodyProvider
+eaeu_xml/src/eaeu_xml/process_packages/body.py:11: in <module>
+    from eaeu_xml.process_packages.models import MessageDefinition, ProcessPackage, SourceReference, StructureDefinition, StructureFieldDefinition
+eaeu_xml/src/eaeu_xml/process_packages/models.py:284: in <module>
+    @dataclass(frozen=True)
+     ^^^^^^^^^^^^^^^^^^^^^^
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/dataclasses.py:1295: in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/dataclasses.py:1078: in _process_class
+    _init_fn(all_init_fields,
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/dataclasses.py:627: in _init_fn
+    raise TypeError(f'non-default argument {f.name!r} '
+E   TypeError: non-default argument 'profile' follows default argument 'message_field_policies'
+=========================== short test summary info ============================
+ERROR eaeu_xml - TypeError: non-default argument 'profile' follows default ar...
+ERROR eaeu_xml - TypeError: non-default argument 'profile' follows default ar...
+ERROR eaeu_xml/tests/test_xml_value_context.py - TypeError: non-default argum...
+!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!
+3 errors in 0.17s

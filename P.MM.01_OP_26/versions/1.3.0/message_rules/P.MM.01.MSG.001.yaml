@@ -1885,9 +1885,15 @@
       "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.3.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.3",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails/StartDateTime",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/ResourceItemStatusDetails",
+        "DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails"
+      ],
+      "container": false,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -1901,12 +1907,22 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.3.Aba807380fe89",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.3",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: REQUIRED DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails/StartDateTime",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.4.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.4",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "FORBIDDEN",
+      "target": "DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails/EndDateTime",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/ResourceItemStatusDetails",
+        "DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails"
+      ],
+      "container": false,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -1920,12 +1936,20 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.4.A69c8d9d41414",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.4",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FORBIDDEN DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails/EndDateTime",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.5.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.5",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "CARDINALITY",
+      "target": "DrugRegistrationDetails",
+      "ancestors": [],
+      "container": true,
+      "min_occurs": 1,
+      "max_occurs": 1,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -1939,12 +1963,22 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "NOT_IMPLEMENTED_SOURCE_INTERPRETATION"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.5.A68f718408ad1",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.5",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CARDINALITY DrugRegistrationDetails",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.6.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.6",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "CARDINALITY",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+      "ancestors": [
+        "DrugRegistrationDetails"
+      ],
+      "container": true,
+      "min_occurs": 1,
+      "max_occurs": 1,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -1958,12 +1992,23 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "NOT_IMPLEMENTED_SOURCE_INTERPRETATION"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.6.A575db9010c3f",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.6",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CARDINALITY DrugRegistrationDetails/DrugCountryRegistrationDetails",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode"
+      ],
+      "container": false,
+      "value": "2021",
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -1977,8 +2022,666 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT",
-      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.A86e309c60802",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "CLASSIFIER",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails"
+      ],
+      "container": false,
+      "classifier_ref": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.A8e5d1a584ea5",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CLASSIFIER DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/UnifiedCountryCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/UnifiedCountryCode"
+      ],
+      "container": false,
+      "value": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.Acbab40df8f7d",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/UnifiedCountryCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "CLASSIFIER",
+      "target": "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/UnifiedCountryCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails"
+      ],
+      "container": false,
+      "classifier_ref": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.A32d0646cc313",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CLASSIFIER DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/UnifiedCountryCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/UnifiedCountryCode"
+      ],
+      "container": false,
+      "value": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.Aab2282e531b6",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/UnifiedCountryCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "CLASSIFIER",
+      "target": "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/UnifiedCountryCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details"
+      ],
+      "container": false,
+      "classifier_ref": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.Ad5cb83e69f17",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CLASSIFIER DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/UnifiedCountryCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/UnifiedCountryCode"
+      ],
+      "container": false,
+      "value": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.Aee313d7f22be",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/UnifiedCountryCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "CLASSIFIER",
+      "target": "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/UnifiedCountryCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails"
+      ],
+      "container": false,
+      "classifier_ref": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.A8e16bb990dab",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CLASSIFIER DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/UnifiedCountryCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/UnifiedCountryCode"
+      ],
+      "container": false,
+      "value": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.A039682f1348b",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/UnifiedCountryCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "CLASSIFIER",
+      "target": "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/UnifiedCountryCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details"
+      ],
+      "container": false,
+      "classifier_ref": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.A31973d0d95db",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CLASSIFIER DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugDetails/ControlListDetails/UnifiedCountryCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ControlListDetails",
+        "DrugRegistrationDetails/DrugDetails/ControlListDetails/UnifiedCountryCode"
+      ],
+      "container": false,
+      "value": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.Af37e71b069d1",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugDetails/ControlListDetails/UnifiedCountryCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "CLASSIFIER",
+      "target": "DrugRegistrationDetails/DrugDetails/ControlListDetails/UnifiedCountryCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ControlListDetails"
+      ],
+      "container": false,
+      "classifier_ref": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.A99ae8f8ae55c",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CLASSIFIER DrugRegistrationDetails/DrugDetails/ControlListDetails/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugDetails/OrphanDrugV2Details/UnifiedCountryCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/OrphanDrugV2Details",
+        "DrugRegistrationDetails/DrugDetails/OrphanDrugV2Details/UnifiedCountryCode"
+      ],
+      "container": false,
+      "value": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.Abd5487509315",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugDetails/OrphanDrugV2Details/UnifiedCountryCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "CLASSIFIER",
+      "target": "DrugRegistrationDetails/DrugDetails/OrphanDrugV2Details/UnifiedCountryCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/OrphanDrugV2Details"
+      ],
+      "container": false,
+      "classifier_ref": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.Ab80ffe32c69a",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CLASSIFIER DrugRegistrationDetails/DrugDetails/OrphanDrugV2Details/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/UnifiedCountryCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/UnifiedCountryCode"
+      ],
+      "container": false,
+      "value": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.A8a9c2d279f4d",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/UnifiedCountryCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "CLASSIFIER",
+      "target": "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/UnifiedCountryCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details"
+      ],
+      "container": false,
+      "classifier_ref": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.Ae62e29d830a0",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CLASSIFIER DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/UnifiedCountryCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/UnifiedCountryCode"
+      ],
+      "container": false,
+      "value": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.A54b598bd9134",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/UnifiedCountryCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "CLASSIFIER",
+      "target": "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/UnifiedCountryCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details"
+      ],
+      "container": false,
+      "classifier_ref": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.A80e11ba1d4b0",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CLASSIFIER DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/RegistrationCertificateHolderDetails/UnifiedCountryCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/UnifiedCountryCode"
+      ],
+      "container": false,
+      "value": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.A2029eef7d063",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/RegistrationCertificateHolderDetails/UnifiedCountryCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "CLASSIFIER",
+      "target": "DrugRegistrationDetails/RegistrationCertificateHolderDetails/UnifiedCountryCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails"
+      ],
+      "container": false,
+      "classifier_ref": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.A9e567bacc16b",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CLASSIFIER DrugRegistrationDetails/RegistrationCertificateHolderDetails/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/UnifiedCountryCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/UnifiedCountryCode"
+      ],
+      "container": false,
+      "value": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.A45a985c9b80e",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/UnifiedCountryCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "CLASSIFIER",
+      "target": "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/UnifiedCountryCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details"
+      ],
+      "container": false,
+      "classifier_ref": "2021",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "7",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.7.Af3e89ea81bf5",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.7",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CLASSIFIER DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "kind": "field_constraint",
@@ -2077,9 +2780,21 @@
       "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.11.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.11",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/RegistrationStatusName",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails"
+      ],
+      "container": false,
+      "condition": {
+        "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/RegistrationStatusCode",
+        "allowed_values": [
+          "99"
+        ]
+      },
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2093,12 +2808,28 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.11.Ac383e2116652",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.11",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: REQUIRED DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/RegistrationStatusName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.12.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.12",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificatePauseCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails"
+      ],
+      "container": false,
+      "condition": {
+        "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/RegistrationStatusCode",
+        "allowed_values": [
+          "01"
+        ]
+      },
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2112,12 +2843,34 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.12.A459b3820affb",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.12",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: REQUIRED DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificatePauseCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.13.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.13",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "ENUM",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificatePauseCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails"
+      ],
+      "container": false,
+      "allowed_values": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "99"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2131,12 +2884,28 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.13.Ac573b7f6ce3d",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.13",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: ENUM DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificatePauseCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.14.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.14",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificateCancelDate",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails"
+      ],
+      "container": false,
+      "condition": {
+        "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/RegistrationStatusCode",
+        "allowed_values": [
+          "02"
+        ]
+      },
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2150,12 +2919,32 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.14.Ab9216d816a6f",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.14",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: REQUIRED DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificateCancelDate",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.15.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.15",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificateCancelCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificateCancelCode",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificateCancelText"
+      ],
+      "condition": {
+        "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/RegistrationStatusCode",
+        "allowed_values": [
+          "02"
+        ]
+      },
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2169,12 +2958,28 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.15.A0a4645583f51",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.15",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificateCancelCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.16.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.16",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "ENUM",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificateCancelCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails"
+      ],
+      "container": false,
+      "allowed_values": [
+        "01",
+        "02",
+        "03",
+        "99"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2188,12 +2993,28 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.16.A55fb7938c302",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.16",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: ENUM DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificateCancelCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.17.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.17",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificateCancelConditionCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails"
+      ],
+      "container": false,
+      "condition": {
+        "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificateCancelCode",
+        "allowed_values": [
+          "02"
+        ]
+      },
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2207,12 +3028,34 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.17.Af7f817501094",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.17",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: REQUIRED DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificateCancelConditionCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.18.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.18",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "ENUM",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificateCancelConditionCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails"
+      ],
+      "container": false,
+      "allowed_values": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "99"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2226,12 +3069,28 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.18.A56ae4b09730c",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.18",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: ENUM DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificateCancelConditionCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.19.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.19",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificateCancelText",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails"
+      ],
+      "container": false,
+      "condition": {
+        "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificateCancelCode",
+        "allowed_values": [
+          "99"
+        ]
+      },
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2245,12 +3104,27 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.19.A5b92a7c83627",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.19",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: REQUIRED DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/CertificateCancelText",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.20.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.20",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugRegistrationSpecialConditionDetails/DrugUsageRestrictionKindCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugRegistrationSpecialConditionDetails"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugRegistrationSpecialConditionDetails/DrugUsageRestrictionKindCode",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugRegistrationSpecialConditionDetails/DrugUsageRestrictionKindName"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2264,12 +3138,30 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.20.A7757c2eab5bd",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.20",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugRegistrationSpecialConditionDetails/DrugUsageRestrictionKindCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.21.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.21",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "ENUM",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugRegistrationSpecialConditionDetails/DrugUsageRestrictionKindCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugRegistrationSpecialConditionDetails"
+      ],
+      "container": false,
+      "allowed_values": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2283,12 +3175,29 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.21.Aa7279299f1e8",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.21",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: ENUM DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugRegistrationSpecialConditionDetails/DrugUsageRestrictionKindCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.22.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.22",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugRegistrationSpecialConditionDetails/DrugUsageRestrictionKindName",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugRegistrationSpecialConditionDetails"
+      ],
+      "container": false,
+      "condition": {
+        "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugRegistrationSpecialConditionDetails/DrugUsageRestrictionKindCode",
+        "allowed_values": [
+          "05"
+        ]
+      },
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2302,12 +3211,27 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.22.A2229da739a89",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.22",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: REQUIRED DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugRegistrationSpecialConditionDetails/DrugUsageRestrictionKindName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.23.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.23",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/ChangeTypeCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/ChangeTypeCode",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/ChangeTypeName"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2321,7 +3245,43 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.23.A3655eef767fb",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.23",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/ChangeTypeCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/ChangeTypeCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/ChangeTypeCode"
+      ],
+      "container": false,
+      "value": "2041",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "24",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.24.Ab74e5dac90e3",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.24",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/ChangeTypeCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.24.DEFERRED",
@@ -2340,13 +3300,24 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
+      "diagnostic": "EXTERNAL_CLASSIFIER_LOOKUP",
       "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.25.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.25",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/DossierSectionCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/DossierSectionCode",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/DossierSectionName"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2360,12 +3331,25 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.25.A6ed8764ee9f7",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.25",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/DossierSectionCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.26.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.26",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/DossierSectionCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/DossierSectionCode"
+      ],
+      "container": false,
+      "value": "1030",
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2379,13 +3363,54 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
-      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.26.A8b6f7faebee0",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.26",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/DossierSectionCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.27.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.27",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "CLASSIFIER",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/DossierSectionCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails"
+      ],
+      "container": false,
+      "classifier_ref": "1030",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "26",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.26.Ada2e37059d4d",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.26",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CLASSIFIER DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/DossierSectionCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/DocExtensionDate",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails"
+      ],
+      "container": false,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2399,12 +3424,23 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.27.A8a0615ffe212",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.27",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: REQUIRED DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/DocExtensionDate",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.28.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.28",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/SubmissionSequence",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails"
+      ],
+      "container": false,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2418,7 +3454,11 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.28.A8ce386dbbac7",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.28",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: REQUIRED DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugRegistrationCertificateDetails/DrugApplicationChangedDetails/SubmissionSequence",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.29.DEFERRED",
@@ -2468,9 +3508,21 @@
       "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.31.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.31",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "ENUM",
+      "target": "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugDocumentsDetails/DrugPackageLayoutDetails/DrugPackageLayoutKindCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugDocumentsDetails",
+        "DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugDocumentsDetails/DrugPackageLayoutDetails"
+      ],
+      "container": false,
+      "allowed_values": [
+        "01",
+        "02",
+        "03"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2484,7 +3536,11 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.31.Ac8a0b08458b6",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.31",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: ENUM DrugRegistrationDetails/DrugCountryRegistrationDetails/DrugDocumentsDetails/DrugPackageLayoutDetails/DrugPackageLayoutKindCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "kind": "field_constraint",
@@ -2576,9 +3632,23 @@
       "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.36.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.36",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/ActiveSubstanceDetails/ActiveSubstanceCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/ActiveSubstanceDetails"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/ActiveSubstanceDetails/ActiveSubstanceCode",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/ActiveSubstanceDetails/ActiveSubstanceName"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2592,7 +3662,11 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.36.Afdb31b6a707e",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.36",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/ActiveSubstanceDetails/ActiveSubstanceCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.37.DEFERRED",
@@ -2615,9 +3689,19 @@
       "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.38.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.38",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugDetails/DosageFormDetails/DosageFormCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/DosageFormDetails"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugDetails/DosageFormDetails/DosageFormCode",
+        "DrugRegistrationDetails/DrugDetails/DosageFormDetails/DosageFormName"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2631,7 +3715,11 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.38.Ab35f7ef26000",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.38",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugDetails/DosageFormDetails/DosageFormCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.39.DEFERRED",
@@ -2711,9 +3799,22 @@
       "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.43.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.43",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugDosageUnitDetails/DrugDosageUnitKindCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugDosageUnitDetails"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugDosageUnitDetails/DrugDosageUnitKindCode",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugDosageUnitDetails/DosageUnitKindName"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2727,12 +3828,36 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.43.A3bce65e81350",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.43",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugDosageUnitDetails/DrugDosageUnitKindCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.44.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.44",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "ENUM",
+      "target": "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugDosageUnitDetails/DrugDosageUnitKindCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugDosageUnitDetails"
+      ],
+      "container": false,
+      "allowed_values": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2746,7 +3871,11 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.44.Ae956eb0e1597",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.44",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: ENUM DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugDosageUnitDetails/DrugDosageUnitKindCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.45.DEFERRED",
@@ -2788,9 +3917,23 @@
       "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.47.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.47",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "ENUM",
+      "target": "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/DrugSubstanceRoleCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails"
+      ],
+      "container": false,
+      "allowed_values": [
+        "01",
+        "02",
+        "03"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2804,7 +3947,11 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.47.A8f0a8c0bda81",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.47",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: ENUM DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/DrugSubstanceRoleCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.48.DEFERRED",
@@ -2864,9 +4011,23 @@
       "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.51.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.51",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/AuxiliarySubstanceCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/AuxiliarySubstanceCode",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/AuxiliarySubstanceName"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2880,12 +4041,28 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.51.A59c51c41c6d6",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.51",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/AuxiliarySubstanceCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.52.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.52",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/AuxiliarySubstanceCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/AuxiliarySubstanceCode"
+      ],
+      "container": false,
+      "value": "1019",
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2899,13 +4076,64 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
-      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.52.Ada007e8d6d88",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.52",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/AuxiliarySubstanceCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.53.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.53",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "CLASSIFIER",
+      "target": "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/AuxiliarySubstanceCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails"
+      ],
+      "container": false,
+      "classifier_ref": "1019",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "52",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.52.A7a777e7c9580",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.52",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CLASSIFIER DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/AuxiliarySubstanceCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/FunctionalPurposeCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/FunctionalPurposeCode",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/FunctionalPurposeName"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2919,7 +4147,46 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.53.Ae1fb1fb216a5",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.53",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/FunctionalPurposeCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/FunctionalPurposeCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/FunctionalPurposeCode"
+      ],
+      "container": false,
+      "value": "1020",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "54",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.54.A8c51772655e9",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.54",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugDosageDetails/DrugSubstanceDetails/AuxiliarySubstanceDetails/FunctionalPurposeCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.54.DEFERRED",
@@ -2938,7 +4205,7 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
+      "diagnostic": "EXTERNAL_CLASSIFIER_LOOKUP",
       "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
     },
     {
@@ -2961,9 +4228,20 @@
       "diagnostic": "UNRESOLVED_FIELD_BINDING"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.56.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.56",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugPackageKindCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugPackageKindCode",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugPackageKindName"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2977,12 +4255,25 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.56.Acef2cf1561b1",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.56",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugPackageKindCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.57.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.57",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugPackageKindCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugPackageKindCode"
+      ],
+      "container": false,
+      "value": "2045",
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -2996,8 +4287,42 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
-      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.57.Ac1f4e006a84d",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.57",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugPackageKindCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "CLASSIFIER",
+      "target": "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugPackageKindCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails"
+      ],
+      "container": false,
+      "classifier_ref": "2045",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "57",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.57.Aa71bf86695a4",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.57",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CLASSIFIER DrugRegistrationDetails/DrugDetails/PackageFormDetails/PackageDetails/DrugPackageKindCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.58.DEFERRED",
@@ -3038,9 +4363,17 @@
       "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.60.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.60",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugDetails/PackageFormDetails/DrugSecondaryPackageKindCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/DrugSecondaryPackageKindCode"
+      ],
+      "container": false,
+      "value": "2046",
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -3054,8 +4387,41 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
-      "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.60.Aa71fc09a4309",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.60",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugDetails/PackageFormDetails/DrugSecondaryPackageKindCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "CLASSIFIER",
+      "target": "DrugRegistrationDetails/DrugDetails/PackageFormDetails/DrugSecondaryPackageKindCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails"
+      ],
+      "container": false,
+      "classifier_ref": "2046",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "60",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.60.Af4c317b8836c",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.60",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: CLASSIFIER DrugRegistrationDetails/DrugDetails/PackageFormDetails/DrugSecondaryPackageKindCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.61.DEFERRED",
@@ -3116,6 +4482,38 @@
       "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
     },
     {
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugDetails/PackageFormDetails/RegisteredDrugComponentDetails/ComponentCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/RegisteredDrugComponentDetails",
+        "DrugRegistrationDetails/DrugDetails/PackageFormDetails/RegisteredDrugComponentDetails/ComponentCode"
+      ],
+      "container": false,
+      "value": "2059",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "64",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.64.A67cb2c99c90d",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.64",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugDetails/PackageFormDetails/RegisteredDrugComponentDetails/ComponentCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
       "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.64.DEFERRED",
       "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.64",
       "kind": "unresolved_normative_requirement",
@@ -3132,7 +4530,7 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
+      "diagnostic": "EXTERNAL_CLASSIFIER_LOOKUP",
       "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
     },
     {
@@ -3215,9 +4613,16 @@
       "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.69.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.69",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/UnifiedCountryCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details"
+      ],
+      "container": false,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -3231,12 +4636,119 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.69.Ae8ae5d895988",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.69",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: REQUIRED DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.70.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.70",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/UnifiedCountryCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details"
+      ],
+      "container": false,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "69",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.69.Ab3ef680d8dfe",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.69",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: REQUIRED DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/UnifiedCountryCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details"
+      ],
+      "container": false,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "69",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.69.Aec08f71b6cdf",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.69",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: REQUIRED DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/UnifiedCountryCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details"
+      ],
+      "container": false,
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "69",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.69.A7fd3c6ec3b9e",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.69",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: REQUIRED DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/CityName",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/CityName",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/SettlementName"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -3250,7 +4762,115 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.70.Aa654e86d28be",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.70",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/AddressV4Details/CityName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/CityName",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/CityName",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/SettlementName"
+      ],
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "70",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.70.A442b3f4e0bff",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.70",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/AddressV4Details/CityName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/CityName",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/CityName",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/SettlementName"
+      ],
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "70",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.70.A1d91abf0a6c1",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.70",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/AddressV4Details/CityName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/CityName",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/CityName",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/SettlementName"
+      ],
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "70",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.70.A825e82ef4af6",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.70",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details/CityName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "kind": "field_constraint",
@@ -3379,9 +4999,20 @@
       "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.72.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.72",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/CommunicationDetails/CommunicationChannelCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/CommunicationDetails"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/CommunicationDetails/CommunicationChannelCode",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/CommunicationDetails/CommunicationChannelName"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -3395,7 +5026,115 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.72.A1f5c88bec0dd",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.72",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/CommunicationDetails/CommunicationChannelCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/CommunicationDetails/CommunicationChannelCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/CommunicationDetails"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/CommunicationDetails/CommunicationChannelCode",
+        "DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/CommunicationDetails/CommunicationChannelName"
+      ],
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "72",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.72.Ae436413033fe",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.72",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/BusinessEntityExpandedDetails/CommunicationDetails/CommunicationChannelCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/CommunicationDetails/CommunicationChannelCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/CommunicationDetails"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/CommunicationDetails/CommunicationChannelCode",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/CommunicationDetails/CommunicationChannelName"
+      ],
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "72",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.72.Acdf4b0d89137",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.72",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/CommunicationDetails/CommunicationChannelCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/RegistrationCertificateHolderDetails/CommunicationDetails/CommunicationChannelCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/CommunicationDetails"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/CommunicationDetails/CommunicationChannelCode",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/CommunicationDetails/CommunicationChannelName"
+      ],
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "72",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.72.Aa9209db10800",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.72",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/RegistrationCertificateHolderDetails/CommunicationDetails/CommunicationChannelCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.73.DEFERRED",
@@ -3437,9 +5176,18 @@
       "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.75.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.75",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugDetails/ATCCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugDetails/ATCCode",
+        "DrugRegistrationDetails/DrugDetails/ATCName"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -3453,7 +5201,41 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.75.Af69e274b9b5c",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.75",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugDetails/ATCCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
+    },
+    {
+      "kind": "field_constraint",
+      "operation": "FIXED",
+      "target": "DrugRegistrationDetails/DrugDetails/ATCCode/@codeListId",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ATCCode"
+      ],
+      "container": false,
+      "value": "2039",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-140",
+          "document": "https://docs.eaeunion.org/documents/446/10427/",
+          "location": "Official Word attachment, table_index=151; 38. Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001), приведены в таблице 26. / Таблица 26 / Требования к заполнению реквизитов электронных документов (сведений) «Сведения о регистрации лекарственного препарата» (R.HC.MM.01.001), передаваемых в сообщении «Сведения о регистрации лекарственного препарата для включения в единый реестр» (P.MM.01.MSG.001)",
+          "status": "CONFIRMED",
+          "table": "26",
+          "page": 306,
+          "section": "page uses absolute PDF page number; Word table_index is authoritative locator within attachment",
+          "item": "76",
+          "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
+        }
+      ],
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.76.A3b303736f370",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.76",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: FIXED DrugRegistrationDetails/DrugDetails/ATCCode/@codeListId",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.76.DEFERRED",
@@ -3472,13 +5254,29 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT",
+      "diagnostic": "EXTERNAL_CLASSIFIER_LOOKUP",
       "evaluation_status": "EXTERNAL_CONTEXT_REQUIRED"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.77.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.77",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "ENUM",
+      "target": "DrugRegistrationDetails/DrugDetails/DrugAdditionalFeatureDetails/DrugAdditionalFeatureCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/DrugAdditionalFeatureDetails"
+      ],
+      "container": false,
+      "allowed_values": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "99"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -3492,12 +5290,28 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.77.Aa25f50e0cdbb",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.77",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: ENUM DrugRegistrationDetails/DrugDetails/DrugAdditionalFeatureDetails/DrugAdditionalFeatureCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.78.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.78",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/DrugDetails/DrugAdditionalFeatureDetails/DrugAdditionalFeatureName",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/DrugAdditionalFeatureDetails"
+      ],
+      "container": false,
+      "condition": {
+        "target": "DrugRegistrationDetails/DrugDetails/DrugAdditionalFeatureDetails/DrugAdditionalFeatureCode",
+        "allowed_values": [
+          "99"
+        ]
+      },
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -3511,12 +5325,30 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.78.Ae09093073ba3",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.78",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: REQUIRED DrugRegistrationDetails/DrugDetails/DrugAdditionalFeatureDetails/DrugAdditionalFeatureName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.79.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.79",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "ENUM",
+      "target": "DrugRegistrationDetails/DrugDetails/RegistrationDrugKindCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails"
+      ],
+      "container": false,
+      "allowed_values": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -3530,12 +5362,27 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.79.Ae0dc7f6ac18b",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.79",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: ENUM DrugRegistrationDetails/DrugDetails/RegistrationDrugKindCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.80.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.80",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "ENUM",
+      "target": "DrugRegistrationDetails/DrugDetails/OrphanDrugV2Details/OrphanDrugCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/OrphanDrugV2Details"
+      ],
+      "container": false,
+      "allowed_values": [
+        "01",
+        "02",
+        "03"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -3549,12 +5396,27 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "CONTEXTUAL_OR_COMPOUND_REQUIREMENT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.80.A8505c9108a60",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.80",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: ENUM DrugRegistrationDetails/DrugDetails/OrphanDrugV2Details/OrphanDrugCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.81.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.81",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/BusinessEntityTypeCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/BusinessEntityTypeCode",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/BusinessEntityTypeName"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -3568,12 +5430,27 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.81.A2ae7acbd6ca6",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.81",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/BusinessEntityTypeCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.82.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.82",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/BusinessEntityName",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/DrugDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/BusinessEntityName",
+        "DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/BusinessEntityBriefName"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -3587,12 +5464,21 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.82.A44303375c243",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.82",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/DrugDetails/ActiveIngredientDetails/ManufacturingAuthorizationHolderV2Details/BusinessEntityName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.83.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.83",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/RegistrationCertificateHolderDetails/UnifiedCountryCode",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails"
+      ],
+      "container": false,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -3606,12 +5492,25 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.83.Ae7900941479c",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.83",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: REQUIRED DrugRegistrationDetails/RegistrationCertificateHolderDetails/UnifiedCountryCode",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.84.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.84",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "AT_LEAST_ONE",
+      "target": "DrugRegistrationDetails/RegistrationCertificateHolderDetails/BusinessEntityName",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails"
+      ],
+      "container": false,
+      "targets": [
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/BusinessEntityName",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails/BusinessEntityBriefName"
+      ],
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -3625,12 +5524,21 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.84.Ac64c847bbe18",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.84",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: AT_LEAST_ONE DrugRegistrationDetails/RegistrationCertificateHolderDetails/BusinessEntityName",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
-      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.85.DEFERRED",
-      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.85",
-      "kind": "unresolved_normative_requirement",
+      "kind": "field_constraint",
+      "operation": "REQUIRED",
+      "target": "DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details",
+      "ancestors": [
+        "DrugRegistrationDetails",
+        "DrugRegistrationDetails/RegistrationCertificateHolderDetails"
+      ],
+      "container": true,
       "source_refs": [
         {
           "source_id": "SRC-PMM01-140",
@@ -3644,7 +5552,11 @@
           "version_context": "P.MM.01 1.3.0; amendments 140/2025 and 77/2026"
         }
       ],
-      "diagnostic": "AMBIGUOUS_OR_MISSING_QNAME_CONTEXT"
+      "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.85.A41adfe665530",
+      "source_row_id": "P.MM.01.MSG.001.SOURCE_ROW.85",
+      "message_code": "P.MM.01.MSG.001",
+      "diagnostic": "P.MM.01.MSG.001: REQUIRED DrugRegistrationDetails/RegistrationCertificateHolderDetails/AddressV4Details",
+      "error_code": "NORMATIVE_FIELD_CONSTRAINT"
     },
     {
       "rule_id": "P.MM.01.MSG.001.SOURCE_ROW.86.DEFERRED",

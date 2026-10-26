@@ -62,5 +62,55 @@
       ]
     }
   ],
+  "structured_rules": [
+    {
+      "kind": "presence",
+      "target": "csdo:UpdateDateTime",
+      "state": "REQUIRED",
+      "rule_id": "P.SP.02.MSG.024.T56.REQ.1",
+      "applies_to_structure": "R.IP.SP.02.008",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.024-T56-1",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 56",
+          "status": "CONFIRMED",
+          "page": 577,
+          "table": "56",
+          "item": "1",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    },
+    {
+      "kind": "for_each",
+      "selector": {
+        "collection": "csdo:UnifiedCountryCode"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "@codeListId"
+          },
+          "value": "ВОИС ST.3"
+        }
+      ],
+      "rule_id": "P.SP.02.MSG.024.T56.REQ.3",
+      "applies_to_structure": "R.IP.SP.02.008",
+      "source_refs": [
+        {
+          "source_id": "22OP-RULE-P.SP.02.MSG.024-T56-3",
+          "document": "ОП_22.pdf",
+          "location": "Таблица 56",
+          "status": "CONFIRMED",
+          "page": 577,
+          "table": "56",
+          "item": "3",
+          "version_context": "P.SP.02 1.0.0"
+        }
+      ]
+    }
+  ],
   "status": "CONFIRMED"
 }
