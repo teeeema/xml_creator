@@ -1,0 +1,23 @@
+{
+  "message_code": "P.SP.02.MSG.005",
+  "structure_id": "R.IP.SP.02.002",
+  "default_policy": "OPTIONAL",
+  "rules": [
+    {
+      "selector": {"path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode"},
+      "policy": "FIXED",
+      "fixed_value": "07360",
+      "condition": "Код 07360 подтвержден Решением №92 в редакции Решения №148; применяется ветвь таблицы 39 REQ.2.",
+      "affected_by_req": ["P.SP.02.MSG.005.T39.REQ.2"],
+      "notes": "Вид документа из таблицы 39 соответствует записи 07360 классификатора в актуальной редакции.",
+      "priority": 60
+    },
+    {
+      "selector": {"path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName"},
+      "policy": "FORBIDDEN",
+      "condition": "При заполненном коде 07360 наименование не заполняется согласно таблице 39 REQ.2.",
+      "affected_by_req": ["P.SP.02.MSG.005.T39.REQ.2"],
+      "priority": 90
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "message_code": "P.SP.02.MSG.027",
+  "structure_id": "R.IP.SP.02.002",
+  "default_policy": "OPTIONAL",
+  "rules": [
+    {
+      "selector": {
+        "path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindCode"
+      },
+      "policy": "FIXED",
+      "fixed_value": "07365",
+      "condition": "Код 07365 подтвержден Решением №92 в редакции Решения №148; применяется ветвь таблицы 57 REQ.2.",
+      "affected_by_req": [
+        "P.SP.02.MSG.027.T57.REQ.2"
+      ],
+      "notes": "Вид документа таблицы 57 подтвержден записью 07365: Решение №92, стр. 15; Решение №148, стр. 4.",
+      "priority": 60
+    },
+    {
+      "selector": {
+        "path": "ipcdo:TrademarkApplicationDetails/ipsdo:IPDocKindName"
+      },
+      "policy": "FORBIDDEN",
+      "condition": "При заполненном коде 07365 наименование не заполняется согласно таблице 57 REQ.2.",
+      "affected_by_req": [
+        "P.SP.02.MSG.027.T57.REQ.2"
+      ],
+      "priority": 90
+    }
+  ]
+}

@@ -10,7 +10,7 @@ from eaeu_xml.core.errors import BodyValidationError, ProcessBodyNotImplementedE
 from eaeu_xml.decision5.models.envelope import BodyPayload
 from eaeu_xml.process_packages.models import MessageDefinition, ProcessPackage, SourceReference, StructureDefinition, StructureFieldDefinition
 from eaeu_xml.process_packages.rules_engine import RuleStatus, StructuredRuleEvaluator
-from eaeu_xml.process_packages.value_context import MISSING, at_context, contexts, present as context_present, leaf_values
+from eaeu_xml.process_packages.value_context import MISSING, at_context, contexts, present as context_present, leaf_values, node_values
 
 
 class GenerationMode(str, Enum):
@@ -118,12 +118,7 @@ class StructuredProcessBodyProvider:
                     issues.append(self._issue("VALUE_CONTEXT_ALIGNMENT", field.path, "Число значений не соответствует повторяющимся родительским контекстам; scalar broadcast запрещён.", field))
                 is_container = field.field_id in children
                 exists = context_present(values, field.path, context)
-                if isinstance(raw, list):
-                    count = len(raw)
-                elif raw is MISSING or raw is None:
-                    count = int(exists and (is_container or raw is None))
-                else:
-                    count = 1
+                count = len(node_values(values, field.path, context))
                 if field.min_occurs is not None and count < field.min_occurs:
                     issues.append(self._issue("MIN_OCCURS", field.path, f"Требуется минимум {field.min_occurs} значений, получено {count}.", field))
                 if field.max_occurs is not None and count > field.max_occurs:
@@ -135,8 +130,12 @@ class StructuredProcessBodyProvider:
                         if value is not None:
                             self._validate_datatype(field, value, issues)
                     if field.classifier_ref:
-                        severity = IssueSeverity.ERROR if mode == GenerationMode.STRICT else IssueSeverity.WARNING
-                        issues.append(self._issue("CLASSIFIER_DATASET_NOT_AVAILABLE", field.path, "Набор данных классификатора отсутствует; значение не проверено.", field, severity))
+                        dataset = getattr(self.package, "classifier_values", {}).get(field.classifier_ref)
+                        if dataset is None:
+                            severity = IssueSeverity.ERROR if mode == GenerationMode.STRICT else IssueSeverity.WARNING
+                            issues.append(self._issue("CLASSIFIER_DATASET_NOT_AVAILABLE", field.path, "Набор данных классификатора отсутствует; значение не проверено.", field, severity))
+                        elif any(str(v) not in dataset for v in leaf_values(raw) if v is not None):
+                            issues.append(self._issue("CLASSIFIER_VALUE_INVALID", field.path, "Код отсутствует в загруженном официальном snapshot классификатора.", field))
         if rules:
             for path, usage in rules.field_usage.items():
                 present = path in values
@@ -149,7 +148,7 @@ class StructuredProcessBodyProvider:
                 mismatch = any(value != expected for value in supplied) if isinstance(supplied, list) else supplied != expected
                 if path in supplied_values and mismatch:
                     issues.append(self._issue("FIXED_VALUE_MISMATCH", path, f"Ожидается фиксированное значение {expected!r}.", rule_id=f"{message_definition.message_code}:{path}"))
-            rule_evaluations=StructuredRuleEvaluator().evaluate_all(rules.structured_rules, values)
+            rule_evaluations=StructuredRuleEvaluator(getattr(self.package, "classifier_values", {})).evaluate_all(rules.structured_rules, values)
             for evaluation in rule_evaluations:
                 if evaluation.status is RuleStatus.FAIL:
                     issues.append(self._issue("STRUCTURED_RULE_FAILED", "", evaluation.message, rule_id=evaluation.rule_id))

@@ -1,0 +1,604 @@
+.F..............         [100%]
+=================================== FAILURES ===================================
+_ V130RuntimeTests.test_actual_xml_mutation_rejects_every_compiled_constraint __
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_actual_xml_mutation_rejects_every_compiled_constraint>
+
+    def test_actual_xml_mutation_rejects_every_compiled_constraint(self):
+        for code,rules in self.rules.items():
+            message=self.messages[code];structure=self.structures[message.structure_id]
+            service=provider(self.rules);fields={f.path:f for f in structure.fields}
+>           values=sample_values(structure,message,rules)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:83: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.MM.01_OP_26/tests/v130_runtime_support.py:64: in sample_values
+    for path in requested:include(path)
+                          ^^^^^^^^^^^^^
+P.MM.01_OP_26/tests/v130_runtime_support.py:61: in include
+    values.setdefault(path,None if field.field_id in child_elements else value_for(field,message,structure))
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='F0263', order=263, depth=2, parent='F0086', path='DrugRegistrationDetails/DrugDetai...), status='CONFIRMED', interpretation_status='NEEDS_EXTERNAL_SOURCE', reason_code='MODEL_NAMESPACE_VERSION_UNRESOLVED')
+message = MessageDefinition(message_code='P.MM.01.MSG.001', name='сведения о регистрации лекарственного препарата для включения ..., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure = StructureDefinition(structure_id='R.HC.MM.01.001', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugRegistrationDeta...page=30, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+
+    def value_for(field, message, structure):
+        facets=field.facets
+        if facets and facets.enum:return facets.enum[0]
+        if field.xml_name=='InfEnvelopeCode':return message.message_code
+        if field.xml_name=='EDocCode':return structure.structure_id
+        dtype=(field.datatype or '').lower()
+        if 'universallyunique' in dtype:return '11111111-1111-4111-8111-111111111111'
+        if 'datetime' in dtype:return '2026-10-23T12:00:00+03:00'
+        if dtype.endswith('datetype'):return '2026-10-23'
+        if 'indicator' in dtype:return True
+        if field.kind=='ARBITRARY_XML':return ET.Element('{urn:example:untrusted}Sample')
+        if 'quantity' in dtype or 'integer' in dtype:return 1
+        if facets and facets.pattern:
+            digits=re.fullmatch(r'\\d\{(\d+)\}',facets.pattern)
+            if digits:return '1'*int(digits[1])
+            for sample in ('RU','ru','123456789','1','01','001','11111111-1111-4111-8111-111111111111','A0A'):
+                if re.fullmatch(facets.pattern,sample):return sample
+>           raise ValueError(('No test sample for pattern',field.path,facets.pattern))
+E           ValueError: ('No test sample for pattern', 'DrugRegistrationDetails/DrugDetails/ATCCode', '[ABCDGHJLMNPRSV]\\d{2}[A-Z]{2}\\d{2}')
+
+P.MM.01_OP_26/tests/v130_runtime_support.py:40: ValueError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.001] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+>               values=sample_values(structure,message,self.rules.get(code))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.MM.01_OP_26/tests/v130_runtime_support.py:64: in sample_values
+    for path in requested:include(path)
+                          ^^^^^^^^^^^^^
+P.MM.01_OP_26/tests/v130_runtime_support.py:61: in include
+    values.setdefault(path,None if field.field_id in child_elements else value_for(field,message,structure))
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='F0263', order=263, depth=2, parent='F0086', path='DrugRegistrationDetails/DrugDetai...), status='CONFIRMED', interpretation_status='NEEDS_EXTERNAL_SOURCE', reason_code='MODEL_NAMESPACE_VERSION_UNRESOLVED')
+message = MessageDefinition(message_code='P.MM.01.MSG.001', name='сведения о регистрации лекарственного препарата для включения ..., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure = StructureDefinition(structure_id='R.HC.MM.01.001', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugRegistrationDeta...page=30, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+
+    def value_for(field, message, structure):
+        facets=field.facets
+        if facets and facets.enum:return facets.enum[0]
+        if field.xml_name=='InfEnvelopeCode':return message.message_code
+        if field.xml_name=='EDocCode':return structure.structure_id
+        dtype=(field.datatype or '').lower()
+        if 'universallyunique' in dtype:return '11111111-1111-4111-8111-111111111111'
+        if 'datetime' in dtype:return '2026-10-23T12:00:00+03:00'
+        if dtype.endswith('datetype'):return '2026-10-23'
+        if 'indicator' in dtype:return True
+        if field.kind=='ARBITRARY_XML':return ET.Element('{urn:example:untrusted}Sample')
+        if 'quantity' in dtype or 'integer' in dtype:return 1
+        if facets and facets.pattern:
+            digits=re.fullmatch(r'\\d\{(\d+)\}',facets.pattern)
+            if digits:return '1'*int(digits[1])
+            for sample in ('RU','ru','123456789','1','01','001','11111111-1111-4111-8111-111111111111','A0A'):
+                if re.fullmatch(facets.pattern,sample):return sample
+>           raise ValueError(('No test sample for pattern',field.path,facets.pattern))
+E           ValueError: ('No test sample for pattern', 'DrugRegistrationDetails/DrugDetails/ATCCode', '[ABCDGHJLMNPRSV]\\d{2}[A-Z]{2}\\d{2}')
+
+P.MM.01_OP_26/tests/v130_runtime_support.py:40: ValueError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.002] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+>               values=sample_values(structure,message,self.rules.get(code))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.MM.01_OP_26/tests/v130_runtime_support.py:64: in sample_values
+    for path in requested:include(path)
+                          ^^^^^^^^^^^^^
+P.MM.01_OP_26/tests/v130_runtime_support.py:61: in include
+    values.setdefault(path,None if field.field_id in child_elements else value_for(field,message,structure))
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='F0263', order=263, depth=2, parent='F0086', path='DrugRegistrationDetails/DrugDetai...), status='CONFIRMED', interpretation_status='NEEDS_EXTERNAL_SOURCE', reason_code='MODEL_NAMESPACE_VERSION_UNRESOLVED')
+message = MessageDefinition(message_code='P.MM.01.MSG.002', name='сведения о регистрации лекарственного препарата для изменения ..., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure = StructureDefinition(structure_id='R.HC.MM.01.001', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugRegistrationDeta...page=30, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+
+    def value_for(field, message, structure):
+        facets=field.facets
+        if facets and facets.enum:return facets.enum[0]
+        if field.xml_name=='InfEnvelopeCode':return message.message_code
+        if field.xml_name=='EDocCode':return structure.structure_id
+        dtype=(field.datatype or '').lower()
+        if 'universallyunique' in dtype:return '11111111-1111-4111-8111-111111111111'
+        if 'datetime' in dtype:return '2026-10-23T12:00:00+03:00'
+        if dtype.endswith('datetype'):return '2026-10-23'
+        if 'indicator' in dtype:return True
+        if field.kind=='ARBITRARY_XML':return ET.Element('{urn:example:untrusted}Sample')
+        if 'quantity' in dtype or 'integer' in dtype:return 1
+        if facets and facets.pattern:
+            digits=re.fullmatch(r'\\d\{(\d+)\}',facets.pattern)
+            if digits:return '1'*int(digits[1])
+            for sample in ('RU','ru','123456789','1','01','001','11111111-1111-4111-8111-111111111111','A0A'):
+                if re.fullmatch(facets.pattern,sample):return sample
+>           raise ValueError(('No test sample for pattern',field.path,facets.pattern))
+E           ValueError: ('No test sample for pattern', 'DrugRegistrationDetails/DrugDetails/ATCCode', '[ABCDGHJLMNPRSV]\\d{2}[A-Z]{2}\\d{2}')
+
+P.MM.01_OP_26/tests/v130_runtime_support.py:40: ValueError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.034] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+>               self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+E               AssertionError: False is not true : [('MIN_OCCURS', 'DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/PackageFormDetails/InbulkIndicator'), ('MIN_OCCURS', 'DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/PackageFormDetails/PackageDetails/PackageMeasureDetails'), ('MIN_OCCURS', 'DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/PackageFormDetails/DrugSetIndicator'), ('MIN_OCCURS', 'DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/ManufactureStageDetails'), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', '')]
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:69: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.035] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+>               self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+E               AssertionError: False is not true : [('MIN_OCCURS', 'DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/PackageFormDetails/InbulkIndicator'), ('MIN_OCCURS', 'DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/PackageFormDetails/PackageDetails/PackageMeasureDetails'), ('MIN_OCCURS', 'DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/PackageFormDetails/DrugSetIndicator'), ('MIN_OCCURS', 'DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/ManufacturingAuthorizationHolderDetails/ManufacturingAreaDetails/ManufactureStageDetails'), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', '')]
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:69: AssertionError
+_ V130RuntimeTests.test_every_compiled_atom_has_positive_and_negative_value_proof (rule='P.MM.01.MSG.033.SOURCE_ROW.9.Ae65f52837fe6') _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_every_compiled_atom_has_positive_and_negative_value_proof>
+
+    def test_every_compiled_atom_has_positive_and_negative_value_proof(self):
+        evaluator=StructuredRuleEvaluator()
+        seen=0
+        for rules in self.rules.values():
+            for rule in rules.structured_rules:
+                if rule.get('kind')!='field_constraint':continue
+                with self.subTest(rule=rule['rule_id']):
+                    values={p:None for p in rule['ancestors']}
+                    if rule.get('condition'):
+                        values[rule['condition']['target']]=rule['condition']['allowed_values'][0]
+                    operation=rule['operation']
+                    if operation=='REQUIRED':values[rule['target']]=None if rule['container'] else 'value'
+                    elif operation=='CARDINALITY':values[rule['target']]=[None]
+                    elif operation=='FIXED':values[rule['target']]=rule['value']
+                    elif operation=='ENUM':values[rule['target']]=rule['allowed_values'][0]
+                    elif operation=='AT_LEAST_ONE':values[rule['targets'][0]]='one alternative'
+>                   self.assertEqual(evaluator.evaluate(rule,values).status,RuleStatus.PASS)
+E                   AssertionError: <RuleStatus.UNSUPPORTED_RULE: 'UNSUPPORTED_RULE'> != <RuleStatus.PASS: 'PASS'>
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:47: AssertionError
+_ V130RuntimeTests.test_every_compiled_atom_has_positive_and_negative_value_proof (rule='P.MM.01.MSG.034.SOURCE_ROW.11.Ae65f52837fe6') _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_every_compiled_atom_has_positive_and_negative_value_proof>
+
+    def test_every_compiled_atom_has_positive_and_negative_value_proof(self):
+        evaluator=StructuredRuleEvaluator()
+        seen=0
+        for rules in self.rules.values():
+            for rule in rules.structured_rules:
+                if rule.get('kind')!='field_constraint':continue
+                with self.subTest(rule=rule['rule_id']):
+                    values={p:None for p in rule['ancestors']}
+                    if rule.get('condition'):
+                        values[rule['condition']['target']]=rule['condition']['allowed_values'][0]
+                    operation=rule['operation']
+                    if operation=='REQUIRED':values[rule['target']]=None if rule['container'] else 'value'
+                    elif operation=='CARDINALITY':values[rule['target']]=[None]
+                    elif operation=='FIXED':values[rule['target']]=rule['value']
+                    elif operation=='ENUM':values[rule['target']]=rule['allowed_values'][0]
+                    elif operation=='AT_LEAST_ONE':values[rule['targets'][0]]='one alternative'
+>                   self.assertEqual(evaluator.evaluate(rule,values).status,RuleStatus.PASS)
+E                   AssertionError: <RuleStatus.UNSUPPORTED_RULE: 'UNSUPPORTED_RULE'> != <RuleStatus.PASS: 'PASS'>
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:47: AssertionError
+_ V130RuntimeTests.test_every_compiled_atom_has_positive_and_negative_value_proof (rule='P.MM.01.MSG.035.SOURCE_ROW.2.A93ed8760c558') _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_every_compiled_atom_has_positive_and_negative_value_proof>
+
+    def test_every_compiled_atom_has_positive_and_negative_value_proof(self):
+        evaluator=StructuredRuleEvaluator()
+        seen=0
+        for rules in self.rules.values():
+            for rule in rules.structured_rules:
+                if rule.get('kind')!='field_constraint':continue
+                with self.subTest(rule=rule['rule_id']):
+                    values={p:None for p in rule['ancestors']}
+                    if rule.get('condition'):
+                        values[rule['condition']['target']]=rule['condition']['allowed_values'][0]
+                    operation=rule['operation']
+                    if operation=='REQUIRED':values[rule['target']]=None if rule['container'] else 'value'
+                    elif operation=='CARDINALITY':values[rule['target']]=[None]
+                    elif operation=='FIXED':values[rule['target']]=rule['value']
+                    elif operation=='ENUM':values[rule['target']]=rule['allowed_values'][0]
+                    elif operation=='AT_LEAST_ONE':values[rule['targets'][0]]='one alternative'
+>                   self.assertEqual(evaluator.evaluate(rule,values).status,RuleStatus.PASS)
+E                   AssertionError: <RuleStatus.UNSUPPORTED_RULE: 'UNSUPPORTED_RULE'> != <RuleStatus.PASS: 'PASS'>
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:47: AssertionError
+_ V130RuntimeTests.test_every_message_rejects_invalid_uuid_datetime_and_header_cardinality [P.MM.01.MSG.001] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_every_message_rejects_invalid_uuid_datetime_and_header_cardinality>
+
+    def test_every_message_rejects_invalid_uuid_datetime_and_header_cardinality(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+>               original=sample_values(structure,message,self.rules.get(code))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:145: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.MM.01_OP_26/tests/v130_runtime_support.py:64: in sample_values
+    for path in requested:include(path)
+                          ^^^^^^^^^^^^^
+P.MM.01_OP_26/tests/v130_runtime_support.py:61: in include
+    values.setdefault(path,None if field.field_id in child_elements else value_for(field,message,structure))
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='F0263', order=263, depth=2, parent='F0086', path='DrugRegistrationDetails/DrugDetai...), status='CONFIRMED', interpretation_status='NEEDS_EXTERNAL_SOURCE', reason_code='MODEL_NAMESPACE_VERSION_UNRESOLVED')
+message = MessageDefinition(message_code='P.MM.01.MSG.001', name='сведения о регистрации лекарственного препарата для включения ..., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure = StructureDefinition(structure_id='R.HC.MM.01.001', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugRegistrationDeta...page=30, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+
+    def value_for(field, message, structure):
+        facets=field.facets
+        if facets and facets.enum:return facets.enum[0]
+        if field.xml_name=='InfEnvelopeCode':return message.message_code
+        if field.xml_name=='EDocCode':return structure.structure_id
+        dtype=(field.datatype or '').lower()
+        if 'universallyunique' in dtype:return '11111111-1111-4111-8111-111111111111'
+        if 'datetime' in dtype:return '2026-10-23T12:00:00+03:00'
+        if dtype.endswith('datetype'):return '2026-10-23'
+        if 'indicator' in dtype:return True
+        if field.kind=='ARBITRARY_XML':return ET.Element('{urn:example:untrusted}Sample')
+        if 'quantity' in dtype or 'integer' in dtype:return 1
+        if facets and facets.pattern:
+            digits=re.fullmatch(r'\\d\{(\d+)\}',facets.pattern)
+            if digits:return '1'*int(digits[1])
+            for sample in ('RU','ru','123456789','1','01','001','11111111-1111-4111-8111-111111111111','A0A'):
+                if re.fullmatch(facets.pattern,sample):return sample
+>           raise ValueError(('No test sample for pattern',field.path,facets.pattern))
+E           ValueError: ('No test sample for pattern', 'DrugRegistrationDetails/DrugDetails/ATCCode', '[ABCDGHJLMNPRSV]\\d{2}[A-Z]{2}\\d{2}')
+
+P.MM.01_OP_26/tests/v130_runtime_support.py:40: ValueError
+_ V130RuntimeTests.test_every_message_rejects_invalid_uuid_datetime_and_header_cardinality [P.MM.01.MSG.002] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_every_message_rejects_invalid_uuid_datetime_and_header_cardinality>
+
+    def test_every_message_rejects_invalid_uuid_datetime_and_header_cardinality(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+>               original=sample_values(structure,message,self.rules.get(code))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:145: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.MM.01_OP_26/tests/v130_runtime_support.py:64: in sample_values
+    for path in requested:include(path)
+                          ^^^^^^^^^^^^^
+P.MM.01_OP_26/tests/v130_runtime_support.py:61: in include
+    values.setdefault(path,None if field.field_id in child_elements else value_for(field,message,structure))
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='F0263', order=263, depth=2, parent='F0086', path='DrugRegistrationDetails/DrugDetai...), status='CONFIRMED', interpretation_status='NEEDS_EXTERNAL_SOURCE', reason_code='MODEL_NAMESPACE_VERSION_UNRESOLVED')
+message = MessageDefinition(message_code='P.MM.01.MSG.002', name='сведения о регистрации лекарственного препарата для изменения ..., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure = StructureDefinition(structure_id='R.HC.MM.01.001', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugRegistrationDeta...page=30, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+
+    def value_for(field, message, structure):
+        facets=field.facets
+        if facets and facets.enum:return facets.enum[0]
+        if field.xml_name=='InfEnvelopeCode':return message.message_code
+        if field.xml_name=='EDocCode':return structure.structure_id
+        dtype=(field.datatype or '').lower()
+        if 'universallyunique' in dtype:return '11111111-1111-4111-8111-111111111111'
+        if 'datetime' in dtype:return '2026-10-23T12:00:00+03:00'
+        if dtype.endswith('datetype'):return '2026-10-23'
+        if 'indicator' in dtype:return True
+        if field.kind=='ARBITRARY_XML':return ET.Element('{urn:example:untrusted}Sample')
+        if 'quantity' in dtype or 'integer' in dtype:return 1
+        if facets and facets.pattern:
+            digits=re.fullmatch(r'\\d\{(\d+)\}',facets.pattern)
+            if digits:return '1'*int(digits[1])
+            for sample in ('RU','ru','123456789','1','01','001','11111111-1111-4111-8111-111111111111','A0A'):
+                if re.fullmatch(facets.pattern,sample):return sample
+>           raise ValueError(('No test sample for pattern',field.path,facets.pattern))
+E           ValueError: ('No test sample for pattern', 'DrugRegistrationDetails/DrugDetails/ATCCode', '[ABCDGHJLMNPRSV]\\d{2}[A-Z]{2}\\d{2}')
+
+P.MM.01_OP_26/tests/v130_runtime_support.py:40: ValueError
+_ V130RuntimeTests.test_every_message_rejects_missing_header_identifier [P.MM.01.MSG.001] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_every_message_rejects_missing_header_identifier>
+
+    def test_every_message_rejects_missing_header_identifier(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+>               values=sample_values(structure,message,self.rules.get(code));values.pop('EDocHeader/EDocId',None)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:137: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.MM.01_OP_26/tests/v130_runtime_support.py:64: in sample_values
+    for path in requested:include(path)
+                          ^^^^^^^^^^^^^
+P.MM.01_OP_26/tests/v130_runtime_support.py:61: in include
+    values.setdefault(path,None if field.field_id in child_elements else value_for(field,message,structure))
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='F0263', order=263, depth=2, parent='F0086', path='DrugRegistrationDetails/DrugDetai...), status='CONFIRMED', interpretation_status='NEEDS_EXTERNAL_SOURCE', reason_code='MODEL_NAMESPACE_VERSION_UNRESOLVED')
+message = MessageDefinition(message_code='P.MM.01.MSG.001', name='сведения о регистрации лекарственного препарата для включения ..., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure = StructureDefinition(structure_id='R.HC.MM.01.001', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugRegistrationDeta...page=30, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+
+    def value_for(field, message, structure):
+        facets=field.facets
+        if facets and facets.enum:return facets.enum[0]
+        if field.xml_name=='InfEnvelopeCode':return message.message_code
+        if field.xml_name=='EDocCode':return structure.structure_id
+        dtype=(field.datatype or '').lower()
+        if 'universallyunique' in dtype:return '11111111-1111-4111-8111-111111111111'
+        if 'datetime' in dtype:return '2026-10-23T12:00:00+03:00'
+        if dtype.endswith('datetype'):return '2026-10-23'
+        if 'indicator' in dtype:return True
+        if field.kind=='ARBITRARY_XML':return ET.Element('{urn:example:untrusted}Sample')
+        if 'quantity' in dtype or 'integer' in dtype:return 1
+        if facets and facets.pattern:
+            digits=re.fullmatch(r'\\d\{(\d+)\}',facets.pattern)
+            if digits:return '1'*int(digits[1])
+            for sample in ('RU','ru','123456789','1','01','001','11111111-1111-4111-8111-111111111111','A0A'):
+                if re.fullmatch(facets.pattern,sample):return sample
+>           raise ValueError(('No test sample for pattern',field.path,facets.pattern))
+E           ValueError: ('No test sample for pattern', 'DrugRegistrationDetails/DrugDetails/ATCCode', '[ABCDGHJLMNPRSV]\\d{2}[A-Z]{2}\\d{2}')
+
+P.MM.01_OP_26/tests/v130_runtime_support.py:40: ValueError
+_ V130RuntimeTests.test_every_message_rejects_missing_header_identifier [P.MM.01.MSG.002] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_every_message_rejects_missing_header_identifier>
+
+    def test_every_message_rejects_missing_header_identifier(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+>               values=sample_values(structure,message,self.rules.get(code));values.pop('EDocHeader/EDocId',None)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:137: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.MM.01_OP_26/tests/v130_runtime_support.py:64: in sample_values
+    for path in requested:include(path)
+                          ^^^^^^^^^^^^^
+P.MM.01_OP_26/tests/v130_runtime_support.py:61: in include
+    values.setdefault(path,None if field.field_id in child_elements else value_for(field,message,structure))
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='F0263', order=263, depth=2, parent='F0086', path='DrugRegistrationDetails/DrugDetai...), status='CONFIRMED', interpretation_status='NEEDS_EXTERNAL_SOURCE', reason_code='MODEL_NAMESPACE_VERSION_UNRESOLVED')
+message = MessageDefinition(message_code='P.MM.01.MSG.002', name='сведения о регистрации лекарственного препарата для изменения ..., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure = StructureDefinition(structure_id='R.HC.MM.01.001', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugRegistrationDeta...page=30, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+
+    def value_for(field, message, structure):
+        facets=field.facets
+        if facets and facets.enum:return facets.enum[0]
+        if field.xml_name=='InfEnvelopeCode':return message.message_code
+        if field.xml_name=='EDocCode':return structure.structure_id
+        dtype=(field.datatype or '').lower()
+        if 'universallyunique' in dtype:return '11111111-1111-4111-8111-111111111111'
+        if 'datetime' in dtype:return '2026-10-23T12:00:00+03:00'
+        if dtype.endswith('datetype'):return '2026-10-23'
+        if 'indicator' in dtype:return True
+        if field.kind=='ARBITRARY_XML':return ET.Element('{urn:example:untrusted}Sample')
+        if 'quantity' in dtype or 'integer' in dtype:return 1
+        if facets and facets.pattern:
+            digits=re.fullmatch(r'\\d\{(\d+)\}',facets.pattern)
+            if digits:return '1'*int(digits[1])
+            for sample in ('RU','ru','123456789','1','01','001','11111111-1111-4111-8111-111111111111','A0A'):
+                if re.fullmatch(facets.pattern,sample):return sample
+>           raise ValueError(('No test sample for pattern',field.path,facets.pattern))
+E           ValueError: ('No test sample for pattern', 'DrugRegistrationDetails/DrugDetails/ATCCode', '[ABCDGHJLMNPRSV]\\d{2}[A-Z]{2}\\d{2}')
+
+P.MM.01_OP_26/tests/v130_runtime_support.py:40: ValueError
+_ V130RuntimeTests.test_exact_namespaces_and_sequence_are_checked_for_every_message [P.MM.01.MSG.001] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_exact_namespaces_and_sequence_are_checked_for_every_message>
+
+    def test_exact_namespaces_and_sequence_are_checked_for_every_message(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id];service=provider(self.rules)
+>               root=ET.fromstring(ET.tostring(service.build_body(message,structure,sample_values(structure,message,self.rules.get(code)),mode=GenerationMode.TEST).serialize_xml_element()))
+                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:125: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.MM.01_OP_26/tests/v130_runtime_support.py:64: in sample_values
+    for path in requested:include(path)
+                          ^^^^^^^^^^^^^
+P.MM.01_OP_26/tests/v130_runtime_support.py:61: in include
+    values.setdefault(path,None if field.field_id in child_elements else value_for(field,message,structure))
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='F0263', order=263, depth=2, parent='F0086', path='DrugRegistrationDetails/DrugDetai...), status='CONFIRMED', interpretation_status='NEEDS_EXTERNAL_SOURCE', reason_code='MODEL_NAMESPACE_VERSION_UNRESOLVED')
+message = MessageDefinition(message_code='P.MM.01.MSG.001', name='сведения о регистрации лекарственного препарата для включения ..., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure = StructureDefinition(structure_id='R.HC.MM.01.001', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugRegistrationDeta...page=30, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+
+    def value_for(field, message, structure):
+        facets=field.facets
+        if facets and facets.enum:return facets.enum[0]
+        if field.xml_name=='InfEnvelopeCode':return message.message_code
+        if field.xml_name=='EDocCode':return structure.structure_id
+        dtype=(field.datatype or '').lower()
+        if 'universallyunique' in dtype:return '11111111-1111-4111-8111-111111111111'
+        if 'datetime' in dtype:return '2026-10-23T12:00:00+03:00'
+        if dtype.endswith('datetype'):return '2026-10-23'
+        if 'indicator' in dtype:return True
+        if field.kind=='ARBITRARY_XML':return ET.Element('{urn:example:untrusted}Sample')
+        if 'quantity' in dtype or 'integer' in dtype:return 1
+        if facets and facets.pattern:
+            digits=re.fullmatch(r'\\d\{(\d+)\}',facets.pattern)
+            if digits:return '1'*int(digits[1])
+            for sample in ('RU','ru','123456789','1','01','001','11111111-1111-4111-8111-111111111111','A0A'):
+                if re.fullmatch(facets.pattern,sample):return sample
+>           raise ValueError(('No test sample for pattern',field.path,facets.pattern))
+E           ValueError: ('No test sample for pattern', 'DrugRegistrationDetails/DrugDetails/ATCCode', '[ABCDGHJLMNPRSV]\\d{2}[A-Z]{2}\\d{2}')
+
+P.MM.01_OP_26/tests/v130_runtime_support.py:40: ValueError
+_ V130RuntimeTests.test_exact_namespaces_and_sequence_are_checked_for_every_message [P.MM.01.MSG.002] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_exact_namespaces_and_sequence_are_checked_for_every_message>
+
+    def test_exact_namespaces_and_sequence_are_checked_for_every_message(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id];service=provider(self.rules)
+>               root=ET.fromstring(ET.tostring(service.build_body(message,structure,sample_values(structure,message,self.rules.get(code)),mode=GenerationMode.TEST).serialize_xml_element()))
+                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:125: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+P.MM.01_OP_26/tests/v130_runtime_support.py:64: in sample_values
+    for path in requested:include(path)
+                          ^^^^^^^^^^^^^
+P.MM.01_OP_26/tests/v130_runtime_support.py:61: in include
+    values.setdefault(path,None if field.field_id in child_elements else value_for(field,message,structure))
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='F0263', order=263, depth=2, parent='F0086', path='DrugRegistrationDetails/DrugDetai...), status='CONFIRMED', interpretation_status='NEEDS_EXTERNAL_SOURCE', reason_code='MODEL_NAMESPACE_VERSION_UNRESOLVED')
+message = MessageDefinition(message_code='P.MM.01.MSG.002', name='сведения о регистрации лекарственного препарата для изменения ..., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure = StructureDefinition(structure_id='R.HC.MM.01.001', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugRegistrationDeta...page=30, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+
+    def value_for(field, message, structure):
+        facets=field.facets
+        if facets and facets.enum:return facets.enum[0]
+        if field.xml_name=='InfEnvelopeCode':return message.message_code
+        if field.xml_name=='EDocCode':return structure.structure_id
+        dtype=(field.datatype or '').lower()
+        if 'universallyunique' in dtype:return '11111111-1111-4111-8111-111111111111'
+        if 'datetime' in dtype:return '2026-10-23T12:00:00+03:00'
+        if dtype.endswith('datetype'):return '2026-10-23'
+        if 'indicator' in dtype:return True
+        if field.kind=='ARBITRARY_XML':return ET.Element('{urn:example:untrusted}Sample')
+        if 'quantity' in dtype or 'integer' in dtype:return 1
+        if facets and facets.pattern:
+            digits=re.fullmatch(r'\\d\{(\d+)\}',facets.pattern)
+            if digits:return '1'*int(digits[1])
+            for sample in ('RU','ru','123456789','1','01','001','11111111-1111-4111-8111-111111111111','A0A'):
+                if re.fullmatch(facets.pattern,sample):return sample
+>           raise ValueError(('No test sample for pattern',field.path,facets.pattern))
+E           ValueError: ('No test sample for pattern', 'DrugRegistrationDetails/DrugDetails/ATCCode', '[ABCDGHJLMNPRSV]\\d{2}[A-Z]{2}\\d{2}')
+
+P.MM.01_OP_26/tests/v130_runtime_support.py:40: ValueError
+_ V130RuntimeTests.test_exact_namespaces_and_sequence_are_checked_for_every_message [P.MM.01.MSG.034] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_exact_namespaces_and_sequence_are_checked_for_every_message>
+
+    def test_exact_namespaces_and_sequence_are_checked_for_every_message(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id];service=provider(self.rules)
+>               root=ET.fromstring(ET.tostring(service.build_body(message,structure,sample_values(structure,message,self.rules.get(code)),mode=GenerationMode.TEST).serialize_xml_element()))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:125: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x107f75900>
+message_definition = MessageDefinition(message_code='P.MM.01.MSG.034', name='сведения для включения в единую базу данных', structure_id='R...., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure_definition = StructureDefinition(structure_id='R.HC.MM.01.006', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugApprovalApplicat...age=114, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+user_values = {'EDocHeader': None, 'DrugApprovalApplicationDetails': None, 'DrugApprovalApplicationDetails/ApplicationId': 'X', 'DrugApprovalApplicationDetails/UnifiedCountryCode': 'RU', ...}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                   user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
+        values = self._flatten(user_values)
+        rules = self.package.rules.get(message_definition.message_code)
+        if rules:
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+        if not result.is_valid:
+>           raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
+E           eaeu_xml.core.errors.BodyValidationError: Body содержит 63 issue(s).
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:171: BodyValidationError
+_ V130RuntimeTests.test_exact_namespaces_and_sequence_are_checked_for_every_message [P.MM.01.MSG.035] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_exact_namespaces_and_sequence_are_checked_for_every_message>
+
+    def test_exact_namespaces_and_sequence_are_checked_for_every_message(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id];service=provider(self.rules)
+>               root=ET.fromstring(ET.tostring(service.build_body(message,structure,sample_values(structure,message,self.rules.get(code)),mode=GenerationMode.TEST).serialize_xml_element()))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:125: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x1080531b0>
+message_definition = MessageDefinition(message_code='P.MM.01.MSG.035', name='сведения для внесения изменений в единую базу данных', structu..., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure_definition = StructureDefinition(structure_id='R.HC.MM.01.006', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugApprovalApplicat...age=114, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+user_values = {'EDocHeader': None, 'DrugApprovalApplicationDetails': None, 'DrugApprovalApplicationDetails/ApplicationId': 'X', 'DrugApprovalApplicationDetails/UnifiedCountryCode': 'RU', ...}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                   user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
+        values = self._flatten(user_values)
+        rules = self.package.rules.get(message_definition.message_code)
+        if rules:
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+        if not result.is_valid:
+>           raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
+E           eaeu_xml.core.errors.BodyValidationError: Body содержит 15 issue(s).
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:171: BodyValidationError
+=========================== short test summary info ============================
+FAILED eaeu_xml::V130RuntimeTests::test_actual_xml_mutation_rejects_every_compiled_constraint
+SUBFAILED[P.MM.01.MSG.001] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.002] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.034] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.035] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED(rule='P.MM.01.MSG.033.SOURCE_ROW.9.Ae65f52837fe6') eaeu_xml::V130RuntimeTests::test_every_compiled_atom_has_positive_and_negative_value_proof
+SUBFAILED(rule='P.MM.01.MSG.034.SOURCE_ROW.11.Ae65f52837fe6') eaeu_xml::V130RuntimeTests::test_every_compiled_atom_has_positive_and_negative_value_proof
+SUBFAILED(rule='P.MM.01.MSG.035.SOURCE_ROW.2.A93ed8760c558') eaeu_xml::V130RuntimeTests::test_every_compiled_atom_has_positive_and_negative_value_proof
+SUBFAILED[P.MM.01.MSG.001] eaeu_xml::V130RuntimeTests::test_every_message_rejects_invalid_uuid_datetime_and_header_cardinality
+SUBFAILED[P.MM.01.MSG.002] eaeu_xml::V130RuntimeTests::test_every_message_rejects_invalid_uuid_datetime_and_header_cardinality
+SUBFAILED[P.MM.01.MSG.001] eaeu_xml::V130RuntimeTests::test_every_message_rejects_missing_header_identifier
+SUBFAILED[P.MM.01.MSG.002] eaeu_xml::V130RuntimeTests::test_every_message_rejects_missing_header_identifier
+SUBFAILED[P.MM.01.MSG.001] eaeu_xml::V130RuntimeTests::test_exact_namespaces_and_sequence_are_checked_for_every_message
+SUBFAILED[P.MM.01.MSG.002] eaeu_xml::V130RuntimeTests::test_exact_namespaces_and_sequence_are_checked_for_every_message
+SUBFAILED[P.MM.01.MSG.034] eaeu_xml::V130RuntimeTests::test_exact_namespaces_and_sequence_are_checked_for_every_message
+SUBFAILED[P.MM.01.MSG.035] eaeu_xml::V130RuntimeTests::test_exact_namespaces_and_sequence_are_checked_for_every_message
+16 failed, 15 passed, 537 subtests passed in 0.29s

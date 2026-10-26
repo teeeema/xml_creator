@@ -187,11 +187,17 @@ class StructureDefinition:
     imported_namespaces: Mapping[str, str] = field(default_factory=dict)
     field_table_reference: Mapping[str, Any] = field(default_factory=dict)
     fields: tuple[StructureFieldDefinition, ...] = ()
+    display_fields: tuple[StructureFieldDefinition, ...] = ()
     expected_normative_rows: int = 0
     imported_normative_rows: int = 0
     excluded_rows: tuple[Mapping[str, Any], ...] = ()
     source_refs: tuple[SourceReference, ...] = ()
     status: str = "NEEDS_VERIFICATION"
+
+    @property
+    def presentation_fields(self) -> tuple[StructureFieldDefinition, ...]:
+        """Fields exposed to form/guide clients without changing XML serialization."""
+        return self.display_fields or self.fields
 
 
 @dataclass(frozen=True)
@@ -240,6 +246,28 @@ class UiInputPolicyDefinition:
 
 
 @dataclass(frozen=True)
+class MessageFieldPolicyRule:
+    selector: Mapping[str, str]
+    policy: str
+    fixed_value: Any = None
+    condition: str | None = None
+    external_dependency: str | None = None
+    affected_by_req: tuple[str, ...] = ()
+    source_refs: tuple[SourceReference, ...] = ()
+    notes: str | None = None
+    priority: int = 0
+    materialize_when_parent_present: bool = False
+
+
+@dataclass(frozen=True)
+class MessageFieldPolicyDefinition:
+    message_code: str
+    structure_id: str
+    rules: tuple[MessageFieldPolicyRule, ...] = ()
+    default_policy: str = "OPTIONAL"
+
+
+@dataclass(frozen=True)
 class StructureVersionSelection:
     active_version: str | None
     source: str | None = None
@@ -269,3 +297,5 @@ class ProcessPackage:
     profile: VersionProfile
     classifiers_available: bool
     xsd_available: bool
+    message_field_policies: Mapping[str, MessageFieldPolicyDefinition] = field(default_factory=dict)
+    classifier_values: Mapping[str, frozenset[str]] = field(default_factory=dict)

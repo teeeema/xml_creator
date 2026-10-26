@@ -13,3 +13,9 @@ Seven source-table trees now bind all 710 imported fields. Effective imported mo
 167 local constraints cover 148/481 rows fully and 2 partially; 87 external-context rows and 244 unimplemented rows remain. The shared Body provider preserves repeated-parent axes and missing slots, rejects scalar broadcast, and extracts exact QNames/order. Incomplete evaluations cannot produce is_complete=true. Forty-one synthetic TEST Body roundtrips are component proof only; normal 1.3.0 engine loading remains blocked.
 
 Stage 2 evidence: `../codex_reports/OP26_P_MM_01/V130_STAGE2/FINAL_REPORT.md`. DRAFT_NOT_READY, promotion_allowed=false, default 1.1.0, official XSD NOT_EXECUTED.
+
+## Stage 3 — additional rules, official classifier snapshots and read-only edition status
+
+518 local constraints fully cover 270/481 rows; 10 partial, 71 source/external-context and 130 not implemented remain. 122 of the former 333 incomplete rows are closed; 211 remain. Exact expanded model QNames still unresolved for 591 element rows; official schema validation remains unavailable. Eight complete, dated NSI snapshots are loaded through the canonical loader, checked against official payload hashes/counts and used in real classifier predicates. Four custom-code datasets and ten failed data endpoints need further work; 25 catalog references have no explicit NSI binding.
+
+The application/Qt information view exposes edition availability without selecting/loading draft generation. Default OP26 remains 1.1.0; production engine 1.3.0 remains blocked. Cardinality now counts emitted nodes rather than missing None slots, fixing a reproduced false acceptance. New reports: `../codex_reports/OP26_P_MM_01/V130_STAGE3/`.

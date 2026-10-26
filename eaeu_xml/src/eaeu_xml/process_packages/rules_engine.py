@@ -1,8 +1,11 @@
+import base64
+import binascii
 from dataclasses import dataclass
+from datetime import date, datetime
 from decimal import Decimal, InvalidOperation
 from enum import Enum
 from typing import Any, Mapping
-from eaeu_xml.process_packages.value_context import MISSING, at_context, contexts, present, leaf_values, field_filled
+from eaeu_xml.process_packages.value_context import MISSING, at_context, contexts as value_contexts, present, leaf_values, field_filled, node_values
 
 
 class RuleStatus(str, Enum):
@@ -21,7 +24,18 @@ class RuleEvaluation:
     source_refs: tuple[Mapping[str, Any], ...] = ()
 
 
+@dataclass(frozen=True)
+class RuleContext:
+    path: str
+    indexes: tuple[int, ...]
+    fields: Mapping[str, Any]
+
+
 class StructuredRuleEvaluator:
+    def __init__(self, classifier_values=None, *, complex_paths=None):
+        self.classifier_values = classifier_values or {}
+        self._complex_paths = None if complex_paths is None else frozenset(complex_paths)
+
     def evaluate_all(self, rules, values):
         return tuple(self.evaluate(rule, values) for rule in rules)
 
@@ -38,7 +52,7 @@ class StructuredRuleEvaluator:
         kind = rule.get("kind")
         if kind == "field_constraint":
             target = rule["target"]
-            for context in contexts(values, rule.get("ancestors", ())):
+            for context in value_contexts(values, rule.get("ancestors", ())):
                 condition = rule.get("condition")
                 if condition:
                     condition_value = at_context(values, condition["target"], context)
@@ -50,14 +64,27 @@ class StructuredRuleEvaluator:
                     passed = any(field_filled(values, path, context) for path in rule["targets"])
                     if not passed: return self.out(rule, RuleStatus.FAIL, rule.get("diagnostic", "At least one field is required."))
                     continue
+                if operation in {"UNIQUE", "POSITIONAL_VALUES"}:
+                    items = list(leaf_values(raw)) if raw is not MISSING else []
+                    if operation == "UNIQUE":
+                        supplied = [str(v) for v in items if v is not None]
+                        passed = len(supplied) == len(set(supplied))
+                    else:
+                        passed = bool(items) and all(str(v) == (rule["first_value"] if i == 0 else rule["other_value"])
+                                                     for i, v in enumerate(items))
+                    if not passed: return self.out(rule, RuleStatus.FAIL, rule.get("diagnostic", operation))
+                    continue
                 exists = present(values, target, context)
-                items = list(raw) if isinstance(raw, list) else ([] if raw is MISSING or raw is None else [raw])
-                if rule.get("container") and exists and (raw is None or raw is MISSING):
-                    items = [None]
-                if operation == "REQUIRED":
+                items = node_values(values, target, context)
+                if operation == "CLASSIFIER":
+                    allowed = self.classifier_values.get(rule["classifier_ref"])
+                    if allowed is None:
+                        return self.out(rule, RuleStatus.NOT_EVALUATED_EXTERNAL_REFERENCE, "Classifier snapshot unavailable.")
+                    passed = all(str(v) in allowed for v in leaf_values(items))
+                elif operation == "REQUIRED":
                     passed = bool(items) and (rule.get("container") or all(v is not None and (not isinstance(v, str) or bool(v.strip())) for v in leaf_values(items)))
                 elif operation == "FORBIDDEN":
-                    passed = not exists
+                    passed = not items
                 elif operation == "CARDINALITY":
                     passed = rule.get("min_occurs", 0) <= len(items) and (rule.get("max_occurs") is None or len(items) <= rule["max_occurs"])
                 elif operation in {"ENUM", "FIXED"}:
@@ -78,46 +105,85 @@ class StructuredRuleEvaluator:
                 passed = minimum <= count and (maximum is None or count <= maximum)
             elif kind == "presence":
                 required = rule.get("state") == "REQUIRED"
-                passed = (count > 0) == required
+                passed = (self._target_is_filled(rule.get("target"), None, values)
+                          if required else rule.get("target") not in values)
             else:
-                passed = value == rule.get("value")
+                passed = self._fixed_value_equal(value, rule.get("value"))
 
             status = RuleStatus.PASS if passed else RuleStatus.FAIL
             return self.out(rule, status, "Rule evaluated.")
 
         if kind == "selection_cardinality":
-            selected_items = self.select(rule["selector"], values)
-            count = len(selected_items)
-            minimum = rule.get("min_occurs", 0)
-            maximum = rule.get("max_occurs")
-            passed = minimum <= count and (maximum is None or count <= maximum)
+            try:
+                if "when" in rule and not self.evaluate_condition(rule["when"], None, values):
+                    return self.out(rule, RuleStatus.PASS, "Selection cardinality condition does not apply.")
+                selected_items = self.select(rule["selector"], values)
+                count = len(selected_items)
+                minimum = rule.get("min_occurs", 0)
+                maximum = rule.get("max_occurs")
+                passed = minimum <= count and (maximum is None or count <= maximum)
+            except (KeyError, TypeError, ValueError):
+                passed = False
             status = RuleStatus.PASS if passed else RuleStatus.FAIL
             return self.out(rule, status, "Selection cardinality evaluated.")
 
         if kind == "conditional_presence":
-            scope_items = self.select(rule["scope"], values, True)
-            condition = rule["condition"]
-            target = rule["target"]
-            forbidden = rule["state"] == "FORBIDDEN"
+            try:
+                scope_items = self._select_contexts(rule["scope"], values, apply_where=False)
+                target = rule["target"]
+                forbidden = rule["state"] == "FORBIDDEN"
+                passed = True
+                for item in scope_items:
+                    if not self.evaluate_condition(rule["condition"], item, values):
+                        continue
+                    target_is_present = (self._target_value(target, item, values) is not None
+                                         if forbidden else self._target_is_filled(target, item, values))
+                    if target_is_present == forbidden:
+                        passed = False
+                        break
+            except (KeyError, TypeError, ValueError):
+                passed = False
+            status = RuleStatus.PASS if passed else RuleStatus.FAIL
+            message = "Conditional presence evaluated." if passed else "Conditional presence failed."
+            return self.out(rule, status, message)
 
-            for item in scope_items:
-                condition_matches = self.c(
-                    item.get(condition["field"]),
-                    condition["operator"],
-                    condition.get("value"),
+        if kind == "conditional_fixed_value":
+            try:
+                scope_items = self._select_contexts(rule["scope"], values, apply_where=False)
+                passed = True
+                for item in scope_items:
+                    if not self.evaluate_condition(rule["condition"], item, values):
+                        continue
+                    target_value = self._target_value(rule["target"], item, values)
+                    if target_value is None or target_value != rule.get("value"):
+                        passed = False
+                        break
+            except (KeyError, TypeError, ValueError):
+                passed = False
+            status = RuleStatus.PASS if passed else RuleStatus.FAIL
+            message = "Conditional fixed value evaluated." if passed else "Conditional fixed value failed."
+            return self.out(rule, status, message)
+
+        if kind == "for_each":
+            try:
+                contexts = self._select_contexts(rule["selector"], values)
+                passed = all(
+                    self._assertion_passes(assertion, context, values)
+                    for context in contexts
+                    for assertion in rule["assertions"]
                 )
-                target_is_present = item.get(target["field"]) is not None
-                if condition_matches and target_is_present == forbidden:
-                    return self.out(rule, RuleStatus.FAIL, "Conditional presence failed.")
-
-            return self.out(rule, RuleStatus.PASS, "Conditional presence evaluated.")
+            except (KeyError, TypeError, ValueError):
+                passed = False
+            status = RuleStatus.PASS if passed else RuleStatus.FAIL
+            message = "For-each evaluated." if passed else "For-each assertion failed."
+            return self.out(rule, status, message)
 
         if kind == "aggregate_comparison":
             try:
                 left_value = self.agg(rule["left"], values)
                 right_value = self.agg(rule["right"], values)
                 passed = self.c(left_value, rule["operator"], right_value)
-            except (InvalidOperation, ValueError, TypeError):
+            except (InvalidOperation, KeyError, ValueError, TypeError):
                 passed = False
 
             status = RuleStatus.PASS if passed else RuleStatus.FAIL
@@ -128,59 +194,631 @@ class StructuredRuleEvaluator:
                 left_value = values.get(rule["left"])
                 right_key = rule.get("right")
                 right_value = values.get(right_key, rule.get("right_value"))
-                passed = self.c(left_value, rule["operator"], right_value)
+                passed = self._compare(
+                    left_value,
+                    rule["operator"],
+                    right_value,
+                    rule.get("value_type"),
+                    offset_months=rule.get("offset_months", 0),
+                )
             except (KeyError, TypeError, ValueError):
                 passed = False
 
             status = RuleStatus.PASS if passed else RuleStatus.FAIL
             return self.out(rule, status, "Comparison evaluated.")
 
+        if kind == "cross_instance_comparison":
+            try:
+                if "when" in rule and not self.evaluate_condition(rule["when"], None, values):
+                    return self.out(rule, RuleStatus.PASS, "Cross-instance comparison condition does not apply.")
+                left_operand = rule["left"]
+                right_operand = rule["right"]
+                operator = rule["operator"]
+
+                left_items = self._select_contexts(left_operand["selector"], values)
+                right_items = self._select_contexts(right_operand["selector"], values)
+
+                if len(left_items) != 1 or len(right_items) != 1:
+                    passed = False
+                else:
+                    left_val = self._context_field_value(left_operand["field"], left_items[0])
+                    right_val = self._context_field_value(right_operand["field"], right_items[0])
+                    if left_val is None or right_val is None:
+                        passed = bool(rule.get("allow_both_missing")) and left_val is None and right_val is None
+                    else:
+                        passed = self._compare(left_val, operator, right_val, rule.get("value_type"))
+            except (KeyError, TypeError, ValueError):
+                passed = False
+
+            status = RuleStatus.PASS if passed else RuleStatus.FAIL
+            message = "Cross-instance comparison evaluated." if passed else "Cross-instance comparison failed."
+            return self.out(rule, status, message)
+
+        if kind == "set_equivalence":
+            try:
+                left_exists, left_values = self._set_operand_values(rule["left"], values)
+                right_exists, right_values = self._set_operand_values(rule["right"], values)
+                if not left_exists or not right_exists:
+                    passed = bool(rule.get("allow_both_missing")) and not left_exists and not right_exists
+                else:
+                    passed = frozenset(left_values) == frozenset(right_values)
+            except (KeyError, TypeError, ValueError):
+                passed = False
+
+            status = RuleStatus.PASS if passed else RuleStatus.FAIL
+            return self.out(rule, status, "Set equivalence evaluated.")
+
+        if kind == "decoded_binary_length":
+            try:
+                value = self._target_value(rule["target"], None, values)
+                decoded_length = self._decoded_binary_byte_length(value)
+                passed = self.c(decoded_length, rule["operator"], rule["byte_length"])
+            except (KeyError, TypeError, ValueError):
+                passed = False
+
+            status = RuleStatus.PASS if passed else RuleStatus.FAIL
+            return self.out(rule, status, "Decoded binary length evaluated.")
+
+        if kind == "group_distinctness":
+            try:
+                contexts = self._select_contexts(rule["selector"], values)
+                passed = True
+                scopes = self._select_contexts(rule["scope"], values) if "scope" in rule else [None]
+                for scope in scopes:
+                    scoped_contexts = contexts
+                    if scope is not None:
+                        prefix = scope.path + "/"
+                        scalar_scope = len(self._contexts_for_path(scope.path, values)) == 1
+                        scoped_contexts = [
+                            context
+                            for context in contexts
+                            if context.path.startswith(prefix)
+                            and (scalar_scope or context.indexes[:len(scope.indexes)] == scope.indexes)
+                        ]
+
+                    groups = {}
+                    for context in scoped_contexts:
+                        key = self._context_field_value(rule["group_by"], context)
+                        if key is None:
+                            continue
+                        groups.setdefault(key, []).append(context)
+
+                    for group in groups.values():
+                        if len(group) < 2:
+                            continue
+                        distinguish_by = rule["distinguish_by"]
+                        if any(
+                            not any(self._context_field_value(field, context) is not None for field in distinguish_by)
+                            for context in group
+                        ):
+                            passed = False
+                            break
+                        if not any(
+                            all(self._context_field_value(field, context) is not None for context in group)
+                            and len({self._context_field_value(field, context) for context in group}) == len(group)
+                            for field in distinguish_by
+                        ):
+                            passed = False
+                            break
+                    if not passed:
+                        break
+            except (KeyError, TypeError, ValueError):
+                passed = False
+
+            status = RuleStatus.PASS if passed else RuleStatus.FAIL
+            message = "Group distinctness evaluated." if passed else "Group distinctness failed."
+            return self.out(rule, status, message)
+
         return self.out(rule, RuleStatus.UNSUPPORTED_RULE, "Unsupported structured rule.")
 
     def select(self, selector, values, all=False):
-        collection_path = selector["collection"]
-        collection_value = values.get(collection_path)
-        count = (
-            len(collection_value)
-            if isinstance(collection_value, list)
-            else int(collection_value is not None)
-        )
+        return [dict(item.fields) for item in self._select_contexts(selector, values, apply_where=not all)]
+
+    def _select_contexts(self, selector, values, *, apply_where=True, context=None):
+        if "collection" in selector:
+            collection = selector["collection"]
+            contexts = self._contexts_for_path(collection, values)
+            raw = values.get(collection)
+            if isinstance(raw, list) and self._has_present_leaf(raw):
+                contexts = [
+                    item for item in contexts
+                    if self._value_at(raw, item.indexes) is not None
+                ]
+            elif collection not in values:
+                contexts = [
+                    item for item in contexts
+                    if any(value is not None for value in item.fields.values())
+                ]
+        elif "qname" in selector:
+            qname = selector["qname"]
+            under = selector.get("under")
+            paths = set()
+            for path in values:
+                segments = path.split("/")
+                for index, segment in enumerate(segments):
+                    if segment != qname:
+                        continue
+                    candidate = "/".join(segments[:index + 1])
+                    if under and candidate != under and not candidate.startswith(under + "/"):
+                        continue
+                    paths.add(candidate)
+            contexts = []
+            for path in sorted(paths):
+                path_contexts = self._contexts_for_path(path, values)
+                raw = values.get(path)
+                if isinstance(raw, list) and self._has_present_leaf(raw):
+                    path_contexts = [
+                        item for item in path_contexts
+                        if self._value_at(raw, item.indexes) is not None
+                    ]
+                elif path not in values:
+                    path_contexts = [
+                        item for item in path_contexts
+                        if any(value is not None for value in item.fields.values())
+                    ]
+                contexts.extend(path_contexts)
+        else:
+            raise ValueError("selector requires collection or qname")
+
+        if "parent" in selector:
+            parent_selector = selector["parent"]
+            if not isinstance(parent_selector, Mapping):
+                raise ValueError("parent selector must be a mapping")
+            parent_collection = parent_selector.get("collection")
+            if not parent_collection:
+                raise ValueError("parent selector requires collection")
+            child_collection = selector.get("collection")
+            if not child_collection:
+                raise ValueError("parent-scoped selector requires collection on child")
+            if not child_collection.startswith(parent_collection + "/"):
+                raise ValueError(
+                    f"Parent collection '{parent_collection}' is not an ancestor of '{child_collection}'"
+                )
+            parent_contexts = self._select_contexts(parent_selector, values, context=context)
+            allowed_parent_indexes = {ctx.indexes for ctx in parent_contexts}
+            scalar_parent = bool(parent_contexts) and len(self._contexts_for_path(parent_collection, values)) == 1
+            contexts = [
+                ctx for ctx in contexts
+                if scalar_parent or any(ctx.indexes[:len(pidx)] == pidx for pidx in allowed_parent_indexes)
+            ]
+
+        if "position" in selector:
+            position = selector["position"]
+            if position != "last" and (type(position) is not int or position < 1):
+                raise ValueError("position must be a positive one-based index or 'last'")
+            siblings = {}
+            for context in contexts:
+                siblings.setdefault((context.path, context.indexes[:-1]), []).append(context)
+            contexts = [
+                item
+                for group in siblings.values()
+                for item in ([group[-1]] if position == "last" else group[position - 1:position])
+            ]
+
+        relative = selector.get("relative_to_context")
+        if relative is not None:
+            if context is None:
+                raise ValueError("relative_to_context selector requires RuleContext")
+            candidate_field = relative["candidate_field"]
+            context_field = relative["context_field"]
+            current_value = self._context_field_value(context_field, context)
+            if current_value is None:
+                contexts = []
+            else:
+                contexts = [
+                    item
+                    for item in contexts
+                    if item.path == context.path
+                    and item.indexes[:-1] == context.indexes[:-1]
+                    and self._context_field_value(candidate_field, item) is not None
+                    and self._compare(
+                        self._context_field_value(candidate_field, item),
+                        "EQ",
+                        current_value,
+                        relative["value_type"],
+                        offset_months=relative["offset_months"],
+                    )
+                ]
+
         where = selector.get("where")
-        selected_items = []
+        if apply_where and where:
+            contexts = [item for item in contexts if self.evaluate_condition(where, item, values)]
+        return contexts
 
-        for index in range(count):
-            if not all and where:
-                condition_path = collection_path + "/" + where["field"]
-                condition_value = values.get(condition_path)
-                if isinstance(condition_value, list):
-                    condition_value = condition_value[index]
-                if not self.c(condition_value, where["operator"], where.get("value")):
-                    continue
+    def _contexts_for_path(self, path, values):
+        missing = object()
+        raw = values.get(path, missing)
+        descendants = [value for key, value in values.items() if key.startswith(path + "/")]
 
-            item = {}
-            for path, value in values.items():
-                if not path.startswith(collection_path + "/"):
-                    continue
-                field_name = path[len(collection_path) + 1:]
-                if isinstance(value, list) and index < len(value):
-                    item[field_name] = value[index]
+        if raw is missing:
+            if not descendants:
+                return []
+            index_candidates = set()
+            for value in descendants:
+                index_candidates.update(self._leaf_indexes(value))
+            indexes = sorted(index_candidates) or [()]
+        elif raw is None:
+            if not descendants:
+                return []
+            indexes = [()]
+        else:
+            indexes = list(self._leaf_indexes(raw))
+
+        return [RuleContext(path, indexes_, self._context_fields(path, indexes_, values)) for indexes_ in indexes]
+
+    @classmethod
+    def _leaf_indexes(cls, value, prefix=()):
+        if isinstance(value, list):
+            result = []
+            for index, item in enumerate(value):
+                if isinstance(item, list):
+                    result.extend(cls._leaf_indexes(item, prefix + (index,)))
                 else:
-                    item[field_name] = value
-            selected_items.append(item)
+                    result.append(prefix + (index,))
+            return tuple(result)
+        return (prefix,)
 
-        return selected_items
+    @classmethod
+    def _has_present_leaf(cls, value):
+        if isinstance(value, list):
+            return any(cls._has_present_leaf(item) for item in value)
+        return value is not None
 
-    def agg(self, aggregate, values):
-        selected_items = self.select(aggregate["selector"], values)
-        decimals = [
-            Decimal(str(item[aggregate["value_field"]]))
-            for item in selected_items
+    @staticmethod
+    def _value_at(value, indexes):
+        current = value
+        for index in indexes:
+            if not isinstance(current, list):
+                return current
+            if index >= len(current):
+                return None
+            current = current[index]
+        return current
+
+    def _context_fields(self, path, indexes, values):
+        fields = {}
+        if path in values:
+            fields["#text"] = self._value_at(values[path], indexes)
+        prefix = path + "/"
+        for absolute_path, value in values.items():
+            if not absolute_path.startswith(prefix):
+                continue
+            relative_path = absolute_path[len(prefix):]
+            fields[relative_path] = self._value_at(value, indexes)
+        return fields
+
+    def evaluate_condition(self, condition, context, values):
+        if "all" in condition:
+            return all(self.evaluate_condition(item, context, values) for item in condition["all"])
+        if "any" in condition:
+            return any(self.evaluate_condition(item, context, values) for item in condition["any"])
+        if "not" in condition:
+            return not self.evaluate_condition(condition["not"], context, values)
+        if "count" in condition:
+            count = self._selected_child_count(condition["count"], context, values)
+            return self.c(count, condition["operator"], condition["value"])
+        left = self._field_value(condition["field"], context, values)
+        if "position" in condition:
+            left = self._at_position(left, condition["position"])
+        return self._compare(
+            left,
+            condition["operator"],
+            condition.get("value"),
+            condition.get("value_type"),
+        )
+
+    @staticmethod
+    def _at_position(value, position):
+        if position != "last" and (type(position) is not int or position < 1):
+            raise ValueError("position must be a positive one-based index or 'last'")
+        if not isinstance(value, list):
+            return value if position == 1 or position == "last" else None
+        if not value:
+            return None
+        return value[-1] if position == "last" else (value[position - 1] if position <= len(value) else None)
+
+    @classmethod
+    def _context_field_value(cls, field, context):
+        if context is not None and field in context.fields:
+            return context.fields.get(field)
+        if context is not None and context.path:
+            prefix = context.path + "/"
+            if field.startswith(prefix) and field[len(prefix):] in context.fields:
+                return context.fields.get(field[len(prefix):])
+        return None
+
+    @classmethod
+    def _field_value(cls, field, context, values):
+        val = cls._context_field_value(field, context)
+        if val is not None or (context is not None and field in context.fields):
+            return val
+        return values.get(field)
+
+    def _target_value(self, target, context, values):
+        if isinstance(target, Mapping):
+            value = self._field_value(target["field"], context, values)
+            return self._at_position(value, target["position"]) if "position" in target else value
+        return self._field_value(target, context, values)
+
+    @staticmethod
+    def _target_path(target, context):
+        field = target.get("field") if isinstance(target, Mapping) else target
+        if not field:
+            return None
+        if field == "#text":
+            return context.path if context is not None else None
+        if context is None or not context.path:
+            return field
+        if field == context.path or field.startswith(context.path + "/"):
+            return field
+        return f"{context.path}/{field}"
+
+    def _target_is_present(self, target, context, values):
+        value = self._target_value(target, context, values)
+        if isinstance(value, list):
+            return bool(value)
+        return value is not None
+
+    @classmethod
+    def _structural_value_is_present(cls, value):
+        if isinstance(value, list):
+            return any(cls._structural_value_is_present(item) for item in value)
+        return value is not None
+
+    def _complex_target_is_present(self, target, context, values):
+        path = self._target_path(target, context)
+        if not path or path not in values:
+            return False
+
+        raw = values[path]
+        indexes = context.indexes if context is not None else ()
+        selected = self._value_at(raw, indexes) if indexes else raw
+        if self._structural_value_is_present(selected):
+            return True
+
+        prefix = path + "/"
+        for descendant_path, descendant in values.items():
+            if not descendant_path.startswith(prefix):
+                continue
+            selected_descendant = self._value_at(descendant, indexes) if indexes else descendant
+            if self._structural_value_is_present(selected_descendant):
+                return True
+        return False
+
+    @classmethod
+    def _value_is_filled(cls, value):
+        if isinstance(value, list):
+            return any(cls._value_is_filled(item) for item in value)
+        if isinstance(value, Mapping):
+            return any(cls._value_is_filled(item) for item in value.values())
+        if isinstance(value, str):
+            return bool(value.strip())
+        return value is not None
+
+    def _target_is_filled(self, target, context, values):
+        value = self._target_value(target, context, values)
+        if self._complex_paths is None:
+            # Without structure metadata the evaluator cannot safely distinguish
+            # a scalar text value from an empty complex element marker.
+            return self._target_is_present(target, context, values)
+        if self._target_path(target, context) in self._complex_paths:
+            return self._complex_target_is_present(target, context, values)
+        return self._value_is_filled(value)
+
+    def _operand_value(self, operand, context, values):
+        if isinstance(operand, Mapping):
+            if "field" not in operand:
+                raise ValueError("operand requires field")
+            if "selector" in operand:
+                selected = self._select_contexts(operand["selector"], values, context=context)
+                if len(selected) != 1:
+                    raise ValueError("comparison operand requires exactly one selected owner")
+                value = self._context_field_value(operand["field"], selected[0])
+                if value is None:
+                    raise ValueError("selected comparison field is missing")
+                return value
+            return self._field_value(operand["field"], context, values)
+        if context is not None and operand in context.fields:
+            return context.fields.get(operand)
+        return values.get(operand)
+
+    def _assertion_passes(self, assertion, context, values):
+        kind = assertion.get("kind")
+        if kind == "selection_cardinality":
+            count = self._selected_child_count(assertion["selector"], context, values)
+            minimum = assertion.get("min_occurs", 0)
+            maximum = assertion.get("max_occurs")
+            return minimum <= count and (maximum is None or count <= maximum)
+        if kind in {"cardinality", "presence", "fixed_value"}:
+            value = self._target_value(assertion["target"], context, values)
+            count = len(value) if isinstance(value, list) else int(value is not None)
+            if kind == "cardinality":
+                minimum = assertion.get("min_occurs", 0)
+                maximum = assertion.get("max_occurs")
+                return minimum <= count and (maximum is None or count <= maximum)
+            if kind == "presence":
+                required = assertion.get("state") == "REQUIRED"
+                return (self._target_is_filled(assertion["target"], context, values)
+                        if required else count == 0)
+            return self._fixed_value_equal(value, assertion.get("value"))
+
+        if kind == "comparison":
+            left = self._operand_value(assertion["left"], context, values)
+            if "right" in assertion:
+                right = self._operand_value(assertion["right"], context, values)
+            else:
+                right = assertion.get("right_value")
+            return self._compare(
+                left,
+                assertion["operator"],
+                right,
+                assertion.get("value_type"),
+                offset_months=assertion.get("offset_months", 0),
+            )
+
+        if kind == "aggregate_comparison":
+            left_value = self.agg(assertion["left"], values, context=context)
+            right_value = self.agg(assertion["right"], values, context=context)
+            return self.c(left_value, assertion["operator"], right_value)
+
+        if kind == "decoded_binary_length":
+            value = self._target_value(assertion["target"], context, values)
+            decoded_length = self._decoded_binary_byte_length(value)
+            return self.c(decoded_length, assertion["operator"], assertion["byte_length"])
+
+        if kind == "conditional_presence":
+            if not self.evaluate_condition(assertion["condition"], context, values):
+                return True
+            forbidden = assertion["state"] == "FORBIDDEN"
+            present = (self._target_value(assertion["target"], context, values) is not None
+                       if forbidden else self._target_is_filled(assertion["target"], context, values))
+            return present != forbidden
+
+        if kind == "conditional_fixed_value":
+            if not self.evaluate_condition(assertion["condition"], context, values):
+                return True
+            target = self._target_value(assertion["target"], context, values)
+            return target is not None and target == assertion.get("value")
+
+        if kind == "condition":
+            return self.evaluate_condition(assertion["condition"], context, values)
+
+        raise ValueError(f"Unsupported for_each assertion: {kind}")
+
+    def _selected_child_count(self, selector, context, values):
+        children = [
+            child for child in self._select_contexts(selector, values, context=context)
+            if any(self._has_present_leaf(value) for value in child.fields.values())
         ]
+        if context is None:
+            return len(children)
+        return len(self._contexts_in_context(children, context, values))
+
+    def agg(self, aggregate, values, context=None):
+        selected_contexts = self._select_contexts(aggregate["selector"], values, context=context)
+        if context is not None:
+            selected_contexts = self._contexts_in_context(selected_contexts, context, values)
+        try:
+            decimals = [
+                Decimal(str(self._context_field_value(aggregate["value_field"], item)))
+                for item in selected_contexts
+                if self._context_field_value(aggregate["value_field"], item) is not None
+            ]
+        except InvalidOperation as exc:
+            raise ValueError("Invalid aggregate decimal value") from exc
+        if len(decimals) != len(selected_contexts):
+            raise ValueError("aggregate value field is missing")
         if aggregate["aggregation"] == "SUM":
             return sum(decimals, Decimal())
         if len(decimals) == 1:
             return decimals[0]
         raise ValueError()
+
+    def _contexts_in_context(self, contexts, context, values):
+        prefix = context.path + "/"
+        scalar_parent = len(self._contexts_for_path(context.path, values)) == 1
+        return [
+            child
+            for child in contexts
+            if child.path.startswith(prefix)
+            and (scalar_parent or child.indexes[:len(context.indexes)] == context.indexes)
+        ]
+
+    def _set_operand_values(self, operand, values):
+        selector = operand["selector"]
+        exists = self._selector_source_present(selector, values)
+        contexts = self._select_contexts(selector, values)
+        result = []
+        for context in contexts:
+            value = self._context_field_value(operand["field"], context)
+            if value is None:
+                raise ValueError("set operand field is missing")
+            result.append(value)
+        return exists, result
+
+    @staticmethod
+    def _selector_source_present(selector, values):
+        collection = selector.get("collection")
+        if collection:
+            return collection in values or any(path.startswith(collection + "/") for path in values)
+        qname = selector.get("qname")
+        under = selector.get("under")
+        for path in values:
+            segments = path.split("/")
+            for index, segment in enumerate(segments):
+                if segment != qname:
+                    continue
+                candidate = "/".join(segments[:index + 1])
+                if under and candidate != under and not candidate.startswith(under + "/"):
+                    continue
+                return True
+        return False
+
+    @staticmethod
+    def _decoded_binary_byte_length(value):
+        if not isinstance(value, str):
+            raise ValueError("Base64 value must be text")
+        compact = "".join(value.split())
+        try:
+            return len(base64.b64decode(compact, validate=True))
+        except (binascii.Error, ValueError) as exc:
+            raise ValueError("Invalid Base64 value") from exc
+
+    @staticmethod
+    def _fixed_value_equal(actual, expected) -> bool:
+        """Compare scalar values as they serialize into an XML simple value.
+
+        Input policies may provide an integer for an indicator while a normative
+        structured rule retains its source lexical form (for example ``"1"``).
+        The serializer emits both as the same XML character data.  This applies
+        only to fixed-value checks; comparison rules keep their declared types.
+        """
+        if actual == expected:
+            return True
+        scalar = (str, int, float, Decimal, bool)
+        return isinstance(actual, scalar) and isinstance(expected, scalar) and str(actual) == str(expected)
+
+    @staticmethod
+    def _compare(left, operator, right, value_type=None, *, offset_months=0):
+        if value_type is None and operator in {"EQ", "NE"}:
+            # XML extraction preserves simple-value text, while JSON rules can
+            # contain native boolean literals. Match only xs:boolean lexicals;
+            # leave other strings and numeric operands unchanged.
+            xml_booleans = {"true": True, "false": False, "1": True, "0": False}
+            if type(left) is bool and isinstance(right, str):
+                right = xml_booleans.get(right.strip(" \t\r\n"), right)
+            elif type(right) is bool and isinstance(left, str):
+                left = xml_booleans.get(left.strip(" \t\r\n"), left)
+        if value_type == "DATETIME":
+            left = datetime.fromisoformat(left)
+            right = datetime.fromisoformat(right)
+            if (left.tzinfo is None) != (right.tzinfo is None):
+                raise ValueError("Cannot compare zoned and unzoned date-times")
+        elif value_type == "DATE":
+            left = date.fromisoformat(left)
+            right = date.fromisoformat(right)
+        elif value_type == "CALENDAR_MONTH":
+            left = StructuredRuleEvaluator._calendar_month_ordinal(left)
+            right = StructuredRuleEvaluator._calendar_month_ordinal(right) + offset_months
+        elif value_type == "DECIMAL":
+            try:
+                left = Decimal(str(left))
+                right = Decimal(str(right))
+            except InvalidOperation as exc:
+                raise ValueError("Invalid decimal value") from exc
+        elif value_type is not None:
+            raise ValueError("Unknown comparison value_type")
+        return StructuredRuleEvaluator.c(left, operator, right)
+
+    @staticmethod
+    def _calendar_month_ordinal(value):
+        if not isinstance(value, str):
+            raise ValueError("Calendar-month value must be text")
+        try:
+            parsed = date.fromisoformat(value)
+        except ValueError:
+            parsed = datetime.fromisoformat(value)
+        return parsed.year * 12 + (parsed.month - 1)
 
     @staticmethod
     def c(left, operator, right):
@@ -196,6 +834,11 @@ class StructuredRuleEvaluator:
             return left < right
         if operator == "LE":
             return left <= right
+        if operator in {"IN", "NOT_IN"}:
+            if not isinstance(right, (list, tuple, set, frozenset)):
+                raise TypeError(f"{operator} requires a collection RHS")
+            contained = left in right
+            return contained if operator == "IN" else not contained
         raise ValueError(operator)
 
     @staticmethod

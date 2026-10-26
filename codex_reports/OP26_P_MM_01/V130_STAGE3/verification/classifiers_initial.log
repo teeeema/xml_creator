@@ -1,0 +1,244 @@
+.F..............                               [100%]
+=================================== FAILURES ===================================
+_ V130RuntimeTests.test_actual_xml_mutation_rejects_every_compiled_constraint __
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_actual_xml_mutation_rejects_every_compiled_constraint>
+
+    def test_actual_xml_mutation_rejects_every_compiled_constraint(self):
+        for code,rules in self.rules.items():
+            message=self.messages[code];structure=self.structures[message.structure_id]
+            service=provider(self.rules);fields={f.path:f for f in structure.fields}
+            values=sample_values(structure,message,rules)
+>           base=ET.tostring(service.build_body(message,structure,values,mode=GenerationMode.TEST).serialize_xml_element())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x1091c3cb0>
+message_definition = MessageDefinition(message_code='P.MM.01.MSG.001', name='сведения о регистрации лекарственного препарата для включения ..., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure_definition = StructureDefinition(structure_id='R.HC.MM.01.001', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugRegistrationDeta...page=30, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+user_values = {'EDocHeader': None, 'DrugRegistrationDetails': None, 'DrugRegistrationDetails/ResourceItemStatusDetails': None, 'DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails': None, ...}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                   user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
+        values = self._flatten(user_values)
+        rules = self.package.rules.get(message_definition.message_code)
+        if rules:
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+        if not result.is_valid:
+>           raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
+E           eaeu_xml.core.errors.BodyValidationError: Body содержит 40 issue(s).
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:175: BodyValidationError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.001] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+>               self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+E               AssertionError: False is not true : [('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', '')]
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:74: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.002] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+>               self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+E               AssertionError: False is not true : [('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', '')]
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:74: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.034] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+>               self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+E               AssertionError: False is not true : [('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', '')]
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:74: AssertionError
+_ V130RuntimeTests.test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode [P.MM.01.MSG.035] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode>
+
+    def test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id]
+                values=sample_values(structure,message,self.rules.get(code))
+                service=provider(self.rules)
+                validation=service.validate_body(message,structure,values,mode=GenerationMode.TEST)
+>               self.assertTrue(validation.is_valid,[(i.code,i.field_path) for i in validation.issues if i.severity.value=='ERROR'])
+E               AssertionError: False is not true : [('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', ''), ('STRUCTURED_RULE_FAILED', '')]
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:74: AssertionError
+_ V130RuntimeTests.test_exact_namespaces_and_sequence_are_checked_for_every_message [P.MM.01.MSG.001] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_exact_namespaces_and_sequence_are_checked_for_every_message>
+
+    def test_exact_namespaces_and_sequence_are_checked_for_every_message(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id];service=provider(self.rules)
+>               root=ET.fromstring(ET.tostring(service.build_body(message,structure,sample_values(structure,message,self.rules.get(code)),mode=GenerationMode.TEST).serialize_xml_element()))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x109d0fc50>
+message_definition = MessageDefinition(message_code='P.MM.01.MSG.001', name='сведения о регистрации лекарственного препарата для включения ..., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure_definition = StructureDefinition(structure_id='R.HC.MM.01.001', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugRegistrationDeta...page=30, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+user_values = {'EDocHeader': None, 'DrugRegistrationDetails': None, 'DrugRegistrationDetails/ResourceItemStatusDetails': None, 'DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails': None, ...}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                   user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
+        values = self._flatten(user_values)
+        rules = self.package.rules.get(message_definition.message_code)
+        if rules:
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+        if not result.is_valid:
+>           raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
+E           eaeu_xml.core.errors.BodyValidationError: Body содержит 40 issue(s).
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:175: BodyValidationError
+_ V130RuntimeTests.test_exact_namespaces_and_sequence_are_checked_for_every_message [P.MM.01.MSG.002] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_exact_namespaces_and_sequence_are_checked_for_every_message>
+
+    def test_exact_namespaces_and_sequence_are_checked_for_every_message(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id];service=provider(self.rules)
+>               root=ET.fromstring(ET.tostring(service.build_body(message,structure,sample_values(structure,message,self.rules.get(code)),mode=GenerationMode.TEST).serialize_xml_element()))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x109d0cc80>
+message_definition = MessageDefinition(message_code='P.MM.01.MSG.002', name='сведения о регистрации лекарственного препарата для изменения ..., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure_definition = StructureDefinition(structure_id='R.HC.MM.01.001', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugRegistrationDeta...page=30, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+user_values = {'EDocHeader': None, 'DrugRegistrationDetails': None, 'DrugRegistrationDetails/ResourceItemStatusDetails': None, 'DrugRegistrationDetails/ResourceItemStatusDetails/ValidityPeriodDetails': None, ...}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                   user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
+        values = self._flatten(user_values)
+        rules = self.package.rules.get(message_definition.message_code)
+        if rules:
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+        if not result.is_valid:
+>           raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
+E           eaeu_xml.core.errors.BodyValidationError: Body содержит 7 issue(s).
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:175: BodyValidationError
+_ V130RuntimeTests.test_exact_namespaces_and_sequence_are_checked_for_every_message [P.MM.01.MSG.034] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_exact_namespaces_and_sequence_are_checked_for_every_message>
+
+    def test_exact_namespaces_and_sequence_are_checked_for_every_message(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id];service=provider(self.rules)
+>               root=ET.fromstring(ET.tostring(service.build_body(message,structure,sample_values(structure,message,self.rules.get(code)),mode=GenerationMode.TEST).serialize_xml_element()))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x109d0c320>
+message_definition = MessageDefinition(message_code='P.MM.01.MSG.034', name='сведения для включения в единую базу данных', structure_id='R...., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure_definition = StructureDefinition(structure_id='R.HC.MM.01.006', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugApprovalApplicat...age=114, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+user_values = {'EDocHeader': None, 'DrugApprovalApplicationDetails': None, 'DrugApprovalApplicationDetails/CountryDrugRegistrationDe...ne, 'DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/ManufacturingAuthorizationHolderDetails': None, ...}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                   user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
+        values = self._flatten(user_values)
+        rules = self.package.rules.get(message_definition.message_code)
+        if rules:
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+        if not result.is_valid:
+>           raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
+E           eaeu_xml.core.errors.BodyValidationError: Body содержит 40 issue(s).
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:175: BodyValidationError
+_ V130RuntimeTests.test_exact_namespaces_and_sequence_are_checked_for_every_message [P.MM.01.MSG.035] _
+
+self = <test_v130_runtime.V130RuntimeTests testMethod=test_exact_namespaces_and_sequence_are_checked_for_every_message>
+
+    def test_exact_namespaces_and_sequence_are_checked_for_every_message(self):
+        for code,message in self.messages.items():
+            with self.subTest(msg=code):
+                structure=self.structures[message.structure_id];service=provider(self.rules)
+>               root=ET.fromstring(ET.tostring(service.build_body(message,structure,sample_values(structure,message,self.rules.get(code)),mode=GenerationMode.TEST).serialize_xml_element()))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+P.MM.01_OP_26/tests/test_v130_runtime.py:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <eaeu_xml.process_packages.body.StructuredProcessBodyProvider object at 0x109d0f7f0>
+message_definition = MessageDefinition(message_code='P.MM.01.MSG.035', name='сведения для внесения изменений в единую базу данных', structu..., source_refs=(), status='NEEDS_VERIFICATION', message_rules_status='NEEDS_VERIFICATION', message_rules_source_refs=())
+structure_definition = StructureDefinition(structure_id='R.HC.MM.01.006', version='1.3.0', namespace='urn:EEC:R:HC:MM:01:DrugApprovalApplicat...age=114, version_context='P.MM.01 1.3.0; amendments 140/2025 and 77/2026')), status='DRAFT_MODEL_NAMESPACE_UNRESOLVED')
+user_values = {'EDocHeader': None, 'DrugApprovalApplicationDetails': None, 'DrugApprovalApplicationDetails/CountryDrugRegistrationDe...ne, 'DrugApprovalApplicationDetails/CountryDrugRegistrationDetails/ManufacturingAuthorizationHolderDetails': None, ...}
+mode = <GenerationMode.TEST: 'TEST'>
+
+    def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
+                   user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
+        values = self._flatten(user_values)
+        rules = self.package.rules.get(message_definition.message_code)
+        if rules:
+            for path, expected in rules.fixed_values.items():
+                if path not in values:
+                    self._set_fixed_value(values, path, expected)
+        result = self.validate_body(message_definition, structure_definition, values, mode=mode)
+        if not result.is_valid:
+>           raise BodyValidationError(code="BODY_VALIDATION_FAILED", message=f"Body содержит {len(result.issues)} issue(s).", issues=result.issues)
+E           eaeu_xml.core.errors.BodyValidationError: Body содержит 7 issue(s).
+
+eaeu_xml/src/eaeu_xml/process_packages/body.py:175: BodyValidationError
+=========================== short test summary info ============================
+FAILED eaeu_xml::V130RuntimeTests::test_actual_xml_mutation_rejects_every_compiled_constraint
+SUBFAILED[P.MM.01.MSG.001] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.002] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.034] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.035] eaeu_xml::V130RuntimeTests::test_all_messages_serialize_synthetic_body_through_existing_provider_in_test_mode
+SUBFAILED[P.MM.01.MSG.001] eaeu_xml::V130RuntimeTests::test_exact_namespaces_and_sequence_are_checked_for_every_message
+SUBFAILED[P.MM.01.MSG.002] eaeu_xml::V130RuntimeTests::test_exact_namespaces_and_sequence_are_checked_for_every_message
+SUBFAILED[P.MM.01.MSG.034] eaeu_xml::V130RuntimeTests::test_exact_namespaces_and_sequence_are_checked_for_every_message
+SUBFAILED[P.MM.01.MSG.035] eaeu_xml::V130RuntimeTests::test_exact_namespaces_and_sequence_are_checked_for_every_message
+9 failed, 15 passed, 666 subtests passed in 0.31s

@@ -1,0 +1,1367 @@
+EEFFFFFFFFFFFF                                                           [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of ValidationPageQmlTests.test_filter_buttons_change_only_visible_diagnostics _
+
+cls = <class 'test_validation_page_qml.ValidationPageQmlTests'>
+
+    @classmethod
+    def setUpClass(cls):
+        from eaeu_xml.gui_qt.fonts import fixed_font_family
+        from eaeu_xml.gui_qt.view_model import GuiViewModel
+        cls.app = QGuiApplication.instance() or QGuiApplication([])
+>       cls.model = GuiViewModel(Path(__file__).parent / "fixtures")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+eaeu_xml/tests/test_validation_page_qml.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/gui_qt/view_model.py:27: in __init__
+    self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:97: in __init__
+    self.select_process(self.processes[0].process_code)
+eaeu_xml/src/eaeu_xml/presentation/controller.py:167: in select_process
+    if self.transactions: self.select_transaction(self.transactions[0].transaction_code)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:173: in select_transaction
+    if self.messages: self.select_message(self.messages[0].message_code)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:177: in select_message
+    self.form = self.application.get_form(self.process_code, self.transaction_code, message_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in get_form
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in <genexpr>
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+                  ^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in convert
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in <genexpr>
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+                   ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='1.1', order=2, depth=1, parent='1', path='Items/Name', official_name='Name', xml_na... item=None, page=None, version_context=None),), status='CONFIRMED', interpretation_status='VERIFIED', reason_code=None)
+
+    def convert(field):
+        usage_policy = usage.get(field.path)
+        message_policy = effective_policies.get(field.path) if effective_policies else None
+        forbidden = (message_policy.policy == "FORBIDDEN" if message_policy else
+                     usage_policy in {"FORBIDDEN", "NOT_USED"})
+        if message_policy:
+            required = message_policy.policy == "REQUIRED" or (
+                message_policy.policy == "FIXED" and not message_policy.materialize_when_parent_present
+            )
+        else:
+            required = usage_policy == "REQUIRED" or (field.min_occurs or 0) > 0
+        hints = tuple(filter(None, (
+            field.constraints,
+            f"message_rule={usage_policy}" if usage_policy else None,
+            f"message_policy={message_policy.policy}" if message_policy else None,
+            *(f"message_policy_req={req}" for req in (message_policy.affected_by_req if message_policy else ())),
+        )))
+        caption, qname = display_name(field)
+        resolved = self.input_policy_resolver.resolve(
+            message_code=message_code, field=field, rules=rules,
+            explicit=engine.package.input_policies.get((message_code, field.path)),
+            has_children=bool(children.get(field.field_id)),
+        )
+        ui_resolved = self.ui_input_policy_resolver.resolve(
+            normative=resolved,
+            explicit=engine.package.ui_input_policies.get((message_code, field.path)),
+            forbidden=forbidden, classifier_dataset_available=engine.package.classifiers_available,
+        )
+        explicit_ui = engine.package.ui_input_policies.get((message_code, field.path))
+        capabilities = set(explicit_ui.capabilities if explicit_ui else ())
+        category = datatype_category(field.datatype)
+        binary_file = "binary" in (field.datatype or "").casefold() and field.kind != "ATTRIBUTE" and ui_resolved.visible
+        manual_edit = ui_resolved.editable
+        show_identifier = manual_edit and "GENERATE_IDENTIFIER" in capabilities
+        date_helpers_allowed = manual_edit and resolved.value_source != "EXTERNAL_INFORMATION_SYSTEM"
+        explicit_policy = engine.package.input_policies.get((message_code, field.path))
+        automatic_value = None
+        if explicit_policy and explicit_policy.generated_value == "MESSAGE_CODE": automatic_value = message_code
+        elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = structure_id
+        effective_fixed = (message_policy.fixed_value if message_policy and message_policy.policy == "FIXED"
+                           else fixed.get(field.path, automatic_value))
+>       example_result = self.example_value_resolver.resolve(
+            datatype=field.datatype, description=field.description,
+            fixed_value=effective_fixed,
+            allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
+                            else field.facets.enum if field.facets else ()),
+            existing_value=resolved.example_value,
+            classifier=resolved.input_policy == "CLASSIFIER",
+            pattern=field.facets.pattern if field.facets else None,
+        ) if not children.get(field.field_id) or resolved.input_policy == "CLASSIFIER" else self.example_value_resolver.resolve(
+            datatype=None, description=field.description)
+E       TypeError: ExampleValueResolver.resolve() got an unexpected keyword argument 'pattern'
+
+eaeu_xml/src/eaeu_xml/application/facade.py:359: TypeError
+_ ERROR at setup of ValidationPageQmlTests.test_production_qml_contains_no_large_text_editor _
+
+cls = <class 'test_validation_page_qml.ValidationPageQmlTests'>
+
+    @classmethod
+    def setUpClass(cls):
+        from eaeu_xml.gui_qt.fonts import fixed_font_family
+        from eaeu_xml.gui_qt.view_model import GuiViewModel
+        cls.app = QGuiApplication.instance() or QGuiApplication([])
+>       cls.model = GuiViewModel(Path(__file__).parent / "fixtures")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+eaeu_xml/tests/test_validation_page_qml.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/gui_qt/view_model.py:27: in __init__
+    self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:97: in __init__
+    self.select_process(self.processes[0].process_code)
+eaeu_xml/src/eaeu_xml/presentation/controller.py:167: in select_process
+    if self.transactions: self.select_transaction(self.transactions[0].transaction_code)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:173: in select_transaction
+    if self.messages: self.select_message(self.messages[0].message_code)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:177: in select_message
+    self.form = self.application.get_form(self.process_code, self.transaction_code, message_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in get_form
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in <genexpr>
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+                  ^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in convert
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in <genexpr>
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+                   ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='1.1', order=2, depth=1, parent='1', path='Items/Name', official_name='Name', xml_na... item=None, page=None, version_context=None),), status='CONFIRMED', interpretation_status='VERIFIED', reason_code=None)
+
+    def convert(field):
+        usage_policy = usage.get(field.path)
+        message_policy = effective_policies.get(field.path) if effective_policies else None
+        forbidden = (message_policy.policy == "FORBIDDEN" if message_policy else
+                     usage_policy in {"FORBIDDEN", "NOT_USED"})
+        if message_policy:
+            required = message_policy.policy == "REQUIRED" or (
+                message_policy.policy == "FIXED" and not message_policy.materialize_when_parent_present
+            )
+        else:
+            required = usage_policy == "REQUIRED" or (field.min_occurs or 0) > 0
+        hints = tuple(filter(None, (
+            field.constraints,
+            f"message_rule={usage_policy}" if usage_policy else None,
+            f"message_policy={message_policy.policy}" if message_policy else None,
+            *(f"message_policy_req={req}" for req in (message_policy.affected_by_req if message_policy else ())),
+        )))
+        caption, qname = display_name(field)
+        resolved = self.input_policy_resolver.resolve(
+            message_code=message_code, field=field, rules=rules,
+            explicit=engine.package.input_policies.get((message_code, field.path)),
+            has_children=bool(children.get(field.field_id)),
+        )
+        ui_resolved = self.ui_input_policy_resolver.resolve(
+            normative=resolved,
+            explicit=engine.package.ui_input_policies.get((message_code, field.path)),
+            forbidden=forbidden, classifier_dataset_available=engine.package.classifiers_available,
+        )
+        explicit_ui = engine.package.ui_input_policies.get((message_code, field.path))
+        capabilities = set(explicit_ui.capabilities if explicit_ui else ())
+        category = datatype_category(field.datatype)
+        binary_file = "binary" in (field.datatype or "").casefold() and field.kind != "ATTRIBUTE" and ui_resolved.visible
+        manual_edit = ui_resolved.editable
+        show_identifier = manual_edit and "GENERATE_IDENTIFIER" in capabilities
+        date_helpers_allowed = manual_edit and resolved.value_source != "EXTERNAL_INFORMATION_SYSTEM"
+        explicit_policy = engine.package.input_policies.get((message_code, field.path))
+        automatic_value = None
+        if explicit_policy and explicit_policy.generated_value == "MESSAGE_CODE": automatic_value = message_code
+        elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = structure_id
+        effective_fixed = (message_policy.fixed_value if message_policy and message_policy.policy == "FIXED"
+                           else fixed.get(field.path, automatic_value))
+>       example_result = self.example_value_resolver.resolve(
+            datatype=field.datatype, description=field.description,
+            fixed_value=effective_fixed,
+            allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
+                            else field.facets.enum if field.facets else ()),
+            existing_value=resolved.example_value,
+            classifier=resolved.input_policy == "CLASSIFIER",
+            pattern=field.facets.pattern if field.facets else None,
+        ) if not children.get(field.field_id) or resolved.input_policy == "CLASSIFIER" else self.example_value_resolver.resolve(
+            datatype=None, description=field.description)
+E       TypeError: ExampleValueResolver.resolve() got an unexpected keyword argument 'pattern'
+
+eaeu_xml/src/eaeu_xml/application/facade.py:359: TypeError
+=================================== FAILURES ===================================
+________ GuiQtViewModelTests.test_backend_discovery_selection_and_form _________
+
+self = <test_gui_qt_view_model.GuiQtViewModelTests testMethod=test_backend_discovery_selection_and_form>
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        app = EaeuXmlApplication(FIXTURES, drafts_root=Path(self.temp.name))
+>       self.model = GuiViewModel(FIXTURES, application=app)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+eaeu_xml/tests/test_gui_qt_view_model.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/gui_qt/view_model.py:27: in __init__
+    self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:97: in __init__
+    self.select_process(self.processes[0].process_code)
+eaeu_xml/src/eaeu_xml/presentation/controller.py:167: in select_process
+    if self.transactions: self.select_transaction(self.transactions[0].transaction_code)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:173: in select_transaction
+    if self.messages: self.select_message(self.messages[0].message_code)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:177: in select_message
+    self.form = self.application.get_form(self.process_code, self.transaction_code, message_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in get_form
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in <genexpr>
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+                  ^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in convert
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in <genexpr>
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+                   ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='1.1', order=2, depth=1, parent='1', path='Items/Name', official_name='Name', xml_na... item=None, page=None, version_context=None),), status='CONFIRMED', interpretation_status='VERIFIED', reason_code=None)
+
+    def convert(field):
+        usage_policy = usage.get(field.path)
+        message_policy = effective_policies.get(field.path) if effective_policies else None
+        forbidden = (message_policy.policy == "FORBIDDEN" if message_policy else
+                     usage_policy in {"FORBIDDEN", "NOT_USED"})
+        if message_policy:
+            required = message_policy.policy == "REQUIRED" or (
+                message_policy.policy == "FIXED" and not message_policy.materialize_when_parent_present
+            )
+        else:
+            required = usage_policy == "REQUIRED" or (field.min_occurs or 0) > 0
+        hints = tuple(filter(None, (
+            field.constraints,
+            f"message_rule={usage_policy}" if usage_policy else None,
+            f"message_policy={message_policy.policy}" if message_policy else None,
+            *(f"message_policy_req={req}" for req in (message_policy.affected_by_req if message_policy else ())),
+        )))
+        caption, qname = display_name(field)
+        resolved = self.input_policy_resolver.resolve(
+            message_code=message_code, field=field, rules=rules,
+            explicit=engine.package.input_policies.get((message_code, field.path)),
+            has_children=bool(children.get(field.field_id)),
+        )
+        ui_resolved = self.ui_input_policy_resolver.resolve(
+            normative=resolved,
+            explicit=engine.package.ui_input_policies.get((message_code, field.path)),
+            forbidden=forbidden, classifier_dataset_available=engine.package.classifiers_available,
+        )
+        explicit_ui = engine.package.ui_input_policies.get((message_code, field.path))
+        capabilities = set(explicit_ui.capabilities if explicit_ui else ())
+        category = datatype_category(field.datatype)
+        binary_file = "binary" in (field.datatype or "").casefold() and field.kind != "ATTRIBUTE" and ui_resolved.visible
+        manual_edit = ui_resolved.editable
+        show_identifier = manual_edit and "GENERATE_IDENTIFIER" in capabilities
+        date_helpers_allowed = manual_edit and resolved.value_source != "EXTERNAL_INFORMATION_SYSTEM"
+        explicit_policy = engine.package.input_policies.get((message_code, field.path))
+        automatic_value = None
+        if explicit_policy and explicit_policy.generated_value == "MESSAGE_CODE": automatic_value = message_code
+        elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = structure_id
+        effective_fixed = (message_policy.fixed_value if message_policy and message_policy.policy == "FIXED"
+                           else fixed.get(field.path, automatic_value))
+>       example_result = self.example_value_resolver.resolve(
+            datatype=field.datatype, description=field.description,
+            fixed_value=effective_fixed,
+            allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
+                            else field.facets.enum if field.facets else ()),
+            existing_value=resolved.example_value,
+            classifier=resolved.input_policy == "CLASSIFIER",
+            pattern=field.facets.pattern if field.facets else None,
+        ) if not children.get(field.field_id) or resolved.input_policy == "CLASSIFIER" else self.example_value_resolver.resolve(
+            datatype=None, description=field.description)
+E       TypeError: ExampleValueResolver.resolve() got an unexpected keyword argument 'pattern'
+
+eaeu_xml/src/eaeu_xml/application/facade.py:359: TypeError
+____ GuiQtViewModelTests.test_editable_xml_is_preserved_formatted_and_saved ____
+
+self = <test_gui_qt_view_model.GuiQtViewModelTests testMethod=test_editable_xml_is_preserved_formatted_and_saved>
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        app = EaeuXmlApplication(FIXTURES, drafts_root=Path(self.temp.name))
+>       self.model = GuiViewModel(FIXTURES, application=app)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+eaeu_xml/tests/test_gui_qt_view_model.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/gui_qt/view_model.py:27: in __init__
+    self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:97: in __init__
+    self.select_process(self.processes[0].process_code)
+eaeu_xml/src/eaeu_xml/presentation/controller.py:167: in select_process
+    if self.transactions: self.select_transaction(self.transactions[0].transaction_code)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:173: in select_transaction
+    if self.messages: self.select_message(self.messages[0].message_code)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:177: in select_message
+    self.form = self.application.get_form(self.process_code, self.transaction_code, message_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in get_form
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in <genexpr>
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+                  ^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in convert
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in <genexpr>
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+                   ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='1.1', order=2, depth=1, parent='1', path='Items/Name', official_name='Name', xml_na... item=None, page=None, version_context=None),), status='CONFIRMED', interpretation_status='VERIFIED', reason_code=None)
+
+    def convert(field):
+        usage_policy = usage.get(field.path)
+        message_policy = effective_policies.get(field.path) if effective_policies else None
+        forbidden = (message_policy.policy == "FORBIDDEN" if message_policy else
+                     usage_policy in {"FORBIDDEN", "NOT_USED"})
+        if message_policy:
+            required = message_policy.policy == "REQUIRED" or (
+                message_policy.policy == "FIXED" and not message_policy.materialize_when_parent_present
+            )
+        else:
+            required = usage_policy == "REQUIRED" or (field.min_occurs or 0) > 0
+        hints = tuple(filter(None, (
+            field.constraints,
+            f"message_rule={usage_policy}" if usage_policy else None,
+            f"message_policy={message_policy.policy}" if message_policy else None,
+            *(f"message_policy_req={req}" for req in (message_policy.affected_by_req if message_policy else ())),
+        )))
+        caption, qname = display_name(field)
+        resolved = self.input_policy_resolver.resolve(
+            message_code=message_code, field=field, rules=rules,
+            explicit=engine.package.input_policies.get((message_code, field.path)),
+            has_children=bool(children.get(field.field_id)),
+        )
+        ui_resolved = self.ui_input_policy_resolver.resolve(
+            normative=resolved,
+            explicit=engine.package.ui_input_policies.get((message_code, field.path)),
+            forbidden=forbidden, classifier_dataset_available=engine.package.classifiers_available,
+        )
+        explicit_ui = engine.package.ui_input_policies.get((message_code, field.path))
+        capabilities = set(explicit_ui.capabilities if explicit_ui else ())
+        category = datatype_category(field.datatype)
+        binary_file = "binary" in (field.datatype or "").casefold() and field.kind != "ATTRIBUTE" and ui_resolved.visible
+        manual_edit = ui_resolved.editable
+        show_identifier = manual_edit and "GENERATE_IDENTIFIER" in capabilities
+        date_helpers_allowed = manual_edit and resolved.value_source != "EXTERNAL_INFORMATION_SYSTEM"
+        explicit_policy = engine.package.input_policies.get((message_code, field.path))
+        automatic_value = None
+        if explicit_policy and explicit_policy.generated_value == "MESSAGE_CODE": automatic_value = message_code
+        elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = structure_id
+        effective_fixed = (message_policy.fixed_value if message_policy and message_policy.policy == "FIXED"
+                           else fixed.get(field.path, automatic_value))
+>       example_result = self.example_value_resolver.resolve(
+            datatype=field.datatype, description=field.description,
+            fixed_value=effective_fixed,
+            allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
+                            else field.facets.enum if field.facets else ()),
+            existing_value=resolved.example_value,
+            classifier=resolved.input_policy == "CLASSIFIER",
+            pattern=field.facets.pattern if field.facets else None,
+        ) if not children.get(field.field_id) or resolved.input_policy == "CLASSIFIER" else self.example_value_resolver.resolve(
+            datatype=None, description=field.description)
+E       TypeError: ExampleValueResolver.resolve() got an unexpected keyword argument 'pattern'
+
+eaeu_xml/src/eaeu_xml/application/facade.py:359: TypeError
+____ GuiQtViewModelTests.test_formatter_has_independent_text_and_file_save _____
+
+self = <test_gui_qt_view_model.GuiQtViewModelTests testMethod=test_formatter_has_independent_text_and_file_save>
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        app = EaeuXmlApplication(FIXTURES, drafts_root=Path(self.temp.name))
+>       self.model = GuiViewModel(FIXTURES, application=app)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+eaeu_xml/tests/test_gui_qt_view_model.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/gui_qt/view_model.py:27: in __init__
+    self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:97: in __init__
+    self.select_process(self.processes[0].process_code)
+eaeu_xml/src/eaeu_xml/presentation/controller.py:167: in select_process
+    if self.transactions: self.select_transaction(self.transactions[0].transaction_code)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:173: in select_transaction
+    if self.messages: self.select_message(self.messages[0].message_code)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:177: in select_message
+    self.form = self.application.get_form(self.process_code, self.transaction_code, message_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in get_form
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in <genexpr>
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+                  ^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in convert
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in <genexpr>
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+                   ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='1.1', order=2, depth=1, parent='1', path='Items/Name', official_name='Name', xml_na... item=None, page=None, version_context=None),), status='CONFIRMED', interpretation_status='VERIFIED', reason_code=None)
+
+    def convert(field):
+        usage_policy = usage.get(field.path)
+        message_policy = effective_policies.get(field.path) if effective_policies else None
+        forbidden = (message_policy.policy == "FORBIDDEN" if message_policy else
+                     usage_policy in {"FORBIDDEN", "NOT_USED"})
+        if message_policy:
+            required = message_policy.policy == "REQUIRED" or (
+                message_policy.policy == "FIXED" and not message_policy.materialize_when_parent_present
+            )
+        else:
+            required = usage_policy == "REQUIRED" or (field.min_occurs or 0) > 0
+        hints = tuple(filter(None, (
+            field.constraints,
+            f"message_rule={usage_policy}" if usage_policy else None,
+            f"message_policy={message_policy.policy}" if message_policy else None,
+            *(f"message_policy_req={req}" for req in (message_policy.affected_by_req if message_policy else ())),
+        )))
+        caption, qname = display_name(field)
+        resolved = self.input_policy_resolver.resolve(
+            message_code=message_code, field=field, rules=rules,
+            explicit=engine.package.input_policies.get((message_code, field.path)),
+            has_children=bool(children.get(field.field_id)),
+        )
+        ui_resolved = self.ui_input_policy_resolver.resolve(
+            normative=resolved,
+            explicit=engine.package.ui_input_policies.get((message_code, field.path)),
+            forbidden=forbidden, classifier_dataset_available=engine.package.classifiers_available,
+        )
+        explicit_ui = engine.package.ui_input_policies.get((message_code, field.path))
+        capabilities = set(explicit_ui.capabilities if explicit_ui else ())
+        category = datatype_category(field.datatype)
+        binary_file = "binary" in (field.datatype or "").casefold() and field.kind != "ATTRIBUTE" and ui_resolved.visible
+        manual_edit = ui_resolved.editable
+        show_identifier = manual_edit and "GENERATE_IDENTIFIER" in capabilities
+        date_helpers_allowed = manual_edit and resolved.value_source != "EXTERNAL_INFORMATION_SYSTEM"
+        explicit_policy = engine.package.input_policies.get((message_code, field.path))
+        automatic_value = None
+        if explicit_policy and explicit_policy.generated_value == "MESSAGE_CODE": automatic_value = message_code
+        elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = structure_id
+        effective_fixed = (message_policy.fixed_value if message_policy and message_policy.policy == "FIXED"
+                           else fixed.get(field.path, automatic_value))
+>       example_result = self.example_value_resolver.resolve(
+            datatype=field.datatype, description=field.description,
+            fixed_value=effective_fixed,
+            allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
+                            else field.facets.enum if field.facets else ()),
+            existing_value=resolved.example_value,
+            classifier=resolved.input_policy == "CLASSIFIER",
+            pattern=field.facets.pattern if field.facets else None,
+        ) if not children.get(field.field_id) or resolved.input_policy == "CLASSIFIER" else self.example_value_resolver.resolve(
+            datatype=None, description=field.description)
+E       TypeError: ExampleValueResolver.resolve() got an unexpected keyword argument 'pattern'
+
+eaeu_xml/src/eaeu_xml/application/facade.py:359: TypeError
+__ GuiQtViewModelTests.test_formatter_slot_updates_current_text_idempotently ___
+
+self = <test_gui_qt_view_model.GuiQtViewModelTests testMethod=test_formatter_slot_updates_current_text_idempotently>
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        app = EaeuXmlApplication(FIXTURES, drafts_root=Path(self.temp.name))
+>       self.model = GuiViewModel(FIXTURES, application=app)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+eaeu_xml/tests/test_gui_qt_view_model.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/gui_qt/view_model.py:27: in __init__
+    self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:97: in __init__
+    self.select_process(self.processes[0].process_code)
+eaeu_xml/src/eaeu_xml/presentation/controller.py:167: in select_process
+    if self.transactions: self.select_transaction(self.transactions[0].transaction_code)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:173: in select_transaction
+    if self.messages: self.select_message(self.messages[0].message_code)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:177: in select_message
+    self.form = self.application.get_form(self.process_code, self.transaction_code, message_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in get_form
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in <genexpr>
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+                  ^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in convert
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in <genexpr>
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+                   ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='1.1', order=2, depth=1, parent='1', path='Items/Name', official_name='Name', xml_na... item=None, page=None, version_context=None),), status='CONFIRMED', interpretation_status='VERIFIED', reason_code=None)
+
+    def convert(field):
+        usage_policy = usage.get(field.path)
+        message_policy = effective_policies.get(field.path) if effective_policies else None
+        forbidden = (message_policy.policy == "FORBIDDEN" if message_policy else
+                     usage_policy in {"FORBIDDEN", "NOT_USED"})
+        if message_policy:
+            required = message_policy.policy == "REQUIRED" or (
+                message_policy.policy == "FIXED" and not message_policy.materialize_when_parent_present
+            )
+        else:
+            required = usage_policy == "REQUIRED" or (field.min_occurs or 0) > 0
+        hints = tuple(filter(None, (
+            field.constraints,
+            f"message_rule={usage_policy}" if usage_policy else None,
+            f"message_policy={message_policy.policy}" if message_policy else None,
+            *(f"message_policy_req={req}" for req in (message_policy.affected_by_req if message_policy else ())),
+        )))
+        caption, qname = display_name(field)
+        resolved = self.input_policy_resolver.resolve(
+            message_code=message_code, field=field, rules=rules,
+            explicit=engine.package.input_policies.get((message_code, field.path)),
+            has_children=bool(children.get(field.field_id)),
+        )
+        ui_resolved = self.ui_input_policy_resolver.resolve(
+            normative=resolved,
+            explicit=engine.package.ui_input_policies.get((message_code, field.path)),
+            forbidden=forbidden, classifier_dataset_available=engine.package.classifiers_available,
+        )
+        explicit_ui = engine.package.ui_input_policies.get((message_code, field.path))
+        capabilities = set(explicit_ui.capabilities if explicit_ui else ())
+        category = datatype_category(field.datatype)
+        binary_file = "binary" in (field.datatype or "").casefold() and field.kind != "ATTRIBUTE" and ui_resolved.visible
+        manual_edit = ui_resolved.editable
+        show_identifier = manual_edit and "GENERATE_IDENTIFIER" in capabilities
+        date_helpers_allowed = manual_edit and resolved.value_source != "EXTERNAL_INFORMATION_SYSTEM"
+        explicit_policy = engine.package.input_policies.get((message_code, field.path))
+        automatic_value = None
+        if explicit_policy and explicit_policy.generated_value == "MESSAGE_CODE": automatic_value = message_code
+        elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = structure_id
+        effective_fixed = (message_policy.fixed_value if message_policy and message_policy.policy == "FIXED"
+                           else fixed.get(field.path, automatic_value))
+>       example_result = self.example_value_resolver.resolve(
+            datatype=field.datatype, description=field.description,
+            fixed_value=effective_fixed,
+            allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
+                            else field.facets.enum if field.facets else ()),
+            existing_value=resolved.example_value,
+            classifier=resolved.input_policy == "CLASSIFIER",
+            pattern=field.facets.pattern if field.facets else None,
+        ) if not children.get(field.field_id) or resolved.input_policy == "CLASSIFIER" else self.example_value_resolver.resolve(
+            datatype=None, description=field.description)
+E       TypeError: ExampleValueResolver.resolve() got an unexpected keyword argument 'pattern'
+
+eaeu_xml/src/eaeu_xml/application/facade.py:359: TypeError
+_ GuiQtViewModelTests.test_information_and_field_updates_are_real_controller_data _
+
+self = <test_gui_qt_view_model.GuiQtViewModelTests testMethod=test_information_and_field_updates_are_real_controller_data>
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        app = EaeuXmlApplication(FIXTURES, drafts_root=Path(self.temp.name))
+>       self.model = GuiViewModel(FIXTURES, application=app)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+eaeu_xml/tests/test_gui_qt_view_model.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/gui_qt/view_model.py:27: in __init__
+    self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:97: in __init__
+    self.select_process(self.processes[0].process_code)
+eaeu_xml/src/eaeu_xml/presentation/controller.py:167: in select_process
+    if self.transactions: self.select_transaction(self.transactions[0].transaction_code)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:173: in select_transaction
+    if self.messages: self.select_message(self.messages[0].message_code)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:177: in select_message
+    self.form = self.application.get_form(self.process_code, self.transaction_code, message_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in get_form
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in <genexpr>
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+                  ^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in convert
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in <genexpr>
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+                   ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='1.1', order=2, depth=1, parent='1', path='Items/Name', official_name='Name', xml_na... item=None, page=None, version_context=None),), status='CONFIRMED', interpretation_status='VERIFIED', reason_code=None)
+
+    def convert(field):
+        usage_policy = usage.get(field.path)
+        message_policy = effective_policies.get(field.path) if effective_policies else None
+        forbidden = (message_policy.policy == "FORBIDDEN" if message_policy else
+                     usage_policy in {"FORBIDDEN", "NOT_USED"})
+        if message_policy:
+            required = message_policy.policy == "REQUIRED" or (
+                message_policy.policy == "FIXED" and not message_policy.materialize_when_parent_present
+            )
+        else:
+            required = usage_policy == "REQUIRED" or (field.min_occurs or 0) > 0
+        hints = tuple(filter(None, (
+            field.constraints,
+            f"message_rule={usage_policy}" if usage_policy else None,
+            f"message_policy={message_policy.policy}" if message_policy else None,
+            *(f"message_policy_req={req}" for req in (message_policy.affected_by_req if message_policy else ())),
+        )))
+        caption, qname = display_name(field)
+        resolved = self.input_policy_resolver.resolve(
+            message_code=message_code, field=field, rules=rules,
+            explicit=engine.package.input_policies.get((message_code, field.path)),
+            has_children=bool(children.get(field.field_id)),
+        )
+        ui_resolved = self.ui_input_policy_resolver.resolve(
+            normative=resolved,
+            explicit=engine.package.ui_input_policies.get((message_code, field.path)),
+            forbidden=forbidden, classifier_dataset_available=engine.package.classifiers_available,
+        )
+        explicit_ui = engine.package.ui_input_policies.get((message_code, field.path))
+        capabilities = set(explicit_ui.capabilities if explicit_ui else ())
+        category = datatype_category(field.datatype)
+        binary_file = "binary" in (field.datatype or "").casefold() and field.kind != "ATTRIBUTE" and ui_resolved.visible
+        manual_edit = ui_resolved.editable
+        show_identifier = manual_edit and "GENERATE_IDENTIFIER" in capabilities
+        date_helpers_allowed = manual_edit and resolved.value_source != "EXTERNAL_INFORMATION_SYSTEM"
+        explicit_policy = engine.package.input_policies.get((message_code, field.path))
+        automatic_value = None
+        if explicit_policy and explicit_policy.generated_value == "MESSAGE_CODE": automatic_value = message_code
+        elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = structure_id
+        effective_fixed = (message_policy.fixed_value if message_policy and message_policy.policy == "FIXED"
+                           else fixed.get(field.path, automatic_value))
+>       example_result = self.example_value_resolver.resolve(
+            datatype=field.datatype, description=field.description,
+            fixed_value=effective_fixed,
+            allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
+                            else field.facets.enum if field.facets else ()),
+            existing_value=resolved.example_value,
+            classifier=resolved.input_policy == "CLASSIFIER",
+            pattern=field.facets.pattern if field.facets else None,
+        ) if not children.get(field.field_id) or resolved.input_policy == "CLASSIFIER" else self.example_value_resolver.resolve(
+            datatype=None, description=field.description)
+E       TypeError: ExampleValueResolver.resolve() got an unexpected keyword argument 'pattern'
+
+eaeu_xml/src/eaeu_xml/application/facade.py:359: TypeError
+_ GuiQtViewModelTests.test_op26_draft_is_visible_as_unavailable_without_switching_catalog _
+
+self = <test_gui_qt_view_model.GuiQtViewModelTests testMethod=test_op26_draft_is_visible_as_unavailable_without_switching_catalog>
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        app = EaeuXmlApplication(FIXTURES, drafts_root=Path(self.temp.name))
+>       self.model = GuiViewModel(FIXTURES, application=app)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+eaeu_xml/tests/test_gui_qt_view_model.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/gui_qt/view_model.py:27: in __init__
+    self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:97: in __init__
+    self.select_process(self.processes[0].process_code)
+eaeu_xml/src/eaeu_xml/presentation/controller.py:167: in select_process
+    if self.transactions: self.select_transaction(self.transactions[0].transaction_code)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:173: in select_transaction
+    if self.messages: self.select_message(self.messages[0].message_code)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:177: in select_message
+    self.form = self.application.get_form(self.process_code, self.transaction_code, message_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in get_form
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in <genexpr>
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+                  ^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in convert
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in <genexpr>
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+                   ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='1.1', order=2, depth=1, parent='1', path='Items/Name', official_name='Name', xml_na... item=None, page=None, version_context=None),), status='CONFIRMED', interpretation_status='VERIFIED', reason_code=None)
+
+    def convert(field):
+        usage_policy = usage.get(field.path)
+        message_policy = effective_policies.get(field.path) if effective_policies else None
+        forbidden = (message_policy.policy == "FORBIDDEN" if message_policy else
+                     usage_policy in {"FORBIDDEN", "NOT_USED"})
+        if message_policy:
+            required = message_policy.policy == "REQUIRED" or (
+                message_policy.policy == "FIXED" and not message_policy.materialize_when_parent_present
+            )
+        else:
+            required = usage_policy == "REQUIRED" or (field.min_occurs or 0) > 0
+        hints = tuple(filter(None, (
+            field.constraints,
+            f"message_rule={usage_policy}" if usage_policy else None,
+            f"message_policy={message_policy.policy}" if message_policy else None,
+            *(f"message_policy_req={req}" for req in (message_policy.affected_by_req if message_policy else ())),
+        )))
+        caption, qname = display_name(field)
+        resolved = self.input_policy_resolver.resolve(
+            message_code=message_code, field=field, rules=rules,
+            explicit=engine.package.input_policies.get((message_code, field.path)),
+            has_children=bool(children.get(field.field_id)),
+        )
+        ui_resolved = self.ui_input_policy_resolver.resolve(
+            normative=resolved,
+            explicit=engine.package.ui_input_policies.get((message_code, field.path)),
+            forbidden=forbidden, classifier_dataset_available=engine.package.classifiers_available,
+        )
+        explicit_ui = engine.package.ui_input_policies.get((message_code, field.path))
+        capabilities = set(explicit_ui.capabilities if explicit_ui else ())
+        category = datatype_category(field.datatype)
+        binary_file = "binary" in (field.datatype or "").casefold() and field.kind != "ATTRIBUTE" and ui_resolved.visible
+        manual_edit = ui_resolved.editable
+        show_identifier = manual_edit and "GENERATE_IDENTIFIER" in capabilities
+        date_helpers_allowed = manual_edit and resolved.value_source != "EXTERNAL_INFORMATION_SYSTEM"
+        explicit_policy = engine.package.input_policies.get((message_code, field.path))
+        automatic_value = None
+        if explicit_policy and explicit_policy.generated_value == "MESSAGE_CODE": automatic_value = message_code
+        elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = structure_id
+        effective_fixed = (message_policy.fixed_value if message_policy and message_policy.policy == "FIXED"
+                           else fixed.get(field.path, automatic_value))
+>       example_result = self.example_value_resolver.resolve(
+            datatype=field.datatype, description=field.description,
+            fixed_value=effective_fixed,
+            allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
+                            else field.facets.enum if field.facets else ()),
+            existing_value=resolved.example_value,
+            classifier=resolved.input_policy == "CLASSIFIER",
+            pattern=field.facets.pattern if field.facets else None,
+        ) if not children.get(field.field_id) or resolved.input_policy == "CLASSIFIER" else self.example_value_resolver.resolve(
+            datatype=None, description=field.description)
+E       TypeError: ExampleValueResolver.resolve() got an unexpected keyword argument 'pattern'
+
+eaeu_xml/src/eaeu_xml/application/facade.py:359: TypeError
+_ GuiQtViewModelTests.test_qml_places_selectors_only_on_home_and_editor_is_editable _
+
+self = <test_gui_qt_view_model.GuiQtViewModelTests testMethod=test_qml_places_selectors_only_on_home_and_editor_is_editable>
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        app = EaeuXmlApplication(FIXTURES, drafts_root=Path(self.temp.name))
+>       self.model = GuiViewModel(FIXTURES, application=app)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+eaeu_xml/tests/test_gui_qt_view_model.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/gui_qt/view_model.py:27: in __init__
+    self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:97: in __init__
+    self.select_process(self.processes[0].process_code)
+eaeu_xml/src/eaeu_xml/presentation/controller.py:167: in select_process
+    if self.transactions: self.select_transaction(self.transactions[0].transaction_code)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:173: in select_transaction
+    if self.messages: self.select_message(self.messages[0].message_code)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:177: in select_message
+    self.form = self.application.get_form(self.process_code, self.transaction_code, message_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in get_form
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in <genexpr>
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+                  ^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in convert
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in <genexpr>
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+                   ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='1.1', order=2, depth=1, parent='1', path='Items/Name', official_name='Name', xml_na... item=None, page=None, version_context=None),), status='CONFIRMED', interpretation_status='VERIFIED', reason_code=None)
+
+    def convert(field):
+        usage_policy = usage.get(field.path)
+        message_policy = effective_policies.get(field.path) if effective_policies else None
+        forbidden = (message_policy.policy == "FORBIDDEN" if message_policy else
+                     usage_policy in {"FORBIDDEN", "NOT_USED"})
+        if message_policy:
+            required = message_policy.policy == "REQUIRED" or (
+                message_policy.policy == "FIXED" and not message_policy.materialize_when_parent_present
+            )
+        else:
+            required = usage_policy == "REQUIRED" or (field.min_occurs or 0) > 0
+        hints = tuple(filter(None, (
+            field.constraints,
+            f"message_rule={usage_policy}" if usage_policy else None,
+            f"message_policy={message_policy.policy}" if message_policy else None,
+            *(f"message_policy_req={req}" for req in (message_policy.affected_by_req if message_policy else ())),
+        )))
+        caption, qname = display_name(field)
+        resolved = self.input_policy_resolver.resolve(
+            message_code=message_code, field=field, rules=rules,
+            explicit=engine.package.input_policies.get((message_code, field.path)),
+            has_children=bool(children.get(field.field_id)),
+        )
+        ui_resolved = self.ui_input_policy_resolver.resolve(
+            normative=resolved,
+            explicit=engine.package.ui_input_policies.get((message_code, field.path)),
+            forbidden=forbidden, classifier_dataset_available=engine.package.classifiers_available,
+        )
+        explicit_ui = engine.package.ui_input_policies.get((message_code, field.path))
+        capabilities = set(explicit_ui.capabilities if explicit_ui else ())
+        category = datatype_category(field.datatype)
+        binary_file = "binary" in (field.datatype or "").casefold() and field.kind != "ATTRIBUTE" and ui_resolved.visible
+        manual_edit = ui_resolved.editable
+        show_identifier = manual_edit and "GENERATE_IDENTIFIER" in capabilities
+        date_helpers_allowed = manual_edit and resolved.value_source != "EXTERNAL_INFORMATION_SYSTEM"
+        explicit_policy = engine.package.input_policies.get((message_code, field.path))
+        automatic_value = None
+        if explicit_policy and explicit_policy.generated_value == "MESSAGE_CODE": automatic_value = message_code
+        elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = structure_id
+        effective_fixed = (message_policy.fixed_value if message_policy and message_policy.policy == "FIXED"
+                           else fixed.get(field.path, automatic_value))
+>       example_result = self.example_value_resolver.resolve(
+            datatype=field.datatype, description=field.description,
+            fixed_value=effective_fixed,
+            allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
+                            else field.facets.enum if field.facets else ()),
+            existing_value=resolved.example_value,
+            classifier=resolved.input_policy == "CLASSIFIER",
+            pattern=field.facets.pattern if field.facets else None,
+        ) if not children.get(field.field_id) or resolved.input_policy == "CLASSIFIER" else self.example_value_resolver.resolve(
+            datatype=None, description=field.description)
+E       TypeError: ExampleValueResolver.resolve() got an unexpected keyword argument 'pattern'
+
+eaeu_xml/src/eaeu_xml/application/facade.py:359: TypeError
+___________ GuiQtViewModelTests.test_qt_module_does_not_depend_on_wx ___________
+
+self = <test_gui_qt_view_model.GuiQtViewModelTests testMethod=test_qt_module_does_not_depend_on_wx>
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        app = EaeuXmlApplication(FIXTURES, drafts_root=Path(self.temp.name))
+>       self.model = GuiViewModel(FIXTURES, application=app)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+eaeu_xml/tests/test_gui_qt_view_model.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/gui_qt/view_model.py:27: in __init__
+    self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:97: in __init__
+    self.select_process(self.processes[0].process_code)
+eaeu_xml/src/eaeu_xml/presentation/controller.py:167: in select_process
+    if self.transactions: self.select_transaction(self.transactions[0].transaction_code)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:173: in select_transaction
+    if self.messages: self.select_message(self.messages[0].message_code)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:177: in select_message
+    self.form = self.application.get_form(self.process_code, self.transaction_code, message_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in get_form
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in <genexpr>
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+                  ^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in convert
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in <genexpr>
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+                   ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='1.1', order=2, depth=1, parent='1', path='Items/Name', official_name='Name', xml_na... item=None, page=None, version_context=None),), status='CONFIRMED', interpretation_status='VERIFIED', reason_code=None)
+
+    def convert(field):
+        usage_policy = usage.get(field.path)
+        message_policy = effective_policies.get(field.path) if effective_policies else None
+        forbidden = (message_policy.policy == "FORBIDDEN" if message_policy else
+                     usage_policy in {"FORBIDDEN", "NOT_USED"})
+        if message_policy:
+            required = message_policy.policy == "REQUIRED" or (
+                message_policy.policy == "FIXED" and not message_policy.materialize_when_parent_present
+            )
+        else:
+            required = usage_policy == "REQUIRED" or (field.min_occurs or 0) > 0
+        hints = tuple(filter(None, (
+            field.constraints,
+            f"message_rule={usage_policy}" if usage_policy else None,
+            f"message_policy={message_policy.policy}" if message_policy else None,
+            *(f"message_policy_req={req}" for req in (message_policy.affected_by_req if message_policy else ())),
+        )))
+        caption, qname = display_name(field)
+        resolved = self.input_policy_resolver.resolve(
+            message_code=message_code, field=field, rules=rules,
+            explicit=engine.package.input_policies.get((message_code, field.path)),
+            has_children=bool(children.get(field.field_id)),
+        )
+        ui_resolved = self.ui_input_policy_resolver.resolve(
+            normative=resolved,
+            explicit=engine.package.ui_input_policies.get((message_code, field.path)),
+            forbidden=forbidden, classifier_dataset_available=engine.package.classifiers_available,
+        )
+        explicit_ui = engine.package.ui_input_policies.get((message_code, field.path))
+        capabilities = set(explicit_ui.capabilities if explicit_ui else ())
+        category = datatype_category(field.datatype)
+        binary_file = "binary" in (field.datatype or "").casefold() and field.kind != "ATTRIBUTE" and ui_resolved.visible
+        manual_edit = ui_resolved.editable
+        show_identifier = manual_edit and "GENERATE_IDENTIFIER" in capabilities
+        date_helpers_allowed = manual_edit and resolved.value_source != "EXTERNAL_INFORMATION_SYSTEM"
+        explicit_policy = engine.package.input_policies.get((message_code, field.path))
+        automatic_value = None
+        if explicit_policy and explicit_policy.generated_value == "MESSAGE_CODE": automatic_value = message_code
+        elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = structure_id
+        effective_fixed = (message_policy.fixed_value if message_policy and message_policy.policy == "FIXED"
+                           else fixed.get(field.path, automatic_value))
+>       example_result = self.example_value_resolver.resolve(
+            datatype=field.datatype, description=field.description,
+            fixed_value=effective_fixed,
+            allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
+                            else field.facets.enum if field.facets else ()),
+            existing_value=resolved.example_value,
+            classifier=resolved.input_policy == "CLASSIFIER",
+            pattern=field.facets.pattern if field.facets else None,
+        ) if not children.get(field.field_id) or resolved.input_policy == "CLASSIFIER" else self.example_value_resolver.resolve(
+            datatype=None, description=field.description)
+E       TypeError: ExampleValueResolver.resolve() got an unexpected keyword argument 'pattern'
+
+eaeu_xml/src/eaeu_xml/application/facade.py:359: TypeError
+_ GuiQtViewModelTests.test_test_data_generation_and_validation_use_controller __
+
+self = <test_gui_qt_view_model.GuiQtViewModelTests testMethod=test_test_data_generation_and_validation_use_controller>
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        app = EaeuXmlApplication(FIXTURES, drafts_root=Path(self.temp.name))
+>       self.model = GuiViewModel(FIXTURES, application=app)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+eaeu_xml/tests/test_gui_qt_view_model.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/gui_qt/view_model.py:27: in __init__
+    self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:97: in __init__
+    self.select_process(self.processes[0].process_code)
+eaeu_xml/src/eaeu_xml/presentation/controller.py:167: in select_process
+    if self.transactions: self.select_transaction(self.transactions[0].transaction_code)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:173: in select_transaction
+    if self.messages: self.select_message(self.messages[0].message_code)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:177: in select_message
+    self.form = self.application.get_form(self.process_code, self.transaction_code, message_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in get_form
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in <genexpr>
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+                  ^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in convert
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in <genexpr>
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+                   ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='1.1', order=2, depth=1, parent='1', path='Items/Name', official_name='Name', xml_na... item=None, page=None, version_context=None),), status='CONFIRMED', interpretation_status='VERIFIED', reason_code=None)
+
+    def convert(field):
+        usage_policy = usage.get(field.path)
+        message_policy = effective_policies.get(field.path) if effective_policies else None
+        forbidden = (message_policy.policy == "FORBIDDEN" if message_policy else
+                     usage_policy in {"FORBIDDEN", "NOT_USED"})
+        if message_policy:
+            required = message_policy.policy == "REQUIRED" or (
+                message_policy.policy == "FIXED" and not message_policy.materialize_when_parent_present
+            )
+        else:
+            required = usage_policy == "REQUIRED" or (field.min_occurs or 0) > 0
+        hints = tuple(filter(None, (
+            field.constraints,
+            f"message_rule={usage_policy}" if usage_policy else None,
+            f"message_policy={message_policy.policy}" if message_policy else None,
+            *(f"message_policy_req={req}" for req in (message_policy.affected_by_req if message_policy else ())),
+        )))
+        caption, qname = display_name(field)
+        resolved = self.input_policy_resolver.resolve(
+            message_code=message_code, field=field, rules=rules,
+            explicit=engine.package.input_policies.get((message_code, field.path)),
+            has_children=bool(children.get(field.field_id)),
+        )
+        ui_resolved = self.ui_input_policy_resolver.resolve(
+            normative=resolved,
+            explicit=engine.package.ui_input_policies.get((message_code, field.path)),
+            forbidden=forbidden, classifier_dataset_available=engine.package.classifiers_available,
+        )
+        explicit_ui = engine.package.ui_input_policies.get((message_code, field.path))
+        capabilities = set(explicit_ui.capabilities if explicit_ui else ())
+        category = datatype_category(field.datatype)
+        binary_file = "binary" in (field.datatype or "").casefold() and field.kind != "ATTRIBUTE" and ui_resolved.visible
+        manual_edit = ui_resolved.editable
+        show_identifier = manual_edit and "GENERATE_IDENTIFIER" in capabilities
+        date_helpers_allowed = manual_edit and resolved.value_source != "EXTERNAL_INFORMATION_SYSTEM"
+        explicit_policy = engine.package.input_policies.get((message_code, field.path))
+        automatic_value = None
+        if explicit_policy and explicit_policy.generated_value == "MESSAGE_CODE": automatic_value = message_code
+        elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = structure_id
+        effective_fixed = (message_policy.fixed_value if message_policy and message_policy.policy == "FIXED"
+                           else fixed.get(field.path, automatic_value))
+>       example_result = self.example_value_resolver.resolve(
+            datatype=field.datatype, description=field.description,
+            fixed_value=effective_fixed,
+            allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
+                            else field.facets.enum if field.facets else ()),
+            existing_value=resolved.example_value,
+            classifier=resolved.input_policy == "CLASSIFIER",
+            pattern=field.facets.pattern if field.facets else None,
+        ) if not children.get(field.field_id) or resolved.input_policy == "CLASSIFIER" else self.example_value_resolver.resolve(
+            datatype=None, description=field.description)
+E       TypeError: ExampleValueResolver.resolve() got an unexpected keyword argument 'pattern'
+
+eaeu_xml/src/eaeu_xml/application/facade.py:359: TypeError
+_ GuiQtViewModelTests.test_xml_diagnostic_navigation_emits_only_real_position __
+
+self = <test_gui_qt_view_model.GuiQtViewModelTests testMethod=test_xml_diagnostic_navigation_emits_only_real_position>
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        app = EaeuXmlApplication(FIXTURES, drafts_root=Path(self.temp.name))
+>       self.model = GuiViewModel(FIXTURES, application=app)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+eaeu_xml/tests/test_gui_qt_view_model.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/gui_qt/view_model.py:27: in __init__
+    self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:97: in __init__
+    self.select_process(self.processes[0].process_code)
+eaeu_xml/src/eaeu_xml/presentation/controller.py:167: in select_process
+    if self.transactions: self.select_transaction(self.transactions[0].transaction_code)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:173: in select_transaction
+    if self.messages: self.select_message(self.messages[0].message_code)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:177: in select_message
+    self.form = self.application.get_form(self.process_code, self.transaction_code, message_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in get_form
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in <genexpr>
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+                  ^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in convert
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in <genexpr>
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+                   ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='1.1', order=2, depth=1, parent='1', path='Items/Name', official_name='Name', xml_na... item=None, page=None, version_context=None),), status='CONFIRMED', interpretation_status='VERIFIED', reason_code=None)
+
+    def convert(field):
+        usage_policy = usage.get(field.path)
+        message_policy = effective_policies.get(field.path) if effective_policies else None
+        forbidden = (message_policy.policy == "FORBIDDEN" if message_policy else
+                     usage_policy in {"FORBIDDEN", "NOT_USED"})
+        if message_policy:
+            required = message_policy.policy == "REQUIRED" or (
+                message_policy.policy == "FIXED" and not message_policy.materialize_when_parent_present
+            )
+        else:
+            required = usage_policy == "REQUIRED" or (field.min_occurs or 0) > 0
+        hints = tuple(filter(None, (
+            field.constraints,
+            f"message_rule={usage_policy}" if usage_policy else None,
+            f"message_policy={message_policy.policy}" if message_policy else None,
+            *(f"message_policy_req={req}" for req in (message_policy.affected_by_req if message_policy else ())),
+        )))
+        caption, qname = display_name(field)
+        resolved = self.input_policy_resolver.resolve(
+            message_code=message_code, field=field, rules=rules,
+            explicit=engine.package.input_policies.get((message_code, field.path)),
+            has_children=bool(children.get(field.field_id)),
+        )
+        ui_resolved = self.ui_input_policy_resolver.resolve(
+            normative=resolved,
+            explicit=engine.package.ui_input_policies.get((message_code, field.path)),
+            forbidden=forbidden, classifier_dataset_available=engine.package.classifiers_available,
+        )
+        explicit_ui = engine.package.ui_input_policies.get((message_code, field.path))
+        capabilities = set(explicit_ui.capabilities if explicit_ui else ())
+        category = datatype_category(field.datatype)
+        binary_file = "binary" in (field.datatype or "").casefold() and field.kind != "ATTRIBUTE" and ui_resolved.visible
+        manual_edit = ui_resolved.editable
+        show_identifier = manual_edit and "GENERATE_IDENTIFIER" in capabilities
+        date_helpers_allowed = manual_edit and resolved.value_source != "EXTERNAL_INFORMATION_SYSTEM"
+        explicit_policy = engine.package.input_policies.get((message_code, field.path))
+        automatic_value = None
+        if explicit_policy and explicit_policy.generated_value == "MESSAGE_CODE": automatic_value = message_code
+        elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = structure_id
+        effective_fixed = (message_policy.fixed_value if message_policy and message_policy.policy == "FIXED"
+                           else fixed.get(field.path, automatic_value))
+>       example_result = self.example_value_resolver.resolve(
+            datatype=field.datatype, description=field.description,
+            fixed_value=effective_fixed,
+            allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
+                            else field.facets.enum if field.facets else ()),
+            existing_value=resolved.example_value,
+            classifier=resolved.input_policy == "CLASSIFIER",
+            pattern=field.facets.pattern if field.facets else None,
+        ) if not children.get(field.field_id) or resolved.input_policy == "CLASSIFIER" else self.example_value_resolver.resolve(
+            datatype=None, description=field.description)
+E       TypeError: ExampleValueResolver.resolve() got an unexpected keyword argument 'pattern'
+
+eaeu_xml/src/eaeu_xml/application/facade.py:359: TypeError
+_ GuiQtViewModelTests.test_xml_formatting_is_idempotent_and_preserves_comments_namespaces _
+
+self = <test_gui_qt_view_model.GuiQtViewModelTests testMethod=test_xml_formatting_is_idempotent_and_preserves_comments_namespaces>
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        app = EaeuXmlApplication(FIXTURES, drafts_root=Path(self.temp.name))
+>       self.model = GuiViewModel(FIXTURES, application=app)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+eaeu_xml/tests/test_gui_qt_view_model.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/gui_qt/view_model.py:27: in __init__
+    self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:97: in __init__
+    self.select_process(self.processes[0].process_code)
+eaeu_xml/src/eaeu_xml/presentation/controller.py:167: in select_process
+    if self.transactions: self.select_transaction(self.transactions[0].transaction_code)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:173: in select_transaction
+    if self.messages: self.select_message(self.messages[0].message_code)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:177: in select_message
+    self.form = self.application.get_form(self.process_code, self.transaction_code, message_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in get_form
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in <genexpr>
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+                  ^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in convert
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in <genexpr>
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+                   ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='1.1', order=2, depth=1, parent='1', path='Items/Name', official_name='Name', xml_na... item=None, page=None, version_context=None),), status='CONFIRMED', interpretation_status='VERIFIED', reason_code=None)
+
+    def convert(field):
+        usage_policy = usage.get(field.path)
+        message_policy = effective_policies.get(field.path) if effective_policies else None
+        forbidden = (message_policy.policy == "FORBIDDEN" if message_policy else
+                     usage_policy in {"FORBIDDEN", "NOT_USED"})
+        if message_policy:
+            required = message_policy.policy == "REQUIRED" or (
+                message_policy.policy == "FIXED" and not message_policy.materialize_when_parent_present
+            )
+        else:
+            required = usage_policy == "REQUIRED" or (field.min_occurs or 0) > 0
+        hints = tuple(filter(None, (
+            field.constraints,
+            f"message_rule={usage_policy}" if usage_policy else None,
+            f"message_policy={message_policy.policy}" if message_policy else None,
+            *(f"message_policy_req={req}" for req in (message_policy.affected_by_req if message_policy else ())),
+        )))
+        caption, qname = display_name(field)
+        resolved = self.input_policy_resolver.resolve(
+            message_code=message_code, field=field, rules=rules,
+            explicit=engine.package.input_policies.get((message_code, field.path)),
+            has_children=bool(children.get(field.field_id)),
+        )
+        ui_resolved = self.ui_input_policy_resolver.resolve(
+            normative=resolved,
+            explicit=engine.package.ui_input_policies.get((message_code, field.path)),
+            forbidden=forbidden, classifier_dataset_available=engine.package.classifiers_available,
+        )
+        explicit_ui = engine.package.ui_input_policies.get((message_code, field.path))
+        capabilities = set(explicit_ui.capabilities if explicit_ui else ())
+        category = datatype_category(field.datatype)
+        binary_file = "binary" in (field.datatype or "").casefold() and field.kind != "ATTRIBUTE" and ui_resolved.visible
+        manual_edit = ui_resolved.editable
+        show_identifier = manual_edit and "GENERATE_IDENTIFIER" in capabilities
+        date_helpers_allowed = manual_edit and resolved.value_source != "EXTERNAL_INFORMATION_SYSTEM"
+        explicit_policy = engine.package.input_policies.get((message_code, field.path))
+        automatic_value = None
+        if explicit_policy and explicit_policy.generated_value == "MESSAGE_CODE": automatic_value = message_code
+        elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = structure_id
+        effective_fixed = (message_policy.fixed_value if message_policy and message_policy.policy == "FIXED"
+                           else fixed.get(field.path, automatic_value))
+>       example_result = self.example_value_resolver.resolve(
+            datatype=field.datatype, description=field.description,
+            fixed_value=effective_fixed,
+            allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
+                            else field.facets.enum if field.facets else ()),
+            existing_value=resolved.example_value,
+            classifier=resolved.input_policy == "CLASSIFIER",
+            pattern=field.facets.pattern if field.facets else None,
+        ) if not children.get(field.field_id) or resolved.input_policy == "CLASSIFIER" else self.example_value_resolver.resolve(
+            datatype=None, description=field.description)
+E       TypeError: ExampleValueResolver.resolve() got an unexpected keyword argument 'pattern'
+
+eaeu_xml/src/eaeu_xml/application/facade.py:359: TypeError
+______ GuiQtViewModelTests.test_xml_position_mapping_script_clamps_safely ______
+
+self = <test_gui_qt_view_model.GuiQtViewModelTests testMethod=test_xml_position_mapping_script_clamps_safely>
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        app = EaeuXmlApplication(FIXTURES, drafts_root=Path(self.temp.name))
+>       self.model = GuiViewModel(FIXTURES, application=app)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+eaeu_xml/tests/test_gui_qt_view_model.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+eaeu_xml/src/eaeu_xml/gui_qt/view_model.py:27: in __init__
+    self.controller = GuiController(application or EaeuXmlApplication(Path(processes_root)))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:97: in __init__
+    self.select_process(self.processes[0].process_code)
+eaeu_xml/src/eaeu_xml/presentation/controller.py:167: in select_process
+    if self.transactions: self.select_transaction(self.transactions[0].transaction_code)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:173: in select_transaction
+    if self.messages: self.select_message(self.messages[0].message_code)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/presentation/controller.py:177: in select_message
+    self.form = self.application.get_form(self.process_code, self.transaction_code, message_code)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in get_form
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:424: in <genexpr>
+    roots = tuple(convert(field) for field in sorted(children.get(None, ()), key=lambda value: value.order))
+                  ^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in convert
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+eaeu_xml/src/eaeu_xml/application/facade.py:398: in <genexpr>
+    children=tuple(convert(child) for child in sorted(children.get(field.field_id, ()), key=lambda value: value.order)),
+                   ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+field = StructureFieldDefinition(field_id='1.1', order=2, depth=1, parent='1', path='Items/Name', official_name='Name', xml_na... item=None, page=None, version_context=None),), status='CONFIRMED', interpretation_status='VERIFIED', reason_code=None)
+
+    def convert(field):
+        usage_policy = usage.get(field.path)
+        message_policy = effective_policies.get(field.path) if effective_policies else None
+        forbidden = (message_policy.policy == "FORBIDDEN" if message_policy else
+                     usage_policy in {"FORBIDDEN", "NOT_USED"})
+        if message_policy:
+            required = message_policy.policy == "REQUIRED" or (
+                message_policy.policy == "FIXED" and not message_policy.materialize_when_parent_present
+            )
+        else:
+            required = usage_policy == "REQUIRED" or (field.min_occurs or 0) > 0
+        hints = tuple(filter(None, (
+            field.constraints,
+            f"message_rule={usage_policy}" if usage_policy else None,
+            f"message_policy={message_policy.policy}" if message_policy else None,
+            *(f"message_policy_req={req}" for req in (message_policy.affected_by_req if message_policy else ())),
+        )))
+        caption, qname = display_name(field)
+        resolved = self.input_policy_resolver.resolve(
+            message_code=message_code, field=field, rules=rules,
+            explicit=engine.package.input_policies.get((message_code, field.path)),
+            has_children=bool(children.get(field.field_id)),
+        )
+        ui_resolved = self.ui_input_policy_resolver.resolve(
+            normative=resolved,
+            explicit=engine.package.ui_input_policies.get((message_code, field.path)),
+            forbidden=forbidden, classifier_dataset_available=engine.package.classifiers_available,
+        )
+        explicit_ui = engine.package.ui_input_policies.get((message_code, field.path))
+        capabilities = set(explicit_ui.capabilities if explicit_ui else ())
+        category = datatype_category(field.datatype)
+        binary_file = "binary" in (field.datatype or "").casefold() and field.kind != "ATTRIBUTE" and ui_resolved.visible
+        manual_edit = ui_resolved.editable
+        show_identifier = manual_edit and "GENERATE_IDENTIFIER" in capabilities
+        date_helpers_allowed = manual_edit and resolved.value_source != "EXTERNAL_INFORMATION_SYSTEM"
+        explicit_policy = engine.package.input_policies.get((message_code, field.path))
+        automatic_value = None
+        if explicit_policy and explicit_policy.generated_value == "MESSAGE_CODE": automatic_value = message_code
+        elif explicit_policy and explicit_policy.generated_value == "STRUCTURE_ID": automatic_value = structure_id
+        effective_fixed = (message_policy.fixed_value if message_policy and message_policy.policy == "FIXED"
+                           else fixed.get(field.path, automatic_value))
+>       example_result = self.example_value_resolver.resolve(
+            datatype=field.datatype, description=field.description,
+            fixed_value=effective_fixed,
+            allowed_values=(explicit_policy.allowed_values if explicit_policy and explicit_policy.allowed_values
+                            else field.facets.enum if field.facets else ()),
+            existing_value=resolved.example_value,
+            classifier=resolved.input_policy == "CLASSIFIER",
+            pattern=field.facets.pattern if field.facets else None,
+        ) if not children.get(field.field_id) or resolved.input_policy == "CLASSIFIER" else self.example_value_resolver.resolve(
+            datatype=None, description=field.description)
+E       TypeError: ExampleValueResolver.resolve() got an unexpected keyword argument 'pattern'
+
+eaeu_xml/src/eaeu_xml/application/facade.py:359: TypeError
+=========================== short test summary info ============================
+FAILED eaeu_xml/tests/test_gui_qt_view_model.py::GuiQtViewModelTests::test_backend_discovery_selection_and_form
+FAILED eaeu_xml/tests/test_gui_qt_view_model.py::GuiQtViewModelTests::test_editable_xml_is_preserved_formatted_and_saved
+FAILED eaeu_xml/tests/test_gui_qt_view_model.py::GuiQtViewModelTests::test_formatter_has_independent_text_and_file_save
+FAILED eaeu_xml/tests/test_gui_qt_view_model.py::GuiQtViewModelTests::test_formatter_slot_updates_current_text_idempotently
+FAILED eaeu_xml/tests/test_gui_qt_view_model.py::GuiQtViewModelTests::test_information_and_field_updates_are_real_controller_data
+FAILED eaeu_xml/tests/test_gui_qt_view_model.py::GuiQtViewModelTests::test_op26_draft_is_visible_as_unavailable_without_switching_catalog
+FAILED eaeu_xml/tests/test_gui_qt_view_model.py::GuiQtViewModelTests::test_qml_places_selectors_only_on_home_and_editor_is_editable
+FAILED eaeu_xml/tests/test_gui_qt_view_model.py::GuiQtViewModelTests::test_qt_module_does_not_depend_on_wx
+FAILED eaeu_xml/tests/test_gui_qt_view_model.py::GuiQtViewModelTests::test_test_data_generation_and_validation_use_controller
+FAILED eaeu_xml/tests/test_gui_qt_view_model.py::GuiQtViewModelTests::test_xml_diagnostic_navigation_emits_only_real_position
+FAILED eaeu_xml/tests/test_gui_qt_view_model.py::GuiQtViewModelTests::test_xml_formatting_is_idempotent_and_preserves_comments_namespaces
+FAILED eaeu_xml/tests/test_gui_qt_view_model.py::GuiQtViewModelTests::test_xml_position_mapping_script_clamps_safely
+ERROR eaeu_xml/tests/test_validation_page_qml.py::ValidationPageQmlTests::test_filter_buttons_change_only_visible_diagnostics
+ERROR eaeu_xml/tests/test_validation_page_qml.py::ValidationPageQmlTests::test_production_qml_contains_no_large_text_editor
+12 failed, 2 errors in 0.90s

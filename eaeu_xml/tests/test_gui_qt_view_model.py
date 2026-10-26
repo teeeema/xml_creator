@@ -34,6 +34,17 @@ class GuiQtViewModelTests(unittest.TestCase):
         self.assertEqual(self.model.messageCode, "P.TS.01.MSG.002")
         self.assertIn("P.TS.01.MSG.002", self.model.messageSummary)
 
+    def test_op26_draft_is_visible_as_unavailable_without_switching_catalog(self):
+        root=Path(__file__).resolve().parents[2]
+        model=GuiViewModel(root,application=EaeuXmlApplication(root,drafts_root=Path(self.temp.name)))
+        model.selectProcess('P.MM.01')
+        section=next(item for item in model.information if item['section']=='Версии общего процесса')
+        self.assertIn('1.1.0',section['text'])
+        self.assertIn('1.3.0 — недоступна для production',section['text'])
+        self.assertIn('ещё не прошла приёмку',section['text'])
+        self.assertNotIn('P.MM.01.MSG.042',{item['code'] for item in model.messages})
+        self.assertEqual(model.controller.application._engine('P.MM.01').package.profile.process_version,'1.1.0')
+
     def test_test_data_generation_and_validation_use_controller(self):
         self.model.selectProcess("P.TS.01")
         self.model.applyTestData()

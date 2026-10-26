@@ -1,0 +1,16 @@
+...F............                                             [100%]
+=================================== FAILURES ===================================
+__ Stage3Tests.test_field_classifier_rejects_wrong_code_via_existing_provider __
+
+self = <test_v130_stage3.Stage3Tests testMethod=test_field_classifier_rejects_wrong_code_via_existing_provider>
+
+    def test_field_classifier_rejects_wrong_code_via_existing_provider(self):
+        ss,rr,mm=catalogs();m=mm['P.MM.01.MSG.001'];s=ss[m.structure_id]
+>       values=sample_values(s,m,rr[m.message_code]);path=next(f.path for f in s.fields if f.classifier_ref=='2021' and f.path in values)
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       StopIteration
+
+P.MM.01_OP_26/tests/test_v130_stage3.py:61: StopIteration
+=========================== short test summary info ============================
+FAILED eaeu_xml::Stage3Tests::test_field_classifier_rejects_wrong_code_via_existing_provider
+1 failed, 15 passed, 12 subtests passed in 0.32s

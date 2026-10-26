@@ -65,3 +65,20 @@ def leaf_values(value):
             yield from leaf_values(child)
     elif value is not MISSING:
         yield value
+
+
+def node_values(values, path, context=()):
+    """Count the nodes serialization actually emits, preserving absent list slots."""
+    raw = at_context(values, path, context)
+    if raw is MISSING:
+        return [None] if present(values, path, context) else []
+    if not isinstance(raw, list):
+        if raw is None and (path.rsplit('/', 1)[-1].startswith('@') or not present(values, path, context)):
+            return []
+        return [raw]
+    result=[]
+    for index, value in enumerate(raw):
+        child_context=(*context,(path,index,len(raw),True))
+        if value is not None or any(p.startswith(path+'/') and at_context(values,p,child_context) not in (MISSING,None) for p in values):
+            result.append(value)
+    return result

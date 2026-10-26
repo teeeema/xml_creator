@@ -7,7 +7,7 @@ from xml.etree import ElementTree as ET
 from eaeu_xml.process_packages import EaeuXmlEngine, GenerationMode
 from eaeu_xml.process_packages.rules_engine import RuleStatus, StructuredRuleEvaluator
 from eaeu_xml.core.errors import BodyValidationError, ProcessPackageValidationError
-from v130_runtime_support import PACKAGE, catalogs, sample_values, provider
+from v130_runtime_support import PACKAGE, catalogs, sample_values, provider, CLASSIFIER_VALUES
 
 
 class V130RuntimeTests(unittest.TestCase):
@@ -29,7 +29,7 @@ class V130RuntimeTests(unittest.TestCase):
                     if f.namespace_prefix:self.assertIn(f.namespace_prefix,s.imported_namespaces)
 
     def test_every_compiled_atom_has_positive_and_negative_value_proof(self):
-        evaluator=StructuredRuleEvaluator()
+        evaluator=StructuredRuleEvaluator(CLASSIFIER_VALUES)
         seen=0
         for rules in self.rules.values():
             for rule in rules.structured_rules:
@@ -40,16 +40,22 @@ class V130RuntimeTests(unittest.TestCase):
                         values[rule['condition']['target']]=rule['condition']['allowed_values'][0]
                     operation=rule['operation']
                     if operation=='REQUIRED':values[rule['target']]=None if rule['container'] else 'value'
-                    elif operation=='CARDINALITY':values[rule['target']]=[None]
+                    elif operation=='CARDINALITY':values[rule['target']]=[{}] if rule['container'] else ['value']
                     elif operation=='FIXED':values[rule['target']]=rule['value']
                     elif operation=='ENUM':values[rule['target']]=rule['allowed_values'][0]
                     elif operation=='AT_LEAST_ONE':values[rule['targets'][0]]='one alternative'
+                    elif operation=='CLASSIFIER':values[rule['target']]=next(iter(CLASSIFIER_VALUES[rule['classifier_ref']]))
+                    elif operation=='UNIQUE':values[rule['target']]=['A','B']
+                    elif operation=='POSITIONAL_VALUES':values[rule['target']]=[rule['first_value'],rule['other_value']]
                     self.assertEqual(evaluator.evaluate(rule,values).status,RuleStatus.PASS)
                     bad=copy.deepcopy(values)
                     if operation=='FORBIDDEN':bad[rule['target']]=None if rule['container'] else 'forbidden'
-                    elif operation in ('ENUM','FIXED'):bad[rule['target']]='INVALID_VALUE'
+                    elif operation in ('ENUM','FIXED','CLASSIFIER'):bad[rule['target']]='INVALID_VALUE'
                     elif operation=='AT_LEAST_ONE':
                         for path in rule['targets']:bad.pop(path,None)
+                    elif operation=='CARDINALITY' and rule.get('min_occurs',0)==0:bad[rule['target']]=[{},{}] if rule['container'] else ['value','value']
+                    elif operation=='UNIQUE':bad[rule['target']]=['A','A']
+                    elif operation=='POSITIONAL_VALUES':bad[rule['target']]=[rule['other_value'],rule['first_value']]
                     else:bad.pop(rule['target'])
                     self.assertEqual(evaluator.evaluate(rule,bad).status,RuleStatus.FAIL)
                     if rule.get('condition'):
@@ -98,7 +104,7 @@ class V130RuntimeTests(unittest.TestCase):
                             break
                         tag=f'{{{structure.imported_namespaces[f.namespace_prefix]}}}{f.xml_name}'
                         node=next((n for n in parent if n.tag==tag),None)
-                        if i==len(parts)-1 and rule['operation'] in ('REQUIRED','CARDINALITY','AT_LEAST_ONE'):
+                        if i==len(parts)-1 and (rule['operation'] in ('REQUIRED','AT_LEAST_ONE') or rule['operation']=='CARDINALITY' and rule.get('min_occurs',0)>0):
                             for child in list(parent):
                                 if child.tag==tag:parent.remove(child)
                                 elif rule['operation']=='AT_LEAST_ONE':
@@ -111,7 +117,14 @@ class V130RuntimeTests(unittest.TestCase):
                             position=next((j for j,n in enumerate(parent) if siblings.get(str(n.tag).split('}')[-1],10**9)>f.order),len(parent))
                             parent.insert(position,node)
                         if i==len(parts)-1:
-                            node.text='INVALID_VALUE'
+                            if rule['operation']=='CARDINALITY' and rule.get('min_occurs',0)==0:
+                                parent.insert(list(parent).index(node)+1,copy.deepcopy(node))
+                            elif rule['operation']=='UNIQUE':
+                                node.text='DUPLICATE'
+                                duplicate=copy.deepcopy(parent)
+                                grandparent=next(p for p in root.iter() if parent in list(p))
+                                grandparent.insert(list(grandparent).index(parent)+1,duplicate)
+                            else:node.text='INVALID_VALUE'
                         parent=node
                     extracted=service.extract_values(structure,root)
                     result=service.validate_body(message,structure,extracted,mode=GenerationMode.TEST)

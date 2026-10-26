@@ -12,7 +12,7 @@ import unicodedata
 
 PACKAGE = Path(__file__).resolve().parents[1]
 ROOT = PACKAGE.parents[2]
-REPORT = ROOT / 'codex_reports/OP26_P_MM_01/V130_STAGE2'
+REPORT = ROOT / 'codex_reports/OP26_P_MM_01/V130_STAGE3'
 
 
 def clean(text):
