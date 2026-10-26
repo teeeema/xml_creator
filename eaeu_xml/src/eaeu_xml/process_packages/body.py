@@ -37,6 +37,7 @@ class BodyValidationIssue:
 class BodyValidationResult:
     issues: tuple[BodyValidationIssue, ...]
     rule_evaluations: tuple[object, ...] = ()
+    complete: bool | None = None
 
     @property
     def is_valid(self) -> bool:
@@ -44,12 +45,9 @@ class BodyValidationResult:
 
     @property
     def is_complete(self) -> bool:
+        if self.complete is not None:
+            return self.complete
         if any(issue.severity == IssueSeverity.ERROR for issue in self.issues):
-            return False
-        if any(getattr(r, "rule_id", None) and str(r.rule_id).startswith("P.MM.01") for r in self.rule_evaluations):
-            if any(issue.code == "UNRESOLVED_NAMESPACE_VERSION" for issue in self.issues):
-                return False
-        if not self.rule_evaluations and any(issue.code == "UNRESOLVED_NAMESPACE_VERSION" for issue in self.issues):
             return False
         return not any(getattr(item, "status", None) not in {RuleStatus.PASS} for item in self.rule_evaluations)
 
@@ -162,7 +160,12 @@ class StructuredProcessBodyProvider:
                 elif evaluation.status is not RuleStatus.PASS:
                     severity = IssueSeverity.ERROR if mode == GenerationMode.STRICT else IssueSeverity.WARNING
                     issues.append(self._issue("STRUCTURED_RULE_NOT_EVALUATED", "", f"{evaluation.status.value}: {evaluation.message}", severity=severity, rule_id=evaluation.rule_id))
-        return BodyValidationResult(tuple(issues),rule_evaluations)
+        is_complete = not any(issue.severity == IssueSeverity.ERROR for issue in issues)
+        if "DRAFT" in getattr(structure_definition, "status", ""):
+            is_complete = False
+        elif any(getattr(item, "status", None) not in {RuleStatus.PASS} for item in rule_evaluations):
+            is_complete = False
+        return BodyValidationResult(tuple(issues), rule_evaluations, complete=is_complete)
 
     def build_body(self, message_definition: MessageDefinition, structure_definition: StructureDefinition,
                    user_values: Mapping[str, object], *, mode: GenerationMode = GenerationMode.STRICT) -> BodyPayload:
