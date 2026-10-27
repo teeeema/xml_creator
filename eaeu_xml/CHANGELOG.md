@@ -30,3 +30,7 @@
 - Preserve the default OP26 1.1.0 catalogs and API behavior.
 - Import source-only catalogs from official Decisions 140/2025 and 77/2026, with source archives, delta/field/GAP registers and focused regression tests.
 - Keep 1.3.0 blocked; no claim of official XSD validation or completed runtime rules/UI.
+
+## 2026-10-27 — divergence reconciliation (not a new validation run)
+
+Merged report evidence retains the local c765269b historical baseline, including failed focused/backend runs; the 4a84426a report variants are archived byte-for-byte under `../codex_reports/OP26_P_MM_01/V130_STAGE3/provenance/4a84426aa627db649b9017dd26a7b073425f4e0c/`. Both parent versions are preserved there under full commit identifiers. Counts above describe their original runs, not the reconciled candidate. No fresh PASS, readiness promotion, or official XSD validation is asserted. OP26 1.3.0 remains DRAFT_NOT_READY and production-blocked; default remains 1.1.0. See the Stage3 provenance README for interpretation.

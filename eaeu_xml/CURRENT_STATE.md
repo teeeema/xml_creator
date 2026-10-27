@@ -23,3 +23,7 @@ The application/Qt information view exposes edition availability without selecti
 Stage 3 completion (2026-10-26): focused 33 passed / 1231 subtests; Qt 14 passed; latest all-backend run 13 failed / 731 passed / 2424 subtests. Shared-tree regression remains open. Do not interpret earlier green counts as current whole-project readiness. Completeness must remain false for unresolved namespace/data diagnostics.
 
 Final recorded Stage3 evidence: focused 12 failed / 33 passed / 1219 subtests; backend 31 failed / 725 passed / 2417 subtests; isolated Qt14 passed. Frozen logs under Stage3/verification/final_snapshot override earlier intermediate counts. Shared completeness semantics and concurrent changes remain unresolved; no release readiness claim.
+
+## 2026-10-27 — divergence reconciliation (not a new validation run)
+
+Merged report evidence retains the local c765269b historical baseline, including failed focused/backend runs; the 4a84426a report variants are archived byte-for-byte under `../codex_reports/OP26_P_MM_01/V130_STAGE3/provenance/4a84426aa627db649b9017dd26a7b073425f4e0c/`. Both parent versions are preserved there under full commit identifiers. Counts above describe their original runs, not the reconciled candidate. No fresh PASS, readiness promotion, or official XSD validation is asserted. OP26 1.3.0 remains DRAFT_NOT_READY and production-blocked; default remains 1.1.0. See the Stage3 provenance README for interpretation.
