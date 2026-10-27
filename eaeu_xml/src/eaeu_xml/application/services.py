@@ -283,7 +283,35 @@ class TestDataGenerator:
             parent_value = result.get(parent_path)
             if isinstance(parent_value, list) and len(parent_value) > 1 and not isinstance(result[field.path], list):
                 result[field.path] = [result[field.path]] * len(parent_value)
+        self.align_sample_attributes(result, fields_by_path.values())
         return result
+
+    @staticmethod
+    def align_sample_attributes(values, fields):
+        """Materialize synthetic attribute samples for each present parent slot.
+
+        This generates explicit input arrays; the XML runtime must not broadcast
+        arbitrary scalar attributes across repeated parents.
+        """
+        def shape(parent, value):
+            if isinstance(parent, list):
+                if isinstance(value, list) and len(value) == len(parent):
+                    return [shape(p, v) for p, v in zip(parent, value)]
+                scalar = next((item for item in value if item is not None), value[0] if value else None) if isinstance(value, list) else value
+                return [shape(item, scalar) for item in parent]
+            return None if parent is None else value
+
+        for field in fields:
+            is_attr = (
+                getattr(field, "kind", None) == "ATTRIBUTE"
+                or getattr(field, "is_attribute", False)
+                or field.path.split("/")[-1].startswith("@")
+            )
+            if not is_attr or field.path not in values:
+                continue
+            parent = values.get(field.path.rsplit("/", 1)[0])
+            if isinstance(parent, list):
+                values[field.path] = shape(parent, values[field.path])
 
     @staticmethod
     def _apply_literal_rules(values, fields_by_path, rules, existing_values) -> None:

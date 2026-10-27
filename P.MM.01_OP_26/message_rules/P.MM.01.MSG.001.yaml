@@ -1259,5 +1259,48 @@
       "page": null,
       "version_context": "P.MM.01 1.1.0"
     }
+  ],
+  "structured_rules": [
+    {
+      "rule_id": "P.MM.01.MSG.001.R34",
+      "kind": "for_each",
+      "selector": {
+        "qname": "UnifiedCountryCode"
+      },
+      "assertions": [
+        {
+          "kind": "fixed_value",
+          "target": {
+            "field": "@codeListId"
+          },
+          "value": "P.CLS.019"
+        }
+      ],
+      "applies_to_structure": "R.HC.MM.01.001",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Таблица 18, требование 34",
+          "status": "CONFIRMED",
+          "page": 213,
+          "table": "18",
+          "item": "34",
+          "version_context": "P.MM.01 1.1.0",
+          "section": "IX"
+        },
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Правила информационного взаимодействия, раздел VII, таблица 10, кодовое обозначение P.CLS.019",
+          "status": "CONFIRMED",
+          "page": 39,
+          "table": "10",
+          "item": "P.CLS.019",
+          "version_context": "P.MM.01 1.1.0",
+          "section": "VII"
+        }
+      ]
+    }
   ]
 }

@@ -879,7 +879,45 @@
       ]
     }
   ],
-  "structured_rules": [],
+  "structured_rules": [
+    {
+      "rule_id": "P.SP.03.MSG.001.REQ.014",
+      "kind": "for_each",
+      "selector": {
+        "collection": "ipcdo:ApellationOfOriginApplicationDetails/ipcdo:PatentAuthorityDetails"
+      },
+      "assertions": [
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:UnifiedCountryCode"
+          },
+          "state": "REQUIRED"
+        },
+        {
+          "kind": "presence",
+          "target": {
+            "field": "csdo:AuthorityName"
+          },
+          "state": "REQUIRED"
+        }
+      ],
+      "applies_to_structure": "R.IP.SP.03.001",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.001-14",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 16. Требования к электронному документу (сведениям) P.SP.03.MSG.001",
+          "status": "CONFIRMED",
+          "page": 342,
+          "table": "16",
+          "version_context": "P.SP.03 1.0.0",
+          "item": "14"
+        }
+      ],
+      "mapping_status": "EXECUTABLE"
+    }
+  ],
   "correlation_rules": [],
   "classifier_refs": [],
   "source_text": null,

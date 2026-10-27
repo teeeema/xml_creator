@@ -229,5 +229,26 @@
       "page": null,
       "version_context": "P.MM.01 1.1.0"
     }
+  ],
+  "structured_rules": [
+    {
+      "rule_id": "P.MM.01.MSG.027.T24.REQ.1",
+      "kind": "presence",
+      "target": "RegistrationNumberId",
+      "state": "REQUIRED",
+      "applies_to_structure": "R.HC.MM.01.003",
+      "source_refs": [
+        {
+          "source_id": "SRC-PMM01-068",
+          "document": "Решение Коллегии ЕЭК от 19.04.2022 №68",
+          "location": "Таблица 24, требование 1",
+          "status": "CONFIRMED",
+          "page": 237,
+          "table": "24",
+          "item": "1",
+          "version_context": "P.MM.01 1.1.0"
+        }
+      ]
+    }
   ]
 }

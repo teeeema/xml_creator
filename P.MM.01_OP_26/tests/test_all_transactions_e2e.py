@@ -79,6 +79,17 @@ class AllTransactionsE2ETests(unittest.TestCase):
                 for marker in ("transaction:", "procedure:", "message:", "structure:", "active_version:", "status:", "blocking_rule:", "source_refs:", "strict_mode:", "test_mode:"):
                     self.assertIn(marker, text)
 
+    def test_matrix_fixture_obeys_legacy_country_literal_and_exposes_bad_input(self):
+        from all_transactions_matrix import test_values as matrix_values
+        path = "DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode/@codeListId"
+        values = matrix_values(self.engine, "P.MM.01.MSG.001")
+        self.assertEqual(values[path], "P.CLS.019")
+        self.assertTrue(self.engine.validate_body("P.MM.01.MSG.001", values, mode="TEST").is_valid)
+        values[path] = "2021"
+        invalid = self.engine.validate_body("P.MM.01.MSG.001", values, mode="TEST")
+        self.assertFalse(invalid.is_valid)
+        self.assertTrue(any(issue.rule_id == "P.MM.01.MSG.001.R34" for issue in invalid.issues))
+
     def test_transaction_metadata_is_available_for_all_19(self):
         for transaction in self.engine.transactions.values():
             with self.subTest(transaction=transaction.transaction_code):

@@ -113,7 +113,18 @@ class Pmm01ApplicationFacadeTests(unittest.TestCase):
                 self.assertGreater(sum(field.ui_input_policy == "USER_INPUT" for field in fields), 0)
                 unresolved = [field for field in fields if field.normative_input_policy == "UNRESOLVED_INPUT_POLICY" and field.visibility != "HIDDEN"]
                 self.assertTrue(unresolved)
-                self.assertTrue(all(field.ui_input_policy == "USER_INPUT" for field in unresolved))
+                # 68/T18/R34 supplies a message-specific FIXED overlay even
+                # while the underlying source input-policy metadata is unresolved.
+                for field in unresolved:
+                    if field.effective_message_policy == "FIXED":
+                        self.assertEqual(message, "P.MM.01.MSG.001")
+                        self.assertTrue(field.path.endswith("UnifiedCountryCode/@codeListId"))
+                        self.assertEqual(field.fixed_value, "P.CLS.019")
+                        self.assertEqual(field.ui_input_policy, "READ_ONLY")
+                        self.assertFalse(field.editable)
+                        self.assertIn("P.MM.01.MSG.001.R34", field.message_policy_req_ids)
+                    else:
+                        self.assertEqual(field.ui_input_policy, "USER_INPUT")
                 self.assertTrue(all(field.ui_policy_origin in {"PROJECT_UI_DEFAULT", "MANUAL_OVERRIDE"} for field in unresolved))
 
     def test_structured_message_guides_cover_key_messages(self):
@@ -154,13 +165,20 @@ class Pmm01ApplicationFacadeTests(unittest.TestCase):
         doc_date=named("P.MM.01.MSG.001","P.MM.01.TRN.001","DocCreationDate")
         entity=named("P.MM.01.MSG.001","P.MM.01.TRN.001","BusinessEntityName")
         country=named("P.MM.01.MSG.001","P.MM.01.TRN.001","UnifiedCountryCode")
-        code_list=named("P.MM.01.MSG.001","P.MM.01.TRN.001","codeListId")
+        country_id_path = "DrugRegistrationDetails/DrugCountryRegistrationDetails/UnifiedCountryCode/@codeListId"
+        code_list = next(field for field in self.app._walk_fields(
+            self.app.get_form("P.MM.01", "P.MM.01.TRN.001", "P.MM.01.MSG.001").fields
+        ) if field.path == country_id_path)
         update=named("P.MM.01.MSG.006","P.MM.01.TRN.004","UpdateDateTime")
         self.assertEqual(doc_name.example_value,"Пример текстового значения")
         self.assertEqual(doc_date.example_value,"2026-08-24")
         self.assertEqual((entity.example_value,entity.example_origin),("ООО «Пример»","PROJECT_DOCUMENTATION"))
         self.assertEqual((country.example_value,country.example_origin),("[значение выбирается из классификатора]","CLASSIFIER_EXAMPLE"))
-        self.assertEqual(code_list.example_value,"[идентификатор]")
+        # The exact country identifier has a normative fixed example (68/R34),
+        # unlike the still instructional ApplicationId/RegistrationNumberId above.
+        self.assertEqual((code_list.example_value, code_list.example_origin),
+                         ("P.CLS.019", "FIXED_VALUE"))
+        self.assertIn("P.MM.01.MSG.001.R34", code_list.message_policy_req_ids)
         self.assertEqual((update.example_value,update.ui_input_policy),("2026-08-24T15:24:00+03:00","EXTERNAL_SYSTEM"))
 
     def test_unresolved_ui_audit_preserves_conditional_policy(self):
@@ -212,8 +230,20 @@ class Pmm01ApplicationFacadeTests(unittest.TestCase):
         required=filter_service.apply(form,mode=FormDisplayMode.REQUIRED)
         user_fields=filter_service.apply(form,mode=FormDisplayMode.USER_FIELDS)
         summary=self.app.get_message_input_summary("P.MM.01","P.MM.01.TRN.001","P.MM.01.MSG.001")
-        self.assertEqual((summary.visible_fields,summary.manual_fields),(401,308))
-        self.assertEqual((len(all_fields.visible_paths),len(required.visible_paths),len(user_fields.visible_paths)),(401,168,399))
+        # R34 fixes exactly eleven country attributes; no fields are removed.
+        fields = tuple(self.app._walk_fields(form.fields))
+        country_ids = {field.path for field in fields
+                       if field.path.endswith("UnifiedCountryCode/@codeListId")}
+        fixed_ids = {field.path for field in fields
+                     if field.effective_message_policy == "FIXED"}
+        self.assertEqual(len(country_ids), 11)
+        self.assertEqual(fixed_ids, country_ids)
+        self.assertEqual((summary.visible_fields,summary.manual_fields),(401,297))
+        # Measured after the source-backed overlay: filters omit fixed attributes
+        # and ancestors with no remaining selected children, preserving ALL.
+        self.assertEqual((len(all_fields.visible_paths),len(required.visible_paths),len(user_fields.visible_paths)),(401,145,387))
+        self.assertTrue(country_ids <= set(all_fields.visible_paths))
+        self.assertTrue(country_ids.isdisjoint(user_fields.matching_paths))
         search=filter_service.apply(form,query="DocName")
         self.assertTrue(search.matching_paths)
         self.assertTrue(all(path.endswith("DocName") or "DocName" in path for path in search.matching_paths))

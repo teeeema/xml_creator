@@ -244,7 +244,40 @@ class MessageFieldPolicyResolver:
                         apply(path, state, rule)
                 elif "value" in rule:
                     for path in candidates:
-                        apply(path, "FIXED", rule, fixed_value=rule.get("value"))
+                        apply(
+                            path,
+                            "FIXED",
+                            rule,
+                            fixed_value=rule.get("value"),
+                            materialize_when_parent_present=rule.get(
+                                "materialize_when_parent_present",
+                                "/@" in path or path.startswith("@"),
+                            ),
+                        )
+                continue
+
+            if kind == "field_constraint":
+                op = str(rule.get("operation") or "").upper()
+                raw_target = rule.get("target")
+                target = raw_target if isinstance(raw_target, (str, Mapping)) else {}
+                if self._is_contextual(target):
+                    continue
+                candidates = self._target_candidates("", target, paths)
+                if op == "FIXED" and "value" in rule:
+                    for path in candidates:
+                        apply(
+                            path,
+                            "FIXED",
+                            rule,
+                            fixed_value=rule.get("value"),
+                            materialize_when_parent_present=rule.get(
+                                "materialize_when_parent_present",
+                                "/@" in path or path.startswith("@"),
+                            ),
+                        )
+                elif op in {"REQUIRED", "FORBIDDEN"}:
+                    for path in candidates:
+                        apply(path, op, rule)
                 continue
 
             if kind != "for_each":

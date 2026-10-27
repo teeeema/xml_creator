@@ -5,6 +5,7 @@ from pathlib import Path
 from uuid import UUID
 from xml.etree import ElementTree as ET
 
+from eaeu_xml.application.message_field_policy import MessageFieldPolicyResolver
 from eaeu_xml.core.errors import UnresolvedStructureVersionError
 from eaeu_xml.decision5.models import ConversationId, MessageId, ProcedureId, ProcedureInstance, TransactionInstance
 from eaeu_xml.process_packages.body import GenerationMode
@@ -89,6 +90,16 @@ def test_values(engine, message_code: str) -> dict:
         if field.xml_name == "InfEnvelopeCode": values[field.path] = message_code
         elif field.xml_name == "EDocCode": values[field.path] = message.structure_id
         elif field.xml_name == "EDocId": values[field.path] = f"00000000-0000-0000-0000-{suffix:012d}"
+    # Synthetic samples follow source-backed static FIXED overlays (68/T18/R34).
+    # Only replace already selected sample fields; never create optional branches
+    # or sanitize actual user values to conceal an invalid classifier identifier.
+    if rules:
+        policies = MessageFieldPolicyResolver().resolve_structured_rules(
+            structure, rules.structured_rules,
+        )
+        for path, policy in policies.items():
+            if path in values and policy.policy == "FIXED":
+                values[path] = policy.fixed_value
     return values
 
 

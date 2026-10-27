@@ -1,0 +1,102 @@
+[
+  {
+    "PATH": "P.MM.01_OP_26/examples/all_transactions/TRN.001/INITIATING_001.xml",
+    "CHANGE": "MODIFIED",
+    "BEFORE_SHA256": "c089106f357c2ce95d9a6e5cce8fafe5db1f0b112c8da836e3366eec6594bd97",
+    "AFTER_SHA256": "fcf620af15427278a1173f876aaab474dcc60c6345a5eec2c205101f0cdb5591",
+    "ROLE": "GENERATED_EVIDENCE",
+    "BASIS": "Actual fixture-generated XML with legacy literal P.CLS.019",
+    "RISK": "TEST placeholders remain explicit; response artifacts unchanged",
+    "ACTUAL_AFTER_SHA256": "fcf620af15427278a1173f876aaab474dcc60c6345a5eec2c205101f0cdb5591"
+  },
+  {
+    "PATH": "P.MM.01_OP_26/message_rules/P.MM.01.MSG.001.yaml",
+    "CHANGE": "MODIFIED",
+    "BEFORE_SHA256": "2adc85bba0fe5b40e4735b0ea74dd11a995cc23e71848109c4844302d0ed3019",
+    "AFTER_SHA256": "9a6b7056260f3fd4a4f7ff01d127e57f91016a32736a2d69abea2d673213f8b6",
+    "ROLE": "DECLARATIVE_RULE",
+    "BASIS": "PDF213 table18 R34 -> VII PDF39 table10 column \u041a\u043e\u0434\u043e\u0432\u043e\u0435 \u043e\u0431\u043e\u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435",
+    "RISK": "Message/version/parent scope constrained; focused and full regression PASS",
+    "ACTUAL_AFTER_SHA256": "9a6b7056260f3fd4a4f7ff01d127e57f91016a32736a2d69abea2d673213f8b6"
+  },
+  {
+    "PATH": "P.MM.01_OP_26/message_rules/P.MM.01.MSG.027.yaml",
+    "CHANGE": "MODIFIED",
+    "BEFORE_SHA256": "37393fbe817ac3a8716d75bb7b2d0f4201d105122a0126b48d4424d90ceffe40",
+    "AFTER_SHA256": "f1df859568defa8e0c2d98ffb44022f5f37440b7a3159d4323056453442ebcf7",
+    "ROLE": "DECLARATIVE_RULE",
+    "BASIS": "PDF237 table24 REQ1",
+    "RISK": "Message/version/parent scope constrained; focused and full regression PASS",
+    "ACTUAL_AFTER_SHA256": "f1df859568defa8e0c2d98ffb44022f5f37440b7a3159d4323056453442ebcf7"
+  },
+  {
+    "PATH": "P.MM.01_OP_26/tests/all_transactions_matrix.py",
+    "CHANGE": "MODIFIED",
+    "BEFORE_SHA256": "0318cf6f287c173d4ba7195d98950e91e1a66261a81484873570d3f481a746ad",
+    "AFTER_SHA256": "29139bfe7281b993dca8f537a8e752a4677b943596b76c7c58a1417f69aa6d7c",
+    "ROLE": "TEST_FIXTURE",
+    "BASIS": "Reuse existing context-free FIXED resolver on already selected sample paths",
+    "RISK": "Do not create optional branches or sanitize actual wrong user input",
+    "ACTUAL_AFTER_SHA256": "29139bfe7281b993dca8f537a8e752a4677b943596b76c7c58a1417f69aa6d7c"
+  },
+  {
+    "PATH": "P.MM.01_OP_26/tests/test_all_transactions_e2e.py",
+    "CHANGE": "MODIFIED",
+    "BEFORE_SHA256": "64d7818e3102f518f74b84f67aebb5da352ef725b28dabd00ec23cae8fd4f1d8",
+    "AFTER_SHA256": "46ba87ab545c95bbc7398fff13206ccf2f771508e51dda54f5fa87a37207785f",
+    "ROLE": "FIXTURE_REGRESSION",
+    "BASIS": "Add synthetic sample valid/invalid literal check",
+    "RISK": "Existing37/3/3 and exact artifact assertions retained",
+    "ACTUAL_AFTER_SHA256": "46ba87ab545c95bbc7398fff13206ccf2f771508e51dda54f5fa87a37207785f"
+  },
+  {
+    "PATH": "P.MM.01_OP_26/tests/test_application_facade_pmm01.py",
+    "CHANGE": "MODIFIED",
+    "BEFORE_SHA256": "a563792db2e4360efe0e31c874eaf4e6ed51af1d79cebc7bd1f1fe348ac3fb30",
+    "AFTER_SHA256": "23ebeb9c051a1f54cab50e76f76244c725270910e8804c0c1a2242a6bc589bcd",
+    "ROLE": "NORMATIVE_CONTRACT_CORRECTION",
+    "BASIS": "68/T18/R34 resolves classifier example, input layer, counts",
+    "RISK": "Keep all field/filter/origin/performance assertions",
+    "ACTUAL_AFTER_SHA256": "23ebeb9c051a1f54cab50e76f76244c725270910e8804c0c1a2242a6bc589bcd"
+  },
+  {
+    "PATH": "P.SP.03_OP_23/message_rules/P.SP.03.MSG.001.yaml",
+    "CHANGE": "MODIFIED",
+    "BEFORE_SHA256": "db0e9c4fef2960992fbdb0fae2e8c1c0f97304bd18551065cd14b24c75d6575c",
+    "AFTER_SHA256": "727b96cf478fda7a9b4a0601b039960e6ce9ec56bddcfb04988b8efbea108f17",
+    "ROLE": "DECLARATIVE_RULE",
+    "BASIS": "PDF342 table16 REQ14",
+    "RISK": "Message/version/parent scope constrained; focused and full regression PASS",
+    "ACTUAL_AFTER_SHA256": "727b96cf478fda7a9b4a0601b039960e6ce9ec56bddcfb04988b8efbea108f17"
+  },
+  {
+    "PATH": "P.SP.03_OP_23/message_rules/P.SP.03.MSG.023.yaml",
+    "CHANGE": "MODIFIED",
+    "BEFORE_SHA256": "36d0780f8b0e6f6e94e2d2989e23788480f8a0916ca8fea5393fa439478f6ee8",
+    "AFTER_SHA256": "177bd554950565600e97ede3100e144884dba393e17a729c76ee04683dfde29a",
+    "ROLE": "DECLARATIVE_RULE",
+    "BASIS": "PDF284 table27 REQ1-6 -> PDF282 table25 REQ6",
+    "RISK": "Message/version/parent scope constrained; focused and full regression PASS",
+    "ACTUAL_AFTER_SHA256": "177bd554950565600e97ede3100e144884dba393e17a729c76ee04683dfde29a"
+  },
+  {
+    "PATH": "eaeu_xml/src/eaeu_xml/process_packages/body.py",
+    "CHANGE": "MODIFIED",
+    "BEFORE_SHA256": "63c9a4524bed30621c4ee2b135d1ee7e2b637018c1c1f2a7c8f6e46315f2bd97",
+    "AFTER_SHA256": "6e37fe016bfbf8f8c43f1d2e81f4709ad366c46705f91fe0a3b360ea3705ddd8",
+    "ROLE": "RUNTIME_WIRING",
+    "BASIS": "Pass existing scalar/container metadata and align extractor with emitted RELATIVE rows",
+    "RISK": "Shared presence/roundtrip semantics; all backend/GUI tests passed",
+    "ACTUAL_AFTER_SHA256": "6e37fe016bfbf8f8c43f1d2e81f4709ad366c46705f91fe0a3b360ea3705ddd8"
+  },
+  {
+    "PATH": "eaeu_xml/tests/test_reconciled_normative_rules.py",
+    "CHANGE": "ADDED",
+    "BEFORE_SHA256": "ABSENT",
+    "AFTER_SHA256": "fc9c08ce17d459e9907259d7c4ef88f08d10b5fd9aa8bb7304a46bc8ec7c04a1",
+    "ROLE": "REGRESSION_TESTS",
+    "BASIS": "24 new tests for four source rules, XML mutations, repeated contexts, version gate",
+    "RISK": "Avoid claiming XSD validation",
+    "ACTUAL_AFTER_SHA256": "fc9c08ce17d459e9907259d7c4ef88f08d10b5fd9aa8bb7304a46bc8ec7c04a1"
+  }
+]

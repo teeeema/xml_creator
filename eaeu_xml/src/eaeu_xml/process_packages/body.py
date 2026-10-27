@@ -153,7 +153,13 @@ class StructuredProcessBodyProvider:
                 mismatch = any(value != expected for value in supplied) if isinstance(supplied, list) else supplied != expected
                 if path in supplied_values and mismatch:
                     issues.append(self._issue("FIXED_VALUE_MISMATCH", path, f"Ожидается фиксированное значение {expected!r}.", rule_id=f"{message_definition.message_code}:{path}"))
-            rule_evaluations=StructuredRuleEvaluator(getattr(self.package, "classifier_values", {})).evaluate_all(rules.structured_rules, values)
+            # Presence means filled text for scalar fields, but structural
+            # presence for complex containers; the structure owns that distinction.
+            complex_paths = {field.path for field in structure_definition.fields
+                             if field.field_id in children}
+            rule_evaluations = StructuredRuleEvaluator(
+                getattr(self.package, "classifier_values", {}), complex_paths=complex_paths,
+            ).evaluate_all(rules.structured_rules, values)
             for evaluation in rule_evaluations:
                 if evaluation.status is RuleStatus.FAIL:
                     issues.append(self._issue("STRUCTURED_RULE_FAILED", "", evaluation.message, rule_id=evaluation.rule_id))
@@ -196,7 +202,9 @@ class StructuredProcessBodyProvider:
         for field in sorted(structure.fields, key=lambda f: f.order): children.setdefault(field.parent, []).append(field)
         def group(parent, parent_id):
             fields = children.get(parent_id, ())
-            known = {qname(f): f for f in fields if f.kind == "ELEMENT"}
+            # Legacy RELATIVE rows are declared child elements, emitted by the
+            # serializer just like ELEMENT rows; accept only their exact QNames.
+            known = {qname(f): f for f in fields if f.kind in {"ELEMENT", "RELATIVE"}}
             attrs = {qname(f): f for f in fields if f.kind == "ATTRIBUTE"}
             wildcard = next((f for f in fields if f.kind == "ARBITRARY_XML"), None)
             if set(parent.attrib)-set(attrs):

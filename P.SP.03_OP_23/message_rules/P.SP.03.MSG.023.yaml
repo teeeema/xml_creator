@@ -2,7 +2,9 @@
   "message_code": "P.SP.03.MSG.023",
   "structure_id": "R.IP.SP.03.003",
   "fixed_values": {},
-  "field_usage": {},
+  "field_usage": {
+    "ipsdo:ApellationOfOriginApplicationId": "REQUIRED"
+  },
   "business_rules": [
     {
       "rule_id": "P.SP.03.MSG.023.REQ.001",
@@ -290,7 +292,38 @@
       ]
     }
   ],
-  "structured_rules": [],
+  "structured_rules": [
+    {
+      "rule_id": "P.SP.03.MSG.023.T27.REQ.6",
+      "kind": "presence",
+      "target": "ipsdo:ApellationOfOriginApplicationId",
+      "state": "REQUIRED",
+      "applies_to_structure": "R.IP.SP.03.003",
+      "source_refs": [
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.023-T27-1-6",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 27, требование 1-6",
+          "status": "CONFIRMED",
+          "page": 284,
+          "table": "27",
+          "item": "1-6",
+          "version_context": "P.SP.03 1.0.0"
+        },
+        {
+          "source_id": "23OP-RULE-P.SP.03.MSG.021-6",
+          "document": "ОП_23.pdf",
+          "location": "Таблица 25, требование 6, применённое к MSG.023 таблицей 27",
+          "status": "CONFIRMED",
+          "page": 282,
+          "table": "25",
+          "item": "6",
+          "version_context": "P.SP.03 1.0.0"
+        }
+      ],
+      "mapping_status": "EXECUTABLE"
+    }
+  ],
   "correlation_rules": [],
   "classifier_refs": [],
   "source_text": null,
